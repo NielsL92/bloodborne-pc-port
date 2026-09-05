@@ -1,10 +1,10 @@
-# P3 startup recovery checkpoint
+# P3 startup recovery: initial checkpoint
 
-Updated 2026-09-05 20:23 UTC. All 18,444 initial constructor entries now have recovered instruction bodies. **P3 startup compilation/control closure remains open. No native game boot or playable port exists.**
+Initial checkpoint at commit d05363e, 2026-09-05 20:23 UTC. All 18,444 initial constructor entries have recovered instruction bodies. **The current continuation is reports/startup-closure.md, using startup-recovery-v7-repeat. P3 remains open; no native game boot or playable port exists.** The v4 results below remain historical evidence.
 
-## Current artifacts
+## Initial checkpoint artifacts
 
-Continue from `local/cfg/startup-recovery-v4/analysis.sqlite`, `compilation-manifest.jsonl`, `frontier.jsonl` and `constructor-order.json`. The extension lives in the `recovery_*` tables; the older `decoded_range` / `decode_edge` tables are preserved survey evidence, not the new closure. The ordered roots are byte-for-byte equal to `local/cfg/startup-v1/roots.json`.
+The initial checkpoint uses `local/cfg/startup-recovery-v4/analysis.sqlite`, `compilation-manifest.jsonl`, `frontier.jsonl` and `constructor-order.json`. The extension lives in the `recovery_*` tables; the older `decoded_range` / `decode_edge` tables are preserved survey evidence, not the new closure. The ordered root records equal `local/cfg/startup-v1/roots.json`.
 
 The v4 database, manifest and frontier reproduce byte-for-byte in `startup-recovery-v5-repeat`. Database SHA256: `950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55`. Manifest SHA256: `e617c3c839823e3355c9736b630e89cc5a7c040220f305487bcb05ab0b99b619`. Recorded evidence: `reports/startup-recovery-evidence.json` and the integrated `reports/control-flow-evidence.json`.
 
@@ -49,6 +49,8 @@ Nine recovery safety checks and seven exception-reader checks pass. They cover e
 ## Reproduction and next gate work
 
 Always wrap commands with `.venv/Scripts/python.exe tools/run_record.py --id UNIQUE -- COMMAND`, using a fresh output directory.
+
+The commands below describe the initial checkpoint with source pinned to d05363e or its recorded immutable run ZIPs. Current source includes additional callback/control recovery; use reports/startup-closure.md for the current reproduction commands and next work.
 
 - Recovery: `.venv/Scripts/python.exe -m tools.cfg_recover_startup local/cfg/NEW --jump-evidence local/cfg/startup-table-bytes-v1/tables.json`. This deliberately regenerates from the preserved startup-db-v1 source; do not pass an already extended database as --source.
 - Independent boundary check: `.venv/Scripts/python.exe -m tools.ghidra_recovery_check local/cfg/startup-recovery-v4 local/cfg/NEW`.

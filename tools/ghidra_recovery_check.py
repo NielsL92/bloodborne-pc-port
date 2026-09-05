@@ -3,7 +3,7 @@ import argparse,collections,json,sqlite3,subprocess,sys
 from pathlib import Path
 from tools.cfg_recover_startup import sha,write_json
 from tools.formats import ElfImage
-p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--selection',type=Path);p.add_argument('--exception-roots',action='store_true');a=p.parse_args()
 a.out.mkdir(parents=True,exist_ok=False)
 db=sqlite3.connect(f'{(a.source/"analysis.sqlite").resolve().as_uri()}?mode=ro',uri=True)
 main=db.execute("SELECT hash FROM module WHERE name='eboot.bin'").fetchone()[0]
@@ -18,6 +18,8 @@ for kind, in db.execute('SELECT DISTINCT kind FROM recovery_issue ORDER BY kind'
 # Explicitly investigate a string-as-code false positive from the retained first run.
 if (a.source.parent/'startup-recovery-v1/analysis.sqlite').exists():
  selected['3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22',255735]='retained_v1_string_pointer_dispute'
+if a.selection:
+ selected={(r['module'],r['start']):r['reason'] for r in json.loads(a.selection.read_text())}
 results=[];selection=[]
 for h,path,name in db.execute('SELECT hash,path,name FROM module ORDER BY name'):
  entries=[];im=None
@@ -31,7 +33,10 @@ for h,path,name in db.execute('SELECT hash,path,name FROM module ORDER BY name')
   if end<=start:continue
   # Keep the test bounded; include a small following byte window for disputed endings.
   if end-start>32768:continue
-  entries.append(dict(start=start,end=end+(32 if row[1] else 0),fence=end,reason=reason))
+  spec=dict(start=start,end=end+(32 if row[1] else 0),fence=end,reason=reason)
+  if a.exception_roots:
+   spec['additional_roots']=[r[0] for r in db.execute('SELECT DISTINCT landing_pad FROM exception_call_site WHERE module=? AND range_start=? AND landing_pad IS NOT NULL ORDER BY landing_pad',(h,start))]
+  entries.append(spec)
  if not entries:continue
  assert sha(path)==h
  im=ElfImage(Path(path).read_bytes());folder=a.out/name;folder.mkdir();segments=[]
@@ -64,5 +69,6 @@ write_json(a.out/'selection.json',selection);write_json(a.out/'comparison.json',
 summary=dict(status='independent inspection complete; disagreements retained',entries=len(results),equal=sum(r['equal'] for r in results),
  common_instructions=sum(r['common_instructions'] for r in results),boundary_disagreements=sum(len(r['boundary_disagreements']) for r in results),
  differing_entries=sum(not r['equal'] for r in results),comparison_sha256=sha(a.out/'comparison.json'),source_db_sha256=sha(a.source/'analysis.sqlite'),
- limitations='Independent SLEIGH decode from entry and bounded supplied bytes. No expected instructions, branch targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness.')
+ exception_roots_supplied=a.exception_roots,
+ limitations='Independent SLEIGH decode from entry and bounded supplied bytes. Optional additional roots come from LSDA metadata. No expected instructions, jump-table targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness.')
 write_json(a.out/'summary.json',summary);print(json.dumps(summary),flush=True)

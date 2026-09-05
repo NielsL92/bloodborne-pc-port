@@ -839,8 +839,4651 @@
       "reason": "Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries."
     }
   ],
-  "gate": "P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.",
+  "gate": "P3 not passed: 9029 indirect-call records, 430 indirect-jump records, 9 fallthrough findings, 170 unresolved callback-argument records, runtime binding/registry/mutation, exception and native service/control contracts remain open. 52 new objects built; 12 sparse and 1 disputed entry explicitly excluded. No native game boot or playable port.",
   "baseline_execution": "No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.",
   "native_game_boot": false,
-  "native_port_playable": false
+  "native_port_playable": false,
+  "historical_v4_gate": "P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.",
+  "current_directory": "local\\cfg\\startup-recovery-v7-repeat",
+  "continuation": {
+    "path": "reports\\startup-closure-evidence.json",
+    "sha256": "0bd0cca7dd6a8f0e9e5c30c4e94a8a07f1708b80a1a2923212bda98ccb3112e7",
+    "result": {
+      "status": "startup closure continuation evidence consistency pass; P3 gate open",
+      "current_directory": "local\\cfg\\startup-recovery-v7-repeat",
+      "summary": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21160,
+          "recovery_instruction": 873582,
+          "recovery_edge": 1074708,
+          "recovery_issue": 9,
+          "recovery_request": 72011
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 287,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20779
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 9
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 9029,
+          "unresolved_indirect_jump": 430,
+          "logical_return_requires_dispatch": 20048,
+          "callback_argument_candidate": 26118,
+          "annotated_control_contract_requires_runtime": 4275,
+          "import_contract_unvalidated": 20842,
+          "service_or_trap_boundary": 21,
+          "callback_contract_target_candidate": 2300,
+          "fallthrough_at_fence": 9,
+          "indirect_target_candidate": 4,
+          "exception_personality_candidate": 31,
+          "exception_runtime_unvalidated": 31,
+          "personality_import_unvalidated": 31,
+          "unresolved_exception_continuation": 38,
+          "unresolved_derived_control_continuation": 180,
+          "independently_recovered_jump_table": 12,
+          "unresolved_callback_argument": 170,
+          "unresolved_exit_callbacks": 5,
+          "unresolved_restored_context": 113
+        },
+        "queued": 0,
+        "manifest_units": 21160,
+        "db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+        "manifest_sha256": "0bf25c53dbe20104e1c854fea797a86a7d58291df81ef85009741ee6405a198f",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      },
+      "reproducibility": {
+        "analysis.sqlite": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+        "compilation-manifest.jsonl": "0bf25c53dbe20104e1c854fea797a86a7d58291df81ef85009741ee6405a198f",
+        "frontier.jsonl": "cf4ac27bacaf7958705817b47682132eace863e1579c15fc5323a5c08378f720",
+        "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+      },
+      "artifacts": {
+        "delta": {
+          "path": "local/cfg/startup-frontier-delta-v2/delta.json",
+          "sha256": "fa2b5cc302740d111369722081b7b9f30bf27e960aac7a0a89b1f403db35bae8",
+          "result": {
+            "status": "static frontier comparison; P3 gate remains open",
+            "before": "local\\cfg\\startup-recovery-v4",
+            "after": "local\\cfg\\startup-recovery-v7-repeat",
+            "before_db_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+            "after_db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+            "added_entries": [
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 397680,
+                "requests": [
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452608,
+                    17452741
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453035
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453691
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453815
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453888
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453948
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454004
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454057
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454121
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454144
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17451024,
+                    17451150
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984064,
+                    43984231
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43976592,
+                    43976760
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43981984,
+                    43982157
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43985328,
+                    43986656
+                  ],
+                  [
+                    "bundled_export_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43983344,
+                    43983456
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 397728,
+                "requests": [
+                  [
+                    "direct_call",
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    397680,
+                    397708
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 398176,
+                "requests": [
+                  [
+                    "indirect_target_candidate",
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    397728,
+                    397772
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 1881968,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    2002256,
+                    2002339
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 1882016,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    2002256,
+                    2002396
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 1891776,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    2002256,
+                    2002481
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 1891872,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    2002256,
+                    2002579
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 4414720,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    4336976,
+                    4337010
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 13741184,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    14333392,
+                    14333515
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 14333392,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    14329168,
+                    14329428
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17237776,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273962
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17240448,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273935
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17349824,
+                "requests": [
+                  [
+                    "cross_fence_jump",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17384896,
+                    17384926
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17371776,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17384896,
+                    17384912
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17384896,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    35519552,
+                    35519756
+                  ],
+                  [
+                    "cross_fence_jump",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    35519552,
+                    35519768
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17451024,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452608,
+                    17452633
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17452608,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17466240,
+                    17466293
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17451024,
+                    17451042
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43981984,
+                    43982049
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43985328,
+                    43986484
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43983344,
+                    43983357
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 17452768,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452608,
+                    17452619
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18767328,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273903
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18768416,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18770688,
+                    18770732
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18770400,
+                    18770470
+                  ]
+                ],
+                "status": "quarantined_decode_issues"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18770400,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273918
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18770688,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273890
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273948
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18789104,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44273872,
+                    44273923
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18794336,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44368624,
+                    44368744
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 19078240,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    19121216,
+                    19121479
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 25153408,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    25153312,
+                    25153395
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 28628272,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    28558288,
+                    28558474
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 29214896,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    29110096,
+                    29110289
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 31464704,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    31464544,
+                    31464693
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 31527232,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    31526976,
+                    31527212
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33165136,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    33164944,
+                    33165121
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34570896,
+                "requests": [
+                  [
+                    "cross_fence_jump",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    42477872,
+                    42477876
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 35519552,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    35517280,
+                    35517476
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 38552560,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    4518512,
+                    4518581
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    4324336,
+                    4324405
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 38560672,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    4363504,
+                    4363616
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40130688,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    34995728,
+                    34995815
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    34334848,
+                    34334935
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44418000,
+                    44418060
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44415712,
+                    44415768
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17066560,
+                    17066668
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    42292592,
+                    42292697
+                  ],
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    13370704,
+                    13370760
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 42441728,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    42472224,
+                    42472608
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 42477872,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    42478096,
+                    42478142
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43458112,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    30985376,
+                    30986069
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43915488,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17146240,
+                    17146327
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43975424,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452608,
+                    17452751
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17452917
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453828
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454187
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17454179
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17451024,
+                    17451160
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984928,
+                    43985308
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984064,
+                    43984137
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984064,
+                    43984241
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43981984,
+                    43982190
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43985328,
+                    43986603
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43976592,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17452864
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43981984,
+                    43982064
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43985328,
+                    43986499
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43981984,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984928,
+                    43984997
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43981984,
+                    43982033
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43983344,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984064,
+                    43984124
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43984064,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17452971
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43984928,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    17452768,
+                    17453199
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43985328,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    43984928,
+                    43985237
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44273872,
+                "requests": [
+                  [
+                    "cross_fence_jump",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44368624,
+                    44368762
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44320368,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18726640,
+                    18726748
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44368608,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18763600,
+                    18763751
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44368624,
+                "requests": [
+                  [
+                    "cross_fence_jump",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44368608,
+                    44368608
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44370544,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18771248,
+                    18771356
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44370768,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44373040,
+                    44373333
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18770688,
+                    18770879
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18770400,
+                    18770607
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44373040,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44370544,
+                    44370691
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18768416,
+                    18768678
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44373408,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44373040,
+                    44373109
+                  ],
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44373408,
+                    44373447
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44373488,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18794672,
+                    18794797
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44373552,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18795248,
+                    18795356
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44379552,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    18797536,
+                    18797644
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44418848,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44433856,
+                    44433921
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44552704,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    44555888,
+                    44555958
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 45613264,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    15851008,
+                    15851090
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 45614272,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    45613264,
+                    45613287
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 45621808,
+                "requests": [
+                  [
+                    "direct_call",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    45614272,
+                    45614298
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 45721536,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    45721760,
+                    45721788
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 45777440,
+                "requests": [
+                  [
+                    "callback_contract_target_candidate",
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    160,
+                    200
+                  ]
+                ],
+                "status": "decoded_with_explicit_boundaries"
+              }
+            ],
+            "removed_entries": [],
+            "new_entry_request_kinds": {
+              "bundled_export_candidate": 16,
+              "direct_call": 49,
+              "indirect_target_candidate": 1,
+              "callback_contract_target_candidate": 40,
+              "cross_fence_jump": 5
+            },
+            "callback_counts": [
+              {
+                "contract": "atexit-callback",
+                "kind": "callback_contract_target_candidate",
+                "count": 3
+              },
+              {
+                "contract": "atexit-callback",
+                "kind": "unresolved_callback_argument",
+                "count": 1
+              },
+              {
+                "contract": "cxa-atexit-destructor",
+                "kind": "callback_contract_target_candidate",
+                "count": 2292
+              },
+              {
+                "contract": "cxa-atexit-destructor",
+                "kind": "unresolved_callback_argument",
+                "count": 153
+              },
+              {
+                "contract": "cxa-throw-destructor",
+                "kind": "callback_contract_target_candidate",
+                "count": 4
+              },
+              {
+                "contract": "cxa-throw-destructor",
+                "kind": "unresolved_callback_argument",
+                "count": 16
+              },
+              {
+                "contract": "pthread-start-routine",
+                "kind": "callback_contract_target_candidate",
+                "count": 1
+              }
+            ],
+            "unique_callback_targets": 104,
+            "unresolved_callback_arguments": {
+              "cxa-atexit-destructor": 153,
+              "atexit-callback": 1,
+              "cxa-throw-destructor": 16
+            },
+            "removed_issue_count": 138,
+            "added_issue_count": 1,
+            "remaining_issues": [
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 128352,
+                "rva": 128368,
+                "kind": "fallthrough_at_fence",
+                "instruction": "nop",
+                "targets": []
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 392976,
+                "rva": 393053,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    1440,
+                    "import_contract_unvalidated",
+                    "{\"bind\": 1, \"defined\": false, \"index\": 80, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"6Z83sYWFlA8#A#B\", \"nid\": \"6Z83sYWFlA8\", \"resolved_name\": null, \"size\": 0, \"type\": 2, \"value\": 0}"
+                  ]
+                ]
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 394512,
+                "rva": 394561,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    394592,
+                    "direct_call",
+                    ""
+                  ]
+                ]
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 394592,
+                "rva": 394713,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    395088,
+                    "direct_call",
+                    ""
+                  ]
+                ]
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 394992,
+                "rva": 395074,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    395088,
+                    "direct_call",
+                    ""
+                  ]
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18768416,
+                "rva": 18768738,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    45871496,
+                    "import_contract_unvalidated",
+                    "{\"bind\": 1, \"defined\": false, \"index\": 375, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"eT2UsmTewbU#q#q\", \"nid\": \"eT2UsmTewbU\", \"resolved_name\": \"_ZSt11_Xbad_allocv\", \"size\": 0, \"type\": 2, \"value\": 0}"
+                  ],
+                  [
+                    "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                    388048,
+                    "bundled_export_candidate",
+                    "{\"bind\": 1, \"defined\": false, \"index\": 375, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"eT2UsmTewbU#q#q\", \"nid\": \"eT2UsmTewbU\", \"resolved_name\": \"_ZSt11_Xbad_allocv\", \"size\": 0, \"type\": 2, \"value\": 0}"
+                  ]
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34077072,
+                "rva": 34077083,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    45878584,
+                    "import_contract_unvalidated",
+                    "{\"bind\": 1, \"defined\": false, \"index\": 655, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"3kg7rT0NQIs#p#J\", \"nid\": \"3kg7rT0NQIs\", \"resolved_name\": \"scePthreadExit\", \"size\": 0, \"type\": 2, \"value\": 0}"
+                  ]
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34648288,
+                "rva": 34649899,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    34647408,
+                    "direct_call",
+                    ""
+                  ]
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34650432,
+                "rva": 34650592,
+                "kind": "fallthrough_at_fence",
+                "instruction": "call",
+                "targets": [
+                  [
+                    "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                    34647408,
+                    "direct_call",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            "before_summary": {
+              "status": "P3 startup compilation/control closure NOT passed",
+              "counts": {
+                "recovery_entry": 21095,
+                "recovery_instruction": 870923,
+                "recovery_edge": 1068768,
+                "recovery_issue": 146,
+                "recovery_request": 69548
+              },
+              "constructors": {
+                "decoded_with_explicit_boundaries": 18444
+              },
+              "modules": {
+                "libSceHand.prx": 1,
+                "libSceHeadTracker.prx": 1,
+                "libSceFios2.prx": 89,
+                "libc.prx": 284,
+                "libSceSmart.prx": 1,
+                "libSceS3DConversion.prx": 1,
+                "libSceFace.prx": 1,
+                "eboot.bin": 20717
+              },
+              "decode_issue_kinds": {
+                "fallthrough_at_fence": 146
+              },
+              "frontier_counts": {
+                "unresolved_indirect_call": 8980,
+                "unresolved_indirect_jump": 421,
+                "logical_return_requires_dispatch": 19999,
+                "callback_argument_candidate": 26084,
+                "annotated_control_contract_requires_runtime": 4054,
+                "import_contract_unvalidated": 20760,
+                "service_or_trap_boundary": 21,
+                "fallthrough_at_fence": 146,
+                "indirect_target_candidate": 3,
+                "exception_personality_candidate": 22,
+                "exception_runtime_unvalidated": 22,
+                "personality_import_unvalidated": 22,
+                "unresolved_exception_continuation": 17,
+                "independently_recovered_jump_table": 12,
+                "unresolved_exit_callbacks": 5,
+                "unresolved_restored_context": 113
+              },
+              "queued": 0,
+              "manifest_units": 21095,
+              "db_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+              "manifest_sha256": "e617c3c839823e3355c9736b630e89cc5a7c040220f305487bcb05ab0b99b619",
+              "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.",
+              "native_game_boot": false,
+              "native_port_playable": false
+            },
+            "after_summary": {
+              "status": "P3 startup compilation/control closure NOT passed",
+              "counts": {
+                "recovery_entry": 21160,
+                "recovery_instruction": 873582,
+                "recovery_edge": 1074708,
+                "recovery_issue": 9,
+                "recovery_request": 72011
+              },
+              "constructors": {
+                "decoded_with_explicit_boundaries": 18444
+              },
+              "modules": {
+                "libSceHand.prx": 1,
+                "libSceHeadTracker.prx": 1,
+                "libSceFios2.prx": 89,
+                "libc.prx": 287,
+                "libSceSmart.prx": 1,
+                "libSceS3DConversion.prx": 1,
+                "libSceFace.prx": 1,
+                "eboot.bin": 20779
+              },
+              "decode_issue_kinds": {
+                "fallthrough_at_fence": 9
+              },
+              "frontier_counts": {
+                "unresolved_indirect_call": 9029,
+                "unresolved_indirect_jump": 430,
+                "logical_return_requires_dispatch": 20048,
+                "callback_argument_candidate": 26118,
+                "annotated_control_contract_requires_runtime": 4275,
+                "import_contract_unvalidated": 20842,
+                "service_or_trap_boundary": 21,
+                "callback_contract_target_candidate": 2300,
+                "fallthrough_at_fence": 9,
+                "indirect_target_candidate": 4,
+                "exception_personality_candidate": 31,
+                "exception_runtime_unvalidated": 31,
+                "personality_import_unvalidated": 31,
+                "unresolved_exception_continuation": 38,
+                "unresolved_derived_control_continuation": 180,
+                "independently_recovered_jump_table": 12,
+                "unresolved_callback_argument": 170,
+                "unresolved_exit_callbacks": 5,
+                "unresolved_restored_context": 113
+              },
+              "queued": 0,
+              "manifest_units": 21160,
+              "db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+              "manifest_sha256": "0bf25c53dbe20104e1c854fea797a86a7d58291df81ef85009741ee6405a198f",
+              "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+              "native_game_boot": false,
+              "native_port_playable": false
+            },
+            "limitation": "Static records and entry requests only. Candidate callback invocation, binding and mutation remain unvalidated. New worklist entries can expose more unresolved control; no native execution occurred."
+          }
+        },
+        "derived": {
+          "path": "local/cfg/derived-control-checked-v1/contracts.json",
+          "sha256": "9db23256c92a40cc25c2e467e1e0d556d3f48abb8a41d79804aef2a7e43ac8de",
+          "result": {
+            "schema": 1,
+            "status": "independent Ghidra control comparison passed",
+            "source_db_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+            "base_contracts_sha256": "0e80c6c93f04f7ba0f8681c22dd62c7de0333c2a3f0db27112a2f43cc0f8c1bf",
+            "candidates": 31,
+            "iterations": 2,
+            "contracts": [
+              {
+                "id": "derived-4378b47f46f1-5ecb0",
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "rva": 388272,
+                "iteration": 0,
+                "roots": [
+                  388272,
+                  388402
+                ],
+                "terminals": {
+                  "388397": [
+                    "libc-cxa-throw"
+                  ],
+                  "388424": [
+                    "libc-unwind-resume"
+                  ]
+                },
+                "instructions": [
+                  [
+                    388272,
+                    1,
+                    "55"
+                  ],
+                  [
+                    388273,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    388276,
+                    2,
+                    "4157"
+                  ],
+                  [
+                    388278,
+                    2,
+                    "4156"
+                  ],
+                  [
+                    388280,
+                    1,
+                    "53"
+                  ],
+                  [
+                    388281,
+                    1,
+                    "50"
+                  ],
+                  [
+                    388282,
+                    3,
+                    "4989fe"
+                  ],
+                  [
+                    388285,
+                    5,
+                    "bf30000000"
+                  ],
+                  [
+                    388290,
+                    5,
+                    "e8a9130000"
+                  ],
+                  [
+                    388295,
+                    3,
+                    "4889c3"
+                  ],
+                  [
+                    388298,
+                    7,
+                    "488d05eff80500"
+                  ],
+                  [
+                    388305,
+                    4,
+                    "4883c010"
+                  ],
+                  [
+                    388309,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    388312,
+                    4,
+                    "4c8d7b08"
+                  ],
+                  [
+                    388316,
+                    8,
+                    "48c743280f000000"
+                  ],
+                  [
+                    388324,
+                    8,
+                    "48c7432000000000"
+                  ],
+                  [
+                    388332,
+                    4,
+                    "c6431000"
+                  ],
+                  [
+                    388336,
+                    2,
+                    "31d2"
+                  ],
+                  [
+                    388338,
+                    4,
+                    "41803e00"
+                  ],
+                  [
+                    388342,
+                    2,
+                    "740b"
+                  ],
+                  [
+                    388344,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388347,
+                    5,
+                    "e8700cfdff"
+                  ],
+                  [
+                    388352,
+                    3,
+                    "4889c2"
+                  ],
+                  [
+                    388355,
+                    3,
+                    "4c89ff"
+                  ],
+                  [
+                    388358,
+                    3,
+                    "4c89f6"
+                  ],
+                  [
+                    388361,
+                    5,
+                    "e8323d0000"
+                  ],
+                  [
+                    388366,
+                    7,
+                    "488d05cbf90500"
+                  ],
+                  [
+                    388373,
+                    4,
+                    "4883c010"
+                  ],
+                  [
+                    388377,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    388380,
+                    7,
+                    "488d35edf90500"
+                  ],
+                  [
+                    388387,
+                    7,
+                    "488d1506090000"
+                  ],
+                  [
+                    388394,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388397,
+                    5,
+                    "e8de170000"
+                  ],
+                  [
+                    388402,
+                    3,
+                    "4989c6"
+                  ],
+                  [
+                    388405,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388408,
+                    5,
+                    "e8c3030000"
+                  ],
+                  [
+                    388413,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388416,
+                    5,
+                    "e8cb140000"
+                  ],
+                  [
+                    388421,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388424,
+                    5,
+                    "e8034cffff"
+                  ]
+                ],
+                "instruction_set_sha256": "2d6a6c1f19bdfe640e5b8308b30b14bb241b396f76fc888652a79fc7838ae6ea",
+                "import_keys": [
+                  [
+                    "tQIo+GIPklo",
+                    "libc",
+                    "libc"
+                  ]
+                ],
+                "dependencies": [
+                  "libc-cxa-throw",
+                  "libc-unwind-resume"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-4378b47f46f1-5ed50",
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "rva": 388432,
+                "iteration": 0,
+                "roots": [
+                  388432,
+                  388562
+                ],
+                "terminals": {
+                  "388557": [
+                    "libc-cxa-throw"
+                  ],
+                  "388584": [
+                    "libc-unwind-resume"
+                  ]
+                },
+                "instructions": [
+                  [
+                    388432,
+                    1,
+                    "55"
+                  ],
+                  [
+                    388433,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    388436,
+                    2,
+                    "4157"
+                  ],
+                  [
+                    388438,
+                    2,
+                    "4156"
+                  ],
+                  [
+                    388440,
+                    1,
+                    "53"
+                  ],
+                  [
+                    388441,
+                    1,
+                    "50"
+                  ],
+                  [
+                    388442,
+                    3,
+                    "4989fe"
+                  ],
+                  [
+                    388445,
+                    5,
+                    "bf30000000"
+                  ],
+                  [
+                    388450,
+                    5,
+                    "e809130000"
+                  ],
+                  [
+                    388455,
+                    3,
+                    "4889c3"
+                  ],
+                  [
+                    388458,
+                    7,
+                    "488d054ff80500"
+                  ],
+                  [
+                    388465,
+                    4,
+                    "4883c010"
+                  ],
+                  [
+                    388469,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    388472,
+                    4,
+                    "4c8d7b08"
+                  ],
+                  [
+                    388476,
+                    8,
+                    "48c743280f000000"
+                  ],
+                  [
+                    388484,
+                    8,
+                    "48c7432000000000"
+                  ],
+                  [
+                    388492,
+                    4,
+                    "c6431000"
+                  ],
+                  [
+                    388496,
+                    2,
+                    "31d2"
+                  ],
+                  [
+                    388498,
+                    4,
+                    "41803e00"
+                  ],
+                  [
+                    388502,
+                    2,
+                    "740b"
+                  ],
+                  [
+                    388504,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388507,
+                    5,
+                    "e8d00bfdff"
+                  ],
+                  [
+                    388512,
+                    3,
+                    "4889c2"
+                  ],
+                  [
+                    388515,
+                    3,
+                    "4c89ff"
+                  ],
+                  [
+                    388518,
+                    3,
+                    "4c89f6"
+                  ],
+                  [
+                    388521,
+                    5,
+                    "e8923c0000"
+                  ],
+                  [
+                    388526,
+                    7,
+                    "488d057bf90500"
+                  ],
+                  [
+                    388533,
+                    4,
+                    "4883c010"
+                  ],
+                  [
+                    388537,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    388540,
+                    7,
+                    "488d359df90500"
+                  ],
+                  [
+                    388547,
+                    7,
+                    "488d1566080000"
+                  ],
+                  [
+                    388554,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388557,
+                    5,
+                    "e83e170000"
+                  ],
+                  [
+                    388562,
+                    3,
+                    "4989c6"
+                  ],
+                  [
+                    388565,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388568,
+                    5,
+                    "e823030000"
+                  ],
+                  [
+                    388573,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388576,
+                    5,
+                    "e82b140000"
+                  ],
+                  [
+                    388581,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388584,
+                    5,
+                    "e8634bffff"
+                  ]
+                ],
+                "instruction_set_sha256": "ae670ed390170e6f1e488e7bec585426ef052828054cd1eb634075e156984a34",
+                "import_keys": [
+                  [
+                    "ozMAr28BwSY",
+                    "libc",
+                    "libc"
+                  ]
+                ],
+                "dependencies": [
+                  "libc-cxa-throw",
+                  "libc-unwind-resume"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-4378b47f46f1-5ee90",
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "rva": 388752,
+                "iteration": 0,
+                "roots": [
+                  388752,
+                  388868
+                ],
+                "terminals": {
+                  "388863": [
+                    "libc-cxa-throw"
+                  ],
+                  "388890": [
+                    "libc-unwind-resume"
+                  ]
+                },
+                "instructions": [
+                  [
+                    388752,
+                    1,
+                    "55"
+                  ],
+                  [
+                    388753,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    388756,
+                    2,
+                    "4157"
+                  ],
+                  [
+                    388758,
+                    2,
+                    "4156"
+                  ],
+                  [
+                    388760,
+                    1,
+                    "53"
+                  ],
+                  [
+                    388761,
+                    1,
+                    "50"
+                  ],
+                  [
+                    388762,
+                    3,
+                    "4989fe"
+                  ],
+                  [
+                    388765,
+                    5,
+                    "bf30000000"
+                  ],
+                  [
+                    388770,
+                    5,
+                    "e8c9110000"
+                  ],
+                  [
+                    388775,
+                    3,
+                    "4889c3"
+                  ],
+                  [
+                    388778,
+                    7,
+                    "488d053ff70500"
+                  ],
+                  [
+                    388785,
+                    4,
+                    "4883c010"
+                  ],
+                  [
+                    388789,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    388792,
+                    4,
+                    "4c8d7b08"
+                  ],
+                  [
+                    388796,
+                    8,
+                    "48c743280f000000"
+                  ],
+                  [
+                    388804,
+                    8,
+                    "48c7432000000000"
+                  ],
+                  [
+                    388812,
+                    4,
+                    "c6431000"
+                  ],
+                  [
+                    388816,
+                    2,
+                    "31d2"
+                  ],
+                  [
+                    388818,
+                    4,
+                    "41803e00"
+                  ],
+                  [
+                    388822,
+                    2,
+                    "740b"
+                  ],
+                  [
+                    388824,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388827,
+                    5,
+                    "e8900afdff"
+                  ],
+                  [
+                    388832,
+                    3,
+                    "4889c2"
+                  ],
+                  [
+                    388835,
+                    3,
+                    "4c89ff"
+                  ],
+                  [
+                    388838,
+                    3,
+                    "4c89f6"
+                  ],
+                  [
+                    388841,
+                    5,
+                    "e8523b0000"
+                  ],
+                  [
+                    388846,
+                    7,
+                    "488d358bf80500"
+                  ],
+                  [
+                    388853,
+                    7,
+                    "488d1564090000"
+                  ],
+                  [
+                    388860,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388863,
+                    5,
+                    "e80c160000"
+                  ],
+                  [
+                    388868,
+                    3,
+                    "4989c6"
+                  ],
+                  [
+                    388871,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388874,
+                    5,
+                    "e8f1010000"
+                  ],
+                  [
+                    388879,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    388882,
+                    5,
+                    "e8f9120000"
+                  ],
+                  [
+                    388887,
+                    3,
+                    "4c89f7"
+                  ],
+                  [
+                    388890,
+                    5,
+                    "e8314affff"
+                  ]
+                ],
+                "instruction_set_sha256": "3802ad8e3da70b02ad44c3a94b270695efdebe59e09439f48510141d5aad5648",
+                "import_keys": [
+                  [
+                    "y7aMFEkj4PE",
+                    "libc",
+                    "libc"
+                  ]
+                ],
+                "dependencies": [
+                  "libc-cxa-throw",
+                  "libc-unwind-resume"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-4378b47f46f1-62da0",
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "rva": 404896,
+                "iteration": 1,
+                "roots": [
+                  404896
+                ],
+                "terminals": {
+                  "404907": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    404896,
+                    1,
+                    "55"
+                  ],
+                  [
+                    404897,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    404900,
+                    7,
+                    "488d3dcf0d0300"
+                  ],
+                  [
+                    404907,
+                    5,
+                    "e8a0bfffff"
+                  ]
+                ],
+                "instruction_set_sha256": "49465d79793156eb7c24a65c5a4226b1c169cef3c005eaf1f896f55028ce881d",
+                "import_keys": [
+                  [
+                    "AzBnOt1DouU",
+                    "libc",
+                    "libc"
+                  ]
+                ],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-1256f70",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 19230576,
+                "iteration": 1,
+                "roots": [
+                  19230576
+                ],
+                "terminals": {
+                  "19230587": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    19230576,
+                    1,
+                    "55"
+                  ],
+                  [
+                    19230577,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    19230580,
+                    7,
+                    "488d3dc6c26d03"
+                  ],
+                  [
+                    19230587,
+                    5,
+                    "e838829601"
+                  ]
+                ],
+                "instruction_set_sha256": "f2f452e08e1891266824c0981e2056432791fdab4e07178a3295b2c98a6d59cf",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-1256f80",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 19230592,
+                "iteration": 1,
+                "roots": [
+                  19230592
+                ],
+                "terminals": {
+                  "19230603": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    19230592,
+                    1,
+                    "55"
+                  ],
+                  [
+                    19230593,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    19230596,
+                    7,
+                    "488d3dc6c26d03"
+                  ],
+                  [
+                    19230603,
+                    5,
+                    "e818829601"
+                  ]
+                ],
+                "instruction_set_sha256": "58f3e4f937c8739d224bae1b51451bc5a8a94972c4c12325eb0a175695ca72bb",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-20b59b0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 34298288,
+                "iteration": 0,
+                "roots": [
+                  34298288
+                ],
+                "terminals": {
+                  "34298424": [
+                    "libc-longjmp"
+                  ]
+                },
+                "instructions": [
+                  [
+                    34298288,
+                    1,
+                    "55"
+                  ],
+                  [
+                    34298289,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    34298292,
+                    2,
+                    "4157"
+                  ],
+                  [
+                    34298294,
+                    2,
+                    "4156"
+                  ],
+                  [
+                    34298296,
+                    2,
+                    "4154"
+                  ],
+                  [
+                    34298298,
+                    1,
+                    "53"
+                  ],
+                  [
+                    34298299,
+                    3,
+                    "4989fe"
+                  ],
+                  [
+                    34298302,
+                    5,
+                    "e86d375b00"
+                  ],
+                  [
+                    34298307,
+                    3,
+                    "4989c7"
+                  ],
+                  [
+                    34298310,
+                    5,
+                    "e885375b00"
+                  ],
+                  [
+                    34298315,
+                    3,
+                    "4889c3"
+                  ],
+                  [
+                    34298318,
+                    3,
+                    "488b3b"
+                  ],
+                  [
+                    34298321,
+                    3,
+                    "4885ff"
+                  ],
+                  [
+                    34298324,
+                    2,
+                    "7405"
+                  ],
+                  [
+                    34298326,
+                    5,
+                    "e8d5355b00"
+                  ],
+                  [
+                    34298331,
+                    3,
+                    "498b07"
+                  ],
+                  [
+                    34298334,
+                    3,
+                    "488903"
+                  ],
+                  [
+                    34298337,
+                    3,
+                    "498b07"
+                  ],
+                  [
+                    34298340,
+                    4,
+                    "488b4010"
+                  ],
+                  [
+                    34298344,
+                    3,
+                    "498907"
+                  ],
+                  [
+                    34298347,
+                    3,
+                    "488b1b"
+                  ],
+                  [
+                    34298350,
+                    4,
+                    "4d8b7e08"
+                  ],
+                  [
+                    34298354,
+                    4,
+                    "458a6610"
+                  ],
+                  [
+                    34298358,
+                    5,
+                    "41c6461000"
+                  ],
+                  [
+                    34298363,
+                    5,
+                    "be18000000"
+                  ],
+                  [
+                    34298368,
+                    5,
+                    "ba08000000"
+                  ],
+                  [
+                    34298373,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    34298376,
+                    5,
+                    "e813365b00"
+                  ],
+                  [
+                    34298381,
+                    2,
+                    "31c9"
+                  ],
+                  [
+                    34298383,
+                    3,
+                    "4885c0"
+                  ],
+                  [
+                    34298386,
+                    2,
+                    "7415"
+                  ],
+                  [
+                    34298388,
+                    7,
+                    "488d0de5652a03"
+                  ],
+                  [
+                    34298395,
+                    3,
+                    "488908"
+                  ],
+                  [
+                    34298398,
+                    4,
+                    "4c897808"
+                  ],
+                  [
+                    34298402,
+                    4,
+                    "44886010"
+                  ],
+                  [
+                    34298406,
+                    3,
+                    "4889c1"
+                  ],
+                  [
+                    34298409,
+                    3,
+                    "48890b"
+                  ],
+                  [
+                    34298412,
+                    4,
+                    "4883c318"
+                  ],
+                  [
+                    34298416,
+                    5,
+                    "beffffffff"
+                  ],
+                  [
+                    34298421,
+                    3,
+                    "4889df"
+                  ],
+                  [
+                    34298424,
+                    5,
+                    "e83b8fb000"
+                  ]
+                ],
+                "instruction_set_sha256": "6a66755a3dea266d4e936917a35b938595430565ca26a5c1e2f866a844841fcc",
+                "import_keys": [],
+                "dependencies": [
+                  "libc-longjmp"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-2627b50",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40008528,
+                "iteration": 1,
+                "roots": [
+                  40008528
+                ],
+                "terminals": {
+                  "40008539": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40008528,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40008529,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40008532,
+                    7,
+                    "488d3da1ff2302"
+                  ],
+                  [
+                    40008539,
+                    5,
+                    "e848765900"
+                  ]
+                ],
+                "instruction_set_sha256": "ead034a4ef5a1d04f6bce16640cdc5eefbefa5ce004f454a40ab4bb580bb44f5",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-2627b60",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40008544,
+                "iteration": 1,
+                "roots": [
+                  40008544
+                ],
+                "terminals": {
+                  "40008555": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40008544,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40008545,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40008548,
+                    7,
+                    "488d3d81ff2302"
+                  ],
+                  [
+                    40008555,
+                    5,
+                    "e848765900"
+                  ]
+                ],
+                "instruction_set_sha256": "5f0deeee5d1134f92dfbd5aa477dd98e3e0686165119ceea83a78dfdc39b31a2",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262a4f0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40019184,
+                "iteration": 1,
+                "roots": [
+                  40019184
+                ],
+                "terminals": {
+                  "40019195": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40019184,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40019185,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40019188,
+                    7,
+                    "488d3d76d72302"
+                  ],
+                  [
+                    40019195,
+                    5,
+                    "e8b84c5900"
+                  ]
+                ],
+                "instruction_set_sha256": "c2eb79cc8b5cf2aab34418fb20f0c3481e07db796fe7518110a68518e2498bc9",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262a640",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40019520,
+                "iteration": 1,
+                "roots": [
+                  40019520
+                ],
+                "terminals": {
+                  "40019531": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40019520,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40019521,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40019524,
+                    7,
+                    "488d3d36d62302"
+                  ],
+                  [
+                    40019531,
+                    5,
+                    "e8584b5900"
+                  ]
+                ],
+                "instruction_set_sha256": "bc58420e68fb34cd9ca52d508d2114b19157b8f41d27b19318b9f6cd79cc9374",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262d550",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40031568,
+                "iteration": 1,
+                "roots": [
+                  40031568
+                ],
+                "terminals": {
+                  "40031579": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40031568,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40031569,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40031572,
+                    7,
+                    "488d3df9a72302"
+                  ],
+                  [
+                    40031579,
+                    5,
+                    "e8481c5900"
+                  ]
+                ],
+                "instruction_set_sha256": "9a5e5c38deaa65cd22db037dde27155a51e3d2edf3729ccb881b54d045c6b231",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262d560",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40031584,
+                "iteration": 1,
+                "roots": [
+                  40031584
+                ],
+                "terminals": {
+                  "40031595": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40031584,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40031585,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40031588,
+                    7,
+                    "488d3dd9a72302"
+                  ],
+                  [
+                    40031595,
+                    5,
+                    "e8481c5900"
+                  ]
+                ],
+                "instruction_set_sha256": "92b62f19e22a85660ff814d4abe000bd2714c771835d1b6e11f7fbc19356bb03",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262dab0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40032944,
+                "iteration": 1,
+                "roots": [
+                  40032944
+                ],
+                "terminals": {
+                  "40032955": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40032944,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40032945,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40032948,
+                    7,
+                    "488d3d89a22302"
+                  ],
+                  [
+                    40032955,
+                    5,
+                    "e8f8165900"
+                  ]
+                ],
+                "instruction_set_sha256": "e49af812bb4fbfb94d7fc6fd446956dc47471fecea21cdb35e5248ee44f5ef53",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-262dbf0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40033264,
+                "iteration": 1,
+                "roots": [
+                  40033264
+                ],
+                "terminals": {
+                  "40033275": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40033264,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40033265,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40033268,
+                    7,
+                    "488d3d59a12302"
+                  ],
+                  [
+                    40033275,
+                    5,
+                    "e8a8155900"
+                  ]
+                ],
+                "instruction_set_sha256": "2e3737d33a7a1154df44b482f53b8505ae5dff02c9ff664a54b4d7efc158ea46",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-2676870",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40331376,
+                "iteration": 1,
+                "roots": [
+                  40331376
+                ],
+                "terminals": {
+                  "40331387": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40331376,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40331377,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40331380,
+                    7,
+                    "488d3d68601f02"
+                  ],
+                  [
+                    40331387,
+                    5,
+                    "e838895400"
+                  ]
+                ],
+                "instruction_set_sha256": "99d88874c310ff0bfe5e056facab539fa3f02ebbedc0ff54b8c0374bcc1b0ece",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-2677450",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40334416,
+                "iteration": 1,
+                "roots": [
+                  40334416
+                ],
+                "terminals": {
+                  "40334427": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40334416,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40334417,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40334420,
+                    7,
+                    "488d3da0551f02"
+                  ],
+                  [
+                    40334427,
+                    5,
+                    "e8487d5400"
+                  ]
+                ],
+                "instruction_set_sha256": "b2755e2b6cc6a9d93f9b4a3b0faa69985bfdc7d8d492b88ffc81a8d2b78ca2ea",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-267ac00",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40348672,
+                "iteration": 1,
+                "roots": [
+                  40348672
+                ],
+                "terminals": {
+                  "40348683": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40348672,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40348673,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40348676,
+                    7,
+                    "488d3d1c221f02"
+                  ],
+                  [
+                    40348683,
+                    5,
+                    "e898455400"
+                  ]
+                ],
+                "instruction_set_sha256": "964a659d8fff49c2e3eaeb4c71f99b846fb56552a88c40d710fb7d67385f3302",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-267ac10",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40348688,
+                "iteration": 1,
+                "roots": [
+                  40348688
+                ],
+                "terminals": {
+                  "40348699": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40348688,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40348689,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40348692,
+                    7,
+                    "488d3dfc211f02"
+                  ],
+                  [
+                    40348699,
+                    5,
+                    "e898455400"
+                  ]
+                ],
+                "instruction_set_sha256": "ef02779dd7f01688e8071f9a60351d2b0f6f7296bed9680b52cbc3199049a9e1",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-267afd0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40349648,
+                "iteration": 1,
+                "roots": [
+                  40349648
+                ],
+                "terminals": {
+                  "40349659": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40349648,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40349649,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40349652,
+                    7,
+                    "488d3d4c1e1f02"
+                  ],
+                  [
+                    40349659,
+                    5,
+                    "e8c8415400"
+                  ]
+                ],
+                "instruction_set_sha256": "f2a9be7dfa74f132178c8728c957a44fd6d66ddd0a5c8b856fe77e52f57b4afa",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-267afe0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 40349664,
+                "iteration": 1,
+                "roots": [
+                  40349664
+                ],
+                "terminals": {
+                  "40349675": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    40349664,
+                    1,
+                    "55"
+                  ],
+                  [
+                    40349665,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    40349668,
+                    7,
+                    "488d3d2c1e1f02"
+                  ],
+                  [
+                    40349675,
+                    5,
+                    "e8c8415400"
+                  ]
+                ],
+                "instruction_set_sha256": "6e6007923bdcd8f3d168a286e111e1ae23eaddb85591b08def7ef8e08c16cd50",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-27cbda0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 41729440,
+                "iteration": 1,
+                "roots": [
+                  41729440
+                ],
+                "terminals": {
+                  "41729451": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    41729440,
+                    1,
+                    "55"
+                  ],
+                  [
+                    41729441,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    41729444,
+                    7,
+                    "488d3d2bf90a02"
+                  ],
+                  [
+                    41729451,
+                    5,
+                    "e8f8333f00"
+                  ]
+                ],
+                "instruction_set_sha256": "9a262a75662160ce502d28f9dfb85d98370fada410456d3e3e8513635d2051e6",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-2935280",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43209344,
+                "iteration": 1,
+                "roots": [
+                  43209344
+                ],
+                "terminals": {
+                  "43209355": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43209344,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43209345,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43209348,
+                    7,
+                    "488d3dc1c9f601"
+                  ],
+                  [
+                    43209355,
+                    5,
+                    "e8189f2800"
+                  ]
+                ],
+                "instruction_set_sha256": "c75e0f3b47417d491bc4754f437266548336ea606c139f843acf14a72b9c4a06",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-29b0560",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43713888,
+                "iteration": 1,
+                "roots": [
+                  43713888
+                ],
+                "terminals": {
+                  "43713899": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43713888,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43713889,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43713892,
+                    7,
+                    "488d3d8918f101"
+                  ],
+                  [
+                    43713899,
+                    5,
+                    "e848ec2000"
+                  ]
+                ],
+                "instruction_set_sha256": "e158f7ef06d4e8e58c77829ecda1a21a6fb81b39205fc34217c5f80c22779dee",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-29b06f0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43714288,
+                "iteration": 1,
+                "roots": [
+                  43714288
+                ],
+                "terminals": {
+                  "43714299": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43714288,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43714289,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43714292,
+                    7,
+                    "488d3d0917f101"
+                  ],
+                  [
+                    43714299,
+                    5,
+                    "e8a8ea2000"
+                  ]
+                ],
+                "instruction_set_sha256": "775073f64244abab6e6c26fd8a0b242a00b6c57e706f4b16e65955b277068de0",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-29cafa0",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43823008,
+                "iteration": 1,
+                "roots": [
+                  43823008
+                ],
+                "terminals": {
+                  "43823019": [
+                    "derived-4378b47f46f1-5ed50"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43823008,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43823009,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43823012,
+                    7,
+                    "488d3da5b4ef01"
+                  ],
+                  [
+                    43823019,
+                    5,
+                    "e8f8411f00"
+                  ]
+                ],
+                "instruction_set_sha256": "d33b787b298387555858fa2db2763da15d3009586a00842dd4709d9ba5b1385b",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ed50"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-29d6500",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43869440,
+                "iteration": 1,
+                "roots": [
+                  43869440
+                ],
+                "terminals": {
+                  "43869451": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43869440,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43869441,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43869444,
+                    7,
+                    "488d3d5551ef01"
+                  ],
+                  [
+                    43869451,
+                    5,
+                    "e8a88c1e00"
+                  ]
+                ],
+                "instruction_set_sha256": "2ea57f317aee82b1098657e87d5debe848c273a56f6843400684d2f178b4a321",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              },
+              {
+                "id": "derived-d65f0b4f01d5-29d6e10",
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "rva": 43871760,
+                "iteration": 1,
+                "roots": [
+                  43871760
+                ],
+                "terminals": {
+                  "43871771": [
+                    "derived-4378b47f46f1-5ecb0"
+                  ]
+                },
+                "instructions": [
+                  [
+                    43871760,
+                    1,
+                    "55"
+                  ],
+                  [
+                    43871761,
+                    3,
+                    "4889e5"
+                  ],
+                  [
+                    43871764,
+                    7,
+                    "488d3df548ef01"
+                  ],
+                  [
+                    43871771,
+                    5,
+                    "e898831e00"
+                  ]
+                ],
+                "instruction_set_sha256": "7ea699011bcdf0539648b2c217bba97dcc8b310e73d9f811a6909f1e26946ced",
+                "import_keys": [],
+                "dependencies": [
+                  "derived-4378b47f46f1-5ecb0"
+                ],
+                "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+              }
+            ],
+            "rejected": [
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 394592
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 395088
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34647408
+              }
+            ],
+            "limitations": "Conditional static CFG proof only. No execution or complete function-boundary proof. Unknown indirect edges, cycles and missing successors are inconclusive. Library binding, code immutability, ordinary-call ABI and exception metadata/runtime are assumptions.",
+            "ghidra_checks": [
+              {
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 388272,
+                "shared_instructions": 40,
+                "ghidra_extra_instructions": [],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 388432,
+                "shared_instructions": 40,
+                "ghidra_extra_instructions": [],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 388752,
+                "shared_instructions": 37,
+                "ghidra_extra_instructions": [],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 404896,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  404912
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 19230576,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  19230592,
+                  19230593,
+                  19230596,
+                  19230603,
+                  19230608
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 19230592,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  19230608
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34298288,
+                "shared_instructions": 41,
+                "ghidra_extra_instructions": [],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40008528,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40008544,
+                  40008545,
+                  40008548,
+                  40008555,
+                  40008560,
+                  40008561,
+                  40008564,
+                  40008566,
+                  40008568,
+                  40008570,
+                  40008571,
+                  40008574
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40008544,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40008560,
+                  40008561,
+                  40008564,
+                  40008566,
+                  40008568,
+                  40008570,
+                  40008571,
+                  40008574,
+                  40008577,
+                  40008580,
+                  40008583,
+                  40008587
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40019184,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40019200,
+                  40019201,
+                  40019204,
+                  40019206,
+                  40019208,
+                  40019210,
+                  40019211,
+                  40019214,
+                  40019217,
+                  40019220,
+                  40019223,
+                  40019227
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40019520,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40019536,
+                  40019537,
+                  40019540,
+                  40019542,
+                  40019544,
+                  40019546,
+                  40019547,
+                  40019550,
+                  40019553,
+                  40019556,
+                  40019560,
+                  40019566
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40031568,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40031584,
+                  40031585,
+                  40031588,
+                  40031595,
+                  40031600,
+                  40031601,
+                  40031604,
+                  40031606,
+                  40031608,
+                  40031610,
+                  40031611,
+                  40031614
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40031584,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40031600,
+                  40031601,
+                  40031604,
+                  40031606,
+                  40031608,
+                  40031610,
+                  40031611,
+                  40031614,
+                  40031617,
+                  40031620,
+                  40031623,
+                  40031627,
+                  40031631
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40032944,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40032960,
+                  40032961,
+                  40032964,
+                  40032966,
+                  40032968,
+                  40032970,
+                  40032971,
+                  40032974,
+                  40032977,
+                  40032980,
+                  40032983,
+                  40032987,
+                  40032991
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40033264,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40033280,
+                  40033287,
+                  40033291,
+                  40033294,
+                  40033298,
+                  40033302
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40331376,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40331392,
+                  40331393,
+                  40331396,
+                  40331398,
+                  40331400,
+                  40331402,
+                  40331404,
+                  40331405,
+                  40331409,
+                  40331412,
+                  40331417,
+                  40331420
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40334416,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40334432,
+                  40334433,
+                  40334436,
+                  40334438,
+                  40334440,
+                  40334441,
+                  40334442,
+                  40334445,
+                  40334449,
+                  40334452,
+                  40334455,
+                  40334461
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40348672,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40348688,
+                  40348689,
+                  40348692,
+                  40348699,
+                  40348704,
+                  40348705,
+                  40348708,
+                  40348710,
+                  40348712,
+                  40348714,
+                  40348716,
+                  40348717,
+                  40348718
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40348688,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40348704,
+                  40348705,
+                  40348708,
+                  40348710,
+                  40348712,
+                  40348714,
+                  40348716,
+                  40348717,
+                  40348718,
+                  40348721,
+                  40348724,
+                  40348727,
+                  40348730,
+                  40348734
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40349648,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40349664,
+                  40349665,
+                  40349668,
+                  40349675,
+                  40349680,
+                  40349681,
+                  40349684,
+                  40349686,
+                  40349688,
+                  40349690,
+                  40349692,
+                  40349693,
+                  40349694
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40349664,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  40349680,
+                  40349681,
+                  40349684,
+                  40349686,
+                  40349688,
+                  40349690,
+                  40349692,
+                  40349693,
+                  40349694,
+                  40349697,
+                  40349700,
+                  40349703,
+                  40349706,
+                  40349710
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 41729440,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  41729456,
+                  41729457,
+                  41729460,
+                  41729462,
+                  41729463,
+                  41729466,
+                  41729471,
+                  41729478,
+                  41729482,
+                  41729485
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43209344,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43209360,
+                  43209361,
+                  43209364,
+                  43209366,
+                  43209368,
+                  43209369,
+                  43209370,
+                  43209373,
+                  43209377,
+                  43209380,
+                  43209383,
+                  43209389
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43713888,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43713904,
+                  43713905,
+                  43713908,
+                  43713910,
+                  43713912,
+                  43713914,
+                  43713916,
+                  43713917,
+                  43713918,
+                  43713921,
+                  43713924,
+                  43713927,
+                  43713930,
+                  43713934
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43714288,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43714304,
+                  43714305,
+                  43714308,
+                  43714310,
+                  43714311,
+                  43714314,
+                  43714317,
+                  43714326,
+                  43714333
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43823008,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43823024,
+                  43823025,
+                  43823028,
+                  43823030,
+                  43823032,
+                  43823034,
+                  43823036,
+                  43823037,
+                  43823041,
+                  43823044,
+                  43823048,
+                  43823052
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43869440,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43869456,
+                  43869457,
+                  43869460,
+                  43869462,
+                  43869464,
+                  43869466,
+                  43869467,
+                  43869470,
+                  43869473,
+                  43869478,
+                  43869481,
+                  43869485
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              },
+              {
+                "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 43871760,
+                "shared_instructions": 4,
+                "ghidra_extra_instructions": [
+                  43871776,
+                  43871777,
+                  43871780,
+                  43871782,
+                  43871784,
+                  43871786,
+                  43871787,
+                  43871790,
+                  43871793,
+                  43871798,
+                  43871801
+                ],
+                "classification": "Exact independent instruction identities and CFG paths under the same explicit terminal contracts; extra ordinary fallthrough remains raw evidence."
+              }
+            ],
+            "candidate_sha256": "f6b874641fcbcfcec8560a9a27d68e1c95e64147aeea4f396c3ea7b765b1ce10",
+            "ghidra_comparison_sha256": "d227470777ae25423f3689ad06d2b5d6a1efc47294a9d7a86ac05cc9e181f311",
+            "ghidra_raw_sha256": {
+              "libc.prx": "a43d693e5d074d5b897314e058803ee453b58d2ac0e5ddcb9512d60e04c9b221",
+              "eboot.bin": "7c55f5f7d8b536d52b9b5a58d30e830e2bd5a99f0b8056f1377e41365009fc98"
+            }
+          }
+        },
+        "ghidra_entry_only": {
+          "path": "local/cfg/ghidra-callback-closure-v1/summary.json",
+          "sha256": "1aa678c88b30a810f64c2e326128d9fa034cae23d4223ba9d2f6ec29bb82422a",
+          "result": {
+            "status": "independent inspection complete; disagreements retained",
+            "entries": 73,
+            "equal": 57,
+            "common_instructions": 3115,
+            "boundary_disagreements": 0,
+            "differing_entries": 16,
+            "comparison_sha256": "4adeb89e30f4e7843e4ca50a85683caa2483a18bceb72b85079bfd2f8aac15b3",
+            "source_db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+            "limitations": "Independent SLEIGH decode from entry and bounded supplied bytes. No expected instructions, branch targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness."
+          }
+        },
+        "ghidra_with_lsda": {
+          "path": "local/cfg/ghidra-callback-closure-v2/summary.json",
+          "sha256": "24789dbd76cbfad5fdfba5aae4695c9661c9065401f267fa292ba72942f5a151",
+          "result": {
+            "status": "independent inspection complete; disagreements retained",
+            "entries": 73,
+            "equal": 57,
+            "common_instructions": 3234,
+            "boundary_disagreements": 0,
+            "differing_entries": 16,
+            "comparison_sha256": "3a2615917bce1f53f6c7526cb090bebca9dccd8ce79e246bdfcce6f7419d7fb1",
+            "source_db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+            "exception_roots_supplied": true,
+            "limitations": "Independent SLEIGH decode from entry and bounded supplied bytes. Optional additional roots come from LSDA metadata. No expected instructions, jump-table targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness."
+          }
+        },
+        "compilation": {
+          "path": "local/compiler-spike/callback-manifest-v1/summary.json",
+          "sha256": "3ec1a5b33580a28e81b094d7474c4246c09730a4386b80ed4ecc72ef00faf531",
+          "result": {
+            "status": "bounded manifest compilation survey; startup execution gate NOT passed",
+            "selected": 65,
+            "results": {
+              "object_built": 52,
+              "sparse_instruction_map_requires_lifter_adapter": 12,
+              "quarantined_manifest": 1
+            },
+            "objects_with_unresolved_cpu_boundaries": 42,
+            "object_bytes": 118587,
+            "limitations": "Objects retain external Remill memory/control helpers. No runtime link, execution, exception safety, dispatch closure, or speed claim. Sparse inputs are rejected, never flattened with data or filler."
+          }
+        }
+      },
+      "runs": {
+        "20260905-p3-derived-control-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.9026030001696199,
+          "source_archive_sha256": "8c78c2bb35918f4fa8adc1a7a00305db03e2083c84727e9e402bdf19225e426e"
+        },
+        "20260905-p3-derived-control-v2": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.9022021999116987,
+          "source_archive_sha256": "780d692c1845ca314813c0c98b7a0b30052101a3ab1f13007e6f3f5a0ea7d1ae"
+        },
+        "20260905-p3-derived-control-v3": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.9242075998336077,
+          "source_archive_sha256": "099607d4215bd85b7f300476f3864d33fa2b025db69765a425b9cb0ae8ec096b"
+        },
+        "20260905-p3-derived-control-v4": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 1.132814300013706,
+          "source_archive_sha256": "8a326bdf8ceb720a86d23f00789ff14250097eb319b33cf5c7c6f593e0b0eb7f"
+        },
+        "20260905-p3-control-proof-checks-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.1664609001018107,
+          "source_archive_sha256": "8c78c2bb35918f4fa8adc1a7a00305db03e2083c84727e9e402bdf19225e426e"
+        },
+        "20260905-p3-ghidra-derived-control-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 15.233466000063345,
+          "source_archive_sha256": "8c78c2bb35918f4fa8adc1a7a00305db03e2083c84727e9e402bdf19225e426e"
+        },
+        "20260905-p3-derived-control-check-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.7855638999026269,
+          "source_archive_sha256": "b12d32b22639b0c20688222516b879ba65c622f67a15f3c49f70479082811a75"
+        },
+        "20260905-p3-derived-control-check-v2": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.812653100118041,
+          "source_archive_sha256": "d6df061ed047b405cb666715af8f1a200895bca4bb38fb27960796a3de4994fc"
+        },
+        "20260905-p3-control-callback-checks-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.16527310013771057,
+          "source_archive_sha256": "b12d32b22639b0c20688222516b879ba65c622f67a15f3c49f70479082811a75"
+        },
+        "20260905-p3-control-callback-checks-v2": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.44792900001630187,
+          "source_archive_sha256": "9a97989001900020df9c66339c5931979a07a8e84f45129679e3662f7ebd55ef"
+        },
+        "20260905-p3-control-callback-checks-v3": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 0.41646900004707277,
+          "source_archive_sha256": "8a326bdf8ceb720a86d23f00789ff14250097eb319b33cf5c7c6f593e0b0eb7f"
+        },
+        "20260905-p3-startup-recovery-v6": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 91.67411170015112,
+          "source_archive_sha256": "b12d32b22639b0c20688222516b879ba65c622f67a15f3c49f70479082811a75"
+        },
+        "20260905-p3-startup-recovery-v7-repeat": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 110.51673289993778,
+          "source_archive_sha256": "780d692c1845ca314813c0c98b7a0b30052101a3ab1f13007e6f3f5a0ea7d1ae"
+        },
+        "20260905-p3-startup-frontier-delta-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 6.053558700019494,
+          "source_archive_sha256": "2b785d385ab2455ade84e44a3cc8d31ba57d2c5aae44494169ecf2fbc5c85fd7"
+        },
+        "20260905-p3-startup-frontier-delta-v2": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 5.618595999898389,
+          "source_archive_sha256": "9a97989001900020df9c66339c5931979a07a8e84f45129679e3662f7ebd55ef"
+        },
+        "20260905-p3-ghidra-callback-closure-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 10.640482899965718,
+          "source_archive_sha256": "2b785d385ab2455ade84e44a3cc8d31ba57d2c5aae44494169ecf2fbc5c85fd7"
+        },
+        "20260905-p3-ghidra-callback-closure-v2": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 18.159832700155675,
+          "source_archive_sha256": "3e0edeb4465092bbadd33d8ca1cef0d5fb2456c3833b8f1be2969532fea84bcb"
+        },
+        "20260905-p3-callback-manifest-compile-v1": {
+          "status": "pass",
+          "source_commit": "d05363e0364e486a126ab182774dc135e08628a2",
+          "elapsed_seconds": 10.617649599909782,
+          "source_archive_sha256": "9a97989001900020df9c66339c5931979a07a8e84f45129679e3662f7ebd55ef"
+        }
+      },
+      "ghidra_disputes": {
+        "explained": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 17451024,
+            "extra_addresses": [
+              17451138
+            ],
+            "contracts": [
+              {
+                "source": 17451160,
+                "after": 17451165,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17451133,
+                "after": 17451138,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 17452608,
+            "extra_addresses": [
+              17452729
+            ],
+            "contracts": [
+              {
+                "source": 17452751,
+                "after": 17452756,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17452724,
+                "after": 17452729,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 17452768,
+            "extra_addresses": [
+              17453404,
+              17453412,
+              17453420,
+              17453424,
+              17453428,
+              17453495,
+              17453503,
+              17453511,
+              17453515,
+              17453518,
+              17453522,
+              17453525,
+              17453529,
+              17453534,
+              17453536,
+              17453539,
+              17453545,
+              17453548,
+              17453552,
+              17453607,
+              17453615,
+              17453623,
+              17453626,
+              17453631,
+              17453635,
+              17453676,
+              17453762,
+              17453803,
+              17453869,
+              17453929,
+              17453989,
+              17454045,
+              17454070,
+              17454075,
+              17454080,
+              17454086,
+              17454093,
+              17454095,
+              17454098,
+              17454101,
+              17454106,
+              17454192,
+              17454197
+            ],
+            "contracts": [
+              {
+                "source": 17452917,
+                "after": 17452922,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17453828,
+                "after": 17453833,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17454065,
+                "after": 17454070,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 17454129,
+                "after": 17454134,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 17454187,
+                "after": 17454192,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17453071,
+                "after": 17453076,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17453757,
+                "after": 17453762,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17453924,
+                "after": 17453929,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17453984,
+                "after": 17453989,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17454040,
+                "after": 17454045,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17454179,
+                "after": 17454184,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 17453671,
+                "after": 17453676,
+                "contract": "stack-protector-failure"
+              },
+              {
+                "source": 17453864,
+                "after": 17453869,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17453798,
+                "after": 17453803,
+                "contract": "libc-cxa-throw"
+              },
+              {
+                "source": 17452953,
+                "after": 17452958,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 18768416,
+            "extra_addresses": [
+              18768737
+            ],
+            "contracts": [
+              {
+                "source": 18768732,
+                "after": 18768737,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 18770400,
+            "extra_addresses": [
+              18770675
+            ],
+            "contracts": [
+              {
+                "source": 18770670,
+                "after": 18770675,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 18770688,
+            "extra_addresses": [
+              18770943
+            ],
+            "contracts": [
+              {
+                "source": 18770938,
+                "after": 18770943,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34648288,
+            "extra_addresses": [
+              34649890
+            ],
+            "contracts": [
+              {
+                "source": 34649885,
+                "after": 34649890,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43975424,
+            "extra_addresses": [
+              43975435,
+              43975436,
+              43975437,
+              43975438,
+              43975439
+            ],
+            "contracts": [
+              {
+                "source": 43975430,
+                "after": 43975435,
+                "contract": "libc-terminate"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43976592,
+            "extra_addresses": [
+              43976748
+            ],
+            "contracts": [
+              {
+                "source": 43976770,
+                "after": 43976775,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 43976743,
+                "after": 43976748,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43981984,
+            "extra_addresses": [
+              43982145
+            ],
+            "contracts": [
+              {
+                "source": 43982167,
+                "after": 43982172,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 43982190,
+                "after": 43982195,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 43982140,
+                "after": 43982145,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43983344,
+            "extra_addresses": [
+              43983444
+            ],
+            "contracts": [
+              {
+                "source": 43983466,
+                "after": 43983471,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 43983439,
+                "after": 43983444,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43984064,
+            "extra_addresses": [
+              43984219
+            ],
+            "contracts": [
+              {
+                "source": 43984137,
+                "after": 43984142,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 43984241,
+                "after": 43984246,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 43984214,
+                "after": 43984219,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43984928,
+            "extra_addresses": [
+              43985304
+            ],
+            "contracts": [
+              {
+                "source": 43985308,
+                "after": 43985313,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 43985299,
+                "after": 43985304,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 43985328,
+            "extra_addresses": [
+              43986644
+            ],
+            "contracts": [
+              {
+                "source": 43986603,
+                "after": 43986608,
+                "contract": "libc-terminate"
+              },
+              {
+                "source": 43986669,
+                "after": 43986674,
+                "contract": "libc-unwind-resume"
+              },
+              {
+                "source": 43986595,
+                "after": 43986600,
+                "contract": "derived-4378b47f46f1-5ed50"
+              },
+              {
+                "source": 43986639,
+                "after": 43986644,
+                "contract": "libc-cxa-throw"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 44370544,
+            "extra_addresses": [
+              44370759
+            ],
+            "contracts": [
+              {
+                "source": 44370754,
+                "after": 44370759,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 44373040,
+            "extra_addresses": [
+              44373400
+            ],
+            "contracts": [
+              {
+                "source": 44373395,
+                "after": 44373400,
+                "contract": "stack-protector-failure"
+              }
+            ],
+            "classification": "Independent Ghidra ordinary-call fallthrough after annotated nonreturn boundaries; LSDA roots supplied separately from expected instructions."
+          }
+        ],
+        "unresolved": [],
+        "all_new_entries_checked": true,
+        "all_remaining_boundary_entries_checked": true
+      },
+      "compilation_rejections": [
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 17451024,
+          "folder": "d65f0b4f01d5-10a4810",
+          "ordinal": null,
+          "instructions": 42,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 17452608,
+          "folder": "d65f0b4f01d5-10a4e40",
+          "ordinal": null,
+          "instructions": 44,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 17452768,
+          "folder": "d65f0b4f01d5-10a4ee0",
+          "ordinal": null,
+          "instructions": 269,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 18768416,
+          "folder": "d65f0b4f01d5-11e6220",
+          "ordinal": null,
+          "instructions": 80,
+          "execution": "not_executed",
+          "status": "quarantined_manifest"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29214896,
+          "folder": "d65f0b4f01d5-1bdc8b0",
+          "ordinal": null,
+          "instructions": 29,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43976592,
+          "folder": "d65f0b4f01d5-29f0790",
+          "ordinal": null,
+          "instructions": 56,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43981984,
+          "folder": "d65f0b4f01d5-29f1ca0",
+          "ordinal": null,
+          "instructions": 65,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43983344,
+          "folder": "d65f0b4f01d5-29f21f0",
+          "ordinal": null,
+          "instructions": 39,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43984064,
+          "folder": "d65f0b4f01d5-29f24c0",
+          "ordinal": null,
+          "instructions": 52,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43984928,
+          "folder": "d65f0b4f01d5-29f2820",
+          "ordinal": null,
+          "instructions": 101,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 43985328,
+          "folder": "d65f0b4f01d5-29f29b0",
+          "ordinal": null,
+          "instructions": 381,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 44370768,
+          "folder": "d65f0b4f01d5-2a50b50",
+          "ordinal": null,
+          "instructions": 341,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 44373040,
+          "folder": "d65f0b4f01d5-2a51430",
+          "ordinal": null,
+          "instructions": 98,
+          "execution": "not_executed",
+          "status": "sparse_instruction_map_requires_lifter_adapter"
+        }
+      ],
+      "limitations": "The proof is conditional on exact ABI contracts, valid calls, supplied exception metadata, fixed binding and immutable code. Unknown indirect calls are deliberately rejected as proof paths. Callback ABI roles identify arguments; they do not prove runtime registrations or executions.",
+      "gate": "P3 not passed: 9029 indirect-call records, 430 indirect-jump records, 9 fallthrough findings, 170 unresolved callback-argument records, runtime binding/registry/mutation, exception and native service/control contracts remain open. 52 new objects built; 12 sparse and 1 disputed entry explicitly excluded. No native game boot or playable port.",
+      "native_game_boot": false,
+      "native_port_playable": false
+    }
+  }
 }

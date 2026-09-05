@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "limitation": "Exact NID/library/provider matches or matching supplied bundled exports. These are static callback argument roles under the stated ABI, not observed registrations, runtime implementations or execution coverage. Code, tables, GOT slots and registry contents may be mutable.",
+  "contracts": [
+    {
+      "id": "cxa-atexit-destructor", "nid": "tsvEmnenz48", "library": "libc", "module": "libc",
+      "register": "rdi", "nullable": false, "signature": "int __cxa_atexit(void (*destructor)(void*), void* object, void* dso)",
+      "callback_signature": "void destructor(void* object)", "context_registers": ["rsi", "rdx"],
+      "evidence": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html#dso-dtor"
+    },
+    {
+      "id": "atexit-callback", "nid": "8G2LB+A3rzg", "library": "libc", "module": "libc",
+      "register": "rdi", "nullable": false, "signature": "int atexit(void (*callback)(void))",
+      "callback_signature": "void callback(void)", "context_registers": [],
+      "evidence": "https://www.sourceware.org/glibc/manual/2.23/html_node/Normal-Termination.html"
+    },
+    {
+      "id": "cxa-throw-destructor", "nid": "vkuuLfhnSZI", "library": "libc", "module": "libc",
+      "register": "rdx", "nullable": true, "signature": "void __cxa_throw(void* exception, std::type_info* type, void (*destructor)(void*))",
+      "callback_signature": "void destructor(void* exception)", "context_registers": ["rdi", "rsi"],
+      "evidence": "https://itanium-cxx-abi.github.io/cxx-abi/abi-eh.html#cxx-throw"
+    },
+    {
+      "id": "pthread-start-routine", "nid": "6UgtwV+0zb4", "library": "libkernel", "module": "libkernel",
+      "register": "rdx", "nullable": false, "signature": "int scePthreadCreate(thread*, attr*, void* (*start)(void*), void* argument, const char* name)",
+      "callback_signature": "void* start(void* argument)", "context_registers": ["rcx"],
+      "evidence": "external/shadPS4/src/core/libraries/kernel/threads/pthread.cpp:288,375,1255 at 22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db"
+    }
+  ]
+}

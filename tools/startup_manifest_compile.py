@@ -1,17 +1,27 @@
-"""Build bounded constructor objects from exact recovered manifests; never execute them."""
-import argparse,collections,json,re,subprocess,sys,time
+"""Build bounded entry objects from exact recovered manifests; never execute them."""
+import argparse,collections,json,re,sqlite3,subprocess,sys,time
 from pathlib import Path
 from tools.cfg_recover_startup import sha,write_json
 from tools.dev import environment,LLVM
 from tools.formats import ElfImage
-p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--limit',type=int,default=128);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--limit',type=int,default=128);p.add_argument('--entries',type=Path);a=p.parse_args()
+if a.limit<1:p.error('--limit must be positive')
 a.out.mkdir(parents=True,exist_ok=False)
 units=[json.loads(line) for line in (a.source/'compilation-manifest.jsonl').open(encoding='utf-8')]
 constructors=sorted((r for r in units if r['constructor_ordinal'] is not None),key=lambda r:r['constructor_ordinal'])
 selected=[constructors[i*(len(constructors)-1)//(a.limit-1)] for i in range(a.limit)] if a.limit>1 else constructors[:1]
+selection=f'{a.limit} evenly spaced invocation ordinals including first and last; size/gaps are not filtered out'
+if a.entries:
+ requested=json.loads(a.entries.read_text());keys={(r['module'],r['start']) for r in requested}
+ selected=sorted((r for r in units if (r['module_sha256'],r['entry']) in keys),key=lambda r:(r['module_sha256'],r['entry']))
+ assert len(selected)==len(keys),'requested entry absent from manifest'
+ selected=selected[:a.limit];selection='Explicit entry list in module/RVA order; size/gaps are not filtered out'
 lifter=Path('build/remill/bin/lift/remill-lift-21.exe').resolve();clang=LLVM/'bin/clang.exe';env=environment()
-image_path=Path('local/update/uroot/eboot.bin');assert sha(image_path)==selected[0]['module_sha256'];im=ElfImage(image_path.read_bytes())
-write_json(a.out/'identity.json',dict(manifest_sha256=sha(a.source/'compilation-manifest.jsonl'),module_sha256=sha(image_path),lifter_sha256=sha(lifter),clang_sha256=sha(clang),flags=['amd64_avx','windows','O2','march=haswell'],selection='128 evenly spaced invocation ordinals including first and last; size/gaps are not filtered out',execution='none'))
+db=sqlite3.connect(f'{(a.source/"analysis.sqlite").resolve().as_uri()}?mode=ro',uri=True);images={}
+for h,path in db.execute('SELECT hash,path FROM module'):
+ if h not in {r['module_sha256'] for r in selected}:continue
+ assert sha(path)==h;images[h]=ElfImage(Path(path).read_bytes())
+write_json(a.out/'identity.json',dict(manifest_sha256=sha(a.source/'compilation-manifest.jsonl'),modules=sorted(images),lifter_sha256=sha(lifter),clang_sha256=sha(clang),flags=['amd64_avx','windows','O2','march=haswell'],selection=selection,entries_sha256=sha(a.entries) if a.entries else None,execution='none'))
 results=[]
 def run(command,folder,step):
  start=time.monotonic()
@@ -19,8 +29,9 @@ def run(command,folder,step):
   result=subprocess.run(list(map(str,command)),env=env,stdout=stdout,stderr=stderr,timeout=120)
  return dict(argv=list(map(str,command)),exit_code=result.returncode,seconds=time.monotonic()-start)
 for n,u in enumerate(selected):
- folder=a.out/f"{u['entry']:x}";folder.mkdir();write_json(folder/'manifest.json',u)
- r=dict(entry=u['entry'],ordinal=u['constructor_ordinal'],instructions=len(u['instructions']),execution='not_executed')
+ folder=a.out/(f"{u['module_sha256'][:12]}-{u['entry']:x}" if a.entries else f"{u['entry']:x}");folder.mkdir();write_json(folder/'manifest.json',u)
+ r=dict(module_sha256=u['module_sha256'],entry=u['entry'],folder=folder.name,ordinal=u['constructor_ordinal'],instructions=len(u['instructions']),execution='not_executed')
+ im=images[u['module_sha256']]
  addresses={i['rva']+offset for i in u['instructions'] for offset in range(i['size'])}
  if u['issues'] or not addresses or min(addresses)!=u['entry']:
   r['status']='quarantined_manifest'
