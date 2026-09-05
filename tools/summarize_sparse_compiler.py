@@ -21,7 +21,7 @@ for x,y in zip(left,right,strict=True):
  global_roots.update((y['module_sha256'],pc-0x100000000) for pc in audit['compiled_roots'])
  missing.extend(dict(module=y['module_sha256'],entry=y['entry'],**z) for z in y['missing_boundaries'])
  units.append(dict(module=y['module_sha256'],entry=y['entry'],instructions=y['instructions'],roots=y['roots'],input_bytes=y['instruction_bytes'],omitted_gap_bytes=y['analysis_span']-y['instruction_bytes'],object_bytes=y['object_bytes'],object_sha256=y['object_sha256'],input_sha256=y['input_sha256'],audit_sha256=sha(folder/'audit.json'),cpu_boundaries=y['unresolved_cpu_boundaries']))
-build=json.loads((root/'build/sparse-lift-v3/identity.json').read_text());assert sha(root/'build/sparse-lift-v3/bb-sparse-lift.exe')==build['executable_sha256'];assert build['driver_source_sha256']==sha(root/'native/sparse_lift/main.cpp')
+build=json.loads((root/'build/sparse-lift-v3/identity.json').read_text());assert sha(root/'build/sparse-lift-v3/bb-sparse-lift.exe')==build['executable_sha256'];archived=json.loads((root/'local/runs/20260905-p3-build-sparse-lift-v3/manifest.json').read_text());assert build['driver_source_sha256']==archived['source_sha256']['native'+chr(92)+'sparse_lift'+chr(92)+'main.cpp']
 for path,digest in build['linked_library_sha256'].items():assert sha(path)==digest,path
 old=json.loads((root/'local/compiler-spike/startup-manifest-v1/identity.json').read_text());assert old['lifter_sha256']==sha(root/'build/remill/bin/lift/remill-lift-21.exe')
 checks=json.loads((root/'local/compiler-spike/sparse-checks-v4/summary.json').read_text());assert checks['native']['aot_cases']==8192 and not checks['native']['original_code_execution'];assert checks['lifter_sha256']==build['executable_sha256']

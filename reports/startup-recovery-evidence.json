@@ -13025,5 +13025,457 @@
         }
       }
     }
+  },
+  "bmi_trap": {
+    "path": "reports\\bmi-trap-evidence.json",
+    "sha256": "825f986ac7129b3a081e8111232c22a0981d2bc77976dd10adddf0a183c9f782",
+    "result": {
+      "status": "BMI and explicit UD2 compilation evidence pass; P3 open",
+      "directory": "local/compiler-spike/startup-bmi-trap-recompile-v2-repeat",
+      "summary": {
+        "status": "bounded sparse compilation survey complete; startup gate NOT passed",
+        "manifest_units": 21160,
+        "quarantined_units": 8,
+        "planned_batches": 5,
+        "selected_batches": 5,
+        "selected_units": 48,
+        "compiled_units": 14,
+        "compiled_constructors": 0,
+        "constructor_entries": 18444,
+        "results": {
+          "object_built": 7,
+          "lift_rejected": 34
+        },
+        "object_bytes": 473648,
+        "duplicate_logical_roots": 0,
+        "missing_path_records": 6,
+        "explicit_native_trap_sites": 16,
+        "limitations": "All objects are static compilation evidence. Explicit indirect/service/exception/callback boundaries and logical-root ownership require native runtime/link integration. No game linking/execution, original CPU fallback or performance claim."
+      },
+      "new_compiled_entries": 14,
+      "combined_compiled_entries": 21118,
+      "remaining_compiler_rejections": 34,
+      "remaining_quarantined_manifests": 8,
+      "remaining_constructor_rejections": [
+        {
+          "ordinal": 13655,
+          "entry": 16983744
+        },
+        {
+          "ordinal": 15621,
+          "entry": 42431136
+        }
+      ],
+      "duplicate_logical_roots": 0,
+      "byte_identical_repeat": true,
+      "objects": [
+        {
+          "folder": "batch-0000",
+          "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+          "entries": [
+            188736,
+            189072,
+            189968,
+            190128,
+            190336,
+            190416
+          ],
+          "object_sha256": "76d01f185fff404874ca2247a4d964960db86e32e5b8c3b7037e114b0006595d",
+          "audit_sha256": "847b84646f91bf9c17af50276c142e7870ab1af33670f3a55459e209ff158de1",
+          "native_traps": [
+            12885090711,
+            12885091015,
+            12885091904,
+            12885092097,
+            12885092239,
+            12885092319
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_undefined_8",
+            "sub_30002ec00",
+            "__remill_read_memory_64",
+            "sub_30002ec10",
+            "__remill_compare_eq",
+            "__bb_native_ud2",
+            "sub_300000380",
+            "__remill_compare_neq",
+            "__remill_flag_computation_carry",
+            "__remill_flag_computation_overflow",
+            "__remill_function_return",
+            "sub_3000003b0",
+            "sub_300000420",
+            "__remill_read_memory_32",
+            "__remill_write_memory_32",
+            "__remill_compare_sle",
+            "sub_300000440",
+            "sub_300000470",
+            "sub_300000490"
+          ]
+        },
+        {
+          "folder": "batch-0001-a-b-b",
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entries": [
+            132352
+          ],
+          "object_sha256": "ce1bfe4b3e828e8892e623fa34afcfd5438bce00ade02d084955b5580c605f1b",
+          "audit_sha256": "ec72a2b11345c6a1c0039ac9c2ebf169281cd5acd9a60c8c8c8571a2f002bab7",
+          "native_traps": [
+            34359878991,
+            34359879027,
+            34359879060,
+            34359879076,
+            34359879167,
+            34359879183,
+            34359879213
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "__remill_read_memory_8",
+            "__remill_undefined_8",
+            "__remill_compare_eq",
+            "__remill_compare_neq",
+            "__remill_read_memory_32",
+            "sub_800000240",
+            "__bb_native_ud2",
+            "__remill_compare_ule",
+            "__remill_compare_ult",
+            "__remill_compare_uge",
+            "__remill_compare_ugt",
+            "__remill_write_memory_8",
+            "sub_80002ffd0",
+            "sub_800022740",
+            "sub_80001feb0",
+            "__remill_write_memory_32",
+            "llvm.umin.i32",
+            "sub_800023f20",
+            "__remill_write_memory_f32",
+            "sub_800000250",
+            "sub_800009b30",
+            "sub_800000330",
+            "__remill_function_return",
+            "sub_80001f560",
+            "__remill_missing_block"
+          ]
+        },
+        {
+          "folder": "batch-0001-b-a",
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entries": [
+            141120,
+            147232
+          ],
+          "object_sha256": "ac9e3966c512fbde1332379895f8d0657ed86385087164b96a7950f906100915",
+          "audit_sha256": "a2a92e95f4ea32ae499fdcc30a0998f14241997a36bfd5b7343ee77af29d2d94",
+          "native_traps": [
+            34359882585,
+            34359883608,
+            34359887610
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_undefined_8",
+            "__remill_compare_eq",
+            "__remill_read_memory_64",
+            "__remill_read_memory_8",
+            "__remill_compare_ugt",
+            "__remill_compare_neq",
+            "llvm.umin.i32",
+            "sub_800000240",
+            "__bb_native_ud2",
+            "__remill_compare_ult",
+            "__remill_read_memory_32",
+            "__remill_compare_slt",
+            "__remill_compare_uge",
+            "__remill_write_memory_32",
+            "sub_800000340",
+            "__remill_write_memory_f32",
+            "__remill_compare_ule",
+            "sub_800000250",
+            "__remill_function_return",
+            "__remill_write_memory_8",
+            "sub_80001feb0",
+            "sub_800009b30",
+            "sub_800024ea0",
+            "sub_80001f560",
+            "__remill_missing_block",
+            "sub_800000350",
+            "sub_800023e70",
+            "sub_800000110",
+            "sub_80002ffd0",
+            "__remill_compare_sle"
+          ]
+        },
+        {
+          "folder": "batch-0003-b-a-b-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            14681408
+          ],
+          "object_sha256": "622c52ea514dbd94b384f0a53dd7d3c7166ef6120eef5fe21061ebd08bfc41ab",
+          "audit_sha256": "4176fa36d25f2c18faaf1c60d906440de0802d3c50351a669462f2ee548e8c91",
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_read_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_compare_neq",
+            "__remill_write_memory_32",
+            "__remill_compare_ugt",
+            "__remill_compare_ult",
+            "__remill_undefined_8",
+            "__remill_read_memory_32",
+            "__remill_compare_eq",
+            "__remill_compare_uge",
+            "__remill_compare_ule",
+            "llvm.umin.i32",
+            "__remill_read_memory_8",
+            "__remill_write_memory_8",
+            "__remill_function_return",
+            "__remill_write_memory_f32"
+          ]
+        },
+        {
+          "folder": "batch-0004-a-a-a",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            33902272
+          ],
+          "object_sha256": "1e7d3a98323f8fbfe0285635bfcc09839998347064d31a78dfaf8c5fb0d58aef",
+          "audit_sha256": "b001d012b9949732590a2350d32ac700adf966b0681876bdefc4cd36b0100c72",
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "__remill_write_memory_16",
+            "__remill_undefined_8",
+            "sub_1026279a0",
+            "__remill_read_memory_8",
+            "__remill_write_memory_8",
+            "__remill_read_memory_32",
+            "__remill_write_memory_32",
+            "__remill_function_call",
+            "__remill_compare_neq",
+            "sub_1020b55b0",
+            "__remill_compare_eq",
+            "sub_102055d60",
+            "sub_1020557c0",
+            "sub_102bbe4f8",
+            "__remill_function_return",
+            "__remill_missing_block",
+            "sub_102bbe978",
+            "sub_102bbf1b8"
+          ]
+        },
+        {
+          "folder": "batch-0004-b-b-a-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            45751328
+          ],
+          "object_sha256": "8efd6339b806a888416496202879cdd109a58035e241e2a944b9e1bd173d84b7",
+          "audit_sha256": "ee2b3f6ac629d372177d7d2e03702a01f475bcee6bb9e762573ae2c7c3d8cc08",
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_undefined_8",
+            "__remill_compare_eq",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "sub_1020b55b0",
+            "__remill_read_memory_64",
+            "__remill_flag_computation_carry",
+            "__remill_flag_computation_overflow",
+            "__remill_compare_ult",
+            "__remill_read_memory_8",
+            "__remill_function_call",
+            "sub_10263b9b0",
+            "__remill_jump",
+            "__remill_function_return"
+          ]
+        },
+        {
+          "folder": "batch-0004-b-b-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            45751840,
+            45752992
+          ],
+          "object_sha256": "eb043529478b17c194990f236d1ec84066969e2bf8a2f554ce0b1379eb3c869c",
+          "audit_sha256": "a72d70d7b38dc3981fa43b185438db09a1dcd51502d178b010c392745513d4e2",
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_compare_ult",
+            "__remill_undefined_8",
+            "__remill_read_memory_64",
+            "sub_1020b55b0",
+            "__remill_compare_eq",
+            "llvm.ctlz.i64",
+            "__remill_function_call",
+            "__remill_compare_ule",
+            "__remill_compare_uge",
+            "__remill_error",
+            "__remill_compare_neq",
+            "__remill_function_return",
+            "__remill_write_memory_8",
+            "sub_10207ee80",
+            "sub_102083fe0"
+          ]
+        }
+      ],
+      "semantic_module_sha256": "a6f62fb92422b04d9f0d1398eb703ffa8c2dd91daaa5c91da9011ea9d15c2c19",
+      "original_semantics_unchanged": true,
+      "bmi_checks": {
+        "status": "authored BMI semantics checks pass",
+        "result": {
+          "status": "pass",
+          "aot_cases": 34816,
+          "forms": 8,
+          "reference": "bit-scan plus authored hardware; defined flags and full State",
+          "game_code_execution": false
+        },
+        "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+        "semantics_sha256": "a6f62fb92422b04d9f0d1398eb703ffa8c2dd91daaa5c91da9011ea9d15c2c19",
+        "fixture_sha256": "d988911eebce2304180cbf72b080c0ae0a1d00108f7441e79ac85c0495043e79",
+        "input_sha256": "197ca2dc269591fb14fa8042b996eb8252b70454cfd557aecb3741e273a5330c",
+        "limitations": "Authored BMI forms on this Intel CPU; defined flag and full state/memory checks only. AF/PF undefined outputs are excluded. No original game CPU execution or exception/runtime validation."
+      },
+      "trap_checks": {
+        "status": "explicit native trap checks pass",
+        "input_cases": 6,
+        "normal": {
+          "status": "normal_return",
+          "game_code_execution": false
+        },
+        "fault": {
+          "status": "expected_native_fault",
+          "fault_pc": 4295098437,
+          "game_code_execution": false
+        },
+        "audit": {
+          "compiled_roots": [
+            4295098368
+          ],
+          "decoded_addresses": [
+            4295098368,
+            4295098371,
+            4295098373,
+            4295098378,
+            4295098432,
+            4295098437
+          ],
+          "execution": "none; static lifting census is not execution coverage",
+          "explicit_native_trap_addresses": [
+            4295098437
+          ],
+          "input_bytes": 18,
+          "input_instructions": 6,
+          "missing_instruction_starts": [],
+          "schema": 1,
+          "semantic_instruction_count": 5,
+          "unvisited_manifest_instructions": []
+        },
+        "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+        "fixture_sha256": "1209d88feda51453cdb5b246cbe3b10030bedf9171a739b9f37c909acb56c0a1",
+        "limitations": "Authored conditional return and diagnostic process termination only. No hardware UD2/game CPU execution, PS4 exception delivery or native signal-handler dispatch implementation."
+      },
+      "sparse_authored_cases": 8192,
+      "runs": {
+        "20260905-p3-build-extended-semantics-v1": {
+          "status": "pass",
+          "elapsed_seconds": 9.732456400059164,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "680c075dd2e92e98a5746b0dc48ea8309c793d3809082396f1e424ad144fea7a"
+        },
+        "20260905-p3-build-sparse-lift-v4": {
+          "status": "pass",
+          "elapsed_seconds": 14.927548700012267,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "680c075dd2e92e98a5746b0dc48ea8309c793d3809082396f1e424ad144fea7a"
+        },
+        "20260905-p3-build-sparse-lift-v5": {
+          "status": "pass",
+          "elapsed_seconds": 11.92482790001668,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "c7a8e1e2517dce1ce6839d345a7957732cfa969db72e2a8b66ddeb06b1e6b262"
+        },
+        "20260905-p3-bmi-semantics-checks-v1": {
+          "status": "pass",
+          "elapsed_seconds": 3.069288899889216,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "902720cd16718f59f35b423b8281d50126a2bcacfb017397e61562769c5fb370"
+        },
+        "20260905-p3-bmi-semantics-checks-v2": {
+          "status": "pass",
+          "elapsed_seconds": 4.108239699853584,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "1627ede47c3f3107416630049e3784592e00a29bc9c40d11bef3f3025b638481"
+        },
+        "20260905-p3-sparse-lift-checks-v5": {
+          "status": "pass",
+          "elapsed_seconds": 2.418140299851075,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "1627ede47c3f3107416630049e3784592e00a29bc9c40d11bef3f3025b638481"
+        },
+        "20260905-p3-sparse-trap-checks-v1": {
+          "status": "pass",
+          "elapsed_seconds": 3.286995799979195,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "a6f290e5fc4092c59279275344ce569657fc6837c859d44f8b9fc98be37d3fc2"
+        },
+        "20260905-p3-startup-bmi-recompile-v1": {
+          "status": "failed",
+          "elapsed_seconds": 15.428403599886224,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "b0aead84e885e175b26be94b6c3a52e6650b8c3d3e602519923c3307cdd59255"
+        },
+        "20260905-p3-startup-bmi-trap-recompile-v1": {
+          "status": "failed",
+          "elapsed_seconds": 16.46680499985814,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "1627ede47c3f3107416630049e3784592e00a29bc9c40d11bef3f3025b638481"
+        },
+        "20260905-p3-startup-bmi-trap-recompile-v2-repeat": {
+          "status": "failed",
+          "elapsed_seconds": 16.122810599859804,
+          "source_commit": "517db4668bd7073c4f09b927e2e07cfaf1c845ae",
+          "sources_sha256": "1627ede47c3f3107416630049e3784592e00a29bc9c40d11bef3f3025b638481"
+        }
+      },
+      "limitations": "Only authored BMI/conditional-trap code executed. Game-derived objects retain explicit service/control/exception dependencies and were not linked or executed. UD2 reports the faulting logical PC and terminates through a dedicated native boundary; PS4 exception delivery is not implemented. AF/PF outputs are undefined and excluded from BMI equality.",
+      "native_game_boot": false,
+      "native_port_playable": false
+    }
   }
 }
