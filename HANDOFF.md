@@ -1,6 +1,6 @@
 # Bloodborne recompilation continuation
 
-Updated 2026-09-05 17:12 UTC. Execute the authorized PLAN.md autonomously. Read reports/STATUS.md, reports/baseline.md, reports/compiler-spike.md and reports/decisions/0002-promoted-state-and-control-boundaries.md first. No PS4 access exists. No playable native port exists.
+Updated 2026-09-05 18:02 UTC. Execute the authorized PLAN.md autonomously. Read reports/STATUS.md, reports/baseline.md, reports/compiler-spike.md and reports/decisions/0002-promoted-state-and-control-boundaries.md first. No PS4 access exists. No playable native port exists.
 
 ## Current result and next work
 
@@ -8,7 +8,7 @@ P0 passed with optional trophy/DLC limits. P1 reaches clinic movement, normal ga
 
 P2's bounded feasibility gate now supports proceeding to P3: eleven real roots / 13,584 full-state cases; real relative jump table/RIP data; callback/nonlocal transfer; TLS/locked XADD/MFENCE fixtures. State promotion reduces representative longer-kernel ratios below 2x; tiny list length 1 remains 2.22x. The 1000-object scale survey still has 842 unresolved execution boundaries and is not execution coverage.
 
-Next: build a provenance-aware P3 database from metadata/relocations/recursive decode and independently cross-check boundaries/indirect targets. The real-jump fixture demonstrates why blindly decoding whole unwind ranges fails: the range contains embedded table data. Separately continue the baseline toward Hunter's Dream and measure profiler overhead/CPU/GPU/queue costs. Do not start broad runtime execution without the corresponding P3/P4 gates.
+Next: use local/cfg/startup-db-v1/analysis.sqlite and frontier.json to recover the ordered 18,444 constructor roots. 16,069 lack unwind-index starts; the current startup traversal stops at 18,437 undecoded entries. See reports/control-flow.md for failed-gate evidence and commands. The real-jump fixture demonstrates why blindly decoding whole unwind ranges fails: the range contains embedded table data. Separately continue the baseline toward Hunter's Dream and measure profiler overhead/CPU/GPU/queue costs. Do not start broad runtime execution without the corresponding P3/P4 gates.
 
 ## Inputs and immutable evidence
 
@@ -60,4 +60,4 @@ Normal Codex sandbox shell calls still fail helper_unknown_error after restart. 
 
 Maintain durable status and investigate failed gates. No PS4, proprietary SDK purchase, emulator endpoint or direct-execution substitution is authorized as a replacement for native recompilation.
 
-P3 has begun: local/cfg/seed-v1 records all eight modules (169640 unwind ranges, 238609 relocations), and local/cfg/ghidra-bitreader-v1 independently recovers all five table targets and agrees on 113 instruction boundaries. See reports/control-flow.md. Ghidra/JDK are installed and verified locally; no user action was required. Use tools/ghidra_headless.py for isolated Java settings/caches. Next is the bounded recursive-decode survey, not execution of these metadata seeds.
+P3 checkpoint: seed-v1/v2 reproduce byte-for-byte. survey-v5 covers 1463 selected ranges with zero overlapping/undecodable instructions, but 42 range-end findings and thousands of unresolved exits remain. exceptions-v2 has 225 regions/1223 call-site records/692 landing pads; ghidra-exceptions-v2 independently agrees on every region/call-site field. Seven exception reader checks pass. startup-v1 preserves 18444 constructor targets in invocation order; ghidra-startup-v1 agrees on all 34 reachable initializer instructions and both indirect calls. startup-db-v1 merges these facts and records the open startup frontier. Read reports/control-flow-evidence.json for hashes and exact run records. No original game CPU code was executed by this P3 work. Ghidra/JDK are installed locally; use tools/ghidra_headless.py for isolated settings. No user action is pending. P1/P2 milestone source is committed as 3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e; the subsequent P3 commit contains the tools and this checkpoint.

@@ -1,0 +1,718 @@
+{
+  "status": "focused P3 evidence consistency pass; startup closure gate remains open",
+  "evidence": {
+    "metadata": {
+      "path": "local/cfg/seed-v1/summary.json",
+      "sha256": "0ce02b7dc4bf7feb9b0c06c4bf139ca914771f2e613d986da7accc9773423e2b",
+      "result": {
+        "status": "metadata database built; P3 recovery gate NOT passed",
+        "modules": [
+          {
+            "file": "eboot.bin",
+            "sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "unwind_ranges": 162959,
+            "unwind_error": null,
+            "symbols": 703,
+            "relocations": 235000
+          },
+          {
+            "file": "libc.prx",
+            "sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "unwind_ranges": 2164,
+            "unwind_error": null,
+            "symbols": 2221,
+            "relocations": 2097
+          },
+          {
+            "file": "libSceFace.prx",
+            "sha256": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "unwind_ranges": 673,
+            "unwind_error": null,
+            "symbols": 51,
+            "relocations": 452
+          },
+          {
+            "file": "libSceFios2.prx",
+            "sha256": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "unwind_ranges": 650,
+            "unwind_error": null,
+            "symbols": 250,
+            "relocations": 220
+          },
+          {
+            "file": "libSceHand.prx",
+            "sha256": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "unwind_ranges": 32,
+            "unwind_error": null,
+            "symbols": 14,
+            "relocations": 10
+          },
+          {
+            "file": "libSceHeadTracker.prx",
+            "sha256": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "unwind_ranges": 605,
+            "unwind_error": null,
+            "symbols": 53,
+            "relocations": 364
+          },
+          {
+            "file": "libSceS3DConversion.prx",
+            "sha256": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "unwind_ranges": 1228,
+            "unwind_error": null,
+            "symbols": 82,
+            "relocations": 128
+          },
+          {
+            "file": "libSceSmart.prx",
+            "sha256": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "unwind_ranges": 1329,
+            "unwind_error": null,
+            "symbols": 112,
+            "relocations": 338
+          }
+        ],
+        "counts": {
+          "module": 8,
+          "segment": 67,
+          "unwind_range": 169640,
+          "symbol": 3486,
+          "relocation": 238609,
+          "required_name": 62,
+          "seed": 171430,
+          "pointer_candidate": 204539,
+          "issue": 0,
+          "edge": 5,
+          "validated_contract": 1
+        },
+        "seconds": 5.478382900124416,
+        "db_sha256": "390dc528c6a562ee10d121cc5689d76a34c17d386f7e4d5668ae6da8ab9da43e",
+        "limitations": "No metadata range is automatically a complete function. Pointer candidates are not confirmed call targets. No broad CFG decode, startup closure, dynamic module closure, or execution coverage is claimed."
+      }
+    },
+    "metadata_repeat": {
+      "path": "local/cfg/seed-v2/summary.json",
+      "sha256": "1599cd4e45a2a85ee9f3c958c08a18fe2669d9980e3419b169064cb885374a0b",
+      "result": {
+        "status": "metadata database built; P3 recovery gate NOT passed",
+        "modules": [
+          {
+            "file": "eboot.bin",
+            "sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "unwind_ranges": 162959,
+            "unwind_error": null,
+            "symbols": 703,
+            "relocations": 235000
+          },
+          {
+            "file": "libc.prx",
+            "sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "unwind_ranges": 2164,
+            "unwind_error": null,
+            "symbols": 2221,
+            "relocations": 2097
+          },
+          {
+            "file": "libSceFace.prx",
+            "sha256": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "unwind_ranges": 673,
+            "unwind_error": null,
+            "symbols": 51,
+            "relocations": 452
+          },
+          {
+            "file": "libSceFios2.prx",
+            "sha256": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "unwind_ranges": 650,
+            "unwind_error": null,
+            "symbols": 250,
+            "relocations": 220
+          },
+          {
+            "file": "libSceHand.prx",
+            "sha256": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "unwind_ranges": 32,
+            "unwind_error": null,
+            "symbols": 14,
+            "relocations": 10
+          },
+          {
+            "file": "libSceHeadTracker.prx",
+            "sha256": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "unwind_ranges": 605,
+            "unwind_error": null,
+            "symbols": 53,
+            "relocations": 364
+          },
+          {
+            "file": "libSceS3DConversion.prx",
+            "sha256": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "unwind_ranges": 1228,
+            "unwind_error": null,
+            "symbols": 82,
+            "relocations": 128
+          },
+          {
+            "file": "libSceSmart.prx",
+            "sha256": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "unwind_ranges": 1329,
+            "unwind_error": null,
+            "symbols": 112,
+            "relocations": 338
+          }
+        ],
+        "counts": {
+          "module": 8,
+          "segment": 67,
+          "unwind_range": 169640,
+          "symbol": 3486,
+          "relocation": 238609,
+          "required_name": 62,
+          "seed": 171430,
+          "pointer_candidate": 204539,
+          "issue": 0,
+          "edge": 5,
+          "validated_contract": 1
+        },
+        "seconds": 4.388137799920514,
+        "db_sha256": "390dc528c6a562ee10d121cc5689d76a34c17d386f7e4d5668ae6da8ab9da43e",
+        "limitations": "No metadata range is automatically a complete function. Pointer candidates are not confirmed call targets. No broad CFG decode, startup closure, dynamic module closure, or execution coverage is claimed."
+      }
+    },
+    "switch_check": {
+      "path": "local/cfg/ghidra-bitreader-v1/summary.json",
+      "sha256": "8614f42c9f54b8e8c1381559ac5c29981c5b216fb1506c31cb67c453325d8562",
+      "result": {
+        "status": "pass",
+        "ghidra_version": "12.1.3",
+        "instruction_boundaries_agree": 113,
+        "independent_jump_targets": [
+          {
+            "branch": "0004023a",
+            "cases": [
+              262989,
+              262716,
+              262756,
+              262802,
+              262856
+            ]
+          }
+        ],
+        "raw_sha256": "54ec3e9d4525e1ed8e131a86530b4a8a50d3de5b076acb58ea22c66c7ad45e41",
+        "caveat": "One bounded function cross-check; decompiled C is evidence for analysis, not automatically trusted compiled source."
+      }
+    },
+    "exception_metadata": {
+      "path": "local/cfg/exceptions-v2/summary.json",
+      "sha256": "5f28b472724b37f3c10a821b808cc018af8fa08665c0916be7a9d6ac6244634d",
+      "result": {
+        "status": "static exception metadata extracted; runtime exception gate NOT passed",
+        "counts": {
+          "exception_region": 225,
+          "exception_call_site": 1223,
+          "exception_action": 121,
+          "exception_issue": 0
+        },
+        "unique_landing_pads": 692,
+        "modules": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "augmentations": {
+              "zR": 162921,
+              "zPLR": 38
+            },
+            "lsda_regions": 38
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "name": "libSceFace.prx",
+            "augmentations": {
+              "zR": 673
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "name": "libSceFios2.prx",
+            "augmentations": {
+              "zR": 650
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "name": "libSceHand.prx",
+            "augmentations": {
+              "zR": 32
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "name": "libSceHeadTracker.prx",
+            "augmentations": {
+              "zR": 605
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "name": "libSceS3DConversion.prx",
+            "augmentations": {
+              "zR": 1228
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "name": "libSceSmart.prx",
+            "augmentations": {
+              "zR": 1329
+            },
+            "lsda_regions": 0
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "name": "libc.prx",
+            "augmentations": {
+              "zR": 1977,
+              "zPLR": 187
+            },
+            "lsda_regions": 187
+          }
+        ],
+        "issues": [],
+        "seconds": 8.101388500072062,
+        "db_sha256": "a8e436be537c9ac0bf66b816482e2175260cc2eda9ac1136052bbd56175782e3",
+        "limitation": "CFI is not interpreted into a Windows unwind implementation. Type matching, dynamic personalities, saved register rules and landing-pad execution are not validated."
+      }
+    },
+    "exception_check": {
+      "path": "local/cfg/ghidra-exceptions-v2/summary.json",
+      "sha256": "4edd675d9822a94f3f067d1eb6c22b2ca1cf0e4641cad7a4d5f283ac9fd02c3d",
+      "result": {
+        "status": "pass",
+        "ghidra_version": "12.1.3",
+        "modules": [
+          {
+            "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "regions": 38,
+            "call_sites": 287
+          },
+          {
+            "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "name": "libc.prx",
+            "regions": 187,
+            "call_sites": 936
+          }
+        ],
+        "limitations": "Agreement covers FDE range, LSDA address, and all call-site intervals/landing pads/action indices. No CFI execution, type matching or runtime exception propagation was tested."
+      }
+    },
+    "startup_inventory": {
+      "path": "local/cfg/startup-v1/summary.json",
+      "sha256": "db85da967e6ba9e911381694942110e540371bbd190a945ef48a8c5b239c2f62",
+      "result": {
+        "status": "startup static roots recovered; P3 compilation/exit closure gate NOT passed",
+        "input_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "initializer": {
+          "start": 32,
+          "size": 113,
+          "sha256": "cfbc899269540e0049fd48c4c486f5578379f53ba329043f09db87bca7dac662",
+          "indexed_unwind_start": false,
+          "instructions": 35,
+          "forward_call_site": 88,
+          "reverse_call_site": 130
+        },
+        "forward_array": {
+          "start": 87972664,
+          "end": 87972664,
+          "guard_slot": 87964632,
+          "guard_value": 87972664,
+          "guard_evidence": "R_X86_64_RELATIVE",
+          "initial_entries": 0
+        },
+        "reverse_array": {
+          "first_slot": 87964600,
+          "sentinel": 87817048,
+          "entries": 18444,
+          "unique_targets": 18444,
+          "indexed_unwind_starts": 2375,
+          "unindexed_roots": 16069,
+          "skipped_null_slots": []
+        },
+        "analysis_globals": {
+          "start": 87817048,
+          "size": 147592,
+          "sha256": "c3c15feba5d4b3fc82f8db097e62db18ae5217636995a0889467dee82510f247",
+          "relocations": 18445
+        },
+        "entry_calls": [
+          {
+            "caller": 180,
+            "target": 45868216,
+            "symbol": {
+              "index": 459,
+              "name": "bzQExy189ZI#q#q",
+              "nid": "bzQExy189ZI",
+              "bind": 1,
+              "type": 2,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libc",
+              "module": "libc",
+              "resolved_name": "_init_env"
+            }
+          },
+          {
+            "caller": 188,
+            "target": 45868232,
+            "symbol": {
+              "index": 460,
+              "name": "8G2LB+A3rzg#q#q",
+              "nid": "8G2LB+A3rzg",
+              "bind": 1,
+              "type": 2,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libc",
+              "module": "libc",
+              "resolved_name": "atexit"
+            }
+          },
+          {
+            "caller": 200,
+            "target": 45868232,
+            "symbol": {
+              "index": 460,
+              "name": "8G2LB+A3rzg#q#q",
+              "nid": "8G2LB+A3rzg",
+              "bind": 1,
+              "type": 2,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libc",
+              "module": "libc",
+              "resolved_name": "atexit"
+            }
+          },
+          {
+            "caller": 205,
+            "target": 32,
+            "symbol": null
+          },
+          {
+            "caller": 218,
+            "target": 31762112,
+            "symbol": null
+          },
+          {
+            "caller": 227,
+            "target": 45868248,
+            "symbol": {
+              "index": 461,
+              "name": "XKRegsFpEpk#q#q",
+              "nid": "XKRegsFpEpk",
+              "bind": 1,
+              "type": 2,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libc",
+              "module": "libc",
+              "resolved_name": "catchReturnFromMain"
+            }
+          },
+          {
+            "caller": 234,
+            "target": 45868264,
+            "symbol": {
+              "index": 462,
+              "name": "uMei1W9uyNo#q#q",
+              "nid": "uMei1W9uyNo",
+              "bind": 1,
+              "type": 2,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libc",
+              "module": "libc",
+              "resolved_name": "exit"
+            }
+          }
+        ],
+        "limitations": "Initial relocated data only. Executed initializers may modify remaining entries or register callbacks. Roots are not necessarily full functions; no constructor code or game entry was executed/compiled in this inventory."
+      }
+    },
+    "startup_check": {
+      "path": "local/cfg/ghidra-startup-v1/summary.json",
+      "sha256": "4d3c70114c53836c0d2b6fb3a34faca62eeff7f2df9e6f5c35de8535ba3e3d3d",
+      "result": {
+        "status": "pass",
+        "instructions": 34,
+        "indirect_call_sites": [
+          88,
+          130
+        ],
+        "initializer_sha256": "cfbc899269540e0049fd48c4c486f5578379f53ba329043f09db87bca7dac662",
+        "limitations": "Independent instruction/flow check of the initializer only. Ghidra receives relocation-applied data, not constructor targets as annotations. Constructor coverage, mutations and runtime callback registration remain open."
+      }
+    },
+    "startup_frontier": {
+      "path": "local/cfg/startup-db-v1/summary.json",
+      "sha256": "f65cd506217207ad2d1993ad464c65c259c4716950b69206dd111ac2a855a076",
+      "result": {
+        "status": "P3 startup compilation/exit closure gate NOT passed",
+        "constructor_roots": 18444,
+        "constructor_unindexed_roots": 16069,
+        "decoded_ranges_traversed": 19,
+        "frontier_counts": {
+          "import_contract_unvalidated": 5,
+          "decode_fallthrough_at_range_end": 1,
+          "entry_not_decoded": 18437,
+          "unresolved_indirect_call": 2,
+          "annotated_control_contract_requires_runtime": 4
+        },
+        "db_sha256": "4e95fef8253d7c3eb7eecda275c9d72c0574dfed2a9f0f7375190ac8242ed299",
+        "limitations": "Only the currently recovered ranges are traversed. Missing bodies stop expansion; constructor targets reflect initial relocated data. Traversal is not execution or proof of complete startup discovery."
+      }
+    }
+  },
+  "surveys": [
+    {
+      "path": "local/cfg/survey-v1/summary.json",
+      "sha256": "6e69158df195e20d3614e64ce78ab222d95e949ac6544d38db68ded4b09882ae",
+      "counts": {
+        "decoded_range": 1239,
+        "instruction": 391611,
+        "ownership": 391611,
+        "decode_edge": 444754,
+        "rip_reference": 20140,
+        "decode_issue": 519
+      },
+      "issue_kinds": {
+        "fallthrough_at_range_end": 471,
+        "overlapping_decode_bytes": 2,
+        "overlapping_decode_target": 1,
+        "undecodable_or_crosses_range_end": 45
+      },
+      "edge_kinds": {
+        "cross_range_jump": 115,
+        "direct_call": 15724,
+        "direct_jump": 40069,
+        "fallthrough": 381131,
+        "service_or_trap_boundary": 29,
+        "terminal": 1232,
+        "unresolved_indirect_call": 5630,
+        "unresolved_indirect_jump": 819,
+        "validated_jump_table": 5
+      },
+      "independent_switch_instruction_set_equal": true
+    },
+    {
+      "path": "local/cfg/survey-v2/summary.json",
+      "sha256": "3e1d5fa1dab5c511a5176c456b70a651884796d131d6eede21f492d4a12347e0",
+      "counts": {
+        "decoded_range": 1239,
+        "instruction": 390527,
+        "ownership": 390527,
+        "decode_edge": 443426,
+        "rip_reference": 20126,
+        "decode_issue": 77
+      },
+      "issue_kinds": {
+        "fallthrough_at_range_end": 75,
+        "undecodable_or_crosses_range_end": 2
+      },
+      "edge_kinds": {
+        "cross_range_jump": 115,
+        "direct_call": 15126,
+        "direct_jump": 40008,
+        "fallthrough": 379891,
+        "nonreturn_import_call": 574,
+        "service_or_trap_boundary": 29,
+        "terminal": 1232,
+        "unresolved_indirect_call": 5627,
+        "unresolved_indirect_jump": 819,
+        "validated_jump_table": 5
+      },
+      "independent_switch_instruction_set_equal": true
+    },
+    {
+      "path": "local/cfg/survey-v3/summary.json",
+      "sha256": "ce52fe9d88869b4a1551cdc28a6e0d1ae9231fa545a486ded015a2b200f9e93e",
+      "counts": {
+        "decoded_range": 1239,
+        "instruction": 390523,
+        "ownership": 390523,
+        "decode_edge": 443446,
+        "rip_reference": 20126,
+        "decode_issue": 51
+      },
+      "issue_kinds": {
+        "fallthrough_at_range_end": 51
+      },
+      "edge_kinds": {
+        "cross_range_jump": 115,
+        "direct_call": 15095,
+        "direct_jump": 40008,
+        "fallthrough": 379880,
+        "nonlocal_import_call": 31,
+        "nonreturn_import_call": 574,
+        "service_or_trap_boundary": 29,
+        "terminal": 1232,
+        "unresolved_indirect_call": 5627,
+        "unresolved_indirect_jump": 819,
+        "unresolved_restored_context": 31,
+        "validated_jump_table": 5
+      },
+      "independent_switch_instruction_set_equal": true
+    },
+    {
+      "path": "local/cfg/survey-v4/summary.json",
+      "sha256": "965638f30d0006f975bc13c1adfcfa24efd1d55b877d58cae7b8acfa0449b823",
+      "counts": {
+        "decoded_range": 1463,
+        "instruction": 423277,
+        "ownership": 423277,
+        "decode_edge": 482526,
+        "rip_reference": 21964,
+        "decode_issue": 264,
+        "analysis_evidence": 6
+      },
+      "issue_kinds": {
+        "fallthrough_at_range_end": 260,
+        "undecodable_or_crosses_range_end": 4
+      },
+      "edge_kinds": {
+        "cross_range_jump": 133,
+        "direct_call": 17361,
+        "direct_jump": 45199,
+        "fallthrough": 410668,
+        "nonlocal_import_call": 31,
+        "nonreturn_import_call": 666,
+        "service_or_trap_boundary": 29,
+        "terminal": 1433,
+        "unresolved_indirect_call": 6147,
+        "unresolved_indirect_jump": 823,
+        "unresolved_restored_context": 31,
+        "validated_jump_table": 5
+      },
+      "independent_switch_instruction_set_equal": true
+    },
+    {
+      "path": "local/cfg/survey-v5/summary.json",
+      "sha256": "72583d8d0f80f9166863828055e87dbb6d9227ddaf436cfe9e29b9c9a7a4c739",
+      "counts": {
+        "decoded_range": 1463,
+        "instruction": 423239,
+        "ownership": 423239,
+        "decode_edge": 482515,
+        "rip_reference": 21963,
+        "decode_issue": 42,
+        "analysis_evidence": 6
+      },
+      "issue_kinds": {
+        "fallthrough_at_range_end": 42
+      },
+      "edge_kinds": {
+        "cross_range_jump": 133,
+        "direct_call": 16954,
+        "direct_jump": 45196,
+        "fallthrough": 410449,
+        "nonlocal_import_call": 45,
+        "nonreturn_import_call": 665,
+        "service_or_trap_boundary": 29,
+        "terminal": 1432,
+        "terminate_contract_call": 186,
+        "unresolved_exception_continuation": 203,
+        "unresolved_indirect_call": 6147,
+        "unresolved_indirect_jump": 823,
+        "unresolved_restored_context": 45,
+        "unwind_resume_call": 203,
+        "validated_jump_table": 5
+      },
+      "independent_switch_instruction_set_equal": true
+    }
+  ],
+  "runs": {
+    "20260905-p3-recursive-survey-v1": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 22.08606190001592
+    },
+    "20260905-p3-recursive-survey-v2": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 19.376915599917993
+    },
+    "20260905-p3-recursive-survey-v3": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 20.135766899911687
+    },
+    "20260905-p3-metadata-repeat": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 6.237584700109437
+    },
+    "20260905-p3-exception-metadata-v2": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 11.99129269993864
+    },
+    "20260905-p3-ghidra-exceptions-v2": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 12.103087399853393
+    },
+    "20260905-p3-exception-reader-checks": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 0.1616567000746727
+    },
+    "20260905-p3-recursive-survey-v4": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 21.80752839986235
+    },
+    "20260905-p3-recursive-survey-v5": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 27.782705400139093
+    },
+    "20260905-p3-startup-roots-v1": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 1.829199800034985
+    },
+    "20260905-p3-ghidra-startup-v1": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 8.752920399885625
+    },
+    "20260905-p3-startup-frontier-v1": {
+      "status": "pass",
+      "source_commit": "3f833397212b07fb8f0dd920cbc9b8ecc3ed9c7e",
+      "elapsed_seconds": 9.129808699944988
+    }
+  },
+  "retained_failures": [
+    {
+      "run": "20260905-p3-exception-metadata-v1",
+      "reason": "Duplicate lsda keyword while merging metadata dictionaries; corrected before v2."
+    },
+    {
+      "run": "20260905-p3-ghidra-exceptions-v1",
+      "reason": "37 omitted-null JSON differences; all numerical values agreed. serializeNulls fixed, both modules passed fresh v2."
+    }
+  ],
+  "native_game_boot": false,
+  "native_port_playable": false,
+  "gate": "P3 not passed: startup query stops at 18437 undecoded entries; indirect/mutable targets and native control/service contracts remain open."
+}

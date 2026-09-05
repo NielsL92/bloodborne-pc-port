@@ -1,0 +1,149 @@
+{
+  "schema": 2,
+  "contracts": [
+    {
+      "schema": 1,
+      "contract": "nonreturning stack-protector failure",
+      "nid": "Ou3iL1abvng",
+      "library": "libkernel",
+      "module": "libkernel",
+      "evidence": [
+        {
+          "kind": "pinned implementation",
+          "source": "external/shadPS4/src/core/libraries/kernel/kernel.cpp",
+          "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+          "registration_line": 480,
+          "implementation_line": 83,
+          "behavior": "UNREACHABLE invokes [[noreturn]] unreachable_impl via common/assert.h"
+        },
+        {
+          "kind": "independent compiler runtime contract",
+          "url": "https://gcc.gnu.org/onlinedocs/gccint/Stack-Smashing-Protection.html",
+          "behavior": "default stack-protection failure calls __stack_chk_fail as a noreturn function"
+        }
+      ],
+      "limitation": "Static ABI/runtime contract, not a PS4 observation; apply only to decoded RIP-relative PLT stubs whose relocation resolves to this exact NID/provider.",
+      "id": "stack-protector-failure",
+      "edge_kind": "nonreturn_import_call",
+      "restored_target_unknown": false
+    },
+    {
+      "id": "libc-longjmp",
+      "contract": "nonlocal transfer to a saved context",
+      "nid": "lKEN2IebgJ0",
+      "library": "libc",
+      "module": "libc",
+      "edge_kind": "nonlocal_import_call",
+      "restored_target_unknown": true,
+      "evidence": [
+        {
+          "kind": "supplied module static implementation",
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 195840,
+          "size": 112,
+          "code_sha256": "14e71b2f024943ecf9c0d0506dc1650174e2679d90a64d98a8c225853849e085",
+          "behavior": "Loads saved RSP, RBX, RBP, R12-R15 and return PC; restores floating-point controls; writes saved PC at restored RSP and RETs. The original call continuation is not used. A helper call at 0x480 remains unclassified."
+        },
+        {
+          "kind": "independent C library contract",
+          "url": "https://www.sourceware.org/glibc/manual/2.23/html_node/Non_002dLocal-Details.html",
+          "behavior": "longjmp restores saved execution context and resumes the corresponding setjmp with a nonzero result."
+        }
+      ],
+      "limitation": "Static identity/control-flow evidence, not execution validation of the supplied libc routine. The saved destination and valid lifetime/thread context remain unresolved; this annotation never supplies a compiled target.",
+      "unknown_exit_kind": "unresolved_restored_context",
+      "local_entries": [
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 195840,
+          "size": 112,
+          "code_sha256": "14e71b2f024943ecf9c0d0506dc1650174e2679d90a64d98a8c225853849e085",
+          "behavior": "Defined longjmp export, exact NID lKEN2IebgJ0."
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "rva": 41187520,
+          "size": 21,
+          "code_sha256": "799b3a85bd7e5372385d57952ab7d98275282547ec1957b4b0e0858dd0b128eb",
+          "behavior": "Store error code, select saved context, call exact libc longjmp PLT at 0x2bbe978 as final instruction."
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "rva": 41187488,
+          "size": 24,
+          "code_sha256": "2e07a126a2c45ff4499502afd6bc21e34dab25b482225cd25568e33c2260e9a7",
+          "behavior": "Load object context and error arguments; final call to verified wrapper 0x27478c0."
+        }
+      ]
+    },
+    {
+      "id": "libc-unwind-resume",
+      "nid": "f1zwJ3jAI2k",
+      "library": "libc",
+      "module": "libc",
+      "contract": "resume exception unwinding; no ordinary return",
+      "edge_kind": "unwind_resume_call",
+      "restored_target_unknown": true,
+      "unknown_exit_kind": "unresolved_exception_continuation",
+      "local_entries": [
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 342352,
+          "size": 384,
+          "code_sha256": "a5775f6b12bd098fa09dcf9a53cffa9e4843833f54bd9cefa576d117c06c9ac5",
+          "behavior": "Defined _Unwind_Resume export. Runtime walks unwind context and dispatches personalities; the required continuation is not a normal call return."
+        }
+      ],
+      "evidence": [
+        {
+          "kind": "independent exception ABI contract",
+          "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi-eh.html",
+          "behavior": "_Unwind_Resume never returns to its calling landing pad."
+        }
+      ],
+      "limitation": "CIE/LSDA parsing does not implement this routine. Unwinder-selected cleanup/handler destinations remain unresolved."
+    },
+    {
+      "id": "libc-terminate",
+      "nid": "qYhnoevd9bI",
+      "library": "libc",
+      "module": "libc",
+      "contract": "termination via a valid terminate_handler",
+      "edge_kind": "terminate_contract_call",
+      "restored_target_unknown": false,
+      "local_entries": [
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 394176,
+          "size": 61,
+          "code_sha256": "2793053d1a6236af41c791dea44ef4a86adbcf7c174352207db0404f6de40153",
+          "behavior": "Defined std::terminate export. Calls configured handler indirectly. RET exists if that handler illegally returns: contract applies only with a valid nonreturning handler."
+        },
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 403616,
+          "size": 11,
+          "code_sha256": "5cdc94751323c072f8eecc7f2679c5d448631ea0357182e4d39778f4412e1bbb",
+          "behavior": "Calls __cxa_begin_catch at 0x60340, then std::terminate at 0x603c0."
+        },
+        {
+          "module_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "rva": 43975424,
+          "size": 11,
+          "code_sha256": "eb2b252156ddff7cb350fd77a16eb06a60195232e7c5fa87bf5ebc69793ac22f",
+          "behavior": "Unindexed helper: PUSH RAX; call PLT 0x2bc0818 (__cxa_begin_catch NID 3cUUypQzMiI); call PLT 0x2bc0838 (std::terminate NID qYhnoevd9bI). Padding starts at +11."
+        }
+      ],
+      "evidence": [
+        {
+          "kind": "independent C++ library contract",
+          "url": "https://eel.is/c%2B%2Bdraft/exception.terminate",
+          "behavior": "std::terminate is noreturn; a terminate_handler is required to terminate execution without returning."
+        }
+      ],
+      "limitation": "The configured handler remains unvalidated and must be checked at runtime. A returning handler is a contract violation, not an executable fallthrough to table bytes. The 11-byte helper bounds come from exact instruction/call-target inspection, not an unwind index."
+    }
+  ],
+  "application": "Only exact NID/library/provider matches through a decoded RIP-relative PLT jump and type-7 GOT relocation. No signature matching by proximity or arbitrary call-site suppression.",
+  "local_application": "Exact module hash, RVA, byte extent and SHA256 required for local entries. These entries are static contract annotations, not proof of runtime behavior."
+}
