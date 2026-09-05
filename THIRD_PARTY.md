@@ -65,3 +65,10 @@ headless game analysis.
 All game-derived bytes, lifted IR, native objects, disassembly, screenshots,
 profiles and saves remain in excluded local/build directories. Authored harness
 sources and compiler-adapter tooling are tracked separately.
+
+
+## Restart continuation tools
+- Tracy v0.11.1 tools: 5d542dc09f3d9378d005092a4ad446bd405f819a, BSD-3-Clause; external/tracy-tools/LICENSE. The project frame exporter links the same server. Dependency source pins are in reports/dependency-lock.json.
+- Ghidra 12.1.3 portable distribution: Apache-2.0 plus bundled dependency notices; external/toolchains/ghidra-12.1.3/ghidra_12.1.3_PUBLIC/LICENSE and included licenses. Official archive digest in reports/p3-tool-downloads.json.
+- Eclipse Temurin JDK21.0.12.1+1: OpenJDK GPLv2 with Classpath Exception and included third-party notices; workspace-local distribution. Archive identity is pinned in reports/p3-tool-downloads.json.
+These tools and private game-derived analysis outputs are not uploaded or distributed by this task.

@@ -1,11 +1,18 @@
 {
   "status": "pass",
-  "python_sources_parsed": 28,
-  "report_json_files": 8,
+  "python_sources_parsed": 41,
+  "report_json_files": 11,
   "verified_effective_links": 28840,
   "metadata_files_rehashed": 31,
   "original_packages_rehashed": false,
   "active_prior_runs": [],
+  "non_command_manifests": [
+    {
+      "path": "local\\runs\\final-continuation\\manifest.json",
+      "kind": "historical continuation snapshot",
+      "commit": "9973e630ebc20375d5fd3f62085cf5438bcda73c"
+    }
+  ],
   "captures": [
     {
       "capture": "baseline-first-boot",
@@ -32,6 +39,86 @@
       "image_count": 18
     },
     {
+      "capture": "research-clinic",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 64
+    },
+    {
+      "capture": "research-clinic-clean-reload",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 36
+    },
+    {
+      "capture": "research-clinic-exit-confirm",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 44
+    },
+    {
+      "capture": "research-clinic-movement",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 48
+    },
+    {
+      "capture": "research-clinic-options",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 30
+    },
+    {
+      "capture": "research-clinic-proper-exit",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 44
+    },
+    {
+      "capture": "research-clinic-reload",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 26
+    },
+    {
+      "capture": "research-clinic-reload-continue",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 36
+    },
+    {
+      "capture": "research-clinic-reload-warning",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 30
+    },
+    {
+      "capture": "research-clinic-sharing-fixed",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 42
+    },
+    {
       "capture": "research-controls",
       "result": {
         "exit": 1,
@@ -40,12 +127,36 @@
       "image_count": 16
     },
     {
+      "capture": "research-finish",
+      "result": {
+        "exit": 3221225477,
+        "reason": "process_exit"
+      },
+      "image_count": 16
+    },
+    {
+      "capture": "research-finish-repeat",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 34
+    },
+    {
       "capture": "research-metadata-corrected",
       "result": {
         "exit": 1,
         "reason": "bounded_capture_end"
       },
       "image_count": 26
+    },
+    {
+      "capture": "research-name",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 32
     },
     {
       "capture": "research-new-game",
@@ -72,17 +183,18 @@
       "image_count": 12
     }
   ],
-  "p2_gate": "FAILED: performance and remaining runtime behaviors",
+  "p2_gate": "Bounded feasibility supports P3; broad runtime/game gates remain",
   "native_port_playable": false,
   "run_status_at_audit_start": {
-    "running": 1,
-    "failed": 12,
-    "pass": 47
+    "pass": 96,
+    "failed": 26,
+    "running": 1
   },
   "run_status_after_audit": {
-    "pass": 48,
-    "failed": 12
+    "pass": 97,
+    "failed": 26
   },
-  "third_party_patches_reverse_apply_check": "pass",
-  "text_normalization": "UTF-8/LF normalized after execution audit; no runtime logic changed; git diff --check passed"
+  "audit_run": "20260905-restart-execution-audit-v2",
+  "patch_series_verified_against_upstream": "local/checks/patch-series-v2",
+  "text_normalization": "UTF-8/LF; audit output writer corrected after check"
 }

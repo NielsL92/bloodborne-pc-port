@@ -6,12 +6,14 @@ Execution of [PLAN.md](PLAN.md) began on 2026-09-05. Read
 [reports/STATUS.md](reports/STATUS.md) and [HANDOFF.md](HANDOFF.md) to continue.
 
 - P0 extraction is verified; corrected effective-v2 has 28,840 files.
-- Separate shadPS4 baseline/research builds reach offline character creation.
-  This is original-code execution in shadPS4, not the native deliverable.
-- Ten real Remill whole-function/call-graph contracts pass 11,472 cases.
-- P2's performance gate fails: after tested memory lowering, two kernels remain
-  about 2.0-4.6x slower. Broad integration is stopped pending a verified mitigation.
-  Critical runtime-control requirements remain open.
+- A separate shadPS4 research build reaches clinic movement, normal game quit,
+  and reload. A Windows guest save-file sharing failure was isolated and fixed.
+- Eleven real Remill root contracts pass 13,584 full-state cases. State promotion
+  mitigates the representative loop slowdown; callback/nonlocal, TLS, locked
+  XADD, publication-order and real jump-table fixtures now pass.
+- P2's bounded feasibility gate supports P3 recovery work. The initial module
+  database is built, and Ghidra independently checks the real bit-reader table.
+  No broad startup/service closure or native gameplay is demonstrated.
 
 See [input validation](reports/input-validation.md),
 [baseline](reports/baseline.md), [compiler experiment](reports/compiler-spike.md)

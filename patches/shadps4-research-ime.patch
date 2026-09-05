@@ -1,0 +1,95 @@
+diff --git a/src/core/libraries/ime/ime_dialog.cpp b/src/core/libraries/ime/ime_dialog.cpp
+index 02bcf9f..11842e9 100644
+--- a/src/core/libraries/ime/ime_dialog.cpp
++++ b/src/core/libraries/ime/ime_dialog.cpp
+@@ -4,6 +4,7 @@
+ #include <array>
+ #include <cmath>
+ #include <cstdint>
++#include <cstdlib>
+ #include <new>
+ #include "common/logging/log.h"
+ #include "core/emulator_settings.h"
+@@ -27,6 +28,8 @@ static OrbisImeDialogParam g_ime_dlg_param{};
+ static OrbisImeParamExtended g_ime_dlg_extended{};
+ static bool g_ime_dlg_has_extended = false;
+ static bool g_ime_dlg_result_committed = false;
++static bool g_research_ime_pending = false;
++static bool g_research_ime_consumed = false;
+ static bool g_ime_dlg_sw_version_cached = false;
+ static u32 g_ime_dlg_sw_version_hex = 0;
+ static OrbisImeExtKeyboardFilter g_ime_dlg_ext_keyboard_filter = nullptr;
+@@ -962,7 +965,15 @@ OrbisImeDialogStatus PS4_SYSV_ABI sceImeDialogGetStatus() {
+     }
+ 
+     if (g_ime_dlg_status == OrbisImeDialogStatus::Running) {
+-        g_ime_dlg_state.CallTextFilter();
++        const bool filter_ok = g_ime_dlg_state.CallTextFilter();
++        if (g_research_ime_pending) {
++            g_research_ime_pending = false;
++            g_ime_dlg_result.endstatus = filter_ok ? OrbisImeDialogEndStatus::Ok
++                                                 : OrbisImeDialogEndStatus::Aborted;
++            g_ime_dlg_status = OrbisImeDialogStatus::Finished;
++            CommitDialogResultIfNeeded();
++            LOG_INFO(Lib_ImeDialog, "BB_RESEARCH IME fixture complete filter_ok={}", filter_ok);
++        }
+     } else if (g_ime_dlg_status == OrbisImeDialogStatus::Finished) {
+         CommitDialogResultIfNeeded();
+     }
+@@ -1037,7 +1048,18 @@ static Error SetupDialogState(OrbisImeDialogParam* param, OrbisImeParamExtended*
+     if (g_ime_dlg_client) {
+         g_ime_dlg_client->dialog_state = 4;
+     }
+-    g_ime_dlg_ui = ImeDialogUi(&g_ime_dlg_state, &g_ime_dlg_status, &g_ime_dlg_result);
++    // One explicitly supplied ASCII test name per process. Preserve the existing
++    // game-thread text filter and UTF-16 result conversion; no game code is patched.
++    const char* research_name = std::getenv("BB_RESEARCH_IME_TEXT");
++    g_research_ime_pending = false;
++    if (!g_research_ime_consumed && std::getenv("BB_RESEARCH_CAPTURE") && research_name) {
++        g_research_ime_pending = g_ime_dlg_state.SetResearchText(research_name);
++        g_research_ime_consumed = g_research_ime_pending;
++        LOG_INFO(Lib_ImeDialog, "BB_RESEARCH IME fixture accepted={}", g_research_ime_pending);
++    }
++    if (!g_research_ime_pending) {
++        g_ime_dlg_ui = ImeDialogUi(&g_ime_dlg_state, &g_ime_dlg_status, &g_ime_dlg_result);
++    }
+ 
+     LOG_INFO(Lib_ImeDialog, "sceImeDialogInit: successful, status now=Running");
+     return Error::OK;
+diff --git a/src/core/libraries/ime/ime_dialog_ui.cpp b/src/core/libraries/ime/ime_dialog_ui.cpp
+index 86bd583..d6678bf 100644
+--- a/src/core/libraries/ime/ime_dialog_ui.cpp
++++ b/src/core/libraries/ime/ime_dialog_ui.cpp
+@@ -316,6 +316,20 @@ bool ImeDialogState::ClampCurrentTextToMaxLen() {
+     return true;
+ }
+ 
++// Explicit test input, never enabled by a normal baseline launch.
++bool ImeDialogState::SetResearchText(std::string_view text) {
++    if (text.empty() || text.size() > max_text_length || text.size() > 16 ||
++        !std::all_of(text.begin(), text.end(), [](unsigned char c) {
++            return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
++                   (c >= '0' && c <= '9');
++        })) {
++        return false;
++    }
++    current_text.FromString(text);
++    input_changed = true;
++    return true;
++}
++
+ bool ImeDialogState::CallTextFilter() {
+     if (!text_filter || !input_changed) {
+         return true;
+diff --git a/src/core/libraries/ime/ime_dialog_ui.h b/src/core/libraries/ime/ime_dialog_ui.h
+index a72da58..38478db 100644
+--- a/src/core/libraries/ime/ime_dialog_ui.h
++++ b/src/core/libraries/ime/ime_dialog_ui.h
+@@ -73,6 +73,7 @@ public:
+ 
+     bool CopyTextToOrbisBuffer(bool use_original);
+     bool CallTextFilter();
++    bool SetResearchText(std::string_view text);
+     bool NormalizeNewlines();
+     bool ClampCurrentTextToMaxLen();
+ 

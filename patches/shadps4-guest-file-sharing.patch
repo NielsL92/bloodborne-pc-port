@@ -1,0 +1,15 @@
+diff --git a/src/core/file_sys/backends/host_fs.cpp b/src/core/file_sys/backends/host_fs.cpp
+index 6cbde36..6239c75 100644
+--- a/src/core/file_sys/backends/host_fs.cpp
++++ b/src/core/file_sys/backends/host_fs.cpp
+@@ -15,7 +15,9 @@
+ namespace Core::FileSys {
+ 
+ HostFile::HostFile(std::filesystem::path host_path, Common::FS::FileAccessMode mode, bool read_only)
+-    : m_path(std::move(host_path)), m_file(m_path, mode), m_read_only(read_only) {}
++    : m_path(std::move(host_path)), m_file(m_path, mode, Common::FS::FileType::BinaryFile,
++                                          Common::FS::FileShareFlag::ShareReadWrite),
++      m_read_only(read_only) {}
+ 
+ s64 HostFile::Read(void* dst, u64 size) {
+     if (!m_file.IsOpen()) {
