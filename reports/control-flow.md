@@ -86,3 +86,7 @@ Wrap every command with .venv/Scripts/python.exe tools/run_record.py --id UNIQUE
 reports/control-flow-evidence.json is the focused P3 consistency audit, with artifact hashes, survey comparisons and run identities. Run manifests retain exact source snapshots even though results were generated before the source commit. reports/execution-audit.json remains the earlier P0/P1/P2 audit; it is not relabeled as a fresh whole-workspace audit.
 
 P3 is open. P4-P9 remain unstarted. Baseline measurements, Hunter's Dream route, profiler overhead and the intermittent opening audio mutex crash remain separate P1 work. No user installation/action is required for the current tools.
+
+## Sparse compilation continuation (2026-09-05 22:14 UTC)
+
+The isolated manifest lifter now compiles all twelve previously sparse-rejected dependency bodies: 1,517 instructions / 46 roots / 159,654 object bytes. Two fresh deterministic emissions are byte-identical; no filler is inserted, and every supplied instruction must match Remill boundaries and lift successfully. Ten input checks and 8,192 authored AOT cases pass. These are additional authored checks, separate from earlier real-function comparisons. The game-derived objects were not linked or executed and retain 27 explicit missing paths plus native runtime dependencies. The recovery graph remains v7 with nine fence findings and unresolved indirect/callback/exception/service contracts. See reports/sparse-compiler.md and reports/sparse-compiler-evidence.json.

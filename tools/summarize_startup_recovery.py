@@ -90,5 +90,11 @@ if continuation.exists():
  report['historical_v4_gate']=report['gate'];report['gate']=latest['gate']
  report['current_directory']=latest['current_directory']
  report['continuation']=dict(path=str(continuation.relative_to(root)),sha256=sha(continuation),result=latest)
+sparse=root/'reports/sparse-compiler-evidence.json'
+if sparse.exists():
+ latest=json.loads(sparse.read_text())
+ assert latest['status']=='sparse compiler evidence consistency pass; P3 gate open'
+ report['sparse_compiler']=dict(path=str(sparse.relative_to(root)),sha256=sha(sparse),result=latest)
+ report['gate']=latest['gate']
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)
