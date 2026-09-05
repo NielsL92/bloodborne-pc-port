@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import subprocess
 import time
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,10 +28,13 @@ def main():
         r = subprocess.run(["git", "-c", f"safe.directory={ROOT.as_posix()}", *args], cwd=ROOT, capture_output=True, text=True)
         return r.stdout.strip() if r.returncode == 0 else None
     sources = {}
-    for directory in ("tools", "native", "tests"):
+    for directory in ("tools", "native", "tests", "patches"):
         for f in sorted((ROOT / directory).rglob("*")):
             if f.is_file() and "__pycache__" not in f.parts:
                 sources[str(f.relative_to(ROOT))] = hashlib.sha256(f.read_bytes()).hexdigest()
+    with zipfile.ZipFile(out / "sources.zip", "w", zipfile.ZIP_DEFLATED) as snapshot:
+        for relative in sources:
+            snapshot.write(ROOT / relative, relative)
     manifest = dict(schema=1, argv=command, cwd=str(Path(a.cwd).resolve()),
                     start_utc=dt.datetime.now(dt.timezone.utc).isoformat(),
                     project_commit=git("rev-parse", "HEAD"), project_status=git("status", "--porcelain"),

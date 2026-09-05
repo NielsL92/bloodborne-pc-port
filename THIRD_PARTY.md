@@ -41,3 +41,27 @@ supplied in `E:\ROMS\PS4`. Their metadata and the extracted executable's SHA-256
 are recorded in the local analysis report. Those materials and generated
 translations remain in ignored local directories and are not relicensed by
 this project's tooling license.
+
+## P0/P1/P2 execution dependencies
+
+The pinned shadPS4 source and all recursive submodules were built into separate
+normal Release and RelWithDebInfo/Tracy executables. The normal baseline remains
+unmodified; research-only frame capture/controller schedules are preserved in
+patches/shadps4-research-capture.patch and used only in the research build.
+Neither executable is the native recompilation deliverable.
+
+Remill is pinned at 56918a8c2554088e93389e97d292f4035286506c under
+external/remill, with its upstream license retained. The Windows SDK/build,
+byte-file CLI and CMPSS corrections are in patches/remill-windows-sdk.patch.
+[Remill source](https://github.com/lifting-bits/remill/tree/56918a8c2554088e93389e97d292f4035286506c).
+
+Official LLVM 21.1.8, CMake 4.2.3 and Ninja 1.13.2 archives were verified against
+their release digests. Their original notices remain with the tools. Native
+Remill dependency builds include gflags, glog, googletest, XED and mbuild; exact
+source commits are in reports/dependency-lock.json. Remill's build also fetches
+its pinned Ghidra/Sleigh sources. This does not constitute a completed Ghidra
+headless game analysis.
+
+All game-derived bytes, lifted IR, native objects, disassembly, screenshots,
+profiles and saves remain in excluded local/build directories. Authored harness
+sources and compiler-adapter tooling are tracked separately.

@@ -1,0 +1,176 @@
+[
+  {
+    "module": "eboot.bin",
+    "imports": 701,
+    "without_candidates": 3,
+    "missing": [
+      "sceNpNotifyPlusFeature",
+      "sceKernelTruncate",
+      "sceKernelReleaseFlexibleMemory"
+    ]
+  },
+  {
+    "module": "libc.prx",
+    "imports": 79,
+    "without_candidates": 8,
+    "missing": [
+      "sceKernelPrintBacktraceWithModuleInfo",
+      "getrusage",
+      "__elf_phdr_match_addr",
+      "__pthread_cxa_finalize",
+      "sysctl",
+      "_is_signal_return",
+      "sigreturn",
+      "__Ux86_64_setcontext"
+    ]
+  },
+  {
+    "module": "libSceFace.prx",
+    "imports": 20,
+    "without_candidates": 13,
+    "missing": [
+      "__cxa_guard_acquire",
+      "__cxa_guard_release",
+      "hypotf",
+      "_ZdlPv",
+      "memmove",
+      "__cxa_pure_virtual",
+      "_FSin",
+      "_FLog",
+      "ldexp",
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "module_stop",
+      "module_start"
+    ]
+  },
+  {
+    "module": "libSceFios2.prx",
+    "imports": 83,
+    "without_candidates": 16,
+    "missing": [
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "printf",
+      "vsnprintf",
+      "vprintf",
+      "_Stdout",
+      "mktime",
+      "time",
+      "localtime",
+      "gmtime",
+      "gmtime_s",
+      "malloc",
+      "free",
+      "sceKernelTruncate",
+      "module_stop",
+      "module_start"
+    ]
+  },
+  {
+    "module": "libSceHand.prx",
+    "imports": 7,
+    "without_candidates": 4,
+    "missing": [
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "module_stop",
+      "module_start"
+    ]
+  },
+  {
+    "module": "libSceHeadTracker.prx",
+    "imports": 42,
+    "without_candidates": 13,
+    "missing": [
+      "_FSin",
+      "roundf",
+      "__cxa_atexit",
+      "vprintf",
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "_ZdlPv",
+      "__cxa_pure_virtual",
+      "hypotf",
+      "_FLog",
+      "memmove",
+      "module_stop",
+      "module_start"
+    ]
+  },
+  {
+    "module": "libSceS3DConversion.prx",
+    "imports": 76,
+    "without_candidates": 17,
+    "missing": [
+      "_ZdlPv",
+      "__cxa_guard_acquire",
+      "__cxa_guard_release",
+      "_ZSt13_Syserror_mapi",
+      "memmove",
+      "_ZSt14_Xlength_errorPKc",
+      "_Znwm",
+      "_ZSt11_Xbad_allocv",
+      "_ZSt14_Xout_of_rangePKc",
+      "_Sin",
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "vsnprintf",
+      "printf",
+      "qsort",
+      "module_stop",
+      "module_start"
+    ]
+  },
+  {
+    "module": "libSceSmart.prx",
+    "imports": 62,
+    "without_candidates": 44,
+    "missing": [
+      "__cxa_finalize",
+      "Need_sceLibcInternal",
+      "_ZNSt8ios_base4InitC1Ev",
+      "_ZNSt8ios_base4InitD1Ev",
+      "__cxa_atexit",
+      "_ZNSt6_WinitC1Ev",
+      "_ZNSt6_WinitD1Ev",
+      "_ZSt14_Xlength_errorPKc",
+      "_ZdlPv",
+      "_ZSt13_Syserror_mapi",
+      "memmove",
+      "_Znwm",
+      "_ZSt11_Xbad_allocv",
+      "_ZSt14_Xout_of_rangePKc",
+      "abort",
+      "rand",
+      "hypotf",
+      "printf",
+      "puts",
+      "qsort",
+      "putchar",
+      "roundf",
+      "_Znam",
+      "_ZdaPv",
+      "_FDtest",
+      "_Log",
+      "ldexpf",
+      "_FInf",
+      "_FLog",
+      "fmaxf",
+      "logbf",
+      "scalbnf",
+      "_FNan",
+      "_FSin",
+      "_FExp",
+      "malloc",
+      "free",
+      "_Dtest",
+      "srand",
+      "_Stdout",
+      "_Stderr",
+      "fprintf",
+      "module_stop",
+      "module_start"
+    ]
+  }
+]

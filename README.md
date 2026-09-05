@@ -2,11 +2,23 @@
 
 **Status: a tested CPU recompilation proof, not a playable Bloodborne port.**
 
-The proposed execution plan is in [PLAN.md](PLAN.md), with a fresh-task starting
-context in [HANDOFF.md](HANDOFF.md). The plan assumes no PS4 hardware access and
-treats shadPS4 as an implementation reference, not a correctness oracle.
-The planning update changes documentation only; implementation of that plan has
-not started.
+Execution of [PLAN.md](PLAN.md) began on 2026-09-05. Read
+[reports/STATUS.md](reports/STATUS.md) and [HANDOFF.md](HANDOFF.md) to continue.
+
+- P0 extraction is verified; corrected effective-v2 has 28,840 files.
+- Separate shadPS4 baseline/research builds reach offline character creation.
+  This is original-code execution in shadPS4, not the native deliverable.
+- Ten real Remill whole-function/call-graph contracts pass 11,472 cases.
+- P2's performance gate fails: after tested memory lowering, two kernels remain
+  about 2.0-4.6x slower. Broad integration is stopped pending a verified mitigation.
+  Critical runtime-control requirements remain open.
+
+See [input validation](reports/input-validation.md),
+[baseline](reports/baseline.md), [compiler experiment](reports/compiler-spike.md)
+and [dependency lock](reports/dependency-lock.json).
+No native game boot or playable port is demonstrated. No PS4 access is available.
+
+## Earlier leaf proof (preserved regression experiment)
 
 This project uses the locally supplied CUSA03173 European Bloodborne packages,
 including update 1.09. It reads the real executable, inventories its dependencies,
@@ -15,7 +27,7 @@ integer leaf routines into C++. MSVC compiles those translations into a Windows
 x64 executable. The verification program compares their RAX results with the
 original routines running directly on the CPU.
 
-The current build translates **19 routines, totaling 538 original instruction
+The earlier leaf build translates **19 routines, totaling 538 original instruction
 bytes**, and passes **205,048 differential cases**. A separate set of 28
 hand-authored CPU cases passes 302,176 comparisons. There are also 26 Python
 tests. These results cover only the stated scalar return-value contract. They
