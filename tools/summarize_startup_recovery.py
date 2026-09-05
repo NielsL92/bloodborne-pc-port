@@ -96,5 +96,13 @@ if sparse.exists():
  assert latest['status']=='sparse compiler evidence consistency pass; P3 gate open'
  report['sparse_compiler']=dict(path=str(sparse.relative_to(root)),sha256=sha(sparse),result=latest)
  report['gate']=latest['gate']
+latest_path=root/'reports/startup-v9-evidence.json'
+if latest_path.exists():
+ latest=json.loads(latest_path.read_text())
+ assert latest['status']=='startup v9 evidence consistency pass; P3 gate open'
+ report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
+ report['startup_v9']=dict(path=str(latest_path.relative_to(root)),sha256=sha(latest_path),result=latest)
+ batch=root/'reports/startup-batch-evidence.json'
+ if batch.exists():report['startup_batch']=dict(path=str(batch.relative_to(root)),sha256=sha(batch),result=json.loads(batch.read_text()))
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)
