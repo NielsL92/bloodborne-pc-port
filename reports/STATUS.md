@@ -1,19 +1,19 @@
 # Native recompilation execution status
 
-Updated 2026-09-05 18:02 UTC. PLAN.md execution is authorized. No native game boot, native vertical slice, or playable port exists.
+Updated 2026-09-05 20:23 UTC. PLAN.md execution is authorized, including routine cost-free actions. No native game boot, native vertical slice, or playable port exists.
 
 | Phase | State | Evidence |
 | --- | --- | --- |
-| P0 | Passed with optional-data limits | Exact CUSA03173 01.09; repeated PFS/system metadata extraction; 28,840-file effective-v2 view. DLC entitlement unverified; trophy key absent. |
-| P1 | Clinic baseline and local save/quit/reload demonstrated; profiling investigation continues | Separate instrumented shadPS4 runs create TestHunter, move in clinic, quit through the game menu, and reload the moved position. Windows save-file sharing failure isolated and corrected in a separate patch. |
-| P2 | Bounded feasibility gate met for proceeding to P3 | Eleven real roots / 13,584 full-state cases. Five-way real jump table and RIP-relative data; 512 callback/nonlocal cases; four-thread TLS/XADD plus publication-order fixtures. State promotion removes representative loop slowdown. |
-| P3 | Started; recovery gate open | 1,463-range recursive survey; 225 exception regions independently checked. Startup has 18,444 constructor roots (16,069 unindexed); current frontier stops at 18,437 undecoded entries. |
-| P4-P9 | Not started; runtime/game gates remain | Recoverable faults, all startup targets, services, native gameplay, and whole-game improvement remain unproven. |
+| P0 | Passed with optional-data limits | Exact CUSA03173 01.09; independently repeated extraction; 28,840-file effective-v2 view. DLC entitlement unverified; trophy key absent. |
+| P1 | Clinic movement and save/quit/reload demonstrated; investigation continues | Separate instrumented shadPS4 baseline. Hunter's Dream, overhead/cost separation and intermittent audio mutex crash remain open. |
+| P2 | Bounded feasibility gate met for P3 | Eleven real roots / 13,584 full-state cases; promoted state, callback/nonlocal, TLS/atomic and real jump-table contracts. |
+| P3 | All initial constructor bodies recovered; startup gate remains open | 18,444 roots, 21,095 manifest entries across eight modules; reproducible database/manifest/frontier; 128 constructor objects; independent Ghidra boundary and table checks. |
+| P4-P9 | Not started; required runtime/game gates remain | 8,980 indirect-call records, 421 indirect-jump records, 146 fallthrough findings and import/callback/exception/control contracts remain open. |
 
-P2 is a compiler feasibility result under explicit valid-memory and synchronous-boundary contracts. It does not establish that every instruction, recovered function, exception path, or service works. The 1,000-object scale survey still has 842 unresolved execution boundaries. Ordinary memory lowering is forbidden for atomics/MMIO/untrusted mappings. No reassembly, emulator, interpreter, JIT, or original-game CPU fallback is adopted as the deliverable.
+No unwind range, pointer candidate, decoded body or built object is execution coverage. All 128 new objects are compilation evidence only; 25 retain declared CPU boundaries. P3 performed no game CPU execution. No emulator, reassembly, interpreter, JIT or original-game CPU fallback replaces the native recompilation deliverable.
 
-Latest evidence: reports/compiler-spike.md, reports/baseline.md, reports/decisions/0002-promoted-state-and-control-boundaries.md, reports/restart-evidence.json, reports/control-flow.md and reports/control-flow-evidence.json. Older results remain under local/runs and reports/archive. HANDOFF.md carries commands and continuation details.
+Continue with `local/cfg/startup-recovery-v4/analysis.sqlite` and its `recovery_*` tables, `compilation-manifest.jsonl`, `frontier.jsonl`, and `constructor-order.json`. The old startup-db-v1 and all prior runs are preserved. v4 and v5-repeat are byte-identical for database, manifest and frontier.
 
-Next work: recover the ordered startup constructor roots and expand missing bodies/exception/service closure from local/cfg/startup-db-v1; independently extend baseline route toward Hunter's Dream, measure profiler overhead and separate CPU/GPU/queue costs. Keep the diagnosed audio mutex crash open until independently isolated.
+Details and next experiments: `reports/startup-recovery.md`, `reports/startup-recovery-evidence.json`, `reports/control-flow.md`, `reports/control-flow-evidence.json`, `reports/compiler-spike.md`, `reports/baseline.md` and HANDOFF.md. Sixteen focused reader/recovery checks and both evidence audits pass.
 
-User action: none currently required. The Codex Windows sandbox/desktop helper still fails after restart; approved elevated shell execution works. This is not an approval rejection. LLVM, Remill, Tracy and the native compiler work without WSL. No PS4 access is requested.
+User action: none. The normal Windows sandbox/Node helpers still fail; approved elevated shell execution works. A reusable Get-Content permission is now present. Do not request another restart or repeatedly ask for authorized reads. Existing LLVM, Remill, Ghidra, JDK and Tracy work. No PS4 access is requested.

@@ -1,18 +1,16 @@
 # P3 control-flow and dependency recovery
 
-Updated 2026-09-05 18:02 UTC. P3 began after the bounded P2 feasibility gate. **P3 startup compilation/exit closure has not passed.** No native game boot exists.
+Updated 2026-09-05 20:30 UTC. **P3 startup compilation/exit closure has not passed. No native game boot exists.**
 
 ## Current database and startup gate
 
-Use local/cfg/startup-db-v1/analysis.sqlite for continuation. It combines metadata, a bounded recursive survey, independently checked exception records and the executable's initializer roots. The database SHA256 is 4e95fef8253d7c3eb7eecda275c9d72c0574dfed2a9f0f7375190ac8242ed299. Earlier databases and failed runs are retained.
+The current extension is `local/cfg/startup-recovery-v4/analysis.sqlite`, using its `recovery_*` tables. It includes all 18,444 ordered initial constructor entries, 21,095 total entries across eight modules and 870,923 distinct decoded instruction addresses. The database, compilation manifest and frontier reproduce byte-for-byte in startup-recovery-v5-repeat. All constructor roots are preserved in invocation order; 16,069 are outside every indexed unwind range.
 
-The actual entry at RVA 0xa0 calls the initializer at 0x20, which is absent from the unwind index. Its 113-byte code contract was checked independently with Ghidra: 34 recursively reachable instructions and indirect calls at 0x58 and 0x82 agree. The initial forward constructor array is empty. The reverse list contains **18,444 distinct relocation-backed constructor targets**, of which **16,069 lack an unwind-index start**. The walk ends at an explicit -1 sentinel. Order, slots, relocation addends and initial-state evidence are preserved in local/cfg/startup-v1. Original files were not changed.
+There are no current overlap or undecodable-instruction findings. The frontier retains 146 fallthrough-boundary findings, 8,980 unresolved indirect-call records, 421 unresolved indirect-jump records, 20,760 unvalidated import records, and runtime/callback/exception obligations. A drained explicit-target queue is not complete static discovery. No pointer candidate or object build is execution coverage.
 
-This exposes a major coverage gap in an unwind-seeded compiler batch. Constructor pointers are initial-state targets, not immutable runtime guarantees: constructors can modify later entries or register callbacks. Every unexpected runtime target must still fail with diagnostics.
+The separately recorded manifest sample builds 128 Windows objects, with 25 retaining declared CPU boundaries and none executed. Two independent 13-case library table recoveries add 12 static edges; their table bytes and all 79/81 recovered instructions agree with Ghidra. Read `reports/startup-recovery.md` for the full recovery policy, failures, remaining gates and commands. Focused evidence is in `reports/startup-recovery-evidence.json`, integrated into `reports/control-flow-evidence.json`.
 
-The current query from entry traverses 19 already-decoded ranges and stops at 18,437 missing bodies, five unvalidated import call sites, two unresolved indirect calls, four annotated control contracts requiring runtime handling, and one range-end finding. See local/cfg/startup-db-v1/frontier.json and traversed.json. The query stops at missing bodies, so it does not claim complete startup discovery.
-
-Next: recover the ordered initializer roots, beginning with unindexed entries, and expand direct-call/exception closure into compilation manifests. Preserve code/data ambiguity and unknown targets. Build service contracts for the actual entry imports and all discovered callbacks. Do not proceed to broad P4 execution by treating undecoded entries or registration matches as implemented code.
+The earlier startup-db-v1, with its 18,437 undecoded frontier, remains immutable historical evidence. Existing survey tables inside the new database retain their original meanings. Initial constructor tables remain mutable runtime data; unexpected targets require strict failure diagnostics.
 
 ## Repeated metadata and independent tools
 

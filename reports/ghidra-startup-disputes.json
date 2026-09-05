@@ -1,0 +1,301 @@
+{
+  "explained": [
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 7316576,
+      "extra_addresses": [
+        7316986
+      ],
+      "contracts": [
+        {
+          "source": 7316981,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 20899280,
+      "extra_addresses": [
+        20900313,
+        20900314
+      ],
+      "contracts": [
+        {
+          "source": 20900308,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 21294864,
+      "extra_addresses": [
+        21295069,
+        21295070
+      ],
+      "contracts": [
+        {
+          "source": 21295064,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 21523760,
+      "extra_addresses": [
+        21523965,
+        21523966
+      ],
+      "contracts": [
+        {
+          "source": 21523960,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 23468496,
+      "extra_addresses": [
+        23470434,
+        23470435
+      ],
+      "contracts": [
+        {
+          "source": 23470429,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 24502944,
+      "extra_addresses": [
+        24503149,
+        24503150
+      ],
+      "contracts": [
+        {
+          "source": 24503144,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 25627360,
+      "extra_addresses": [
+        25627565,
+        25627566
+      ],
+      "contracts": [
+        {
+          "source": 25627560,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 26701328,
+      "extra_addresses": [
+        26701533,
+        26701534
+      ],
+      "contracts": [
+        {
+          "source": 26701528,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 27516800,
+      "extra_addresses": [
+        27517529,
+        27517530
+      ],
+      "contracts": [
+        {
+          "source": 27517524,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 27866528,
+      "extra_addresses": [
+        27866733,
+        27866734
+      ],
+      "contracts": [
+        {
+          "source": 27866728,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 30112256,
+      "extra_addresses": [
+        30112461,
+        30112462
+      ],
+      "contracts": [
+        {
+          "source": 30112456,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 30903040,
+      "extra_addresses": [
+        30903245,
+        30903246
+      ],
+      "contracts": [
+        {
+          "source": 30903240,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 31489232,
+      "extra_addresses": [
+        31490281,
+        31490282
+      ],
+      "contracts": [
+        {
+          "source": 31490276,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 32454656,
+      "extra_addresses": [
+        32454861,
+        32454862
+      ],
+      "contracts": [
+        {
+          "source": 32454856,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 33112032,
+      "extra_addresses": [
+        33112237,
+        33112238
+      ],
+      "contracts": [
+        {
+          "source": 33112232,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 33264496,
+      "extra_addresses": [
+        33264701,
+        33264702
+      ],
+      "contracts": [
+        {
+          "source": 33264696,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 36969536,
+      "extra_addresses": [
+        36970521,
+        36970522
+      ],
+      "contracts": [
+        {
+          "source": 36970516,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 147232,
+      "extra_addresses": [
+        147579
+      ],
+      "contracts": [
+        {
+          "source": 147574,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 341680,
+      "extra_addresses": [
+        341943
+      ],
+      "contracts": [
+        {
+          "source": 341938,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 342736,
+      "extra_addresses": [
+        343173
+      ],
+      "contracts": [
+        {
+          "source": 343168,
+          "contract": "stack-protector-failure"
+        }
+      ],
+      "classification": "Ghidra follows ordinary fallthrough after an independently documented nonreturn call; no instruction-byte disagreement"
+    }
+  ],
+  "unresolved": []
+}

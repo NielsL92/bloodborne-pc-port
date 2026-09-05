@@ -1,5 +1,5 @@
 """Focused P3 evidence audit; does not execute original code or rehash PKGs."""
-import ast,hashlib,json,sqlite3,sys
+import ast,hashlib,json,sqlite3,sys,zipfile
 from pathlib import Path
 root=Path.cwd()
 def read(path):return json.loads((root/path).read_text())
@@ -27,8 +27,24 @@ assert db.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
 assert db.execute("SELECT count(*) FROM initializer_slot").fetchone()[0]==18444
 assert db.execute("SELECT count(*) FROM exception_region").fetchone()[0]==225
 assert db.execute("SELECT count(*) FROM exception_call_site").fetchone()[0]==1223
+def historical_evidence_matches(path, digest):
+ file=Path(path)
+ if file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==digest:return True
+ # Source files evolve. Verify old evidence against immutable recorded source snapshots.
+ try:relative=file.resolve().relative_to(root.resolve()).as_posix()
+ except ValueError:return False
+ for manifest_path in sorted((root/'local/runs').glob('*/manifest.json')):
+  manifest=json.loads(manifest_path.read_text())
+  hashes={k.replace('\\','/').replace(chr(92),'/'):v for k,v in manifest.get('source_sha256',{}).items()}
+  if hashes.get(relative)!=digest:continue
+  archive=manifest_path.parent/'sources.zip'
+  if not archive.exists():continue
+  with zipfile.ZipFile(archive) as snapshot:
+   names={n.replace(chr(92),'/'):n for n in snapshot.namelist()}
+   if relative in names and hashlib.sha256(snapshot.read(names[relative])).hexdigest()==digest:return True
+ return False
 for kind,path,sha in db.execute("SELECT * FROM analysis_evidence"):
- assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==sha,(kind,path)
+ assert historical_evidence_matches(path,sha),(kind,path)
 db.close()
 runs={}
 for name in ("20260905-p3-recursive-survey-v1","20260905-p3-recursive-survey-v2","20260905-p3-recursive-survey-v3","20260905-p3-metadata-repeat","20260905-p3-exception-metadata-v2","20260905-p3-ghidra-exceptions-v2","20260905-p3-exception-reader-checks","20260905-p3-recursive-survey-v4","20260905-p3-recursive-survey-v5","20260905-p3-startup-roots-v1","20260905-p3-ghidra-startup-v1","20260905-p3-startup-frontier-v1"):
@@ -41,5 +57,11 @@ result=dict(status="focused P3 evidence consistency pass; startup closure gate r
  dict(run="20260905-p3-exception-metadata-v1",reason="Duplicate lsda keyword while merging metadata dictionaries; corrected before v2."),
  dict(run="20260905-p3-ghidra-exceptions-v1",reason="37 omitted-null JSON differences; all numerical values agreed. serializeNulls fixed, both modules passed fresh v2.")],
  native_game_boot=False,native_port_playable=False,gate="P3 not passed: startup query stops at 18437 undecoded entries; indirect/mutable targets and native control/service contracts remain open.")
+latest=root/'reports/startup-recovery-evidence.json'
+if latest.exists():
+ recovery=json.loads(latest.read_text())
+ assert recovery['status']=='startup recovery evidence consistency pass; P3 gate open'
+ result['startup_recovery']=dict(path=str(latest.relative_to(root)),sha256=hashlib.sha256(latest.read_bytes()).hexdigest(),result=recovery)
+ result['gate']=recovery['gate']
 (root/"reports/control-flow-evidence.json").write_bytes((json.dumps(result,indent=2)+"\n").encode())
-print(json.dumps({k:v for k,v in result.items() if k not in ("evidence","surveys","runs")}),flush=True)
+print(json.dumps({k:v for k,v in result.items() if k not in ("evidence","surveys","runs","startup_recovery")}),flush=True)

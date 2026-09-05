@@ -1,0 +1,846 @@
+{
+  "status": "startup recovery evidence consistency pass; P3 gate open",
+  "artifacts": {
+    "recovery_v2": {
+      "path": "local/cfg/startup-recovery-v2/summary.json",
+      "sha256": "14e5657b357a59f0ebf42194c5b90601759e73a3d55441097af257001ebc6c95",
+      "result": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21095,
+          "recovery_instruction": 870801,
+          "recovery_edge": 1068610,
+          "recovery_issue": 158,
+          "recovery_request": 69544
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 284,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20717
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 156,
+          "undecodable_or_crosses_fence": 2
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 8980,
+          "unresolved_indirect_jump": 423,
+          "logical_return_requires_dispatch": 19996,
+          "callback_argument_candidate": 26084,
+          "annotated_control_contract_requires_runtime": 4027,
+          "import_contract_unvalidated": 20759,
+          "service_or_trap_boundary": 21,
+          "fallthrough_at_fence": 156,
+          "indirect_target_candidate": 3,
+          "exception_personality_candidate": 22,
+          "exception_runtime_unvalidated": 22,
+          "personality_import_unvalidated": 22,
+          "unresolved_exception_continuation": 12,
+          "undecodable_or_crosses_fence": 2,
+          "unresolved_restored_context": 113
+        },
+        "queued": 0,
+        "manifest_units": 21095,
+        "db_sha256": "50ec55284f7e4174183ba4e3e455a34f2e5b68415805e056e340be841cc04a25",
+        "manifest_sha256": "6b96c71ab432ffded1aff3276ba0b7f0f4dfb68cdcfe8e0fc8244fd2d18bc1b8",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      }
+    },
+    "recovery_v3": {
+      "path": "local/cfg/startup-recovery-v3/summary.json",
+      "sha256": "5ee06b37f15ecbfeb7f8dbf01e8be6ef8805aef95f69d8b6ae6b08ba4127870a",
+      "result": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21095,
+          "recovery_instruction": 870798,
+          "recovery_edge": 1068617,
+          "recovery_issue": 146,
+          "recovery_request": 69544
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 284,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20717
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 146
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 8980,
+          "unresolved_indirect_jump": 423,
+          "logical_return_requires_dispatch": 19996,
+          "callback_argument_candidate": 26084,
+          "annotated_control_contract_requires_runtime": 4053,
+          "import_contract_unvalidated": 20759,
+          "service_or_trap_boundary": 21,
+          "fallthrough_at_fence": 146,
+          "indirect_target_candidate": 3,
+          "exception_personality_candidate": 22,
+          "exception_runtime_unvalidated": 22,
+          "personality_import_unvalidated": 22,
+          "unresolved_exception_continuation": 17,
+          "unresolved_exit_callbacks": 5,
+          "unresolved_restored_context": 113
+        },
+        "queued": 0,
+        "manifest_units": 21095,
+        "db_sha256": "b53787b7099e0b178de9e3bffde22104385879e46999958ef8edde19601df179",
+        "manifest_sha256": "e8670fc7130ff8b31af0faeebddc73f44e845553ba07f504b2d9d67a5f7f3154",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      }
+    },
+    "recovery": {
+      "path": "local/cfg/startup-recovery-v4/summary.json",
+      "sha256": "bbef758d3b3c68ea60a29c2b556b89f753f330e299ff7b92a31bba41f07e0790",
+      "result": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21095,
+          "recovery_instruction": 870923,
+          "recovery_edge": 1068768,
+          "recovery_issue": 146,
+          "recovery_request": 69548
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 284,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20717
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 146
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 8980,
+          "unresolved_indirect_jump": 421,
+          "logical_return_requires_dispatch": 19999,
+          "callback_argument_candidate": 26084,
+          "annotated_control_contract_requires_runtime": 4054,
+          "import_contract_unvalidated": 20760,
+          "service_or_trap_boundary": 21,
+          "fallthrough_at_fence": 146,
+          "indirect_target_candidate": 3,
+          "exception_personality_candidate": 22,
+          "exception_runtime_unvalidated": 22,
+          "personality_import_unvalidated": 22,
+          "unresolved_exception_continuation": 17,
+          "independently_recovered_jump_table": 12,
+          "unresolved_exit_callbacks": 5,
+          "unresolved_restored_context": 113
+        },
+        "queued": 0,
+        "manifest_units": 21095,
+        "db_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+        "manifest_sha256": "e617c3c839823e3355c9736b630e89cc5a7c040220f305487bcb05ab0b99b619",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      }
+    },
+    "repeat": {
+      "path": "local/cfg/startup-recovery-v5-repeat/summary.json",
+      "sha256": "bbef758d3b3c68ea60a29c2b556b89f753f330e299ff7b92a31bba41f07e0790",
+      "result": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21095,
+          "recovery_instruction": 870923,
+          "recovery_edge": 1068768,
+          "recovery_issue": 146,
+          "recovery_request": 69548
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 284,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20717
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 146
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 8980,
+          "unresolved_indirect_jump": 421,
+          "logical_return_requires_dispatch": 19999,
+          "callback_argument_candidate": 26084,
+          "annotated_control_contract_requires_runtime": 4054,
+          "import_contract_unvalidated": 20760,
+          "service_or_trap_boundary": 21,
+          "fallthrough_at_fence": 146,
+          "indirect_target_candidate": 3,
+          "exception_personality_candidate": 22,
+          "exception_runtime_unvalidated": 22,
+          "personality_import_unvalidated": 22,
+          "unresolved_exception_continuation": 17,
+          "independently_recovered_jump_table": 12,
+          "unresolved_exit_callbacks": 5,
+          "unresolved_restored_context": 113
+        },
+        "queued": 0,
+        "manifest_units": 21095,
+        "db_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+        "manifest_sha256": "e617c3c839823e3355c9736b630e89cc5a7c040220f305487bcb05ab0b99b619",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      }
+    },
+    "ghidra_boundaries": {
+      "path": "local/cfg/ghidra-recovery-v1/summary.json",
+      "sha256": "d8e1f86576ed5a0af5f7e4f1c94411c7d97fcb9ff227269fca5a0d8c68a85d72",
+      "result": {
+        "status": "independent inspection complete; disagreements retained",
+        "entries": 112,
+        "equal": 92,
+        "common_instructions": 7119,
+        "boundary_disagreements": 0,
+        "differing_entries": 20,
+        "comparison_sha256": "c4ac81e5fe690f104c4f8177e959fe4a1cf8d4f5e27a33542eb24b38dcf7a8f1",
+        "source_db_sha256": "50ec55284f7e4174183ba4e3e455a34f2e5b68415805e056e340be841cc04a25",
+        "limitations": "Independent SLEIGH decode from entry and bounded supplied bytes. No expected instructions, branch targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness."
+      }
+    },
+    "ghidra_tables": {
+      "path": "local/cfg/ghidra-startup-tables-v1/summary.json",
+      "sha256": "b858a3d54c43413f0d3b7084b53be9e3f43ce197db4eb49ed8e7cd247fafbeb6",
+      "result": {
+        "status": "independent static switch candidates; not execution coverage",
+        "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "functions": [
+          {
+            "entry": 398192,
+            "tables": [
+              {
+                "branch": 398272,
+                "targets": [
+                  398274,
+                  398435,
+                  398286,
+                  398281,
+                  398274,
+                  398435,
+                  398435,
+                  398435,
+                  398435,
+                  398435,
+                  398286,
+                  398281,
+                  398274
+                ]
+              }
+            ],
+            "instructions": 79
+          },
+          {
+            "entry": 398912,
+            "tables": [
+              {
+                "branch": 398942,
+                "targets": [
+                  398944,
+                  398959,
+                  399020,
+                  399032,
+                  398944,
+                  399161,
+                  399161,
+                  399161,
+                  399161,
+                  399043,
+                  399133,
+                  399146,
+                  398944
+                ]
+              }
+            ],
+            "instructions": 81
+          }
+        ],
+        "ghidra_sha256": "f09e10153db5f41c1c91a0a21263ac0e307635f910c305666b1ed50c3c2166e9",
+        "limitations": "Ghidra received raw mapped bytes and the verified abort API contract. No switch targets or table contents were supplied as annotations. Bounds/bytes still require a separate comparison; no native exception execution."
+      }
+    },
+    "table_bytes": {
+      "path": "local/cfg/startup-table-bytes-v1/tables.json",
+      "sha256": "1e69a922ee0b0627b3a95d00a2ad8b2659581adb46425e59d5b00bc5906d56a7",
+      "result": {
+        "status": "independent static table comparison passed",
+        "ghidra_sha256": "f09e10153db5f41c1c91a0a21263ac0e307635f910c305666b1ed50c3c2166e9",
+        "entries": [
+          {
+            "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 398192,
+            "branch": 398272,
+            "table_rva": 398440,
+            "count": 13,
+            "targets": [
+              398274,
+              398435,
+              398286,
+              398281,
+              398274,
+              398435,
+              398435,
+              398435,
+              398435,
+              398435,
+              398286,
+              398281,
+              398274
+            ],
+            "default": 398435,
+            "table_sha256": "b469d01e0870ede9e8914110b7e80f96a28598f216332202ec0dd702de6ce40f",
+            "guard_rva": 398240,
+            "guard_bytes": "83fe0c0f87ba000000498b5d10b902000000488d3daf000000486334b74801feffe6",
+            "evidence": "Independent Ghidra decompiler destinations equal signed table offsets; CMP/JA dominance and unchanged index checked; no runtime target or table mutation validation."
+          },
+          {
+            "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 398912,
+            "branch": 398942,
+            "table_rva": 399168,
+            "count": 13,
+            "targets": [
+              398944,
+              398959,
+              399020,
+              399032,
+              398944,
+              399161,
+              399161,
+              399161,
+              399161,
+              399043,
+              399133,
+              399146,
+              398944
+            ],
+            "default": 399161,
+            "table_sha256": "480c0c7cb7cff9db0c2a5fd27436eb37be1f15de96ddcfa0de98fc8f76bf1900",
+            "guard_rva": 398919,
+            "guard_bytes": "83ff0c0f87e9000000488d05e900000048630cb84801c1ffe1",
+            "evidence": "Independent Ghidra decompiler destinations equal signed table offsets; CMP/JA dominance and unchanged index checked; no runtime target or table mutation validation."
+          }
+        ],
+        "unique_edges": 12,
+        "execution_coverage": false
+      }
+    },
+    "compilation": {
+      "path": "local/compiler-spike/startup-manifest-v1/summary.json",
+      "sha256": "a22139b10218f96190a14cd7cc338e1e46da2b0779b67c31243b7afc06873a94",
+      "result": {
+        "status": "bounded manifest compilation survey; startup execution gate NOT passed",
+        "selected": 128,
+        "results": {
+          "object_built": 128
+        },
+        "objects_with_unresolved_cpu_boundaries": 25,
+        "object_bytes": 401948,
+        "limitations": "Objects retain external Remill memory/control helpers. No runtime link, execution, exception safety, dispatch closure, or speed claim. Sparse inputs are rejected, never flattened with data or filler."
+      }
+    }
+  },
+  "runs": {
+    "20260905-p3-startup-inspection-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 33.159700100077316,
+      "source_archive_sha256": "85e6c41b5aec14adbf8cad530f94bca6c524464001be80987849f54c7010d2a0"
+    },
+    "20260905-p3-recovery-reader-checks-v1": {
+      "status": "failed",
+      "exit_code": 1,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.3046955999452621,
+      "source_archive_sha256": "dced52232efd3ee355fe757bf5662014ec053b7fda812f888f07bbb7ee388c22"
+    },
+    "20260905-p3-recovery-reader-checks-v2": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.15938990004360676,
+      "source_archive_sha256": "1a5c8a3ed8c98384faf572f6756d8cc836390a2751da19c293072ef96beac6a0"
+    },
+    "20260905-p3-recovery-reader-checks-v3": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.16385399992577732,
+      "source_archive_sha256": "cff13ea4d50e28cf140c825d2c709e5cebc77c955b35d9d529f26a89583dd083"
+    },
+    "20260905-p3-recovery-reader-checks-v4": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.7556642000563443,
+      "source_archive_sha256": "d21f2fc2b69e7695cd94763cdda521932efab7f43136450cfbb67496b006eca0"
+    },
+    "20260905-p3-startup-recovery-v1": {
+      "status": "failed",
+      "exit_code": 4294967295,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 1868.3058802001178,
+      "source_archive_sha256": "1a5c8a3ed8c98384faf572f6756d8cc836390a2751da19c293072ef96beac6a0"
+    },
+    "20260905-p3-startup-recovery-v2": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 92.2392859000247,
+      "source_archive_sha256": "cff13ea4d50e28cf140c825d2c709e5cebc77c955b35d9d529f26a89583dd083"
+    },
+    "20260905-p3-startup-recovery-v3": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 91.55665910011157,
+      "source_archive_sha256": "11b572a942d8d8186f1d36f298dec87ec3f61c7ddc96a412d8e839ee91b8eca4"
+    },
+    "20260905-p3-startup-recovery-v4": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 95.62774810008705,
+      "source_archive_sha256": "9f62fc509e0832819767e5c6ea80c26cfd0612ab2fbcd27768accfc245f872f4"
+    },
+    "20260905-p3-startup-recovery-v5-repeat": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 94.44939000019804,
+      "source_archive_sha256": "d21f2fc2b69e7695cd94763cdda521932efab7f43136450cfbb67496b006eca0"
+    },
+    "20260905-p3-startup-recovery-audit-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.6178560999687761,
+      "source_archive_sha256": "b5885d0bc8651e65f4e7bbd9c56764362907e74c22e5bab4dce8a455ee169d2b"
+    },
+    "20260905-p3-startup-recovery-audit-v2": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 1.4867674000561237,
+      "source_archive_sha256": "dfdc6e41f32e0cbb9657800d0fc41b8d0d90a2df6e340c89cc5392258816b96a"
+    },
+    "20260905-p3-ghidra-recovery-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 19.37178639997728,
+      "source_archive_sha256": "dfdc6e41f32e0cbb9657800d0fc41b8d0d90a2df6e340c89cc5392258816b96a"
+    },
+    "20260905-p3-startup-contract-identities-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.11934139998629689,
+      "source_archive_sha256": "dd7ccbf686571c063b59e028e4ce2b408a8b829c7049e1e5d803c7432750a94a"
+    },
+    "20260905-p3-startup-manifest-compile-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 21.449404899962246,
+      "source_archive_sha256": "11b572a942d8d8186f1d36f298dec87ec3f61c7ddc96a412d8e839ee91b8eca4"
+    },
+    "20260905-p3-ghidra-startup-tables-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 20.664429900003597,
+      "source_archive_sha256": "d12dda10dbb33cee7bdd667e87ed4cd0c244c12971c925278b1bd8970db553d6"
+    },
+    "20260905-p3-startup-table-bytes-v1": {
+      "status": "pass",
+      "exit_code": 0,
+      "source_commit": "e47c900ff0e83864c6307909cb7bb4b8aa054647",
+      "elapsed_seconds": 0.13060420006513596,
+      "source_archive_sha256": "9f62fc509e0832819767e5c6ea80c26cfd0612ab2fbcd27768accfc245f872f4"
+    }
+  },
+  "reproducibility": {
+    "database_sha256": "950ac990432cafb7be77f8d5bd221af82fde8cba973195204104e6a1feffad55",
+    "manifest_sha256": "e617c3c839823e3355c9736b630e89cc5a7c040220f305487bcb05ab0b99b619",
+    "frontier_sha256": "eebbb6f13b303981072865c44d7d5d8d860914a654f0b5f3b7b4ad62b64274d5",
+    "ordered_roots_equal": true,
+    "explicit_requested_entries_missing": []
+  },
+  "ghidra_disputes": {
+    "details_path": "reports/ghidra-startup-disputes.json",
+    "details_sha256": "cb377238bfd2a907ef4d44bbd01a3d55cb31a8525f2fcb971a945373978007a6",
+    "explained_nonreturn_fallthrough": 20,
+    "remaining_reachability_disagreements": [],
+    "table_instruction_comparisons": [
+      {
+        "entry": 398192,
+        "shared_instructions": 79,
+        "only_recovery": [],
+        "only_ghidra": []
+      },
+      {
+        "entry": 398912,
+        "shared_instructions": 81,
+        "only_recovery": [],
+        "only_ghidra": []
+      }
+    ]
+  },
+  "remaining_boundary_endings": {
+    "nop": 1,
+    "call": 145
+  },
+  "remaining_boundary_examples": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 128352,
+      "rva": 128368,
+      "kind": "fallthrough_at_fence",
+      "instruction": "nop",
+      "edges": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 371280,
+      "rva": 371317,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388752,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 392976,
+      "rva": 393053,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          1440,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 80, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"6Z83sYWFlA8#A#B\", \"nid\": \"6Z83sYWFlA8\", \"resolved_name\": null, \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394512,
+      "rva": 394561,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          394592,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394592,
+      "rva": 394713,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          395088,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394992,
+      "rva": 395074,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          395088,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 404032,
+      "rva": 404479,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          404896,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 404496,
+      "rva": 404507,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 404896,
+      "rva": 404907,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388432,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 406256,
+      "rva": 406546,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          404896,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 406560,
+      "rva": 406711,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          404896,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16424304,
+      "rva": 16425323,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "bundled_export_candidate",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ],
+        [
+          45871544,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16477024,
+      "rva": 16477561,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "bundled_export_candidate",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ],
+        [
+          45871544,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16587264,
+      "rva": 16587578,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "bundled_export_candidate",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ],
+        [
+          45871544,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16659648,
+      "rva": 16660514,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "bundled_export_candidate",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ],
+        [
+          45871544,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16853904,
+      "rva": 16853994,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          43823008,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 16854000,
+      "rva": 16854503,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          43823008,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 17030400,
+      "rva": 17030677,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          43869440,
+          "direct_call",
+          ""
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 17043552,
+      "rva": 17043793,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          388272,
+          "bundled_export_candidate",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ],
+        [
+          45871544,
+          "import_contract_unvalidated",
+          "{\"bind\": 1, \"defined\": false, \"index\": 376, \"library\": \"libc\", \"module\": \"libc\", \"name\": \"tQIo+GIPklo#q#q\", \"nid\": \"tQIo+GIPklo\", \"resolved_name\": \"_ZSt14_Xlength_errorPKc\", \"size\": 0, \"type\": 2, \"value\": 0}"
+        ]
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 19229456,
+      "rva": 19229709,
+      "kind": "fallthrough_at_fence",
+      "instruction": "call",
+      "edges": [
+        [
+          19230576,
+          "direct_call",
+          ""
+        ]
+      ]
+    }
+  ],
+  "retained_failures": [
+    {
+      "run": "20260905-p3-recovery-reader-checks-v1",
+      "reason": "Overlap was correctly detected as overlapping bytes; assertion incorrectly required overlapping target. Assertion fixed, negative fixture preserved."
+    },
+    {
+      "run": "20260905-p3-startup-recovery-v1",
+      "reason": "Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries."
+    }
+  ],
+  "gate": "P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.",
+  "baseline_execution": "No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.",
+  "native_game_boot": false,
+  "native_port_playable": false
+}
