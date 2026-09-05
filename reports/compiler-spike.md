@@ -71,3 +71,7 @@ The repeated v9 recovery has 21,160 entries / 873,581 instruction addresses, eig
 ## BMI and explicit trap continuation (2026-09-05 23:04 UTC)
 
 Tested isolated BLSR/BLSI semantics and explicit native UD2 boundaries compile fourteen more startup entries. Combined census: 21,118 entries; 34 semantic rejections and eight quarantined boundaries remain. Thirty-four thousand eight hundred sixteen authored BMI cases pass, alongside six trap declaration/control checks and the prior 8,192 authored sparse cases. Game-derived objects remain unlinked/unexecuted; all native fault delivery, services and dispatch contracts stay explicit. See reports/bmi-trap.md and reports/bmi-trap-evidence.json.
+
+## Vector semantics and constructor compilation (2026-09-05 23:29 UTC)
+
+All 18,444 initial constructor entries compile with the isolated, independently tested vector semantic extensions. Combined census: 21,121 entries; 31 compiler rejections and eight quarantined boundaries remain. Eight new objects reproduce byte-for-byte and supersede the seven BMI/trap objects for combined ownership. Authored checks pass 32,768 shuffle, 122,880 blend, 399,360 RSQRT and 34,816 BMI cases. RSQRT uses a native LLVM intrinsic; AMD Jaguar bit-exact estimates remain unverified. No game-derived object was linked or executed, and this does not pass startup runtime/control closure. See reports/vector-semantics.md and reports/vector-semantics-evidence.json.
