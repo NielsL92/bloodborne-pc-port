@@ -1,0 +1,65 @@
+diff --git a/src/video_core/renderer_vulkan/vk_presenter.cpp b/src/video_core/renderer_vulkan/vk_presenter.cpp
+index 72485cd..e06c873 100644
+--- a/src/video_core/renderer_vulkan/vk_presenter.cpp
++++ b/src/video_core/renderer_vulkan/vk_presenter.cpp
+@@ -17,6 +17,7 @@
+ #include "imgui/renderer/imgui_impl_vulkan.h"
+ #include "imgui/shadnet_notifications_layer.h"
+ #include "sdl_window.h"
++#include "input/controller.h"
+ #include "video_core/buffer_cache/buffer.h"
+ #include "video_core/renderdoc.h"
+ #include "video_core/renderer_vulkan/vk_platform.h"
+@@ -32,6 +33,8 @@
+ #include <cmath>
+ #include <csetjmp>
+ #include <cstring>
++#include <cstdlib>
++#include <tuple>
+ #include <ctime>
+ #include <filesystem>
+ #include <fstream>
+@@ -713,6 +716,43 @@ Frame* Presenter::PrepareFrame(const Libraries::VideoOut::BufferAttributeGroup&
+     const vk::Extent2D image_size = {image.info.size.width, image.info.size.height};
+     expected_ratio = static_cast<float>(image_size.width) / static_cast<float>(image_size.height);
+ 
++    // Research-only frame evidence, activated explicitly by the capture harness.
++    // Uses the renderer's existing attachment readback; no desktop/UI capture.
++    static const bool research_capture = std::getenv("BB_RESEARCH_CAPTURE") != nullptr;
++    static u64 research_frame = 0;
++    static auto research_start = std::chrono::steady_clock::now();
++    if (research_capture) {
++        ++research_frame;
++        static const auto research_inputs = [] {
++            std::vector<std::tuple<u64, u32, bool>> inputs;
++            std::ifstream input("research-input.tsv");
++            u64 frame; u32 button; int pressed;
++            while (input >> frame >> button >> pressed) {
++                inputs.emplace_back(frame, button, pressed != 0);
++            }
++            return inputs;
++        }();
++        static size_t research_input_index = 0;
++        while (research_input_index < research_inputs.size() &&
++               std::get<0>(research_inputs[research_input_index]) == research_frame) {
++            const auto [frame_id, button, pressed] = research_inputs[research_input_index++];
++            auto& controllers = *Common::Singleton<Input::GameControllers>::Instance();
++            controllers[0]->Button(static_cast<Libraries::Pad::OrbisPadButtonDataOffset>(button),
++                                   pressed);
++            LOG_INFO(Render_Vulkan, "BB_RESEARCH input frame={} button={:#x} pressed={}",
++                     frame_id, button, pressed);
++        }
++
++        if (research_frame == 1 || research_frame % 300 == 0) {
++            VideoCore::RequestScreenshot(VideoCore::ScreenshotRequest::GameOnly);
++            VideoCore::RequestScreenshot(VideoCore::ScreenshotRequest::WithOverlays);
++            const auto seconds = std::chrono::duration<double>(
++                std::chrono::steady_clock::now() - research_start).count();
++            LOG_INFO(Render_Vulkan, "BB_RESEARCH frame={} seconds={} gpu_address={:#x}",
++                     research_frame, seconds, cpu_address);
++        }
++    }
++
+     const u32 capture_game_only_count = VideoCore::ConsumeGameOnlyScreenshotRequests();
+     std::vector<ScreenshotReadback> pending_screenshots;
+     if (capture_game_only_count > 0) {

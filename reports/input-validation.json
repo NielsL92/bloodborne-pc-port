@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "status": "verified",
+  "kind": "hardlinked asset view; do not edit files in place",
+  "package_sha256": [
+    "7d574cc0b0716755c093f3fbedee8d302d82d9894922c1972c12956c69b4d992",
+    "a138cfdc6133d7718dca77a3ef05072d50020d8e987c21be8d795980f78ff818"
+  ],
+  "file_count": 28810,
+  "bytes": 31428130448,
+  "overwrite_count": 405,
+  "repeated_update_files": 405,
+  "dlc_candidate_asset_counts": {
+    "m34": 740,
+    "m35": 306,
+    "m36": 352
+  },
+  "dlc_candidate_examples": [],
+  "superseded_by": "input-view-v2.json"
+}

@@ -1,0 +1,99 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e0695e7..3f2ab1c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,10 +36,31 @@ message(STATUS "Compiler ID is ${CMAKE_C_COMPILER_ID}")
+ 
+ # LLVM
+ find_package(LLVM CONFIG REQUIRED)
++# Relocate the official Windows SDK's absolute build-machine DIA dependency.
++if(WIN32 AND LLVM_ENABLE_DIA_SDK AND TARGET LLVMDebugInfoPDB)
++  find_library(REMILL_DIA_GUIDS NAMES diaguids
++    PATHS "$ENV{VSINSTALLDIR}/DIA SDK/lib/amd64" NO_DEFAULT_PATH REQUIRED)
++  get_target_property(_remill_pdb_deps LLVMDebugInfoPDB INTERFACE_LINK_LIBRARIES)
++  set(_remill_pdb_relocated)
++  foreach(_dep IN LISTS _remill_pdb_deps)
++    if(_dep MATCHES "diaguids[.]lib$")
++      list(APPEND _remill_pdb_relocated "${REMILL_DIA_GUIDS}")
++    else()
++      list(APPEND _remill_pdb_relocated "${_dep}")
++    endif()
++  endforeach()
++  set_property(TARGET LLVMDebugInfoPDB PROPERTY INTERFACE_LINK_LIBRARIES "${_remill_pdb_relocated}")
++endif()
+ # https://github.com/JonathanSalwan/Triton/issues/1082#issuecomment-1030826696
+ if(LLVM_LINK_LLVM_DYLIB)
+   set(llvm_libs LLVM)
+ else()
++  set(REMILL_OPTIONAL_TARGET_LIBS)
++  if("Sparc" IN_LIST LLVM_TARGETS_TO_BUILD)
++    list(APPEND REMILL_OPTIONAL_TARGET_LIBS sparccodegen sparcasmparser)
++  else()
++    message(WARNING "LLVM SDK omits SPARC code generation; AMD64 lifting experiment only")
++  endif()
+   llvm_map_components_to_libnames(llvm_libs
+     support core irreader
+     bitreader bitwriter
+@@ -48,7 +69,7 @@ else()
+     armcodegen armasmparser
+     interpreter mcjit
+     x86info x86codegen x86asmparser
+-    sparccodegen sparcasmparser)
++    ${REMILL_OPTIONAL_TARGET_LIBS})
+ endif()
+ message(STATUS "LLVM Libraries: ${llvm_libs}")
+ 
+diff --git a/bin/lift/Lift.cpp b/bin/lift/Lift.cpp
+index 96ea713..b6e5c68 100644
+--- a/bin/lift/Lift.cpp
++++ b/bin/lift/Lift.cpp
+@@ -70,6 +70,7 @@ DEFINE_uint64(entry_address, -1,
+               "Defaults to the value of -address.");
+ 
+ DEFINE_string(bytes, "", "Hex-encoded byte string to lift.");
++DEFINE_string(bytes_file, "", "Raw input byte file (mutually exclusive with --bytes).");
+ 
+ DEFINE_string(
+     ir_pre_out, "",
+@@ -296,6 +297,28 @@ int main(int argc, char *argv[]) {
+   SetVersion();
+   google::ParseCommandLineFlags(&argc, &argv, true);
+   google::InitGoogleLogging(argv[0]);
++  if (!FLAGS_bytes_file.empty()) {
++    if (!FLAGS_bytes.empty()) {
++      std::cerr << "Specify only one of --bytes and --bytes_file." << std::endl;
++      return EXIT_FAILURE;
++    }
++    std::ifstream input(FLAGS_bytes_file, std::ios::binary);
++    if (!input) {
++      std::cerr << "Cannot read bytes file." << std::endl;
++      return EXIT_FAILURE;
++    }
++    constexpr char hex[] = "0123456789abcdef";
++    char byte;
++    while (input.get(byte)) {
++      auto value = static_cast<unsigned char>(byte);
++      FLAGS_bytes.push_back(hex[value >> 4]);
++      FLAGS_bytes.push_back(hex[value & 15]);
++    }
++    if (!input.eof()) {
++      std::cerr << "Failed reading bytes file." << std::endl;
++      return EXIT_FAILURE;
++    }
++  }
+ 
+ 
+   if (FLAGS_bytes.empty()) {
+diff --git a/lib/Arch/X86/Semantics/SSE.cpp b/lib/Arch/X86/Semantics/SSE.cpp
+index 50b6df6..9bddfef 100644
+--- a/lib/Arch/X86/Semantics/SSE.cpp
++++ b/lib/Arch/X86/Semantics/SSE.cpp
+@@ -497,7 +497,7 @@ template <typename D, typename S1, typename S2>
+ DEF_SEM(CMPSS, D dst, S1 src1, S2 src2, I8 src3) {
+   auto src1_vec = FReadV32(src1);
+   auto src2_vec = FReadV32(src2);
+-  auto dst_vec = UClearV32(UReadV32(dst));
++  auto dst_vec = UReadV32(src1);
+   auto op = Read(src3);
+   if (op >= 32) {
+     StopFailure();

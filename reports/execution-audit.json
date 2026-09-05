@@ -1,0 +1,88 @@
+{
+  "status": "pass",
+  "python_sources_parsed": 28,
+  "report_json_files": 8,
+  "verified_effective_links": 28840,
+  "metadata_files_rehashed": 31,
+  "original_packages_rehashed": false,
+  "active_prior_runs": [],
+  "captures": [
+    {
+      "capture": "baseline-first-boot",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 0
+    },
+    {
+      "capture": "baseline-ready",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 0
+    },
+    {
+      "capture": "research-brightness",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 18
+    },
+    {
+      "capture": "research-controls",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 16
+    },
+    {
+      "capture": "research-metadata-corrected",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 26
+    },
+    {
+      "capture": "research-new-game",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 30
+    },
+    {
+      "capture": "research-offline-menu",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 18
+    },
+    {
+      "capture": "research-render-capture",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "image_count": 12
+    }
+  ],
+  "p2_gate": "FAILED: performance and remaining runtime behaviors",
+  "native_port_playable": false,
+  "run_status_at_audit_start": {
+    "running": 1,
+    "failed": 12,
+    "pass": 47
+  },
+  "run_status_after_audit": {
+    "pass": 48,
+    "failed": 12
+  },
+  "third_party_patches_reverse_apply_check": "pass",
+  "text_normalization": "UTF-8/LF normalized after execution audit; no runtime logic changed; git diff --check passed"
+}

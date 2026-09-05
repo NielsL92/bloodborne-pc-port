@@ -15,7 +15,9 @@ def environment():
     if not VCVARS.is_file():
         raise RuntimeError(f"Missing MSVC x64 environment: {VCVARS}")
     command=f'call "{VCVARS}" >nul && set'
-    r=subprocess.run(["cmd.exe","/d","/s","/c",command],capture_output=True,text=True,check=True)
+    r=subprocess.run('cmd.exe /d /s /c "' + command + '"', capture_output=True,text=True)
+    if r.returncode:
+        raise RuntimeError(f"vcvars64 failed: {r.stderr}")
     env=os.environ.copy()
     for line in r.stdout.splitlines():
         if "=" in line and not line.startswith("="):
@@ -29,12 +31,14 @@ def environment():
 
 if __name__=="__main__":
     p=argparse.ArgumentParser()
+    p.add_argument("--fast-git-metadata",action="store_true")
     p.add_argument("command",nargs=argparse.REMAINDER)
     a=p.parse_args()
     cmd=a.command[1:] if a.command[:1]==["--"] else a.command
     if not cmd:
         p.error("command is required")
     env=environment()
+    if a.fast_git_metadata:
+        env.update(GIT_CONFIG_COUNT="1",GIT_CONFIG_KEY_0="diff.ignoreSubmodules",GIT_CONFIG_VALUE_0="dirty")
     cmd[0]=shutil.which(cmd[0],path=env["PATH"]) or cmd[0]
     raise SystemExit(subprocess.run(cmd,env=env,cwd=ROOT).returncode)
-

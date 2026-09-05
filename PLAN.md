@@ -1,6 +1,6 @@
 # Bloodborne native PC recompilation: execution plan
 
-Date: 2026-09-05. Status: proposed plan; implementation is not authorized by this document alone. This planning turn changes documentation only. The user will start a new task to execute the agreed plan.
+Date: 2026-09-05. Execution was subsequently authorized by the user's explicit request. The scope and gates below remain unchanged. Current evidence and gate decisions are in reports/STATUS.md and HANDOFF.md; this plan is not itself a completion record.
 
 The user has confirmed that there will be **no PS4 hardware access**. The plan uses the supplied files, the PC, public technical documentation, and open-source implementations. shadPS4 is an implementation reference, a source of reusable components, and a way to gather observations. Agreement with it is not proof of console correctness.
 

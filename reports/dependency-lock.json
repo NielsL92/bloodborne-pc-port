@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-09-05",
+  "repositories": {
+    "shadPS4": {
+      "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+      "origin": "https://github.com/shadps4-emu/shadPS4.git",
+      "submodules": [
+        "12ba4ac4dbaa6489cb07e01be796e2bc074ef4f4 externals/CLI11 (v1.7.1-685-g12ba4ac)",
+        " 57a1c6a6d44bd99e844e3642d27851f6c065af62 externals/ImGuiFileDialog (v0.6.6.1-4-g57a1c6a)",
+        " 946e05a9212976626a9f5e52f29c0a7202871f29 externals/LibAtrac9 (heads/master)",
+        " ee76460efbdb147e26d804c798949c23f174460b externals/aacdec/fdk-aac (android-platform-15.0.0_r18-24-gee76460)",
+        " 76bb24329e8bf5f39704eb10d21b9a80befa7c81 externals/abseil-cpp (20250512.1)",
+        " 28f8264d134a576422cd0f99f19719c2749d9e47 externals/cpp-httplib (v0.31.0-185-g28f8264)",
+        " a45ea7c17b4a7f320e199b71436074bd624c9e15 externals/date (a45ea7c)",
+        " 19f66e6dcabb2268965f453db9e5774ede43238f externals/discord-rpc (heads/master)",
+        " d621dc9e9c77f81e5c8a35b8dcc16dcd63351321 externals/discord-rpc/thirdparty/rapidjson (v1.1.0-761-gd621dc9e)",
+        " ba96d0b1161f540656efdaed035b3c062b60e006 externals/discord-rpc/thirdparty/rapidjson/thirdparty/gtest (release-1.8.0-1003-gba96d0b1)",
+        " 18159584bb3d17e601b9315a7398ace018251bdc externals/epoll-shim (v0.0.20240608-6-g1815958)",
+        " ca6f230e67be7cc45fc919057f07b2aee64dadc1 externals/ext-boost (ca6f230)",
+        " d3bb81035304a0dc6a5ca48ebf0f8cee1fe269e4 externals/ext-wepoll (heads/dist)",
+        " 94dde08c8a9e4271a93a2a7e4159e9fb05d30c0a externals/ffmpeg-core (94dde08)",
+        " ec73fb72477d80926c758894a3ab2cb3994fd051 externals/fmt (heads/master)",
+        " b91f75bd02db43b06d634591eb286d3eb0ce3b65 externals/freetype (b91f75bd0)",
+        " 395ccad2c1e0daae535c4d20bb0a3f2424648e17 externals/freetype/subprojects/dlg (v0.2.2-50-g395ccad)",
+        " ba1640446f3826a518721d1f083f3a8cca1120c3 externals/glslang (ba164044)",
+        " 1ddada225144cac0de8f6b5c0dd9acffd99a2e68 externals/half (1ddada2)",
+        " 8660006e0ca4aae5dda7a29e585968b50b0273b7 externals/hwinfo (heads/main)",
+        " 7e1b65d26d52e9dd199d889c148c72184de647b4 externals/imgui (v1.92.9b-docking-52-g7e1b65d26)",
+        " 55f93686c01528224f448c19128836e7df245f72 externals/json (v3.12.0)",
+        " c1cc0f3f4c3d4abd11ca68c59446a29ff6f95003 externals/libpng (c1cc0f3f4)",
+        " b0504086dbbc186724b0cc92e6ba1832c245de0b externals/libressl (heads/main)",
+        " d087ea86539ab1f1ec42faf86e2357e2fad126a6 externals/libusb (v1.0.23-rc1-672-gd087ea86)",
+        " a413fcc9c46a020a746907136a384c227f3cd095 externals/magic_enum (a413fcc)",
+        " c502a84d3f62f7b8031222c81a948506bf1d6a54 externals/mesa-kosmickrisp (c502a84)",
+        " 282d791a69b69d03110519ee4bdcf2eee7138aaa externals/mesa-kosmickrisp/externals/mesa (282d791a69b)",
+        " 7b590fdcfa5a79c033e76eacc05d0c3e4c79f536 externals/minimp3 (7b590fd)",
+        " bf4215a7574f88aa55859db9db00e3ae58cf42d6 externals/miniupnp (miniupnpd_2_1-1138-gbf4215a)",
+        " 174573d60290f447c13a2b1b3405de2b96e27d6c externals/miniz (3.1.0)",
+        " 83ea7236c6f23fc98e2b62eb9c5b3abfd4b2be86 externals/openal-soft (latest-217-g83ea7236c)",
+        " 5917ee224a7e47383a78acc129628511fe210dff externals/protobuf (v33-dev-1748-g5917ee224)",
+        " caade5a28aad86b92a4b5337a9dc70c4ba73c5eb externals/pugixml (caade5a)",
+        " 4ec1bf19c6a96125ea22062f38c2cf5b958e448e externals/robin-map (4ec1bf1)",
+        " d5af35e3fbb5bb6555ed00e69740d52af2a4e877 externals/sdl3 (release-3.4.0-744-gd5af35e3f)",
+        " c58f4d441cfdb6905d011a906704716833485486 externals/sirit (heads/master)",
+        " 2acb319af38d43be3ea76bfabf3998e5281d8d12 externals/sirit/externals/SPIRV-Headers (1.5.4.raytracing.fixed-362-g2acb319)",
+        " b8944a4bcd478ee03375c9c50dc8d6c741f43f7b externals/spdlog (b8944a4b)",
+        " a01fe3b4c14c6d7b99ee3f07c9e80058c6403097 externals/toml11 (a01fe3b)",
+        " 2f64607bc9a4caa6ffc4ed7f614c8ad9a5b6611c externals/toml11/docs/themes/hugo-book (v10-17-g2f64607)",
+        " ae7a13539fb71f270b87eb2e874fbac80bc8dda2 externals/toml11/tests/extlib/doctest (v2.4.11)",
+        " 8c391e04fe4195d8be862c97f38cfe10e2a3472e externals/toml11/tests/extlib/json (v3.11.2-97-g8c391e04f)",
+        " 143a53d1985b8e52a7590a0daca30a0a7c653b42 externals/tracy (143a53d)",
+        " f378e7b3f18f6e2b06b957f6ba7b1c7207d2a536 externals/vma (f378e7b)",
+        " ee3b5caaa7e372715873c7b9c390ee1c3ca5db25 externals/vulkan-headers (ee3b5ca)",
+        " 466498bc64eb77955c3b782f0127520548224de0 externals/vulkan-loader (466498bc)",
+        " 44a72f369268f7d552650891b296693e91db86bb externals/xbyak (44a72f3)",
+        " 953a09abc39096da9e216b6eb0002c681cdc1199 externals/xxhash (953a09a)",
+        " 965b66c8d67b6b7e30fd63b3b75aa91a99ff303b externals/zarchive (heads/master)",
+        " fd0d263cedab1a136f40d65199987e3eaeecfcbd externals/zlib-ng (heads/develop)",
+        " 5c7b7bad26808e6b40ac3b3d0075466e27738a9d externals/zstd (v1.4.7-3029-g5c7b7bad)",
+        " 120e0e705f8e3b507dc49377ac2879979f0d545c externals/zydis (120e0e7)",
+        " 38d4f0285e6157ee840ea82a9b90aba71c8a705d externals/zydis/dependencies/zycore (v1.5.0-4-g38d4f02)"
+      ]
+    },
+    "remill": {
+      "commit": "56918a8c2554088e93389e97d292f4035286506c",
+      "origin": "https://github.com/lifting-bits/remill.git"
+    },
+    "LibOrbisPkg": {
+      "commit": "643477263b2644e0803e0f58b8726ea4e3f3b7d4",
+      "origin": "https://github.com/maxton/LibOrbisPkg.git"
+    }
+  },
+  "patches": {
+    "remill-windows-sdk.patch": "b1181e54bd0d725b9185e1fdff105a0784759bc5c9b17d8ab25017155f9290cb",
+    "shadps4-research-capture.patch": "ca662e16a5235322d51f754c2928a2e29a2a97f8a1ea857e5b2b7b2fffd00e5d"
+  },
+  "binaries": {
+    "build\\shadps4-baseline\\shadps4.exe": {
+      "sha256": "09b7bdc5561efcdeda4f7211baad10e4c880bc1d9f402fadf03b24410dbace57",
+      "bytes": 68371456
+    },
+    "build\\remill\\bin\\lift\\remill-lift-21.exe": {
+      "sha256": "6b0ae3fbd7348541d1c35229b8d6fc8990bca7fe0792c787254be2a5bffa178b",
+      "bytes": 16792576
+    },
+    "build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx.bc": {
+      "sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
+      "bytes": 1215560
+    },
+    "build\\shadps4-profile-unmodified\\shadps4.exe": {
+      "sha256": "e383646e194fb1b184163263eb21d0f55a1ca188abc27a20b4998d5c2848bc55",
+      "bytes": 71689728
+    },
+    "build\\shadps4-profile-unmodified\\shadps4.pdb": {
+      "sha256": "85f1d5c4621ec1307fc76f12b3230032bcf530f365143a20718e895469b14a03",
+      "bytes": 247853056
+    },
+    "build/shadps4-profile/shadps4.exe": {
+      "sha256": "772b015e0500f86204080f49a5497331f68da2f2091ba1c46c2ccad6ad796491",
+      "bytes": 71695872
+    },
+    "build/shadps4-profile/shadps4.pdb": {
+      "sha256": "ad8cad06bc2d633a2a75c24dac123bf5158db737ad09074181bf73a7f6a6dbe8",
+      "bytes": 247910400
+    },
+    "build/remill/lib/Arch/X86/Runtime/amd64_avx.bc": {
+      "sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
+      "bytes": 1215560
+    }
+  },
+  "remill_dependency_sources": [
+    {
+      "path": "build\\remill-deps\\xed-prefix\\src\\mbuild",
+      "commit": "7c4497f41f576b43a80bb0f8d8452bbcfd58b6e2"
+    },
+    {
+      "path": "build\\remill-deps\\xed-prefix\\src\\xed",
+      "commit": "dc6bdbe036515c7ef55d3b2d50bafc5232bfe534"
+    },
+    {
+      "path": "build\\remill-deps\\googletest-prefix\\src\\googletest",
+      "commit": "52eb8108c5bdec04579160ae17225d66034bd723"
+    },
+    {
+      "path": "build\\remill-deps\\glog-prefix\\src\\glog",
+      "commit": "7b134a5c82c0c0b5698bb6bf7a835b230c5638e4"
+    },
+    {
+      "path": "build\\remill-deps\\gflags-prefix\\src\\gflags",
+      "commit": "52e94563eba1968783864942fedf6e87e3c611f4"
+    }
+  ]
+}

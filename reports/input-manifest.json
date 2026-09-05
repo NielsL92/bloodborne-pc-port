@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "created_utc": "2026-09-05T11:39:01.365169+00:00",
+  "packages": [
+    {
+      "path": "E:\\ROMS\\PS4\\Bloodborne.pkg",
+      "size": 31351111680,
+      "mtime_ns": 1767368005000000000,
+      "sha256": "7d574cc0b0716755c093f3fbedee8d302d82d9894922c1972c12956c69b4d992",
+      "sfo": {
+        "APP_TYPE": 1,
+        "APP_VER": "01.00",
+        "ATTRIBUTE": 2,
+        "ATTRIBUTE2": 0,
+        "CATEGORY": "gd",
+        "CONTENT_ID": "EP9000-CUSA03173_00-BLOODBORNE0000EU",
+        "DEV_FLAG": 0,
+        "DOWNLOAD_DATA_SIZE": 0,
+        "FORMAT": "obs",
+        "INSTALL_DIR_SAVEDATA": "CUSA00207",
+        "PARENTAL_LEVEL": 9,
+        "PUBTOOLINFO": "c_date=20181010,sdk_ver=02000000,st_type=digital50,img0_l0_size=29899,img0_l1_size=0,img0_sc_ksize=12288,img0_pc_ksize=21696",
+        "PUBTOOLVER": 54001664,
+        "REMOTE_PLAY_KEY_ASSIGN": 2,
+        "SERVICE_ID_ADDCONT_ADD_1": "",
+        "SERVICE_ID_ADDCONT_ADD_2": "",
+        "SERVICE_ID_ADDCONT_ADD_3": "",
+        "SERVICE_ID_ADDCONT_ADD_4": "",
+        "SERVICE_ID_ADDCONT_ADD_5": "",
+        "SERVICE_ID_ADDCONT_ADD_6": "",
+        "SERVICE_ID_ADDCONT_ADD_7": "",
+        "SYSTEM_VER": 72351744,
+        "TITLE": "Bloodborne\u2122",
+        "TITLE_ID": "CUSA03173",
+        "USER_DEFINED_PARAM_1": 13,
+        "VERSION": "01.00"
+      },
+      "content_id": "EP9000-CUSA03173_00-BLOODBORNE0000EU"
+    },
+    {
+      "path": "E:\\ROMS\\PS4\\Bloodborne v1.09 patch.pkg",
+      "size": 181338112,
+      "mtime_ns": 1767367948000000000,
+      "sha256": "a138cfdc6133d7718dca77a3ef05072d50020d8e987c21be8d795980f78ff818",
+      "sfo": {
+        "APP_TYPE": 1,
+        "APP_VER": "01.09",
+        "ATTRIBUTE": 2,
+        "ATTRIBUTE2": 0,
+        "CATEGORY": "gp",
+        "CONTENT_ID": "EP9000-CUSA03173_00-BLOODBORNE0000EU",
+        "DEV_FLAG": 0,
+        "DOWNLOAD_DATA_SIZE": 0,
+        "FORMAT": "obs",
+        "INSTALL_DIR_SAVEDATA": "CUSA00207",
+        "PARENTAL_LEVEL": 9,
+        "PUBTOOLINFO": "c_date=20181010,sdk_ver=02000000,st_type=digital25,img0_l0_size=173,img0_l1_size=0,img0_sc_ksize=10240,img0_pc_ksize=704",
+        "PUBTOOLVER": 54001664,
+        "REMOTE_PLAY_KEY_ASSIGN": 2,
+        "SERVICE_ID_ADDCONT_ADD_1": "",
+        "SERVICE_ID_ADDCONT_ADD_2": "",
+        "SERVICE_ID_ADDCONT_ADD_3": "",
+        "SERVICE_ID_ADDCONT_ADD_4": "",
+        "SERVICE_ID_ADDCONT_ADD_5": "",
+        "SERVICE_ID_ADDCONT_ADD_6": "",
+        "SERVICE_ID_ADDCONT_ADD_7": "",
+        "SYSTEM_VER": 72351744,
+        "TITLE": "Bloodborne\u2122",
+        "TITLE_ID": "CUSA03173",
+        "USER_DEFINED_PARAM_1": 13,
+        "VERSION": "01.00"
+      },
+      "content_id": "EP9000-CUSA03173_00-BLOODBORNE0000EU"
+    }
+  ],
+  "effective_title_id": "CUSA03173",
+  "effective_app_version": "01.09",
+  "effective_executable": {
+    "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+    "sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+    "size": 93825704
+  }
+}

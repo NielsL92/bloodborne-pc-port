@@ -50,4 +50,3 @@ if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         records=list(pool.map(acquire, ASSETS))
     (ROOT / "reports/toolchain-downloads.json").write_text(json.dumps(records, indent=2)+"\n")
-
