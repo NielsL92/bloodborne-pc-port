@@ -106,5 +106,7 @@ if latest_path.exists():
  if batch.exists():report['startup_batch']=dict(path=str(batch.relative_to(root)),sha256=sha(batch),result=json.loads(batch.read_text()))
 bmi=root/'reports/bmi-trap-evidence.json'
 if bmi.exists():report['bmi_trap']=dict(path=str(bmi.relative_to(root)),sha256=sha(bmi),result=json.loads(bmi.read_text()))
+vector=root/'reports/vector-semantics-evidence.json'
+if vector.exists():report['vector_semantics']=dict(path=str(vector.relative_to(root)),sha256=sha(vector),result=json.loads(vector.read_text()))
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)

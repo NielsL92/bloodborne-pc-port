@@ -13477,5 +13477,814 @@
       "native_game_boot": false,
       "native_port_playable": false
     }
+  },
+  "vector_semantics": {
+    "path": "reports\\vector-semantics-evidence.json",
+    "sha256": "39065175bfe66c797ab8463939a8418f5a855e49c535a640c3a8b8074908344a",
+    "result": {
+      "status": "vector semantics and complete constructor compilation evidence pass; P3 open",
+      "directory": "local/compiler-spike/startup-vector-recompile-v2-repeat",
+      "audit_directory": "local/compiler-spike/vector-semantics-audit-v1",
+      "new_compiled_entries": 17,
+      "combined_compiled_entries": 21121,
+      "compiled_constructors": 18444,
+      "constructor_targets": 18444,
+      "remaining_compiler_rejections": 31,
+      "remaining_quarantined_manifests": 8,
+      "duplicate_logical_roots": 0,
+      "byte_identical_repeat": true,
+      "objects": [
+        {
+          "folder": "batch-0000",
+          "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+          "entries": [
+            188736,
+            189072,
+            189968,
+            190128,
+            190336,
+            190416
+          ],
+          "object_sha256": "76d01f185fff404874ca2247a4d964960db86e32e5b8c3b7037e114b0006595d",
+          "object_bytes": 10189,
+          "native_traps": [
+            12885090711,
+            12885091015,
+            12885091904,
+            12885092097,
+            12885092239,
+            12885092319
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_undefined_8",
+            "sub_30002ec00",
+            "__remill_read_memory_64",
+            "sub_30002ec10",
+            "__remill_compare_eq",
+            "__bb_native_ud2",
+            "sub_300000380",
+            "__remill_compare_neq",
+            "__remill_flag_computation_carry",
+            "__remill_flag_computation_overflow",
+            "__remill_function_return",
+            "sub_3000003b0",
+            "sub_300000420",
+            "__remill_read_memory_32",
+            "__remill_write_memory_32",
+            "__remill_compare_sle",
+            "sub_300000440",
+            "sub_300000470",
+            "sub_300000490"
+          ]
+        },
+        {
+          "folder": "batch-0001-a-b-b",
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entries": [
+            132352
+          ],
+          "object_sha256": "ce1bfe4b3e828e8892e623fa34afcfd5438bce00ade02d084955b5580c605f1b",
+          "object_bytes": 189350,
+          "native_traps": [
+            34359878991,
+            34359879027,
+            34359879060,
+            34359879076,
+            34359879167,
+            34359879183,
+            34359879213
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "__remill_read_memory_8",
+            "__remill_undefined_8",
+            "__remill_compare_eq",
+            "__remill_compare_neq",
+            "__remill_read_memory_32",
+            "sub_800000240",
+            "__bb_native_ud2",
+            "__remill_compare_ule",
+            "__remill_compare_ult",
+            "__remill_compare_uge",
+            "__remill_compare_ugt",
+            "__remill_write_memory_8",
+            "sub_80002ffd0",
+            "sub_800022740",
+            "sub_80001feb0",
+            "__remill_write_memory_32",
+            "llvm.umin.i32",
+            "sub_800023f20",
+            "__remill_write_memory_f32",
+            "sub_800000250",
+            "sub_800009b30",
+            "sub_800000330",
+            "__remill_function_return",
+            "sub_80001f560",
+            "__remill_missing_block"
+          ]
+        },
+        {
+          "folder": "batch-0001-b-a",
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entries": [
+            141120,
+            147232
+          ],
+          "object_sha256": "ac9e3966c512fbde1332379895f8d0657ed86385087164b96a7950f906100915",
+          "object_bytes": 139577,
+          "native_traps": [
+            34359882585,
+            34359883608,
+            34359887610
+          ],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_undefined_8",
+            "__remill_compare_eq",
+            "__remill_read_memory_64",
+            "__remill_read_memory_8",
+            "__remill_compare_ugt",
+            "__remill_compare_neq",
+            "llvm.umin.i32",
+            "sub_800000240",
+            "__bb_native_ud2",
+            "__remill_compare_ult",
+            "__remill_read_memory_32",
+            "__remill_compare_slt",
+            "__remill_compare_uge",
+            "__remill_write_memory_32",
+            "sub_800000340",
+            "__remill_write_memory_f32",
+            "__remill_compare_ule",
+            "sub_800000250",
+            "__remill_function_return",
+            "__remill_write_memory_8",
+            "sub_80001feb0",
+            "sub_800009b30",
+            "sub_800024ea0",
+            "sub_80001f560",
+            "__remill_missing_block",
+            "sub_800000350",
+            "sub_800023e70",
+            "sub_800000110",
+            "sub_80002ffd0",
+            "__remill_compare_sle"
+          ]
+        },
+        {
+          "folder": "batch-0003-b-a-b-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            14681408
+          ],
+          "object_sha256": "622c52ea514dbd94b384f0a53dd7d3c7166ef6120eef5fe21061ebd08bfc41ab",
+          "object_bytes": 72663,
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_read_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_compare_neq",
+            "__remill_write_memory_32",
+            "__remill_compare_ugt",
+            "__remill_compare_ult",
+            "__remill_undefined_8",
+            "__remill_read_memory_32",
+            "__remill_compare_eq",
+            "__remill_compare_uge",
+            "__remill_compare_ule",
+            "llvm.umin.i32",
+            "__remill_read_memory_8",
+            "__remill_write_memory_8",
+            "__remill_function_return",
+            "__remill_write_memory_f32"
+          ]
+        },
+        {
+          "folder": "batch-0003-b-b-a-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            16983744
+          ],
+          "object_sha256": "7de24903ccee08722e72b54399678cd4cc8bdff8cbba294fc528598384253034",
+          "object_bytes": 9245,
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_read_memory_f32",
+            "__remill_write_memory_f32",
+            "sub_101032a90",
+            "__remill_read_memory_32",
+            "llvm.lifetime.start.p0",
+            "llvm.lifetime.end.p0",
+            "llvm.x86.sse.rsqrt.ps",
+            "__remill_read_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_function_return"
+          ]
+        },
+        {
+          "folder": "batch-0003-b-b-b-b-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            33650544
+          ],
+          "object_sha256": "a82d0fedb53bc0af461f8e87212738c4eb7ccca53858340b75370bc490368ead",
+          "object_bytes": 52125,
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "sub_102bbfe78",
+            "sub_102bbf2f8",
+            "__remill_undefined_8",
+            "__remill_compare_neq",
+            "sub_1020b55b0",
+            "sub_1027c0e00",
+            "__remill_write_memory_8",
+            "__remill_read_memory_32",
+            "sub_1020eba00",
+            "__remill_write_memory_32",
+            "__remill_read_memory_f32",
+            "__remill_write_memory_f32",
+            "__remill_compare_ult",
+            "__remill_function_call",
+            "__remill_write_memory_16",
+            "sub_1020e2550",
+            "sub_102ba2b10",
+            "__remill_compare_eq",
+            "sub_100fe9fc0",
+            "sub_100fea2a0",
+            "sub_100fe2990",
+            "__remill_read_memory_8",
+            "sub_102bbf228",
+            "sub_10262a310",
+            "sub_10200e550",
+            "sub_1020ebcc0",
+            "sub_100f9b4e0",
+            "sub_1020e9c60",
+            "sub_100fb92f0",
+            "sub_101012ec0",
+            "sub_100fb9520",
+            "sub_10182dd10",
+            "sub_101013820",
+            "sub_101001270",
+            "sub_10182cc80",
+            "sub_10182cda0",
+            "sub_10182cec0",
+            "sub_10182cfe0",
+            "sub_10182d200",
+            "sub_100fa4e30",
+            "sub_100f9f7a0",
+            "sub_100f9fcf0",
+            "sub_100fa4fc0",
+            "sub_100fa1850",
+            "sub_100fbbca0",
+            "sub_101fdcff0",
+            "sub_101faee00",
+            "sub_101ff7950",
+            "sub_100fed080",
+            "sub_101016c40",
+            "sub_100fbb500",
+            "sub_100faeaf0",
+            "sub_100fa0610",
+            "sub_100faebc0",
+            "sub_100f9df30",
+            "sub_102050fc0",
+            "sub_102038ab0",
+            "sub_10201a9d0",
+            "sub_102051300",
+            "sub_102012590",
+            "sub_101961530",
+            "sub_101fdd270",
+            "sub_102bbe4f8",
+            "__remill_function_return",
+            "__remill_missing_block"
+          ]
+        },
+        {
+          "folder": "batch-0004-a-a-a",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            33902272
+          ],
+          "object_sha256": "1e7d3a98323f8fbfe0285635bfcc09839998347064d31a78dfaf8c5fb0d58aef",
+          "object_bytes": 21682,
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_flag_computation_carry",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "__remill_write_memory_16",
+            "__remill_undefined_8",
+            "sub_1026279a0",
+            "__remill_read_memory_8",
+            "__remill_write_memory_8",
+            "__remill_read_memory_32",
+            "__remill_write_memory_32",
+            "__remill_function_call",
+            "__remill_compare_neq",
+            "sub_1020b55b0",
+            "__remill_compare_eq",
+            "sub_102055d60",
+            "sub_1020557c0",
+            "sub_102bbe4f8",
+            "__remill_function_return",
+            "__remill_missing_block",
+            "sub_102bbe978",
+            "sub_102bbf1b8"
+          ]
+        },
+        {
+          "folder": "batch-0004-b-b",
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entries": [
+            42431136,
+            45751328,
+            45751840,
+            45752992
+          ],
+          "object_sha256": "c11e3b07a7ad211931711c0fe97284c933443e5ca79e5396f6813536fbb2d5f3",
+          "object_bytes": 43855,
+          "native_traps": [],
+          "external_declarations": [
+            "__remill_write_memory_64",
+            "__remill_read_memory_f32",
+            "llvm.ctpop.i8",
+            "__remill_flag_computation_zero",
+            "__remill_flag_computation_sign",
+            "__remill_undefined_8",
+            "sub_102bbe518",
+            "__remill_write_memory_f32",
+            "llvm.lifetime.start.p0",
+            "llvm.lifetime.end.p0",
+            "__remill_flag_computation_carry",
+            "__remill_flag_computation_overflow",
+            "__remill_read_memory_64",
+            "__remill_function_return",
+            "__remill_compare_eq",
+            "sub_1020b55b0",
+            "__remill_compare_ult",
+            "__remill_read_memory_8",
+            "__remill_function_call",
+            "sub_10263b9b0",
+            "__remill_jump",
+            "llvm.ctlz.i64",
+            "__remill_compare_ule",
+            "__remill_compare_uge",
+            "__remill_error",
+            "__remill_compare_neq",
+            "__remill_write_memory_8",
+            "sub_10207ee80",
+            "sub_102083fe0"
+          ]
+        }
+      ],
+      "remaining_first_failures": [
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 58624,
+          "logical_pc": 34359797040,
+          "selector": "VPUNPCKLWD_XMMdq_XMMdq_XMMdq",
+          "bytes": "c5f961c0",
+          "folder": "batch-0001-a-a-a"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 80400,
+          "logical_pc": 34359819318,
+          "selector": "VEXTRACTF128_XMMdq_YMMdq_IMMb",
+          "bytes": "c4e37d19c401",
+          "folder": "batch-0001-a-a-b"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 125408,
+          "logical_pc": 34359864841,
+          "selector": "VPSHUFB_XMMdq_XMMdq_XMMdq",
+          "bytes": "c4e26100d9",
+          "folder": "batch-0001-a-b-a"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 197680,
+          "logical_pc": 34359936070,
+          "selector": "FNSTENV_MEMmem28",
+          "bytes": "d975d8",
+          "folder": "batch-0001-b-b-a"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 268848,
+          "logical_pc": 34360007984,
+          "selector": "VROUNDSD_XMMdq_XMMdq_XMMq_IMMb",
+          "bytes": "c4e3790bc901",
+          "folder": "batch-0001-b-b-b"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 301152,
+          "logical_pc": 34360044732,
+          "selector": "VPUNPCKLDQ_XMMdq_XMMdq_MEMdq",
+          "bytes": "c5f962050c860400",
+          "folder": "batch-0002-a-a"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 310848,
+          "logical_pc": 34360049279,
+          "selector": "VPUNPCKLDQ_XMMdq_XMMdq_MEMdq",
+          "bytes": "c5f9620569740400",
+          "folder": "batch-0002-a-b"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 320976,
+          "logical_pc": 34360059448,
+          "selector": "VPUNPCKLDQ_XMMdq_XMMdq_MEMdq",
+          "bytes": "c5f96205d04c0400",
+          "folder": "batch-0002-b-a"
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 343248,
+          "logical_pc": 34360081686,
+          "selector": "FXSAVE_MEMmfpxenv",
+          "bytes": "0fae8720010000",
+          "folder": "batch-0002-b-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 4478464,
+          "logical_pc": 4299445808,
+          "selector": "VMINPS_XMMdq_XMMdq_MEMdq",
+          "bytes": "c5f05d0f",
+          "folder": "batch-0003-a-a-a-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 4495312,
+          "logical_pc": 4299462617,
+          "selector": "VPSRLD_XMMdq_XMMdq_IMMb",
+          "bytes": "c5f972d001",
+          "folder": "batch-0003-a-a-a-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 5798400,
+          "logical_pc": 4300765892,
+          "selector": "VPSRAD_XMMdq_XMMdq_IMMb",
+          "bytes": "c5c972e61f",
+          "folder": "batch-0003-a-a-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 5816208,
+          "logical_pc": 4300784137,
+          "selector": "VPSRAD_XMMdq_XMMdq_IMMb",
+          "bytes": "c5f972e01f",
+          "folder": "batch-0003-a-a-b-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 5874192,
+          "logical_pc": 4300841573,
+          "selector": "VPSRAD_XMMdq_XMMdq_IMMb",
+          "bytes": "c5f972e01f",
+          "folder": "batch-0003-a-b-a-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 6098912,
+          "logical_pc": 4301066384,
+          "selector": "VBLENDPS_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e3710cc007",
+          "folder": "batch-0003-a-b-a-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 9160464,
+          "logical_pc": 4304127812,
+          "selector": "VMOVMSKPS_GPR32d_XMMdq",
+          "bytes": "c5f850c0",
+          "folder": "batch-0003-a-b-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 9770544,
+          "logical_pc": 4304737970,
+          "selector": "VPMINSD_XMMdq_XMMdq_XMMdq",
+          "bytes": "c4e27939c1",
+          "folder": "batch-0003-a-b-b-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 9770800,
+          "logical_pc": 4304738466,
+          "selector": "VPMINSD_XMMdq_XMMdq_XMMdq",
+          "bytes": "c4e27939c1",
+          "folder": "batch-0003-b-a-a-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 9868704,
+          "logical_pc": 4304836719,
+          "selector": "VPMULLD_XMMdq_XMMdq_XMMdq",
+          "bytes": "c4e24140fa",
+          "folder": "batch-0003-b-a-a-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 12328400,
+          "logical_pc": 4307296036,
+          "selector": "VINSERTPS_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e37121c010",
+          "folder": "batch-0003-b-a-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16496336,
+          "logical_pc": 4311464477,
+          "selector": "VINSERTPS_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e37121d210",
+          "folder": "batch-0003-b-b-a-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 17069712,
+          "logical_pc": 4312038275,
+          "selector": "VINSERTPS_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e37921d210",
+          "folder": "batch-0003-b-b-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 17072416,
+          "logical_pc": 4312039847,
+          "selector": "VEXTRACTF128_XMMdq_YMMdq_IMMb",
+          "bytes": "c4e37d19cf01",
+          "folder": "batch-0003-b-b-b-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38566960,
+          "logical_pc": 4333534296,
+          "selector": "VPMAXSD_XMMdq_XMMdq_XMMdq",
+          "bytes": "c4e2793dc1",
+          "folder": "batch-0004-a-a-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38636976,
+          "logical_pc": 4333604663,
+          "selector": "VEXTRACTF128_XMMdq_YMMdq_IMMb",
+          "bytes": "c4e37d19c101",
+          "folder": "batch-0004-a-a-b-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38803376,
+          "logical_pc": 4333770764,
+          "selector": "VPERMILPD_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e37905c200",
+          "folder": "batch-0004-a-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38808304,
+          "logical_pc": 4333775724,
+          "selector": "VPALIGNR_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4c3510fed08",
+          "folder": "batch-0004-a-b-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38814368,
+          "logical_pc": 4333781763,
+          "selector": "VPSRAD_XMMdq_XMMdq_IMMb",
+          "bytes": "c5e172e01f",
+          "folder": "batch-0004-a-b-b-b"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38818496,
+          "logical_pc": 4333785900,
+          "selector": "VPALIGNR_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4c3510fef08",
+          "folder": "batch-0004-b-a-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38846784,
+          "logical_pc": 4333814089,
+          "selector": "VSHUFPD_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c5f9c6d101",
+          "folder": "batch-0004-b-a-b-a"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 38850080,
+          "logical_pc": 4333817468,
+          "selector": "VPALIGNR_XMMdq_XMMdq_XMMdq_IMMb",
+          "bytes": "c4e3710fcd08",
+          "folder": "batch-0004-b-a-b-b"
+        }
+      ],
+      "remaining_first_selectors": {
+        "VPUNPCKLWD_XMMdq_XMMdq_XMMdq": 1,
+        "VEXTRACTF128_XMMdq_YMMdq_IMMb": 3,
+        "VPSHUFB_XMMdq_XMMdq_XMMdq": 1,
+        "FNSTENV_MEMmem28": 1,
+        "VROUNDSD_XMMdq_XMMdq_XMMq_IMMb": 1,
+        "VPUNPCKLDQ_XMMdq_XMMdq_MEMdq": 3,
+        "FXSAVE_MEMmfpxenv": 1,
+        "VMINPS_XMMdq_XMMdq_MEMdq": 1,
+        "VPSRLD_XMMdq_XMMdq_IMMb": 1,
+        "VPSRAD_XMMdq_XMMdq_IMMb": 4,
+        "VBLENDPS_XMMdq_XMMdq_XMMdq_IMMb": 1,
+        "VMOVMSKPS_GPR32d_XMMdq": 1,
+        "VPMINSD_XMMdq_XMMdq_XMMdq": 2,
+        "VPMULLD_XMMdq_XMMdq_XMMdq": 1,
+        "VINSERTPS_XMMdq_XMMdq_XMMdq_IMMb": 3,
+        "VPMAXSD_XMMdq_XMMdq_XMMdq": 1,
+        "VPERMILPD_XMMdq_XMMdq_IMMb": 1,
+        "VPALIGNR_XMMdq_XMMdq_XMMdq_IMMb": 3,
+        "VSHUFPD_XMMdq_XMMdq_XMMdq_IMMb": 1
+      },
+      "semantic_module_sha256": "76b4f0a4f14524bb467f20a10de73550dd2ff6afba77495eca5f5cae4ddc03be",
+      "original_semantics_unchanged": true,
+      "checks": {
+        "shuffle": {
+          "status": "authored VSHUFPS semantics checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 32768,
+            "forms": 8,
+            "immediates": 256,
+            "game_code_execution": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "76b4f0a4f14524bb467f20a10de73550dd2ff6afba77495eca5f5cae4ddc03be",
+          "input_sha256": "de2af4d26a9692078a0583a4e70365fe687ded4dba4c0ec75778ef55a72ff20d",
+          "fixture_sha256": "5e9331bdecefb5dba9290a5ddde9699c5cc26e1ed2f7490f1d4040a227290e9f",
+          "limitations": "Authored AOT and independent hardware/reference checks of every immediate, both VEX widths, destination aliases, guarded memory, full State and upper-YMM clearing. Storage for disabled AVX512 is preserved. No game CPU execution or complete SIMD/runtime claim."
+        },
+        "blend": {
+          "status": "authored blend checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 122880,
+            "forms": 30,
+            "game_code_execution": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "76b4f0a4f14524bb467f20a10de73550dd2ff6afba77495eca5f5cae4ddc03be",
+          "input_sha256": "6e85676f03bdfd212b8767f0e1b0e7ea8b776e1f00279e471a4e2471b15877d0",
+          "fixture_sha256": "0fcabeb9f88b2df07a960e75be3809d6b17d49ea7f85261385048d296b4705d9",
+          "limitations": "Authored AOT only; host hardware and independent contract reference. No game CPU execution. No assertion of AMD Jaguar bit-exact approximation results."
+        },
+        "rsqrt": {
+          "status": "authored rsqrt checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 399360,
+            "forms": 6,
+            "mxcsr_settings": 32,
+            "maximum_relative_error": 0.00030996553293783014,
+            "game_code_execution": false,
+            "jaguar_bit_exactness": "unverified"
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "76b4f0a4f14524bb467f20a10de73550dd2ff6afba77495eca5f5cae4ddc03be",
+          "input_sha256": "23fe47c50c1d9e814288a1ee0107cf9cc1eee139f159171feb6529845bca8702",
+          "fixture_sha256": "2b4df972161b3370bd2d9fe831c0fa633fbc990d07a67ce0fcedd5afd86d295f",
+          "limitations": "Authored AOT only; host hardware and independent contract reference. No game CPU execution. No assertion of AMD Jaguar bit-exact approximation results."
+        },
+        "bmi": {
+          "status": "authored BMI semantics checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 34816,
+            "forms": 8,
+            "reference": "bit-scan plus authored hardware; defined flags and full State",
+            "game_code_execution": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "76b4f0a4f14524bb467f20a10de73550dd2ff6afba77495eca5f5cae4ddc03be",
+          "fixture_sha256": "52cee4525e24ca09ddf3b5303e1823675c58ed125b13688b29cb9fea3d17466e",
+          "input_sha256": "197ca2dc269591fb14fa8042b996eb8252b70454cfd557aecb3741e273a5330c",
+          "limitations": "Authored BMI forms on this Intel CPU; defined flag and full state/memory checks only. AF/PF undefined outputs are excluded. No original game CPU execution or exception/runtime validation."
+        }
+      },
+      "runs": {
+        "20260905-p3-build-shuffle-semantics-v1": {
+          "status": "pass",
+          "elapsed_seconds": 9.529005900025368,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "80db0095b153352bf8c9154570102aa0d0472ae0f9935301fe7923116dbe44f7"
+        },
+        "20260905-p3-shuffle-semantics-checks-v1": {
+          "status": "pass",
+          "elapsed_seconds": 8.818322299979627,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "ec135a0dbe7634efd2e27b7e8c4084a4844ca27e41551bcd38e3f874ec12c5dc"
+        },
+        "20260905-p3-bmi-shuffle-regression-v1": {
+          "status": "pass",
+          "elapsed_seconds": 6.720423100050539,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "ec135a0dbe7634efd2e27b7e8c4084a4844ca27e41551bcd38e3f874ec12c5dc"
+        },
+        "20260905-p3-startup-shuffle-recompile-v1": {
+          "status": "failed",
+          "elapsed_seconds": 21.554286299971864,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "ec135a0dbe7634efd2e27b7e8c4084a4844ca27e41551bcd38e3f874ec12c5dc"
+        },
+        "20260905-p3-build-extended-semantics-v3-blend-rsqrt": {
+          "status": "pass",
+          "elapsed_seconds": 9.278396399924532,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "f06e614882d45156040dab49dd77139dd25452b007df56c401dd91b4de54be56"
+        },
+        "20260905-p3-blend-semantics-v1": {
+          "status": "pass",
+          "elapsed_seconds": 5.724110999843106,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        },
+        "20260905-p3-rsqrt-semantics-v1": {
+          "status": "pass",
+          "elapsed_seconds": 2.7897137000691146,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        },
+        "20260905-p3-shuffle-semantics-v2-combined": {
+          "status": "pass",
+          "elapsed_seconds": 4.3943153999280185,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        },
+        "20260905-p3-bmi-vector-regression-v1": {
+          "status": "pass",
+          "elapsed_seconds": 3.5084218999836594,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        },
+        "20260905-p3-startup-vector-recompile-v1": {
+          "status": "failed",
+          "elapsed_seconds": 16.325342600001022,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        },
+        "20260905-p3-startup-vector-recompile-v2-repeat": {
+          "status": "failed",
+          "elapsed_seconds": 8.596625000005588,
+          "source_commit": "7933eade437bea5fb4595a64439673e28c2434bc",
+          "sources_sha256": "470c1d2f367eeef7a4954e6a2d916ebcd31461cf73d404abd5fa84d7e07f88a2"
+        }
+      },
+      "limitations": [
+        "Only authored vector/BMI code executed; game-derived objects were not linked or executed.",
+        "All initially ordered constructor entries compile, but direct/indirect/callback/exception/runtime closure remains open. Mutable constructor targets are not resolved by this static initial table.",
+        "RSQRT uses an LLVM native x86 SSE intrinsic with host approximation output and the documented error bound. AMD Jaguar bit-exact estimates remain unverified.",
+        "Existing floating-point semantic support is not proof of complete MXCSR/exception behavior.",
+        "Explicit native UD2 reports a fault address; PS4 exception delivery is not implemented."
+      ],
+      "native_game_boot": false,
+      "native_port_playable": false
+    }
   }
 }
