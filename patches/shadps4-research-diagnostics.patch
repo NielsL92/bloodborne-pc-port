@@ -1,0 +1,62 @@
+diff --git a/src/common/io_file.cpp b/src/common/io_file.cpp
+index 249d0e0..52b4744 100644
+--- a/src/common/io_file.cpp
++++ b/src/common/io_file.cpp
+@@ -2,6 +2,7 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ 
+ #include <vector>
++#include <cstdlib>
+ 
+ #include "common/alignment.h"
+ #include "common/assert.h"
+@@ -197,6 +198,14 @@ int IOFile::Open(const fs::path& path, FileAccessMode mode, FileType type, FileS
+ #endif
+ 
+     if (!IsOpen()) {
++#ifdef _WIN32
++        if (std::getenv("BB_RESEARCH_CAPTURE")) {
++            unsigned long dos_error = 0;
++            _get_doserrno(&dos_error);
++            LOG_ERROR(Common_Filesystem, "BB_RESEARCH open failure windows_error={} mode={} share={}",
++                      dos_error, static_cast<int>(mode), static_cast<int>(flag));
++        }
++#endif
+         const auto ec = std::error_code{result, std::generic_category()};
+         LOG_ERROR(Common_Filesystem, "Failed to open the file at path={}, error_message={}",
+                   PathToUTF8String(file_path), ec.message());
+--- a/src/video_core/renderer_vulkan/vk_presenter.cpp
++++ b/src/video_core/renderer_vulkan/vk_presenter.cpp
+@@ -741,6 +741,32 @@
+                                    pressed);
+             LOG_INFO(Render_Vulkan, "BB_RESEARCH input frame={} button={:#x} pressed={}",
+                      frame_id, button, pressed);
++        }
++
++        static const auto research_axes = [] {
++            std::vector<std::tuple<u64, int, int>> inputs;
++            std::ifstream input("research-axes.tsv");
++            u64 frame; int axis; int value;
++            u64 previous = 0;
++            while (input >> frame >> axis >> value) {
++                if (frame < previous || axis < 0 || axis >= 6 || value < 0 || value > 255) {
++                    LOG_ERROR(Render_Vulkan, "BB_RESEARCH invalid axis fixture");
++                    inputs.clear();
++                    break;
++                }
++                inputs.emplace_back(frame, axis, value);
++                previous = frame;
++            }
++            return inputs;
++        }();
++        static size_t research_axis_index = 0;
++        while (research_axis_index < research_axes.size() &&
++               std::get<0>(research_axes[research_axis_index]) == research_frame) {
++            const auto [frame_id, axis, value] = research_axes[research_axis_index++];
++            auto& controllers = *Common::Singleton<Input::GameControllers>::Instance();
++            controllers[0]->Axis(static_cast<Input::Axis>(axis), value, false);
++            LOG_INFO(Render_Vulkan, "BB_RESEARCH axis frame={} axis={} value={}",
++                     frame_id, axis, value);
+         }
+ 
+         if (research_frame == 1 || research_frame % 300 == 0) {

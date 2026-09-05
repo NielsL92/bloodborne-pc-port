@@ -1,0 +1,293 @@
+{
+  "recorded_utc": "2026-09-05T16:55:00.548649+00:00",
+  "classification": "CPU experiments and instrumented original-code baseline; no native game",
+  "p2_gate": "bounded feasibility supports P3 analysis; broad runtime/game gates remain",
+  "state_promotion": [
+    {
+      "status": "pass",
+      "real_functions": 1,
+      "cases": 720,
+      "rva": "0x3360",
+      "contract": "all 16 GPRs; CF PF ZF SF OF; YMM0-15; MXCSR; arena and stack bytes; return target; independent list result",
+      "guest_code_non_executable_during_aot": true,
+      "not_playable": true
+    },
+    {
+      "rva": "0x1a50",
+      "passed": 1536,
+      "failed": 0,
+      "original_code_NX_during_aot": true,
+      "scope": "GPR, defined flags, full YMM0-15, MXCSR, memory, return target; masked FP exceptions"
+    },
+    {
+      "rva": "0x3500",
+      "passed": 1536,
+      "failed": 0,
+      "original_code_NX_during_aot": true,
+      "scope": "GPR, defined flags, full YMM0-15, MXCSR, memory, return target; masked FP exceptions"
+    },
+    {
+      "rva": "0x3530",
+      "passed": 1536,
+      "failed": 0,
+      "original_code_NX_during_aot": true,
+      "scope": "GPR, defined flags, full YMM0-15, MXCSR, memory, return target; masked FP exceptions"
+    },
+    {
+      "rva": "0x2550",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 0,
+      "original_code_NX_during_aot": true
+    },
+    {
+      "rva": "0x65d0",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 0,
+      "original_code_NX_during_aot": true
+    },
+    {
+      "rva": "0xb820",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 0,
+      "original_code_NX_during_aot": true
+    },
+    {
+      "rva": "0x2fa30",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 0,
+      "original_code_NX_during_aot": true
+    },
+    {
+      "rva": "0x3df50",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 0,
+      "original_code_NX_during_aot": true
+    },
+    {
+      "rva": "0x3240",
+      "passed": 1024,
+      "failed": 0,
+      "native_dispatch_calls": 3411,
+      "original_code_NX_during_aot": true
+    }
+  ],
+  "timing": [
+    {
+      "kernel": "loop",
+      "length": 1,
+      "repetitions": 5,
+      "median_ratio": 2.2221,
+      "median_native_ns": 1.058,
+      "median_aot_ns": 2.307
+    },
+    {
+      "kernel": "loop",
+      "length": 8,
+      "repetitions": 5,
+      "median_ratio": 0.8504,
+      "median_native_ns": 3.11,
+      "median_aot_ns": 2.842
+    },
+    {
+      "kernel": "loop",
+      "length": 64,
+      "repetitions": 5,
+      "median_ratio": 1.0205,
+      "median_native_ns": 43.15,
+      "median_aot_ns": 45.019
+    },
+    {
+      "kernel": "hash",
+      "length": 8,
+      "repetitions": 5,
+      "median_ratio": 1.3665,
+      "median_native_ns": 5.287,
+      "median_aot_ns": 7.452
+    },
+    {
+      "kernel": "hash",
+      "length": 64,
+      "repetitions": 5,
+      "median_ratio": 1.3138,
+      "median_native_ns": 30.606,
+      "median_aot_ns": 40.562
+    },
+    {
+      "kernel": "hash",
+      "length": 1024,
+      "repetitions": 5,
+      "median_ratio": 0.7665,
+      "median_native_ns": 793.5,
+      "median_aot_ns": 608.688
+    }
+  ],
+  "control": {
+    "normal_callbacks": 256,
+    "nonlocal_callbacks": 256,
+    "original_code_NX_during_aot": true,
+    "contract": "authored ABI return, ordered services, guest output writes, preserved RBX, logical RSP/RIP; private native stack and caller-clobbered registers excluded",
+    "fixture_sha256": "db00933708a269fc7d455c8d26fbca028ec90bd4d859734bdac1775e0b95daf7",
+    "unknown_target_exit": 4,
+    "missing_guard_exit": 3221225477,
+    "missing_guard_rejected": true
+  },
+  "threads": {
+    "threads": 4,
+    "tls_cases_per_path": 8192,
+    "atomic_cases_per_path": 8192,
+    "atomic_pairs": 8192,
+    "original_code_NX_during_aot": true,
+    "contract": "TLS per-thread isolation and final values; locked XADD complete ticket permutation and total; logical returns; 8192 MFENCE publication handshakes per path; aligned relaxed atomic memory with conservative seq-cst barriers; no arbitrary unregistered writers or exhaustive memory-model proof"
+  },
+  "real_jump": {
+    "rva": "0x401f0",
+    "passed": 2112,
+    "failed": 0,
+    "jump_dispatches": 2112,
+    "targets": [
+      64,
+      512,
+      512,
+      512,
+      512
+    ],
+    "original_code_NX_during_aot": true,
+    "independent_bitstream_reference": true,
+    "effects": "all GPRs, defined arithmetic flags and DF, YMM0-15, MXCSR, arena and stack writes, logical return; AF excluded only on final logical-instruction paths"
+  },
+  "file_sharing_probe": [
+    {
+      "share": "deny_write",
+      "second_open": false,
+      "errno": 13,
+      "doserrno": 32
+    },
+    {
+      "share": "allow_read_write",
+      "second_open": true,
+      "errno": 0,
+      "doserrno": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "research-finish",
+      "result": {
+        "exit": 3221225477,
+        "reason": "process_exit"
+      },
+      "exe_sha256": "a5c80a2bd29fb5a85a6380f6a4f933e9d4137512ffacd440e05b745d57cbc315",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 12,
+      "screenshot_count": 16,
+      "latest_screenshot": "local\\captures\\research-finish\\profile-after\\screenshots\\CUSA03173_20260905_165901_607_hud_000015.png",
+      "log_sha256": "bdc76c3834e565c136d78c4b8cec6cb55a2d2c1f0a13088ff29278b5a413b37a"
+    },
+    {
+      "name": "research-clinic",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "a5c80a2bd29fb5a85a6380f6a4f933e9d4137512ffacd440e05b745d57cbc315",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 20,
+      "screenshot_count": 64,
+      "latest_screenshot": "local\\captures\\research-clinic\\profile-after\\screenshots\\CUSA03173_20260905_171507_449_hud_000063.png",
+      "log_sha256": "cfb0ff3161f73eb397ca87e31e1bc0d46c15bf724f259d0f75e0b278edcca540"
+    },
+    {
+      "name": "research-clinic-reload-continue",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "a5c80a2bd29fb5a85a6380f6a4f933e9d4137512ffacd440e05b745d57cbc315",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 5,
+      "screenshot_count": 36,
+      "latest_screenshot": "local\\captures\\research-clinic-reload-continue\\profile-after\\screenshots\\CUSA03173_20260905_173829_197_hud_000035.png",
+      "log_sha256": "d50ddd234958b9aad06454a4c762f579d5d04214048742fdcd626a2d1d059f31"
+    },
+    {
+      "name": "research-clinic-movement",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "058b27c210a3356d9f8a95d92b828faf32edf69aafd4083371f6d6adb896769f",
+      "sharing_error_32_count": 5,
+      "permission_denied_count": 5,
+      "screenshot_count": 48,
+      "latest_screenshot": "local\\captures\\research-clinic-movement\\profile-after\\screenshots\\CUSA03173_20260905_182606_116_hud_000047.png",
+      "log_sha256": "53427a5a01b9b01e5a9f99bee6e1c59f86083ae64529f51188a6d485dcd24f3e"
+    },
+    {
+      "name": "research-clinic-sharing-fixed",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "f7962a04b8855a62421f8f97490b42fbc0fe51659255ab169c59aedfb1e1aa6e",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 0,
+      "screenshot_count": 42,
+      "latest_screenshot": "local\\captures\\research-clinic-sharing-fixed\\profile-after\\screenshots\\CUSA03173_20260905_183118_186_hud_000041.png",
+      "log_sha256": "45e2b138bc963c4f7f8cee77b9216559410caa3d5a525e7e47c1f9fe0042404d"
+    },
+    {
+      "name": "research-clinic-exit-confirm",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "f7962a04b8855a62421f8f97490b42fbc0fe51659255ab169c59aedfb1e1aa6e",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 0,
+      "screenshot_count": 44,
+      "latest_screenshot": "local\\captures\\research-clinic-exit-confirm\\profile-after\\screenshots\\CUSA03173_20260905_183641_333_hud_000043.png",
+      "log_sha256": "747c84618d724c5b3a161e1eabb196e70a33868995936e9c464ee937344712fd"
+    },
+    {
+      "name": "research-clinic-proper-exit",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "f7962a04b8855a62421f8f97490b42fbc0fe51659255ab169c59aedfb1e1aa6e",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 0,
+      "screenshot_count": 44,
+      "latest_screenshot": "local\\captures\\research-clinic-proper-exit\\profile-after\\screenshots\\CUSA03173_20260905_184139_046_hud_000043.png",
+      "log_sha256": "7e4692113b575e888b0e37488e1f948c5616e9404b60d88338d26322932ab32c"
+    },
+    {
+      "name": "research-clinic-clean-reload",
+      "result": {
+        "exit": 1,
+        "reason": "bounded_capture_end"
+      },
+      "exe_sha256": "f7962a04b8855a62421f8f97490b42fbc0fe51659255ab169c59aedfb1e1aa6e",
+      "sharing_error_32_count": 0,
+      "permission_denied_count": 0,
+      "screenshot_count": 36,
+      "latest_screenshot": "local\\captures\\research-clinic-clean-reload\\profile-after\\screenshots\\CUSA03173_20260905_184600_866_hud_000035.png",
+      "log_sha256": "47804bf5baa9e1f33abe99951d022b404bd53282ce8109c5cbf08396de2f61d8"
+    }
+  ],
+  "tracy_diagnostic_interval": {
+    "start_s": 90,
+    "end_s": 130,
+    "frames": 1199,
+    "median_ms": 33.300774,
+    "p95_ms": 34.670594,
+    "p99_ms": 50.693725,
+    "over_50_ms": 19,
+    "limitation": "heavy trace, screenshot and logging overhead unmeasured; no headline performance comparison"
+  }
+}

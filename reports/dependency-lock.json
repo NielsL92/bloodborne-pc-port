@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "recorded_utc": "2026-09-05",
+  "recorded_utc": "2026-09-05T16:55:00.548649+00:00",
   "repositories": {
     "shadPS4": {
       "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
@@ -69,11 +69,21 @@
     "LibOrbisPkg": {
       "commit": "643477263b2644e0803e0f58b8726ea4e3f3b7d4",
       "origin": "https://github.com/maxton/LibOrbisPkg.git"
+    },
+    "tracy-tools": {
+      "commit": "5d542dc09f3d9378d005092a4ad446bd405f819a",
+      "origin": "https://github.com/wolfpld/tracy.git",
+      "version": "0.11.1",
+      "protocol": 69
     }
   },
   "patches": {
     "remill-windows-sdk.patch": "b1181e54bd0d725b9185e1fdff105a0784759bc5c9b17d8ab25017155f9290cb",
-    "shadps4-research-capture.patch": "ca662e16a5235322d51f754c2928a2e29a2a97f8a1ea857e5b2b7b2fffd00e5d"
+    "shadps4-research-capture.patch": "ca662e16a5235322d51f754c2928a2e29a2a97f8a1ea857e5b2b7b2fffd00e5d",
+    "shadps4-guest-file-sharing.patch": "8b15f8ea0e91169ecad9b7721640cb36a2c88db8ca793e667d68d886c7b997be",
+    "shadps4-research-diagnostics.patch": "933dcb098a9be4575eb7c9e5f376b6e80d2a7f260ba6652a6e2e3f403981de29",
+    "shadps4-research-ime.patch": "bc0f5645219897385d6bf22e2e7564db0d66771d671aa9761abe9589b47ac1a1",
+    "tracy-tools-csvexport.patch": "bad747c1aea9970017ca2d8c4df0287484952246e6b7a455497516304868a267"
   },
   "binaries": {
     "build\\shadps4-baseline\\shadps4.exe": {
@@ -97,16 +107,56 @@
       "bytes": 247853056
     },
     "build/shadps4-profile/shadps4.exe": {
-      "sha256": "772b015e0500f86204080f49a5497331f68da2f2091ba1c46c2ccad6ad796491",
-      "bytes": 71695872
+      "sha256": "f7962a04b8855a62421f8f97490b42fbc0fe51659255ab169c59aedfb1e1aa6e",
+      "bytes": 71705088
     },
     "build/shadps4-profile/shadps4.pdb": {
-      "sha256": "ad8cad06bc2d633a2a75c24dac123bf5158db737ad09074181bf73a7f6a6dbe8",
-      "bytes": 247910400
+      "sha256": "263fcd1d7a0e1e6abbc700a18a9f3037c8f87efc662b7d63b523ff22afecebf1",
+      "bytes": 247959552
     },
     "build/remill/lib/Arch/X86/Runtime/amd64_avx.bc": {
       "sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
       "bytes": 1215560
+    },
+    "build/shadps4-profile-capture-v1/shadps4.exe": {
+      "sha256": "772b015e0500f86204080f49a5497331f68da2f2091ba1c46c2ccad6ad796491",
+      "bytes": 71695872
+    },
+    "build/shadps4-profile-capture-v1/shadps4.pdb": {
+      "sha256": "ad8cad06bc2d633a2a75c24dac123bf5158db737ad09074181bf73a7f6a6dbe8",
+      "bytes": 247910400
+    },
+    "build/shadps4-profile-ime-v1/shadps4.exe": {
+      "sha256": "a5c80a2bd29fb5a85a6380f6a4f933e9d4137512ffacd440e05b745d57cbc315",
+      "bytes": 71697920
+    },
+    "build/shadps4-profile-ime-v1/shadps4.pdb": {
+      "sha256": "5fbed18af79849699212e18a25c3d257e6fe74adb86f0d690bdf9ef98cfea74c",
+      "bytes": 247914496
+    },
+    "build/shadps4-profile-diagnostics-v1/shadps4.exe": {
+      "sha256": "058b27c210a3356d9f8a95d92b828faf32edf69aafd4083371f6d6adb896769f",
+      "bytes": 71705088
+    },
+    "build/shadps4-profile-diagnostics-v1/shadps4.pdb": {
+      "sha256": "079e936642add2b668635958d305d6a695aeebd6a5d1195de9870216287a71ec",
+      "bytes": 247959552
+    },
+    "build/tracy-capture/tracy-capture.exe": {
+      "sha256": "d6950ba7f1cb8d370fbf9c33e81764210ef70abe0214ecd48107043e9c88c1da",
+      "bytes": 8718848
+    },
+    "build/tracy-capture/tracy-csvexport.exe": {
+      "sha256": "19838b44c737c5846fd32ed31112c202fb53f1ca55d93a4986b5f4db2ea7a3ec",
+      "bytes": 1087488
+    },
+    "build/tracy-capture/bb-tracy-frames.exe": {
+      "sha256": "7b4a261e8bd726669e1ac9380210771e2656d4fb7ec1b1f5d84affc1661fa47a",
+      "bytes": 1058304
+    },
+    "build/state-promotion/bb-state-promotion.exe": {
+      "sha256": "527cfb22d7a7cb35783127b8a582bd761694f94e41876eb2de743efa0b073f19",
+      "bytes": 3116544
     }
   },
   "remill_dependency_sources": [
@@ -130,5 +180,28 @@
       "path": "build\\remill-deps\\gflags-prefix\\src\\gflags",
       "commit": "52e94563eba1968783864942fedf6e87e3c611f4"
     }
+  ],
+  "tracy_dependency_sources": [
+    {
+      "path": "build/tracy-capture/_deps/capstone-src",
+      "commit": "5cca00533dadfe53181f1de3525f859769f69b65",
+      "origin": "https://github.com/capstone-engine/capstone.git"
+    },
+    {
+      "path": "build/tracy-capture/_deps/freetype-src",
+      "commit": "920c5502cc3ddda88f6c7d85ee834ac611bb11cc",
+      "origin": "https://github.com/freetype/freetype.git"
+    },
+    {
+      "path": "build/tracy-capture/_deps/glfw-src",
+      "commit": "7b6aead9fb88b3623e3b3725ebb42670cbe4c579",
+      "origin": "https://github.com/glfw/glfw.git"
+    }
+  ],
+  "shad_research_patch_order": [
+    "shadps4-research-capture.patch",
+    "shadps4-research-ime.patch",
+    "shadps4-research-diagnostics.patch",
+    "shadps4-guest-file-sharing.patch"
   ]
 }

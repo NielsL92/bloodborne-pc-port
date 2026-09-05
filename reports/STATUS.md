@@ -1,28 +1,19 @@
 # Native recompilation execution status
 
-Updated 2026-09-05 14:28 UTC. PLAN.md execution was explicitly authorized by the user.
+Updated 2026-09-05 17:12 UTC. PLAN.md execution is authorized. No native game boot, native vertical slice, or playable port exists.
 
-**No native game boot, native gameplay or playable port. P2 is not passed.**
-
-| Phase | State | Concrete evidence |
+| Phase | State | Evidence |
 | --- | --- | --- |
-| P0 | Passed with explicit optional-data limitations | Verified packages, repeated extraction, full PFS plus corrected system-metadata view, CUSA03173 01.09, hardware/tool lock. Latest effective-v2 has 28,840 files. DLC entitlement unverified; trophy decryption key absent. |
-| P1 | Reproducible baseline obtained; route/profiling work incomplete | Unmodified optimized baseline plus preserved unmodified symbols/Tracy build. Separate research captures reach offline character creation. No clinic/save/reload route or detailed workload profile. |
-| P2 | Failed performance gate; broad expansion stopped | Ten real whole-function/call-graph contracts / 11,472 cases pass. CMPSS semantic bug fixed and retested. 1,000 objects compile, but 842 retain unresolved execution boundaries. After verified memory lowering, two kernels remain about 2.0-4.6x slower. Critical runtime-control fixtures remain unimplemented. |
-| P3-P9 | Not started; gated | No broad recovery, service integration or native vertical slice. |
+| P0 | Passed with optional-data limits | Exact CUSA03173 01.09; repeated PFS/system metadata extraction; 28,840-file effective-v2 view. DLC entitlement unverified; trophy key absent. |
+| P1 | Clinic baseline and local save/quit/reload demonstrated; profiling investigation continues | Separate instrumented shadPS4 runs create TestHunter, move in clinic, quit through the game menu, and reload the moved position. Windows save-file sharing failure isolated and corrected in a separate patch. |
+| P2 | Bounded feasibility gate met for proceeding to P3 | Eleven real roots / 13,584 full-state cases. Five-way real jump table and RIP-relative data; 512 callback/nonlocal cases; four-thread TLS/XADD plus publication-order fixtures. State promotion removes representative loop slowdown. |
+| P3 | Started; recovery gate open | Eight-module metadata database and independent Ghidra jump-table/113-instruction check. Next: bounded recursive decode and target closure. |
+| P4-P9 | Not started; runtime/game gates remain | Recoverable faults, all startup targets, services, native gameplay, and whole-game improvement remain unproven. |
 
-Read reports/input-validation.md, reports/baseline.md and reports/compiler-spike.md for gates, failed attempts and limits. Read HANDOFF.md for exact continuation commands. Source control preserves the initial proof and this execution work. Game-derived materials remain under excluded local/build paths.
+P2 is a compiler feasibility result under explicit valid-memory and synchronous-boundary contracts. It does not establish that every instruction, recovered function, exception path, or service works. The 1,000-object scale survey still has 842 unresolved execution boundaries. Ordinary memory lowering is forbidden for atomics/MMIO/untrusted mappings. No reassembly, emulator, interpreter, JIT, or original-game CPU fallback is adopted as the deliverable.
 
-Latest input view: local/game/effective-v2; manifest local/game/view-v2-manifest.json. The older local/game/effective and view-manifest.json intentionally remain unchanged for earlier captures. All views are hardlinked and must be treated as read only. Original packages were not modified or repeatedly rehashed.
+Latest evidence: reports/compiler-spike.md, reports/baseline.md, reports/decisions/0002-promoted-state-and-control-boundaries.md, reports/restart-evidence.json. Older results remain under local/runs and reports/archive. HANDOFF.md carries commands and continuation details.
 
-P2 decision: retain Remill and the harness; do not integrate its current state representation broadly. Demonstrate state/flag promotion or another bounded compiler design on the same correctness and performance contracts first. A static-reassembly comparison runs near original speed but is explicitly a different approach; it is not adopted as the deliverable.
+Next work: P3 recovery/database and headless cross-checks; independently extend baseline route toward Hunter's Dream, measure profiler overhead and separate CPU/GPU/queue costs. Keep the diagnosed audio mutex crash open until independently isolated.
 
-User/tool dependencies:
-- LLVM/clang-cl/CMake/Ninja and the Windows Remill path work. WSL is not required.
-- Codex's Windows sandbox/computer-use helper failed to initialize. Approved elevated shell calls work, and renderer readback supplied images. Restart Codex before relying on interactive UI control; this is not a missing compiler component.
-- Optional trophy extraction lacks a configured ReleaseTrophyKey. It did not block the baseline reaching character creation. No PS4 access is requested.
-- No current installation request or approval question is pending.
-
-Next bounded work: address the failed P2 performance representation gate and demonstrate service callbacks/nonlocal flow/TLS/atomics before expansion; independently continue P1 from character creation to a measured clinic route. Do not mistake the shadPS4 images, reassembly comparison or old leaf proof for a native port.
-
-Final consistency audit: reports/execution-audit.json. Both preserved third-party patches pass git apply --reverse --check. All recorded captures and builds are finished; no background work is left running.
+User action: none currently required. The Codex Windows sandbox/desktop helper still fails after restart; approved elevated shell execution works. This is not an approval rejection. LLVM, Remill, Tracy and the native compiler work without WSL. No PS4 access is requested.

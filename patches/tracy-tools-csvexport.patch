@@ -1,0 +1,21 @@
+diff --git a/capture/CMakeLists.txt b/capture/CMakeLists.txt
+index 2417c78..78007b2 100644
+--- a/capture/CMakeLists.txt
++++ b/capture/CMakeLists.txt
+@@ -25,3 +25,16 @@ set(PROGRAM_FILES
+ add_executable(${PROJECT_NAME} ${PROGRAM_FILES} ${COMMON_FILES} ${SERVER_FILES})
+ target_link_libraries(${PROJECT_NAME} PRIVATE TracyServer TracyGetOpt)
+ set_property(DIRECTORY ${CMAKE_CURRENT_LIST_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
++
++# Project research build: share the same statistics-enabled server with CSV export.
++option(BB_RESEARCH_CSVEXPORT "Build CSV export alongside capture" OFF)
++if(BB_RESEARCH_CSVEXPORT)
++    if(NO_STATISTICS)
++        message(FATAL_ERROR "CSV export requires NO_STATISTICS=OFF")
++    endif()
++    add_executable(tracy-csvexport ../csvexport/src/csvexport.cpp)
++    target_link_libraries(tracy-csvexport PRIVATE TracyServer TracyGetOpt)
++endif()
++
++add_executable(bb-tracy-frames ../../../native/tracy_frames.cpp)
++target_link_libraries(bb-tracy-frames PRIVATE TracyServer)
