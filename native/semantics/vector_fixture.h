@@ -13,7 +13,7 @@ using Lifted=Memory*(*)(State*,uint64_t,Memory*);using Hardware=void(*)(const vo
 static void check_read(Memory* m,uint64_t at,unsigned size){auto start=uint64_t(m->backing+3);if(!m->memory_form||at<start||at+size>start+m->width)fail("vector read boundary");m->vector_bytes+=size;}
 extern "C" uint8_t __remill_read_memory_8(Memory* m,uint64_t at){check_read(m,at,1);return *reinterpret_cast<const uint8_t*>(at);}
 extern "C" uint32_t __remill_read_memory_32(Memory* m,uint64_t at){check_read(m,at,4);uint32_t v;std::memcpy(&v,reinterpret_cast<const void*>(at),4);return v;}
-extern "C" uint64_t __remill_read_memory_64(Memory* m,uint64_t at){if(at!=uint64_t(m->stack+4))fail("return memory boundary");++m->return_reads;return m->stack[4];}
+extern "C" uint64_t __remill_read_memory_64(Memory* m,uint64_t at){if(at==uint64_t(m->stack+4)){++m->return_reads;return m->stack[4];}check_read(m,at,8);uint64_t v;std::memcpy(&v,reinterpret_cast<const void*>(at),8);return v;}
 extern "C" Memory* __remill_function_return(State* s,uint64_t pc,Memory* m){s->gpr.rip.qword=pc;m->returned=pc;return m;}
 extern "C" Memory* __remill_error(State*,uint64_t,Memory*){fail("compiler error");}
 extern "C" Memory* __remill_missing_block(State*,uint64_t,Memory*){fail("missing block");}
