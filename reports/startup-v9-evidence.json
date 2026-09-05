@@ -1,0 +1,967 @@
+{
+  "status": "startup v9 evidence consistency pass; P3 gate open",
+  "current_directory": "local/cfg/startup-recovery-v9-repeat",
+  "reproducibility": {
+    "analysis.sqlite": "1b150f1df97ddb9f24ed641a3708e32458dea360caecd73029038958224b3335",
+    "compilation-manifest.jsonl": "e329cbe20b6feacfba21462e763741c1fdde5c9910354117e0def1dda95e9773",
+    "frontier.jsonl": "dc8c123407afab71494fb2932fba2800fd72b5730fa6f9619ffb898080f715dd",
+    "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+  },
+  "summary": {
+    "status": "P3 startup compilation/control closure NOT passed",
+    "counts": {
+      "recovery_entry": 21160,
+      "recovery_instruction": 873581,
+      "recovery_edge": 1074705,
+      "recovery_issue": 8,
+      "recovery_request": 72007
+    },
+    "constructors": {
+      "decoded_with_explicit_boundaries": 18444
+    },
+    "modules": {
+      "libSceHand.prx": 1,
+      "libSceHeadTracker.prx": 1,
+      "libSceFios2.prx": 89,
+      "libc.prx": 287,
+      "libSceSmart.prx": 1,
+      "libSceS3DConversion.prx": 1,
+      "libSceFace.prx": 1,
+      "eboot.bin": 20779
+    },
+    "decode_issue_kinds": {
+      "fallthrough_at_fence": 8
+    },
+    "frontier_counts": {
+      "unresolved_indirect_call": 9029,
+      "unresolved_indirect_jump": 430,
+      "logical_return_requires_dispatch": 20048,
+      "callback_argument_candidate": 26112,
+      "annotated_control_contract_requires_runtime": 4279,
+      "import_contract_unvalidated": 20842,
+      "service_or_trap_boundary": 21,
+      "callback_contract_target_candidate": 2300,
+      "fallthrough_at_fence": 8,
+      "indirect_target_candidate": 4,
+      "exception_personality_candidate": 31,
+      "exception_runtime_unvalidated": 31,
+      "personality_import_unvalidated": 31,
+      "unresolved_exception_continuation": 38,
+      "unresolved_derived_control_continuation": 184,
+      "independently_recovered_jump_table": 12,
+      "unresolved_callback_argument": 155,
+      "unresolved_exit_callbacks": 5,
+      "unresolved_restored_context": 113,
+      "callback_contract_null_argument": 15
+    },
+    "queued": 0,
+    "manifest_units": 21160,
+    "db_sha256": "1b150f1df97ddb9f24ed641a3708e32458dea360caecd73029038958224b3335",
+    "manifest_sha256": "e329cbe20b6feacfba21462e763741c1fdde5c9910354117e0def1dda95e9773",
+    "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "derived_control": {
+    "path": "local/cfg/bad-alloc-control-checked-v1/contracts.json",
+    "sha256": "4aa0ccd79704efc9cf00c495df61faf68acb9652e8076b88c7cb51101e7a1070",
+    "contracts": 29,
+    "independent_instructions": 265,
+    "previous_28_identical": true,
+    "new_contract": {
+      "id": "derived-4378b47f46f1-5ebd0",
+      "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 388048,
+      "iteration": 0,
+      "roots": [
+        388048
+      ],
+      "terminals": {
+        "388093": [
+          "libc-cxa-throw"
+        ]
+      },
+      "instructions": [
+        [
+          388048,
+          1,
+          "55"
+        ],
+        [
+          388049,
+          3,
+          "4889e5"
+        ],
+        [
+          388052,
+          5,
+          "bf08000000"
+        ],
+        [
+          388057,
+          5,
+          "e892140000"
+        ],
+        [
+          388062,
+          7,
+          "488d0debf80500"
+        ],
+        [
+          388069,
+          4,
+          "4883c110"
+        ],
+        [
+          388073,
+          3,
+          "488908"
+        ],
+        [
+          388076,
+          7,
+          "488d350df90500"
+        ],
+        [
+          388083,
+          7,
+          "488d15b6080000"
+        ],
+        [
+          388090,
+          3,
+          "4889c7"
+        ],
+        [
+          388093,
+          5,
+          "e80e190000"
+        ]
+      ],
+      "instruction_set_sha256": "47d64093b2a3a4099ecea54413c6e1ecc9a203ed1c313dc1a646dadf7cee450d",
+      "import_keys": [
+        [
+          "eT2UsmTewbU",
+          "libc",
+          "libc"
+        ]
+      ],
+      "dependencies": [
+        "libc-cxa-throw"
+      ],
+      "contract": "No ordinary return under listed transitive ABI/control contracts; exception destinations and runtime binding remain unvalidated."
+    }
+  },
+  "retained_failures": [
+    {
+      "run": "20260905-p3-startup-v9-evidence-v1",
+      "reason": "Audit used an incorrect literal callback contract ID. All independent byte/control checks passed before that assertion; corrected to the existing exact cxa-throw-destructor ID."
+    }
+  ],
+  "callback_changes": {
+    "before_db_sha256": "80472617d1834fb106d75cc03ec65a4589adc1c0b8eae4f5ffc8a6490c843770",
+    "after_db_sha256": "1b150f1df97ddb9f24ed641a3708e32458dea360caecd73029038958224b3335",
+    "resolved_nullable_arguments": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17451024,
+        "site": 17451133,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17451125
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17451125,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452608,
+        "site": 17452724,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17452716
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17452716,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17452953,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17452945
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17452945,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453071,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453063
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453063,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453757,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453749
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453749,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453798,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453790
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453790,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453864,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453856
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453856,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453924,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453916
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453916,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17453984,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17453976
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17453976,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 17452768,
+        "site": 17454040,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            17454032
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 17454032,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 43976592,
+        "site": 43976743,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            43976735
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 43976735,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 43981984,
+        "site": 43982140,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            43982132
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 43982132,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 43983344,
+        "site": 43983439,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            43983431
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 43983431,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 43984064,
+        "site": 43984214,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            43984206
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 43984206,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 43985328,
+        "site": 43986639,
+        "previous": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": null,
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "current": {
+          "callee": 45877224,
+          "context": {
+            "rdi": null,
+            "rsi": null
+          },
+          "contract": "cxa-throw-destructor",
+          "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+          "provenance": [
+            43986631
+          ],
+          "register": "rdx",
+          "signature": "void destructor(void* exception)"
+        },
+        "definition": {
+          "rva": 43986631,
+          "bytes": "31d2",
+          "mnemonic": "xor",
+          "operands": "edx, edx"
+        }
+      }
+    ],
+    "removed_issues": [
+      [
+        "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        18768416,
+        18768738,
+        "fallthrough_at_fence",
+        "call"
+      ]
+    ],
+    "changed_instruction_sets": [
+      {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "entry": 404512,
+        "removed": [
+          [
+            404800,
+            2,
+            "eb89"
+          ]
+        ],
+        "added": []
+      }
+    ],
+    "limitation": "Zero idioms establish nullable argument values only. Callback invocation, pointer relocation/provenance, path merges and runtime binding remain unvalidated."
+  },
+  "independent_disputes": [
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 17451024,
+      "extra_addresses": [
+        17451138
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 17452608,
+      "extra_addresses": [
+        17452729
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 17452768,
+      "extra_addresses": [
+        17453404,
+        17453412,
+        17453420,
+        17453424,
+        17453428,
+        17453495,
+        17453503,
+        17453511,
+        17453515,
+        17453518,
+        17453522,
+        17453525,
+        17453529,
+        17453534,
+        17453536,
+        17453539,
+        17453545,
+        17453548,
+        17453552,
+        17453607,
+        17453615,
+        17453623,
+        17453626,
+        17453631,
+        17453635,
+        17453676,
+        17453762,
+        17453803,
+        17453869,
+        17453929,
+        17453989,
+        17454045,
+        17454070,
+        17454075,
+        17454080,
+        17454086,
+        17454093,
+        17454095,
+        17454098,
+        17454101,
+        17454106,
+        17454192,
+        17454197
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 18768416,
+      "extra_addresses": [
+        18768737
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 43976592,
+      "extra_addresses": [
+        43976748
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 43981984,
+      "extra_addresses": [
+        43982145
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 43983344,
+      "extra_addresses": [
+        43983444
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 43984064,
+      "extra_addresses": [
+        43984219
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 43985328,
+      "extra_addresses": [
+        43986644
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 404512,
+      "extra_addresses": [
+        404800
+      ],
+      "classification": "Independent ordinary fallthrough after explicitly annotated nonreturn calls; no byte disagreement."
+    }
+  ],
+  "ghidra_summary": {
+    "status": "independent inspection complete; disagreements retained",
+    "entries": 10,
+    "equal": 0,
+    "common_instructions": 1131,
+    "boundary_disagreements": 0,
+    "differing_entries": 10,
+    "comparison_sha256": "1e6c635c5cb7270f7771dad11e63cb81a6608c6471e2641fd563c57a8f60003a",
+    "source_db_sha256": "1b150f1df97ddb9f24ed641a3708e32458dea360caecd73029038958224b3335",
+    "exception_roots_supplied": true,
+    "limitations": "Independent SLEIGH decode from entry and bounded supplied bytes. Optional additional roots come from LSDA metadata. No expected instructions, jump-table targets, or no-return contracts supplied. Windows are analysis bounds, not independently proven function extents. No game execution or whole-startup completeness."
+  },
+  "tests": 33,
+  "third_guarded_recovery_identical": true,
+  "runs": {
+    "20260905-p3-boundary-inventory-v1": {
+      "status": "pass",
+      "elapsed_seconds": 6.274806400062516,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "aec889120ac169b3e0181d5e65b5bd555f9a42906e2a56b29929b5151489185f"
+    },
+    "20260905-p3-callback-zero-checks-v1": {
+      "status": "pass",
+      "elapsed_seconds": 0.3934863000176847,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "aec889120ac169b3e0181d5e65b5bd555f9a42906e2a56b29929b5151489185f"
+    },
+    "20260905-p3-callback-zero-checks-v2": {
+      "status": "pass",
+      "elapsed_seconds": 0.20433310000225902,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "cad3fc0526634e5ed369765135c67ddedf93f86e95a17e919e91672a832d8162"
+    },
+    "20260905-p3-callback-zero-checks-v3": {
+      "status": "pass",
+      "elapsed_seconds": 0.5154082998633385,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "82e23c097e6df2a96b4c1f7469496818729cc78c9c828a29e881a4f5c32ef8aa"
+    },
+    "20260905-p3-startup-recovery-v10-zero-guard": {
+      "status": "pass",
+      "elapsed_seconds": 103.47147320001386,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "82e23c097e6df2a96b4c1f7469496818729cc78c9c828a29e881a4f5c32ef8aa"
+    },
+    "20260905-p3-derived-bad-alloc-v1": {
+      "status": "pass",
+      "elapsed_seconds": 4.8138788000214845,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "cad3fc0526634e5ed369765135c67ddedf93f86e95a17e919e91672a832d8162"
+    },
+    "20260905-p3-ghidra-bad-alloc-v1": {
+      "status": "pass",
+      "elapsed_seconds": 21.620130900060758,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "cad3fc0526634e5ed369765135c67ddedf93f86e95a17e919e91672a832d8162"
+    },
+    "20260905-p3-bad-alloc-control-check-v1": {
+      "status": "pass",
+      "elapsed_seconds": 1.0998612002003938,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "cad3fc0526634e5ed369765135c67ddedf93f86e95a17e919e91672a832d8162"
+    },
+    "20260905-p3-startup-recovery-v8": {
+      "status": "pass",
+      "elapsed_seconds": 126.8555465999525,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "cad3fc0526634e5ed369765135c67ddedf93f86e95a17e919e91672a832d8162"
+    },
+    "20260905-p3-startup-recovery-v9-repeat": {
+      "status": "pass",
+      "elapsed_seconds": 114.19350719987415,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "e8329f675fb8667a9bd9e52aa4a94aec898f41be70c7b5dec9877c7c3f026d24"
+    },
+    "20260905-p3-frontier-v8-delta-v1": {
+      "status": "pass",
+      "elapsed_seconds": 9.621121099917218,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "e8329f675fb8667a9bd9e52aa4a94aec898f41be70c7b5dec9877c7c3f026d24"
+    },
+    "20260905-p3-callback-zero-delta-v1": {
+      "status": "pass",
+      "elapsed_seconds": 4.138968799961731,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "c7ee04819969904e5e88ff7dae49fc015f9195c081854f481e1657db24d0b9a1"
+    },
+    "20260905-p3-ghidra-callback-zero-v1": {
+      "status": "pass",
+      "elapsed_seconds": 21.95065849996172,
+      "source_commit": "fd6f90cc1bae07a8fb04c6f51d802f7083b47dcc",
+      "sources_sha256": "c7ee04819969904e5e88ff7dae49fc015f9195c081854f481e1657db24d0b9a1"
+    }
+  },
+  "gate": "P3 remains open: eight fence findings, 9029 indirect-call records, 430 indirect-jump records, 155 unknown callback arguments, mutable constructor tables and native callback/exception/service/control contracts remain unresolved. Compilation is distinct from execution.",
+  "native_game_boot": false,
+  "native_port_playable": false
+}

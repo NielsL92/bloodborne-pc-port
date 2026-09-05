@@ -62,7 +62,7 @@ def model_nodes(h, rows, edges, known_local, known_import):
     return nodes,terminals,evidence
 
 
-def derive(source, out):
+def derive(source, out, extra_entries=None):
     identity=json.loads((source/'identity.json').read_text())
     if identity.get('derived_control_sha256'):
         raise ValueError('Input already uses derived summaries: explicitly import and verify their transitive evidence before extending this experiment.')
@@ -80,6 +80,10 @@ def derive(source, out):
     candidates = set(db.execute("SELECT DISTINCT e.target_module,e.target FROM recovery_issue q JOIN recovery_edge e ON q.module=e.module AND q.entry=e.entry AND q.rva=e.source WHERE e.kind IN ('direct_call','bundled_export_candidate')"))
     libc = db.execute("SELECT hash FROM module WHERE name='libc.prx'").fetchone()[0]
     candidates.update((libc, at) for at in (0x5ecb0, 0x5ed50, 0x5ee90))
+    if extra_entries:
+        for row in json.loads(extra_entries.read_text()):
+            assert db.execute('SELECT 1 FROM module WHERE hash=?',(row['module'],)).fetchone(), 'unknown candidate module'
+            candidates.add((row['module'],row['start']))
     units = {}
     for h, at in sorted(candidates):
         rows = db.execute('SELECT i.rva,i.size,i.bytes,i.mnemonic FROM recovery_owner o CROSS JOIN recovery_instruction i ON o.module=i.module AND o.rva=i.rva WHERE o.module=? AND o.entry=? ORDER BY i.rva', (h, at)).fetchall()
@@ -114,6 +118,7 @@ def derive(source, out):
         iteration += 1
     result = dict(schema=1, status='derived candidates require independent Ghidra check',
         source_db_sha256=sha(source/'analysis.sqlite'), base_contracts_sha256=sha('tools/cfg_import_contracts.json'),
+        extra_entries_sha256=sha(extra_entries) if extra_entries else None,
         candidates=len(candidates), iterations=iteration, contracts=[proofs[k] for k in sorted(proofs)],
         rejected=[dict(module=h,entry=at) for h,at in sorted(candidates-set(proofs))],
         limitations='Conditional static CFG proof only. No execution or complete function-boundary proof. Unknown indirect edges, cycles and missing successors are inconclusive. Library binding, code immutability, ordinary-call ABI and exception metadata/runtime are assumptions.')
@@ -123,5 +128,5 @@ def derive(source, out):
 
 
 if __name__ == '__main__':
-    p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);a=p.parse_args()
-    derive(a.source,a.out)
+    p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--extra-entries',type=Path);a=p.parse_args()
+    derive(a.source,a.out,a.extra_entries)

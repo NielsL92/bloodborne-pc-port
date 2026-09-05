@@ -52,6 +52,42 @@ class RecoveryTests(unittest.TestCase):
         r=self.callback_fixture('e8 01 00 00 00 c3 c3',0x106);r.recover('test',0x100)
         self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],1)
 
+    def test_full_zero_idiom_resolves_nullable_callback(self):
+        for raw in ('31 ff', '48 31 ff', '29 ff', '48 29 ff'):
+            with self.subTest(raw=raw):
+                prefix=bytes.fromhex(raw);target=0x100+len(prefix)+6
+                r=self.callback_fixture(raw+' e8 01 00 00 00 c3 c3',target)
+                r.local_callback_contracts['test',target]['nullable']=True
+                r.executable['test']=[(0,r.executable['test'][0][1])]  # RVA zero lies in a code mapping but null is not an entry.
+                r.recover('test',0x100)
+                rows=r.db.execute("SELECT kind,detail FROM recovery_edge WHERE kind LIKE '%callback%'").fetchall()
+                self.assertEqual([x[0] for x in rows],['callback_contract_null_argument'])
+                self.assertEqual(__import__('json').loads(rows[0][1])['provenance'],[0x100])
+
+    def test_partial_zero_idiom_does_not_invent_null(self):
+        for raw in ('66 31 ff','40 30 ff'):
+            with self.subTest(raw=raw):
+                target=0x100+len(bytes.fromhex(raw))+6
+                r=self.callback_fixture(raw+' e8 01 00 00 00 c3 c3',target)
+                r.local_callback_contracts['test',target]['nullable']=True
+                r.executable['test']=[(0,r.executable['test'][0][1])]  # RVA zero lies in a code mapping but null is not an entry.
+                r.recover('test',0x100)
+                self.assertEqual(r.db.execute("SELECT kind FROM recovery_edge WHERE kind LIKE '%callback%'").fetchall(),[('unresolved_callback_argument',)])
+
+    def test_zero_nonnullable_callback_remains_unresolved(self):
+        r=self.callback_fixture('31 ff e8 01 00 00 00 c3 c3',0x108);r.recover('test',0x100)
+        self.assertEqual(r.db.execute("SELECT target,kind FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchall(),[(0,'unresolved_callback_argument')])
+
+    def test_rip_relative_rva_zero_is_not_literal_null(self):
+        r=self.callback_fixture('48 8d 3d f9 fe ff ff e8 01 00 00 00 c3 c3',0x10d)
+        r.executable['test']=[(0,0x10e)];r.local_callback_contracts['test',0x10d]['nullable']=True
+        r.recover('test',0x100)
+        self.assertEqual(r.db.execute("SELECT target,kind FROM recovery_edge WHERE kind LIKE '%callback%'").fetchall(),[(0,'unresolved_callback_argument')])
+
+    def test_other_register_xor_remains_unknown(self):
+        r=self.callback_fixture('31 f7 e8 01 00 00 00 c3 c3',0x108);r.recover('test',0x100)
+        self.assertEqual(r.db.execute("SELECT target,kind FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchall(),[(None,'unresolved_callback_argument')])
+
     def test_return_leaves_embedded_data_undecoded(self):
         r=fixture('c3 0f ff ff ff');r.recover('test',0x100)
         self.assertEqual(r.db.execute('SELECT rva FROM recovery_instruction').fetchall(),[(0x100,)])

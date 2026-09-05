@@ -259,15 +259,18 @@ class Recovery:
                                 provenance=value[1] if value else None,signature=callback['callback_signature'],
                                 context={reg:values.get(reg) for reg in callback['context_registers']},
                                 limitation='Static ABI argument role; invocation, registry state and runtime target remain unvalidated'),sort_keys=True)
-                            if value and self.is_code(h,value[0]):
+                            if value and value[0]!=0 and self.is_code(h,value[0]):
                                 dependency(address,value[0],'callback_contract_target_candidate',detail)
                             elif value and value[0]==0 and callback['nullable']:
-                                edge(address,None,'callback_contract_null_argument',detail)
+                                origin=insns[value[1][0]]
+                                literal=origin.mnemonic in ('xor','sub') or (origin.mnemonic in ('mov','movabs') and origin.operands[1].type==X86_OP_IMM)
+                                # LEA to module RVA zero is not an absolute null pointer.
+                                edge(address,None if literal else 0,'callback_contract_null_argument' if literal else 'unresolved_callback_argument',detail)
                             else:edge(address,value[0] if value else None,'unresolved_callback_argument',detail)
                     if is_call:
                         for reg in ('rdi','rsi','rdx','rcx','r8','r9'):
                             value=values.get(reg)
-                            if value and self.is_code(h,value[0]):
+                            if value and value[0]!=0 and self.is_code(h,value[0]):
                                 dependency(address,value[0],'callback_argument_candidate',json.dumps(dict(register=reg,provenance=value[1],abi='SysV candidate; callee semantics not established')))
                     if target is not None:
                         if is_call:
@@ -288,7 +291,7 @@ class Recovery:
                         elif op.type==X86_OP_MEM and op.mem.base==X86_REG_RIP:
                             slot=after+op.mem.disp;r=self.relocs[h].get(slot)
                             if r and r['type']==8:candidate,why=r['addend'],f'initial relocated mutable slot {slot:#x}'
-                        if self.is_code(h,candidate):dependency(address,candidate,'indirect_target_candidate',str(why))
+                        if candidate and self.is_code(h,candidate):dependency(address,candidate,'indirect_target_candidate',str(why))
                     if is_jump and i.mnemonic in ('jmp','ljmp'):break
                     values.clear()
                     edge(address,after,'fallthrough')
@@ -306,6 +309,9 @@ class Recovery:
                         if src.type==X86_OP_IMM:new=(reg,src.imm,[address])
                         elif src.type==X86_OP_REG and canonical_register(i.reg_name(src.reg)) in values:
                             value,prov=values[canonical_register(i.reg_name(src.reg))];new=(reg,value,prov+[address])
+                    elif i.mnemonic in ('xor','sub') and src.type==X86_OP_REG and dst.reg==src.reg:
+                        # Only full 32/64-bit zero idioms. Partial writes still invalidate.
+                        new=(reg,0,[address])
                     elif i.mnemonic=='lea' and src.type==X86_OP_MEM and src.mem.base==X86_REG_RIP:
                         new=(reg,after+src.mem.disp,[address])
                     elif i.mnemonic in ('add','sub') and src.type==X86_OP_IMM and reg in values:
