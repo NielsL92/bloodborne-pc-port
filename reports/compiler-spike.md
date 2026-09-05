@@ -53,3 +53,7 @@ There are now eleven real root contracts / 13,584 full-state cases. Required tes
 Proceed to P3 recovery work using Remill as the selected candidate. P4 broad runtime execution still requires guarded guest mappings, recoverable fault/exception behavior, service ABI coverage, and startup target closure. Promoted State cannot be asynchronously observed inside a region; guest memory must not alias compiler State. Direct memory lowering applies only to the validated ordinary-memory contracts. Unmasked FP faults, arbitrary aliases, signals/SEH, MMIO, and unregistered host writers are not proven.
 
 Reproduce with tools/state_promotion_experiment.py, tools/control_flow_experiment.py, tools/thread_boundary_experiment.py and tools/jump_table_experiment.py, always with fresh output directories and tools/run_record.py. Pin identities in reports/dependency-lock.json and per-run source ZIPs.
+
+## P3 manifest compilation checkpoint
+
+2026-09-05: 128 constructor ordinals spanning the recovered invocation list build Windows COFF objects directly from identity-checked manifest instruction bytes. All selected regions were contiguous; sparse regions are explicitly rejected by this consumer. Total object bytes: 401,948; 25 objects retain declared CPU boundaries. External memory/control helpers remain unresolved, no runtime link or execution was attempted, and this is not another P2 differential-case count or a startup gate pass. Evidence: local/compiler-spike/startup-manifest-v1 and reports/startup-recovery.md.

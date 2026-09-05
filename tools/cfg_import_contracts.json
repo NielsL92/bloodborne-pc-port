@@ -142,6 +142,95 @@
         }
       ],
       "limitation": "The configured handler remains unvalidated and must be checked at runtime. A returning handler is a contract violation, not an executable fallthrough to table bytes. The 11-byte helper bounds come from exact instruction/call-target inspection, not an unwind index."
+    },
+    {
+      "id": "libc-abort",
+      "nid": "L1SBTkC+Cvw",
+      "library": "libc",
+      "module": "libc",
+      "contract": "Abnormal process termination; supplied wrapper passes 0xa002000b to sceKernelDebugRaiseException. Signal/exception handling requires a native runtime contract.",
+      "edge_kind": "nonreturn_import_call",
+      "restored_target_unknown": false,
+      "evidence": [
+        {
+          "kind": "independent C/C++ library control contract",
+          "url": "https://sourceware.org/glibc/manual/2.42/html_node/Aborting-a-Program.html",
+          "behavior": "Abnormal process termination; supplied wrapper passes 0xa002000b to sceKernelDebugRaiseException. Signal/exception handling requires a native runtime contract."
+        },
+        {
+          "kind": "pinned symbol identity",
+          "source": "external/shadPS4/src/core/aerolib/aerolib.inl",
+          "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+          "nid": "L1SBTkC+Cvw"
+        }
+      ],
+      "limitation": "Exact NID/library/provider or supplied module hash/RVA/bytes only. This removes ordinary call fallthrough under the API contract; no runtime implementation or execution coverage is claimed.",
+      "local_entries": [
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 128352,
+          "size": 17,
+          "code_sha256": "ea71854422a53c13b52926a085becacff9ca47f61e7ff8ab021cffc8c4953719",
+          "behavior": "Abnormal process termination; supplied wrapper passes 0xa002000b to sceKernelDebugRaiseException. Signal/exception handling requires a native runtime contract."
+        }
+      ]
+    },
+    {
+      "id": "libc-cxa-throw",
+      "nid": "vkuuLfhnSZI",
+      "library": "libc",
+      "module": "libc",
+      "contract": "__cxa_throw writes type_info, destructor pointer and GNU C++ exception class into the exception header, then transfers to internal helper 0x60560. No ordinary return; destination and cleanup callback remain unresolved.",
+      "edge_kind": "throw_contract_call",
+      "restored_target_unknown": true,
+      "evidence": [
+        {
+          "kind": "independent C/C++ library control contract",
+          "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi-eh.html#cxx-throw",
+          "behavior": "__cxa_throw writes type_info, destructor pointer and GNU C++ exception class into the exception header, then transfers to internal helper 0x60560. No ordinary return; destination and cleanup callback remain unresolved."
+        },
+        {
+          "kind": "pinned symbol identity",
+          "source": "external/shadPS4/src/core/aerolib/aerolib.inl",
+          "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+          "nid": "vkuuLfhnSZI"
+        }
+      ],
+      "limitation": "Exact NID/library/provider or supplied module hash/RVA/bytes only. This removes ordinary call fallthrough under the API contract; no runtime implementation or execution coverage is claimed.",
+      "unknown_exit_kind": "unresolved_exception_continuation",
+      "local_entries": [
+        {
+          "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 394512,
+          "size": 54,
+          "code_sha256": "5b52394fad55da6ed0198ae770f3317be7e0353dcfdd2ff3ca46f3acc6f31c3b",
+          "behavior": "__cxa_throw writes type_info, destructor pointer and GNU C++ exception class into the exception header, then transfers to internal helper 0x60560. No ordinary return; destination and cleanup callback remain unresolved."
+        }
+      ]
+    },
+    {
+      "id": "libc-exit",
+      "nid": "uMei1W9uyNo",
+      "library": "libc",
+      "module": "libc",
+      "contract": "Normal termination runs registered exit callbacks in reverse order; never ordinary return. Callback registry and process shutdown remain unimplemented.",
+      "edge_kind": "nonreturn_import_call",
+      "restored_target_unknown": true,
+      "evidence": [
+        {
+          "kind": "independent C/C++ library control contract",
+          "url": "https://www.sourceware.org/glibc/manual/2.23/html_node/Normal-Termination.html",
+          "behavior": "Normal termination runs registered exit callbacks in reverse order; never ordinary return. Callback registry and process shutdown remain unimplemented."
+        },
+        {
+          "kind": "pinned symbol identity",
+          "source": "external/shadPS4/src/core/aerolib/aerolib.inl",
+          "commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+          "nid": "uMei1W9uyNo"
+        }
+      ],
+      "limitation": "Exact NID/library/provider or supplied module hash/RVA/bytes only. This removes ordinary call fallthrough under the API contract; no runtime implementation or execution coverage is claimed.",
+      "unknown_exit_kind": "unresolved_exit_callbacks"
     }
   ],
   "application": "Only exact NID/library/provider matches through a decoded RIP-relative PLT jump and type-7 GOT relocation. No signature matching by proximity or arbitrary call-site suppression.",
