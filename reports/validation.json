@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-05",
+  "status": "limited_proof_passed_game_not_booted",
+  "python_tests": 26,
+  "game_proof": {
+    "status": "pass",
+    "functions": 19,
+    "cases": 205048,
+    "random_seed": "0xb100db09",
+    "scope": "scalar leaf recompilation only; game not booted"
+  },
+  "synthetic_instruction_proof": {
+    "status": "pass",
+    "functions": 28,
+    "cases": 302176,
+    "random_seed": "0xb100db09",
+    "scope": "scalar leaf recompilation only; game not booted"
+  },
+  "exe_sha256": "cbfbb221862976f81925375dd46bbd9c0197a51d0d4ea083380b9d681da8e453",
+  "exe_machine": "Windows PE AMD64",
+  "executable_bytes": 146432,
+  "input_sha256": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+  "shadps4_commit": "22fb56d51c72cdf00b5e21a96e9eb1f5f3eb47db",
+  "original_game_bytes_translated": 538,
+  "selective_extraction_sha256_matches": true
+}

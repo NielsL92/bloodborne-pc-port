@@ -1,0 +1,20 @@
+# Local game files, generated translations, binaries and downloaded dependencies.
+local/
+build/
+external/
+.venv/
+__pycache__/
+*.pyc
+*.pkg
+*.elf
+*.bin
+*.prx
+*.sprx
+*.dll
+*.exe
+*.obj
+*.pdb
+*.bc
+*.ll
+*.lib
+
