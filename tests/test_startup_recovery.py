@@ -18,6 +18,7 @@ def fixture(raw):
     r.byte_owners=collections.defaultdict(dict);r.pads={};r.regions={}
     r.known=collections.defaultdict(list);r.relocs={'test':{}};r.local_contracts={}
     r.static_tables=set();r.import_cache={};r.contracts={};r.exports={};r.queue=collections.deque();r.requested=set()
+    r.callback_contracts={};r.local_callback_contracts={}
     r.db=sqlite3.connect(':memory:')
     r.db.executescript('''
     CREATE TABLE recovery_instruction(module,rva,size,bytes,mnemonic,operands,PRIMARY KEY(module,rva));
@@ -31,6 +32,26 @@ def fixture(raw):
     return r
 
 class RecoveryTests(unittest.TestCase):
+    def callback_fixture(self, raw, target):
+        r=fixture(raw)
+        r.local_callback_contracts['test',target]=dict(id='test-registration',register='rdi',nullable=False,callback_signature='void(void*)',context_registers=[])
+        return r
+
+    def test_callback_abi_expands_unindexed_entry(self):
+        r=self.callback_fixture('48 8d 3d 07 00 00 00 e8 01 00 00 00 c3 c3 c3',0x10d)
+        r.recover('test',0x100)
+        self.assertIn(('test',0x10e),r.queue)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='callback_contract_target_candidate'").fetchone()[0],1)
+
+    def test_tail_registration_captures_callback(self):
+        r=self.callback_fixture('48 8d 3d 07 00 00 00 e9 01 00 00 00 c3 c3 c3',0x10d)
+        r.recover('test',0x100)
+        self.assertIn(('test',0x10e),r.queue)
+
+    def test_unknown_registration_argument_is_retained(self):
+        r=self.callback_fixture('e8 01 00 00 00 c3 c3',0x106);r.recover('test',0x100)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],1)
+
     def test_return_leaves_embedded_data_undecoded(self):
         r=fixture('c3 0f ff ff ff');r.recover('test',0x100)
         self.assertEqual(r.db.execute('SELECT rva FROM recovery_instruction').fetchall(),[(0x100,)])

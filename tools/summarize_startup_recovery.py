@@ -83,5 +83,12 @@ report=dict(status='startup recovery evidence consistency pass; P3 gate open',ar
  dict(run='20260905-p3-startup-recovery-v1',reason='Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries.')],
  gate='P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.',
  baseline_execution='No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.',native_game_boot=False,native_port_playable=False)
+continuation=root/'reports/startup-closure-evidence.json'
+if continuation.exists():
+ latest=json.loads(continuation.read_text())
+ assert latest['status']=='startup closure continuation evidence consistency pass; P3 gate open'
+ report['historical_v4_gate']=report['gate'];report['gate']=latest['gate']
+ report['current_directory']=latest['current_directory']
+ report['continuation']=dict(path=str(continuation.relative_to(root)),sha256=sha(continuation),result=latest)
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)

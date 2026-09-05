@@ -25,6 +25,11 @@ public class BBCheckRecovery extends GhidraScript {
    currentProgram.getListing().clearCodeUnits(toAddr(start),toAddr(end-1),false);
    Disassembler dis=Disassembler.getDisassembler(currentProgram,monitor,null);
    dis.disassemble(toAddr(start),window,true);
+   if(s.has("additional_roots"))for(JsonElement root:s.getAsJsonArray("additional_roots")){
+    Address address=toAddr(root.getAsLong());
+    if(!window.contains(address))throw new IllegalArgumentException("LSDA root outside analysis window");
+    dis.disassemble(address,window,true);
+   }
    JsonArray rows=new JsonArray();InstructionIterator it=currentProgram.getListing().getInstructions(window,true);
    while(it.hasNext()){
     Instruction ins=it.next();JsonObject r=new JsonObject();r.addProperty("rva",ins.getAddress().getOffset());r.addProperty("length",ins.getLength());

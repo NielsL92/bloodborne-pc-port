@@ -1,14 +1,14 @@
 # P3 control-flow and dependency recovery
 
-Updated 2026-09-05 20:30 UTC. **P3 startup compilation/exit closure has not passed. No native game boot exists.**
+Updated 2026-09-05 20:59 UTC. **P3 startup compilation/exit closure has not passed. No native game boot exists.**
 
 ## Current database and startup gate
 
-The current extension is `local/cfg/startup-recovery-v4/analysis.sqlite`, using its `recovery_*` tables. It includes all 18,444 ordered initial constructor entries, 21,095 total entries across eight modules and 870,923 distinct decoded instruction addresses. The database, compilation manifest and frontier reproduce byte-for-byte in startup-recovery-v5-repeat. All constructor roots are preserved in invocation order; 16,069 are outside every indexed unwind range.
+The current extension is `local/cfg/startup-recovery-v7-repeat/analysis.sqlite`, using its `recovery_*` tables. It includes all 18,444 ordered initial constructor entries, 21,160 total entries across eight modules and 873,582 distinct decoded instruction addresses. The database, compilation manifest, frontier and constructor order reproduce byte-for-byte from v6. All constructor roots are preserved in invocation order; 16,069 are outside every indexed unwind range.
 
-There are no current overlap or undecodable-instruction findings. The frontier retains 146 fallthrough-boundary findings, 8,980 unresolved indirect-call records, 421 unresolved indirect-jump records, 20,760 unvalidated import records, and runtime/callback/exception obligations. A drained explicit-target queue is not complete static discovery. No pointer candidate or object build is execution coverage.
+There are no current overlap or undecodable-instruction findings. Twenty-eight independently checked conditional control summaries reduce fallthrough findings from 146 to 9. Callback recovery adds 65 entries; the frontier now retains 9,029 indirect-call records, 430 indirect-jump records, 20,842 unvalidated import records, 170 unknown callback-argument records and runtime/exception obligations. The larger indirect frontier is newly exposed work. A drained explicit-target queue is not complete static discovery. No pointer candidate or object build is execution coverage.
 
-The separately recorded manifest sample builds 128 Windows objects, with 25 retaining declared CPU boundaries and none executed. Two independent 13-case library table recoveries add 12 static edges; their table bytes and all 79/81 recovered instructions agree with Ghidra. Read `reports/startup-recovery.md` for the full recovery policy, failures, remaining gates and commands. Focused evidence is in `reports/startup-recovery-evidence.json`, integrated into `reports/control-flow-evidence.json`.
+The earlier sample builds 128 constructor objects. The new 65-entry batch builds 52 Windows objects, with 12 sparse and one disputed entry excluded. No P3 object was executed. Ghidra checks every new entry and remaining boundary entry; all 3,234 shared instructions agree after separately supplying LSDA roots. Earlier two-table checks remain preserved. Read `reports/startup-closure.md` for current commands, limits and exact remaining boundary cases; `reports/startup-recovery.md` preserves the initial checkpoint. Focused continuation evidence is in `reports/startup-closure-evidence.json`, integrated through the recovery evidence into `reports/control-flow-evidence.json`.
 
 The earlier startup-db-v1, with its 18,437 undecoded frontier, remains immutable historical evidence. Existing survey tables inside the new database retain their original meanings. Initial constructor tables remain mutable runtime data; unexpected targets require strict failure diagnostics.
 

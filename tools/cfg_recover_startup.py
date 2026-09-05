@@ -39,7 +39,7 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
         out.mkdir(parents=True, exist_ok=False)
         shutil.copy2(source / 'analysis.sqlite', out / 'analysis.sqlite')
@@ -93,6 +93,25 @@ class Recovery:
                 assert hashlib.sha256(self.images[e['module_sha256']].at_va(e['rva'],e['size'])).hexdigest() == e['code_sha256']
             for e in c.get('local_entries', []):
                 self.local_contracts[e['module_sha256'],e['rva']] = c
+        if control_evidence:
+            derived=json.loads(control_evidence.read_text())
+            assert derived['status']=='independent Ghidra control comparison passed'
+            assert derived['base_contracts_sha256']==sha('tools/cfg_import_contracts.json')
+            for row in derived['contracts']:
+                h=row['module_sha256']
+                assert hashlib.sha256(json.dumps(row['instructions'],separators=(',',':')).encode()).hexdigest()==row['instruction_set_sha256']
+                for at,size,raw in row['instructions']:
+                    assert self.images[h].at_va(at,size).hex()==raw
+                c=dict(id=row['id'],restored_target_unknown=True,unknown_exit_kind='unresolved_derived_control_continuation')
+                self.local_contracts[h,row['rva']]=c
+                for key in row['import_keys']:
+                    assert self.exports[tuple(key)]==[(h,row['rva'])], 'ambiguous bundled binding'
+                    self.contracts[tuple(key)]=c
+        callback_data=json.loads(Path('tools/cfg_callback_contracts.json').read_text())
+        self.callback_contracts={tuple(c[k] for k in ('nid','library','module')):c for c in callback_data['contracts']}
+        self.local_callback_contracts={}
+        for key,c in self.callback_contracts.items():
+            for h,at in self.exports.get(key,[]):self.local_callback_contracts[h,at]=c
         self.static_tables = set()
         if jump_evidence:
             table_evidence = json.loads(jump_evidence.read_text())
@@ -110,8 +129,10 @@ class Recovery:
                               for o,s,t,e in self.db.execute('SELECT ordinal,slot,target,evidence FROM initializer_slot WHERE module=? ORDER BY ordinal',(self.main,))]
         self.identity = dict(schema=1, source_db_sha256=sha(source/'analysis.sqlite'), roots_sha256=sha(roots_path),
             control_contracts_sha256=sha('tools/cfg_import_contracts.json'), modules=self.names,
+            derived_control_sha256=sha(control_evidence) if control_evidence else None,
+            callback_contracts_sha256=sha('tools/cfg_callback_contracts.json'),
             max_entries=max_entries, max_instructions_per_entry=max_instructions, jump_evidence_sha256=sha(jump_evidence) if jump_evidence else None,
-            policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Constant callbacks and relocated slots remain candidates; only independently seeded addresses are expanded from those candidates. No game CPU execution.')
+            policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
         write_json(out/'identity.json', self.identity)
         for r in self.roots:
             self.request(self.main,r['target'],'ordered_initial_constructor',self.main,0x20,0x82)
@@ -229,6 +250,20 @@ class Recovery:
                     edge(address,None,'service_or_trap_boundary',i.mnemonic)
                 if is_call or is_jump:
                     target=i.operands[0].imm if i.operands[0].type==X86_OP_IMM else None
+                    if target is not None and (is_call or i.mnemonic=='jmp'):
+                        imp=self.imported(h,target)
+                        callback=self.callback_contracts.get(tuple(imp[k] for k in ('nid','library','module'))) if imp else self.local_callback_contracts.get((h,target))
+                        if callback:
+                            value=values.get(callback['register'])
+                            detail=json.dumps(dict(contract=callback['id'],callee=target,register=callback['register'],
+                                provenance=value[1] if value else None,signature=callback['callback_signature'],
+                                context={reg:values.get(reg) for reg in callback['context_registers']},
+                                limitation='Static ABI argument role; invocation, registry state and runtime target remain unvalidated'),sort_keys=True)
+                            if value and self.is_code(h,value[0]):
+                                dependency(address,value[0],'callback_contract_target_candidate',detail)
+                            elif value and value[0]==0 and callback['nullable']:
+                                edge(address,None,'callback_contract_null_argument',detail)
+                            else:edge(address,value[0] if value else None,'unresolved_callback_argument',detail)
                     if is_call:
                         for reg in ('rdi','rsi','rdx','rcx','r8','r9'):
                             value=values.get(reg)
@@ -348,10 +383,11 @@ def main():
     p.add_argument('--source',type=Path,default=Path('local/cfg/startup-db-v1'))
     p.add_argument('--roots',type=Path,default=Path('local/cfg/startup-v1/roots.json'))
     p.add_argument('--jump-evidence',type=Path)
+    p.add_argument('--control-evidence',type=Path)
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence).run()
 
 
 if __name__=='__main__':main()
