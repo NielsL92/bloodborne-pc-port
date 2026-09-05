@@ -714,10 +714,10 @@
   ],
   "native_game_boot": false,
   "native_port_playable": false,
-  "gate": "P3 not passed: 9029 indirect-call records, 430 indirect-jump records, 9 fallthrough findings, 170 unresolved callback-argument records, runtime binding/registry/mutation, exception and native service/control contracts remain open. 52 new objects built; 12 sparse and 1 disputed entry explicitly excluded. No native game boot or playable port.",
+  "gate": "P3 still open: sparse input blocker resolved for all twelve retained bodies; the separate disputed entry, nine startup fence findings, 9029 indirect-call records, 430 indirect-jump records and native callback/exception/service/runtime contracts remain open.",
   "startup_recovery": {
     "path": "reports\\startup-recovery-evidence.json",
-    "sha256": "0ee55d500d3d9488f060a6cd2e8b704c185db28de0a5b392045ae3ee7e7f03f4",
+    "sha256": "f7bd3c1ac91b45de6d3f03f51b5580a53e39bb5095656f04a3e68ba3d0c1cc9d",
     "result": {
       "status": "startup recovery evidence consistency pass; P3 gate open",
       "artifacts": {
@@ -1559,7 +1559,7 @@
           "reason": "Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries."
         }
       ],
-      "gate": "P3 not passed: 9029 indirect-call records, 430 indirect-jump records, 9 fallthrough findings, 170 unresolved callback-argument records, runtime binding/registry/mutation, exception and native service/control contracts remain open. 52 new objects built; 12 sparse and 1 disputed entry explicitly excluded. No native game boot or playable port.",
+      "gate": "P3 still open: sparse input blocker resolved for all twelve retained bodies; the separate disputed entry, nine startup fence findings, 9029 indirect-call records, 430 indirect-jump records and native callback/exception/service/runtime contracts remain open.",
       "baseline_execution": "No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.",
       "native_game_boot": false,
       "native_port_playable": false,
@@ -6202,6 +6202,915 @@
           ],
           "limitations": "The proof is conditional on exact ABI contracts, valid calls, supplied exception metadata, fixed binding and immutable code. Unknown indirect calls are deliberately rejected as proof paths. Callback ABI roles identify arguments; they do not prove runtime registrations or executions.",
           "gate": "P3 not passed: 9029 indirect-call records, 430 indirect-jump records, 9 fallthrough findings, 170 unresolved callback-argument records, runtime binding/registry/mutation, exception and native service/control contracts remain open. 52 new objects built; 12 sparse and 1 disputed entry explicitly excluded. No native game boot or playable port.",
+          "native_game_boot": false,
+          "native_port_playable": false
+        }
+      },
+      "sparse_compiler": {
+        "path": "reports\\sparse-compiler-evidence.json",
+        "sha256": "7f139bfacae7e029abb13ecaac65d421b1a74a56d0f1e54ac9c7fe43ccc653d8",
+        "result": {
+          "status": "sparse compiler evidence consistency pass; P3 gate open",
+          "current_directory": "local/compiler-spike/sparse-manifest-v5-repeat",
+          "summary": {
+            "status": "sparse manifest compilation complete; startup gate NOT passed",
+            "selected": 12,
+            "results": {
+              "object_built": 12
+            },
+            "instructions": 1517,
+            "input_bytes": 5369,
+            "objects_bytes": 159654,
+            "roots": 46,
+            "unclassified_missing_paths": 0,
+            "objects_with_unresolved_cpu_boundaries": 12,
+            "limitations": "Only supplied instruction bytes are readable to the compiler; no filler or original game CPU execution. Compiling extra logical roots does not implement exception/indirect dispatch. Objects may define overlapping roots across units and were not linked. Runtime helpers, binding and control contracts remain open."
+          },
+          "driver": {
+            "path": "build/sparse-lift-v3/bb-sparse-lift.exe",
+            "identity_sha256": "355b841b45e1847a378e07665ba07ba17fa10544f1608d43099d433b57790687",
+            "executable_sha256": "6fef7995ea9724d7e1d58fbdfd3b190b71346106fb9ce5c9c50b07040ddd39b4",
+            "semantics_sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
+            "original_lifter_unchanged": true,
+            "linked_libraries_unchanged": true
+          },
+          "authored_checks": {
+            "path": "local/compiler-spike/sparse-checks-v4/summary.json",
+            "sha256": "d4d3ac767aeb1937beb15c76b3a839f454ee5c6c2943898b4d372d82f9b1eab0",
+            "input_cases": 10,
+            "native": {
+              "status": "pass",
+              "aot_cases": 8192,
+              "original_code_execution": false
+            }
+          },
+          "units": [
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17451024,
+              "instructions": 42,
+              "roots": 3,
+              "input_bytes": 139,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 5149,
+              "object_sha256": "bf3f30477c60d52363a39c85e2a7954afcecced6403e857a89fdc3b678a60b13",
+              "input_sha256": "4f1cf3b1dee262a611765f9d801195c9ad44ed0b5aec5ab9502a05bb85398fa9",
+              "audit_sha256": "a15dece8fa78fa725bc4c93fe0d55fd4fab2b5b521ba9ef5303fb80551e24057",
+              "cpu_boundaries": [
+                "sub_1010a4e40",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_1029f0300"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452608,
+              "instructions": 44,
+              "roots": 3,
+              "input_bytes": 146,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 5407,
+              "object_sha256": "9ce2acb0e7cd6862392549df7a92f86bb5e7667de4eec99e4642e22bd39f9bc3",
+              "input_sha256": "d3f1cbc2b633513633864597ff0ebd97cb9a7cb5407c5d36c63db8dd38c8014c",
+              "audit_sha256": "5abd48b0838c3d7191744aebd7a609076675dc9ede4c4faf1f92f027125bc090",
+              "cpu_boundaries": [
+                "sub_1010a4ee0",
+                "sub_1010a4810",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_1029f0300"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "instructions": 269,
+              "roots": 16,
+              "input_bytes": 1043,
+              "omitted_gap_bytes": 381,
+              "object_bytes": 46831,
+              "object_sha256": "12d2fab361bef4783ee9c93222a33768e573f1f968c2f29198ae11602852fc61",
+              "input_sha256": "97efefe4f24a938fe127e57bc852bad6787914d41cb9d4aeac47e4d7f52c0e14",
+              "audit_sha256": "5b8632ad0764e6c356ae65e6428cc5e5423cfed3add41a7ea338029631606ab6",
+              "cpu_boundaries": [
+                "sub_1029f0790",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "sub_1029f24c0",
+                "sub_1029f2820",
+                "__remill_jump",
+                "sub_102bbe4f8",
+                "__remill_missing_block",
+                "sub_1029f0300",
+                "sub_102bc07f8",
+                "sub_102bc0808"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 29214896,
+              "instructions": 29,
+              "roots": 1,
+              "input_bytes": 94,
+              "omitted_gap_bytes": 13,
+              "object_bytes": 3211,
+              "object_sha256": "4e0be3eec4b0fec94b476dda682c62a72d06d6b57dae594ad6f12f3f17e38608",
+              "input_sha256": "fa31580c8444b31563ba6d2c131fa4a7bcb6afff88ba280e39bf8246fdd84d29",
+              "audit_sha256": "edb661d61ce668f615060d40e608c7db541b2dbc73b1a56171fbf051c0c8148d",
+              "cpu_boundaries": [
+                "__remill_function_call"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43976592,
+              "instructions": 56,
+              "roots": 3,
+              "input_bytes": 181,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 6274,
+              "object_sha256": "13cbc307c1bfbd0d3da7990d8062d8cbd86ef8b72a233e5bfea437db757b4352",
+              "input_sha256": "adba4f9e2076ac8236400ef2b0b4a65cbddf29acad0c68d5031464384d4274b8",
+              "audit_sha256": "93c65920aa9d3a2e61640a76029be89e94fb45c44e983e1efd0181908e7b2155",
+              "cpu_boundaries": [
+                "sub_102bbe578",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_102bc0808"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43981984,
+              "instructions": 65,
+              "roots": 5,
+              "input_bytes": 209,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 12007,
+              "object_sha256": "cc7ad6933dd0ac5bd16e41ff7e270ced5a5e7a047e2dc3f176839d2216d65a2f",
+              "input_sha256": "48edef01cc7e4980542a17f649a7924bfedab07e13a616b574f4b9efdee9f6a7",
+              "audit_sha256": "0afd1c98c284499c3c81ebdf0801d09720314f09dc532f5904c65d747fd0cd7e",
+              "cpu_boundaries": [
+                "sub_1010a4e40",
+                "sub_1029f0790",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_102bc0808",
+                "sub_1029f0300"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43983344,
+              "instructions": 39,
+              "roots": 3,
+              "input_bytes": 125,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 4755,
+              "object_sha256": "7cdf6badac4090666193c96735e789bafd87c1af9a6d870612d91d02c0b10c60",
+              "input_sha256": "5644526611a35006885d7586a60b9a031ca7153adb90bb37ffae1755a0d93e2a",
+              "audit_sha256": "2af98be719ce8c2f6031c9a45e2f592964e3df760dead92ce497eddc227e9e65",
+              "cpu_boundaries": [
+                "sub_1010a4e40",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_102bc0808"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984064,
+              "instructions": 52,
+              "roots": 4,
+              "input_bytes": 180,
+              "omitted_gap_bytes": 2,
+              "object_bytes": 6707,
+              "object_sha256": "12bd1af327976f406a4d6263971f93bb60f845be5ba67d23efee2016ed49c1a6",
+              "input_sha256": "61c5b4a8bf5b2d81c49912530ee771d9fa6b4e79a56db0f6f0e0da956cb7290b",
+              "audit_sha256": "ada39dd2ad28377bbf57fd5e4c9669b36248131ed7bb48ad185592893c74586b",
+              "cpu_boundaries": [
+                "sub_1029f21f0",
+                "__remill_function_call",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_1029f0300",
+                "sub_102bc07f8"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984928,
+              "instructions": 101,
+              "roots": 2,
+              "input_bytes": 366,
+              "omitted_gap_bytes": 19,
+              "object_bytes": 7770,
+              "object_sha256": "df1a5fd59986e042b98fffa5563eec6a335d8e211f36cf7fcc975e0ed347cf70",
+              "input_sha256": "5e96ad67a7d68382b5e75dac1f57336df1e6af41a782b303ec90b6f772cc7e10",
+              "audit_sha256": "35e9707cfe88bccb60fa6d537723e82adfb183f0091b92a9906d64700861713e",
+              "cpu_boundaries": [
+                "sub_1029f1ca0",
+                "sub_1029f29b0",
+                "sub_102bbe4f8",
+                "__remill_missing_block",
+                "sub_1029f0300"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43985328,
+              "instructions": 381,
+              "roots": 4,
+              "input_bytes": 1339,
+              "omitted_gap_bytes": 7,
+              "object_bytes": 29793,
+              "object_sha256": "dbc40b9b13b45260edca3d5cab7980d8df5b9cfec2788c3723c978a7373f5e19",
+              "input_sha256": "ef4306f8fcfcf89b49d42def21d0cbb1a7fd5e1bcdb269c2a51c3e9afbde2086",
+              "audit_sha256": "eaadafbb410ec7becd01aa82006ca2e4515175c718d2266b2fc019543528e207",
+              "cpu_boundaries": [
+                "sub_1010a4e40",
+                "sub_1029f0790",
+                "__remill_function_call",
+                "sub_102bbf1a8",
+                "sub_1029f0300",
+                "sub_102bc07d8",
+                "sub_102bc07e8",
+                "__remill_missing_block",
+                "sub_102bc07f8",
+                "sub_102bc0808"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 44370768,
+              "instructions": 341,
+              "roots": 1,
+              "input_bytes": 1205,
+              "omitted_gap_bytes": 24,
+              "object_bytes": 24325,
+              "object_sha256": "6e962cd348834ccd19c623e1e06141aaecc23d60f65bb4d2aa9ee966b4ed8f4a",
+              "input_sha256": "6995f0b3a7c4cb3c9d7acbee2785c27607bafd8994bf90daa6eebf9c61b26a5d",
+              "audit_sha256": "9b1ac224fe5b1779ca69919a99f17f94e07cd3552b5e55f4994685a175d2097e",
+              "cpu_boundaries": [
+                "sub_102bbe588",
+                "sub_102bbf1a8",
+                "__remill_missing_block"
+              ]
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 44373040,
+              "instructions": 98,
+              "roots": 1,
+              "input_bytes": 342,
+              "omitted_gap_bytes": 18,
+              "object_bytes": 7425,
+              "object_sha256": "f1075e2ea80451da89a7f63620001b8a331f32a3ca20ade205ed06186d947119",
+              "input_sha256": "96f0a68e258db76d6b83925a03e986d83f6655b8f3f08b8495aeb14c5bc5bde1",
+              "audit_sha256": "7e5fa86d85303bf4f5e6115b1387b467d21cc74134458e1c91322c872cc6fe69",
+              "cpu_boundaries": [
+                "sub_102a515a0",
+                "sub_102a50b50",
+                "sub_102bbe4f8",
+                "__remill_missing_block"
+              ]
+            }
+          ],
+          "missing_boundaries": [
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17451024,
+              "rva": 17451138,
+              "evidence": [
+                {
+                  "source": 17451133,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17451024,
+              "rva": 17451165,
+              "evidence": [
+                {
+                  "source": 17451160,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452608,
+              "rva": 17452729,
+              "evidence": [
+                {
+                  "source": 17452724,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452608,
+              "rva": 17452756,
+              "evidence": [
+                {
+                  "source": 17452751,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453676,
+              "evidence": [
+                {
+                  "source": 17453671,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45868280,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "stack-protector-failure"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453762,
+              "evidence": [
+                {
+                  "source": 17453757,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453803,
+              "evidence": [
+                {
+                  "source": 17453798,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453869,
+              "evidence": [
+                {
+                  "source": 17453864,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453929,
+              "evidence": [
+                {
+                  "source": 17453924,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17453989,
+              "evidence": [
+                {
+                  "source": 17453984,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17454045,
+              "evidence": [
+                {
+                  "source": 17454040,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17454070,
+              "evidence": [
+                {
+                  "source": 17454065,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877256,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-unwind-resume"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 17452768,
+              "rva": 17454192,
+              "evidence": [
+                {
+                  "source": 17454187,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43976592,
+              "rva": 43976748,
+              "evidence": [
+                {
+                  "source": 43976743,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43976592,
+              "rva": 43976775,
+              "evidence": [
+                {
+                  "source": 43976770,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877256,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-unwind-resume"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43981984,
+              "rva": 43982145,
+              "evidence": [
+                {
+                  "source": 43982140,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43981984,
+              "rva": 43982195,
+              "evidence": [
+                {
+                  "source": 43982190,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43983344,
+              "rva": 43983444,
+              "evidence": [
+                {
+                  "source": 43983439,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43983344,
+              "rva": 43983471,
+              "evidence": [
+                {
+                  "source": 43983466,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877256,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-unwind-resume"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984064,
+              "rva": 43984219,
+              "evidence": [
+                {
+                  "source": 43984214,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984064,
+              "rva": 43984246,
+              "evidence": [
+                {
+                  "source": 43984241,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984928,
+              "rva": 43985304,
+              "evidence": [
+                {
+                  "source": 43985299,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45868280,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "stack-protector-failure"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43984928,
+              "rva": 43985313,
+              "evidence": [
+                {
+                  "source": 43985308,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 43975424,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-terminate"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43985328,
+              "rva": 43986644,
+              "evidence": [
+                {
+                  "source": 43986639,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-cxa-throw"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 43985328,
+              "rva": 43986674,
+              "evidence": [
+                {
+                  "source": 43986669,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45877256,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-unwind-resume"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 44370768,
+              "rva": 44371997,
+              "evidence": [
+                {
+                  "source": 44371992,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45871528,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "derived-4378b47f46f1-5ed50"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            },
+            {
+              "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "entry": 44373040,
+              "rva": 44373400,
+              "evidence": [
+                {
+                  "source": 44373395,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45868280,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "stack-protector-failure"
+                }
+              ],
+              "classification": "annotated control or external transfer"
+            }
+          ],
+          "duplicate_roots": [],
+          "determinism": {
+            "repeat_objects_byte_identical": true,
+            "coff_timestamp": 0,
+            "object_flags": [
+              "-O2",
+              "-march=haswell",
+              "-mno-incremental-linker-compatible"
+            ],
+            "previous_timestamp_only_differences": [
+              {
+                "entry": 17451024,
+                "first": 1788645728,
+                "second": 1788645836,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 17452608,
+                "first": 1788645728,
+                "second": 1788645836,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 17452768,
+                "first": 1788645728,
+                "second": 1788645836,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 29214896,
+                "first": 1788645729,
+                "second": 1788645837,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43976592,
+                "first": 1788645729,
+                "second": 1788645837,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43981984,
+                "first": 1788645729,
+                "second": 1788645837,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43983344,
+                "first": 1788645729,
+                "second": 1788645837,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43984064,
+                "first": 1788645729,
+                "second": 1788645838,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43984928,
+                "first": 1788645729,
+                "second": 1788645838,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 43985328,
+                "first": 1788645730,
+                "second": 1788645838,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 44370768,
+                "first": 1788645730,
+                "second": 1788645839,
+                "all_other_bytes_identical": true
+              },
+              {
+                "entry": 44373040,
+                "first": 1788645730,
+                "second": 1788645839,
+                "all_other_bytes_identical": true
+              }
+            ]
+          },
+          "root_reduction": {
+            "initial": {
+              "status": "sparse manifest compilation complete; startup gate NOT passed",
+              "selected": 12,
+              "results": {
+                "object_built": 12
+              },
+              "instructions": 1517,
+              "input_bytes": 5369,
+              "objects_bytes": 1437824,
+              "roots": 225,
+              "unclassified_missing_paths": 0,
+              "objects_with_unresolved_cpu_boundaries": 12,
+              "limitations": "Only supplied instruction bytes are readable to the compiler; no filler or original game CPU execution. Compiling extra logical roots does not implement exception/indirect dispatch. Objects may define overlapping roots across units and were not linked. Runtime helpers, binding and control contracts remain open."
+            },
+            "current": {
+              "status": "sparse manifest compilation complete; startup gate NOT passed",
+              "selected": 12,
+              "results": {
+                "object_built": 12
+              },
+              "instructions": 1517,
+              "input_bytes": 5369,
+              "objects_bytes": 159654,
+              "roots": 46,
+              "unclassified_missing_paths": 0,
+              "objects_with_unresolved_cpu_boundaries": 12,
+              "limitations": "Only supplied instruction bytes are readable to the compiler; no filler or original game CPU execution. Compiling extra logical roots does not implement exception/indirect dispatch. Objects may define overlapping roots across units and were not linked. Runtime helpers, binding and control contracts remain open."
+            }
+          },
+          "runs": {
+            "20260905-p3-build-sparse-lift-v1": {
+              "status": "failed",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 13.292102300096303,
+              "source_archive_sha256": "0b8316c3331d9431f3c03851b91233ea65bcc8abec04a594cade0b2358ed1806"
+            },
+            "20260905-p3-build-sparse-lift-v2": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 8.397988799959421,
+              "source_archive_sha256": "bc954271b4aa10082af885f505213ba6232018135fb87576da4026ddcbd1ff90"
+            },
+            "20260905-p3-build-sparse-lift-v3": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 11.100086600054055,
+              "source_archive_sha256": "4be2c69af10e30b455919fdeb9c268a81705b87352efaa30087aaf32f2a7853b"
+            },
+            "20260905-p3-sparse-lift-checks-v1": {
+              "status": "failed",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 3.9216825999319553,
+              "source_archive_sha256": "052e3bd363319e1be4525569b47bd1351c07fba02bd0864febf52af541cfe715"
+            },
+            "20260905-p3-sparse-lift-checks-v2": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 3.348356300033629,
+              "source_archive_sha256": "9b9c5df0a0cd538959c69eb72d6a3a06aeb5164a3a3d42c2552bfa024fff46c5"
+            },
+            "20260905-p3-sparse-lift-checks-v3": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 2.9912670999765396,
+              "source_archive_sha256": "5b43171fc8032e8fe27ac2a87ebeac5ac584a1efc14c11cc1cd6e2505f9ff61f"
+            },
+            "20260905-p3-sparse-lift-checks-v4": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 3.898613299941644,
+              "source_archive_sha256": "6eaf13bdcb701fbd9c529d334e4942250635849e5eb096c9ce0d60b1dc510826"
+            },
+            "20260905-p3-sparse-compiler-evidence-v1": {
+              "status": "failed",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 0.17850919999182224,
+              "source_archive_sha256": "181097e75de562d9e928ed2baca6379d9101e4e1ec522d97f54e3ecb4f33e563"
+            },
+            "20260905-p3-sparse-manifest-compile-v1": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 15.637062299996614,
+              "source_archive_sha256": "5b43171fc8032e8fe27ac2a87ebeac5ac584a1efc14c11cc1cd6e2505f9ff61f"
+            },
+            "20260905-p3-sparse-manifest-compile-v2": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 27.759570399997756,
+              "source_archive_sha256": "88d23da086beac05ddb1c787c0e09bbb948b62b2887bd3e89ebfed2f99cfc81d"
+            },
+            "20260905-p3-sparse-manifest-compile-v3-repeat": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 12.340943400049582,
+              "source_archive_sha256": "46d81c291c3b7a1c79cc6d3eacee89fd9f572341ee4b1227f9516fab96e7f419"
+            },
+            "20260905-p3-sparse-manifest-compile-v4": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 7.78159169992432,
+              "source_archive_sha256": "6eaf13bdcb701fbd9c529d334e4942250635849e5eb096c9ce0d60b1dc510826"
+            },
+            "20260905-p3-sparse-manifest-compile-v5-repeat": {
+              "status": "pass",
+              "source_commit": "adeb40de3665d9300c98cc9112e6031dd337f253",
+              "elapsed_seconds": 12.25086020003073,
+              "source_archive_sha256": "6eaf13bdcb701fbd9c529d334e4942250635849e5eb096c9ce0d60b1dc510826"
+            }
+          },
+          "retained_failures": [
+            {
+              "run": "20260905-p3-sparse-compiler-evidence-v1",
+              "reason": "Raw v2/v3 object equality failed. All twelve differed only in the COFF timestamp bytes at offsets 4..7. The deterministic compiler flag fixes new emissions; original files remain preserved."
+            },
+            {
+              "run": "20260905-p3-build-sparse-lift-v1",
+              "reason": "Separate TraceLifter compilation needed external/remill/lib/BC for its private InstructionLifter.h; corrected include path, original Remill untouched."
+            },
+            {
+              "run": "20260905-p3-sparse-lift-checks-v1",
+              "reason": "All ten input checks passed; clang-cl rejected combined source/object compilation with /Fo. Separate harness compile/link fixed it; no execution occurred in that failed run."
+            }
+          ],
+          "limitations": "Instruction census requires matching Remill boundaries and successful semantic lifting, but is not execution coverage. All game-derived objects retain native control/service dependencies and were not linked or executed. Authored AOT checks exercise branch, independent entry and logical return only.",
+          "gate": "P3 still open: sparse input blocker resolved for all twelve retained bodies; the separate disputed entry, nine startup fence findings, 9029 indirect-call records, 430 indirect-jump records and native callback/exception/service/runtime contracts remain open.",
           "native_game_boot": false,
           "native_port_playable": false
         }
