@@ -67,3 +67,7 @@ The isolated manifest lifter now compiles all twelve previously sparse-rejected 
 ## Full startup survey and v9 recovery (2026-09-05 22:34 UTC)
 
 The repeated v9 recovery has 21,160 entries / 873,581 instruction addresses, eight fence findings and 155 unknown callback arguments. Twenty-nine control summaries / 265 instructions and all fifteen new null exception-destructor values are independently checked. The complete compilation survey attempts all 21,152 issue-free manifests and builds 21,104 entries, including 18,442 constructors, into 372 native objects. Its exact census is 858,411 compiled instruction addresses and 21,186 defined logical roots. Forty-eight semantic/decoder rejections and eight disputed manifests remain; see reports/startup-v9.md, reports/startup-batch.md and their machine-readable evidence. No game objects were linked or executed.
+
+## BMI and explicit trap continuation (2026-09-05 23:04 UTC)
+
+Tested isolated BLSR/BLSI semantics and explicit native UD2 boundaries compile fourteen more startup entries. Combined census: 21,118 entries; 34 semantic rejections and eight quarantined boundaries remain. Thirty-four thousand eight hundred sixteen authored BMI cases pass, alongside six trap declaration/control checks and the prior 8,192 authored sparse cases. Game-derived objects remain unlinked/unexecuted; all native fault delivery, services and dispatch contracts stay explicit. See reports/bmi-trap.md and reports/bmi-trap-evidence.json.
