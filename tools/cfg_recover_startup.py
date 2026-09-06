@@ -39,7 +39,7 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None, object_dispatch_evidence=None):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
         self.sysv_callee_saved_candidates = sysv_callee_saved_candidates
         self.initial_callback_relocation_candidates = initial_callback_relocation_candidates
@@ -132,6 +132,20 @@ class Recovery:
                 assert actual and (actual['id'],actual['register'])==(callback['contract'],callback['register'])
                 assert row['targets'] and all(t['kind']=='module-rva' and self.is_code(h,t['value']) for t in row['targets'])
                 self.callback_slices[h,entry,site]=row
+        self.object_dispatch=collections.defaultdict(list)
+        self.object_dispatch_evidence_sha256=sha(object_dispatch_evidence) if object_dispatch_evidence else None
+        if object_dispatch_evidence:
+            checked=json.loads(Path(object_dispatch_evidence).read_text())
+            assert checked['status']=='independent object dispatch candidates passed'
+            for witness in checked['witnesses']:
+                h=witness['module']
+                for instruction in witness['instructions']:
+                    assert self.images[h].at_va(instruction['pc'],instruction['size']).hex()==instruction['bytes']
+            for row in checked['proposals']:
+                h=row['module'];assert self.images[h].at_va(row['slot'],8).hex()==row['slot_bytes']
+                assert self.relocs[h].get(row['slot'])==row['relocation'] and row['relocation']['type']==8 and row['relocation']['addend']==row['target']
+                assert self.is_code(h,row['target'])
+                self.object_dispatch[h,row['call_entry'],row['call']].append(row)
         self.static_tables = set()
         if jump_evidence:
             table_evidence = json.loads(jump_evidence.read_text())
@@ -153,6 +167,7 @@ class Recovery:
             sysv_callee_saved_candidates=sysv_callee_saved_candidates,
             initial_callback_relocation_candidates=initial_callback_relocation_candidates,
             callback_slice_evidence_sha256=self.callback_slice_evidence_sha256,
+            object_dispatch_evidence_sha256=self.object_dispatch_evidence_sha256,
             max_entries=max_entries, max_instructions_per_entry=max_instructions, jump_evidence_sha256=sha(jump_evidence) if jump_evidence else None,
             policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
         write_json(out/'identity.json', self.identity)
@@ -342,6 +357,12 @@ class Recovery:
                             else:self.request(h,dst,'validated_jump_table',h,start,address)
                     else:
                         edge(address,None,'unresolved_indirect_call' if is_call else 'unresolved_indirect_jump',i.op_str)
+                        for dispatch in getattr(self,'object_dispatch',{}).get((h,start,address),[]):
+                            detail=json.dumps(dict(name=dispatch['name'],table=dispatch['table'],slot=dispatch['slot'],
+                                assignment_entry=dispatch['assignment_entry'],assignment_site=dispatch['store'],
+                                evidence_sha256=self.object_dispatch_evidence_sha256,condition=dispatch['conditional'],
+                                limitation='Initial object-table candidate only; unresolved runtime indirect target is retained'),sort_keys=True)
+                            dependency(address,dispatch['target'],'initial_object_dispatch_target_candidate',detail)
                         op=i.operands[0];candidate=None;why=None
                         if op.type==X86_OP_REG and canonical_register(i.reg_name(op.reg)) in values:
                             candidate,why=values[canonical_register(i.reg_name(op.reg))]
@@ -473,10 +494,11 @@ def main():
     p.add_argument('--sysv-callee-saved-candidates',action='store_true',help='Generate conditional constants across normal SysV calls; retain ABI frontier obligations')
     p.add_argument('--initial-callback-relocation-candidates',action='store_true',help='Expand initial function bindings loaded from mutable slots at exact callback ABI sites; unknown runtime targets remain')
     p.add_argument('--callback-slice-evidence',type=Path,help='Independently checked per-site branch-sensitive callback targets')
+    p.add_argument('--object-dispatch-evidence',type=Path,help='Independent initial object-table candidates; runtime indirect targets remain unknown')
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence,a.object_dispatch_evidence).run()
 
 
 if __name__=='__main__':main()
