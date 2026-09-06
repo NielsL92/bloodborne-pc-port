@@ -1542,5 +1542,15 @@
     "current_recovery": "local/cfg/startup-recovery-v22-cache-repeat",
     "next_step": "Run tools.x87_stack_probe against build/extended-semantics-v12-x87-denormal through run_record.py in a fresh directory. v12 adds denormal status to FUCOMI/FUCOMIP and is built but not yet tested. Investigate remaining discrepancies and waiting/unmasked exceptions; verify AMD-specific differences against primary manuals. Do not use this partial experimental family for startup compilation.",
     "execution": "Authored diagnostic code only. No game-derived object executed. No native boot exists."
+  },
+  "latest_x87_fault_evidence": {
+    "updated_utc": "2026-09-06 12:53 UTC",
+    "path": "reports/x87-fault-evidence.json",
+    "experimental_semantics": "build/extended-semantics-v15-x87-flags",
+    "masked_cases": 1499136,
+    "fault_cases": 720896,
+    "delivered_faults": 285424,
+    "accepted_startup_semantics_unchanged": true,
+    "native_game_boot": false
   }
 }

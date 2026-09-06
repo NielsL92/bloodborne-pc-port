@@ -24290,5 +24290,15 @@
         }
       }
     }
+  },
+  "latest_x87_fault_evidence": {
+    "updated_utc": "2026-09-06 12:53 UTC",
+    "path": "reports/x87-fault-evidence.json",
+    "experimental_semantics": "build/extended-semantics-v15-x87-flags",
+    "masked_cases": 1499136,
+    "fault_cases": 720896,
+    "delivered_faults": 285424,
+    "accepted_startup_semantics_unchanged": true,
+    "native_game_boot": false
   }
 }

@@ -1,0 +1,1173 @@
+{
+  "status": "authored x87 stack/control fault evidence passed; experimental module remains unaccepted for startup",
+  "experimental_semantics": "build/extended-semantics-v15-x87-flags",
+  "semantics_sha256": "6be6e1e835b77dfa5cbd16ce0666954225dd785b60876bca4593ccdfe855c85e",
+  "accepted_semantics": "build/extended-semantics-v9-sqrt",
+  "accepted_semantics_sha256": "d3d26d0617420074c84458be0b83a098ddf11194866e82e8b2883234f14039ca",
+  "selector_replacements": [
+    "FLD1",
+    "FLDZ",
+    "FNINIT",
+    "FLDCW_MEMmem16",
+    "FNSTCW_MEMmem16",
+    "FNSTSW_MEMmem16",
+    "FNSTSW_AX",
+    "FXCH_ST0_X87",
+    "FXCH_ST0_X87_DFC1",
+    "FXCH_ST0_X87_DDC1",
+    "FSTP_X87_ST0",
+    "FSTP_X87_ST0_DFD0",
+    "FSTP_X87_ST0_DFD1",
+    "FUCOMI_ST0_X87",
+    "FUCOMIP_ST0_X87",
+    "FWAIT"
+  ],
+  "probes": {
+    "x87-stack-probe-v3": {
+      "summary": {
+        "status": "masked x87 expanded characterization complete",
+        "cases": 1499136,
+        "differing_cases": 0,
+        "groups": [
+          {
+            "form": 0,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 1,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 2,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 3,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 4,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 5,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 6,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 7,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 8,
+            "cases": 98304,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 9,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 10,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 11,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 12,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 13,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 14,
+            "cases": 98304,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 15,
+            "cases": 98304,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 16,
+            "cases": 98304,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 17,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          },
+          {
+            "form": 18,
+            "cases": 73728,
+            "differing_cases": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0
+            }
+          }
+        ],
+        "raw_sha256": "1c6d9ff7530faf6f5211f2f956deff8b2cba5e4e2439ccc47debd0fd2b0ca195",
+        "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+        "semantics_sha256": "6be6e1e835b77dfa5cbd16ce0666954225dd785b60876bca4593ccdfe855c85e",
+        "fixture_sha256": "9f1b685b9427883acb7a88a2920e7afddcba2695ef492260b5e382dd8b8e57f6",
+        "limitations": "Authored AOT and Intel host instructions only. Masked exceptions; every occupancy and TOP, all supported precision/rounding settings, special 80-bit values and defined comparison flags. Unaffected State bytes and host controls checked. Guest IP/DP/FOP values, undefined flags, empty payloads and native unmasked fault delivery excluded. No game execution or AMD Jaguar equivalence claim."
+      },
+      "summary_sha256": "143aa95d98f83437ea36ae4742eab77b8e990175706621863b7ee251da3a8335",
+      "input_sha256": "7ea71df81cd22646bfdcc64485ce6994d858445f7b3cc8999172d463091b193d",
+      "object_sha256": "81f7ea589c29d1eb09bc94f4dbbc4e28748ef7d699188e2e1e1c9910c4ff008c",
+      "audit_sha256": "ca7cb0f0d61cb4f9d5cc5ab10688862412f65d52414aa231b38ddae9a07176ff"
+    },
+    "x87-fault-probe-v7-memory": {
+      "summary": {
+        "status": "x87 pending and newly raised exception characterization complete",
+        "cases": 720896,
+        "differing_cases": 0,
+        "groups": [
+          {
+            "form": 0,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 1,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 2,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8928,
+            "native_faults": 8928,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 3,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8928,
+            "native_faults": 8928,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 4,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 0,
+            "native_faults": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 5,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 35000,
+            "native_faults": 35000,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 6,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 0,
+            "native_faults": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 7,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 8,
+            "cases": 21504,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 9,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 0,
+            "native_faults": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 10,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 11,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 12,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 13,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 14,
+            "cases": 21504,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 15,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 16,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8064,
+            "native_faults": 8064,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 17,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 0,
+            "native_faults": 0,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 18,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 35000,
+            "native_faults": 35000,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 19,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8928,
+            "native_faults": 8928,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 20,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 8928,
+            "native_faults": 8928,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 21,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 10656,
+            "native_faults": 10656,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 22,
+            "cases": 18432,
+            "differing_cases": 0,
+            "hardware_faults": 9792,
+            "native_faults": 9792,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 23,
+            "cases": 21504,
+            "differing_cases": 0,
+            "hardware_faults": 12240,
+            "native_faults": 12240,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 24,
+            "cases": 21504,
+            "differing_cases": 0,
+            "hardware_faults": 12240,
+            "native_faults": 12240,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          },
+          {
+            "form": 25,
+            "cases": 51200,
+            "differing_cases": 0,
+            "hardware_faults": 46080,
+            "native_faults": 46080,
+            "differences": {
+              "tags": 0,
+              "control": 0,
+              "defined-status": 0,
+              "register-payload": 0,
+              "memory-word": 0,
+              "guest-mxcsr": 0,
+              "host-fp-state": 0,
+              "arithmetic-flags": 0,
+              "status-ax": 0,
+              "unaffected-state": 0,
+              "split-status": 0,
+              "fault-presence": 0,
+              "fault-pc": 0,
+              "pending-mask": 0,
+              "memory-access-counts": 0
+            }
+          }
+        ],
+        "raw_sha256": "85f1a8e001ded8f899299cf1c358b6625ae8c7292af5227de2560f600c722482",
+        "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+        "semantics_sha256": "6be6e1e835b77dfa5cbd16ce0666954225dd785b60876bca4593ccdfe855c85e",
+        "fixture_sha256": "169bcb601eab10b773b45c1ecc9b849593cd427e6e82644142955300fa0882dc",
+        "limitations": "Authored AOT and Intel host instructions only. Windows SEH captures hardware faults; an authored System V nonlocal frame captures explicit native callbacks. This does not implement Windows or PS4 guest exception delivery. Defined status, nonempty payloads, flags, fault instruction address and unaffected State compared. Guest last-IP/DP/FOP, reserved fields and undefined condition bits excluded; AMD Jaguar behavior unverified."
+      },
+      "summary_sha256": "23ab1bc295e9d8e0995fe6cd9d30535ac0b3a458c691bbce57531d76d60533c8",
+      "input_sha256": "bc336a877f4ae65971034efae7c7b864c9856c4cdf698c32fd470484cadeed85",
+      "object_sha256": "addb23c36e2c17dc118d0536bb2e15633269d7de87fc1a5e4cc890c9ac2e4cae",
+      "audit_sha256": "a9ebee01a10041cee09e9be37644719e990481cb4b764dc843ec82712e79791c"
+    }
+  },
+  "delivered_faults": 285424,
+  "independent_comparison_probe": {
+    "status": "independent authored hardware comparison completed",
+    "cases": 65536,
+    "unmasked_invalid_cases": 24960,
+    "unmasked_invalid_unordered_flags": 24960,
+    "unmasked_invalid_flags_changed": 21840,
+    "raw_sha256": "8041f8f4d172f97f337c7374965c0897dfcee98fa3713beabbf155022bf0e928",
+    "fixture_sha256": "1f53d89a0d07ccf6689b7fdfe12e38a73b5225e0438b363ea5bac461f917f384",
+    "assembly_sha256": "b039a49014cc50cf60fd2a61e6c14be90096f096784802053c342c2b586ec976",
+    "source_sha256": "4e8e353cc12c3eab8f80e26ff70002017cbe9dd8c9f359984de79832248fb515",
+    "limitations": "Authored native hardware only. FNINIT/FLD80/FLDCW initializes each case; immediate PUSHFQ captures flags before any waiting instruction. No Remill, AOT, FXRSTOR-imported guest values or SEH in comparison path. Host backup is restored before returning. Intel host observation does not settle AMD Jaguar semantics."
+  },
+  "retained_counterexamples": {
+    "x87-fault-probe-v1": {
+      "cases": 163840,
+      "differing_cases": 77952,
+      "summary_sha256": "b6a8c3aad642005df5080bdc4abd71f70181b7cfb129825b77b99c3556337927"
+    },
+    "x87-fault-probe-v2": {
+      "cases": 163840,
+      "differing_cases": 11616,
+      "summary_sha256": "82c78c44f27afd4a22954295f263f1601fc1e801af7efc14592a87989800152c"
+    },
+    "x87-fault-probe-v3": {
+      "cases": 163840,
+      "differing_cases": 11616,
+      "summary_sha256": "f80013beabb0cac0ff7de3f0623eca67421c206eba733564599653fe4f5a2c7b"
+    },
+    "x87-fault-probe-v4": {
+      "cases": 163840,
+      "differing_cases": 744,
+      "summary_sha256": "61cda318874ed65525ee7450d5bd458253598f6c289e33d915ea754d83c1873f"
+    },
+    "x87-fault-probe-v5": {
+      "cases": 491520,
+      "differing_cases": 14064,
+      "summary_sha256": "e50a63859d5bbbafb39fc3dbbf157178517a6e86a896b54926414fe2025f22c8"
+    }
+  },
+  "runs": {
+    "20260906-p3-x87-stack-probe-v2": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "5b0b4a889ba431c4393d3839a44aec6615eec095245e9e8a93c7f5ec36afb5a3",
+      "elapsed_seconds": 6.440847899997607
+    },
+    "20260906-p3-x87-fault-probe-v1": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "8571638ca11f2e61a4ea72e48e1b1343e12d212e8d7543f33fa2ac774a627626",
+      "elapsed_seconds": 3.426877199904993
+    },
+    "20260906-p3-x87-fault-probe-v2": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "48b18c429284883c45e88794fc894b8d81cd824cbbd729c21f25c3e2414a4194",
+      "elapsed_seconds": 2.4264342000242323
+    },
+    "20260906-p3-x87-fault-probe-v3": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "2ea9e8cf314a061da5e471f92a10bfbbecac11f6e3bd0827f21a9a9db0468a31",
+      "elapsed_seconds": 2.508553700055927
+    },
+    "20260906-p3-extended-semantics-v13-x87-faults": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "cc911f8595eddc8d03dd52f196fd1a352d13836ab2a6a9c01987566cd92aeb89",
+      "elapsed_seconds": 6.3301225998438895
+    },
+    "20260906-p3-x87-fault-probe-v4": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "cc911f8595eddc8d03dd52f196fd1a352d13836ab2a6a9c01987566cd92aeb89",
+      "elapsed_seconds": 2.7237656998913735
+    },
+    "20260906-p3-extended-semantics-v14-x87-compare": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "f7e6e8d821ddcb9fcabac98e3de650f3b9be0431f7e35a1affc25afa99f36c9b",
+      "elapsed_seconds": 4.802068300079554
+    },
+    "20260906-p3-x87-fault-probe-v5": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "f7e6e8d821ddcb9fcabac98e3de650f3b9be0431f7e35a1affc25afa99f36c9b",
+      "elapsed_seconds": 2.85432709986344
+    },
+    "20260906-p3-x87-compare-probe-v1": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "d1dd252d77ba7fa84be9674270ba8ffbfaae7bee976ba24f797974afed6755ac",
+      "elapsed_seconds": 2.467066999990493
+    },
+    "20260906-p3-extended-semantics-v15-x87-flags": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "e7a975227b2cfa1853b527991b2c34418d6ce51c8ad9991b6b7bff049d5654a8",
+      "elapsed_seconds": 4.650710199959576
+    },
+    "20260906-p3-x87-fault-probe-v6": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "e7a975227b2cfa1853b527991b2c34418d6ce51c8ad9991b6b7bff049d5654a8",
+      "elapsed_seconds": 3.0812599000055343
+    },
+    "20260906-p3-x87-stack-probe-v3": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "e7a975227b2cfa1853b527991b2c34418d6ce51c8ad9991b6b7bff049d5654a8",
+      "elapsed_seconds": 2.5815077000297606
+    },
+    "20260906-p3-x87-fault-probe-v7-memory": {
+      "status": "pass",
+      "source_commit": "98762f2491a691b0ba54e4d5063c5aab0b5d03a7",
+      "sources_sha256": "fd1510bdb870743a02a58c284aa797fdd6e3fa0f987175c0e8b78f0135e5bd53",
+      "elapsed_seconds": 2.889780200086534
+    }
+  },
+  "source_sha256": {
+    "native/semantics/X87_STATE.cpp.inc": "21a17506e2dbffb80549193aac4c4770086ffda2915fb5146d8b93db59e7e9a5",
+    "native/semantics/x87_fault_probe.cpp": "66989030f5abd86e105d09c5eb2ef95c0a7c7c1c04b08a3c127f7d157e8a4f99",
+    "native/semantics/x87_compare_probe.cpp": "4e8e353cc12c3eab8f80e26ff70002017cbe9dd8c9f359984de79832248fb515",
+    "tools/x87_fault_probe.py": "c6b1be555a70930f901f233b1079f38b9abf77c01b4b3a0218b8f578da627bf1",
+    "tools/x87_compare_probe.py": "11aa15daf2d55f84b43ddf9b5d2b5aa25625a35c4c6002a89043e503e06c6ad1"
+  },
+  "manual_dispute": {
+    "instruction_reference": "https://cdrdv2-public.intel.com/812383/253666-sdm-vol-2a.pdf",
+    "older_correction": "https://www.citi.umich.edu/projects/citi-netscape/pdf/24333721.pdf",
+    "correction_section": "Intel Pentium II specification update A16, printed page 61",
+    "note": "Search-indexed primary Intel correction says comparison result flags are set even with unmasked invalid. The instruction reference says the opposite. Two independent authored Intel-host probes agree with the correction. Direct retrieval of the older PDF returned 502; preserve this source limitation. AMD Jaguar behavior remains unverified."
+  },
+  "gate": "No new startup objects, no native link or game execution. 21,168 entries compile; two x87 serializers and eight disputed manifests remain. P3 stays open.",
+  "limitations": [
+    "The sixteen experimental selectors do not repair memory conversion or arithmetic families; do not combine this partial stack model with original x87 semantics for startup acceptance.",
+    "Hardware SEH and the authored native System V nonlocal callback frame validate bounded fault behavior, not Windows guest unwind or PS4 exception delivery.",
+    "Guest last instruction/data pointers, FOP, undefined condition flags, empty payloads and reserved fields remain excluded.",
+    "AMD primary indexed instruction text is available but direct PDF retrieval returned 404. Intel host agreement is not AMD Jaguar execution proof.",
+    "Every input control/status/tag and nonempty payload is checked against its immediate hardware import in the fault fixture. v1 used inconsistent summary bits and is retained as diagnostic evidence, not a semantic failure count.",
+    "v2 had a fixture PC-offset error for ABI-specific memory encodings; v3 maps explicit instruction labels and leaves the actual semantic discrepancies visible."
+  ],
+  "native_game_boot": false,
+  "native_port_playable": false
+}
