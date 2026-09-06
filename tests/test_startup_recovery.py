@@ -176,6 +176,13 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='callback_slice_runtime_unvalidated'").fetchone()[0],1)
         self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],0)
 
+    def test_initial_object_dispatch_candidate_retains_unknown_indirect(self):
+        r=fixture('ff d0 c3 c3');r.object_dispatch={('test',0x100,0x100):[dict(name='initial table fixture',table=0x200,slot=0x220,assignment_entry=0x100,store=0x100,target=0x103,conditional='valid constructed object only')]}
+        r.object_dispatch_evidence_sha256='fixture checked proof';r.recover('test',0x100)
+        self.assertIn(('test',0x103),r.queue)
+        kinds=[row[0] for row in r.db.execute('SELECT kind FROM recovery_edge')]
+        self.assertIn('unresolved_indirect_call',kinds);self.assertIn('initial_object_dispatch_target_candidate',kinds)
+
     def test_return_leaves_embedded_data_undecoded(self):
         r=fixture('c3 0f ff ff ff');r.recover('test',0x100)
         self.assertEqual(r.db.execute('SELECT rva FROM recovery_instruction').fetchall(),[(0x100,)])

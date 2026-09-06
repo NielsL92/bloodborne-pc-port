@@ -21,7 +21,7 @@ Five paired repetitions were measured after builds and game captures ended. Rati
 | Hash / 64 | 30.606 | 40.562 | 1.3138 |
 | Hash / 1024 | 793.500 | 608.688 | 0.7665 |
 
-Evidence: local/compiler-spike/state-promotion-v3/measurement/summary.json; runs 20260905-p2-promoted-contracts-v3 and 20260905-p2-promoted-timing. The representative longer kernels now demonstrate mitigation of the previous 2–4.6x slowdown. The one-element case still exceeds 2x at about 1.25 ns additional cost. These are kernel measurements, not whole-game speedups.
+Evidence: local/compiler-spike/state-promotion-v3/measurement/summary.json; runs 20260905-p2-promoted-contracts-v3 and 20260905-p2-promoted-timing. The representative longer kernels now demonstrate mitigation of the previous 2â€“4.6x slowdown. The one-element case still exceeds 2x at about 1.25 ns additional cost. These are kernel measurements, not whole-game speedups.
 
 Failed promotion v1 rejected SIMD memset; v2 rejected the explicit Remill error boundary. Constant-sized memory intrinsics and error synchronization were then supported. Both failures remain immutable.
 
@@ -29,16 +29,16 @@ Failed promotion v1 rejected SIMD memset; v2 rejected the explicit Remill error 
 
 | Contract | Result / evidence |
 | --- | --- |
-| Guest → native service → compiled callback | 256 normal cases, ordered services and output writes; control-flow-v7 |
+| Guest â†’ native service â†’ compiled callback | 256 normal cases, ordered services and output writes; control-flow-v7 |
 | Logical nonlocal transfer through callback and service | 256 cases; explicit token propagation skips both compiled suffixes; control-flow-v7 |
 | Unknown target | Exit 4 with module/fixture hash, caller, target and register diagnostics; no fallback |
 | Missing nonlocal guard | Expected write fault at protected original-code page 0x1001000000; negative test checks exact AOT phase/address/exit |
-| TLS | 4 threads × 2048 calls per path; thread-specific Windows GS/TLS fixture; thread-boundary-v2 |
+| TLS | 4 threads Ã— 2048 calls per path; thread-specific Windows GS/TLS fixture; thread-boundary-v2 |
 | Locked XADD | 8192 calls per path; complete unique ticket permutation and final count under contention |
 | Publication order | 8192 MFENCE handshakes per path; no stale payload observed |
 | Real jump table and RIP-relative data | RVA 0x401f0; 2112 full-state cases, all five targets, independent bit-by-bit reference; real-jump-v1 |
 
-The nonlocal reference harness initially crashed before the AOT side. A SysV wrapper alone did not fix it: disassembly showed Clang tail-calling out of the builtin-setjmp frame. Disabling that tail call kept the frame alive and the original reference passed. Failed v2–v4 and disassembly remain retained; this was a harness failure, not a demonstrated Remill semantic defect. The negative-test v6 address expectation was also corrected: Windows reports a noncanonical fault address as -1, so v7 uses a canonical protected page.
+The nonlocal reference harness initially crashed before the AOT side. A SysV wrapper alone did not fix it: disassembly showed Clang tail-calling out of the builtin-setjmp frame. Disabling that tail call kept the frame alive and the original reference passed. Failed v2â€“v4 and disassembly remain retained; this was a harness failure, not a demonstrated Remill semantic defect. The negative-test v6 address expectation was also corrected: Windows reports a noncanonical fault address as -1, so v7 uses a canonical protected page.
 
 The service fixture compares the declared ABI return, ordered service events, two guest output words, preserved RBX and logical RSP/RIP. It excludes the reference's private native stack and caller-clobbered registers. It demonstrates an explicit logical transfer, not C++/SEH unwinding through LLVM nounwind frames.
 
@@ -89,3 +89,7 @@ Combined census: 21,150 entries, all 18,444 initial constructors. Two x87 enviro
 2026-09-06 callback relocation checkpoint: reports/callback-relocations.md/evidence establishes repeated v12/v13 recovery with 21,171 entries / 873,988 instruction addresses. Eleven new bodies compile into one repeated 34,421-byte object; combined 21,161 entries / 381 objects. Ghidra checks 94 windows / 4,030 shared identities plus 142 absolute slot operands. Existing instruction sets are unchanged. 9,041 indirect calls, 430 indirect jumps, 144 unknown callback arguments, two x87 compiler rejects and eight disputed manifests remain. No game execution.
 
 2026-09-06 branch-sensitive callback checkpoint: reports/callback-slices.md/evidence checks v14/v15 recovery and one repeated 572-byte object for two destructor wrappers. Combined 21,163 compiled entries / 382 objects; 143 unknown callback arguments remain (142 initial mutable candidates plus the entry-provided finalizer). Ghidra independently checks both source slices and the new-body/boundary windows. No native game execution; x87 and runtime/control gates remain open.
+
+2026-09-06 initial object dispatch checkpoint: reports/object-dispatch.md/evidence audits repeated v16/v17 recovery (21,175 entries / 874,029 instruction addresses) and a repeated 4,162-byte object for two new entries. Combined 21,165 compiled entries / 383 objects; all initial constructors. Three conditional initial table-slot records retain every unknown call. Independent Ghidra checks source/table bytes and ten closure windows / 614 instructions; 2,165 further matching constructor windows / 25,980 instructions are checked for the next candidate expansion. 9,042 indirect calls, 430 indirect jumps, 143 unknown callback arguments, two x87 rejects, eight quarantines and runtime contracts remain. No native game execution.
+
+2026-09-06 initial object dispatch checkpoint: reports/object-dispatch.md/evidence audits repeated v16/v17 recovery (21,175 entries / 874,029 instruction addresses) and a repeated 4,162-byte object for two new entries. Combined 21,165 compiled entries / 383 objects; all initial constructors. Three conditional initial table-slot records retain every unknown call. Independent Ghidra checks source/table bytes and ten closure windows / 614 instructions; 2,165 further matching constructor windows / 25,980 instructions are checked for the next candidate expansion. 9,042 indirect calls, 430 indirect jumps, 143 unknown callback arguments, two x87 rejects, eight quarantines and runtime contracts remain. No native game execution.

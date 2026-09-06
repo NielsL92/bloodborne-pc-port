@@ -1,0 +1,2381 @@
+{
+  "status": "object dispatch closure evidence pass; P3 remains open",
+  "current_directory": "local/cfg/startup-recovery-v17-dispatch-repeat",
+  "summary": {
+    "status": "P3 startup compilation/control closure NOT passed",
+    "counts": {
+      "recovery_entry": 21175,
+      "recovery_instruction": 874029,
+      "recovery_edge": 1085097,
+      "recovery_issue": 8,
+      "recovery_request": 72245
+    },
+    "constructors": {
+      "decoded_with_explicit_boundaries": 18444
+    },
+    "modules": {
+      "libSceHand.prx": 1,
+      "libSceHeadTracker.prx": 1,
+      "libSceFios2.prx": 89,
+      "libc.prx": 300,
+      "libSceSmart.prx": 1,
+      "libSceS3DConversion.prx": 1,
+      "libSceFace.prx": 1,
+      "eboot.bin": 20781
+    },
+    "decode_issue_kinds": {
+      "fallthrough_at_fence": 8
+    },
+    "frontier_counts": {
+      "unresolved_indirect_call": 9042,
+      "unresolved_indirect_jump": 430,
+      "logical_return_requires_dispatch": 20061,
+      "callback_argument_candidate": 26281,
+      "abi_register_preservation_unvalidated": 9354,
+      "annotated_control_contract_requires_runtime": 4297,
+      "import_contract_unvalidated": 20846,
+      "service_or_trap_boundary": 21,
+      "callback_contract_target_candidate": 2311,
+      "fallthrough_at_fence": 8,
+      "indirect_target_candidate": 4,
+      "exception_personality_candidate": 41,
+      "exception_runtime_unvalidated": 41,
+      "personality_import_unvalidated": 41,
+      "unresolved_exception_continuation": 42,
+      "unresolved_derived_control_continuation": 184,
+      "independently_recovered_jump_table": 12,
+      "callback_slice_runtime_unvalidated": 1,
+      "callback_slice_target_candidate": 1,
+      "unresolved_callback_argument": 143,
+      "unresolved_exit_callbacks": 5,
+      "initial_object_dispatch_target_candidate": 3,
+      "unresolved_restored_context": 113,
+      "callback_relocation_binding_unvalidated": 142,
+      "callback_relocation_target_candidate": 142,
+      "callback_contract_null_argument": 15
+    },
+    "queued": 0,
+    "manifest_units": 21175,
+    "db_sha256": "3784e47fee946d176eed1cd37ae79f2c12faef4af7d46bc8c896d59e67acd594",
+    "manifest_sha256": "40fd0f54a0274dd58ae108eb8ed680acb1bf36bbf00df493db72d0d7f5c49da3",
+    "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "reproducibility": {
+    "analysis.sqlite": "3784e47fee946d176eed1cd37ae79f2c12faef4af7d46bc8c896d59e67acd594",
+    "compilation-manifest.jsonl": "40fd0f54a0274dd58ae108eb8ed680acb1bf36bbf00df493db72d0d7f5c49da3",
+    "frontier.jsonl": "85e64a5c746076f77c26ec5acf5eecbaf4a7b9ffad18eca11500988811e2cd0e",
+    "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+  },
+  "prior_instruction_sets_unchanged": 21173,
+  "new_entries": 2,
+  "new_instruction_addresses": 39,
+  "proof": {
+    "status": "independent object dispatch candidates passed",
+    "source": "local\\cfg\\startup-recovery-v15-repeat",
+    "source_db_sha256": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+    "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+    "module_path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+    "proposals": [
+      {
+        "name": "constructed-singleton-slot-20",
+        "assignment_entry": 34085360,
+        "lea": 34085393,
+        "adjust": null,
+        "store": 34085400,
+        "call_entry": 16323472,
+        "call": 16323556,
+        "offset": 32,
+        "object_offset": 0,
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "table": 87765088,
+        "slot": 87765120,
+        "slot_bytes": "0000000000000000",
+        "relocation": {
+          "offset": 87765120,
+          "type": 8,
+          "symbol": 0,
+          "addend": 34090720,
+          "table": "rela"
+        },
+        "target": 34090720,
+        "target_has_recovered_body": false,
+        "assignment_text": "mov qword ptr [rbx], rax",
+        "call_text": "call qword ptr [rax + 0x20]",
+        "conditional": "Only the object constructed with this initial table, under the observed factory/cache path. Object identity, initialization races/failure, intervening writes and runtime targets remain unknown."
+      },
+      {
+        "name": "factory-lock-slot-18",
+        "assignment_entry": 34077264,
+        "lea": 34077361,
+        "adjust": 34077368,
+        "store": 34077372,
+        "call_entry": 34077264,
+        "call": 34077458,
+        "offset": 24,
+        "object_offset": 0,
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "table": 86729264,
+        "slot": 86729288,
+        "slot_bytes": "0000000000000000",
+        "relocation": {
+          "offset": 86729288,
+          "type": 8,
+          "symbol": 0,
+          "addend": 34074256,
+          "table": "rela"
+        },
+        "target": 34074256,
+        "target_has_recovered_body": true,
+        "assignment_text": "mov qword ptr [rdi + rbx], rax",
+        "call_text": "call qword ptr [rax + 0x18]",
+        "conditional": "Only the object constructed with this initial table, under the observed factory/cache path. Object identity, initialization races/failure, intervening writes and runtime targets remain unknown."
+      },
+      {
+        "name": "factory-lock-slot-28",
+        "assignment_entry": 34077264,
+        "lea": 34077361,
+        "adjust": 34077368,
+        "store": 34077372,
+        "call_entry": 34077264,
+        "call": 34077572,
+        "offset": 40,
+        "object_offset": 0,
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "table": 86729264,
+        "slot": 86729304,
+        "slot_bytes": "0000000000000000",
+        "relocation": {
+          "offset": 86729304,
+          "type": 8,
+          "symbol": 0,
+          "addend": 34074736,
+          "table": "rela"
+        },
+        "target": 34074736,
+        "target_has_recovered_body": false,
+        "assignment_text": "mov qword ptr [rdi + rbx], rax",
+        "call_text": "call qword ptr [rax + 0x28]",
+        "conditional": "Only the object constructed with this initial table, under the observed factory/cache path. Object identity, initialization races/failure, intervening writes and runtime targets remain unknown."
+      }
+    ],
+    "witnesses": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 16323472,
+        "instructions": [
+          {
+            "pc": 16323472,
+            "size": 2,
+            "bytes": "4157"
+          },
+          {
+            "pc": 16323474,
+            "size": 2,
+            "bytes": "4156"
+          },
+          {
+            "pc": 16323476,
+            "size": 2,
+            "bytes": "4154"
+          },
+          {
+            "pc": 16323478,
+            "size": 1,
+            "bytes": "53"
+          },
+          {
+            "pc": 16323479,
+            "size": 4,
+            "bytes": "4883ec18"
+          },
+          {
+            "pc": 16323483,
+            "size": 7,
+            "bytes": "4c8b353e284504"
+          },
+          {
+            "pc": 16323490,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16323493,
+            "size": 5,
+            "bytes": "4889442410"
+          },
+          {
+            "pc": 16323498,
+            "size": 7,
+            "bytes": "4c8d3d17d87304"
+          },
+          {
+            "pc": 16323505,
+            "size": 4,
+            "bytes": "41803f00"
+          },
+          {
+            "pc": 16323509,
+            "size": 6,
+            "bytes": "0f8587000000"
+          },
+          {
+            "pc": 16323515,
+            "size": 7,
+            "bytes": "4c8d25aef25a04"
+          },
+          {
+            "pc": 16323522,
+            "size": 4,
+            "bytes": "498b1c24"
+          },
+          {
+            "pc": 16323526,
+            "size": 3,
+            "bytes": "4885db"
+          },
+          {
+            "pc": 16323529,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16323531,
+            "size": 5,
+            "bytes": "e84017c101"
+          },
+          {
+            "pc": 16323536,
+            "size": 3,
+            "bytes": "4889c3"
+          },
+          {
+            "pc": 16323539,
+            "size": 4,
+            "bytes": "49891c24"
+          },
+          {
+            "pc": 16323543,
+            "size": 3,
+            "bytes": "488b03"
+          },
+          {
+            "pc": 16323546,
+            "size": 5,
+            "bytes": "488d7c2408"
+          },
+          {
+            "pc": 16323551,
+            "size": 2,
+            "bytes": "31d2"
+          },
+          {
+            "pc": 16323553,
+            "size": 3,
+            "bytes": "4889de"
+          },
+          {
+            "pc": 16323556,
+            "size": 3,
+            "bytes": "ff5020"
+          },
+          {
+            "pc": 16323559,
+            "size": 5,
+            "bytes": "f644240820"
+          },
+          {
+            "pc": 16323564,
+            "size": 2,
+            "bytes": "7515"
+          },
+          {
+            "pc": 16323566,
+            "size": 7,
+            "bytes": "488d15cb697a03"
+          },
+          {
+            "pc": 16323573,
+            "size": 2,
+            "bytes": "31ff"
+          },
+          {
+            "pc": 16323575,
+            "size": 5,
+            "bytes": "be3e000000"
+          },
+          {
+            "pc": 16323580,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "pc": 16323582,
+            "size": 5,
+            "bytes": "e8ad411201"
+          },
+          {
+            "pc": 16323587,
+            "size": 7,
+            "bytes": "488d3586d77304"
+          },
+          {
+            "pc": 16323594,
+            "size": 4,
+            "bytes": "48895e28"
+          },
+          {
+            "pc": 16323598,
+            "size": 8,
+            "bytes": "48c7462007000000"
+          },
+          {
+            "pc": 16323606,
+            "size": 8,
+            "bytes": "48c7461800000000"
+          },
+          {
+            "pc": 16323614,
+            "size": 6,
+            "bytes": "66c746080000"
+          },
+          {
+            "pc": 16323620,
+            "size": 4,
+            "bytes": "c6463001"
+          },
+          {
+            "pc": 16323624,
+            "size": 7,
+            "bytes": "488d3d112d6b01"
+          },
+          {
+            "pc": 16323631,
+            "size": 7,
+            "bytes": "488d155aa01a04"
+          },
+          {
+            "pc": 16323638,
+            "size": 5,
+            "bytes": "e80dd1c201"
+          },
+          {
+            "pc": 16323643,
+            "size": 7,
+            "bytes": "49c70701000000"
+          },
+          {
+            "pc": 16323650,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16323653,
+            "size": 5,
+            "bytes": "483b442410"
+          },
+          {
+            "pc": 16323658,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16323660,
+            "size": 4,
+            "bytes": "4883c418"
+          },
+          {
+            "pc": 16323664,
+            "size": 1,
+            "bytes": "5b"
+          },
+          {
+            "pc": 16323665,
+            "size": 2,
+            "bytes": "415c"
+          },
+          {
+            "pc": 16323667,
+            "size": 2,
+            "bytes": "415e"
+          },
+          {
+            "pc": 16323669,
+            "size": 2,
+            "bytes": "415f"
+          },
+          {
+            "pc": 16323671,
+            "size": 1,
+            "bytes": "c3"
+          },
+          {
+            "pc": 16323672,
+            "size": 5,
+            "bytes": "e89bd0c201"
+          }
+        ]
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 16341008,
+        "instructions": [
+          {
+            "pc": 16341008,
+            "size": 2,
+            "bytes": "4157"
+          },
+          {
+            "pc": 16341010,
+            "size": 2,
+            "bytes": "4156"
+          },
+          {
+            "pc": 16341012,
+            "size": 2,
+            "bytes": "4154"
+          },
+          {
+            "pc": 16341014,
+            "size": 1,
+            "bytes": "53"
+          },
+          {
+            "pc": 16341015,
+            "size": 4,
+            "bytes": "4883ec18"
+          },
+          {
+            "pc": 16341019,
+            "size": 7,
+            "bytes": "4c8b35bee34404"
+          },
+          {
+            "pc": 16341026,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16341029,
+            "size": 5,
+            "bytes": "4889442410"
+          },
+          {
+            "pc": 16341034,
+            "size": 7,
+            "bytes": "4c8d3d97937304"
+          },
+          {
+            "pc": 16341041,
+            "size": 4,
+            "bytes": "41803f00"
+          },
+          {
+            "pc": 16341045,
+            "size": 6,
+            "bytes": "0f8587000000"
+          },
+          {
+            "pc": 16341051,
+            "size": 7,
+            "bytes": "4c8d252eae5a04"
+          },
+          {
+            "pc": 16341058,
+            "size": 4,
+            "bytes": "498b1c24"
+          },
+          {
+            "pc": 16341062,
+            "size": 3,
+            "bytes": "4885db"
+          },
+          {
+            "pc": 16341065,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16341067,
+            "size": 5,
+            "bytes": "e8c0d2c001"
+          },
+          {
+            "pc": 16341072,
+            "size": 3,
+            "bytes": "4889c3"
+          },
+          {
+            "pc": 16341075,
+            "size": 4,
+            "bytes": "49891c24"
+          },
+          {
+            "pc": 16341079,
+            "size": 3,
+            "bytes": "488b03"
+          },
+          {
+            "pc": 16341082,
+            "size": 5,
+            "bytes": "488d7c2408"
+          },
+          {
+            "pc": 16341087,
+            "size": 2,
+            "bytes": "31d2"
+          },
+          {
+            "pc": 16341089,
+            "size": 3,
+            "bytes": "4889de"
+          },
+          {
+            "pc": 16341092,
+            "size": 3,
+            "bytes": "ff5020"
+          },
+          {
+            "pc": 16341095,
+            "size": 5,
+            "bytes": "f644240820"
+          },
+          {
+            "pc": 16341100,
+            "size": 2,
+            "bytes": "7515"
+          },
+          {
+            "pc": 16341102,
+            "size": 7,
+            "bytes": "488d154b257a03"
+          },
+          {
+            "pc": 16341109,
+            "size": 2,
+            "bytes": "31ff"
+          },
+          {
+            "pc": 16341111,
+            "size": 5,
+            "bytes": "be3e000000"
+          },
+          {
+            "pc": 16341116,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "pc": 16341118,
+            "size": 5,
+            "bytes": "e82dfd1101"
+          },
+          {
+            "pc": 16341123,
+            "size": 7,
+            "bytes": "488d3506937304"
+          },
+          {
+            "pc": 16341130,
+            "size": 4,
+            "bytes": "48895e28"
+          },
+          {
+            "pc": 16341134,
+            "size": 8,
+            "bytes": "48c7462007000000"
+          },
+          {
+            "pc": 16341142,
+            "size": 8,
+            "bytes": "48c7461800000000"
+          },
+          {
+            "pc": 16341150,
+            "size": 6,
+            "bytes": "66c746080000"
+          },
+          {
+            "pc": 16341156,
+            "size": 4,
+            "bytes": "c6463001"
+          },
+          {
+            "pc": 16341160,
+            "size": 7,
+            "bytes": "488d3d91e86a01"
+          },
+          {
+            "pc": 16341167,
+            "size": 7,
+            "bytes": "488d15da5b1a04"
+          },
+          {
+            "pc": 16341174,
+            "size": 5,
+            "bytes": "e88d8cc201"
+          },
+          {
+            "pc": 16341179,
+            "size": 7,
+            "bytes": "49c70701000000"
+          },
+          {
+            "pc": 16341186,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16341189,
+            "size": 5,
+            "bytes": "483b442410"
+          },
+          {
+            "pc": 16341194,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16341196,
+            "size": 4,
+            "bytes": "4883c418"
+          },
+          {
+            "pc": 16341200,
+            "size": 1,
+            "bytes": "5b"
+          },
+          {
+            "pc": 16341201,
+            "size": 2,
+            "bytes": "415c"
+          },
+          {
+            "pc": 16341203,
+            "size": 2,
+            "bytes": "415e"
+          },
+          {
+            "pc": 16341205,
+            "size": 2,
+            "bytes": "415f"
+          },
+          {
+            "pc": 16341207,
+            "size": 1,
+            "bytes": "c3"
+          },
+          {
+            "pc": 16341208,
+            "size": 5,
+            "bytes": "e81b8cc201"
+          }
+        ]
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 16409616,
+        "instructions": [
+          {
+            "pc": 16409616,
+            "size": 2,
+            "bytes": "4157"
+          },
+          {
+            "pc": 16409618,
+            "size": 2,
+            "bytes": "4156"
+          },
+          {
+            "pc": 16409620,
+            "size": 2,
+            "bytes": "4154"
+          },
+          {
+            "pc": 16409622,
+            "size": 1,
+            "bytes": "53"
+          },
+          {
+            "pc": 16409623,
+            "size": 4,
+            "bytes": "4883ec18"
+          },
+          {
+            "pc": 16409627,
+            "size": 7,
+            "bytes": "4c8b35bed74304"
+          },
+          {
+            "pc": 16409634,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16409637,
+            "size": 5,
+            "bytes": "4889442410"
+          },
+          {
+            "pc": 16409642,
+            "size": 7,
+            "bytes": "4c8d3d97877204"
+          },
+          {
+            "pc": 16409649,
+            "size": 4,
+            "bytes": "41803f00"
+          },
+          {
+            "pc": 16409653,
+            "size": 6,
+            "bytes": "0f8587000000"
+          },
+          {
+            "pc": 16409659,
+            "size": 7,
+            "bytes": "4c8d252ea25904"
+          },
+          {
+            "pc": 16409666,
+            "size": 4,
+            "bytes": "498b1c24"
+          },
+          {
+            "pc": 16409670,
+            "size": 3,
+            "bytes": "4885db"
+          },
+          {
+            "pc": 16409673,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16409675,
+            "size": 5,
+            "bytes": "e8c0c6bf01"
+          },
+          {
+            "pc": 16409680,
+            "size": 3,
+            "bytes": "4889c3"
+          },
+          {
+            "pc": 16409683,
+            "size": 4,
+            "bytes": "49891c24"
+          },
+          {
+            "pc": 16409687,
+            "size": 3,
+            "bytes": "488b03"
+          },
+          {
+            "pc": 16409690,
+            "size": 5,
+            "bytes": "488d7c2408"
+          },
+          {
+            "pc": 16409695,
+            "size": 2,
+            "bytes": "31d2"
+          },
+          {
+            "pc": 16409697,
+            "size": 3,
+            "bytes": "4889de"
+          },
+          {
+            "pc": 16409700,
+            "size": 3,
+            "bytes": "ff5020"
+          },
+          {
+            "pc": 16409703,
+            "size": 5,
+            "bytes": "f644240820"
+          },
+          {
+            "pc": 16409708,
+            "size": 2,
+            "bytes": "7515"
+          },
+          {
+            "pc": 16409710,
+            "size": 7,
+            "bytes": "488d154b197903"
+          },
+          {
+            "pc": 16409717,
+            "size": 2,
+            "bytes": "31ff"
+          },
+          {
+            "pc": 16409719,
+            "size": 5,
+            "bytes": "be3e000000"
+          },
+          {
+            "pc": 16409724,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "pc": 16409726,
+            "size": 5,
+            "bytes": "e82df11001"
+          },
+          {
+            "pc": 16409731,
+            "size": 7,
+            "bytes": "488d3506877204"
+          },
+          {
+            "pc": 16409738,
+            "size": 4,
+            "bytes": "48895e28"
+          },
+          {
+            "pc": 16409742,
+            "size": 8,
+            "bytes": "48c7462007000000"
+          },
+          {
+            "pc": 16409750,
+            "size": 8,
+            "bytes": "48c7461800000000"
+          },
+          {
+            "pc": 16409758,
+            "size": 6,
+            "bytes": "66c746080000"
+          },
+          {
+            "pc": 16409764,
+            "size": 4,
+            "bytes": "c6463001"
+          },
+          {
+            "pc": 16409768,
+            "size": 7,
+            "bytes": "488d3d91dc6901"
+          },
+          {
+            "pc": 16409775,
+            "size": 7,
+            "bytes": "488d15da4f1904"
+          },
+          {
+            "pc": 16409782,
+            "size": 5,
+            "bytes": "e88d80c101"
+          },
+          {
+            "pc": 16409787,
+            "size": 7,
+            "bytes": "49c70701000000"
+          },
+          {
+            "pc": 16409794,
+            "size": 3,
+            "bytes": "498b06"
+          },
+          {
+            "pc": 16409797,
+            "size": 5,
+            "bytes": "483b442410"
+          },
+          {
+            "pc": 16409802,
+            "size": 2,
+            "bytes": "750c"
+          },
+          {
+            "pc": 16409804,
+            "size": 4,
+            "bytes": "4883c418"
+          },
+          {
+            "pc": 16409808,
+            "size": 1,
+            "bytes": "5b"
+          },
+          {
+            "pc": 16409809,
+            "size": 2,
+            "bytes": "415c"
+          },
+          {
+            "pc": 16409811,
+            "size": 2,
+            "bytes": "415e"
+          },
+          {
+            "pc": 16409813,
+            "size": 2,
+            "bytes": "415f"
+          },
+          {
+            "pc": 16409815,
+            "size": 1,
+            "bytes": "c3"
+          },
+          {
+            "pc": 16409816,
+            "size": 5,
+            "bytes": "e81b80c101"
+          }
+        ]
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 45755152,
+        "instructions": [
+          {
+            "pc": 45755152,
+            "size": 5,
+            "bytes": "e93bcf4dff"
+          }
+        ]
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 34077264,
+        "instructions": [
+          {
+            "pc": 34077264,
+            "size": 1,
+            "bytes": "55"
+          },
+          {
+            "pc": 34077265,
+            "size": 3,
+            "bytes": "4889e5"
+          },
+          {
+            "pc": 34077268,
+            "size": 2,
+            "bytes": "4156"
+          },
+          {
+            "pc": 34077270,
+            "size": 1,
+            "bytes": "53"
+          },
+          {
+            "pc": 34077271,
+            "size": 7,
+            "bytes": "488b1d62266203"
+          },
+          {
+            "pc": 34077278,
+            "size": 3,
+            "bytes": "4885db"
+          },
+          {
+            "pc": 34077281,
+            "size": 6,
+            "bytes": "0f8520010000"
+          },
+          {
+            "pc": 34077287,
+            "size": 6,
+            "bytes": "8a05d35c6203"
+          },
+          {
+            "pc": 34077293,
+            "size": 2,
+            "bytes": "84c0"
+          },
+          {
+            "pc": 34077295,
+            "size": 2,
+            "bytes": "7523"
+          },
+          {
+            "pc": 34077297,
+            "size": 7,
+            "bytes": "488d3dc85c6203"
+          },
+          {
+            "pc": 34077304,
+            "size": 5,
+            "bytes": "e8bbeab300"
+          },
+          {
+            "pc": 34077309,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34077311,
+            "size": 2,
+            "bytes": "7413"
+          },
+          {
+            "pc": 34077313,
+            "size": 7,
+            "bytes": "c605b75c620300"
+          },
+          {
+            "pc": 34077320,
+            "size": 7,
+            "bytes": "488d3db15c6203"
+          },
+          {
+            "pc": 34077327,
+            "size": 5,
+            "bytes": "e8c4eab300"
+          },
+          {
+            "pc": 34077332,
+            "size": 7,
+            "bytes": "803da45c620300"
+          },
+          {
+            "pc": 34077339,
+            "size": 2,
+            "bytes": "7559"
+          },
+          {
+            "pc": 34077341,
+            "size": 7,
+            "bytes": "488d1d7c5c6203"
+          },
+          {
+            "pc": 34077348,
+            "size": 2,
+            "bytes": "89df"
+          },
+          {
+            "pc": 34077350,
+            "size": 2,
+            "bytes": "f7df"
+          },
+          {
+            "pc": 34077352,
+            "size": 4,
+            "bytes": "4883e707"
+          },
+          {
+            "pc": 34077356,
+            "size": 5,
+            "bytes": "c6441f1000"
+          },
+          {
+            "pc": 34077361,
+            "size": 7,
+            "bytes": "488d0568672303"
+          },
+          {
+            "pc": 34077368,
+            "size": 4,
+            "bytes": "4883c010"
+          },
+          {
+            "pc": 34077372,
+            "size": 4,
+            "bytes": "4889041f"
+          },
+          {
+            "pc": 34077376,
+            "size": 3,
+            "bytes": "4801df"
+          },
+          {
+            "pc": 34077379,
+            "size": 5,
+            "bytes": "e8b8f3ffff"
+          },
+          {
+            "pc": 34077384,
+            "size": 2,
+            "bytes": "84c0"
+          },
+          {
+            "pc": 34077386,
+            "size": 2,
+            "bytes": "7523"
+          },
+          {
+            "pc": 34077388,
+            "size": 2,
+            "bytes": "89d8"
+          },
+          {
+            "pc": 34077390,
+            "size": 2,
+            "bytes": "f7d8"
+          },
+          {
+            "pc": 34077392,
+            "size": 4,
+            "bytes": "4883e007"
+          },
+          {
+            "pc": 34077396,
+            "size": 5,
+            "bytes": "488d7c1808"
+          },
+          {
+            "pc": 34077401,
+            "size": 5,
+            "bytes": "e802450000"
+          },
+          {
+            "pc": 34077406,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34077408,
+            "size": 2,
+            "bytes": "750d"
+          },
+          {
+            "pc": 34077410,
+            "size": 2,
+            "bytes": "89d8"
+          },
+          {
+            "pc": 34077412,
+            "size": 2,
+            "bytes": "f7d8"
+          },
+          {
+            "pc": 34077414,
+            "size": 4,
+            "bytes": "4883e007"
+          },
+          {
+            "pc": 34077418,
+            "size": 5,
+            "bytes": "c644181001"
+          },
+          {
+            "pc": 34077423,
+            "size": 7,
+            "bytes": "c605495c620301"
+          },
+          {
+            "pc": 34077430,
+            "size": 7,
+            "bytes": "4c8d35235c6203"
+          },
+          {
+            "pc": 34077437,
+            "size": 3,
+            "bytes": "4489f7"
+          },
+          {
+            "pc": 34077440,
+            "size": 2,
+            "bytes": "f7df"
+          },
+          {
+            "pc": 34077442,
+            "size": 4,
+            "bytes": "4883e707"
+          },
+          {
+            "pc": 34077446,
+            "size": 4,
+            "bytes": "4a8b0437"
+          },
+          {
+            "pc": 34077450,
+            "size": 3,
+            "bytes": "4c01f7"
+          },
+          {
+            "pc": 34077453,
+            "size": 5,
+            "bytes": "beffffffff"
+          },
+          {
+            "pc": 34077458,
+            "size": 3,
+            "bytes": "ff5018"
+          },
+          {
+            "pc": 34077461,
+            "size": 8,
+            "bytes": "48833da325620300"
+          },
+          {
+            "pc": 34077469,
+            "size": 2,
+            "bytes": "754e"
+          },
+          {
+            "pc": 34077471,
+            "size": 6,
+            "bytes": "8a05332a6203"
+          },
+          {
+            "pc": 34077477,
+            "size": 2,
+            "bytes": "84c0"
+          },
+          {
+            "pc": 34077479,
+            "size": 2,
+            "bytes": "751c"
+          },
+          {
+            "pc": 34077481,
+            "size": 7,
+            "bytes": "488d3d282a6203"
+          },
+          {
+            "pc": 34077488,
+            "size": 5,
+            "bytes": "e803eab300"
+          },
+          {
+            "pc": 34077493,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34077495,
+            "size": 2,
+            "bytes": "740c"
+          },
+          {
+            "pc": 34077497,
+            "size": 7,
+            "bytes": "488d3d182a6203"
+          },
+          {
+            "pc": 34077504,
+            "size": 5,
+            "bytes": "e813eab300"
+          },
+          {
+            "pc": 34077509,
+            "size": 7,
+            "bytes": "488d057c256203"
+          },
+          {
+            "pc": 34077516,
+            "size": 2,
+            "bytes": "89c3"
+          },
+          {
+            "pc": 34077518,
+            "size": 2,
+            "bytes": "f7db"
+          },
+          {
+            "pc": 34077520,
+            "size": 4,
+            "bytes": "4883e307"
+          },
+          {
+            "pc": 34077524,
+            "size": 3,
+            "bytes": "4801c3"
+          },
+          {
+            "pc": 34077527,
+            "size": 3,
+            "bytes": "4889df"
+          },
+          {
+            "pc": 34077530,
+            "size": 5,
+            "bytes": "e8911e0000"
+          },
+          {
+            "pc": 34077535,
+            "size": 7,
+            "bytes": "48891d5a256203"
+          },
+          {
+            "pc": 34077542,
+            "size": 7,
+            "bytes": "488b0553256203"
+          },
+          {
+            "pc": 34077549,
+            "size": 7,
+            "bytes": "488b1d4c256203"
+          },
+          {
+            "pc": 34077556,
+            "size": 3,
+            "bytes": "4489f7"
+          },
+          {
+            "pc": 34077559,
+            "size": 2,
+            "bytes": "f7df"
+          },
+          {
+            "pc": 34077561,
+            "size": 4,
+            "bytes": "4883e707"
+          },
+          {
+            "pc": 34077565,
+            "size": 4,
+            "bytes": "4a8b0437"
+          },
+          {
+            "pc": 34077569,
+            "size": 3,
+            "bytes": "4c01f7"
+          },
+          {
+            "pc": 34077572,
+            "size": 3,
+            "bytes": "ff5028"
+          },
+          {
+            "pc": 34077575,
+            "size": 3,
+            "bytes": "4889d8"
+          },
+          {
+            "pc": 34077578,
+            "size": 1,
+            "bytes": "5b"
+          },
+          {
+            "pc": 34077579,
+            "size": 2,
+            "bytes": "415e"
+          },
+          {
+            "pc": 34077581,
+            "size": 1,
+            "bytes": "5d"
+          },
+          {
+            "pc": 34077582,
+            "size": 1,
+            "bytes": "c3"
+          }
+        ]
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 34085360,
+        "instructions": [
+          {
+            "pc": 34085360,
+            "size": 1,
+            "bytes": "55"
+          },
+          {
+            "pc": 34085361,
+            "size": 3,
+            "bytes": "4889e5"
+          },
+          {
+            "pc": 34085364,
+            "size": 2,
+            "bytes": "4157"
+          },
+          {
+            "pc": 34085366,
+            "size": 2,
+            "bytes": "4156"
+          },
+          {
+            "pc": 34085368,
+            "size": 2,
+            "bytes": "4154"
+          },
+          {
+            "pc": 34085370,
+            "size": 1,
+            "bytes": "53"
+          },
+          {
+            "pc": 34085371,
+            "size": 4,
+            "bytes": "4883ec20"
+          },
+          {
+            "pc": 34085375,
+            "size": 3,
+            "bytes": "4889fb"
+          },
+          {
+            "pc": 34085378,
+            "size": 7,
+            "bytes": "4c8b25d7213603"
+          },
+          {
+            "pc": 34085385,
+            "size": 4,
+            "bytes": "498b0424"
+          },
+          {
+            "pc": 34085389,
+            "size": 4,
+            "bytes": "488945d8"
+          },
+          {
+            "pc": 34085393,
+            "size": 7,
+            "bytes": "488d0548163303"
+          },
+          {
+            "pc": 34085400,
+            "size": 3,
+            "bytes": "488903"
+          },
+          {
+            "pc": 34085403,
+            "size": 4,
+            "bytes": "48895b08"
+          },
+          {
+            "pc": 34085407,
+            "size": 4,
+            "bytes": "4c8d7b10"
+          },
+          {
+            "pc": 34085411,
+            "size": 7,
+            "bytes": "488d0576153303"
+          },
+          {
+            "pc": 34085418,
+            "size": 4,
+            "bytes": "48894310"
+          },
+          {
+            "pc": 34085422,
+            "size": 4,
+            "bytes": "c6432000"
+          },
+          {
+            "pc": 34085426,
+            "size": 4,
+            "bytes": "4c8d7328"
+          },
+          {
+            "pc": 34085430,
+            "size": 2,
+            "bytes": "31f6"
+          },
+          {
+            "pc": 34085432,
+            "size": 5,
+            "bytes": "ba60040000"
+          },
+          {
+            "pc": 34085437,
+            "size": 3,
+            "bytes": "4c89f7"
+          },
+          {
+            "pc": 34085440,
+            "size": 5,
+            "bytes": "e843ccb300"
+          },
+          {
+            "pc": 34085445,
+            "size": 3,
+            "bytes": "4c89ff"
+          },
+          {
+            "pc": 34085448,
+            "size": 5,
+            "bytes": "e833d4ffff"
+          },
+          {
+            "pc": 34085453,
+            "size": 2,
+            "bytes": "84c0"
+          },
+          {
+            "pc": 34085455,
+            "size": 2,
+            "bytes": "7511"
+          },
+          {
+            "pc": 34085457,
+            "size": 4,
+            "bytes": "488d7b18"
+          },
+          {
+            "pc": 34085461,
+            "size": 5,
+            "bytes": "e886250000"
+          },
+          {
+            "pc": 34085466,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34085468,
+            "size": 2,
+            "bytes": "7504"
+          },
+          {
+            "pc": 34085470,
+            "size": 4,
+            "bytes": "c6432001"
+          },
+          {
+            "pc": 34085474,
+            "size": 11,
+            "bytes": "48c7837804000000000000"
+          },
+          {
+            "pc": 34085485,
+            "size": 11,
+            "bytes": "48c7837004000000000000"
+          },
+          {
+            "pc": 34085496,
+            "size": 8,
+            "bytes": "48c745d000000000"
+          },
+          {
+            "pc": 34085504,
+            "size": 5,
+            "bytes": "e823d0b300"
+          },
+          {
+            "pc": 34085509,
+            "size": 4,
+            "bytes": "4c8d4dc8"
+          },
+          {
+            "pc": 34085513,
+            "size": 5,
+            "bytes": "bf00000000"
+          },
+          {
+            "pc": 34085518,
+            "size": 5,
+            "bytes": "ba00004007"
+          },
+          {
+            "pc": 34085523,
+            "size": 5,
+            "bytes": "b900002000"
+          },
+          {
+            "pc": 34085528,
+            "size": 3,
+            "bytes": "4531c0"
+          },
+          {
+            "pc": 34085531,
+            "size": 3,
+            "bytes": "4889c6"
+          },
+          {
+            "pc": 34085534,
+            "size": 5,
+            "bytes": "e815d0b300"
+          },
+          {
+            "pc": 34085539,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34085541,
+            "size": 2,
+            "bytes": "7535"
+          },
+          {
+            "pc": 34085543,
+            "size": 4,
+            "bytes": "4c8b45c8"
+          },
+          {
+            "pc": 34085547,
+            "size": 4,
+            "bytes": "488d7dd0"
+          },
+          {
+            "pc": 34085551,
+            "size": 5,
+            "bytes": "be00004007"
+          },
+          {
+            "pc": 34085556,
+            "size": 5,
+            "bytes": "ba03000000"
+          },
+          {
+            "pc": 34085561,
+            "size": 2,
+            "bytes": "31c9"
+          },
+          {
+            "pc": 34085563,
+            "size": 6,
+            "bytes": "41b900002000"
+          },
+          {
+            "pc": 34085569,
+            "size": 5,
+            "bytes": "e802d0b300"
+          },
+          {
+            "pc": 34085574,
+            "size": 4,
+            "bytes": "488b7dc8"
+          },
+          {
+            "pc": 34085578,
+            "size": 2,
+            "bytes": "85c0"
+          },
+          {
+            "pc": 34085580,
+            "size": 6,
+            "bytes": "0f8461010000"
+          },
+          {
+            "pc": 34085586,
+            "size": 5,
+            "bytes": "be00004007"
+          },
+          {
+            "pc": 34085591,
+            "size": 5,
+            "bytes": "e8fccfb300"
+          },
+          {
+            "pc": 34085596,
+            "size": 11,
+            "bytes": "48c7836804000000000000"
+          },
+          {
+            "pc": 34085607,
+            "size": 7,
+            "bytes": "488d3d66a48b02"
+          },
+          {
+            "pc": 34085614,
+            "size": 7,
+            "bytes": "488d15cca48b02"
+          },
+          {
+            "pc": 34085621,
+            "size": 5,
+            "bytes": "be44010000"
+          },
+          {
+            "pc": 34085626,
+            "size": 5,
+            "bytes": "b900004007"
+          },
+          {
+            "pc": 34085631,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "pc": 34085633,
+            "size": 5,
+            "bytes": "e8aa3a0300"
+          },
+          {
+            "pc": 34085638,
+            "size": 7,
+            "bytes": "488b8b68040000"
+          },
+          {
+            "pc": 34085645,
+            "size": 4,
+            "bytes": "488d4117"
+          },
+          {
+            "pc": 34085649,
+            "size": 4,
+            "bytes": "4883e0f0"
+          },
+          {
+            "pc": 34085653,
+            "size": 7,
+            "bytes": "4881c1f8ff3f07"
+          },
+          {
+            "pc": 34085660,
+            "size": 4,
+            "bytes": "4883e1f0"
+          },
+          {
+            "pc": 34085664,
+            "size": 3,
+            "bytes": "4889ca"
+          },
+          {
+            "pc": 34085667,
+            "size": 3,
+            "bytes": "4829c2"
+          },
+          {
+            "pc": 34085670,
+            "size": 4,
+            "bytes": "4883fa40"
+          },
+          {
+            "pc": 34085674,
+            "size": 2,
+            "bytes": "7333"
+          },
+          {
+            "pc": 34085676,
+            "size": 2,
+            "bytes": "31f6"
+          },
+          {
+            "pc": 34085678,
+            "size": 5,
+            "bytes": "ba40040000"
+          },
+          {
+            "pc": 34085683,
+            "size": 3,
+            "bytes": "4c89f7"
+          },
+          {
+            "pc": 34085686,
+            "size": 5,
+            "bytes": "e84dcbb300"
+          },
+          {
+            "pc": 34085691,
+            "size": 7,
+            "bytes": "488d3d12a48b02"
+          },
+          {
+            "pc": 34085698,
+            "size": 7,
+            "bytes": "488d15c2a48b02"
+          },
+          {
+            "pc": 34085705,
+            "size": 5,
+            "bytes": "be48010000"
+          },
+          {
+            "pc": 34085710,
+            "size": 5,
+            "bytes": "b900004007"
+          },
+          {
+            "pc": 34085715,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "pc": 34085717,
+            "size": 5,
+            "bytes": "e8563a0300"
+          },
+          {
+            "pc": 34085722,
+            "size": 5,
+            "bytes": "e9b7000000"
+          },
+          {
+            "pc": 34085727,
+            "size": 4,
+            "bytes": "48894330"
+          },
+          {
+            "pc": 34085731,
+            "size": 4,
+            "bytes": "48894b38"
+          },
+          {
+            "pc": 34085735,
+            "size": 4,
+            "bytes": "488d5350"
+          },
+          {
+            "pc": 34085739,
+            "size": 2,
+            "bytes": "31f6"
+          },
+          {
+            "pc": 34085741,
+            "size": 3,
+            "bytes": "0f1f00"
+          },
+          {
+            "pc": 34085744,
+            "size": 5,
+            "bytes": "488d7c32f0"
+          },
+          {
+            "pc": 34085749,
+            "size": 5,
+            "bytes": "48897c3208"
+          },
+          {
+            "pc": 34085754,
+            "size": 4,
+            "bytes": "48893c32"
+          },
+          {
+            "pc": 34085758,
+            "size": 4,
+            "bytes": "4883c610"
+          },
+          {
+            "pc": 34085762,
+            "size": 7,
+            "bytes": "4881fe00040000"
+          },
+          {
+            "pc": 34085769,
+            "size": 2,
+            "bytes": "75e5"
+          },
+          {
+            "pc": 34085771,
+            "size": 4,
+            "bytes": "488d50f0"
+          },
+          {
+            "pc": 34085775,
+            "size": 4,
+            "bytes": "488d71f0"
+          },
+          {
+            "pc": 34085779,
+            "size": 3,
+            "bytes": "4889f7"
+          },
+          {
+            "pc": 34085782,
+            "size": 4,
+            "bytes": "4883cf02"
+          },
+          {
+            "pc": 34085786,
+            "size": 4,
+            "bytes": "488978f8"
+          },
+          {
+            "pc": 34085790,
+            "size": 4,
+            "bytes": "488951f0"
+          },
+          {
+            "pc": 34085794,
+            "size": 3,
+            "bytes": "4889d7"
+          },
+          {
+            "pc": 34085797,
+            "size": 4,
+            "bytes": "4883cf01"
+          },
+          {
+            "pc": 34085801,
+            "size": 4,
+            "bytes": "488979f8"
+          },
+          {
+            "pc": 34085805,
+            "size": 7,
+            "bytes": "48899350040000"
+          },
+          {
+            "pc": 34085812,
+            "size": 7,
+            "bytes": "4889b358040000"
+          },
+          {
+            "pc": 34085819,
+            "size": 3,
+            "bytes": "4829d6"
+          },
+          {
+            "pc": 34085822,
+            "size": 4,
+            "bytes": "48897340"
+          },
+          {
+            "pc": 34085826,
+            "size": 7,
+            "bytes": "4889b360040000"
+          },
+          {
+            "pc": 34085833,
+            "size": 8,
+            "bytes": "48c7434800000000"
+          },
+          {
+            "pc": 34085841,
+            "size": 8,
+            "bytes": "48c7432800000000"
+          },
+          {
+            "pc": 34085849,
+            "size": 5,
+            "bytes": "f3480fbdf6"
+          },
+          {
+            "pc": 34085854,
+            "size": 5,
+            "bytes": "b93f000000"
+          },
+          {
+            "pc": 34085859,
+            "size": 2,
+            "bytes": "29f1"
+          },
+          {
+            "pc": 34085861,
+            "size": 3,
+            "bytes": "4889ce"
+          },
+          {
+            "pc": 34085864,
+            "size": 4,
+            "bytes": "48c1e604"
+          },
+          {
+            "pc": 34085868,
+            "size": 5,
+            "bytes": "4c8d443340"
+          },
+          {
+            "pc": 34085873,
+            "size": 5,
+            "bytes": "488b7c3358"
+          },
+          {
+            "pc": 34085878,
+            "size": 5,
+            "bytes": "4889543358"
+          },
+          {
+            "pc": 34085883,
+            "size": 3,
+            "bytes": "4c8900"
+          },
+          {
+            "pc": 34085886,
+            "size": 4,
+            "bytes": "48897808"
+          },
+          {
+            "pc": 34085890,
+            "size": 4,
+            "bytes": "48895710"
+          },
+          {
+            "pc": 34085894,
+            "size": 3,
+            "bytes": "4c39c7"
+          },
+          {
+            "pc": 34085897,
+            "size": 2,
+            "bytes": "750b"
+          },
+          {
+            "pc": 34085899,
+            "size": 5,
+            "bytes": "b801000000"
+          },
+          {
+            "pc": 34085904,
+            "size": 3,
+            "bytes": "48d3e0"
+          },
+          {
+            "pc": 34085907,
+            "size": 3,
+            "bytes": "490906"
+          },
+          {
+            "pc": 34085910,
+            "size": 4,
+            "bytes": "498b0424"
+          },
+          {
+            "pc": 34085914,
+            "size": 4,
+            "bytes": "483b45d8"
+          },
+          {
+            "pc": 34085918,
+            "size": 2,
+            "bytes": "750d"
+          },
+          {
+            "pc": 34085920,
+            "size": 4,
+            "bytes": "4883c420"
+          },
+          {
+            "pc": 34085924,
+            "size": 1,
+            "bytes": "5b"
+          },
+          {
+            "pc": 34085925,
+            "size": 2,
+            "bytes": "415c"
+          },
+          {
+            "pc": 34085927,
+            "size": 2,
+            "bytes": "415e"
+          },
+          {
+            "pc": 34085929,
+            "size": 2,
+            "bytes": "415f"
+          },
+          {
+            "pc": 34085931,
+            "size": 1,
+            "bytes": "5d"
+          },
+          {
+            "pc": 34085932,
+            "size": 1,
+            "bytes": "c3"
+          },
+          {
+            "pc": 34085933,
+            "size": 5,
+            "bytes": "e8c6c8b300"
+          },
+          {
+            "pc": 34085939,
+            "size": 7,
+            "bytes": "4889bb70040000"
+          },
+          {
+            "pc": 34085946,
+            "size": 11,
+            "bytes": "48c7837804000000004007"
+          },
+          {
+            "pc": 34085957,
+            "size": 4,
+            "bytes": "488b4dd0"
+          },
+          {
+            "pc": 34085961,
+            "size": 7,
+            "bytes": "48898b68040000"
+          },
+          {
+            "pc": 34085968,
+            "size": 3,
+            "bytes": "4885c9"
+          },
+          {
+            "pc": 34085971,
+            "size": 6,
+            "bytes": "0f85b4feffff"
+          },
+          {
+            "pc": 34085977,
+            "size": 5,
+            "bytes": "e989feffff"
+          }
+        ]
+      }
+    ],
+    "relocation_table_sha256": "0e5059c61b670a40fe04de731ad245f9eacac14cd6f1dd08dfc5a56e22ddd924",
+    "relocation_table_file_offset": 88034608,
+    "is_self": true,
+    "source_conditions": [
+      "Shared thunk 0x2ba2b10 jumps to factory 0x207fa50.",
+      "Null constructor cache 0x5540670 invokes the factory; a non-null cache remains a mutable unknown object.",
+      "Factory has mutable singleton slot 0x56a20c0 and conditionally constructs aligned storage at 0x56a20c8 via 0x20819f0.",
+      "Factory lock object has an explicit table write before its virtual calls on its initialization path; other paths depend on mutable initialized state.",
+      "Only the three specified slots are inspected. Adjacent pointers or zero words are not promoted or taken as table extent."
+    ],
+    "limitations": "Static candidate compilation work only. No indirect site is closed, no game CPU execution, and no assertion of unique runtime object type or table immutability.",
+    "source_check": {
+      "status": "independent window closure comparison passed",
+      "source_db_sha256": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+      "selection_sha256": "38ffed3fc56daa26568d1ea3a0f3c68d0155fed1dcd1a2ccdad75fa90fe5f064",
+      "comparison_sha256": "49551a7396125cd052572b942b669f787de6c015a2542a76009f77431d8a2c43",
+      "windows": 6,
+      "shared_instructions": 379,
+      "raw_sha256": {
+        "eboot.bin": "4f239ae1f27f1df120b8876b7f1b761db9474a301b30a35d717db94b9a4feacd"
+      },
+      "explained_extra": [
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16323472,
+          "extra": [
+            16323677
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16341008,
+          "extra": [
+            16341213
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16409616,
+          "extra": [
+            16409821
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34085360,
+          "extra": [
+            34085938
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        }
+      ],
+      "unexplained": 0,
+      "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+    },
+    "independent_checks": [
+      {
+        "name": "constructed-singleton-slot-20",
+        "independent_table": 87765088,
+        "independent_slot": 87765120,
+        "independent_target": 34090720,
+        "independent_assembly": [
+          "LEA RAX,[0x53b3060]",
+          "MOV qword ptr [RBX],RAX",
+          "CALL qword ptr [RAX + 0x20]"
+        ],
+        "relocation_byte_offset": 5503824
+      },
+      {
+        "name": "factory-lock-slot-18",
+        "independent_table": 86729264,
+        "independent_slot": 86729288,
+        "independent_target": 34074256,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x18]"
+        ],
+        "relocation_byte_offset": 2689512
+      },
+      {
+        "name": "factory-lock-slot-28",
+        "independent_table": 86729264,
+        "independent_slot": 86729304,
+        "independent_target": 34074736,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x28]"
+        ],
+        "relocation_byte_offset": 2689560
+      }
+    ],
+    "proposal_sha256": "ce1bf7a4215c7d1f8e8def4dd811b910e7662d8ed6d10d941fb0bb31354d4f44",
+    "independent_tables_sha256": "90834e58c85cef212a5aa35d0d4f780a0b8debca404590d18b707aaa1edb22d8",
+    "source_raw_sha256": "4f239ae1f27f1df120b8876b7f1b761db9474a301b30a35d717db94b9a4feacd"
+  },
+  "independent_closure": {
+    "status": "independent window closure comparison passed",
+    "source_db_sha256": "3784e47fee946d176eed1cd37ae79f2c12faef4af7d46bc8c896d59e67acd594",
+    "selection_sha256": "9372ca77e9051a1db8c85a9c63b1e69d44e3a7f341511673e1e4c8d01467fc86",
+    "comparison_sha256": "58361446c54596d4d39b481ab0c213d6a0a640fc0febb7b27917efb0132b5fb0",
+    "windows": 10,
+    "shared_instructions": 614,
+    "raw_sha256": {
+      "eboot.bin": "612abbff25aab70fb6b8da472352fe9bb59db4955ea3f11cbf0193acc0edb050",
+      "libc.prx": "aac8ce7ef0958e659cf7990a1bf3d97f4f40cadb088c9e92db6b4ca06ee5aea0"
+    },
+    "explained_extra": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 34648288,
+        "extra": [
+          34649890
+        ],
+        "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+      }
+    ],
+    "unexplained": 0,
+    "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+  },
+  "cohort": {
+    "path": "local/cfg/dispatch-cohort-checked-v1/checked.json",
+    "sha256": "1cbe4cf19bb3552647e2d3e1907cb7f2955d339ea6055be19cf0b05c5738b2ef",
+    "windows": 2165,
+    "shared_instructions": 25980,
+    "other_shapes": 2630,
+    "applied_to_recovery": false
+  },
+  "objects": [
+    {
+      "folder": "batch-0000",
+      "object_sha256": "30d5ab1b137bde407db52a06badbed471b1a03c18f2ac8180979e6d3d89fd2b5",
+      "object_bytes": 4162,
+      "entries": [
+        34074736,
+        34090720
+      ],
+      "roots": [
+        4329042032,
+        4329058016
+      ],
+      "missing_instruction_starts": [],
+      "external_declarations": [
+        "__remill_write_memory_64",
+        "__remill_read_memory_64",
+        "__remill_function_call",
+        "llvm.ctpop.i8",
+        "__remill_flag_computation_zero",
+        "__remill_flag_computation_sign",
+        "__remill_undefined_8",
+        "__remill_compare_neq",
+        "__remill_flag_computation_carry",
+        "__remill_flag_computation_overflow",
+        "sub_1020b55b0",
+        "sub_102bbff08",
+        "__remill_compare_eq",
+        "__remill_function_return",
+        "__remill_write_memory_32"
+      ]
+    }
+  ],
+  "combined_compiled_entries": 21165,
+  "combined_objects": 383,
+  "compiled_constructors": 18444,
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "focused_tests": 58,
+  "runs": {
+    "20260906-p3-object-dispatch-proposals-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "1137e20898178a78272113dd926da36d1fd956a6878a2d7ae68da254c8756f11",
+      "elapsed_seconds": 1.0691939000971615
+    },
+    "20260906-p3-ghidra-object-dispatch-sources-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "1137e20898178a78272113dd926da36d1fd956a6878a2d7ae68da254c8756f11",
+      "elapsed_seconds": 7.207871799822897
+    },
+    "20260906-p3-object-dispatch-source-check-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "27dd2ad2b166d291a8001d004ad21e7c1a9b829b6e90c77eb386564e3c22cb1b",
+      "elapsed_seconds": 1.461066400166601
+    },
+    "20260906-p3-ghidra-object-dispatch-tables-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "27dd2ad2b166d291a8001d004ad21e7c1a9b829b6e90c77eb386564e3c22cb1b",
+      "elapsed_seconds": 6.695620000129566
+    },
+    "20260906-p3-object-dispatch-check-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "58391f9e16fbaaaedd99f454d8b6565afc7a72aed0ab8e4d2f7d177fd22b5351",
+      "elapsed_seconds": 0.13119860016740859
+    },
+    "20260906-p3-object-dispatch-recovery-checks-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "dec0caac2eacd3362e4e8c58bcc7396cc1556127a264a67d8f5de132e04211c3",
+      "elapsed_seconds": 0.23868840001523495
+    },
+    "20260906-p3-startup-recovery-v16-dispatch": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "dec0caac2eacd3362e4e8c58bcc7396cc1556127a264a67d8f5de132e04211c3",
+      "elapsed_seconds": 99.21212080004625
+    },
+    "20260906-p3-startup-recovery-v17-dispatch-repeat": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "46833c53820d81083263130d11b129bcc31a7de0fc466aa06db026e3736b4252",
+      "elapsed_seconds": 98.86659540003166
+    },
+    "20260906-p3-object-dispatch-delta-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "46833c53820d81083263130d11b129bcc31a7de0fc466aa06db026e3736b4252",
+      "elapsed_seconds": 5.04652740014717
+    },
+    "20260906-p3-ghidra-object-dispatch-closure-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "46833c53820d81083263130d11b129bcc31a7de0fc466aa06db026e3736b4252",
+      "elapsed_seconds": 12.6556353000924
+    },
+    "20260906-p3-object-dispatch-closure-check-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "175bffd05973a3a8c5af0e11648802863deb9bb1ad6fc9a9f4593c941fb990b5",
+      "elapsed_seconds": 1.4428831001278013
+    },
+    "20260906-p3-object-dispatch-compile-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "46833c53820d81083263130d11b129bcc31a7de0fc466aa06db026e3736b4252",
+      "elapsed_seconds": 4.982217099983245
+    },
+    "20260906-p3-object-dispatch-compile-v2-repeat": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "175bffd05973a3a8c5af0e11648802863deb9bb1ad6fc9a9f4593c941fb990b5",
+      "elapsed_seconds": 3.9082287999335676
+    },
+    "20260906-p3-dispatch-cohort-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "46833c53820d81083263130d11b129bcc31a7de0fc466aa06db026e3736b4252",
+      "elapsed_seconds": 2.2172620000783354
+    },
+    "20260906-p3-ghidra-dispatch-cohort-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "175bffd05973a3a8c5af0e11648802863deb9bb1ad6fc9a9f4593c941fb990b5",
+      "elapsed_seconds": 7.614312599878758
+    },
+    "20260906-p3-dispatch-cohort-check-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "175bffd05973a3a8c5af0e11648802863deb9bb1ad6fc9a9f4593c941fb990b5",
+      "elapsed_seconds": 0.23811809998005629
+    },
+    "20260906-p3-dispatch-integrated-checks-v1": {
+      "status": "pass",
+      "source_commit": "d30bb407aa05ca28103d9e8e6707c04561c1e4b7",
+      "sources_sha256": "79426b926d89320dda50f669640e5fa120a627c61a9849b054c25a98b904f19d",
+      "elapsed_seconds": 0.1948899000417441
+    }
+  },
+  "gate": "P3 remains open: 9,042 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 143 unknown callback arguments, x87 state counterexamples and native import/callback/exception/control contracts. 21,165 entries compile; no native startup or playable port.",
+  "limitations": [
+    "Three initial table-slot candidates are applied; each original unknown indirect call is retained.",
+    "The independently checked 2,165-constructor cohort is an inventory for the next recovery; only its first representative is currently a table candidate.",
+    "Initial object construction, cache identity, table mutation, initialization races/failure and native ABI contracts are unvalidated.",
+    "Only specified relocation slots are promoted; adjacent words are not table bounds or code seeds.",
+    "Only authored semantic fixtures execute CPU code. These game-derived objects remain unlinked/unexecuted."
+  ],
+  "native_game_boot": false,
+  "native_port_playable": false
+}
