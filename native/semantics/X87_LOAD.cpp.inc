@@ -17,7 +17,7 @@ template<unsigned Width,bool Integer> DEF_SEM(BBX87LoadNumber,RF80W,M8 src,PC pc
   else if(Width==32)__bb_x87_from_f32(uint32_t(bits),state.x87.fxsave.cwd.flat,&value);else __bb_x87_from_f64(bits,state.x87.fxsave.cwd.flat,&value);
   if(value.flags){unmasked=BBX87Raise(state,value.flags);blocked=unmasked&&(value.flags&1);}
  }
- BBX87RawInstruction(memory,state,Read(pc),Read(fop),true,address,unmasked);if(!blocked)BBX87Push(state,{value.significand,value.sign_exponent});return memory;
+ BBX87Instruction(memory,state,Read(pc),Read(fop),true,address,unmasked);if(!blocked)BBX87Push(state,{value.significand,value.sign_exponent});return memory;
 }
 }
 DEF_ISEL(FLD_ST0_MEMmem32real)=BBX87LoadNumber<32,false>;

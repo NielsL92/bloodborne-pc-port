@@ -24318,5 +24318,15 @@
     "experimental_semantics": "v24-loads",
     "startup_accepted": false,
     "native_game_boot": false
+  },
+  "x87_metadata_experiment": {
+    "evidence": "reports/x87-metadata-evidence.json",
+    "cases": 6029312,
+    "hardware_faults": 1379648,
+    "selected_c1_deviations": 232640,
+    "selected_aux_flag_deviations": 517208,
+    "experimental_semantics": "v26-compare-policy",
+    "startup_accepted": false,
+    "native_game_boot": false
   }
 }
