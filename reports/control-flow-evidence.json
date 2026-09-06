@@ -26712,5 +26712,17 @@
     "unknown_indirect_calls": 9044,
     "p3_gate_passed": false,
     "native_game_boot": false
+  },
+  "conditional_control": {
+    "report": "reports/conditional-control-evidence.json",
+    "source": "local/cfg/startup-recovery-v31-conditional-repeat",
+    "active_objects_manifest": "local/compiler-spike/conditional-control-evidence-audit-v2-exits/active-objects.json",
+    "active_objects_sha256": "d23a3d2c94477ba3463b421929b678d48ce7e054a8cf943e179daa24526c2b74",
+    "compiled_entries": 21181,
+    "compiled_objects": 386,
+    "remaining_quarantines": 0,
+    "unresolved_conditional_continuations": 5,
+    "p3_gate_passed": false,
+    "native_game_boot": false
   }
 }
