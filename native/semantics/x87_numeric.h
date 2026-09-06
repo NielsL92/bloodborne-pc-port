@@ -19,3 +19,6 @@ struct BBX87ArithmeticResult {uint64_t significand;uint16_t sign_exponent;uint8_
 extern "C" void __bb_x87_add(uint64_t,uint16_t,uint64_t,uint16_t,uint16_t,BBX87ArithmeticResult*);
 extern "C" void __bb_x87_sub(uint64_t,uint16_t,uint64_t,uint16_t,uint16_t,BBX87ArithmeticResult*);
 extern "C" void __bb_x87_mul(uint64_t,uint16_t,uint64_t,uint16_t,uint16_t,BBX87ArithmeticResult*);
+
+// Exact power-of-two scaling ignores PC; all four encodings are supported.
+extern "C" void __bb_x87_scale(uint64_t,uint16_t,uint64_t,uint16_t,uint16_t,BBX87ArithmeticResult*);

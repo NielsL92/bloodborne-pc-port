@@ -51,8 +51,18 @@ extern "C" void verify_numeric_scope(){
    bool reserved=((arithmetic_cw>>8)&3)==1;
    bad+=(reserved?arithmetic.unsupported!=1:arithmetic.unsupported||arithmetic.significand!=arithmetic_sig||arithmetic.sign_exponent!=arithmetic_exp||arithmetic.flags!=arithmetic_flags||arithmetic.rounded_up)||softfloat_roundingMode!=rounding||softfloat_detectTininess!=tininess||extF80_roundingPrecision!=precision||softfloat_exceptionFlags!=flags;
 
+   BBX87ArithmeticResult scaled{};uint64_t scale_sig=0x8000000000000000ULL;uint16_t scale_exp=0x4000;uint8_t scale_flags=0;
+   switch((i+worker)%5){
+    case 0:__bb_x87_scale(0x8000000000000000ULL,0x3fff,0x8000000000000000ULL,0x3fff,uint16_t(i),&scaled);break;
+    case 1:__bb_x87_scale(1,0,0,0,uint16_t(i),&scaled);scale_sig=1;scale_exp=0;scale_flags=2;break;
+    case 2:__bb_x87_scale(0x8000000000000000ULL,0x3fff,0x8000000000000000ULL,0x3ffe,uint16_t(i),&scaled);scale_exp=0x3fff;break;
+    case 3:__bb_x87_scale(0x8000000000000000ULL,0x3fff,0x8000000000000000ULL,0x7fff,uint16_t(i),&scaled);scale_exp=0x7fff;break;
+    case 4:__bb_x87_scale(0x8000000000000000ULL,1,0xc002000000000000ULL,0xc00d,uint16_t(i)&~16,&scaled);scale_sig=0;scale_exp=0;scale_flags=48;break;
+   }
+   bad+=scaled.unsupported||scaled.significand!=scale_sig||scaled.sign_exponent!=scale_exp||scaled.flags!=scale_flags||scaled.rounded_up||softfloat_roundingMode!=rounding||softfloat_detectTininess!=tininess||extF80_roundingPrecision!=precision||softfloat_exceptionFlags!=flags;
+
   }
  });
  for(auto& t:threads)t.join();
- std::printf("{\"form\":\"numeric-scope\",\"cases\":786432,\"differing_cases\":%u}\n",bad.load());std::fflush(stdout);if(bad.load())std::exit(3);
+ std::printf("{\"form\":\"numeric-scope\",\"cases\":1048576,\"differing_cases\":%u}\n",bad.load());std::fflush(stdout);if(bad.load())std::exit(3);
 }

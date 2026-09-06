@@ -1,5 +1,7 @@
 # P2 whole-function compiler experiment
 
+Latest 2026-09-06 16:20 UTC: experimental v31 FSCALE passes numeric, AOT and independent setup checks, including the retained exact-zero failure and corrected result. See `reports/x87-scale.md` / `reports/x87-scale-evidence.json`. Exact selector/module integration and fresh static compilation of the remaining two bodies are next. Accepted startup artifacts/census are unchanged; P3 remains open.
+
 Latest 2026-09-06 16:02 UTC: experimental v30 register x87 arithmetic passes its numeric and AOT/scope/boundary matrices, with reproducible objects and retained failed evidence. See `reports/x87-arithmetic.md` / `reports/x87-arithmetic-evidence.json`. Reserved precision control is explicit, FSCALE remains next, and accepted startup artifacts/census are unchanged. P3 is open; no game code was executed.
 
 Latest 2026-09-06 13:16 UTC: canonical state-image helper evidence is in `reports/x87-serializers.md`. The helper audit passes with a separately measured host pointer limitation; no startup selector or game execution was added.
