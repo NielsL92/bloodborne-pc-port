@@ -26700,5 +26700,17 @@
       "native_game_boot": false,
       "native_port_playable": false
     }
+  },
+  "lua_panic": {
+    "report": "reports/lua-panic-evidence.json",
+    "source": "local/cfg/startup-recovery-v29-lua-panic-repeat",
+    "active_objects_manifest": "local/compiler-spike/lua-panic-evidence-audit-v1/active-objects.json",
+    "active_objects_sha256": "d6dfcad6be850c130aed3c9d0fa91512fa7051426c0c95bddebd340a42f0fbc3",
+    "compiled_entries": 21176,
+    "compiled_objects": 384,
+    "remaining_quarantines": 5,
+    "unknown_indirect_calls": 9044,
+    "p3_gate_passed": false,
+    "native_game_boot": false
   }
 }
