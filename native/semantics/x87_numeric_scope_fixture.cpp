@@ -40,8 +40,19 @@ extern "C" void verify_numeric_scope(){
     case 5:__bb_x87_to_f64(0,0x3fff,uint16_t(i),&stored);bits=0xfff8000000000000ULL;raised=1;break;
    }
    bad+=stored.bits!=bits||stored.flags!=raised||stored.rounded_up!=up||stored.tiny||softfloat_roundingMode!=rounding||softfloat_detectTininess!=tininess||extF80_roundingPrecision!=precision||softfloat_exceptionFlags!=flags;
+   BBX87ArithmeticResult arithmetic{};uint64_t arithmetic_sig=0x8000000000000000ULL;uint16_t arithmetic_exp=0x4000;uint8_t arithmetic_flags=0;uint16_t arithmetic_cw=uint16_t(i);
+   switch((i+worker)%5){
+    case 0:__bb_x87_add(0x8000000000000000ULL,0x3fff,0x8000000000000000ULL,0x3fff,arithmetic_cw,&arithmetic);break;
+    case 1:__bb_x87_sub(0x8000000000000000ULL,0x3fff,0x8000000000000000ULL,0x3fff,arithmetic_cw,&arithmetic);arithmetic_sig=0;arithmetic_exp=((i>>10)&3)==1?0x8000:0;break;
+    case 2:__bb_x87_mul(0xc000000000000000ULL,0x3fff,0x8000000000000000ULL,0x4000,arithmetic_cw,&arithmetic);arithmetic_sig=0xc000000000000000ULL;break;
+    case 3:arithmetic_cw&=~8;__bb_x87_mul(0x8000000000000000ULL,0x7ffe,0x8000000000000000ULL,0x7ffe,arithmetic_cw,&arithmetic);arithmetic_exp=0x5ffd;arithmetic_flags=8;break;
+    case 4:arithmetic_cw&=~16;__bb_x87_mul(0x8000000000000000ULL,1,0x8000000000000000ULL,1,arithmetic_cw,&arithmetic);arithmetic_exp=0x2003;arithmetic_flags=16;break;
+   }
+   bool reserved=((arithmetic_cw>>8)&3)==1;
+   bad+=(reserved?arithmetic.unsupported!=1:arithmetic.unsupported||arithmetic.significand!=arithmetic_sig||arithmetic.sign_exponent!=arithmetic_exp||arithmetic.flags!=arithmetic_flags||arithmetic.rounded_up)||softfloat_roundingMode!=rounding||softfloat_detectTininess!=tininess||extF80_roundingPrecision!=precision||softfloat_exceptionFlags!=flags;
+
   }
  });
  for(auto& t:threads)t.join();
- std::printf("{\"form\":\"numeric-scope\",\"cases\":524288,\"differing_cases\":%u}\n",bad.load());std::fflush(stdout);if(bad.load())std::exit(3);
+ std::printf("{\"form\":\"numeric-scope\",\"cases\":786432,\"differing_cases\":%u}\n",bad.load());std::fflush(stdout);if(bad.load())std::exit(3);
 }
