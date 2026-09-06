@@ -19,6 +19,12 @@ void AddressSpace::add(uint64_t base,size_t size,uint32_t rights,const void* ini
  try{regions_.push_back({base,size,bytes,rights});}catch(...){VirtualFree(bytes,0,MEM_RELEASE);throw;}
  std::sort(regions_.begin(),regions_.end(),[](const Region& a,const Region& b){return a.base<b.base;});
 }
+void AddressSpace::guard(uint64_t base,size_t size,const std::string& identity){
+ if(sealed_||!size||uint64_t(size)>UINT64_MAX-base||!span(base,size,Read)||identity.empty())throw std::runtime_error("invalid unresolved access guard");
+ for(unsigned char c:identity)if(c<0x20||c==34||c==92)throw std::runtime_error("invalid guard diagnostic identity");
+ for(const auto& g:guards_)if(base<g.base+g.size&&g.base<base+size)throw std::runtime_error("overlapping unresolved access guards");
+ guards_.push_back({base,size,identity});std::sort(guards_.begin(),guards_.end(),[](const AccessGuard& a,const AccessGuard& b){return a.base<b.base;});
+}
 void AddressSpace::seal(){
  if(sealed_)throw std::runtime_error("memory already sealed");
  for(auto& r:regions_){DWORD wanted=r.rights&Write?PAGE_READWRITE:r.rights&Read?PAGE_READONLY:PAGE_NOACCESS,old=0;if(!VirtualProtect(r.backing,r.size,wanted,&old))throw std::runtime_error("RAM protection");
@@ -37,7 +43,9 @@ void AddressSpace::copy(uint64_t address,void* buffer,size_t size,bool write)noe
 void AddressSpace::check(Memory* m,uint64_t address,size_t size,bool write,size_t alignment)noexcept{
  context(m);enter();if(!alignment||(alignment&(alignment-1))||address%alignment)fault(m,"memory-alignment",3,m->state->gpr.rip.qword,0,0,address,size);
  if(write&&size&&uint64_t(size)<=UINT64_MAX-address){uint64_t at=address;size_t remaining=size;while(remaining){auto* region=containing(at);if(!region)break;if(region->rights&Code)fault(m,"code-write-uncovered",7,m->state->gpr.rip.qword,0,0,address,size);size_t count=static_cast<size_t>(std::min<uint64_t>(remaining,region->size-(at-region->base)));at+=count;remaining-=count;}}
- if(!span(address,size,write?Write:Read))fault(m,write?"memory-write":"memory-read",4,m->state->gpr.rip.qword,0,0,address,size);leave();
+ if(!span(address,size,write?Write:Read))fault(m,write?"memory-write":"memory-read",4,m->state->gpr.rip.qword,0,0,address,size);
+ auto blocked=std::lower_bound(guards_.begin(),guards_.end(),address,[](const AccessGuard& guard,uint64_t at){return guard.base+guard.size<=at;});
+ if(blocked!=guards_.end()&&blocked->base<address+size){m->active_guard=&*blocked;fault(m,"unresolved-relocation",8,m->state->gpr.rip.qword,blocked->base,blocked->size,address,size);}leave();
 }
 void AddressSpace::read(Memory* m,uint64_t address,void* value,size_t size)noexcept{context(m);enter();check(m,address,size,false);copy(address,value,size,false);++m->operations;leave();}
 void AddressSpace::write(Memory* m,uint64_t address,const void* value,size_t size)noexcept{context(m);enter();check(m,address,size,true);copy(address,const_cast<void*>(value),size,true);++m->operations;leave();}

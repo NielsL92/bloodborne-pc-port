@@ -158,13 +158,42 @@ struct Manager final:remill::TraceManager {
   }
 };
 
+// Native runtime bridges receive an explicit State alias and the current local
+// source PC. Successful accesses do not rewrite architectural PC state.
+std::map<std::string,std::string> memory_bridge_names(){
+ std::map<std::string,std::string> names;
+ for(const auto* kind:{"8","16","32","64","f32","f64"})for(const auto* op:{"read_memory_","write_memory_"}){std::string suffix=std::string(op)+kind;names["__remill_"+suffix]="__bb_sourced_"+suffix;}
+ for(const auto* suffix:{"compare_exchange_memory_32","compare_exchange_memory_64","atomic_begin","atomic_end","barrier_load_load","barrier_load_store","barrier_store_load","barrier_store_store"})names[std::string("__remill_")+suffix]=std::string("__bb_sourced_")+suffix;
+ for(const auto* suffix:{"divide_fault","mxcsr_fault","mxcsr_mask","simd_fault","x87_check_span","x87_fault","x87_image_policy","x87_pointer_segments","x87_record_instruction","x87_set_pointer_segments","x87_unsupported"})names[std::string("__bb_native_")+suffix]=std::string("__bb_sourced_")+suffix;
+ return names;
+}
+llvm::json::Object bind_memory_sources(llvm::Module& module,const remill::TraceMap& traces){
+ const auto names=memory_bridge_names();std::map<std::string,uint64_t> counts;
+ for(const auto& root:traces){auto* function=root.second;std::vector<llvm::CallInst*> calls;
+  for(auto& block:*function)for(auto& instruction:block)if(auto* call=llvm::dyn_cast<llvm::CallInst>(&instruction))if(auto* callee=call->getCalledFunction()){
+   auto name=callee->getName().str();if(names.count(name))calls.push_back(call);
+   else if(callee->getName().starts_with("__remill_read_memory_")||callee->getName().starts_with("__remill_write_memory_")||callee->getName().starts_with("__remill_compare_exchange_memory_")||callee->getName().starts_with("__remill_fetch_and_"))reject("native memory provenance has no bridge for "+name);
+  }
+  if(calls.empty())continue;if(!source_slots.count(function))reject("native memory call lacks invocation-local source slot");
+  for(auto* old:calls){auto* callee=old->getCalledFunction();const auto name=callee->getName().str();auto* type=callee->getFunctionType();if(type->isVarArg())reject("native memory bridge cannot infer variadic ABI");
+   std::vector<llvm::Type*> types{function->getArg(0)->getType(),llvm::Type::getInt64Ty(module.getContext())};for(auto* t:type->params())types.push_back(t);auto bridge=module.getOrInsertFunction(names.at(name),llvm::FunctionType::get(type->getReturnType(),types,false));auto* target=llvm::cast<llvm::Function>(bridge.getCallee());target->setCallingConv(callee->getCallingConv());target->addFnAttr(llvm::Attribute::NoUnwind);if(old->doesNotReturn())target->addFnAttr(llvm::Attribute::NoReturn);
+   llvm::IRBuilder<> ir(old);std::vector<llvm::Value*> args{function->getArg(0),ir.CreateLoad(ir.getInt64Ty(),source_slots.at(function),"memory_source_pc")};for(auto& arg:old->args())args.push_back(arg.get());auto* call=ir.CreateCall(bridge,args);call->setCallingConv(old->getCallingConv());call->setDoesNotThrow();if(old->doesNotReturn())call->setDoesNotReturn();
+   call->setAttributes(llvm::AttributeList::get(module.getContext(),call->getAttributes().getFnAttrs(),old->getAttributes().getRetAttrs(),{}));
+   for(unsigned i=0;i<old->arg_size();++i)call->addParamAttrs(i+2,llvm::AttrBuilder(module.getContext(),old->getAttributes().getParamAttrs(i)));
+   old->replaceAllUsesWith(call);old->eraseFromParent();++counts[names.at(name)];
+  }
+ }
+ llvm::json::Object result;for(const auto& item:counts)result[item.first]=int64_t(item.second);return result;
+}
+
 int main(int argc,char** argv) {
   google::InitGoogleLogging(argv[0]);FLAGS_logtostderr=true;
   if(argc!=5&&argc!=6){llvm::errs()<<"usage: bb-sparse-lift input.json output.bc output.ll report.json [semantics_directory]\n";return 2;}
   try {
     auto buffer=llvm::MemoryBuffer::getFile(argv[1]);if(!buffer)reject("cannot read manifest input");
     auto json=llvm::json::parse((*buffer)->getBuffer());if(!json){llvm::consumeError(json.takeError());reject("invalid JSON");}
-    auto* object=json->getAsObject();if(!object)reject("input must be object");
+    auto* object=json->getAsObject();if(!object)reject("input must be object");bool native_memory_provenance=false;
+    if(auto* value=object->get("native_memory_provenance")){auto enabled=value->getAsBoolean();if(!enabled)reject("native_memory_provenance must be boolean");native_memory_provenance=*enabled;}
     auto* rows=object->getArray("instructions");auto* roots_json=object->getArray("roots");
     if(!rows||!roots_json||rows->empty()||roots_json->empty())reject("nonempty instructions/roots required");
     for(auto& row:*rows){
@@ -225,7 +254,7 @@ int main(int argc,char** argv) {
       {"decoded_addresses",std::move(decoded_rows)},{"missing_instruction_starts",std::move(missing_rows)},
       {"unvisited_manifest_instructions",std::move(unvisited)},{"compiled_roots",std::move(trace_rows)},
       {"execution","none; static lifting census is not execution coverage"}};
-    std::error_code ec;llvm::raw_fd_ostream output(argv[4],ec);if(ec)reject("cannot write report");output<<llvm::formatv("{0:2}\n",llvm::json::Value(std::move(report)));output.close();
+    std::error_code ec;
     if(unvisited_count)reject("manifest contains instructions unreachable from supplied compilation roots");
     if(auto* g=module->getGlobalVariable("llvm.compiler.used",true))g->eraseFromParent();
     std::vector<llvm::GlobalVariable*> erase;
@@ -242,6 +271,9 @@ int main(int argc,char** argv) {
       for(auto* user:f.users())if(auto* call=llvm::dyn_cast<llvm::CallInst>(user))call->removeFnAttr(llvm::Attribute::ReadNone);
     }
     remill::OptimizationGuide guide={};remill::OptimizeModule(arch,module,manager.traces,guide);
+    report["native_memory_provenance"]=native_memory_provenance;
+    if(native_memory_provenance)report["native_memory_bridges"]=bind_memory_sources(*module,manager.traces);
+    llvm::raw_fd_ostream output(argv[4],ec);if(ec)reject("cannot write report");output<<llvm::formatv("{0:2}\n",llvm::json::Value(std::move(report)));output.close();
     llvm::Module dest("sparse_manifest",context);arch->PrepareModuleDataLayout(&dest);
     for(auto& row:ordered)remill::MoveFunctionIntoModule(row.second,&dest);
     if(llvm::verifyModule(dest,&llvm::errs()))reject("invalid lifted LLVM module");

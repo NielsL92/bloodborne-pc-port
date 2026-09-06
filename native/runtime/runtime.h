@@ -6,11 +6,14 @@
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+#include <string>
 #include <remill/Arch/X86/Runtime/State.h>
 struct Memory;
 namespace bb_runtime {
 using Lifted=Memory*(*)(State*,uint64_t,Memory*);
 enum Rights:uint32_t {Read=1,Write=2,Code=4};
+struct SourceContext {State* state;uint64_t pc;const SourceContext* previous;};
+struct AccessGuard {uint64_t base,size;std::string identity;};
 struct Region {uint64_t base,size;uint8_t* backing;uint32_t rights;};
 struct Target {uint64_t pc;Lifted function;};
 struct SourcePair {uint64_t source,requested;};
@@ -21,7 +24,7 @@ struct X87Site {uint64_t pc;uint16_t fop;Segment data_segment;};
 struct FpProfile {const char* identity;uint64_t image_policy;uint32_t mxcsr_mask;const X87Site* sites;size_t site_count;};
 void validate_fp_profile(const FpProfile&);
 class AddressSpace {
- std::vector<Region> regions_;CRITICAL_SECTION lock_{};bool sealed_=false;
+ std::vector<Region> regions_;std::vector<AccessGuard> guards_;CRITICAL_SECTION lock_{};bool sealed_=false;
  const Region* containing(uint64_t)const noexcept;
  bool span(uint64_t,size_t,uint32_t)const noexcept;
  void copy(uint64_t,void*,size_t,bool) noexcept;
@@ -29,6 +32,8 @@ class AddressSpace {
  AddressSpace();~AddressSpace();AddressSpace(const AddressSpace&)=delete;AddressSpace& operator=(const AddressSpace&)=delete;
  // Host setup only; copies are private and never executable.
  void add(uint64_t,size_t,uint32_t,const void* initial=nullptr,size_t initial_size=0);
+ void guard(uint64_t,size_t,const std::string& identity);
+ size_t guard_count()const noexcept{return guards_.size();}
  void seal();bool sealed()const noexcept{return sealed_;}
  void enter()noexcept{EnterCriticalSection(&lock_);}void leave()noexcept{LeaveCriticalSection(&lock_);}
  void check(Memory*,uint64_t,size_t,bool,size_t alignment=1)noexcept;
@@ -47,5 +52,7 @@ struct Memory {
  uint64_t entry=0,returned_pc=0,operations=0;DWORD owner_thread=0;unsigned atomic_depth=0;
  FILE* fault_stream=stderr;
  const bb_runtime::Import* active_import=nullptr;
+ const bb_runtime::AccessGuard* active_guard=nullptr;
+ const bb_runtime::SourceContext* active_source=nullptr;
  const bb_runtime::FpProfile* fp_profile=nullptr;uint32_t pointer_segments=0;
 };
