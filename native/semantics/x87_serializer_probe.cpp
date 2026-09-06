@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include "x87_environment.h"
 #include <cstdio>
+#include <cstring>
 #include <cstdlib>
 using namespace bb_x87;
 extern "C" void probe_store(const void*,const void*,void*,void*);

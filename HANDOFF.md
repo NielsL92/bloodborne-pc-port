@@ -1,10 +1,10 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 13:16 UTC
+## Current continuation — 2026-09-06 13:36 UTC
 
-Execution continues autonomously; user action: none. Read `reports/x87-serializers.md`, `reports/x87-serializer-evidence.json` and decision `0003-canonical-x87-state-and-explicit-image-profiles.md`. Pure image helpers pass 5,242,880 checks under explicit profiles; one precisely isolated host pointer truncation remains counted. The separate host probe confirms upper-pointer loss across delays without proving a particular kernel cause. No new startup selector or game compilation coverage was added.
+Execution continues autonomously; user action: none. Read `reports/x87-images.md` and `reports/x87-image-evidence.json`. Experimental v18 binds FNSTENV/FLDENV/FXSAVE/FXSAVE64 and normalizes FLDCW. All 557,864 authored image cases pass, including 161,640 compared faults, four additional pending-before-unsupported cases and 24 explicit unsupported mappings. Existing stack/fault regressions pass 1,499,136 / 720,896 cases; pure image helpers pass 5,242,880 checks. All prior failures remain preserved.
 
-Next: bind the checked FNSTENV/FLDENV/FXSAVE image helpers to experimental selectors with waiting/alignment/RAM-span contracts and explicit guest pointer metadata. Normalize FLDCW's reserved bits and fix adjacent LDMXCSR/STMXCSR host-state leakage. Complete x87 memory/arithmetic and MMX coherence before promoting startup semantics. Experimental stack/control v15 still passes 1,499,136 masked and 720,896 deferred-fault cases; accepted startup semantics remain v9-sqrt. See reports/x87-faults.md.
+Next: correct LDMXCSR/STMXCSR guest state isolation and reserved-bit faults, complete x87 memory/arithmetic and MMX coherence, and continue native runtime/control closure. Other x87 producers still require pointer-segment metadata. Experimental v18 remains unaccepted for startup; accepted semantics remain v9-sqrt.
 
 Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio work remains unchanged. Preserve every run and use tools/run_record.py with fresh outputs.
 

@@ -126,3 +126,8 @@ Combined census: 21,150 entries, all 18,444 initial constructors. Two x87 enviro
 ## x87 exception continuation — 2026-09-06 12:53 UTC
 
 The experimental v15 stack/control family passes masked and precise deferred-fault comparisons; see reports/x87-faults.md and reports/x87-fault-evidence.json. This validates authored callbacks and compared state effects, not general native Windows unwind or PS4 exception delivery. Current recovery/compilation counts and the P3 gate are unchanged.
+
+
+## Experimental x87 image bindings (2026-09-06 13:36 UTC)
+
+Four image selectors and reserved-bit-normalized FLDCW pass 557,864 authored AOT image/boundary cases. Masked-stack and deferred-fault regressions pass 1,499,136 / 720,896 cases. Pure serializers pass 5,242,880 checks after inline/freestanding adaptation. See reports/x87-images.md and reports/x87-image-evidence.json for exact fault/profile/mapping limits and retained failures. Experimental v18 remains unaccepted for startup; compiled entry counts and P3/P1 gates are unchanged. No game-derived code was executed.
