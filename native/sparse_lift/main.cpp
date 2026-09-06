@@ -37,7 +37,10 @@ std::map<uint64_t,std::string> decoded_selectors;
 struct ReturnContract {uint64_t expected;std::string provenance;};
 std::map<uint64_t,ReturnContract> return_contracts;
 std::set<uint64_t> checked_return_contracts;
-struct ReturnCheck {std::string root;uint64_t source,expected;bool no_normal_return;};
+struct ReturnCheck {std::string root;uint64_t source,expected;bool no_normal_return,hypercall;};
+struct MissingExit {std::string root;uint64_t requested;};
+std::vector<MissingExit> missing_exits;
+std::map<llvm::Function*,llvm::AllocaInst*> source_slots;
 std::vector<ReturnCheck> return_checks;
 [[noreturn]] void reject(const std::string& why) { throw std::runtime_error(why); }
 uint64_t number(const llvm::json::Object& o,llvm::StringRef key) {
@@ -59,7 +62,13 @@ size_t bb_sparse_instruction_size(uint64_t pc) {
   if(memory.count(pc))reject("control transfer enters an instruction interior");
   missing.insert(pc);return false;
 }
-void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins) {
+// Per-invocation local provenance: promotion selects the executed predecessor,
+// including joins and loops. Callees cannot overwrite their caller's slot.
+llvm::AllocaInst* source_slot(llvm::Function* function){
+  if(source_slots.count(function))return source_slots.at(function);
+  llvm::IRBuilder<> ir(&function->getEntryBlock(),function->getEntryBlock().begin());auto* slot=ir.CreateAlloca(ir.getInt64Ty(),nullptr,"BB_SOURCE_PC");ir.CreateStore(ir.getInt64(0),slot);source_slots[function]=slot;return slot;
+}
+void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins,llvm::BasicBlock* block) {
   if(!instructions.count(pc)||ins.bytes!=instructions.at(pc))reject("Remill instruction bytes/boundary disagree with manifest");
   // Canonical raw x87 storage is not yet coherent with Remill's independent
   // MMX slots. A future discovered MMX path must fail closed, not silently mix
@@ -73,6 +82,7 @@ void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins) {
     const auto& contract=return_contracts.at(pc);
     if((ins.category!=remill::Instruction::kCategoryDirectFunctionCall&&ins.category!=remill::Instruction::kCategoryIndirectFunctionCall)||contract.expected!=ins.next_pc||ins.branch_taken_pc==ins.branch_not_taken_pc)reject("return contract must identify an actual ordinary call and exact next PC");
   }
+  llvm::IRBuilder<>(block).CreateStore(llvm::ConstantInt::get(llvm::Type::getInt64Ty(block->getContext()),pc),source_slot(block->getParent()));
   decoded_selectors[pc]=ins.function;
   // Pinned Remill DecodeFpuOpcode uses &3 instead of &7. Normalize the
   // appended immediate from exact manifest bytes, before semantic lifting.
@@ -109,15 +119,28 @@ bool bb_sparse_emit_trap(const remill::Instruction& ins,llvm::BasicBlock* block,
 llvm::BasicBlock* bb_sparse_check_call_return(const remill::Instruction& ins,llvm::BasicBlock* block,const remill::IntrinsicTable& intrinsics){
   auto* function=block->getParent();auto* module=function->getParent();auto& context=module->getContext();
   bool no_return=return_contracts.count(ins.pc)!=0;if(no_return)checked_return_contracts.insert(ins.pc);
-  return_checks.push_back({function->getName().str(),ins.pc,ins.next_pc,no_return});
+  bool hypercall=ins.category==remill::Instruction::kCategoryAsyncHyperCall||ins.category==remill::Instruction::kCategoryConditionalAsyncHyperCall;
+  return_checks.push_back({function->getName().str(),ins.pc,ins.next_pc,no_return,hypercall});
   auto* actual=remill::LoadProgramCounter(block,intrinsics);auto* wanted=llvm::ConstantInt::get(intrinsics.pc_type,ins.next_pc);
   auto* success=llvm::BasicBlock::Create(context,"checked_call_return",function);auto* failure=llvm::BasicBlock::Create(context,"invalid_call_return",function);
   llvm::IRBuilder<> ir(block);if(no_return)ir.CreateBr(failure);else ir.CreateCondBr(ir.CreateICmpEQ(actual,wanted),success,failure);
   auto* original=intrinsics.error->getFunctionType();auto* type=llvm::FunctionType::get(llvm::Type::getVoidTy(context),{original->getParamType(0),original->getParamType(1),original->getParamType(2),llvm::Type::getInt32Ty(context),original->getParamType(1),original->getParamType(1)},false);
   auto callee=module->getOrInsertFunction("__bb_native_control_fault",type);auto* boundary=llvm::cast<llvm::Function>(callee.getCallee());boundary->setCallingConv(intrinsics.error->getCallingConv());boundary->addFnAttr(llvm::Attribute::NoReturn);boundary->addFnAttr(llvm::Attribute::NoUnwind);
   auto* mem=remill::LoadMemoryPointer(failure,intrinsics);llvm::IRBuilder<> fault(failure);
-  auto* call=fault.CreateCall(callee,{remill::LoadStatePointer(failure),llvm::ConstantInt::get(intrinsics.pc_type,ins.pc),mem,llvm::ConstantInt::get(llvm::Type::getInt32Ty(context),no_return?2:1),wanted,actual});call->setCallingConv(boundary->getCallingConv());call->setDoesNotThrow();call->setDoesNotReturn();fault.CreateUnreachable();return success;
+  auto* call=fault.CreateCall(callee,{remill::LoadStatePointer(failure),llvm::ConstantInt::get(intrinsics.pc_type,ins.pc),mem,llvm::ConstantInt::get(llvm::Type::getInt32Ty(context),no_return?2:(hypercall?3:1)),wanted,actual});call->setCallingConv(boundary->getCallingConv());call->setDoesNotThrow();call->setDoesNotReturn();fault.CreateUnreachable();return success;
 }
+
+// An absent declared instruction is a transfer request, not permission to run
+// any compiled destination. The native binding must validate target/requested,
+// source-edge authorization and target availability, or fail with this context.
+void bb_sparse_emit_missing(uint64_t requested,llvm::BasicBlock* block,const remill::IntrinsicTable& intrinsics){
+  auto* function=block->getParent();auto& context=block->getContext();auto* original=intrinsics.missing_block->getFunctionType();
+  auto* type=llvm::FunctionType::get(original->getReturnType(),{original->getParamType(0),original->getParamType(1),original->getParamType(2),intrinsics.pc_type,intrinsics.pc_type},false);
+  auto callee=block->getModule()->getOrInsertFunction("__bb_native_block_transfer",type);auto* boundary=llvm::cast<llvm::Function>(callee.getCallee());boundary->setCallingConv(intrinsics.missing_block->getCallingConv());boundary->addFnAttr(llvm::Attribute::NoUnwind);
+  auto* target=remill::LoadNextProgramCounter(block,intrinsics);remill::StoreProgramCounter(block,target);auto* mem=remill::LoadMemoryPointer(block,intrinsics);auto* slot=source_slot(function);llvm::IRBuilder<> ir(block);auto* source=ir.CreateLoad(intrinsics.pc_type,slot);
+  auto* call=ir.CreateCall(callee,{remill::LoadStatePointer(block),target,mem,source,llvm::ConstantInt::get(intrinsics.pc_type,requested)});call->setCallingConv(boundary->getCallingConv());call->setDoesNotThrow();call->setTailCall(true);ir.CreateRet(call);missing_exits.push_back({function->getName().str(),requested});
+}
+void bb_sparse_unterminated_block(){reject("unterminated lifted block has no validated source/control contract");}
 
 struct Manager final:remill::TraceManager {
   const remill::Arch* arch;llvm::Module* module;uint64_t active=0;
@@ -177,8 +200,9 @@ int main(int argc,char** argv) {
     remill::TraceLifter lifter(arch.get(),manager);
     for(auto pc:roots){manager.active=pc;if(!lifter.Lift(pc))reject("trace lifting failed");}
     if(checked_return_contracts.size()!=return_contracts.size())reject("declared nonreturn contract was not guarded");
-    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows,opcode_rows,selector_rows,return_rows;
-    for(const auto& row:return_checks){llvm::json::Object check{{"root",row.root},{"source",int64_t(row.source)},{"expected_next_pc",int64_t(row.expected)},{"no_normal_return",row.no_normal_return}};if(row.no_normal_return)check["provenance"]=return_contracts.at(row.source).provenance;return_rows.push_back(std::move(check));}
+    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows,opcode_rows,selector_rows,return_rows,missing_exit_rows;
+    for(const auto& row:missing_exits)missing_exit_rows.push_back(llvm::json::Object{{"root",row.root},{"requested",int64_t(row.requested)},{"source","last decoded instruction on actual predecessor path"},{"reason","absent-declared-instruction"}});
+    for(const auto& row:return_checks){llvm::json::Object check{{"root",row.root},{"source",int64_t(row.source)},{"expected_next_pc",int64_t(row.expected)},{"no_normal_return",row.no_normal_return},{"kind",row.hypercall?"asynchronous-hypercall":"ordinary-call"}};if(row.no_normal_return)check["provenance"]=return_contracts.at(row.source).provenance;return_rows.push_back(std::move(check));}
     for(const auto& row:x87_opcodes)opcode_rows.push_back(llvm::json::Object{{"address",int64_t(row.first)},{"original",int64_t(row.second.original)},{"corrected",int64_t(row.second.corrected)}});
     for(const auto& row:decoded_selectors){
       std::string implementation;
@@ -197,7 +221,7 @@ int main(int argc,char** argv) {
     for(auto& row:ordered)trace_rows.push_back(int64_t(row.first));
     auto unvisited_count=unvisited.size();
     llvm::json::Object report{{"schema",1},{"input_instructions",int64_t(instructions.size())},{"input_bytes",int64_t(memory.size())},
-      {"call_return_checks",std::move(return_rows)},{"decoded_selectors",std::move(selector_rows)},{"x87_opcode_immediates",std::move(opcode_rows)},{"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
+      {"missing_block_exits",std::move(missing_exit_rows)},{"call_return_checks",std::move(return_rows)},{"decoded_selectors",std::move(selector_rows)},{"x87_opcode_immediates",std::move(opcode_rows)},{"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
       {"decoded_addresses",std::move(decoded_rows)},{"missing_instruction_starts",std::move(missing_rows)},
       {"unvisited_manifest_instructions",std::move(unvisited)},{"compiled_roots",std::move(trace_rows)},
       {"execution","none; static lifting census is not execution coverage"}};

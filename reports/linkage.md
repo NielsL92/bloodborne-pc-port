@@ -1,44 +1,13 @@
-# Complete object linkage inventory
+# Complete native linkage inventory
 
-Current division correction (2026-09-06 20:26 UTC): reports/divide-semantics.md and its evidence record 327,680 zero-difference authored cases, 218,424 precise faults and thirteen exact replacement objects. Use divide-integration-manifest-v1/active-objects.json. Current LLVM census v8-divide-repeat has no generic error calls, 56 divide faults, 58 SIMD faults and 4,818 missing blocks; COFF audit v9-divide-repeat retains 239 unresolved binding names. Earlier counts/manifests below are historical. Recovery is unchanged; P3 and native startup remain open.
+2026-09-06 21:35 UTC. P3 remains open. Current object set: `local/compiler-spike/source-exit-manifest-v2-regression/active-objects.json`, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6. All 386 objects repeat and contain 21,282 unique actual COFF function definitions for 21,181 recovered entries. No game-derived object has been linked or executed.
 
-2026-09-06 19:16 UTC. All 21,181 current manifest entries compile into 386 objects, but **P3 remains open**. No linker or game code was executed during this audit. Canonical recovery and the complete active object manifest remain startup-recovery-v31-conditional-repeat and conditional-control-evidence-audit-v2-exits/active-objects.json.
+`whole-program-linkage-v11-source-repeat` reproduces v10-source-exits, including every raw llvm-nm log. There are 240 unresolved COFF names: 177 verified PLT stubs and 63 native support/library bindings. The new sourced-control-fault and block-transfer symbols replace the generic missing-block symbol. No unclassified direct logical symbol remains.
 
-`tools/whole_program_linkage.py` verifies each active object hash and retained module mapping, then reads its actual COFF symbol table with pinned LLVM nm. All **21,282 compiled roots** have exactly matching function definitions. The additional roots include landing pads and explicitly recovered internal targets; this is not an execution-coverage count.
+COFF symbols alone omit five tail-only import stubs reached through the block-transfer interface. The combined registry in source-exit-dispatch-v2-tail-imports/native-import-stubs.json contains 182 stubs: 67 with supplied compiled-export candidates and 115 external stubs. Raw type-7 relocations identify the five additions; Ghidra independently confirms their six-byte boundaries. Their identity does not establish native ABI/service behavior or binding.
 
-| Remaining symbol binding | Names / stub addresses |
-| --- | ---: |
-| Import PLT stubs with one supplied compiled-export candidate | 67 |
-| External import PLT stubs without a supplied-export candidate | 110 |
-| Native support / host-library symbols | 63 |
-| Unclassified direct logical targets | 0 |
+All 551 structurally reachable source/request pairs independently decode as direct branches: 524 compiled-root pairs and 27 import-stub pairs. The runtime must check actual target equals requested target, source/target and module identities, and a validated compiled/native binding. Unknown targets fail with context. The older 4,366 missing-start records retain 4,178 after-contract, 165 compiled-target and 23 import-tail classifications; they are a separate measurement from emitted saved-IR sites and pairs.
 
-The 177 stubs are addresses/symbols, not necessarily 177 distinct service APIs. Every imported stub is decoded as a RIP-relative indirect jump and checked against its actual type-7 relocation and exact NID/library/provider. Supplied candidates still require native loader binding; no original module code may execute. The support list includes Remill memory/flags/control/atomics, native FP/trap hooks, SoftFloat wrappers, 128-bit division helpers and `_fltused`. Some authored implementations already exist; their availability does not establish a production runtime binding or validated service behavior.
+Raw COFF and LLVM readobj in coff-constants-v4-source-exits agree on 35 duplicated constants / 90 definitions / 12 objects: matching read-only, relocation-free COMDAT selection-Any payloads. This resolves duplicate metadata compatibility, not the complete native link.
 
-There are 35 duplicated global constant names, comprising 90 definitions in 12 objects. `tools/check_coff_constants.py` independently checks raw COFF headers, symbol/auxiliary records, section metadata and bytes against LLVM readobj. Every duplicate is read-only, relocation-free, has selection Any, and contains the same exact payload encoded by its constant name. No compiled function root is duplicated. These checks support compatible constant coalescing; they do not link or execute the objects.
-
-## Missing starts and exit intent
-
-The compiler's missing-instruction-start audit contains 4,366 object/address records:
-
-| Recorded context | Records |
-| --- | ---: |
-| Immediately after an annotated control contract | 4,178 |
-| Explicit transfer to an already compiled root | 165 |
-| Tail transfer to a verified import stub | 23 |
-
-All 23 import-tail records are checked against their actual stub bytes and type-7 relocation, preserving the source jump and symbol identity. These records are not all missing code: many represent intentionally excluded ordinary continuation or a required native dispatch boundary.
-
-One address demonstrates why source context matters. Main 0x210b730 is a valid compiled entry, but it is also the missing continuation after main 0x210b72b's conditional error-helper call. If that call returns unexpectedly, looking up 0x210b730 and executing its compiled function would incorrectly hide the violated contract. A native handler must preserve the reason for the exit, not infer permission from the target map.
-
-The **4,366 count is not a complete emitted-IR exit census**. It records failed instruction-start requests during lifting. Optimization can merge multiple starts into one emitted call, and the pinned TraceLifter separately emits missing-block calls when a callee returns with an unexpected logical PC. These dynamic guards do not pass through the missing-start hook. Next inspect actual emitted LLVM calls and retain source/exit intent in the native interface before deciding the P3 gate.
-
-## Reproduction
-
-Current evidence is `local/compiler-spike/whole-program-linkage-v5-repeat`. It reproduces v4-stubs for objects.json, unresolved-symbols.json, duplicate-definitions.json, explicit-missing-blocks.json, known-target-after-contract.json and every raw nm log. The earlier v2-context and v3-import-tail inventories remain preserved. Their actual object/symbol identities are unchanged as source context was added.
-
-The constant comparison is `local/compiler-spike/coff-constants-v1/checked.json`. The report auditor verifies its original v2 input identities and connects them to the unchanged current object symbols and hashes. Pinned readobj's COFF JSON output contains valid Sections/Symbols JSON fragments after a non-JSON file preamble; the tool parses only those exact fragments and preserves the complete raw output.
-
-Every experiment uses tools/run_record.py. Preserve whole-program-linkage-v1: it rejected an input-format assumption because units.json contains entry identities rather than full bodies. V2 reads current manifests once, keeps compact edge context and verifies each retained instruction-set hash. `tools/summarize_linkage.py` checks all artifacts, repeated output identities, source snapshots and the known-target/contract conflict before producing reports/linkage-evidence.json.
-
-Native memory/control/service implementations, complete emitted-exit handling, linkage and startup remain unvalidated. No successful return stub, CPU interpreter, JIT, emulator or original-game execution substitutes for native recompilation. P1 observations remain unchanged.
+Next implement and validate the 63 support/library bindings, native fault/control behavior, bundled/native import binding and full linkage. Keep nounwind contracts explicit. Full source-exit evidence and remaining scope are in reports/source-exits.md and reports/source-exits-evidence.json. No native game boot or playable port exists.

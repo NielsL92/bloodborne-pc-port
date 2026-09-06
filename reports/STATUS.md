@@ -1,6 +1,22 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 20:58 UTC
+## Current continuation — 2026-09-06 21:35 UTC
+
+Continue autonomously; user action: none. Read reports/source-exits.md and reports/source-exits-evidence.json, then reports/control-exits.md, reports/linkage.md and reports/call-return.md. **P3 remains open. No native game boot or playable port exists.** No game-derived object has been linked or executed.
+
+Current complete object manifest: `local/compiler-spike/source-exit-manifest-v2-regression/active-objects.json`, SHA256 `e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6`. All 386 objects replace the preceding set; do not re-add old or diagnostic objects. Source-exit-compile-v3-repeat matches v2-all for every input, root/unit list, audit, bitcode and object. Total: 21,181 entries / 21,282 unique roots / 18,444 constructors / 874,279 exact checked instruction byte strings / 67,835,213 object bytes.
+
+Use compiler `build/sparse-lift-v11-source-exits/bb-sparse-lift.exe`, SHA256 `20fd7b06fafc7ae97c6cecccfb64ed0f5fd605d537e0c9125b0cbc10e469bbcf`; semantics remain `build/extended-semantics-v35-divide/amd64_avx.bc`, SHA256 `9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa`. SoftFloat remains build/softfloat-v2-repeat/softfloat.lib. All 4,305 exact nonreturn annotations now retain source, owner and conditional evidence in inputs. Ordinary call returns are checked before restoring the continuation. Sourced block-transfer hooks carry actual/requested target and executed source; unexpected hypercall returns use a distinct fault reason. Unclassified compiler endings reject.
+
+Source-exit authored tests pass 28,672 cases and repeat, including 24,576 hardware comparisons and 2,048 mocked hypercall faults. Ordinary-call regression remains 14,336 cases with identical native object/outcome; input and sparse regressions pass. Pinned saved bitcode has semantic inlining, before clang O2. The new LLVM audit separates structural CFG reachability from total sites: 61,370/61,536 sourced faults, 552/4,813 block transfers. All 4,305 unique nonreturn sites have structurally reachable guards. Neither count is guest execution coverage or final machine-path count.
+
+The dispatch registry `local/compiler-spike/source-exit-dispatch-v2-tail-imports` validates 551 distinct direct-branch source/request pairs: 524 compiled-root pairs and 27 verified import-stub pairs. Native dispatch is still unvalidated. Runtime imports number 182 stubs, including five tail-only stubs absent from the 177 COFF unresolved PLT symbols. Ghidra independently verifies all five new stub boundaries. COFF additionally needs 63 support/library bindings. Thirty-five duplicated constants / 90 definitions / 12 objects remain independently compatible. Current repeated audits: control-exit-inventory-v10-source-repeat and whole-program-linkage-v11-source-repeat. Latest full evidence check: source-exit-evidence-v2-instruction-bytes.
+
+Canonical recovery is unchanged at `local/cfg/startup-recovery-v31-conditional-repeat`, DB SHA256 `f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef`, manifest SHA256 `3f729683862cf6c3aa7ebbcfbaef625cff078d27e33d10b30d7f04c0a16b5f99`. Keep 9,044 unknown indirect calls, 430 indirect jumps, 143 callback arguments, five conditional ending obligations and three native service-control obligations visible. P0/P1/P2 evidence is unchanged; baseline observations are not native execution.
+
+Next implement and validate native control/fault handlers, source/target dispatch checks and native/bundled import binding compatible with nounwind, then link the complete set before deciding P3. No success placeholders, interpreter/JIT/reassembly or original CPU fallback. P1 Hunter's Dream route, profiler overhead / CPU-GPU-queue costs and audio mutex crash remain open. Approved elevated shells and installed tools work; no restart or read approval is needed. Preserve all runs and immutable game views. Continue after commits until the user stops work or an actual user action is necessary.
+
+## Previous checkpoint — 2026-09-06 20:58 UTC
 
 Execution continues autonomously; user action: none. Read reports/call-return.md and reports/call-return-evidence.json, then reports/divide-semantics.md, reports/control-exits.md and reports/linkage.md. **P3 remains open.** All 21,181 current entries compile into 386 objects with 21,282 unique compiled roots and every initial constructor exactly once. Native boundary handling and whole-set linkage remain unvalidated. No native game boot or playable port exists.
 

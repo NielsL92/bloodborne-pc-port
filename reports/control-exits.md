@@ -1,38 +1,24 @@
-# Retained LLVM control-exit census
+# Saved LLVM control-exit census
 
-2026-09-06 20:26 UTC. Current evidence is control-exit-inventory-v8-divide-repeat, byte-identical to v7-divide. Every retained bitcode module has been parsed and verified through LLVM, and its roots matched to the COFF-backed active manifest. **P3 remains open.** No input was linked or executed.
+2026-09-06 21:35 UTC. Current census: `local/compiler-spike/control-exit-inventory-v10-source-repeat`, reproducing v9-source-exits and all 386 module reports. Current complete object set: source-exit-manifest-v2-regression, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6. P3 remains open; no game-derived object was linked or executed.
 
-Use `local/compiler-spike/divide-integration-manifest-v1/active-objects.json`: 386 objects / 21,181 entries / 21,282 compiled roots. Recovery remains startup-recovery-v31-conditional-repeat.
+The pinned Remill optimizer only inlines semantic functions. This census inspects saved bitcode before clang O2 and backend code generation. Earlier descriptions of these counts as optimized/emitted native paths were too broad. Structural CFG reachability follows both conditional successors and is not execution coverage.
 
-| Emitted intrinsic call sites | Count |
-| --- | ---: |
-| Function call | 9,134 |
-| Function return | 20,149 |
-| Jump | 442 |
-| Missing block | 4,818 |
-| Generic error | 0 |
-| Explicit divide fault | 56 |
-| Explicit SIMD fault | 58 |
-| Asynchronous / synchronous hypercall | 5 / 4 |
+| Boundary | All saved sites | Structurally reachable |
+| --- | ---: | ---: |
+| Sourced control fault | 61,536 | 61,370 |
+| Sourced block transfer | 4,813 | 552 |
+| Function call | 9,134 | 9,108 |
+| Function return | 20,149 | 20,131 |
+| Jump | 442 | 439 |
+| Async / sync hypercall | 5 / 4 | 5 / 4 |
+| Divide / SIMD fault | 56 / 58 | 56 / 58 |
+| Generic error / missing-block | 0 / 0 | 0 / 0 |
 
-These are optimized LLVM call sites, not execution counts or unique guest instruction counts. The separate 4,366 missing-start records remain a different measurement. Starts can merge, and pinned TraceLifter adds unexpected-return guards for asynchronous hypercalls outside the missing-start hook. Ordinary direct/indirect calls were unchecked; the authored compiler correction is documented in reports/call-return.md and has not yet been applied to this census. Do not subtract these totals to infer the number of dynamic guards.
+All reachable sourced boundaries have complete conservative source-origin sets. There are 4,261 unreachable block-transfer sites and 166 unreachable sourced-fault sites. The independent 4,366 missing-start records remain unchanged; do not subtract different census types to infer execution. Reachable fault reasons: 56,993 unexpected ordinary returns, 4,372 returns violating exact nonreturn assertions, five unexpected hypercall returns. All 4,305 unique annotated nonreturn sources have guards reachable from at least one LLVM root.
 
-All 4,818 missing-block calls take a loaded PC value. Their intrinsic ABI does not explicitly carry source instruction and reason. Main 0x210b730 is both a compiled entry and the excluded continuation after the conditional call at 0x210b72b. A compiled target does not authorize treating an unexpected return as ordinary dispatch.
+The native interfaces retain source, expected/requested target, actual target and fault reason. Their call sites carry nounwind; fault sites additionally carry noreturn. Root definitions use C ABI ptr(ptr,i64,ptr) without nounwind. Unknown behavior must fail explicitly or use a separately validated nonlocal mechanism; C++ exceptions cannot simply cross nounwind.
 
-Ordinary Remill control calls carry nounwind and are not LLVM invokes. Root definitions use the C ABI ptr(ptr, i64, ptr) and do not themselves carry nounwind. Native handlers must honor the call contract, or it must be deliberately changed and validated. Availability of C++ exceptions does not justify unwinding through nounwind calls. Zero indirect LLVM calls appear in this census; guest indirect control goes through explicit intrinsics.
+The 552 reachable transfers represent 551 distinct direct-branch pairs. Independent decoding and relocation checks identify 524 pairs to compiled roots and 27 to verified import stubs. A compiled target alone does not authorize dispatch. Main 0x210b730 remains both an entry and the excluded continuation after 0x210b72b; the source nonreturn guard prevents treating that unexpected return as normal flow.
 
-## Resolved semantic error paths
-
-The original census contained 105 generic error paths: 49 comparison-family paths and 56 division paths. Independent authored tests exposed concrete state/fault defects. The COMI/UCOMI correction passes 851,968 cases; DIV/IDIV passes 327,680 cases, including 218,424 precise faults. Both repeat, and the comparison regression is unchanged in the new division module. See reports/comi-semantics.md and reports/divide-semantics.md.
-
-All 105 generic error references have been replaced by explicit native fault contracts. This is a statement about tested instruction semantics and emitted interfaces, not production exception delivery. The remaining x87/memory/service/control/native binding obligations persist.
-
-Other hook counts remain in machine evidence: 16 UD2, 2 MXCSR faults, 352 x87 faults, 17 unsupported-x87 calls, and x87 span/state/policy hooks. Most fault hooks carry nounwind and noreturn; UD2 carries noreturn without nounwind. Their declarations do not establish production handlers.
-
-## Reproduction and next work
-
-The read-only inspector remains build/control-audit-v4-context/control-audit.exe, SHA256 e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e. Tools/control_exit_inventory.py verifies object hashes, parses/verifies saved bitcode and checks root identity. The current run reproduces every aggregate artifact and all 386 per-module reports. Tools/summarize_divide.py verifies current evidence, run source snapshots and the complete replacement manifest through tools/run_record.py.
-
-Original census artifacts remain in control-exit-inventory-v4-repeat; the comparison checkpoint remains in v6-comi-repeat. No runs were overwritten. Current reports/control-exits-evidence.json and reports/divide-semantics-evidence.json point to the latest set.
-
-Next add source/expected-continuation/exit-reason information at compiler boundaries and validate compatible native handling, then bind and link the full set before deciding P3. No native game boot or playable port exists. P1 observations are unchanged.
+Read reports/source-exits.md and reports/source-exits-evidence.json for exact artifacts, compiler/input checks, source-slot analysis, repeated object identities and five independently Ghidra-checked tail-only import stubs. Inspector: build/control-audit-v6-source-slot/control-audit.exe. The actual native handlers, complete linkage and game boot remain unvalidated. P1 observations are unchanged.

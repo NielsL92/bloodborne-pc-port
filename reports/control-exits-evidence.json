@@ -1,18 +1,19 @@
 {
-  "status": "complete retained-bitcode exit census after DIV/IDIV correction; native runtime handling remains open",
+  "status": "repeated whole-set source-aware compilation and exit registry verified; native binding/linkage gate remains open",
   "inventory": {
     "status": "all saved bitcode control sites inventoried; native boundary handling remains unvalidated",
-    "active_manifest": "local\\compiler-spike\\divide-integration-manifest-v1\\active-objects.json",
-    "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
-    "inspector_sha256": "e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e",
+    "active_manifest": "local\\compiler-spike\\source-exit-manifest-v2-regression\\active-objects.json",
+    "active_manifest_sha256": "e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6",
+    "inspector_sha256": "b9b27e3130a0b3809d071d4744e97f1a96f628849fdf32132ba2ca254d278935",
     "objects": 386,
     "compiled_functions": 21282,
     "site_counts": {
+      "__bb_native_control_fault": 61536,
       "__remill_function_call": 9134,
       "__remill_function_return": 20149,
       "__remill_jump": 442,
+      "__bb_native_block_transfer": 4813,
       "__remill_async_hyper_call": 5,
-      "__remill_missing_block": 4818,
       "__bb_native_divide_fault": 56,
       "__bb_native_simd_fault": 58,
       "__remill_sync_hyper_call": 4,
@@ -27,6 +28,35 @@
       "__bb_native_x87_set_pointer_segments": 1,
       "__bb_native_x87_unsupported": 17
     },
+    "cfg_reachable_site_counts": {
+      "__remill_function_call": 9108,
+      "__bb_native_control_fault": 61370,
+      "__remill_jump": 439,
+      "__remill_function_return": 20131,
+      "__bb_native_block_transfer": 552,
+      "__remill_async_hyper_call": 5,
+      "__bb_native_divide_fault": 56,
+      "__bb_native_simd_fault": 58,
+      "__remill_sync_hyper_call": 4,
+      "__bb_native_ud2": 16,
+      "__bb_native_x87_fault": 352,
+      "__bb_native_x87_check_span": 121,
+      "__bb_native_x87_image_policy": 667,
+      "__bb_native_x87_record_instruction": 829,
+      "__bb_native_x87_unsupported": 17,
+      "__bb_native_mxcsr_mask": 2,
+      "__bb_native_mxcsr_fault": 2,
+      "__bb_native_x87_pointer_segments": 2,
+      "__bb_native_x87_set_pointer_segments": 1
+    },
+    "cfg_unreachable_site_counts": {
+      "__bb_native_block_transfer": 4261,
+      "__bb_native_control_fault": 166,
+      "__remill_function_call": 26,
+      "__remill_function_return": 18,
+      "__remill_jump": 3
+    },
+    "bitcode_stage": "Remill semantic inlining output before clang O2 and backend code generation; structural reachability is not execution coverage",
     "function_attribute_counts": [
       {
         "calling_convention": 0,
@@ -36,6 +66,20 @@
       }
     ],
     "control_site_attribute_counts": [
+      {
+        "callee": "__bb_native_block_transfer",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4813
+      },
+      {
+        "callee": "__bb_native_control_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 61536
+      },
       {
         "callee": "__bb_native_divide_fault",
         "nounwind": true,
@@ -149,13 +193,6 @@
         "count": 442
       },
       {
-        "callee": "__remill_missing_block",
-        "nounwind": true,
-        "noreturn": false,
-        "is_invoke": false,
-        "count": 4818
-      },
-      {
         "callee": "__remill_sync_hyper_call",
         "nounwind": true,
         "noreturn": false,
@@ -163,71 +200,202 @@
         "count": 4
       }
     ],
-    "missing_block_pc_value_kinds": {
-      "load": 4818
-    },
+    "missing_block_pc_value_kinds": {},
     "error_semantic_origin_counts": {},
     "error_attribution": "Retained optimized successor block names identify the inlined semantic family, not the precise guest instruction or a verified fault contract.",
     "indirect_llvm_calls": 0,
     "artifact_sha256": {
-      "objects.json": "760b87057e2507bb515944efa1735a9783d972d33c307f017329713dfbd45e2d",
-      "declarations.json": "79fa9daa897088c73f70d4e575d188087532bc2d55b1041c74eff64f6c2caaa8",
-      "missing-block-sites.json": "d692fef3cd47b178a75128c2a604f0a80322d17bf7d98f7dc78012554d7acc4d",
-      "error-sites.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+      "objects.json": "f0440e3000275d5f6df25b14486d653c0241a707d0800337a16f766f35add8b1",
+      "declarations.json": "7e7b9e77a8d95c21cdaf910b51c70128cb68275e47b2490fda690df12392eb3a",
+      "missing-block-sites.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "error-sites.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "sourced-control-sites.json": "a8ba702bdb47ff1b23e545276914377b97d1cb242b66d889ef447b53afc3dc1d"
     },
     "limitations": [
       "Actual LLVM API parse and verification of retained bitcode, with root identities compared to current COFF-backed manifests; no JIT, linking or game execution.",
-      "These are optimized IR call sites, not execution counts or one-to-one machine instruction/CFG-edge counts. Different starts can merge and dynamic return guards can add exits.",
+      "These are saved pre-clang-O2 IR call sites, not final machine-code sites, execution counts or one-to-one instruction/CFG-edge counts. Different starts can merge and dynamic return guards can add exits.",
       "The same __remill_error hook is used by semantic StopFailure paths and compiler error paths; retained block names classify this census, not hardware behavior.",
       "nounwind is a compiler contract. Native handlers must honor it or the compiler/call-site contract must be changed and independently validated; availability of C++ exceptions does not authorize throwing across it."
     ],
     "p3_gate_passed": false,
     "native_game_boot": false
   },
-  "runs": {
-    "20260906-p3-divide-integration-manifest-v1": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 1.298580499831587
+  "dispatch": {
+    "status": "source/request pairs independently decoded; native dispatch still requires validation",
+    "active_manifest_sha256": "e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6",
+    "inventory_sha256": "8397d74e3d333e2383d1e1b5e6921d6efed324857eec17b27c2a8c796851348a",
+    "reachable_transfer_sites": 552,
+    "unique_pairs": 551,
+    "runtime_import_stubs": 182,
+    "tail_only_import_stubs": [
+      {
+        "logical_address": 12884902480,
+        "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+        "rva": 592,
+        "kind": "import PLT requires native binding",
+        "stub_bytes": "ff2582bf0400",
+        "relocation": {
+          "offset": 311768,
+          "type": 7,
+          "symbol": 31,
+          "addend": 0,
+          "table": "plt"
+        },
+        "symbol_record": {
+          "index": 31,
+          "name": "4wSze92BhLI#C#D",
+          "nid": "4wSze92BhLI",
+          "bind": 1,
+          "type": 2,
+          "defined": false,
+          "value": 0,
+          "size": 0,
+          "library": "libkernel",
+          "module": "libkernel"
+        },
+        "runtime_binding_validated": false,
+        "coff_undefined_symbol": false
+      },
+      {
+        "logical_address": 12884903248,
+        "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+        "rva": 1360,
+        "kind": "import PLT requires native binding",
+        "stub_bytes": "ff2502be0400",
+        "relocation": {
+          "offset": 312152,
+          "type": 7,
+          "symbol": 76,
+          "addend": 0,
+          "table": "plt"
+        },
+        "symbol_record": {
+          "index": 76,
+          "name": "aI+OeCz8xrQ#C#D",
+          "nid": "aI+OeCz8xrQ",
+          "bind": 1,
+          "type": 2,
+          "defined": false,
+          "value": 0,
+          "size": 0,
+          "library": "libkernel",
+          "module": "libkernel"
+        },
+        "runtime_binding_validated": false,
+        "coff_undefined_symbol": false
+      },
+      {
+        "logical_address": 4340843256,
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "rva": 45875960,
+        "kind": "import PLT requires native binding",
+        "stub_bytes": "ff25b2528202",
+        "relocation": {
+          "offset": 87971248,
+          "type": 7,
+          "symbol": 113,
+          "addend": 0,
+          "table": "plt"
+        },
+        "symbol_record": {
+          "index": 113,
+          "name": "6381dWF+xsQ#K#L",
+          "nid": "6381dWF+xsQ",
+          "bind": 1,
+          "type": 2,
+          "defined": false,
+          "value": 0,
+          "size": 0,
+          "library": "libSceHttp",
+          "module": "libSceHttp"
+        },
+        "runtime_binding_validated": false,
+        "coff_undefined_symbol": false
+      },
+      {
+        "logical_address": 4340835816,
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "rva": 45868520,
+        "kind": "import PLT requires native binding",
+        "stub_bytes": "ff253a618202",
+        "relocation": {
+          "offset": 87967528,
+          "type": 7,
+          "symbol": 595,
+          "addend": 0,
+          "table": "plt"
+        },
+        "symbol_record": {
+          "index": 595,
+          "name": "ltCfaGr2JGE#I#J",
+          "nid": "ltCfaGr2JGE",
+          "bind": 1,
+          "type": 2,
+          "defined": false,
+          "value": 0,
+          "size": 0,
+          "library": "libScePosix",
+          "module": "libkernel"
+        },
+        "runtime_binding_validated": false,
+        "coff_undefined_symbol": false
+      },
+      {
+        "logical_address": 34359739136,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "rva": 768,
+        "kind": "import PLT requires native binding",
+        "stub_bytes": "ff2512840b00",
+        "relocation": {
+          "offset": 755480,
+          "type": 7,
+          "symbol": 45,
+          "addend": 0,
+          "table": "plt"
+        },
+        "symbol_record": {
+          "index": 45,
+          "name": "VADc3MNQ3cM#A#B",
+          "nid": "VADc3MNQ3cM",
+          "bind": 1,
+          "type": 2,
+          "defined": false,
+          "value": 0,
+          "size": 0,
+          "library": "libkernel",
+          "module": "libkernel"
+        },
+        "runtime_binding_validated": false,
+        "coff_undefined_symbol": false
+      }
+    ],
+    "runtime_import_registry_sha256": "e21c3eb8ac038880c78ec037a6187f22ba5096b988807f33f8180095ac4ab85b",
+    "target_classes": {
+      "verified import stub": 27,
+      "compiled root": 524
     },
-    "20260906-p3-control-exit-inventory-v7-divide": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 7.464128899853677
+    "edge_classes": {
+      "decoded direct branch": 551
     },
-    "20260906-p3-control-exit-inventory-v8-divide-repeat": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 7.21857380005531
+    "reachable_fault_reasons": {
+      "1": 56993,
+      "2": 4372,
+      "3": 5
     },
-    "20260906-p3-whole-program-linkage-v8-divide": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 5.7749656001105905
+    "structurally_unreachable_sites": {
+      "__bb_native_block_transfer": 4261,
+      "__bb_native_control_fault": 166
     },
-    "20260906-p3-whole-program-linkage-v9-divide-repeat": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 5.4380119000561535
-    },
-    "20260906-p3-coff-constants-v3-divide": {
-      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
-      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
-      "elapsed_seconds": 0.4471544998232275
-    }
+    "pairs_sha256": "6f14a307815fc179bd6e779f7f3826b3b114711b7035d24167bea8684acbb793",
+    "runtime_requirements": [
+      "Actual target must equal the compiler requested target.",
+      "Source/request pair must match the exact compiled input and module code identities.",
+      "Target must resolve to a compiled root or a separately validated native import binding; unresolved targets fail explicitly.",
+      "Conditional recovery assumptions, mutable data and unknown call/callback/exception targets remain visible."
+    ],
+    "p3_gate_passed": false,
+    "game_execution": false
   },
-  "correction_report": "reports/divide-semantics-evidence.json",
-  "prior_inventory": "local/compiler-spike/control-exit-inventory-v4-repeat/summary.json",
-  "next_work": [
-    "Preserve source instruction and exit reason at native control boundaries; honor or deliberately change and validate nounwind contracts.",
-    "Implement or diagnose native service/support boundaries, bind compiled supplied exports and validate linkage/startup without a CPU fallback."
-  ],
-  "p3_gate_passed": false,
-  "native_game_boot": false,
-  "call_return_correction": {
-    "evidence": "reports/call-return-evidence.json",
-    "pinned_ordinary_calls_checked": false,
-    "pinned_dynamic_guards": "asynchronous hypercalls only",
-    "active_game_objects_replaced": false
-  }
+  "source_evidence": "reports/source-exits-evidence.json",
+  "p3_gate_passed": false
 }
