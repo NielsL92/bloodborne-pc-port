@@ -26734,5 +26734,17 @@
     "missing_instruction_start_records": 4366,
     "emitted_ir_exit_sites_audited": false,
     "p3_gate_passed": false
+  },
+  "retained_control_exits": {
+    "report": "reports/control-exits-evidence.json",
+    "status": "Complete retained LLVM call-site census; native boundary handling remains open",
+    "objects": 386,
+    "compiled_roots": 21282,
+    "missing_block_ir_sites": 4818,
+    "error_ir_sites": 105,
+    "integer_division_error_sites": 56,
+    "scalar_comparison_error_sites": 49,
+    "p3_gate_passed": false,
+    "native_game_boot": false
   }
 }

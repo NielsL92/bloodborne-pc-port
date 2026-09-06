@@ -1,0 +1,234 @@
+{
+  "status": "complete retained-bitcode control-site census independently repeated; native exit contracts remain open",
+  "inventory": {
+    "status": "all saved bitcode control sites inventoried; native boundary handling remains unvalidated",
+    "active_manifest": "local\\compiler-spike\\conditional-control-evidence-audit-v2-exits\\active-objects.json",
+    "active_manifest_sha256": "d23a3d2c94477ba3463b421929b678d48ce7e054a8cf943e179daa24526c2b74",
+    "inspector_sha256": "e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e",
+    "objects": 386,
+    "compiled_functions": 21282,
+    "site_counts": {
+      "__remill_function_call": 9134,
+      "__remill_function_return": 20149,
+      "__remill_jump": 442,
+      "__remill_async_hyper_call": 5,
+      "__remill_missing_block": 4818,
+      "__remill_error": 105,
+      "__remill_sync_hyper_call": 4,
+      "__bb_native_ud2": 16,
+      "__bb_native_simd_fault": 9,
+      "__bb_native_mxcsr_fault": 2,
+      "__bb_native_mxcsr_mask": 2,
+      "__bb_native_x87_check_span": 121,
+      "__bb_native_x87_fault": 352,
+      "__bb_native_x87_image_policy": 667,
+      "__bb_native_x87_pointer_segments": 2,
+      "__bb_native_x87_record_instruction": 829,
+      "__bb_native_x87_set_pointer_segments": 1,
+      "__bb_native_x87_unsupported": 17
+    },
+    "function_attribute_counts": [
+      {
+        "calling_convention": 0,
+        "nounwind": false,
+        "noreturn": false,
+        "count": 21282
+      }
+    ],
+    "control_site_attribute_counts": [
+      {
+        "callee": "__bb_native_mxcsr_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_mxcsr_mask",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_simd_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 9
+      },
+      {
+        "callee": "__bb_native_ud2",
+        "nounwind": false,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 16
+      },
+      {
+        "callee": "__bb_native_x87_check_span",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 121
+      },
+      {
+        "callee": "__bb_native_x87_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 352
+      },
+      {
+        "callee": "__bb_native_x87_image_policy",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 667
+      },
+      {
+        "callee": "__bb_native_x87_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_x87_record_instruction",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 829
+      },
+      {
+        "callee": "__bb_native_x87_set_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 1
+      },
+      {
+        "callee": "__bb_native_x87_unsupported",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 17
+      },
+      {
+        "callee": "__remill_async_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 5
+      },
+      {
+        "callee": "__remill_error",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 105
+      },
+      {
+        "callee": "__remill_function_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 9134
+      },
+      {
+        "callee": "__remill_function_return",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 20149
+      },
+      {
+        "callee": "__remill_jump",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 442
+      },
+      {
+        "callee": "__remill_missing_block",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4818
+      },
+      {
+        "callee": "__remill_sync_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4
+      }
+    ],
+    "missing_block_pc_value_kinds": {
+      "load": 4818
+    },
+    "error_semantic_origin_counts": {
+      "IDIVrdxrax": 10,
+      "DIVrdxrax": 26,
+      "IDIVedxeax": 10,
+      "COMISS": 32,
+      "COMISD": 17,
+      "DIVedxeax": 10
+    },
+    "error_attribution": "Retained optimized successor block names identify the inlined semantic family, not the precise guest instruction or a verified fault contract.",
+    "indirect_llvm_calls": 0,
+    "artifact_sha256": {
+      "objects.json": "44a129b86cc608955539ea03bde28a1b228ac5ced27dcbfec6494020f64e5b0f",
+      "declarations.json": "bc5c4884e3cd862f7e48cce8b890cfc43dedd5cde9ff24e8384770f9e799a587",
+      "missing-block-sites.json": "761a6596dad934df20c46400354121d53865434da7eb3de46e5a51ca42f9bb7d",
+      "error-sites.json": "d835550d905d141030bca4f520d63f487b7417a40537e27607561b37416a634d"
+    },
+    "limitations": [
+      "Actual LLVM API parse and verification of retained bitcode, with root identities compared to current COFF-backed manifests; no JIT, linking or game execution.",
+      "These are optimized IR call sites, not execution counts or one-to-one machine instruction/CFG-edge counts. Different starts can merge and dynamic return guards can add exits.",
+      "The same __remill_error hook is used by semantic StopFailure paths and compiler error paths; retained block names classify this census, not hardware behavior.",
+      "nounwind is a compiler contract. Native handlers must honor it or the compiler/call-site contract must be changed and independently validated; availability of C++ exceptions does not authorize throwing across it."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false
+  },
+  "source_sha256": {
+    "external/remill/lib/BC/TraceLifter.cpp": "edc99939625213dcf0a3312da1fde8d0824a4e3544faaf93d33dec42b347623a",
+    "external/remill/include/remill/Arch/Runtime/Operators.h": "17ec71e0d342dd35ff9761fc8f2124d6318841aa6ca4f28e81f3560b10b6836a",
+    "external/remill/lib/Arch/X86/Semantics/BINARY.cpp": "c9d9ae61cc1ad7835d36e94495e420ca869a24ec0c02953346eb0970a573ede6",
+    "external/remill/lib/Arch/X86/Semantics/SSE.cpp": "160bdfb4569d2209b8393a1614dec305905cf904432488bc42aaa7e7391195d7"
+  },
+  "runs": {
+    "20260906-p3-control-audit-build-v4-context": {
+      "source_commit": "70c12f42e3d9a6e292843fb577712996a370d97e",
+      "sources_sha256": "ba16b2256b70f16354293d0e61bf6541e0580fa65732c845302e3d31d727b62f",
+      "elapsed_seconds": 5.598643099889159
+    },
+    "20260906-p3-control-exit-inventory-v3-origins": {
+      "source_commit": "70c12f42e3d9a6e292843fb577712996a370d97e",
+      "sources_sha256": "3892339bf8ccb7fea9d03e0b05d012f375b783f24639a7fac3000c82eeb630c7",
+      "elapsed_seconds": 11.479809900047258
+    },
+    "20260906-p3-control-exit-inventory-v4-repeat": {
+      "source_commit": "70c12f42e3d9a6e292843fb577712996a370d97e",
+      "sources_sha256": "3892339bf8ccb7fea9d03e0b05d012f375b783f24639a7fac3000c82eeb630c7",
+      "elapsed_seconds": 8.140666299965233
+    }
+  },
+  "attribution": {
+    "integer_division_error_sites": 56,
+    "scalar_comparison_error_sites": 49,
+    "method": "Retained inlined semantic successor names, cross-checked with StopFailure uses in pinned BINARY.cpp/SSE.cpp. This identifies semantic families, not exact guest fault sites or hardware correctness."
+  },
+  "retained_failures": [
+    "control-audit-build-v1: LLVM 21 API/include mismatch; corrected in v2-api, raw compile diagnostics preserved."
+  ],
+  "next_work": [
+    "Check COMISS/COMISD NaN, MXCSR, fault, flag and host-isolation behavior independently; current source is a concrete unresolved semantic lead.",
+    "Retain source instruction, expected continuation and exit reason in compiler/native boundary interfaces; an available target alone does not authorize a dispatch.",
+    "Establish nounwind-compatible native handling or deliberately change and validate compiler contracts before throwing/unwinding.",
+    "Then bind/import/link the complete object set and test explicit boundaries before declaring P3 passed."
+  ],
+  "p3_gate_passed": false,
+  "native_game_boot": false,
+  "native_port_playable": false
+}
