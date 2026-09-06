@@ -21,6 +21,11 @@ struct HardwareFault {DWORD code;uint64_t pc;uint64_t flags;uint64_t ax;alignas(
 static int capture(EXCEPTION_POINTERS* info){fault.code=info->ExceptionRecord->ExceptionCode;fault.pc=map_fault_pc(info->ContextRecord->Rip);fault.flags=info->ContextRecord->EFlags;fault.ax=info->ContextRecord->Rax;std::memcpy(fault.fp,&info->ContextRecord->FltSave,512);return EXCEPTION_EXECUTE_HANDLER;}
 __declspec(noinline) static void hardware_run(Hardware fn,const void* in,void* out,void* saved,void* word,const void* original){fault={};__try{fn(in,out,saved,word);}__except(capture(GetExceptionInformation())){}restore_host(original);if(fault.code){if(fault.code<EXCEPTION_FLT_DENORMAL_OPERAND||fault.code>EXCEPTION_FLT_UNDERFLOW)fail("unexpected SEH exception");std::memcpy(out,fault.fp,512);std::memcpy(static_cast<uint8_t*>(out)+544,&fault.flags,8);std::memcpy(static_cast<uint8_t*>(out)+552,&fault.ax,8);}}
 
+// These regressions retain their original payload/status scope; the separate
+// metadata fixture checks both explicit profiles and segment service ordering.
+extern "C" uint64_t __bb_native_x87_image_policy(Memory*,State*){return 0;}
+extern "C" void __bb_native_x87_record_instruction(Memory*,State* s,uint64_t pc,uint32_t flags,uint64_t address){if(s->x87.fxsave.ip!=pc||flags||address)fail("register metadata service");}
+extern "C" void __bb_native_x87_set_pointer_segments(Memory*,State*,uint32_t value){if(value)fail("initialization segment reset");}
 extern "C" uint16_t __remill_read_memory_16(Memory* m,uint64_t at){if(at!=uint64_t(&m->word))fail("read16");++m->reads;return m->word;}
 extern "C" uint64_t __remill_read_memory_64(Memory* m,uint64_t at){if(at!=uint64_t(m->stack+4))fail("read64");return m->stack[4];}
 extern "C" Memory* __remill_write_memory_16(Memory* m,uint64_t at,uint16_t v){if(at!=uint64_t(&m->word))fail("write16");m->word=v;++m->writes;return m;}

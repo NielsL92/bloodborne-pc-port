@@ -11,3 +11,9 @@ Preserve the software-owned image tail at offsets 416 through 511. Guest last-po
 The next selector layer must handle waiting exceptions before memory effects where required, validate the supported memory span/alignment, and distinguish unsupported mapping cases from architecturally established faults. Pure packing functions do not implement those boundaries. All relevant x87 memory conversions/arithmetic and MMX alias behavior must use the same canonical representation before the experimental module is accepted for startup.
 
 Evidence: reports/x87-faults.md, reports/x87-fault-evidence.json, reports/x87-serializers.md and reports/x87-serializer-evidence.json. The accepted startup module remains v9-sqrt; v15 is the experimental stack/control module. P3's two rejected bodies and eight quarantines remain visible.
+
+## Experimental profile extension — 2026-09-06
+
+The same explicit policy service now covers producer metadata and comparison behavior. Bits 2/3 select FDP/FOP updates only on newly raised unmasked exceptions. Bit 4 preserves comparison C1 except stack underflow; clear selects unconditional C1 clearing. Bit 5 preserves OF/SF/AF; clear selects zeroing them. Existing image bits 0/1 and upper-32 MXCSR mask remain unchanged. FNINIT resets the external saved-selector metadata as well as canonical pointers/opcode.
+
+These are explicit choices, not host-CPUID defaults. Reports/x87-metadata.md records Intel documentation versus two independent local C1 observations and AMD's documented auxiliary-flag preservation. Selected-policy deviations remain counted. No AMD Jaguar hardware equivalence or complete comparison exception profile is claimed. The extensions remain experimental and do not promote the startup module.
