@@ -21,3 +21,7 @@ These are explicit choices, not host-CPUID defaults. Reports/x87-metadata.md rec
 ## Arithmetic control boundary — 2026-09-06
 
 Experimental register add/subtract/multiply use ordinary native scoped numeric helpers and canonical stack state. Valid PC values 0/2/3 select 24/53/64-bit significands. PC=1 terminates through a distinct unsupported service before instruction effects, with existing pending exceptions taking priority. Local PC=1/3 agreement does not implicitly adopt a guest policy. Arithmetic unmasked overflow/underflow/precision result completion differs from memory stores; preserve the separately tested rules. MMX is absent from the current recovered graph and explicitly rejected by compiler v7 until shared-state behavior is validated. FSCALE and complete startup/runtime integration remain open; see reports/x87-arithmetic.md.
+
+## Static integration — 2026-09-06 16:44 UTC
+
+The exact 355-site x87 / five-site MXCSR catalog and complete-body checks support using v31-scale with compiler v8-selector-audit for a new static replacement object. It replaces five whole prior objects and adds the two formerly rejected entries; the current active manifest is in reports/x87-integration.md. Retained objects keep their own build identities. This updates static compilation acceptance only. Native floating-state profile selection, general runtime exception/control integration and AMD Jaguar execution equivalence remain unproved; P3 is still open because eight control boundaries are quarantined.

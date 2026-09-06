@@ -1,0 +1,1403 @@
+{
+  "retained_failure": "Audit v1 completed its checks but failed writing the report artifact reference because a relative output path was compared with the absolute workspace path. V2 resolves the output path first; the failed source snapshot and partial local outputs remain preserved.",
+  "status": "static x87 integration and whole-object replacement pass; P3 control closure remains open",
+  "inventory": {
+    "status": "exact recovered floating-state selector inventory retained; no startup promotion",
+    "sites": 360,
+    "x87_sites": 355,
+    "mxcsr_sites": 5,
+    "owners": 12,
+    "problem_count": 0,
+    "selectors": {
+      "FLD_ST0_MEMmem80real": 52,
+      "FLD_ST0_MEMm64real": 2,
+      "FSTP_MEMmem80real_ST0": 56,
+      "FCHS": 2,
+      "FLDZ": 72,
+      "FXCH_ST0_X87": 33,
+      "FUCOMIP_ST0_X87": 11,
+      "FSTP_X87_ST0": 73,
+      "FLD_ST0_X87": 16,
+      "FISTTP_MEMm64int_ST0": 2,
+      "FILD_ST0_MEMm64int": 2,
+      "FSUBP_X87_ST0": 2,
+      "FLD_ST0_MEMmem32real": 2,
+      "FLD1": 3,
+      "FUCOMI_ST0_X87": 11,
+      "FSUBRP_X87_ST0": 2,
+      "FADDP_X87_ST0": 1,
+      "FSUB_ST0_X87": 1,
+      "FCMOVNE_ST0_X87": 1,
+      "FMUL_ST0_X87": 2,
+      "FNSTCW_MEMmem16": 1,
+      "STMXCSR_MEMd": 3,
+      "LDMXCSR_MEMd": 2,
+      "FLDCW_MEMmem16": 1,
+      "FNSTENV_MEMmem28": 1,
+      "FLDENV_MEMmem28": 1,
+      "FWAIT": 1,
+      "FILD_ST0_MEMmem32int": 1,
+      "FSCALE": 1,
+      "FSTP_MEMm64real_ST0": 1,
+      "FXSAVE_MEMmfpxenv": 1
+    },
+    "database_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+    "manifest_sha256": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+    "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+    "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+    "sites_sha256": "1026b05646480cc0a6fe32f21b38cfc8b390565e795aba443ebee202a997e520",
+    "execution": "none; exact bytes placed at isolated catalog PCs with an authored RET. This checks binding selection, not original function execution, effects or runtime closure."
+  },
+  "replacement_plan": {
+    "status": "whole-object replacement plan retained; no artifacts promoted",
+    "prior_objects": 384,
+    "prior_entries": 21168,
+    "replaced_objects": 5,
+    "stale_instruction_sets": 0,
+    "replacement_entries": 65,
+    "newly_compilable_entries": [
+      {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "start": 197680
+      },
+      {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "start": 343248
+      }
+    ],
+    "prior_logical_root_duplicates": 0,
+    "database_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+    "manifest_sha256": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+    "entries_sha256": "9a9e1036a380fb8e0c2a772ef198983e61ee367dcbdbe7cb63ffe65b98e22b1f",
+    "limitations": "Includes every entry in each replaced prior object; preserves old files and selected retained objects. Instruction-set hashes are compared against current manifests; counts and static objects do not prove execution or native runtime closure."
+  },
+  "replacement_compile": {
+    "status": "bounded sparse compilation survey complete; startup gate NOT passed",
+    "manifest_units": 21178,
+    "quarantined_units": 8,
+    "planned_batches": 1,
+    "selected_batches": 1,
+    "selected_units": 65,
+    "compiled_units": 65,
+    "compiled_constructors": 0,
+    "constructor_entries": 18444,
+    "results": {
+      "object_built": 1
+    },
+    "object_bytes": 981385,
+    "duplicate_logical_roots": 0,
+    "missing_path_records": 17,
+    "explicit_native_trap_sites": 0,
+    "limitations": "All objects are static compilation evidence. Explicit indirect/service/exception/callback boundaries and logical-root ownership require native runtime/link integration. No game linking/execution, original CPU fallback or performance claim."
+  },
+  "replacement_instructions": 4766,
+  "runtime_declarations": [
+    "__remill_read_memory_64",
+    "__remill_function_return",
+    "__remill_write_memory_64",
+    "llvm.ctpop.i8",
+    "__remill_flag_computation_zero",
+    "__remill_flag_computation_sign",
+    "__remill_undefined_8",
+    "__remill_flag_computation_carry",
+    "__remill_flag_computation_overflow",
+    "__remill_compare_ult",
+    "__remill_read_memory_16",
+    "__remill_compare_neq",
+    "sub_800007570",
+    "sub_80001f850",
+    "__remill_compare_eq",
+    "__remill_write_memory_16",
+    "__remill_read_memory_8",
+    "__remill_compare_sgt",
+    "sub_8000001e0",
+    "__remill_compare_sle",
+    "__remill_write_memory_32",
+    "sub_800000610",
+    "sub_8000002d0",
+    "sub_8000002e0",
+    "sub_8000002f0",
+    "sub_800000220",
+    "sub_800000110",
+    "__remill_missing_block",
+    "sub_800000230",
+    "sub_800000240",
+    "sub_800000250",
+    "sub_800013500",
+    "__remill_write_memory_8",
+    "llvm.experimental.noalias.scope.decl",
+    "llvm.lifetime.start.p0",
+    "llvm.lifetime.end.p0",
+    "__remill_function_call",
+    "__remill_read_memory_32",
+    "__remill_compare_slt",
+    "sub_800009920",
+    "__remill_compare_ugt",
+    "sub_80000b280",
+    "__remill_compare_uge",
+    "__bb_native_x87_fault",
+    "__bb_native_x87_check_span",
+    "__bb_native_x87_image_policy",
+    "__bb_native_x87_record_instruction",
+    "llvm.memset.p0.i64",
+    "__bb_x87_from_f64",
+    "sub_800005e60",
+    "__remill_jump",
+    "sub_800013db0",
+    "__remill_compare_ule",
+    "__remill_read_memory_f64",
+    "sub_800013130",
+    "__remill_error",
+    "__remill_atomic_begin",
+    "__remill_compare_exchange_memory_32",
+    "__remill_atomic_end",
+    "__remill_read_memory_f32",
+    "sub_800013150",
+    "sub_80000e490",
+    "sub_80000b540",
+    "sub_800000100",
+    "llvm.umin.i32",
+    "sub_80001eed0",
+    "__bb_x87_to_i64_trunc",
+    "__bb_x87_from_i64",
+    "__bb_native_x87_unsupported",
+    "__bb_x87_sub",
+    "__remill_write_memory_f32",
+    "__bb_x87_from_f32",
+    "sub_80001e9e0",
+    "__bb_x87_add",
+    "__bb_x87_mul",
+    "sub_800000450",
+    "sub_800000460",
+    "sub_80001f860",
+    "sub_800000470",
+    "sub_800000480",
+    "__bb_native_mxcsr_mask",
+    "__bb_native_mxcsr_fault",
+    "sub_8000302b0",
+    "__bb_native_x87_pointer_segments",
+    "__bb_native_x87_set_pointer_segments",
+    "__remill_write_memory_f64",
+    "__bb_x87_scale",
+    "__bb_x87_to_f64",
+    "llvm.memcpy.p0.p0.i64"
+  ],
+  "boundaries": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 768,
+      "kind": "import-endpoint",
+      "preceding": [],
+      "incoming": [
+        {
+          "entry": 77568,
+          "edge": {
+            "source": 77863,
+            "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "target": 768,
+            "kind": "import_contract_unvalidated",
+            "detail": "{\"bind\": 1, \"defined\": false, \"index\": 45, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"VADc3MNQ3cM#A#B\", \"nid\": \"VADc3MNQ3cM\", \"resolved_name\": null, \"size\": 0, \"type\": 2, \"value\": 0}"
+          }
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 62413,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 62240,
+          "instruction": {
+            "rva": 62408,
+            "size": 5,
+            "bytes": "e8430dffff"
+          },
+          "edges": [
+            {
+              "source": 62408,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 62408,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 63704,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 62512,
+          "instruction": {
+            "rva": 63699,
+            "size": 5,
+            "bytes": "e83808ffff"
+          },
+          "edges": [
+            {
+              "source": 63699,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 63699,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 65206,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 63712,
+          "instruction": {
+            "rva": 65201,
+            "size": 5,
+            "bytes": "e85a02ffff"
+          },
+          "edges": [
+            {
+              "source": 65201,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 65201,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 66912,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 66256,
+          "instruction": {
+            "rva": 66907,
+            "size": 5,
+            "bytes": "e8b0fbfeff"
+          },
+          "edges": [
+            {
+              "source": 66907,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 66907,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 69399,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 68624,
+          "instruction": {
+            "rva": 69394,
+            "size": 5,
+            "bytes": "e8f9f1feff"
+          },
+          "edges": [
+            {
+              "source": 69394,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 69394,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 71364,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 71088,
+          "instruction": {
+            "rva": 71359,
+            "size": 5,
+            "bytes": "e84ceafeff"
+          },
+          "edges": [
+            {
+              "source": 71359,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 71359,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 89623,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 88864,
+          "instruction": {
+            "rva": 89618,
+            "size": 5,
+            "bytes": "e8f9a2feff"
+          },
+          "edges": [
+            {
+              "source": 89618,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 89618,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 114737,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 112368,
+          "instruction": {
+            "rva": 114732,
+            "size": 5,
+            "bytes": "e8df40feff"
+          },
+          "edges": [
+            {
+              "source": 114732,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 114732,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 180917,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 180784,
+          "instruction": {
+            "rva": 180912,
+            "size": 5,
+            "bytes": "e85b3efdff"
+          },
+          "edges": [
+            {
+              "source": 180912,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 180912,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182197,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 180992,
+          "instruction": {
+            "rva": 182192,
+            "size": 5,
+            "bytes": "e85b39fdff"
+          },
+          "edges": [
+            {
+              "source": 182192,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 182192,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182800,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 182208,
+          "instruction": {
+            "rva": 182795,
+            "size": 5,
+            "bytes": "e80037fdff"
+          },
+          "edges": [
+            {
+              "source": 182795,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 182795,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 192864,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 192784,
+          "instruction": {
+            "rva": 192859,
+            "size": 5,
+            "bytes": "e8b00ffdff"
+          },
+          "edges": [
+            {
+              "source": 192859,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 192859,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 193240,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 193168,
+          "instruction": {
+            "rva": 193235,
+            "size": 5,
+            "bytes": "e8380efdff"
+          },
+          "edges": [
+            {
+              "source": 193235,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 193235,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 193843,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 193248,
+          "instruction": {
+            "rva": 193838,
+            "size": 5,
+            "bytes": "e8dd0bfdff"
+          },
+          "edges": [
+            {
+              "source": 193838,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 193838,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 194693,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 194512,
+          "instruction": {
+            "rva": 194688,
+            "size": 5,
+            "bytes": "e88b08fdff"
+          },
+          "edges": [
+            {
+              "source": 194688,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 194688,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 197764,
+      "kind": "unexpected-return-after-stack-protector-failure",
+      "preceding": [
+        {
+          "entry": 197680,
+          "instruction": {
+            "rva": 197759,
+            "size": 5,
+            "bytes": "e88cfcfcff"
+          },
+          "edges": [
+            {
+              "source": 197759,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "annotated_control_contract_requires_runtime",
+              "detail": "stack-protector-failure"
+            },
+            {
+              "source": 197759,
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 272,
+              "kind": "import_contract_unvalidated",
+              "detail": "{\"bind\": 1, \"defined\": false, \"index\": 14, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"Ou3iL1abvng#A#B\", \"nid\": \"Ou3iL1abvng\", \"resolved_name\": \"__stack_chk_fail\", \"size\": 0, \"type\": 2, \"value\": 0}"
+            }
+          ]
+        }
+      ],
+      "incoming": []
+    }
+  ],
+  "boundary_kinds": {
+    "import-endpoint": 1,
+    "unexpected-return-after-stack-protector-failure": 16
+  },
+  "active_objects_manifest": "local/compiler-spike/x87-integration-evidence-audit-v2-path/active-objects.json",
+  "active_objects_sha256": "495bb7a294e038b4888afa1955913951c11e89fe245070f1ce1564c606ed4577",
+  "compiled_entries": 21170,
+  "compiled_objects": 380,
+  "compiled_constructors": 18444,
+  "remaining_compiler_rejections": 0,
+  "remaining_quarantined_entries": 8,
+  "quarantined": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 128352,
+      "issues": [
+        {
+          "rva": 128368,
+          "kind": "fallthrough_at_fence",
+          "detail": "nop"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 392976,
+      "issues": [
+        {
+          "rva": 393053,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394512,
+      "issues": [
+        {
+          "rva": 394561,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394592,
+      "issues": [
+        {
+          "rva": 394713,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394992,
+      "issues": [
+        {
+          "rva": 395074,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 34077072,
+      "issues": [
+        {
+          "rva": 34077083,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 34648288,
+      "issues": [
+        {
+          "rva": 34649899,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 34650432,
+      "issues": [
+        {
+          "rva": 34650592,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    }
+  ],
+  "reproducible_artifacts": {
+    "x87-integration-compile-v2-repeat/batch-0000/input.json": "d2c7559958e6595192f7cf996f1172f598e4431f50528834efce041bf5246594",
+    "x87-integration-compile-v2-repeat/batch-0000/roots.json": "7b0d7f8fa7920f9ea17819977e52bd248c61c624244db1bd53d20a63952ebefd",
+    "x87-integration-compile-v2-repeat/batch-0000/units.json": "35ca085679a523fa881b88967186dea96a5164c00b89dcad198ad07236e26e62",
+    "x87-integration-compile-v2-repeat/batch-0000/audit.json": "9ffc195769fc1f2fd90d81b5189ddf9b13830c07454c4094feb779d629f537e2",
+    "x87-integration-compile-v2-repeat/batch-0000/function.bc": "e86c7e8aea2067260a45861ea14da4e651d83763552025e113ed79bf2bea5106",
+    "x87-integration-compile-v2-repeat/batch-0000/function.obj": "6f3416dd48b56258959ad2e86a08d9d917bbf750037b75bb227cc6c344992fa6",
+    "x87-integration-compile-v2-repeat/batch-0001/input.json": "4ce96fa9ae862186a9d5413861f32451e2100b5f988253c0ca47ce28c7fc163a",
+    "x87-integration-compile-v2-repeat/batch-0001/roots.json": "bc6e8323f7253011b7b8a6dfa3d72ab270ff226ad1e80e1cbfdb8f200396cfc9",
+    "x87-integration-compile-v2-repeat/batch-0001/units.json": "f28ed7e94c6262dbb2def19588e9905031fddf959da1093cfd3bde89dee1a7b5",
+    "x87-integration-compile-v2-repeat/batch-0001/audit.json": "9c0724cec4475b63c08957cb38022c72dbaa1d1aa4b384c9d8ad15c34ffce739",
+    "x87-integration-compile-v2-repeat/batch-0001/function.bc": "5aae968244c3ff1042a248da41605ac51ee675239b767bfd01f2f01320d26e6e",
+    "x87-integration-compile-v2-repeat/batch-0001/function.obj": "07424ce61e4ed338715bcadcdf4fbbb1acc6a007336201f0797ef6a72c79a4d9",
+    "x87-integration-compile-v2-repeat/batch-0002/input.json": "e0278b5a59d96a5457ab0b88c25eae34ec3df5cd48a1642f54237cb7ccf0661a",
+    "x87-integration-compile-v2-repeat/batch-0002/roots.json": "46756d756d5329b6a72c33dca36664ad11ba8c3b53d8690f3596cb857f9b7119",
+    "x87-integration-compile-v2-repeat/batch-0002/units.json": "5376e11fb15e52f07efd7f173d8f1146c4868341a864f4c6501005a80b4097ef",
+    "x87-integration-compile-v2-repeat/batch-0002/audit.json": "ef62344b4771daa0792d13107c557193fadd7f32c046b473acd4894ce9461c10",
+    "x87-integration-compile-v2-repeat/batch-0002/function.bc": "cd751900daf3ad6cb7d7030452bd1bfd9e7dd3e2768f0bdddb6d59a9ec5939f5",
+    "x87-integration-compile-v2-repeat/batch-0002/function.obj": "52bab637ff3749230222e1d9ef2ed94e86a072732c72b83c43bd5f08b54c335a",
+    "x87-integration-compile-v2-repeat/batch-0003/input.json": "aebb4ddf74cb82d90e655c671c4a123fb8e2bdf3fbf4cad04cad16160124efa8",
+    "x87-integration-compile-v2-repeat/batch-0003/roots.json": "545d1710706274cc1a63f297ab56c40c013f1fa9db4db2104567d915a457950c",
+    "x87-integration-compile-v2-repeat/batch-0003/units.json": "6dbf452429a6f85c54a2048b6dbe3f0c78c0c7c1df730c72f0cbb7ca41bf3fd3",
+    "x87-integration-compile-v2-repeat/batch-0003/audit.json": "a8b838ab5f50ec8f87c07dcbcda2a9d6da3953ce9253f8a91647af4321766ffd",
+    "x87-integration-compile-v2-repeat/batch-0003/function.bc": "f6db60897cc24dd5ab7d88769036c796f206e6abb6c08831a89f9645def9241c",
+    "x87-integration-compile-v2-repeat/batch-0003/function.obj": "7b8e7a06bc4ac4b09cc52f062be633dbb668c9ae57d9201b6f7bbe3fc629b969",
+    "x87-integration-compile-v2-repeat/batch-0004/input.json": "0150f7b5b496e26b0ccac751e4f6c64e2a20cf580cc39916715103058582ed53",
+    "x87-integration-compile-v2-repeat/batch-0004/roots.json": "f6fbb757e93ad1361eb6df3211325ededa52d3c226e8736c63489ff7660376c3",
+    "x87-integration-compile-v2-repeat/batch-0004/units.json": "7689cd86dd57f37bcf963241cdacdff028d32f8703bf21d22f7424161b53e04a",
+    "x87-integration-compile-v2-repeat/batch-0004/audit.json": "ec64d34b1743b88c8fd73af976efb900b1fe8e9c629b1fe33525e2e124405a1a",
+    "x87-integration-compile-v2-repeat/batch-0004/function.bc": "513d7dfda9f8c38fa027e95731a0620fe4420584ef6570b2b60b6d1ed86cdd34",
+    "x87-integration-compile-v2-repeat/batch-0004/function.obj": "778e75b59225493973644f62829c7deac951e847461d74971ff4b2d6780462ae",
+    "x87-integration-compile-v2-repeat/batch-0005/input.json": "f46335f2cd616fc2bc0dc59cb047d213611b9cb2ef8ee7cf1089b266962b5964",
+    "x87-integration-compile-v2-repeat/batch-0005/roots.json": "1c38739824b0564e1c323b2f7e29ebee6d4ea4c1e6de5151372e1694d413278b",
+    "x87-integration-compile-v2-repeat/batch-0005/units.json": "be2c3b51410e903251e0ace6ddc52cef49b633bb8c0237500b4b249a14564088",
+    "x87-integration-compile-v2-repeat/batch-0005/audit.json": "13c58b5d065f3dbbd2f978cbf1eac69653c989c0e98af998a2d8aa6c91cac92b",
+    "x87-integration-compile-v2-repeat/batch-0005/function.bc": "5cd92cfef1e45f969fdfb2b5b8f133fe9ec86c87b8377f7c7c527a9e21f8e810",
+    "x87-integration-compile-v2-repeat/batch-0005/function.obj": "249ef0f655b4c918323d1209bff2c1a9da52dbe4dd25b31e81c0e9c074ae8615",
+    "x87-integration-compile-v2-repeat/batch-0006/input.json": "cdfebc9b4c7d23bf20886be06804ecff5699bd693830ca55cf9054f7ba2410af",
+    "x87-integration-compile-v2-repeat/batch-0006/roots.json": "f85d9476ca433e8d94adb319d4042f9eb8727383922d86edc4b402daf4d7d054",
+    "x87-integration-compile-v2-repeat/batch-0006/units.json": "4337849a47e3d80ab98dcb9c4f3e2150b33948d00fdd69b5fc4ace3c06159145",
+    "x87-integration-compile-v2-repeat/batch-0006/audit.json": "a3fb925ba7270824ae33fec38959ee34e012f144ca26b0756397a257136bffea",
+    "x87-integration-compile-v2-repeat/batch-0006/function.bc": "aecf0d20c65d659b250003af1273fbf5e1594b35c6473bf3a62bf5bd87666e1f",
+    "x87-integration-compile-v2-repeat/batch-0006/function.obj": "a2832b151a3de3ffb91b2f8b1f4704a8493fca190ab8b8cf711f6211f9d31acb",
+    "x87-integration-compile-v2-repeat/batch-0007/input.json": "ea72188a3e6437eb99b9c529003840516f7858f1a7821a6bcc2b3513ae6188a4",
+    "x87-integration-compile-v2-repeat/batch-0007/roots.json": "73ec2e061d6271dc4ef43a9cbf9ad75f196675bc8a6de1a041a5dd1141a18c0b",
+    "x87-integration-compile-v2-repeat/batch-0007/units.json": "38918ab6e94a5b2b954a930f6dc874b2a27ad6c92ba7f3c994ec20efe7ee1c56",
+    "x87-integration-compile-v2-repeat/batch-0007/audit.json": "d53a7218ef4d8cd8e3fdc7dda693b192656346e3357a8eaffc46bc762f45ea8a",
+    "x87-integration-compile-v2-repeat/batch-0007/function.bc": "165524ef3fe3687488d486ba673c21543ae470dd7e9c85c120627a9aa7d54df2",
+    "x87-integration-compile-v2-repeat/batch-0007/function.obj": "0ff4495fc80caa98d4fc350c8385c1b0cb9f228da5ecd6b54399a3539fcd1c03",
+    "x87-integration-compile-v2-repeat/batch-0008/input.json": "8f96322381d07b3f54be21f2780775476b65c33948bb579477ded9e53ee58dba",
+    "x87-integration-compile-v2-repeat/batch-0008/roots.json": "48de741d8793efc62c4cdd1037a646c11959937c859b3bb01595bf8cbeed8e0f",
+    "x87-integration-compile-v2-repeat/batch-0008/units.json": "b51f4f9e9b4a2266e62bea79d1c18b75c28665597a009d681b1009b5094578e5",
+    "x87-integration-compile-v2-repeat/batch-0008/audit.json": "b878751587dcd7bfce8f0b79df5c4b22df607f1fee46d7c837715c2a009f0877",
+    "x87-integration-compile-v2-repeat/batch-0008/function.bc": "5184fcd7e7cf3d4a2e9533a8e745e278850c25656685d661651a34d3636c708b",
+    "x87-integration-compile-v2-repeat/batch-0008/function.obj": "982364f632973fad85d3a4541646269f501fd13236b952f9bd251e80cc613e15",
+    "x87-integration-compile-v2-repeat/batch-0009/input.json": "afe295487f2cc19d49ae58583b6edee88c1841d1abb02dbdc74567f267e5fbc0",
+    "x87-integration-compile-v2-repeat/batch-0009/roots.json": "17d3e7f7a9ad44e822ebd924c4f6b57432d29f0d544c636199d6a16ec16d4161",
+    "x87-integration-compile-v2-repeat/batch-0009/units.json": "922b001eadc14ba756a710e06986b1c27d6a7f9055a410f4235b2a337ac95f1c",
+    "x87-integration-compile-v2-repeat/batch-0009/audit.json": "953bada69d02c9181a75a51422a929b67ba76340160328b6704bff32384c0203",
+    "x87-integration-compile-v2-repeat/batch-0009/function.bc": "b13960263a603f75e3bb095aa4b4738dc366fbec1a30a1704f537d8d0c74de41",
+    "x87-integration-compile-v2-repeat/batch-0009/function.obj": "e642602231e39d76bcb02648cfc8e5d89552153b2704d013586e81f65efa761f",
+    "x87-integration-compile-v2-repeat/batch-0010/input.json": "0e1afb4c033d2ef0595e235a38f09746cb5d1ab514ade3e2ec53dae4ad5d557a",
+    "x87-integration-compile-v2-repeat/batch-0010/roots.json": "1f846d2d56f46108b4ea135e7da997f6b3e455362aec32d404a01f5fc01cc4b7",
+    "x87-integration-compile-v2-repeat/batch-0010/units.json": "7819f73e40b28b08c1445bc8a030974d6601ce43da81ad8f2c15a11aa2018141",
+    "x87-integration-compile-v2-repeat/batch-0010/audit.json": "0f7315b806d9fa27ce6f4b537022c6bf0368916e9c6ea2e478a1bdde221d23d0",
+    "x87-integration-compile-v2-repeat/batch-0010/function.bc": "e10460827f8f1bac638d473854af760e9b3b65bd7fce674e19548fe4e45c8696",
+    "x87-integration-compile-v2-repeat/batch-0010/function.obj": "6d6e194e92894913bb98d06071be585f83a7f8a39488a268939b8ca9a3d3dc43",
+    "x87-integration-compile-v2-repeat/batch-0011/input.json": "cb9a07c507e0ebce4ce4694cfedac7c94dcc51e61565d53bc78b4b9748746279",
+    "x87-integration-compile-v2-repeat/batch-0011/roots.json": "00cb3dc11a799ab988bef93627f2ecf2be796c284b792ab4c6762db146199266",
+    "x87-integration-compile-v2-repeat/batch-0011/units.json": "1e270b8f2121fa01e59188b5b3c41d5568256e2561b0c2e8f1afc0015e3268f6",
+    "x87-integration-compile-v2-repeat/batch-0011/audit.json": "c756066404354e2faa31b23c822cf79100cde12f914294be3ea7eaa66ba27a93",
+    "x87-integration-compile-v2-repeat/batch-0011/function.bc": "18a6ac54642d2aa8477d6f57cecf1cdabcf228e2d5a2d9ccf9ba9e4874f8003f",
+    "x87-integration-compile-v2-repeat/batch-0011/function.obj": "2d67c78ae686d94ed3753e5fcdc323bc0faf1546996e6f22264cc1b72ea1e846",
+    "x87-replacement-compile-v2-repeat/batch-0000/input.json": "2a3b33fa3ce2e80a8e644c390dc5a89e07bc1d249ea774c98daae567fdd1ed68",
+    "x87-replacement-compile-v2-repeat/batch-0000/roots.json": "a86cd95f3927016d7d3c154075f986e683e8662c1de7640dbdcb2c16c6564d41",
+    "x87-replacement-compile-v2-repeat/batch-0000/units.json": "588ec63bf8760ce5e0ed9baea0e12e3885649d4d57262c3337cc5710910e4f8e",
+    "x87-replacement-compile-v2-repeat/batch-0000/audit.json": "1bfc6884df1cab63354aada7fad9067bf4c139d18513c285a5f639577f94c450",
+    "x87-replacement-compile-v2-repeat/batch-0000/function.bc": "5cd783959927b841b665406dfceb449cc68ec4afd02147c3b6dfd18bb2ee5c5b",
+    "x87-replacement-compile-v2-repeat/batch-0000/function.obj": "d2fd20bcc57b5d37bf78e2803f8cdc86956252d7537a7c999af1bde7794abd92",
+    "selector-audit-unchanged/function.bc": "2d245c33fe2bcd2f15fbd7a095c325444f48902123fc82655d22388ee6647e87",
+    "selector-audit-unchanged/function.obj": "401130e11f53e4f741b535c2f36c4f080cab4d4e1f1b20fe1db039a67712d829",
+    "selector-audit-unchanged/numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "selector-audit-unchanged/execute.stdout": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d"
+  },
+  "checks": {
+    "sparse-checks-v8-selector-audit": {
+      "status": "sparse input and authored AOT checks pass",
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "input_cases": [
+        {
+          "case": "valid_sparse",
+          "exit_code": 0,
+          "expected_accept": true,
+          "input_sha256": "d3b9811d8d8195417c1281d3928e7b19ff15a7cbe5dbe4abefa96efee2f43012",
+          "audit": {
+            "compiled_roots": [
+              4294967808,
+              4294968832
+            ],
+            "decoded_addresses": [
+              4294967808,
+              4294967811,
+              4294967813,
+              4294967818,
+              4294967872,
+              4294967877,
+              4294968832,
+              4294968837
+            ],
+            "decoded_selectors": [
+              {
+                "address": 4294967808,
+                "implementation": "_ZN12_GLOBAL__N_13CMPI2RnIjLb1EE2InIjEEEP6MemoryS6_R5StateT_T0_",
+                "lifted": true,
+                "selector": "CMP_GPRv_IMMb_32"
+              },
+              {
+                "address": 4294967811,
+                "implementation": "_ZN12_GLOBAL__N_13JNZEP6MemoryR5State3RnWIhE2InImES7_S4_ImE",
+                "lifted": true,
+                "selector": "JNZ_RELBRb"
+              },
+              {
+                "address": 4294967813,
+                "implementation": "_ZN12_GLOBAL__N_13MOVI3RnWImE2InIjEEEP6MemoryS6_R5StateT_T0_",
+                "lifted": true,
+                "selector": "MOV_GPRv_IMMv_32"
+              },
+              {
+                "address": 4294967818,
+                "implementation": "_ZN12_GLOBAL__N_13RETEP6MemoryR5State3RnWImE",
+                "lifted": true,
+                "selector": "RET_NEAR_64"
+              },
+              {
+                "address": 4294967872,
+                "implementation": "_ZN12_GLOBAL__N_13MOVI3RnWImE2InIjEEEP6MemoryS6_R5StateT_T0_",
+                "lifted": true,
+                "selector": "MOV_GPRv_IMMv_32"
+              },
+              {
+                "address": 4294967877,
+                "implementation": "_ZN12_GLOBAL__N_13RETEP6MemoryR5State3RnWImE",
+                "lifted": true,
+                "selector": "RET_NEAR_64"
+              },
+              {
+                "address": 4294968832,
+                "implementation": "_ZN12_GLOBAL__N_13MOVI3RnWImE2InIjEEEP6MemoryS6_R5StateT_T0_",
+                "lifted": true,
+                "selector": "MOV_GPRv_IMMv_32"
+              },
+              {
+                "address": 4294968837,
+                "implementation": "_ZN12_GLOBAL__N_13RETEP6MemoryR5State3RnWImE",
+                "lifted": true,
+                "selector": "RET_NEAR_64"
+              }
+            ],
+            "execution": "none; static lifting census is not execution coverage",
+            "explicit_native_trap_addresses": [],
+            "input_bytes": 23,
+            "input_instructions": 8,
+            "missing_instruction_starts": [],
+            "schema": 1,
+            "semantic_instruction_count": 8,
+            "unvisited_manifest_instructions": [],
+            "x87_opcode_immediates": []
+          }
+        },
+        {
+          "case": "missing_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "fd1b014327107f220244e692d8bde0adec7b5802f5faf4c151c6f565b7b3de8b"
+        },
+        {
+          "case": "duplicate_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "7285579edbed86a9af7c67617597ea9559387426b8b99fd1b92f560da4d082ab"
+        },
+        {
+          "case": "duplicate_instruction",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "3a3076adb3ed4d8e184224ac736f20a52a01528ac4c92133c2e47c490d31c9d6"
+        },
+        {
+          "case": "overlapping_instruction",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "045ecf4b52d02d4a40f1bbff4ad6d47024ec928ebc2bdd21c3de8d030c53a28e"
+        },
+        {
+          "case": "wrong_instruction_boundary",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "a3f57742aae0815c2ced0dcf9e21703b4b14603e65abd99f8986973e3ff24a15"
+        },
+        {
+          "case": "interior_branch",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "acde76370115246c6b92bd0d8652ad0d387ebbd7b1ba5a88d8178d2969798426"
+        },
+        {
+          "case": "invalid_hex",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "6c29617fce183dbf3c497224e9045a1f53b990767c9aa056ce375fcdaa3a4116"
+        },
+        {
+          "case": "unmapped_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "6fbfc48f1bdc5f9e5bf8ae0f22d0118beb11a71f76648ee18978dead03d7dc93"
+        },
+        {
+          "case": "explicit_missing",
+          "exit_code": 0,
+          "expected_accept": true,
+          "input_sha256": "655af8c422abb35a48ae55e49fb9fa9c757d608f40b7da11deb0b415dd0c4fe2",
+          "audit": {
+            "compiled_roots": [
+              4294967808
+            ],
+            "decoded_addresses": [
+              4294967808
+            ],
+            "decoded_selectors": [
+              {
+                "address": 4294967808,
+                "implementation": "_ZN12_GLOBAL__N_13JMPI2InImEEEP6MemoryS4_R5StateT_3RnWImE",
+                "lifted": true,
+                "selector": "JMP_RELBRd"
+              }
+            ],
+            "execution": "none; static lifting census is not execution coverage",
+            "explicit_native_trap_addresses": [],
+            "input_bytes": 5,
+            "input_instructions": 1,
+            "missing_instruction_starts": [
+              4294968320
+            ],
+            "schema": 1,
+            "semantic_instruction_count": 1,
+            "unvisited_manifest_instructions": [],
+            "x87_opcode_immediates": []
+          }
+        }
+      ],
+      "native": {
+        "status": "pass",
+        "aot_cases": 8192,
+        "original_code_execution": false
+      },
+      "object_sha256": "c942a836a99fb61b52abc27ad36c172c555be1b57f289bcbeb3584bdaaa5f446",
+      "limitations": "Authored branch, independent entry and logical return checks only. No supplied game CPU execution or game exception-runtime validation."
+    },
+    "sparse-mmx-checks-v2-selector-audit": {
+      "status": "explicit MMX rejection and non-MMX controls passed",
+      "cases": 15,
+      "rejected_mmx": 12,
+      "accepted_controls": 3,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "execution": "none; static authored bytes only"
+    },
+    "x87-opcode-checks-v3-selector-audit": {
+      "status": "all exact-byte x87 opcode checks passed",
+      "cases": 112,
+      "corrected_cases": 56,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "audit_sha256": "4fa2079e22b95ebd87e0b4d0287e95afc8e6440cdbf5ef408119572c6f05bcd6",
+      "independent_decode_sha256": "c42cea57bf8bed22003e065a0f96ed1b3c4144dfdb5468ebdcb0bdaa97c73849",
+      "execution": "none; authored static input only, not execution coverage"
+    },
+    "sparse-trap-checks-v3-selector-audit": {
+      "status": "explicit native trap checks pass",
+      "input_cases": 6,
+      "normal": {
+        "status": "normal_return",
+        "game_code_execution": false
+      },
+      "fault": {
+        "status": "expected_native_fault",
+        "fault_pc": 4295098437,
+        "game_code_execution": false
+      },
+      "audit": {
+        "compiled_roots": [
+          4295098368
+        ],
+        "decoded_addresses": [
+          4295098368,
+          4295098371,
+          4295098373,
+          4295098378,
+          4295098432,
+          4295098437
+        ],
+        "decoded_selectors": [
+          {
+            "address": 4295098368,
+            "implementation": "_ZN12_GLOBAL__N_13CMPI2RnIjLb1EE2InIjEEEP6MemoryS6_R5StateT_T0_",
+            "lifted": true,
+            "selector": "CMP_GPRv_IMMb_32"
+          },
+          {
+            "address": 4295098371,
+            "implementation": "_ZN12_GLOBAL__N_12JZEP6MemoryR5State3RnWIhE2InImES7_S4_ImE",
+            "lifted": true,
+            "selector": "JZ_RELBRb"
+          },
+          {
+            "address": 4295098373,
+            "implementation": "_ZN12_GLOBAL__N_13MOVI3RnWImE2InIjEEEP6MemoryS6_R5StateT_T0_",
+            "lifted": true,
+            "selector": "MOV_GPRv_IMMv_32"
+          },
+          {
+            "address": 4295098378,
+            "implementation": "_ZN12_GLOBAL__N_13RETEP6MemoryR5State3RnWImE",
+            "lifted": true,
+            "selector": "RET_NEAR_64"
+          },
+          {
+            "address": 4295098432,
+            "implementation": "_ZN12_GLOBAL__N_13MOVI3RnWImE2InIjEEEP6MemoryS6_R5StateT_T0_",
+            "lifted": true,
+            "selector": "MOV_GPRv_IMMv_32"
+          },
+          {
+            "address": 4295098437,
+            "implementation": "__bb_native_ud2",
+            "lifted": true,
+            "selector": "UD2"
+          }
+        ],
+        "execution": "none; static lifting census is not execution coverage",
+        "explicit_native_trap_addresses": [
+          4295098437
+        ],
+        "input_bytes": 18,
+        "input_instructions": 6,
+        "missing_instruction_starts": [],
+        "schema": 1,
+        "semantic_instruction_count": 5,
+        "unvisited_manifest_instructions": [],
+        "x87_opcode_immediates": []
+      },
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "fixture_sha256": "9730770d61b8e6fb86c2bc14072f9c47c2beef6d67c8c4f4f498fd0e9690f8f7",
+      "limitations": "Authored conditional return and diagnostic process termination only. No hardware UD2/game CPU execution, PS4 exception delivery or native signal-handler dispatch implementation."
+    },
+    "x87-scale-bindings-v3-selector-audit": {
+      "status": "experimental x87 FSCALE characterization complete",
+      "cases": 2809856,
+      "differing_cases": 0,
+      "groups": [
+        {
+          "form": "numeric-scope",
+          "cases": 1048576,
+          "differing_cases": 0
+        },
+        {
+          "form": 0,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 6734,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 1,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 2,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 3,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 4,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        }
+      ],
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "raw_sha256": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d",
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "fixture_sha256": "cc069be4261258be400001cd59870bb9e9e64fd0c21556c57ca8803605a78e56",
+      "limitations": "Authored AOT and Intel hardware only; no game bytes. FSCALE uses scoped native integer exponent/rounding handling and SoftFloat NaN propagation; stack, completion and pending exceptions are instruction-level contracts. All PC values are included. Undefined C0/C2/C3 are excluded from the hardware status oracle. Pointer/opcode profiles are explicit. Native runtime integration remains open; absent MMX is explicitly rejected by the compiler."
+    }
+  },
+  "runs": {
+    "20260906-p3-sparse-lift-v8-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "b596a05e8b5da1c16da514b52dd99e99dcf19dd69352c5caa0a0fcb2086d999b",
+      "elapsed_seconds": 12.204913299996406
+    },
+    "20260906-p3-x87-selector-inventory-v1": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 25.141270899912342
+    },
+    "20260906-p3-x87-integration-compile-v1": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 16.87808689987287
+    },
+    "20260906-p3-x87-integration-compile-v2-repeat": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 13.313767299987376
+    },
+    "20260906-p3-sparse-checks-v8-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 3.9741901999805123
+    },
+    "20260906-p3-x87-scale-bindings-v3-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 7.947924199979752
+    },
+    "20260906-p3-sparse-mmx-checks-v2-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 1.8784981998614967
+    },
+    "20260906-p3-x87-opcode-checks-v3-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 0.31285990006290376
+    },
+    "20260906-p3-sparse-trap-checks-v3-selector-audit": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "12b9f52dceabbb78df6ceaeb1c4b8f7317c2b36c5258f0867669f4d9c8c707b3",
+      "elapsed_seconds": 3.5331360001582652
+    },
+    "20260906-p3-x87-replacement-plan-v1": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "15113545084f3d26c411030c0070ddb847ffe1573dee2d57a944fda88ede986e",
+      "elapsed_seconds": 13.434605199843645
+    },
+    "20260906-p3-x87-replacement-compile-v1": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "15113545084f3d26c411030c0070ddb847ffe1573dee2d57a944fda88ede986e",
+      "elapsed_seconds": 16.486053899861872
+    },
+    "20260906-p3-x87-replacement-compile-v2-repeat": {
+      "status": "pass",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "15113545084f3d26c411030c0070ddb847ffe1573dee2d57a944fda88ede986e",
+      "elapsed_seconds": 15.44791920017451
+    },
+    "20260906-p3-x87-integration-evidence-audit-v1": {
+      "status": "failed",
+      "source_commit": "93db3150a7cdaeb3bade9bbedaaa32a88b4267c0",
+      "sources_sha256": "449b167065e2df355c7d2544b5b7ebb69b58fd110841682d2087ca4d2f52ac23",
+      "elapsed_seconds": 4.951193400193006
+    }
+  },
+  "source_sha256": {
+    "native/sparse_lift/main.cpp": "6f2379ef8ef338ebbb0202055a830ed387be48765b281b6779dfa5d686d37009",
+    "tools/x87_selector_inventory.py": "5eceb4cd26120816b93d8beb9685ad1ccaf024bc2cb9d621d0f3170b1b5066aa",
+    "tools/x87_replacement_plan.py": "b1cea2e34e15801b35f0ae697908d5acfe982b128c250267e1f7e376c49d454d"
+  },
+  "semantics": "v31-scale for the new replacement object; retained objects keep their recorded semantics",
+  "compiler": "v8-selector-audit for the replacement object; retained objects keep their recorded compilers",
+  "limitations": [
+    "This accepts the new object for the static compilation census, not game execution or native runtime correctness.",
+    "Five prior objects containing 63 entries are replaced as complete objects by one reproducible 65-entry object. Old files remain intact. The 12 one-entry objects are diagnostic experiments and are excluded from the active set.",
+    "Every active entry instruction-set hash matches the canonical current manifest; every entry and compiled logical root has one owner. The active set contains every issue-free manifest and all initial constructors.",
+    "All 355 recovered x87 sites and five MXCSR sites select their checked authored bindings. No legacy Remill FPU helper or x86_fp80 IR remains in the exact catalog or new complete object.",
+    "Eight fallthrough-at-fence quarantines remain outside compilation. Unknown indirect/callback targets, constructor mutability and import/nonlocal/exception contracts remain visible and unresolved.",
+    "The new object retains 17 explicit missing-path records and 89 runtime/compiled-target declarations. Native import dispatch, stack-protector failure, floating-state profiles and exception delivery still need implementations.",
+    "Intel hardware characterizations, comparison/image policies and pointer limits remain as recorded in the x87 reports. No AMD Jaguar execution equivalence, performance improvement, native game boot or playable port is claimed."
+  ],
+  "p3_gate_passed": false,
+  "native_game_boot": false,
+  "native_port_playable": false
+}

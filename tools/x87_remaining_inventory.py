@@ -9,7 +9,8 @@ mmx=[dict(r) for r in c.execute("select * from recovery_instruction where operan
 checked={'fld','fldz','fld1','fstp','fxch','fucomi','fucomip','fucompi','fisttp','fild','fchs','fcmovne','fnstcw','fldcw','fnstenv','fldenv','wait','fxsave','fxsave64','fst','fnstsw','fninit'}
 for r in x87:
  if r['mnemonic']=='fucompi':assert len(bytes.fromhex(r['bytes']))==2 and bytes.fromhex(r['bytes'])[0]==0xdf and 0xe8<=bytes.fromhex(r['bytes'])[1]<=0xef
-remaining=[r for r in x87 if r['mnemonic'] not in checked and r['mnemonic'] not in ['emms','femms']]
+arithmetic_encodings={'faddp':r'dec[0-7]','fsubp':r'dee[89a-f]','fsubrp':r'dee[0-7]','fsub':r'd8e[0-7]','fmul':r'd8c[89a-f]','fscale':r'd9fd'}
+remaining=[r for r in x87 if r['mnemonic'] not in checked and r['mnemonic'] not in ['emms','femms'] and not (r['mnemonic'] in arithmetic_encodings and re.fullmatch(arithmetic_encodings[r['mnemonic']],r['bytes']))]
 selected={(r['module'],r['rva']):r for r in remaining+mmx}
 for module in sorted({m for m,_ in selected}):
  addresses=[rva for m,rva in selected if m==module];owners=collections.defaultdict(list)

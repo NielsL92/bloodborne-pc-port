@@ -1,5 +1,7 @@
 # P3 remaining x87 sites and MMX boundary
 
+Current 2026-09-06 16:48 UTC: inventory v3-integrated preserves all 355 instruction records and reports zero remaining arithmetic encodings and zero MMX sites. Recognition of the new arithmetic families is restricted to their checked register/FSCALE byte patterns. Exact 360-site x87/MXCSR selector validation and complete-object replacement are recorded in `reports/x87-integration.md`. P3 remains open with eight control-boundary quarantines; the earlier nine-site inventory below is retained as historical evidence.
+
 Updated 2026-09-06 15:23 UTC. The canonical startup graph contains 355 x87-related instructions and no MMX register operands, EMMS or FEMMS. Nine arithmetic/scale sites still need experimental semantic work; they belong to five libc entries. This is a static inventory, not execution coverage or an absence claim about unknown targets and later gameplay.
 
 | Site | Exact bytes | Operation | Owner |

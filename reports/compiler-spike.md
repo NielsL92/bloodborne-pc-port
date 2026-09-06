@@ -1,5 +1,7 @@
 # P2 whole-function compiler experiment
 
+Latest 2026-09-06 16:44 UTC: exact x87/MXCSR integration and whole-object replacement pass. The current static census is 21,170 entries / 380 objects, zero compiler rejections and eight control-boundary quarantines. See `reports/x87-integration.md` / `reports/x87-integration-evidence.json` and its active object manifest. New work uses v8-selector-audit / v31-scale; retained objects preserve earlier identities. P3 remains open and no game code was executed.
+
 Latest 2026-09-06 16:20 UTC: experimental v31 FSCALE passes numeric, AOT and independent setup checks, including the retained exact-zero failure and corrected result. See `reports/x87-scale.md` / `reports/x87-scale-evidence.json`. Exact selector/module integration and fresh static compilation of the remaining two bodies are next. Accepted startup artifacts/census are unchanged; P3 remains open.
 
 Latest 2026-09-06 16:02 UTC: experimental v30 register x87 arithmetic passes its numeric and AOT/scope/boundary matrices, with reproducible objects and retained failed evidence. See `reports/x87-arithmetic.md` / `reports/x87-arithmetic-evidence.json`. Reserved precision control is explicit, FSCALE remains next, and accepted startup artifacts/census are unchanged. P3 is open; no game code was executed.
