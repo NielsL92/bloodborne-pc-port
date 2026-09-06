@@ -1,5 +1,8 @@
 # P4 module loading plan
 
+Current generation (2026-09-06 23:42 UTC): see reports/native-memory-sources.md. Active objects are native-memory-manifest-v1; current registry is registry-v7-memory-repeat, link is link-v9-memory-repeat and loader plan is loader-plan-v8-memory. Complete authored/source/LLVM/link checks pass; native game loading/execution has not occurred.
+
+
 2026-09-06 22:51 UTC. P3's compilation/explicit-handling gate passed at commit 40f9a28. P4 is open. No game-derived CPU function has executed and there is no native boot or playable port.
 
 The loader plan independently rechecks the eight supplied module hashes and copies their sixteen loadable segment byte streams into fresh local outputs. It plans 97,517,568 logical mapped bytes: 92,463,404 initial bytes and 5,054,164 zero bytes including BSS/alignment padding. Code is classified read-only/NX; writable data stays writable. The 238,609 relocation destinations fit declared data spans, with no duplicate destination and no code-segment relocation. Actual native allocation/loading has not been implemented yet. The plan never changes an original or hardlinked file.

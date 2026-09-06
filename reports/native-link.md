@@ -1,5 +1,8 @@
 # Complete native linkage and P3 gate decision
 
+Current generation (2026-09-06 23:42 UTC): see reports/native-memory-sources.md. Active objects are native-memory-manifest-v1; current registry is registry-v7-memory-repeat, link is link-v9-memory-repeat and loader plan is loader-plan-v8-memory. Complete authored/source/LLVM/link checks pass; native game loading/execution has not occurred.
+
+
 2026-09-06 22:37 UTC. **P3 startup compilation and explicit-exit-handling gate passes. P4 remains open. No game-derived CPU function has been executed, no native game boot exists, and there is no playable port.**
 
 The plan's P3 gate requires the recovered startup/next-milestone call graph to compile with explicit handling for discovered exits while preserving unknown/unvisited coverage. The complete 386-object set now links with 21,282 compiled roots, all 18,444 initial constructors retained exactly once, 182 import gateways and all 63 support/library names resolved. The static registry carries 551 independently decoded source/request pairs. Runtime handling and diagnostic stops have authored AOT evidence; the full linked registry has host-only structural validation and negative gateway probes. This passes compilation and explicit handling, not implementation of every service, successful startup or complete static discovery.

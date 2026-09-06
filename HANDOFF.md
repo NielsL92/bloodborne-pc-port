@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 23:26 UTC
+## Current continuation — 2026-09-06 23:42 UTC
+
+Continue autonomously; user action: none. Read reports/native-memory-sources.md and its evidence JSON, then reports/runtime-guards.md. **P4 remains open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
+
+All 386 startup objects now use precise native memory-source bridges and repeat exactly. Active manifest local/compiler-spike/native-memory-manifest-v1/active-objects.json, SHA256 5b573c9ac36fb389c69a9830e9ec299ab5da35781904f078bc99bb6a85ff34e6. Compiler v12-memory-sources / semantics v35-divide; 21,181 entries, 21,282 roots, 18,444 constructors, 874,279 exact bytestrings and all 4,305 nonreturn sites retained. LLVM inspector build/control-audit-v8-memory-fp/control-audit.exe validates 505,682 bridged sites with exact State/source arguments; control counts and all 551 dispatch pairs match prior evidence. Object bytes are 74,174,245; helper runtime cost is unmeasured.
+
+Current registry local/runtime/registry-v7-memory-repeat (identity e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e) and complete host validator local/runtime/link-v9-memory-repeat/registry.exe repeat exactly. PE: 61,058,048 bytes, SHA256 38605b045293f8d87b57fe55852f092b3a66a849c4acd23171457e083b7e53c4. All 708 unimplemented import gateways and unknown-target probes stop. Current loader plan local/runtime/loader-plan-v8-memory is bound to that registry; payloads match prior plan and 37 unresolved references remain. Evidence: local/runtime/native-memory-evidence-v1/checked.json. Older object/registry/link generations are preserved, not current.
+
+Next implement and validate private NX module loading with runtime guards over all unresolved slots, then independently verify actual entry setup and native services in dependency order. No guessed strong data/TLS values, automatic constructor-table iteration or CPU fallback. Source guards/calls pass authored checks; target FP profile, fourteen x87 selector sites, conditional export/control assumptions and guest exceptions/nonlocal transfer remain explicit. Native slot 9 stays reserved. P1 route/profiling/audio tasks are unchanged. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 23:26 UTC
 
 Continue autonomously; user action: none. Read reports/runtime-guards.md and its evidence JSON. **P4 remains open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
 
