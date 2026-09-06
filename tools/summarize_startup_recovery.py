@@ -110,5 +110,7 @@ vector=root/'reports/vector-semantics-evidence.json'
 if vector.exists():report['vector_semantics']=dict(path=str(vector.relative_to(root)),sha256=sha(vector),result=json.loads(vector.read_text()))
 packed=root/'reports/packed-semantics-evidence.json'
 if packed.exists():report['packed_semantics']=dict(path=str(packed.relative_to(root)),sha256=sha(packed),result=json.loads(packed.read_text()))
+floating=root/'reports/fp-semantics-evidence.json'
+if floating.exists():report['fp_semantics']=dict(path=str(floating.relative_to(root)),sha256=sha(floating),result=json.loads(floating.read_text()))
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)
