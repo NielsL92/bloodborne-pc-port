@@ -1,0 +1,514 @@
+{
+  "status": "constructor cohort closure evidence pass; P3 remains open",
+  "current_directory": "local/cfg/startup-recovery-v20-subobject-repeat",
+  "summary": {
+    "status": "P3 startup compilation/control closure NOT passed",
+    "counts": {
+      "recovery_entry": 21178,
+      "recovery_instruction": 874266,
+      "recovery_edge": 1090123,
+      "recovery_issue": 8,
+      "recovery_request": 77011
+    },
+    "constructors": {
+      "decoded_with_explicit_boundaries": 18444
+    },
+    "modules": {
+      "libSceHand.prx": 1,
+      "libSceHeadTracker.prx": 1,
+      "libSceFios2.prx": 89,
+      "libc.prx": 300,
+      "libSceSmart.prx": 1,
+      "libSceS3DConversion.prx": 1,
+      "libSceFace.prx": 1,
+      "eboot.bin": 20784
+    },
+    "decode_issue_kinds": {
+      "fallthrough_at_fence": 8
+    },
+    "frontier_counts": {
+      "unresolved_indirect_call": 9044,
+      "unresolved_indirect_jump": 430,
+      "logical_return_requires_dispatch": 20064,
+      "callback_argument_candidate": 26281,
+      "abi_register_preservation_unvalidated": 9354,
+      "annotated_control_contract_requires_runtime": 4297,
+      "import_contract_unvalidated": 20846,
+      "service_or_trap_boundary": 21,
+      "callback_contract_target_candidate": 2311,
+      "fallthrough_at_fence": 8,
+      "indirect_target_candidate": 4,
+      "exception_personality_candidate": 41,
+      "exception_runtime_unvalidated": 41,
+      "personality_import_unvalidated": 41,
+      "unresolved_exception_continuation": 42,
+      "unresolved_derived_control_continuation": 184,
+      "independently_recovered_jump_table": 12,
+      "callback_slice_runtime_unvalidated": 1,
+      "callback_slice_target_candidate": 1,
+      "unresolved_callback_argument": 143,
+      "unresolved_exit_callbacks": 5,
+      "initial_object_dispatch_target_candidate": 4767,
+      "unresolved_restored_context": 113,
+      "callback_relocation_binding_unvalidated": 142,
+      "callback_relocation_target_candidate": 142,
+      "callback_contract_null_argument": 15
+    },
+    "queued": 0,
+    "manifest_units": 21178,
+    "db_sha256": "54a3142b619e5aac164d3b9b27c1045af3d875aaae95db9688bf5c3e082e4dfa",
+    "manifest_sha256": "d65d332c0a9e268c45ae036e428cef31d3341c55274142d88cf51878ea2e4734",
+    "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "reproducibility": {
+    "analysis.sqlite": "54a3142b619e5aac164d3b9b27c1045af3d875aaae95db9688bf5c3e082e4dfa",
+    "compilation-manifest.jsonl": "d65d332c0a9e268c45ae036e428cef31d3341c55274142d88cf51878ea2e4734",
+    "frontier.jsonl": "96658b12f0971e925b5415f1279723da7a27b26461f0a75c1d4ba9ae64d3e06a",
+    "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+  },
+  "prior_instruction_sets_unchanged": 21175,
+  "new_entries": 3,
+  "new_instruction_addresses": 237,
+  "proof": {
+    "path": "local/cfg/object-dispatch-expanded-v3-subobject/checked.json",
+    "sha256": "fb564fb7650d8cb150cc28baafef9f1b4fdb49d919461cfaedc01e38cb1df6aa",
+    "proposals": 4767,
+    "independent_checks": [
+      {
+        "name": "constructed-singleton-slot-20",
+        "independent_table": 87765088,
+        "independent_slot": 87765120,
+        "independent_target": 34090720,
+        "independent_assembly": [
+          "LEA RAX,[0x53b3060]",
+          "MOV qword ptr [RBX],RAX",
+          "CALL qword ptr [RAX + 0x20]"
+        ],
+        "relocation_byte_offset": 5503824
+      },
+      {
+        "name": "factory-lock-slot-18",
+        "independent_table": 86729264,
+        "independent_slot": 86729288,
+        "independent_target": 34074256,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x18]"
+        ],
+        "relocation_byte_offset": 2689512
+      },
+      {
+        "name": "factory-lock-slot-28",
+        "independent_table": 86729264,
+        "independent_slot": 86729304,
+        "independent_target": 34074736,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x28]"
+        ],
+        "relocation_byte_offset": 2689560
+      },
+      {
+        "name": "factory-lock-nested-slot-10",
+        "independent_table": 86729264,
+        "independent_slot": 86729280,
+        "independent_target": 34074240,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x10]"
+        ],
+        "relocation_byte_offset": 2689488
+      },
+      {
+        "name": "constructed-subobject-slot-20",
+        "independent_table": 87764592,
+        "independent_slot": 87764624,
+        "independent_target": 34065264,
+        "independent_assembly": [
+          "LEA RAX,[0x53b2e70]",
+          "MOV qword ptr [RBX + R12*0x1 + 0x458],RAX",
+          "CALL qword ptr [RAX + 0x20]"
+        ],
+        "relocation_byte_offset": 5502600
+      },
+      {
+        "name": "subobject-factory-allocate-slot-58",
+        "independent_table": 87764592,
+        "independent_slot": 87764680,
+        "independent_target": 34065808,
+        "independent_assembly": [
+          "LEA RAX,[0x53b2e70]",
+          "MOV qword ptr [RBX + R12*0x1 + 0x458],RAX",
+          "CALL qword ptr [RAX + 0x58]"
+        ],
+        "relocation_byte_offset": 5502768
+      },
+      {
+        "name": "subobject-factory-lock-slot-18",
+        "independent_table": 86729264,
+        "independent_slot": 86729288,
+        "independent_target": 34074256,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x18]"
+        ],
+        "relocation_byte_offset": 2689512
+      },
+      {
+        "name": "subobject-factory-lock-slot-28",
+        "independent_table": 86729264,
+        "independent_slot": 86729304,
+        "independent_target": 34074736,
+        "independent_assembly": [
+          "LEA RAX,[0x52b6220]",
+          "MOV qword ptr [RDI + RBX*0x1],RAX",
+          "CALL qword ptr [RAX + 0x28]"
+        ],
+        "relocation_byte_offset": 2689560
+      }
+    ],
+    "source_check": {
+      "status": "independent window closure comparison passed",
+      "source_db_sha256": "3784e47fee946d176eed1cd37ae79f2c12faef4af7d46bc8c896d59e67acd594",
+      "selection_sha256": "137058d6071a5df5a841ffe558325d4a42bd9df5d67045cec0ce16bf4506255a",
+      "comparison_sha256": "e44acaa4ccbb7f5a45b320c31b63f9ac08a75aa3fd0004e937cd33e855e98c6c",
+      "windows": 10,
+      "shared_instructions": 1420,
+      "raw_sha256": {
+        "eboot.bin": "f023ac4e3408942eae42a2c861dae0cbe82b2469782bb91728938ea54e9394eb"
+      },
+      "explained_extra": [
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16323472,
+          "extra": [
+            16323677
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16341008,
+          "extra": [
+            16341213
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 16409616,
+          "extra": [
+            16409821
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 19206800,
+          "extra": [
+            19208356,
+            19208357
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 22854048,
+          "extra": [
+            22856050,
+            22856051
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34085360,
+          "extra": [
+            34085938
+          ],
+          "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+        }
+      ],
+      "unexplained": 0,
+      "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+    },
+    "cohort_expansions": [
+      {
+        "template": "constructed-singleton-slot-20",
+        "object_proof_sha256": "a9964ea0e792743972fb4af3b58a14f13e27c0682ff647bc648bb659ae2bced5",
+        "cohort_proof_sha256": "1cbe4cf19bb3552647e2d3e1907cb7f2955d339ea6055be19cf0b05c5738b2ef",
+        "cohort_windows": 2165,
+        "added_site_candidates": 2164,
+        "other_shapes": 2630,
+        "limitations": "Conditional initial-object candidates only. Calls and mutable cache/table bindings remain unresolved. A pattern match does not prove all incoming states or successful native construction; no execution coverage."
+      },
+      {
+        "template": "constructed-subobject-slot-20",
+        "object_proof_sha256": "37ca6e7f6849b8bca59734e0eecd17cf318033e693d9c31d766eae11832cf52d",
+        "cohort_proof_sha256": "cb9894b827065de7ff8e57e42c875729c903870dfc78a6c98ebac9e37290f411",
+        "cohort_windows": 2596,
+        "added_site_candidates": 2595,
+        "other_shapes": 2199,
+        "limitations": "Conditional initial-object candidates only. Calls and mutable cache/table bindings remain unresolved. A pattern match does not prove all incoming states or successful native construction; no execution coverage."
+      }
+    ]
+  },
+  "independent_closure": {
+    "status": "independent window closure comparison passed",
+    "source_db_sha256": "54a3142b619e5aac164d3b9b27c1045af3d875aaae95db9688bf5c3e082e4dfa",
+    "selection_sha256": "b84930ac13c81205020b78c99ab828a639e54c2c3ef295c04059e897b29806bb",
+    "comparison_sha256": "3a100b4e337b207c885abaeb01fe5481aeb1851e2f2ecef168d4b7d096ca165e",
+    "windows": 11,
+    "shared_instructions": 812,
+    "raw_sha256": {
+      "eboot.bin": "099b8331841e6eb42d859f91f0dd3a2f78dfc2d515b0b8879008a32fecc1c038",
+      "libc.prx": "aac8ce7ef0958e659cf7990a1bf3d97f4f40cadb088c9e92db6b4ca06ee5aea0"
+    },
+    "explained_extra": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 34648288,
+        "extra": [
+          34649890
+        ],
+        "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+      }
+    ],
+    "unexplained": 0,
+    "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+  },
+  "cohorts": [
+    {
+      "windows": 2165,
+      "shared_instructions": 25980,
+      "source_db_sha256": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+      "matches_sha256": "c90ad9885b18e8155fb0e9ae830a0f7552106bd125438bd8227c7d9327eaa875"
+    },
+    {
+      "windows": 2596,
+      "shared_instructions": 33917,
+      "source_db_sha256": "3784e47fee946d176eed1cd37ae79f2c12faef4af7d46bc8c896d59e67acd594",
+      "matches_sha256": "9274a8c778d8029cb39ac255fc62d0b19ea644cf2e196220301e296bb9ea4bbc"
+    }
+  ],
+  "constructor_call_sites_with_checked_candidate": 4761,
+  "constructor_same_operand_sites_remaining": 34,
+  "all_prior_unknown_records_retained": true,
+  "objects": [
+    {
+      "folder": "batch-0000",
+      "object_sha256": "ebb0c5e8c9b1f6be6233e2e1c3802b4b50cec67ef90be70d187a43d2400167bc",
+      "object_bytes": 21448,
+      "entries": [
+        34065264,
+        34065808,
+        34101856
+      ],
+      "roots": [
+        4329032560,
+        4329033104,
+        4329069152
+      ],
+      "missing_instruction_starts": [
+        4329068336
+      ],
+      "external_declarations": [
+        "__remill_write_memory_32",
+        "__remill_read_memory_64",
+        "__remill_function_return",
+        "__remill_write_memory_64",
+        "__remill_function_call",
+        "llvm.ctpop.i8",
+        "__remill_flag_computation_zero",
+        "__remill_flag_computation_sign",
+        "__remill_undefined_8",
+        "__remill_compare_neq",
+        "__remill_flag_computation_carry",
+        "__remill_flag_computation_overflow",
+        "__remill_compare_ult",
+        "__remill_compare_ugt",
+        "__remill_missing_block",
+        "llvm.ctlz.i64",
+        "__remill_compare_eq",
+        "llvm.cttz.i64",
+        "__remill_compare_ule",
+        "__remill_compare_uge"
+      ]
+    }
+  ],
+  "combined_compiled_entries": 21168,
+  "combined_objects": 384,
+  "compiled_constructors": 18444,
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "focused_tests": 64,
+  "runs": {
+    "20260906-p3-object-dispatch-proposals-v2-nested": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "f4320394346f45927285f27687f141180764c934c0a8b4e11d07be4cc84f4be4",
+      "elapsed_seconds": 1.1959704000037163
+    },
+    "20260906-p3-ghidra-object-dispatch-sources-v2-nested": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "f4320394346f45927285f27687f141180764c934c0a8b4e11d07be4cc84f4be4",
+      "elapsed_seconds": 7.2254967000335455
+    },
+    "20260906-p3-object-dispatch-source-check-v2-nested": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6210a382dcb5528af732d36d1feab361db32c625ee9a0c70befe73e087754dc3",
+      "elapsed_seconds": 1.4987102998420596
+    },
+    "20260906-p3-ghidra-object-dispatch-tables-v2-nested": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6210a382dcb5528af732d36d1feab361db32c625ee9a0c70befe73e087754dc3",
+      "elapsed_seconds": 4.317061000037938
+    },
+    "20260906-p3-object-dispatch-check-v2-nested": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6210a382dcb5528af732d36d1feab361db32c625ee9a0c70befe73e087754dc3",
+      "elapsed_seconds": 0.26832880009897053
+    },
+    "20260906-p3-dispatch-cohort-expand-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6210a382dcb5528af732d36d1feab361db32c625ee9a0c70befe73e087754dc3",
+      "elapsed_seconds": 5.114273899933323
+    },
+    "20260906-p3-startup-recovery-v18-cohort": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6210a382dcb5528af732d36d1feab361db32c625ee9a0c70befe73e087754dc3",
+      "elapsed_seconds": 100.25906870001927
+    },
+    "20260906-p3-subobject-cohort-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "a2f9dbf95a8045a03b22fbaceadcd60b448ec7156c012d73b3b8ed265df04983",
+      "elapsed_seconds": 2.5457488000392914
+    },
+    "20260906-p3-object-dispatch-proposals-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 1.0493375998921692
+    },
+    "20260906-p3-ghidra-subobject-cohort-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 7.477553900098428
+    },
+    "20260906-p3-ghidra-object-dispatch-sources-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 7.1135889000725
+    },
+    "20260906-p3-subobject-cohort-check-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 0.29921580012887716
+    },
+    "20260906-p3-object-dispatch-source-check-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 1.4691222000401467
+    },
+    "20260906-p3-ghidra-object-dispatch-tables-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "79f5b650c85ce41c520d7c7c520b504f8796fc7f195354258ef8e4df2f743863",
+      "elapsed_seconds": 4.220351299969479
+    },
+    "20260906-p3-object-dispatch-check-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6f6391e904e40a1c07e6ee97b9402ce43370106d6f3be3d2856355c4a8960306",
+      "elapsed_seconds": 0.18404589989222586
+    },
+    "20260906-p3-dispatch-cohort-expand-v2": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6f6391e904e40a1c07e6ee97b9402ce43370106d6f3be3d2856355c4a8960306",
+      "elapsed_seconds": 0.19344129995442927
+    },
+    "20260906-p3-dispatch-cohort-expand-v3-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6f6391e904e40a1c07e6ee97b9402ce43370106d6f3be3d2856355c4a8960306",
+      "elapsed_seconds": 0.26901899999938905
+    },
+    "20260906-p3-startup-recovery-v19-subobject": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "6f6391e904e40a1c07e6ee97b9402ce43370106d6f3be3d2856355c4a8960306",
+      "elapsed_seconds": 98.96361940004863
+    },
+    "20260906-p3-startup-recovery-v20-subobject-repeat": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 97.71481309994124
+    },
+    "20260906-p3-subobject-integrated-checks-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 0.3821163000538945
+    },
+    "20260906-p3-subobject-delta-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 5.001420499989763
+    },
+    "20260906-p3-ghidra-subobject-closure-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 11.212527399882674
+    },
+    "20260906-p3-subobject-closure-check-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 1.439071899978444
+    },
+    "20260906-p3-subobject-compile-v1": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "8058f87de8335972a94c132bf3cf6077c85ff6a2bfc8e3b40889a0636bbc5494",
+      "elapsed_seconds": 6.1104286999907345
+    },
+    "20260906-p3-subobject-compile-v2-repeat": {
+      "status": "pass",
+      "source_commit": "350ca576a49c889bb453e9df9cb332d349831399",
+      "sources_sha256": "ca0df9b82569c74df1f605c748e0307806fe44c89f88e9f4a201ec4a0d77e2d7",
+      "elapsed_seconds": 4.48835329990834
+    }
+  },
+  "gate": "P3 remains open: 9,044 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 143 unknown callback arguments, x87 state counterexamples and native import/callback/exception/control contracts. 21,168 entries compile; no native startup or playable port.",
+  "limitations": [
+    "4,767 initial candidate records retain all unknown runtime calls; this is not executed or immutable dispatch coverage.",
+    "Two exact constructor sequences cover 4,761 of 4,795 [RAX+0x20] constructor call records; 34 use noncontiguous cache-register provenance and remain separate.",
+    "The second factory returns a base object whose +0x458 subobject receives initial table 0x53b2e70. Its observed +0x58 method reaches additional allocator and lock dependencies.",
+    "No declaration of table extent, successful native initialization, static uniqueness or game boot is made.",
+    "Retained v18 is an intermediate cohort expansion; v19/v20 are the repeated combined current manifests.",
+    "Only authored semantic fixtures execute CPU code. Game-derived objects remain unlinked/unexecuted."
+  ],
+  "native_game_boot": false,
+  "native_port_playable": false
+}

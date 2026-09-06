@@ -129,5 +129,10 @@ if dispatch.exists():
  latest=json.loads(dispatch.read_text());assert latest['status']=='object dispatch closure evidence pass; P3 remains open'
  report['object_dispatch']=dict(path=str(dispatch.relative_to(root)),sha256=sha(dispatch),result=latest)
  report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
+cohorts=root/'reports/constructor-cohort-evidence.json'
+if cohorts.exists():
+ latest=json.loads(cohorts.read_text());assert latest['status']=='constructor cohort closure evidence pass; P3 remains open'
+ report['constructor_cohorts']=dict(path=str(cohorts.relative_to(root)),sha256=sha(cohorts),result=latest)
+ report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)
