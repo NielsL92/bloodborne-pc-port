@@ -1,0 +1,340 @@
+{
+  "status": "authored ordinary call-return guards and exact instruction reads validated; not yet applied to game object set",
+  "legacy": {
+    "status": "legacy unchecked call-return behavior reproduced",
+    "result": {
+      "status": "pass",
+      "cases": 12288,
+      "native_faults": 0,
+      "legacy_wrong_continuations": 4096,
+      "legacy_ignored_nonreturn_contracts": 4096,
+      "all_continuation_targets_compiled": true,
+      "game_execution": false
+    },
+    "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "input_sha256": "76a86877d8612f923658b71e61d0f20e35e59192f2d83a826e816c41ea384e72",
+    "bitcode_sha256": "3da2a6e5eab1d61d076767f81cea3164feb6b4d46cd8b5a7b13c6ca70fd92f27",
+    "object_sha256": "363bfba4a73e277f04e65fb66444f0cf58c6914932e69e4f6243165245dedab5",
+    "fixture_sha256": "acfc1ac8e4e68298e15ad4403ff0f50e71ad4efb7a7b4d75f44278426feb77dc",
+    "raw_sha256": "3034096ba00668ff5e757aae821bc120e1e185a180fe5fb613c7f4769388954c",
+    "limitations": "Authored static hardware and AOT only. The nonreturn assertion is a fixture contract; tests do not implement native nonlocal transfer or game startup."
+  },
+  "checked": {
+    "status": "authored source-aware call-return checks pass",
+    "result": {
+      "status": "pass",
+      "cases": 14336,
+      "native_faults": 8192,
+      "legacy_wrong_continuations": 0,
+      "legacy_ignored_nonreturn_contracts": 0,
+      "all_continuation_targets_compiled": true,
+      "game_execution": false
+    },
+    "lifter_sha256": "c6f64c480da115f3113bdb2bd73f2d7ab2ceeb8d5a96e4351c473d5499bc6b48",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "input_sha256": "b419c468b94622402ab7b3ebae0a2fa8daab6931985ca59103053d01e0e4d438",
+    "bitcode_sha256": "6e616d2d97e14434c3b1057a310fb83a08ba5ab116f1ec1ac09ce078ce488d83",
+    "object_sha256": "8195061c27d12f436b5c0ee1a74f308fae41d53e0e9c67ebaa367210cbf618ef",
+    "fixture_sha256": "2c8186b3c7ac91c25d6cba1e631b6e4a5e015b56bb2e915a77505c1a5486af7f",
+    "raw_sha256": "d4c41b0b8a7f794917a06c4e014abaae86fffc1fdf26c7d684a917607ab49770",
+    "limitations": "Authored static hardware and AOT only. The nonreturn assertion is a fixture contract; tests do not implement native nonlocal transfer or game startup."
+  },
+  "inputs": {
+    "status": "pass",
+    "cases": 14,
+    "accepted": 2,
+    "rejected": 12,
+    "results": [
+      {
+        "case": "valid",
+        "accept": true,
+        "exit_code": 0,
+        "diagnostic": "",
+        "input_sha256": "33ebbbfc05b60a2cd9970cf367978ecaf7d8b6961d72919d42867a2cf091b365",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "container_type",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "return_contracts must be an array",
+        "input_sha256": "018e91994e3a497ff5c72d27818c28aa0130944eb3ceabff2971abe84c64366d",
+        "stderr_sha256": "a4cfc81fe7fe13e8ed4e46b84454d2f1ad0bd37d14487ea8b9468ec4dbac7b38"
+      },
+      {
+        "case": "row_type",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid return contract",
+        "input_sha256": "1b44950904af33e9a16108aa52939805c4fe079a62ccf5ba5758ad710815135a",
+        "stderr_sha256": "99ae1868fc70c5462fe773a99632970609775def9711e67a6cb28c32020e7db2"
+      },
+      {
+        "case": "missing_source",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "address field",
+        "input_sha256": "89a294e589c3fb77e5a0222b274f15a030f17b9099bb7bbccfe8b9c9999510fd",
+        "stderr_sha256": "d55e31dde170313eec7cd5913a8afb0c9a6cc27a8552c232c64f6403ee0079f7"
+      },
+      {
+        "case": "unknown_source",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "140ac9bb222beb2ceac9a3854be0f671ab5a5cfb5cc8b190466f0e8fdc3ece5d",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "wrong_next",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "37d28e5a806e7f91040c239f47c298637bbf1223a24e78cc0a1ca80e9675d4d4",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "unknown_kind",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "f780f18ef14d04dbc2f74e3171044d12dd1b564d322ed6162aa5c45c00a723bd",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "empty_provenance",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "862ab41b8c72e41bde1aaa89047be4f31bdf55fe66de5c6ed77ef347f182daff",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "missing_provenance",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "e856e88a2af9258bf826350e02004602b5867a633915071e709ca40ee1d5d972",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "duplicate",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "invalid exact nonreturn contract",
+        "input_sha256": "46365b465082b501f0b338ea57f7148d4cfdbb6cc184e5419fe908d36b2e472d",
+        "stderr_sha256": "469af332956e3bc2be2502a19c8156d051079b2aa7f774a38f342d75b908f2e9"
+      },
+      {
+        "case": "not_a_call",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "actual ordinary call",
+        "input_sha256": "a0eae1a51b0158e3f8f9d6bc9005c11a9abd4c10871bf657900e7e0215ba11d4",
+        "stderr_sha256": "cc91a953e645e469fd6af068b906b4b104be182a3f76989cc049d9146a63cc20"
+      },
+      {
+        "case": "call_next_contract",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "actual ordinary call",
+        "input_sha256": "468eac2b25e1143ea19bbdd100f797ac4eaa3ee1ceb3065f0f9d88572b1254c6",
+        "stderr_sha256": "cc91a953e645e469fd6af068b906b4b104be182a3f76989cc049d9146a63cc20"
+      },
+      {
+        "case": "call_next_idiom",
+        "accept": true,
+        "exit_code": 0,
+        "diagnostic": "",
+        "input_sha256": "56908f03776fe6288dfe7c7e86053ce1c0b850dd6bf61dd99ce382f784983a39",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "unvisited_contract",
+        "accept": false,
+        "exit_code": 2,
+        "diagnostic": "declared nonreturn contract was not guarded",
+        "input_sha256": "5c4c7e39225263c64daee8b49782b5b7cdd9b091e7dbe86784ca98a45b1e3b77",
+        "stderr_sha256": "2229e1bb8cfa061ea50c4cac8536e90a1a5cc52ee1e405e112b48be8263f7b60"
+      }
+    ],
+    "lifter_sha256": "c6f64c480da115f3113bdb2bd73f2d7ab2ceeb8d5a96e4351c473d5499bc6b48",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "game_execution": false
+  },
+  "ghidra": {
+    "status": "independent CALL/POP instruction boundaries agree",
+    "instructions": [
+      {
+        "rva": 4295565312,
+        "length": 5,
+        "bytes": "e800000000",
+        "text": "CALL 0x100092005",
+        "flow": "UNCONDITIONAL_JUMP",
+        "written_registers": [
+          "RSP"
+        ],
+        "targets": [
+          4295565317
+        ]
+      },
+      {
+        "rva": 4295565317,
+        "length": 1,
+        "bytes": "58",
+        "text": "POP RAX",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "RSP",
+          "RAX"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 4295565318,
+        "length": 1,
+        "bytes": "c3",
+        "text": "RET",
+        "flow": "TERMINATOR",
+        "written_registers": [
+          "RSP",
+          "RIP"
+        ],
+        "targets": []
+      }
+    ],
+    "input_sha256": "0c17c8805a90fc7106e74bb2df2e06cd089ef79d83069f04e4650f627c3ac977",
+    "ghidra_sha256": "d7ac7d9683fe187130ab6f7280882edf307ff03d468101c0b1f0c5837456f9a5",
+    "game_execution": false,
+    "scope": "Authored seven-byte window, no expected instruction starts or function hints supplied to Ghidra."
+  },
+  "repeated_artifact_sha256": {
+    "input.json": "b419c468b94622402ab7b3ebae0a2fa8daab6931985ca59103053d01e0e4d438",
+    "specs.json": "09134ff0d17c496971631f6307e841c3ab08c974d3a83fa49f0a2dcc2b2c30c9",
+    "authored.s": "31af000f5366428faa1d5c59a51f0a8f1b8df84391293705e80467724dba5530",
+    "audit.json": "e1e0009d7d0e12378991cccbca0bcf5e07342bf8d40527da76dc7d94633b26d0",
+    "function.bc": "6e616d2d97e14434c3b1057a310fb83a08ba5ab116f1ec1ac09ce078ce488d83",
+    "function.obj": "8195061c27d12f436b5c0ee1a74f308fae41d53e0e9c67ebaa367210cbf618ef",
+    "execute.stdout": "d4c41b0b8a7f794917a06c4e014abaae86fffc1fdf26c7d684a917607ab49770"
+  },
+  "compiler_identity": {
+    "status": "isolated sparse driver built",
+    "driver_source_sha256": "98e47d3b74bf6ab1335a0fb63fd2bf6c15d3312f1ff4dc92d3135ccaec885442",
+    "original_trace_source_sha256": "edc99939625213dcf0a3312da1fde8d0824a4e3544faaf93d33dec42b347623a",
+    "audited_trace_sha256": "b2c9f7fc8ee1fc15de92c8866e678c21e99b1e7b901940541a6cfb920d3d18c9",
+    "build_ninja_sha256": "f0a202b2939eef002dca0aff5840cda097f8ba1f4dc85ff341dd504edb3437e7",
+    "compiler_sha256": "812f6a0e80a5541108c0f4ae31121bcd5b692707041ac83a86e595f4729f5c8a",
+    "linker_sha256": "89c1209acd8d69b83d7c1a95173c59f036890de4cce713b508270ec4ac71c795",
+    "linked_library_sha256": {
+      "E:\\bloodborne PC port\\build\\remill\\lib\\BC\\remill_bc.lib": "bff4f16fbe708e4340462ade74e82e92fd0088f96c98f54d26d5bf582d16906c",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\OS\\remill_os.lib": "8ccb2cbf3ea8442026baedca4465599c684a65e50d7c3ad2dc38472fc61456f1",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\remill_arch.lib": "b77c1a521f74fd2d8cda6bba0fb7b0258b41ba49ea50bc58eac8c19c6fd1a1a4",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\AArch64\\remill_arch_aarch64.lib": "783437a027f5870566a26310e4413ce4d37be6e98163f5daeb8328141025b13e",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\Sleigh\\remill_arch_sleigh.lib": "a883c4371476136c53b5c5a2d2f62b2cdd6aded4a95822a23d05dd7d97a216b7",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\SPARC32\\remill_arch_sparc32.lib": "f14138eedd5b4a197456452d65695f39782ae2d674498041b1affbc76bb573bb",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\SPARC64\\remill_arch_sparc64.lib": "e2c22feebaab9f00594693a0fa4402b3e09e2bf1310fbf46094488513792817b",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\remill_arch_x86.lib": "6984ddcb501041636e7bcc50b852d9cfe047bab86b9ac7d60fc43b89063d6bde",
+      "E:\\bloodborne PC port\\build\\remill\\lib\\Version\\remill_version.lib": "cb9bf96014bde240716b85bc05043f046c456d4e6eebafa5a8b9c5776d97ac25",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMPasses.lib": "c1c7ff9f9a091a66143adac1036e597ba8d58cae9ff331f1520abde02d1d6a25",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCoroutines.lib": "3d4471c01fb32dc218ad7ffb318cb5ee2f56df90f263dac7c0e8c38d622f543b",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMHipStdPar.lib": "e538bb59cd6bc3b08627ed2eb97331db84f1d41506c93d2e3005e07d7aa7884d",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAArch64CodeGen.lib": "1b24f0566e992a45e296b307d2f247f11f0eda549fe67826780783f0cb8332b4",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAArch64AsmParser.lib": "5477ccc66311afcc1494b05005dfb86e2813e13a140b0eec5296a04882ebfe26",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAArch64Desc.lib": "f49740153c9a4b6e2393e9c3025af3a3a76a89177d749e06db6f947c1bd32347",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAArch64Info.lib": "21a3e00552fa14553a87123ea6cb7f1d39a001fe43f9a375ac50123581e80ae4",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAArch64Utils.lib": "d144b6431af6c99abbcd5a12c2ccff34acb32cc0b469a69fed7a743a0ad5ac64",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMARMCodeGen.lib": "8e8ce17914a87d9a54317e98b15c385812f94af6570532f0bea60ec956a70c46",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMipo.lib": "f37eb5d31aad7ace42545e24e74d686495e2fdb8dcaa0f580710ca89d3e8e818",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMVectorize.lib": "8468003f065af620e3c452c7c5787e80f4cdf1cea0ae11351d3c110b0f6c11f2",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMSandboxIR.lib": "0aea6de573d51d49748889bd394fea7099b841b2e0e2eaaa0ccd4456e729465c",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMFrontendOpenMP.lib": "5d134168ca2bdc935e2cf4cbfa4c5baafc4e0f8f242d85695a2cd86d5c544338",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMFrontendOffloading.lib": "cac628e95d8e66f36ca296dc8f13baaabed25ecb268fdc6f7624f750512f44f5",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMObjectYAML.lib": "43d6d96afb1b98318f219cf6694682b708ef60a4cde83033a538e63488712287",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMFrontendAtomic.lib": "0be19f84e5eec485cccdbe2e42f3cc2f5d09154f044dbf311a79ca7ee954e509",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMFrontendDirective.lib": "f5dca74be785742ffafbcd058d44528bcee378fefa9661dffe6367341b8de7ac",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMLinker.lib": "b9cf5d84f0ba8d92ebf4aacf6676cda4537118b79053c3c52cbe7398b1417e5d",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMARMAsmParser.lib": "bc6d9cfe9a00335b4b97b6449dbbe9c170c36846e56cd4bc23a7dd37c34be5c3",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMARMDesc.lib": "57258a27f10b9822f630319e5fea5fc4356d6c8957aa5408955aba4dead6bdbb",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMARMInfo.lib": "caadf2b93e547e66a44e4a26725de74617b5292a1feef9aca65cfedd6e67814e",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMARMUtils.lib": "b69d9ed9bad69a578f4f5104c4b6e17dff1c2e2ecc13994437d781ea0e2811b1",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMInterpreter.lib": "9f5add47212f489df104f540a7ddba19a56f748e5f7d652faac9756254f4b96c",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMMCJIT.lib": "6dd8fc5bdddea88fe51eba21bc93f8ae08a9f3c833150f006249a63f4a07caed",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMExecutionEngine.lib": "ee13285b33ce398342faf97dc71659f6c44cd015343e9c39452fbaea9aa04175",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMOrcTargetProcess.lib": "6a8672a68b3dd254a1ca0da24b4ecf4bf04e789b9be3a054504ab9fd5715d3d5",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMOrcShared.lib": "2e09c2bf9531d0782637642eacc4626aab0008559cbfbb2cef911c7d36fcd2a5",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMRuntimeDyld.lib": "45a1f02bf0ef5800b677a2013f46f70f1aceec15eebbd871a30c15a3f854d2af",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMX86CodeGen.lib": "122581898fe82e496aec55d1bba5a724d9dd255d8d83eafa43f17cee317e1b3c",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAsmPrinter.lib": "8737d491d1fe2c7616792651564c2b7627c7705d3558048d537d07dfa4e8ae1e",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCFGuard.lib": "e8ffb01a82c7dd5055d89c5b846a7647ad176ce045ef5db750e8fd8a322c1363",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMGlobalISel.lib": "5279ae2fd9d6965fe0866f2bf1f784cbbb9910f6646abb5fd4381cb331b92ccc",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMIRPrinter.lib": "97ab2f79685ada951bf1815c794e850d72d907b4ab9438a124dff3115345bedd",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMInstrumentation.lib": "9592c94886990a77daee9398dc16cf3496000fd6600d24477e0f5aa23c050d00",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMSelectionDAG.lib": "7f2c9d2628661376990a0f907c35ce6a1f13c2046b8a7905bbeb0e8dcba9a403",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCodeGen.lib": "018d8c6fdb373233c06925a3b1cdac1f8de329fed93141d2413f502477be1a75",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMObjCARCOpts.lib": "1f7ce3987e80297472807b9afbb2a474cb69c93b72fd86c488937ec5c8d323d1",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMScalarOpts.lib": "209a34f80d4d29024f13958b4c0e542961e759e15bf48f141fe0520ffea0c34e",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAggressiveInstCombine.lib": "2cc4e65eadb85a6a87b81da2e3fdda477eca8506453f3183c41d8a80839d203e",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMInstCombine.lib": "f2cb794b2a8bb1b238ab362847d7a17cfe6ac28583fb4d8445883fb4fef8d724",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCGData.lib": "882cd9d2a74a08abd1bcf0c7ebd82309b98e49b83c9b8c41bb8ec5a18a3e9644",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMBitWriter.lib": "fe404053a8877d688b1134bd4ce6012a9684eeafaa7bc6625c84e6895e175b87",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMTarget.lib": "9a99d110d1801e686c0fff1ea7edebe93a7fa6763d3236507881542ff07c3fb9",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMTransformUtils.lib": "7fd1f250f353bcff9227c063d1148d9a41539eee27f1b5ab348572de8077779d",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAnalysis.lib": "c64cb0627e98723ef8af787824911092bbeac437fde26d7dafcfa8795ca416a6",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMProfileData.lib": "3ad894c6df0e8cc940230dfc1d10a06b6d2fdd1ec6158c55fbafda819af634cf",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMSymbolize.lib": "5ffc42dd6f5a27ed8db9c853f8fbe5c159bea88d53421645ba6c5425cf556f18",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoGSYM.lib": "1ed137b4c4ddb0d37ef9fc85f5e75878b24daa3ae54403545e1df3f2617555a7",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoDWARF.lib": "d35414e48146d71b47df8c0e566fd5232da649f8de37e5591ade127af20df7e9",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoDWARFLowLevel.lib": "51efdabb27b006cdf9ced16d28c150c8a9b503f4efaeacfcd389827f3109cdb8",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoPDB.lib": "ac60daf3a9a5268c55d8e2aab166b91db307ab2f726a3ba87c6a48a37a269117",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMObject.lib": "ee673ec34b0197d00e4cf39c411febaec87f2dabdf83035247c61829522bc88a",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMIRReader.lib": "9a070467f97b0f5e188ab7a2c3f560caed266f4a7db58fa5c086bc5df8274f91",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMAsmParser.lib": "4ee24cbde219b7ac41eb8791ced40e4729d1b5e855ccd1a5fbe4a8bfcafeca60",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMBitReader.lib": "c9f4e17d7b3da20b1774d2801fc55c502ff0db80ffc75bc2ce1c7f91d9bccbae",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCore.lib": "4963ba5c655d9136a7aed8aede3dee3d3894e9dd17f86598e7d4d37140fca673",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMRemarks.lib": "360c36fdfbd77438be37d8f2b1ebf6b8aa4f0233674d758e72b317003f83c88b",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMBitstreamReader.lib": "e1357d95f77661e43a83f91c0bcc34a29f21377bac1108cd28292c3c40e1f363",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMTextAPI.lib": "bf9556a6bd3fe2b2b61a24791cb8437a62c3ff4646f1f5f936550b71eca8ee16",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoCodeView.lib": "70a38f15f836fdf06ce15fcd9c83d006fac2233b6ff023c874e01cfbd72edd39",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\DIA SDK\\lib\\amd64\\diaguids.lib": "49521b9737668d91b710df99619a18ce886bfeba6cf609089c3711575df859b1",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoMSF.lib": "ebdbb515f67050cb813b3d06cc1c16c0f7cf9a74bc29b7bd69d15366c82ff23d",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDebugInfoBTF.lib": "0550f221be125d56db26904f05d9dd72f1d1d093b06e7091db2d14e059f338c8",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMX86AsmParser.lib": "a07af04f64262d2c9cf96aa1e3f39bf2455a74064df83fac8003f0209d641313",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMMCParser.lib": "109b9108062c3235db36eddfcb486e4170132fb525d77e72e28fa05c15627b7f",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMX86Desc.lib": "a8b5b8d13e203f1c7087e766cffa8c6d5ab021f232f563a328779f8cbaae5cf0",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMX86Info.lib": "ce55d18b65314a3e509513a1906e0ff44c6f51b8e5c5cfa751709338eb848ed9",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMCodeGenTypes.lib": "7b42478da93f0a752556435e1495cc2fa1990fb291f71fd64e3d645aa2af5101",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMMCDisassembler.lib": "b82ad6f5f85503814af511421a0b5bdeb0faf7db26b9831baf10467eb8dbfbba",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMMC.lib": "4d05cdd158e6d3fb16208fd79a43ea49fa8dbdd2ee0b01caee9fc5195bd115c5",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMBinaryFormat.lib": "6d620c839685770b37e8fa818b6b6ff74a96d19fc64ceac2112c05a94b1f4b52",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMTargetParser.lib": "4b8241a61d3e9619d23db1fe40861eee67ab1e5317347afda8bc4de07d846e03",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMSupport.lib": "bf25fe467704bbb1a74e47a145198a80b8f3a4b6c98485f1be9a768b57191507",
+      "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\lib\\LLVMDemangle.lib": "5299294a36c00aae3e9ecc55218bc6b762d1360f80297d35d6b8178fd1caebb5",
+      "E:\\bloodborne PC port\\external\\remill-deps\\lib\\xed.lib": "06119d60894b08ed57cd89e5aeb4adb4e769bdce0ba0cdc991135d690972a561",
+      "E:\\bloodborne PC port\\external\\remill-deps\\lib\\glog.lib": "e5b6c588d7903a5c99e8956e23c20f04d3606b24d47ea2baf41ddf6c9a77abae",
+      "E:\\bloodborne PC port\\external\\remill-deps\\lib\\gflags_static.lib": "649f97d477da93c03e8c1f87901a9f9dfb133734e5f96a0dd6582cae03b6d3c0",
+      "E:\\bloodborne PC port\\build\\remill\\_deps\\sleigh-build\\sla.lib": "ae929bf368224e13d9fd61566fb7ec84a4885403bfb48aac1e5073f6ff296800",
+      "E:\\bloodborne PC port\\build\\remill\\_deps\\sleigh-build\\decomp.lib": "473fdbef174306cec483361145f80d99c3b8f171243fd01db5baeabc7edd32e8",
+      "E:\\bloodborne PC port\\build\\remill\\_deps\\sleigh-build\\support\\slaSupport.lib": "3cab015f807dfca835862aa3b6714989cbeec3a96b8c66e56c0ed07724a1d5a1"
+    },
+    "executable_sha256": "c6f64c480da115f3113bdb2bd73f2d7ab2ceeb8d5a96e4351c473d5499bc6b48",
+    "scope": "Limits each decode read to exact manifest instruction bytes, disabling cross-instruction call/pop fusion. Adds audit hooks and source-aware ordinary call-return guards to a local copy of pinned TraceLifter.cpp. Exact optional no-normal-return contracts reject ordinary returns; conditional call categories fail until independently validated. Normalizes implicit x87 FOP immediates from exact manifest opcode bytes, preserving all 11 bits. Existing Remill executable and libraries untouched. No input-code execution."
+  },
+  "active_objects_unchanged": "local/compiler-spike/divide-integration-manifest-v1/active-objects.json",
+  "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
+  "ordinary_calls_previously_unchecked": true,
+  "pinned_check_call_return_scope": "asynchronous hypercalls only",
+  "fault_abi": "noreturn nounwind C void __bb_native_control_fault(State*, uint64_t source, Memory*, uint32_t reason, uint64_t wanted, uint64_t actual)",
+  "fault_reasons": {
+    "1": "ordinary callee returned with unexpected logical PC",
+    "2": "ordinary return violates exact declared nonreturn assertion"
+  },
+  "limitations": [
+    "Authored static assembly and native AOT only; no game CPU execution.",
+    "Fixture escape bridge is not production native/guest unwind.",
+    "4,305 exact recovery nonreturn annotations still require migration into compiler inputs; conditional evidence is not a global callee attribute.",
+    "Missing-block source/reason, native handling and complete linkage remain open."
+  ],
+  "p3_gate_passed": false,
+  "native_game_boot": false
+}

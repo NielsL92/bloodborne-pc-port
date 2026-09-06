@@ -23,11 +23,15 @@ def main():
     assert sha(source)=='edc99939625213dcf0a3312da1fde8d0824a4e3544faaf93d33dec42b347623a'
     text=source.read_text(encoding='utf-8')
     replacements=[
-      ('namespace remill {','extern bool bb_sparse_instruction_start(uint64_t);\nextern void bb_sparse_instruction_decoded(uint64_t,remill::Instruction&);\nextern void bb_sparse_instruction_lifted(uint64_t,int);\nextern bool bb_sparse_emit_trap(const remill::Instruction&,llvm::BasicBlock*,const remill::IntrinsicTable&);\n\nnamespace remill {'),
-      ('bool TraceLifter::Impl::ReadInstructionBytes(uint64_t addr) {','bool TraceLifter::Impl::ReadInstructionBytes(uint64_t addr) {\n  if (!bb_sparse_instruction_start(addr)) return false;'),
+      ('namespace remill {','extern size_t bb_sparse_instruction_size(uint64_t);\nextern void bb_sparse_instruction_decoded(uint64_t,remill::Instruction&);\nextern void bb_sparse_instruction_lifted(uint64_t,int);\nextern bool bb_sparse_emit_trap(const remill::Instruction&,llvm::BasicBlock*,const remill::IntrinsicTable&);\nextern llvm::BasicBlock* bb_sparse_check_call_return(const remill::Instruction&,llvm::BasicBlock*,const remill::IntrinsicTable&);\n\nnamespace remill {'),
+      ('bool TraceLifter::Impl::ReadInstructionBytes(uint64_t addr) {','bool TraceLifter::Impl::ReadInstructionBytes(uint64_t addr) {\n  const auto input_size = bb_sparse_instruction_size(addr);\n  if (!input_size) return false;'),
       ('auto lift_status =\n          inst.GetLifter()->LiftIntoBlock(inst, block, state_ptr);','bb_sparse_instruction_decoded(inst_addr,inst);\n      auto lift_status =\n          inst.GetLifter()->LiftIntoBlock(inst, block, state_ptr);'),
       ('if (kLiftedInstruction != lift_status) {\n        AddTerminatingTailCall(block, intrinsics->error, *intrinsics);','bb_sparse_instruction_lifted(inst_addr,static_cast<int>(lift_status));\n      if (kLiftedInstruction != lift_status) {\n        AddTerminatingTailCall(block, intrinsics->error, *intrinsics);')]
+    replacements.append(('i < max_inst_bytes; ++i', 'i < max_inst_bytes && i < input_size; ++i'))
     replacements.append(('case Instruction::kCategoryError:\n          AddTerminatingTailCall(block, intrinsics->error, *intrinsics);','case Instruction::kCategoryError:\n          if (bb_sparse_emit_trap(inst,block,*intrinsics)) break;\n          AddTerminatingTailCall(block, intrinsics->error, *intrinsics);'))
+    replacements.extend([
+      ('AddCall(block, intrinsics->function_call, *intrinsics);\n          llvm::BranchInst::Create(fall_through_block, block);', 'AddCall(block, intrinsics->function_call, *intrinsics);\n          block = bb_sparse_check_call_return(inst,block,*intrinsics);\n          llvm::BranchInst::Create(fall_through_block, block);'),
+      ('AddCall(block, target_trace, *intrinsics);\n          }\n\n          const auto ret_pc_ref', 'AddCall(block, target_trace, *intrinsics);\n            block = bb_sparse_check_call_return(inst,block,*intrinsics);\n          }\n\n          const auto ret_pc_ref')])
     for old,new in replacements:
         assert text.count(old)==1,old;text=text.replace(old,new)
     trace=out/'TraceLifter-audited.cpp';trace.write_text(text,encoding='utf-8')
@@ -60,7 +64,7 @@ def main():
         original_trace_source_sha256=sha(source),audited_trace_sha256=sha(trace),build_ninja_sha256=sha(ninja),
         compiler_sha256=sha(LLVM/'bin/clang-cl.exe'),linker_sha256=sha(LLVM/'bin/lld-link.exe'),
         linked_library_sha256=identities,executable_sha256=sha(exe),
-        scope='Adds entry and post-decode audit hooks to a local copy of pinned TraceLifter.cpp. Normalizes implicit x87 FOP immediates from exact manifest opcode bytes, preserving all 11 bits. Existing Remill executable and libraries untouched. No input-code execution.'))
+        scope='Limits each decode read to exact manifest instruction bytes, disabling cross-instruction call/pop fusion. Adds audit hooks and source-aware ordinary call-return guards to a local copy of pinned TraceLifter.cpp. Exact optional no-normal-return contracts reject ordinary returns; conditional call categories fail until independently validated. Normalizes implicit x87 FOP immediates from exact manifest opcode bytes, preserving all 11 bits. Existing Remill executable and libraries untouched. No input-code execution.'))
     print(json.dumps(dict(status='pass',executable=str(exe),sha256=sha(exe))),flush=True)
 
 if __name__=='__main__':main()

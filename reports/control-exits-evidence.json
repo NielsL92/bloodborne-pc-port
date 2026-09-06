@@ -223,5 +223,11 @@
     "Implement or diagnose native service/support boundaries, bind compiled supplied exports and validate linkage/startup without a CPU fallback."
   ],
   "p3_gate_passed": false,
-  "native_game_boot": false
+  "native_game_boot": false,
+  "call_return_correction": {
+    "evidence": "reports/call-return-evidence.json",
+    "pinned_ordinary_calls_checked": false,
+    "pinned_dynamic_guards": "asynchronous hypercalls only",
+    "active_game_objects_replaced": false
+  }
 }

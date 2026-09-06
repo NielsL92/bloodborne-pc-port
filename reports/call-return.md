@@ -1,0 +1,19 @@
+# Ordinary call-return integrity
+
+2026-09-06 20:58 UTC. P3 remains open. The complete active game object set is unchanged: divide-integration-manifest-v1, 386 objects / 21,181 entries / 21,282 roots. No game-derived object was linked or executed in this experiment.
+
+Pinned TraceLifter.cpp checks returned State PC only after asynchronous hypercalls. Ordinary direct and indirect calls restore NEXT_PC from RETURN_PC without checking the actual State PC returned by the callee. Earlier references to dynamic return guards in the control census must not be read as coverage of ordinary calls.
+
+The authored legacy experiment demonstrates 4,096 wrong continuations: a helper changes its logical return address to a separately compiled alternate continuation, hardware returns 222, but old AOT continues along the original path and returns 111. Another 4,096 cases demonstrate that exact declared nonreturn assertions were not represented in the old compiler interface. All destinations were already compiled; target availability cannot authorize an unexpected return.
+
+The new compiler checks actual returned State PC immediately after ordinary callees, before NEXT_PC restoration. A mismatch invokes `__bb_native_control_fault(State*, source, Memory*, reason, wanted, actual)`, with reason 1. An exact input `return_contracts` assertion invokes reason 2 if its call returns normally. Assertions require the exact CALL instruction, exact next PC, unique source and nonempty provenance. They do not mark a callee globally noreturn. The native fault interface is C ABI, nounwind and noreturn. Production handling remains unimplemented; the authored escape bridge does not establish native/guest unwind support.
+
+Fourteen input checks pass: two accepted, twelve rejected, including malformed fields, duplicate/unmapped sources, incorrect next PCs, non-call instructions, unvisited assertions and CALL-next assertions. Conditional direct/indirect call categories reject until independently validated. Ordinary x64 calls are covered.
+
+The first input run revealed Remill's decoder fusing adjacent CALL/POP instructions, conflicting with independently declared single-instruction boundaries. A local TraceLifter copy now limits each read to the exact manifest instruction length. Ghidra independently decodes the seven-byte authored window as CALL (5), POP (1), RET (1), without expected instruction starts or function hints. The hardware/AOT test verifies the logical return address, stack write/read, registers and complete State. Original Remill sources and libraries remain unchanged.
+
+Current checked compiler: `build/sparse-lift-v10-exact-read/bb-sparse-lift.exe`, SHA256 `c6f64c480da115f3113bdb2bd73f2d7ab2ceeb8d5a96e4351c473d5499bc6b48`. Semantics remain v35-divide. The expanded authored fixture passes 14,336 cases, including 8,192 expected explicit faults and 2,048 CALL/POP cases. call-return-checks-v3-exact and v4-repeat have byte-identical inputs, assembly, audit, bitcode, object and execution result. The object SHA256 is `8195061c27d12f436b5c0ee1a74f308fae41d53e0e9c67ebaa367210cbf618ef`.
+
+Preserved runs include call-return-characterize-v1, call-return-checks-v2-guarded, the failed call-return-inputs-v1, call-return-inputs-v2-exact, call-return-ghidra-v1 and both expanded fixture runs. tools/summarize_call_return.py checks and publishes reports/call-return-evidence.json; call-return-evidence-v1 is the recorded successful audit. Every experiment uses tools/run_record.py and a fresh directory.
+
+Next: preserve source and intent in remaining missing-block/hypercall exits, carry all 4,305 exact recovery nonreturn annotations into fresh compilation inputs, then rebuild and audit the complete set. Recovery uncertainty, indirect/callback/service obligations and native linkage remain open. P1 observations are unchanged; user action is not needed.
