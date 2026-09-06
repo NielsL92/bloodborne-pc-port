@@ -1,12 +1,12 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 12:53 UTC
+## Current continuation — 2026-09-06 13:16 UTC
 
-Execution resumed from shutdown commit 98762f2. Read `reports/x87-faults.md` and `reports/x87-fault-evidence.json`. The experimental x87 v15 module passes 1,499,136 masked cases and 720,896 pending/new-exception cases, including 285,424 precise fault callbacks. An independent hardware-only probe resolves the observed Intel unmasked-comparison flag discrepancy while preserving the conflicting documentation and AMD uncertainty. Evidence audit passes. Accepted startup semantics remain v9-sqrt; the sixteen-selector experimental family still lacks memory conversion, arithmetic and serializers.
+Execution continues autonomously; user action: none. Read `reports/x87-serializers.md`, `reports/x87-serializer-evidence.json` and decision `0003-canonical-x87-state-and-explicit-image-profiles.md`. Pure image helpers pass 5,242,880 checks under explicit profiles; one precisely isolated host pointer truncation remains counted. The separate host probe confirms upper-pointer loss across delays without proving a particular kernel cause. No new startup selector or game compilation coverage was added.
 
-Next: independently check FNSTENV/FLDENV/FXSAVE serialization using the canonical x87 representation, then complete memory/arithmetic semantics and native fault contracts before accepting a coherent startup module. Read the exact two rejected libc bodies 0x30430 and 0x53cd0. Preserve old runs and use fresh directories with `tools/run_record.py`. User action: none; continue autonomously until a required action or stop request.
+Next: bind the checked FNSTENV/FLDENV/FXSAVE image helpers to experimental selectors with waiting/alignment/RAM-span contracts and explicit guest pointer metadata. Normalize FLDCW's reserved bits and fix adjacent LDMXCSR/STMXCSR host-state leakage. Complete x87 memory/arithmetic and MMX coherence before promoting startup semantics. Experimental stack/control v15 still passes 1,499,136 masked and 720,896 deferred-fault cases; accepted startup semantics remain v9-sqrt. See reports/x87-faults.md.
 
-Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio investigations remain unchanged.
+Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio work remains unchanged. Preserve every run and use tools/run_record.py with fresh outputs.
 
 Updated 2026-09-06 02:12 UTC. PLAN.md execution is authorized, including routine cost-free actions. No native game boot, native vertical slice, or playable port exists.
 

@@ -1,0 +1,233 @@
+{
+  "status": "canonical x87 image helper evidence passed within explicit profiles; no startup selectors added",
+  "serializer": {
+    "checks": 5242880,
+    "differences": 0,
+    "stack_profile_inputs": 196608,
+    "full_tag_imports": 2097152,
+    "control_word_imports": 65536,
+    "AMD_policy_cases": 196608,
+    "host_pointer_loss_cases": 1,
+    "full_pointer_hardware_matches": 196607,
+    "status": "canonical x87 state-image helpers match checked hardware fields",
+    "raw_sha256": "36924d7de317d49111d77b8151d60ca47c85649d5f1f3fb751c683a0c0bedf7d",
+    "fixture_sha256": "b1600f4cbf408bd4b2f82d67dfec0c8bb3b4970fe1eef73034bf76b8109e0633",
+    "assembly_sha256": "8ecf3b7fe60a6d405672c914ebd89a025cbc619d7dfa9b4f4f3d3263c6de32d7",
+    "source_sha256": "cbc274675bb8efd6c2b8e910cd23b2a55c90e774eb1d1bb462b2beaeb95dbdf6",
+    "serializer_sha256": "0f24bdbfee99b7393e052f33e2a0c916205a377d9eb7881b7bd8576c47054606",
+    "limitations": "Data helpers only, no startup selectors added. Intel calibration profile checked against hardware. AMD exception-only pointer preservation checked as an explicit documented policy, not AMD execution. Host upper-pointer loss is counted separately only when both pointers are truncated exactly to 32 bits and every other saved byte matches. Full canonical pointer encodings are checked independently; see x87-pointer-probe-v1. Caller memory alignment, permission and waiting faults remain outside these pure helpers. MMX/x87 aliasing and guest pointer metadata integration remain open."
+  },
+  "layout": {
+    "status": "authored x87 layout characterization complete",
+    "control_cases": {
+      "kind": "control-normalization",
+      "cases_per_form": 65536,
+      "fldcw_matches": 65536,
+      "fldenv_matches": 65536,
+      "prediction": "(input & 0x1f3f) | 0x40",
+      "first_control_difference": [
+        0,
+        0
+      ],
+      "first_environment_difference": [
+        0,
+        0
+      ]
+    },
+    "layout_cases": 96,
+    "raw_sha256": "46d1f121e87c9afe6d31ae27969e6c14bdb32766c171e2eb4b9e8e354d35c387",
+    "fixture_sha256": "2787c514ab80a898ffd1cce21d872a49ee9a5706dbfac49bf8aa6d9163a1ee88",
+    "assembly_sha256": "1ada6006138f8e15fa33a255f652e824efb19eb2de41806b62df657f39ae0b72",
+    "source_sha256": "00cf2e7aa590443921eb0dfe6e93a4094687b09a0c4eae7bfc342ef63ed3af5e",
+    "limitations": "Authored Intel hardware only. Control normalization and concrete layout observations. No AOT or game CPU execution; AMD conditional pointer saves and native memory faults remain separate obligations."
+  },
+  "host_pointer_probe": {
+    "status": "host pointer stability characterization complete",
+    "groups": [
+      {
+        "pinned": 0,
+        "pending": 0,
+        "delay_iterations": 1,
+        "cases": 65536,
+        "changed": 2,
+        "upper_halves_cleared": 2,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 0,
+        "pending": 0,
+        "delay_iterations": 500000,
+        "cases": 256,
+        "changed": 253,
+        "upper_halves_cleared": 253,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 0,
+        "pending": 1,
+        "delay_iterations": 1,
+        "cases": 65536,
+        "changed": 11,
+        "upper_halves_cleared": 11,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 0,
+        "pending": 1,
+        "delay_iterations": 500000,
+        "cases": 256,
+        "changed": 241,
+        "upper_halves_cleared": 241,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 1,
+        "pending": 0,
+        "delay_iterations": 1,
+        "cases": 65536,
+        "changed": 3,
+        "upper_halves_cleared": 3,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 1,
+        "pending": 0,
+        "delay_iterations": 500000,
+        "cases": 256,
+        "changed": 256,
+        "upper_halves_cleared": 256,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 1,
+        "pending": 1,
+        "delay_iterations": 1,
+        "cases": 65536,
+        "changed": 3,
+        "upper_halves_cleared": 3,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      },
+      {
+        "pinned": 1,
+        "pending": 1,
+        "delay_iterations": 500000,
+        "cases": 256,
+        "changed": 256,
+        "upper_halves_cleared": 256,
+        "other_pointer_changes": 0,
+        "first_ip": 2882342912,
+        "first_dp": 3740278784
+      }
+    ],
+    "raw_sha256": "db6d51c677f869ca0d7faa96f3664bb31ba1c29e83ee45013bb208bf52f6da74",
+    "fixture_sha256": "bb6517bb46bd5e64d2a05744551f76c27390841fb6fda1fe908bdade2f13d0cd",
+    "assembly_sha256": "42a02f760aaca19a250ba22549797f840fb543fa94cdc284cf9590a037d592dd",
+    "source_sha256": "cd4fa81ef5b53f356eee003a094726b61468c7c9a0514b242c3cd57c0bc1b218",
+    "limitations": "Authored Intel host state import/save only. Delay uses integer instructions and PAUSE; thread-affinity changes affect only this diagnostic thread and are restored. This measures host preservation, not guest execution. Correlation with elapsed delay does not alone establish a specific kernel implementation cause."
+  },
+  "retained_failures": {
+    "x87-serializer-probe-v1": {
+      "observation": {
+        "checks": 5046272,
+        "differences": 1,
+        "stack_profile_inputs": 196608,
+        "full_tag_imports": 2097152,
+        "control_word_imports": 65536,
+        "AMD_policy_cases": 196608
+      },
+      "raw_sha256": "2dc184a402e8726defe426b806ae7c4361835b336ea41b4e5f3136b8867a37b7",
+      "diagnostic": "save-fx top=1 tags=13 pattern=4 setting=5\n"
+    },
+    "x87-serializer-probe-v2-diagnostic": {
+      "observation": {
+        "checks": 5046272,
+        "differences": 1,
+        "stack_profile_inputs": 196608,
+        "full_tag_imports": 2097152,
+        "control_word_imports": 65536,
+        "AMD_policy_cases": 196608
+      },
+      "raw_sha256": "2dc184a402e8726defe426b806ae7c4361835b336ea41b4e5f3136b8867a37b7",
+      "diagnostic": "save-fx bytes wide=1: 12:78/00 13:56/00 20:89/00 21:67/00\nsave-fx top=7 tags=7d pattern=2 setting=7\n"
+    }
+  },
+  "runs": {
+    "20260906-p3-x87-layout-probe-v1": {
+      "status": "pass",
+      "source_commit": "d036ca4b79ad66e7914c4c5234a707e5b9601b3c",
+      "sources_sha256": "419d528e5099ab790e044ec2d797989dd36c2950d056fa5507bb96240a7cbf1a",
+      "elapsed_seconds": 3.2603746000677347
+    },
+    "20260906-p3-x87-serializer-probe-v1": {
+      "status": "failed",
+      "source_commit": "d036ca4b79ad66e7914c4c5234a707e5b9601b3c",
+      "sources_sha256": "52cfb8b707af8badd704f139503b8782180bffec08f81ed44acbec91c5aafc0b",
+      "elapsed_seconds": 3.7258215001784265
+    },
+    "20260906-p3-x87-serializer-probe-v2-diagnostic": {
+      "status": "failed",
+      "source_commit": "d036ca4b79ad66e7914c4c5234a707e5b9601b3c",
+      "sources_sha256": "5663c31fb2ba0004383daf1c4ffe67989b025e3e2f2e985920438a6dbed9bac2",
+      "elapsed_seconds": 2.9384486998897046
+    },
+    "20260906-p3-x87-pointer-probe-v1": {
+      "status": "pass",
+      "source_commit": "d036ca4b79ad66e7914c4c5234a707e5b9601b3c",
+      "sources_sha256": "add94bae8a85bd658209d7c1e7407404cf5b146e660ce55e490cf792eca38cab",
+      "elapsed_seconds": 17.9806448998861
+    },
+    "20260906-p3-x87-serializer-probe-v3-pointer-isolation": {
+      "status": "pass",
+      "source_commit": "d036ca4b79ad66e7914c4c5234a707e5b9601b3c",
+      "sources_sha256": "7cf08e28fa4cdab6085943510d3b1d75b63b9e463a742ccebec94b878e206b35",
+      "elapsed_seconds": 2.9936406000051647
+    }
+  },
+  "source_sha256": {
+    "native/semantics/x87_environment.h": "0f24bdbfee99b7393e052f33e2a0c916205a377d9eb7881b7bd8576c47054606",
+    "native/semantics/x87_serializer_probe.cpp": "cbc274675bb8efd6c2b8e910cd23b2a55c90e774eb1d1bb462b2beaeb95dbdf6",
+    "native/semantics/x87_layout_probe.cpp": "00cf2e7aa590443921eb0dfe6e93a4094687b09a0c4eae7bfc342ef63ed3af5e",
+    "native/semantics/x87_pointer_probe.cpp": "cd4fa81ef5b53f356eee003a094726b61468c7c9a0514b242c3cd57c0bc1b218",
+    "tools/x87_serializer_probe.py": "80e7c069654a25a7c4ddd86226e27b202a02e19b56c0506906e7edea8ce2c81f",
+    "tools/x87_layout_probe.py": "e56683392c54ed5eefbd71034e9e82fb1c107212bc737055e3df2218a6658467",
+    "tools/x87_pointer_probe.py": "ba06d4c0dd4fec1065154a19edde6f130f6b0102fbf17c6ed90160d90cede5c1"
+  },
+  "primary_sources": [
+    "https://docs.amd.com/api/khub/documents/w13cmcpL4f9MCT4WPN6eDg/content",
+    "https://docs.amd.com/api/khub/documents/sfvvekC9mDflu6vd3R0NXA/content",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-context"
+  ],
+  "source_access": "AMD FXSAVE and environment text retrieved through the primary-source search index; direct AMD API PDF retrieval returns 404. Windows CONTEXT definition and installed SDK XSAVE_FORMAT are readable.",
+  "next_work": [
+    "Bind the tested image helpers to experimental instruction selectors with explicit full-span RAM access and waiting/alignment boundaries.",
+    "Integrate guest last-pointer segment metadata and the AMD conditional-pointer profile, without inferring it from the Intel host.",
+    "Normalize all FLDCW input bits and correct adjacent LDMXCSR/STMXCSR guest state isolation.",
+    "Complete coherent x87 memory conversion/arithmetic and MMX alias treatment before accepting startup semantics."
+  ],
+  "limitations": [
+    "The 5,242,880 checks include 196,608 policy witnesses; AMD policy checks are documented byte-write expectations, not AMD execution.",
+    "One host upper-pointer truncation remains counted in the passing serializer run; it is accepted only if both pointer upper halves become zero and every other saved byte matches. Canonical 64-bit values are checked independently.",
+    "Delayed pointer imports show truncation with and without exception state and affinity pinning; this supports a host preservation limit but does not establish a particular Windows kernel instruction path.",
+    "The serializers are pure state-image helpers. No instruction selector, memory-fault implementation, game object, native link or game execution was added.",
+    "Sixteen-entry experimental x87 stack/control semantics remain v15; accepted startup semantics remain v9-sqrt. Native exception delivery, arithmetic, last-pointer metadata and MMX/x87 aliasing are open."
+  ],
+  "compiled_entries": 21168,
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "native_game_boot": false,
+  "native_port_playable": false
+}

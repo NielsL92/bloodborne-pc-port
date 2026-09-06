@@ -24300,5 +24300,14 @@
     "delivered_faults": 285424,
     "accepted_startup_semantics_unchanged": true,
     "native_game_boot": false
+  },
+  "latest_x87_serializer_evidence": {
+    "updated_utc": "2026-09-06 13:16 UTC",
+    "path": "reports/x87-serializer-evidence.json",
+    "checks": 5242880,
+    "host_pointer_loss_cases": 1,
+    "startup_selectors_added": 0,
+    "accepted_startup_semantics_unchanged": true,
+    "native_game_boot": false
   }
 }

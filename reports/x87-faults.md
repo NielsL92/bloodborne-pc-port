@@ -1,5 +1,7 @@
 # x87 waiting and exception evidence
 
+Latest 2026-09-06 13:16 UTC: canonical state-image helper evidence is in `reports/x87-serializers.md`. The helper audit passes with a separately measured host pointer limitation; no startup selector or game execution was added.
+
 Updated 2026-09-06 12:53 UTC. The authored stack/control family now passes its masked and deferred-fault comparisons. It remains experimental; P3 is open and no native game boot exists.
 
 `build/extended-semantics-v15-x87-flags` passes 1,499,136 masked cases in `local/compiler-spike/x87-stack-probe-v3` and 720,896 pending/new-exception cases in `local/compiler-spike/x87-fault-probe-v7-memory`. All 285,424 hardware faults match the explicit native callback in occurrence, fault instruction address, pending mask and compared architectural effects. The checks include all six exception masks and all combinations of sticky exception bits for seven control/wait sequences. They compare defined status, nonempty 80-bit payloads, comparison flags, unaffected State bytes, host floating state, memory values and access counts. The fixture checks the imported initial state before each hardware sequence.
