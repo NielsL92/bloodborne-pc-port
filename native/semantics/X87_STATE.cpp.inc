@@ -35,7 +35,7 @@ ALWAYS_INLINE void BBX87Instruction(State& s,addr_t pc,uint16_t fop){s.x87.fxsav
 
 template<bool One> DEF_SEM(BBX87Constant,PC pc,I16 fop){BBX87Pending(memory,state);BBX87Instruction(state,Read(pc),Read(fop));bool full=BBX87Occupied(state,7);BBX87SetStatus(state,BBX87Status(state)&~uint16_t(0x200));BBX87Bits v=One?BBX87Bits{0x8000000000000000ULL,0x3fff}:BBX87Bits{0,0};if(full){if(BBX87Raise(state,1,true,true))return memory;v=BBX87Indefinite();}BBX87Push(state,v);return memory;}
 DEF_SEM(BBX87Initialize){unsigned top=state.x87.fxsave.swd.top;BBX87Bits values[8];for(unsigned i=0;i<8;++i)values[i]=BBX87Read(&state.st.elems[i].val);for(unsigned i=0;i<8;++i)BBX87Write(&state.st.elems[i].val,values[(i+8-top)&7]);state.x87.fxsave.cwd.flat=0x37f;BBX87SetStatus(state,0);state.x87.fxsave.ftw.flat=0;state.x87.fxsave.ip=0;state.x87.fxsave.dp=0;state.x87.fxsave.fop=0;return memory;}
-DEF_SEM(BBX87LoadControl,M16 src){BBX87Pending(memory,state);state.x87.fxsave.cwd.flat=Read(src);auto sw=BBX87Status(state)&~uint16_t(0x8080);if(sw&~state.x87.fxsave.cwd.flat&63)sw|=0x8080;BBX87SetStatus(state,sw);return memory;}
+DEF_SEM(BBX87LoadControl,M16 src){BBX87Pending(memory,state);state.x87.fxsave.cwd.flat=uint16_t((Read(src)&0x1f3f)|0x40);auto sw=BBX87Status(state)&~uint16_t(0x8080);if(sw&~state.x87.fxsave.cwd.flat&63)sw|=0x8080;BBX87SetStatus(state,sw);return memory;}
 DEF_SEM(BBX87StoreControl,M16W dst){Write(dst,state.x87.fxsave.cwd.flat);return memory;}
 template<typename D> DEF_SEM(BBX87StoreStatus,D dst){auto sw=BBX87Status(state);BBX87SetStatus(state,sw);Write(dst,sw);return memory;}
 DEF_SEM(BBX87Wait){BBX87Pending(memory,state);return memory;}
