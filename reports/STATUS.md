@@ -1,6 +1,6 @@
 # Native recompilation execution status
 
-Updated 2026-09-06 00:18 UTC. PLAN.md execution is authorized, including routine cost-free actions. No native game boot, native vertical slice, or playable port exists.
+Updated 2026-09-06 00:36 UTC. PLAN.md execution is authorized, including routine cost-free actions. No native game boot, native vertical slice, or playable port exists.
 
 | Phase | State | Evidence |
 | --- | --- | --- |
@@ -31,3 +31,5 @@ Previous vector checkpoint: reports/vector-semantics.md and reports/vector-seman
 Previous packed/transfer checkpoint: reports/packed-semantics.md and reports/packed-semantics-evidence.json. Combined census 21,145; seven compiler rejections and eight quarantined manifests remain. Eleven new objects (1,022,023 bytes) repeat byte-for-byte and supersede the previous eight-object vector batch. Packed/select/transfer checks pass 262,144 / 376,832 / 593,408 authored cases, with all earlier BMI/vector regressions passing in the final module. The remaining complete missing-selector inventory contains FNSTENV, FLDENV, FXSAVE, VROUNDSD, VMINPS, VMAXPS and VSQRTPS. Investigate floating-point state/exception and environment semantics next; runtime/control closure remains open.
 
 Current floating evidence: reports/fp-semantics.md and reports/fp-semantics-evidence.json. Combined census 21,150; two compiler rejections (libc 0x30430 / 0x53cd0) and eight quarantined manifests remain. Eight extension objects repeat byte-for-byte and supersede earlier extension batches. Min/max, scalar round and square-root checks pass 1,572,864 / 4,194,304 / 3,145,728 authored cases with precise native faults and host MXCSR isolation; the full prior semantic suite passes against v9. Native Windows unwind and PS4 fault delivery remain unresolved. Next: coherent x87 tag/environment/state handling for FNSTENV, FLDENV and FXSAVE; existing tag/layout issues require independent characterization.
+
+X87 investigation: reports/x87-state.md/evidence records 11,520 authored cases, with 10,176 selected-field counterexamples. The 355 recovered x87 sites belong to twelve entries; FNINIT is absent. Stack tags/overflow, forced single precision, overlapping initialization and host-control isolation remain unresolved. Do not accept FNSTENV/FLDENV/FXSAVE merely to compile the final two bodies. Original Remill sources/modules remain unchanged. Continue independent callback/indirect provenance recovery; current inspection exposes callee-saved constants lost across calls and callback loads from mutable relocated slots. User action: none.
