@@ -1,5 +1,7 @@
 # P2 whole-function compiler experiment
 
+Latest 2026-09-06 16:02 UTC: experimental v30 register x87 arithmetic passes its numeric and AOT/scope/boundary matrices, with reproducible objects and retained failed evidence. See `reports/x87-arithmetic.md` / `reports/x87-arithmetic-evidence.json`. Reserved precision control is explicit, FSCALE remains next, and accepted startup artifacts/census are unchanged. P3 is open; no game code was executed.
+
 Latest 2026-09-06 13:16 UTC: canonical state-image helper evidence is in `reports/x87-serializers.md`. The helper audit passes with a separately measured host pointer limitation; no startup selector or game execution was added.
 
 Current 2026-09-06 12:53 UTC: experimental x87 stack/control semantics pass 1,499,136 masked cases and 720,896 deferred-fault cases (285,424 delivered faults). See `reports/x87-faults.md` and its evidence. The family remains partial and unaccepted for startup; no game-derived object was linked or executed.
