@@ -15,7 +15,7 @@ Use `local/compiler-spike/divide-integration-manifest-v1/active-objects.json`: 3
 | Explicit SIMD fault | 58 |
 | Asynchronous / synchronous hypercall | 5 / 4 |
 
-These are optimized LLVM call sites, not execution counts or unique guest instruction counts. The separate 4,366 missing-start records remain a different measurement. Starts can merge, and TraceLifter adds unexpected-return guards outside the missing-start hook. Do not subtract these totals to infer the number of dynamic guards.
+These are optimized LLVM call sites, not execution counts or unique guest instruction counts. The separate 4,366 missing-start records remain a different measurement. Starts can merge, and pinned TraceLifter adds unexpected-return guards for asynchronous hypercalls outside the missing-start hook. Ordinary direct/indirect calls were unchecked; the authored compiler correction is documented in reports/call-return.md and has not yet been applied to this census. Do not subtract these totals to infer the number of dynamic guards.
 
 All 4,818 missing-block calls take a loaded PC value. Their intrinsic ABI does not explicitly carry source instruction and reason. Main 0x210b730 is both a compiled entry and the excluded continuation after the conditional call at 0x210b72b. A compiled target does not authorize treating an unexpected return as ordinary dispatch.
 
