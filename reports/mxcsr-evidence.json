@@ -1,0 +1,652 @@
+{
+  "status": "experimental canonical MXCSR semantics and authored fault contracts passed; P3 startup gate remains open",
+  "native": {
+    "status": "MXCSR instruction characterization complete",
+    "cases": 812640,
+    "differing_cases": 0,
+    "groups": [
+      {
+        "form": 0,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 4352,
+        "native_faults": 37120,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      },
+      {
+        "form": 1,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      },
+      {
+        "form": 2,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 4352,
+        "native_faults": 37120,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      },
+      {
+        "form": 3,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      },
+      {
+        "form": 4,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 4352,
+        "native_faults": 37120,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      },
+      {
+        "form": 5,
+        "cases": 135440,
+        "differing_cases": 0,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 0
+        }
+      }
+    ],
+    "raw_sha256": "aa5921bc9c0fdd3dd8c906a6306d548564fc2773188a5df77a4cf9db5b77be3e",
+    "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+    "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+    "fixture_sha256": "335b9d30ed940c9b80382769055e8f47b0dcd00bdf73ff2d1a85cfb8bfe98ced",
+    "limitations": "Authored AOT only, no game bytes. Intel hardware supplies the 0xffff-profile oracle; 0xffbf mask exclusions are explicit policy cases. Invalid CSR loads fault before State updates; unavailable fixture memory is a separate unsupported diagnostic. Native runtime profile, memory and console exception delivery remain integration obligations."
+  },
+  "original_counterexamples": {
+    "status": "MXCSR instruction characterization complete",
+    "cases": 812640,
+    "differing_cases": 812592,
+    "groups": [
+      {
+        "form": 0,
+        "cases": 135440,
+        "differing_cases": 135424,
+        "hardware_faults": 4352,
+        "native_faults": 0,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 37120,
+          "host-fp-state": 101568,
+          "flags": 0,
+          "fault-class": 37120,
+          "fault-pc": 37120,
+          "fault-values": 37120,
+          "service-order": 135424,
+          "host-helper-call": 135424
+        }
+      },
+      {
+        "form": 1,
+        "cases": 135440,
+        "differing_cases": 135440,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 101568,
+          "full-state": 101584,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 135440
+        }
+      },
+      {
+        "form": 2,
+        "cases": 135440,
+        "differing_cases": 135424,
+        "hardware_faults": 4352,
+        "native_faults": 0,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 37120,
+          "host-fp-state": 101568,
+          "flags": 0,
+          "fault-class": 37120,
+          "fault-pc": 37120,
+          "fault-values": 37120,
+          "service-order": 135424,
+          "host-helper-call": 135424
+        }
+      },
+      {
+        "form": 3,
+        "cases": 135440,
+        "differing_cases": 135440,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 101568,
+          "full-state": 101584,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 0,
+          "host-helper-call": 135440
+        }
+      },
+      {
+        "form": 4,
+        "cases": 135440,
+        "differing_cases": 135424,
+        "hardware_faults": 4352,
+        "native_faults": 0,
+        "policy_cases": 32768,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 37120,
+          "host-fp-state": 101568,
+          "flags": 0,
+          "fault-class": 37120,
+          "fault-pc": 37120,
+          "fault-values": 37120,
+          "service-order": 135424,
+          "host-helper-call": 135424
+        }
+      },
+      {
+        "form": 5,
+        "cases": 135440,
+        "differing_cases": 135440,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "policy_cases": 0,
+        "unsupported_cases": 16,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 101568,
+          "full-state": 101568,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "fault-values": 0,
+          "service-order": 135424,
+          "host-helper-call": 135440
+        }
+      }
+    ],
+    "raw_sha256": "1edaf7eb9edc0009988c1d33dc788fc9716681f3d28be1ab5fd4551b39e7099e",
+    "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+    "semantics_sha256": "fd4f7fb181a1c7d487b9743e8f958ee6093f8ad5138546b6141bfa97f0f13d1d",
+    "fixture_sha256": "ccd54272a622deb6798d65ddbef42731a060b3f6a9262eb1d9abdcb3e0a92544",
+    "limitations": "Authored AOT only, no game bytes. Intel hardware supplies the 0xffff-profile oracle; 0xffbf mask exclusions are explicit policy cases. Invalid CSR loads fault before State updates; unavailable fixture memory is a separate unsupported diagnostic. Native runtime profile, memory and console exception delivery remain integration obligations."
+  },
+  "floating_regressions": {
+    "status": "combined authored semantic suite pass",
+    "results": {
+      "minmax": {
+        "argv": [
+          "E:\\bloodborne PC port\\.venv\\Scripts\\python.exe",
+          "-m",
+          "tools.vector_semantics_checks",
+          "minmax",
+          "local\\compiler-spike\\mxcsr-floating-regression-v1\\minmax",
+          "build\\sparse-lift-v5\\bb-sparse-lift.exe",
+          "build\\extended-semantics-v19-mxcsr"
+        ],
+        "summary": {
+          "status": "authored minmax checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 1572864,
+            "precise_native_faults": 397448,
+            "forms": 16,
+            "mxcsr_settings": 128,
+            "game_code_execution": false,
+            "ps4_exception_delivery": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+          "input_sha256": "39acef04991cf3f2de178230f61d5f85d9ba47b28999d227906160c672decd9b",
+          "fixture_sha256": "758776dc1e947da191c65c942446f0e9f358f2db5225ea99d03705d99ebfeca1",
+          "limitations": "Authored AOT only; host hardware and independent contract reference. No game CPU execution. No assertion of AMD Jaguar bit-exact approximation results."
+        }
+      },
+      "round": {
+        "argv": [
+          "E:\\bloodborne PC port\\.venv\\Scripts\\python.exe",
+          "-m",
+          "tools.vector_semantics_checks",
+          "round",
+          "local\\compiler-spike\\mxcsr-floating-regression-v1\\round",
+          "build\\sparse-lift-v5\\bb-sparse-lift.exe",
+          "build\\extended-semantics-v19-mxcsr"
+        ],
+        "summary": {
+          "status": "authored round checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 4194304,
+            "precise_native_faults": 618933,
+            "forms": 4,
+            "immediates": 256,
+            "mxcsr_settings": 64,
+            "game_code_execution": false,
+            "ps4_exception_delivery": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+          "input_sha256": "0a7d5ee4c9f12cdc722ed2835f8c92926df373bdc7278a94fce1746f58b1cfcd",
+          "fixture_sha256": "cfa274fcdedfb7129d6fc8b198179885111164432be947c818363bace9d12731",
+          "limitations": "Authored AOT only; host hardware and independent contract reference. No game CPU execution. No assertion of AMD Jaguar bit-exact approximation results."
+        }
+      },
+      "sqrt": {
+        "argv": [
+          "E:\\bloodborne PC port\\.venv\\Scripts\\python.exe",
+          "-m",
+          "tools.vector_semantics_checks",
+          "sqrt",
+          "local\\compiler-spike\\mxcsr-floating-regression-v1\\sqrt",
+          "build\\sparse-lift-v5\\bb-sparse-lift.exe",
+          "build\\extended-semantics-v19-mxcsr"
+        ],
+        "summary": {
+          "status": "authored sqrt checks pass",
+          "result": {
+            "status": "pass",
+            "aot_cases": 3145728,
+            "precise_native_faults": 1875621,
+            "forms": 6,
+            "mxcsr_settings": 128,
+            "game_code_execution": false,
+            "ps4_exception_delivery": false
+          },
+          "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+          "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+          "input_sha256": "8239113f42f8b986b2a397280e87d4a20742fb10aa757e19ff2cbcc14688adbc",
+          "fixture_sha256": "13c3b5a9ddf7f738a06cfd496d5ce5b8ece494c4f5fa0fbac1bd8fe906b6e1e4",
+          "limitations": "Authored AOT only; host hardware and independent contract reference. No game CPU execution. No assertion of AMD Jaguar bit-exact approximation results."
+        }
+      }
+    },
+    "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+    "driver_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+    "game_code_execution": false
+  },
+  "image_regression": {
+    "status": "experimental x87 image instruction characterization complete",
+    "cases": 557864,
+    "differing_cases": 0,
+    "groups": [
+      {
+        "form": 0,
+        "cases": 41024,
+        "differing_cases": 0,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "unsupported_spans": 4,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 1,
+        "cases": 172096,
+        "differing_cases": 0,
+        "hardware_faults": 34134,
+        "native_faults": 34136,
+        "unsupported_spans": 2,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 2,
+        "cases": 41204,
+        "differing_cases": 0,
+        "hardware_faults": 240,
+        "native_faults": 240,
+        "unsupported_spans": 4,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 3,
+        "cases": 41204,
+        "differing_cases": 0,
+        "hardware_faults": 240,
+        "native_faults": 240,
+        "unsupported_spans": 4,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 4,
+        "cases": 106560,
+        "differing_cases": 0,
+        "hardware_faults": 85724,
+        "native_faults": 85726,
+        "unsupported_spans": 2,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 5,
+        "cases": 41024,
+        "differing_cases": 0,
+        "hardware_faults": 0,
+        "native_faults": 0,
+        "unsupported_spans": 4,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 6,
+        "cases": 41024,
+        "differing_cases": 0,
+        "hardware_faults": 34134,
+        "native_faults": 34134,
+        "unsupported_spans": 4,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 7,
+        "cases": 73728,
+        "differing_cases": 0,
+        "hardware_faults": 7168,
+        "native_faults": 7168,
+        "unsupported_spans": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory-image": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-service-counts": 0,
+          "pointer-metadata": 0
+        }
+      }
+    ],
+    "raw_sha256": "dd02ede402ea68636383f127a5ff2ac486874c31b2c01689e2c54359a9991d1b",
+    "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+    "semantics_sha256": "01aa5b5481eb71c47d2af532a4917ee0dd66fc060c4cb986a7e78d16c798e4bf",
+    "fixture_sha256": "4154c77c5b5a2b87d89e47129accf9e574437e4c3806bfe345153f9639f57b44",
+    "limitations": "Authored AOT only, with independent Intel hardware images and explicit AMD policy expectations. Runtime services select the profile, track pointer segments and validate a fully mapped RAM span. This is not a general guest memory-fault implementation or native Windows/PS4 exception delivery. No game bytes executed. Coherent x87 memory/arithmetic and MMX alias handling remain open."
+  },
+  "runs": {
+    "20260906-p3-mxcsr-original-v1": {
+      "status": "pass",
+      "source_commit": "ca2f749d995fef9d9a1073031c64e4640a616bc2",
+      "sources_sha256": "11eb8742a53a6cd2e373530bcd25df1dce5e5942b4197c728c85e72477d63659",
+      "elapsed_seconds": 2.7336261000018567
+    },
+    "20260906-p3-extended-semantics-v19-mxcsr": {
+      "status": "pass",
+      "source_commit": "ca2f749d995fef9d9a1073031c64e4640a616bc2",
+      "sources_sha256": "08154bc25eaac0ba382a00825c5f80dbd8cebaac748223f5ed6fd9fc3e5feb41",
+      "elapsed_seconds": 5.3831712999381125
+    },
+    "20260906-p3-mxcsr-native-v1": {
+      "status": "pass",
+      "source_commit": "ca2f749d995fef9d9a1073031c64e4640a616bc2",
+      "sources_sha256": "08154bc25eaac0ba382a00825c5f80dbd8cebaac748223f5ed6fd9fc3e5feb41",
+      "elapsed_seconds": 2.6007797000929713
+    },
+    "20260906-p3-mxcsr-floating-regression-v1": {
+      "status": "pass",
+      "source_commit": "ca2f749d995fef9d9a1073031c64e4640a616bc2",
+      "sources_sha256": "08154bc25eaac0ba382a00825c5f80dbd8cebaac748223f5ed6fd9fc3e5feb41",
+      "elapsed_seconds": 18.06930960016325
+    },
+    "20260906-p3-x87-image-bindings-v3-mxcsr": {
+      "status": "pass",
+      "source_commit": "ca2f749d995fef9d9a1073031c64e4640a616bc2",
+      "sources_sha256": "08154bc25eaac0ba382a00825c5f80dbd8cebaac748223f5ed6fd9fc3e5feb41",
+      "elapsed_seconds": 3.002072999952361
+    }
+  },
+  "recovered_sites": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 195829,
+      "bytes": "0fae5944",
+      "mnemonic": "stmxcsr",
+      "operands": "dword ptr [rcx + 0x44]",
+      "owners": [
+        195760
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 195873,
+      "bytes": "0fae5c24fc",
+      "mnemonic": "stmxcsr",
+      "operands": "dword ptr [rsp - 4]",
+      "owners": [
+        195840
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 195897,
+      "bytes": "0fae5424fc",
+      "mnemonic": "ldmxcsr",
+      "operands": "dword ptr [rsp - 4]",
+      "owners": [
+        195840
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 197722,
+      "bytes": "0fae5df4",
+      "mnemonic": "stmxcsr",
+      "operands": "dword ptr [rbp - 0xc]",
+      "owners": [
+        197680
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 197737,
+      "bytes": "0fae55f4",
+      "mnemonic": "ldmxcsr",
+      "operands": "dword ptr [rbp - 0xc]",
+      "owners": [
+        197680
+      ]
+    }
+  ],
+  "source_sha256": {
+    "native/semantics/MXCSR.cpp.inc": "e4d65b82e25827b65efaa6811599381d4a5fa1544b09a25f78d67ea8af8386a8",
+    "native/semantics/mxcsr_fixture.cpp": "c560758c20912d07758c6155bb6c78c289e3002373a9422a54ad3d7d7e0e4920",
+    "tools/mxcsr_experiment.py": "0478b42f4176e779717e8bc577f19360d11d96b73d20ab791c9123ca71a0bbbe"
+  },
+  "primary_sources": [
+    "https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/programmer-references/26568.pdf",
+    "https://docs.amd.com/api/khub/documents/sD1_QL~h4Afq2_tvzxqqSQ/content",
+    "https://cdrdv2-public.intel.com/868137/325462-089-sdm-vol-1-2abcd-3abcd-4.pdf"
+  ],
+  "primary_source_access": "AMD instruction text and mask rules and Intel LDMXCSR operation retrieved from primary-source search results. Direct AMD instruction PDF URL returns 404.",
+  "limitations": [
+    "812592 original differences include required service/host-helper contract differences; per-category State/memory/host-state/fault counters are separate in the retained raw results. The original run was intentionally characterization, so wrapper pass did not mean semantic pass.",
+    "13056 reserved-bit faults are compared with Intel hardware. 98304 DAZ-reserved faults use an explicit 0xffbf profile rule, not hardware that lacks DAZ.",
+    "96 unavailable-memory cases are authored unsupported mapping diagnostics, not PS4 page-fault delivery. Guest memory services own access boundaries.",
+    "The profile service returns a normalized allowed-bit mask. A raw zero FXSAVE mask must be interpreted by the future runtime as 0xffbf; it is not automatically zero allowed bits. The existing image-profile service must use the same guest feature choice.",
+    "No native game object was executed or newly accepted. Experimental v19 remains unaccepted for startup pending coherent x87 memory/arithmetic, MMX alias and other runtime/control contracts.",
+    "The new selectors support the decoded normal forms. Feature-disabled or malformed instruction #UD, general guest exception delivery and asynchronous faults are not implemented by this fixture."
+  ],
+  "compiled_entries": 21168,
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "native_game_boot": false,
+  "native_port_playable": false
+}

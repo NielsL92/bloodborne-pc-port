@@ -106,3 +106,8 @@ Combined census: 21,150 entries, all 18,444 initial constructors. Two x87 enviro
 ## Experimental x87 image bindings (2026-09-06 13:36 UTC)
 
 Four image selectors and reserved-bit-normalized FLDCW pass 557,864 authored AOT image/boundary cases. Masked-stack and deferred-fault regressions pass 1,499,136 / 720,896 cases. Pure serializers pass 5,242,880 checks after inline/freestanding adaptation. See reports/x87-images.md and reports/x87-image-evidence.json for exact fault/profile/mapping limits and retained failures. Experimental v18 remains unaccepted for startup; compiled entry counts and P3/P1 gates are unchanged. No game-derived code was executed.
+
+
+## Experimental guest MXCSR isolation (2026-09-06 13:47 UTC)
+
+LDMXCSR/STMXCSR and VEX forms pass 812,640 authored cases in experimental v19. The preserved original run exposes guest/host state and missing reserved-bit-fault defects. Adjacent SIMD checks pass 8,912,896 cases and image checks pass 557,864. Exact recovered sites and profile/fault limits are in reports/mxcsr.md and reports/mxcsr-evidence.json. No new game object is accepted; startup semantics remain v9-sqrt and P3 stays open.
