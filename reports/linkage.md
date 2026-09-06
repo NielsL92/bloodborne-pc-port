@@ -1,6 +1,6 @@
 # Complete object linkage inventory
 
-Current comparison correction (2026-09-06 20:00 UTC): reports/comi-semantics.md and its evidence record 851,968 zero-difference authored cases and fourteen exact replacement objects. The active manifest is comi-integration-manifest-v1/active-objects.json. Updated LLVM census v6-comi-repeat has 4,818 missing-block calls, 56 division errors and 58 explicit SIMD faults; COFF audit v7-comi-repeat retains 240 unresolved binding names. Earlier counts/manifests below are historical. Recovery is unchanged; P3 and native startup remain open.
+Current division correction (2026-09-06 20:26 UTC): reports/divide-semantics.md and its evidence record 327,680 zero-difference authored cases, 218,424 precise faults and thirteen exact replacement objects. Use divide-integration-manifest-v1/active-objects.json. Current LLVM census v8-divide-repeat has no generic error calls, 56 divide faults, 58 SIMD faults and 4,818 missing blocks; COFF audit v9-divide-repeat retains 239 unresolved binding names. Earlier counts/manifests below are historical. Recovery is unchanged; P3 and native startup remain open.
 
 2026-09-06 19:16 UTC. All 21,181 current manifest entries compile into 386 objects, but **P3 remains open**. No linker or game code was executed during this audit. Canonical recovery and the complete active object manifest remain startup-recovery-v31-conditional-repeat and conditional-control-evidence-audit-v2-exits/active-objects.json.
 
