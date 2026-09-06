@@ -1,0 +1,162 @@
+{
+  "status": "repeated private native loader verified",
+  "load": {
+    "status": "private native loading and independent relocated-byte checks pass",
+    "plan_sha256": "7b65e29958b48f11ecbf4cc5d1e4f9dfcb4ca89005091cd88b796585c668643d",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "bundle_sha256": "f2f0ce06c0b96892e3d1634c25e3542a3931189ceec4730352d4bbf3fcc0207a",
+    "actual": {
+      "status": "private-load-validated",
+      "regions": 16,
+      "relocations": 238572,
+      "guards": 37,
+      "mapped_bytes": 97517568,
+      "verified_bytes": 97517272,
+      "guarded_bytes": 296,
+      "sha256_unguarded": "cebfd46360e542e8cf9a1fa0f3b260943be96da857133345a8a6115bc1b8628b",
+      "game_execution": false
+    },
+    "authored": {
+      "status": "private-load-validated",
+      "regions": 2,
+      "relocations": 1,
+      "guards": 1,
+      "mapped_bytes": 8192,
+      "verified_bytes": 8184,
+      "guarded_bytes": 8,
+      "sha256_unguarded": "1d7580e3d2cd9f36dffe09d9ef75848baba997511ad77188e319c56170693695",
+      "game_execution": false
+    },
+    "setup_rejections": [
+      {
+        "mode": "overlap",
+        "required_diagnostic": "overlapping load regions"
+      },
+      {
+        "mode": "code-reloc",
+        "required_diagnostic": "relocation is not writable data"
+      },
+      {
+        "mode": "outside",
+        "required_diagnostic": "relocation/guard outside declared memory"
+      },
+      {
+        "mode": "duplicate-reloc",
+        "required_diagnostic": "overlapping relocation destinations"
+      },
+      {
+        "mode": "resolved-guard",
+        "required_diagnostic": "guard overlaps resolved relocation"
+      },
+      {
+        "mode": "duplicate-guard",
+        "required_diagnostic": "overlapping loader guards"
+      },
+      {
+        "mode": "native-slot",
+        "required_diagnostic": "native service slot collision"
+      },
+      {
+        "mode": "truncated",
+        "required_diagnostic": "truncated load bundle"
+      },
+      {
+        "mode": "trailing",
+        "required_diagnostic": "trailing load bundle bytes"
+      },
+      {
+        "mode": "hash",
+        "required_diagnostic": "load bundle SHA256 mismatch"
+      },
+      {
+        "mode": "registry",
+        "required_diagnostic": "load bundle registry identity"
+      }
+    ],
+    "unresolved_guard_probes": 37,
+    "native_objects": {
+      "fault.obj": "2550b589d6750928ac03de9e080be451098dd9d0275eb6d30842d31649fd0cc4",
+      "memory.obj": "fb9a21aae7e0443188858e28a69e73a1487860bc94d94bcf8f022a820a4c57a3",
+      "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+      "loader_fixture.obj": "645f9faace87cb16d5734095a9d092febedc814116caa098c51b9477d1348646"
+    },
+    "source_sha256": {
+      "native\\runtime\\control.cpp": "ad556b94394b8da88de5f0fa5a96bf6421a6ca3cfc63cd1727053470195f76aa",
+      "native\\runtime\\control_fixture.cpp": "ba043b0f57ef2bdc442fe40c2c4a7a233ad073e3ba63ea4fc13be8f1547eba76",
+      "native\\runtime\\fault.cpp": "1fca2a4013cb5df28d3e1b2d9203b31bf64df40a56c92ce103710b9c596b3884",
+      "native\\runtime\\fp.cpp": "3a24f8aa2d822dba31367123c765220a8734bd3ca0eed1c8d90f481b0736b619",
+      "native\\runtime\\fp_fixture.cpp": "62c7058c6646897906ffd7e98bf4a16dfed25a012b97af9338b1891e3e29b8af",
+      "native\\runtime\\guard_fixture.cpp": "1a66ab7aa1f86c2ed2c617b6a229c5beb55fa9ded93f761cd7a0ef31686545e6",
+      "native\\runtime\\intrinsics.cpp": "9325ac8fc4a15b5b6661e9e79d54328cc23eb0a4e1905fa87b055cea3de80590",
+      "native\\runtime\\loader.cpp": "818e7a90a183382ae54d837cfb4ec44255578faecd6b4efec47acbec56fbbe62",
+      "native\\runtime\\loader.h": "bb6b16ada2773a927904276262dbe29f082e8cda8fd1443a5e49f54d1dd87ab9",
+      "native\\runtime\\loader_fixture.cpp": "7a1fc4257d7cbc762c2637bc4a5d44a126d9d63e6aa6ab0b2b1c41ac30762957",
+      "native\\runtime\\memory.cpp": "368ae00fa2596fbf1869cc0a8745c3f7d38c9c8c736d30e927a0e522d8643162",
+      "native\\runtime\\memory_fixture.cpp": "a23fab807306d875daff0631e87e9182ec86e220e29a0c1c963b886bf0d71a69",
+      "native\\runtime\\registry.h": "d1b232b537c6e047dad0837ab3104ce9a3539259a888330ac5c01e08351d0708",
+      "native\\runtime\\registry_main.cpp": "0b19b398fe4ca5fc10f687eb7a4b3867c9a60d4cedeb4fcc2127801ad02a246e",
+      "native\\runtime\\runtime.h": "3a4e97169b0b00b566efa0d79c4e9ca35651c4684d80e8c2728b87f9b8784ec0",
+      "native\\runtime\\sourced.cpp": "35d6c1fd215b27f0755431273b6e5cc98487ecd5a027b2199a6667edd223e745"
+    },
+    "game_execution": false,
+    "limitations": [
+      "All source/game views unchanged; bundle is a fresh copy.",
+      "Runtime applies only explicitly resolved planned values. All 37 unresolved slots remain guarded against reads and writes.",
+      "Independent digest covers every unguarded byte including BSS, alignment tail and relocations; guarded bytes are excluded, not assigned meaning.",
+      "No game entry, initializer, callback, TLS allocation, target FP profile or native service is executed.",
+      "Static module/version/interposition assumptions remain conditional."
+    ]
+  },
+  "identical_artifacts": {
+    "authored.bin": "890903e5422c4e480a884a091a3ad169c384efc751c300a6cd0994936e6d6cb2",
+    "authored.stdout": "b652bdc02e8bddf5941be60de3bcce2c8e301ef7fd9f6deca2678b8c84358984",
+    "code-reloc.bin": "bc8e9c79c1e21b9da0ab8440906038bf84903de81bac9081d4819b79ce696d70",
+    "duplicate-guard.bin": "970135070a2790a8dc4b6d239d008a8a53d3b3566391a32d5dd9a1d013d4f1c8",
+    "duplicate-reloc.bin": "638aff1de8ef57c87d2fd95d88796e2b6e1e1dcdf552e5a594e4d7c4f6aaac4e",
+    "expected.json": "f66c14eb8e2d78283a7d7ba139d21a0d00fe415a6418ec1cd07b91ddf393ac90",
+    "fault.obj": "2550b589d6750928ac03de9e080be451098dd9d0275eb6d30842d31649fd0cc4",
+    "game-data.stdout": "a19c9527a574c21dc02a0bcbb763a8e646afc59e57abd7da7a3d7d7d9adce7ca",
+    "guards.json": "0dab465ba41895b852152a2910cfb2a9da85ad3c6aa2456db180a8be0b4ee396",
+    "hash.bin": "eb488532856a480f577b17a89be83a753f0102f0c1f63e76a88d878d49e96fea",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "loader_fixture.obj": "645f9faace87cb16d5734095a9d092febedc814116caa098c51b9477d1348646",
+    "memory.obj": "fb9a21aae7e0443188858e28a69e73a1487860bc94d94bcf8f022a820a4c57a3",
+    "modules.bin": "f2f0ce06c0b96892e3d1634c25e3542a3931189ceec4730352d4bbf3fcc0207a",
+    "native-slot.bin": "5455ac355c6a8414103972f63fa6a7eac3846c5926fa49868d8bf1c91bb7cbe9",
+    "outside.bin": "8d829ae8dd0eaa91860dc7d48d6b9238a6de49167b6915586dd7a96729b70fd3",
+    "overlap.bin": "4604ded7d6d7ff4158f2167e1c733795a3de2ccaf8ea394010350c7973a1a7eb",
+    "registry.bin": "890903e5422c4e480a884a091a3ad169c384efc751c300a6cd0994936e6d6cb2",
+    "resolved-guard.bin": "14d0b9ae87ee82d9e495db999b510300c24d6302fc36533eee1711a3563a0eeb",
+    "trailing.bin": "d35dea9881f3c81eb4e29db486a108a27e88c3eb61a028ebc23f0801930a362d",
+    "truncated.bin": "51e9f19f84d9450693b659f2e6f178d4621c4a8e5504370dc17d0bc48f655499"
+  },
+  "recorders": [
+    {
+      "run": "20260906-p4-native-load-v1",
+      "status": "failed",
+      "manifest_sha256": "6a53579366fb813e40c16bd3f6e72544d6ec9919a61b03720a9faacaf189a320",
+      "sources_sha256": "cf3c6aa8b4d78b8d31d3a7f7656fc17ea0c4c8a93d00016b9b23f986e9caae68"
+    },
+    {
+      "run": "20260906-p4-native-load-v2-sha-width",
+      "status": "pass",
+      "manifest_sha256": "06c84d310386450e27b8994e5920cfa522f634195df2ee72b7ce4a13c72aedf7",
+      "sources_sha256": "50a6dee956b03aa16fe2d33deaf12cf4340607f841e60d82c3d1b28c1a43510c"
+    },
+    {
+      "run": "20260906-p4-native-load-v3-repeat",
+      "status": "pass",
+      "manifest_sha256": "9125b7deefb04df8bd7addbe95b9cdb35b1d8612cd668a6d0005d247a470165c",
+      "sources_sha256": "50a6dee956b03aa16fe2d33deaf12cf4340607f841e60d82c3d1b28c1a43510c"
+    }
+  ],
+  "game_execution": false,
+  "p4_gate_passed": false,
+  "limits": [
+    "The failed first compile used an unavailable Windows integer-limit macro; its output/source snapshot is preserved.",
+    "Exact repeat covers bundles, native objects and validation outputs; standalone fixture PE timestamps are not normalized.",
+    "All supplied module hashes remain unchanged. Original packages and hardlinked game views were never written.",
+    "Game byte mappings exist only as private NX data. No game-derived CPU function, initializer, callback or service executes in this loader fixture.",
+    "Initialization order, logical stack/TLS, real services, target FP profile, guest exception/nonlocal transfer and first native entry remain open."
+  ]
+}
