@@ -54,6 +54,12 @@ bool bb_sparse_instruction_start(uint64_t pc) {
 }
 void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins) {
   if(!instructions.count(pc)||ins.bytes!=instructions.at(pc))reject("Remill instruction bytes/boundary disagree with manifest");
+  // Canonical raw x87 storage is not yet coherent with Remill's independent
+  // MMX slots. A future discovered MMX path must fail closed, not silently mix
+  // representations. The current recovered startup graph contains no MMX.
+  bool mmx=ins.function=="EMMS"||ins.function=="FEMMS";
+  for(const auto& operand:ins.operands)if(operand.type==remill::Operand::kTypeRegister){const auto& name=operand.reg.name;mmx|=name.size()==3&&name[0]=='M'&&name[1]=='M'&&name[2]>='0'&&name[2]<='7';}
+  if(mmx)reject("MMX/x87 shared-state semantics are not validated at "+std::to_string(pc)+" selector "+ins.function);
   if(ins.category==remill::Instruction::kCategoryInvalid||(ins.category==remill::Instruction::kCategoryError&&!(ins.function=="UD2"&&declared_traps.count(pc))))reject("Remill instruction error/invalid category at "+std::to_string(pc)+" selector "+ins.function);
   // Pinned Remill DecodeFpuOpcode uses &3 instead of &7. Normalize the
   // appended immediate from exact manifest bytes, before semantic lifting.

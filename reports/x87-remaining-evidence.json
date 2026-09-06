@@ -1,0 +1,376 @@
+{
+  "status": "nine arithmetic/scale sites remain in the current graph; new MMX rejects explicitly",
+  "inventory": {
+    "status": "exact current startup x87/MMX inventory retained; no semantics promoted",
+    "source": "local/cfg/startup-recovery-v22-cache-repeat",
+    "database_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+    "manifest_sha256": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+    "x87_sites": 355,
+    "x87_mnemonics": {
+      "fld": 72,
+      "fstp": 130,
+      "fchs": 2,
+      "fldz": 72,
+      "fxch": 33,
+      "fucompi": 11,
+      "fisttp": 2,
+      "fild": 3,
+      "fsubp": 2,
+      "fld1": 3,
+      "fucomi": 11,
+      "fsubrp": 2,
+      "faddp": 1,
+      "fsub": 1,
+      "fcmovne": 1,
+      "fmul": 2,
+      "fnstcw": 1,
+      "fldcw": 1,
+      "fnstenv": 1,
+      "fldenv": 1,
+      "wait": 1,
+      "fscale": 1,
+      "fxsave": 1
+    },
+    "remaining_sites": 9,
+    "remaining_mnemonics": {
+      "fsubp": 2,
+      "fsubrp": 2,
+      "faddp": 1,
+      "fsub": 1,
+      "fmul": 2,
+      "fscale": 1
+    },
+    "remaining_owners": [
+      [
+        "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        112368
+      ],
+      [
+        "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        180784
+      ],
+      [
+        "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        180992
+      ],
+      [
+        "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        182208
+      ],
+      [
+        "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        267232
+      ]
+    ],
+    "mmx_sites": 0,
+    "mmx_mnemonics": {},
+    "mmx_owners": [],
+    "limitations": [
+      "Static recovered graph only; no execution coverage or completeness claim.",
+      "Family-level experimental classification does not replace exact selector/instruction manifests or promote checked modules.",
+      "No absence claim extends to unknown indirect/callback targets, unvisited paths or later gameplay. MMX/x87 aliasing still needs an explicit runtime contract if MMX reaches the graph."
+    ]
+  },
+  "remaining_sites": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 112924,
+      "size": 2,
+      "bytes": "dee9",
+      "mnemonic": "fsubp",
+      "operands": "st(1)",
+      "owners": [
+        112368
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 180959,
+      "size": 2,
+      "bytes": "dee1",
+      "mnemonic": "fsubrp",
+      "operands": "st(1)",
+      "owners": [
+        180784
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 181623,
+      "size": 2,
+      "bytes": "dec2",
+      "mnemonic": "faddp",
+      "operands": "st(2)",
+      "owners": [
+        180992
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 181818,
+      "size": 2,
+      "bytes": "dee1",
+      "mnemonic": "fsubrp",
+      "operands": "st(1)",
+      "owners": [
+        180992
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182036,
+      "size": 2,
+      "bytes": "d8e1",
+      "mnemonic": "fsub",
+      "operands": "st(1)",
+      "owners": [
+        180992
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182266,
+      "size": 2,
+      "bytes": "d8c9",
+      "mnemonic": "fmul",
+      "operands": "st(1)",
+      "owners": [
+        182208
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182512,
+      "size": 2,
+      "bytes": "d8ca",
+      "mnemonic": "fmul",
+      "operands": "st(2)",
+      "owners": [
+        182208
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 182678,
+      "size": 2,
+      "bytes": "dee9",
+      "mnemonic": "fsubp",
+      "operands": "st(1)",
+      "owners": [
+        182208
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 267250,
+      "size": 2,
+      "bytes": "d9fd",
+      "mnemonic": "fscale",
+      "operands": "",
+      "owners": [
+        267232
+      ]
+    }
+  ],
+  "checks": {
+    "sparse-mmx-checks-v1": {
+      "status": "explicit MMX rejection and non-MMX controls passed",
+      "cases": 15,
+      "rejected_mmx": 12,
+      "accepted_controls": 3,
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "semantics_sha256": "86dc29f5e0b7b6554fdd3c26f56533f28ec8f5a13c90e118a4b159d6747c112c",
+      "execution": "none; static authored bytes only"
+    },
+    "sparse-checks-v7-mmx-guard": {
+      "status": "sparse input and authored AOT checks pass",
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "input_cases": [
+        {
+          "case": "valid_sparse",
+          "exit_code": 0,
+          "expected_accept": true,
+          "input_sha256": "d3b9811d8d8195417c1281d3928e7b19ff15a7cbe5dbe4abefa96efee2f43012",
+          "audit": {
+            "compiled_roots": [
+              4294967808,
+              4294968832
+            ],
+            "decoded_addresses": [
+              4294967808,
+              4294967811,
+              4294967813,
+              4294967818,
+              4294967872,
+              4294967877,
+              4294968832,
+              4294968837
+            ],
+            "execution": "none; static lifting census is not execution coverage",
+            "explicit_native_trap_addresses": [],
+            "input_bytes": 23,
+            "input_instructions": 8,
+            "missing_instruction_starts": [],
+            "schema": 1,
+            "semantic_instruction_count": 8,
+            "unvisited_manifest_instructions": [],
+            "x87_opcode_immediates": []
+          }
+        },
+        {
+          "case": "missing_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "fd1b014327107f220244e692d8bde0adec7b5802f5faf4c151c6f565b7b3de8b"
+        },
+        {
+          "case": "duplicate_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "7285579edbed86a9af7c67617597ea9559387426b8b99fd1b92f560da4d082ab"
+        },
+        {
+          "case": "duplicate_instruction",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "3a3076adb3ed4d8e184224ac736f20a52a01528ac4c92133c2e47c490d31c9d6"
+        },
+        {
+          "case": "overlapping_instruction",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "045ecf4b52d02d4a40f1bbff4ad6d47024ec928ebc2bdd21c3de8d030c53a28e"
+        },
+        {
+          "case": "wrong_instruction_boundary",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "a3f57742aae0815c2ced0dcf9e21703b4b14603e65abd99f8986973e3ff24a15"
+        },
+        {
+          "case": "interior_branch",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "acde76370115246c6b92bd0d8652ad0d387ebbd7b1ba5a88d8178d2969798426"
+        },
+        {
+          "case": "invalid_hex",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "6c29617fce183dbf3c497224e9045a1f53b990767c9aa056ce375fcdaa3a4116"
+        },
+        {
+          "case": "unmapped_root",
+          "exit_code": 2,
+          "expected_accept": false,
+          "input_sha256": "6fbfc48f1bdc5f9e5bf8ae0f22d0118beb11a71f76648ee18978dead03d7dc93"
+        },
+        {
+          "case": "explicit_missing",
+          "exit_code": 0,
+          "expected_accept": true,
+          "input_sha256": "655af8c422abb35a48ae55e49fb9fa9c757d608f40b7da11deb0b415dd0c4fe2",
+          "audit": {
+            "compiled_roots": [
+              4294967808
+            ],
+            "decoded_addresses": [
+              4294967808
+            ],
+            "execution": "none; static lifting census is not execution coverage",
+            "explicit_native_trap_addresses": [],
+            "input_bytes": 5,
+            "input_instructions": 1,
+            "missing_instruction_starts": [
+              4294968320
+            ],
+            "schema": 1,
+            "semantic_instruction_count": 1,
+            "unvisited_manifest_instructions": [],
+            "x87_opcode_immediates": []
+          }
+        }
+      ],
+      "native": {
+        "status": "pass",
+        "aot_cases": 8192,
+        "original_code_execution": false
+      },
+      "object_sha256": "c942a836a99fb61b52abc27ad36c172c555be1b57f289bcbeb3584bdaaa5f446",
+      "limitations": "Authored branch, independent entry and logical return checks only. No supplied game CPU execution or game exception-runtime validation."
+    },
+    "x87-opcode-checks-v2-mmx-guard": {
+      "status": "all exact-byte x87 opcode checks passed",
+      "cases": 112,
+      "corrected_cases": 56,
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "semantics_sha256": "86dc29f5e0b7b6554fdd3c26f56533f28ec8f5a13c90e118a4b159d6747c112c",
+      "audit_sha256": "a89de904e13be7cd9174e1657d099ea629c15c8481eb17fd7d085b69a8ddc0b4",
+      "independent_decode_sha256": "c42cea57bf8bed22003e065a0f96ed1b3c4144dfdb5468ebdcb0bdaa97c73849",
+      "execution": "none; authored static input only, not execution coverage"
+    }
+  },
+  "runs": {
+    "20260906-p3-x87-remaining-inventory-v1": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "7de11e9d3328d25d34cfff18c24525da2bac799ea5e92faffd0699e2f21343ed",
+      "elapsed_seconds": 24.216535300016403
+    },
+    "20260906-p3-x87-remaining-inventory-v2-alias": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "989029d5321f40e5742f559982e3dea29806d99cdbdac69527c92ba9e53fbefd",
+      "elapsed_seconds": 1.3650158001109958
+    },
+    "20260906-p3-sparse-lift-v7-mmx-guard": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "989029d5321f40e5742f559982e3dea29806d99cdbdac69527c92ba9e53fbefd",
+      "elapsed_seconds": 11.887147400062531
+    },
+    "20260906-p3-sparse-mmx-checks-v1": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "989029d5321f40e5742f559982e3dea29806d99cdbdac69527c92ba9e53fbefd",
+      "elapsed_seconds": 1.8159455999266356
+    },
+    "20260906-p3-sparse-checks-v7-mmx-guard": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "989029d5321f40e5742f559982e3dea29806d99cdbdac69527c92ba9e53fbefd",
+      "elapsed_seconds": 3.4324035001918674
+    },
+    "20260906-p3-x87-opcode-checks-v2-mmx-guard": {
+      "status": "pass",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "989029d5321f40e5742f559982e3dea29806d99cdbdac69527c92ba9e53fbefd",
+      "elapsed_seconds": 0.3959986998233944
+    },
+    "20260906-p3-x87-remaining-evidence-audit-v1": {
+      "status": "failed",
+      "source_commit": "ff4c7eaa9770e6189c403357c625d5bc40c2a441",
+      "sources_sha256": "04b0f528f9cb39e45d2d19e822dbf691a8085e8992a104b34060702f069f70be",
+      "elapsed_seconds": 0.4321771999821067
+    }
+  },
+  "source_sha256": {
+    "native/sparse_lift/main.cpp": "33d572a99d33c0db24e707b467bb6c16c85af8ddf0a1e056da2f6050161cc49a",
+    "tools/x87_remaining_inventory.py": "0f047d629ab688292a98ae2b91a4b9feb10a5130b11977bfebfd607366df6b81",
+    "tools/sparse_mmx_checks.py": "e28307405aba5a07959f7f2ce5319303944ae83a61b1346b8ba37c70b2ef84e6"
+  },
+  "retained_audit_failure": "Audit v1 compared whole annotated x87 JSON files; selected ownership fields differ after alias classification. Audit v2 compares every instruction field excluding the intentionally selected owners annotation, and separately checks exact database/manifest hashes.",
+  "alias_correction": "Capstone names DF E8..EF FUCOMPI; all 11 exact sites belong to the already characterized FUCOMIP selector. The first inventory omitted this spelling and overcounted remaining sites by 11. Static input bytes and database are unchanged.",
+  "limitations": [
+    "No MMX exists in the current recovered startup instruction graph. This says nothing about unknown indirect/callback targets or later gameplay.",
+    "Compiler v7 rejects decoded MM0..MM7 operands and EMMS/FEMMS before semantic lifting; shared MMX/x87 state remains unimplemented and cannot silently enter future native manifests.",
+    "The nine arithmetic/FSCALE instructions belong to five supplied libc entries. Family-level classification does not establish complete selector semantics, native control closure or execution coverage.",
+    "Accepted startup compiler/semantics remain v5 / v9-sqrt and 21168 compiled entries. Experimental compiler v7 / semantics v29 are not promoted."
+  ],
+  "experimental_compiler": "v7-mmx-guard",
+  "experimental_semantics": "v29-store-priority",
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "native_game_boot": false,
+  "native_port_playable": false
+}
