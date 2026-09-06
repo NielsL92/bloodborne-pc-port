@@ -1,0 +1,37 @@
+# Exact startup service-control boundaries
+
+Updated 2026-09-06 17:41 UTC. P3 remains open. No native game boot or playable port exists.
+
+The static census is now **21,173 entries / 382 objects**, with zero compiler rejections, five quarantined manifests and all 18,444 initial constructors represented exactly once. The active manifest is `local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json` (SHA256 `cd619f4a781c67cf3e0b091387e5473ba0d2867e3595d6c0c516c8e02f2b87ea`). It adds two repeated objects totaling 4,255 bytes and 34 instructions to the prior 380-object set. Original packages, hardlinked views and previous runs are unchanged.
+
+## What the three annotations establish
+
+| Supplied entry and final service call | Exact binding and condition | Obligations retained |
+| --- | --- | --- |
+| libc 0x1f560; call 0x1f56b to PLT 0xe0 | Debug-exception NID OMDRKKAZ8I4, libkernel/libkernel, only within the supplied abort wrapper with RDI=0xa002000b and RSI=0 | Native abort/debug binding, signal/exception disposition and nonlocal handler effects; unexpected service return |
+| libc 0x5ff10; call 0x5ff5d to PLT 0x5a0 | _exit NID 6Z83sYWFlA8, libkernel/libkernel | Process status, all-thread termination and resource teardown; earlier libc exit callbacks remain unresolved |
+| main 0x207f990; call 0x207f99b to PLT 0x2bc0d38 | scePthreadExit NID 3kg7rT0NQIs, libkernel/libkernel | Exit value/join, LIFO cancellation cleanup, thread-data destructors, last-thread process termination and native callback dispatch |
+
+These are conditional no-ordinary-return annotations at exact module/entry/call-site identities. They do not implement services. The public [abort contract](https://pubs.opengroup.org/onlinepubs/9699919799/functions/abort.html), [_exit contract](https://pubs.opengroup.org/onlinepubs/9799919799/functions/_exit.html) and [pthread_exit contract](https://pubs.opengroup.org/onlinepubs/009696899/functions/pthread_exit.html) supply independent API obligations. Pinned shadPS4 symbols and reference implementations corroborate identity, without being console observations or a native implementation. The generic debug service can reject a nonzero second argument and return; no global noreturn rule was added.
+
+The new objects retain three explicit missing paths after the service calls. A future native runtime must diagnose an unexpected return, not execute the trailing NOP or adjacent bytes. The original import frontier is unchanged, and three unresolved_native_service_control records retain all service effects. The former abort NOP is the only removed instruction; only the three intended manifests change. Every existing unknown-target count is unchanged.
+
+## Independent checks and repetition
+
+Ghidra checks all eight original quarantines plus both key helpers and the signal-import caller: 11 windows, 753 shared instruction identities, zero byte/boundary disagreements and zero recovery-only instructions. One extra instruction follows an existing annotated stack-protector-failure call and is explained from Ghidra's own flow. Raw independent outputs are preserved. Ghidra separately confirms the abort argument operands and the only straight-line entry path to the service call. Fifty-four focused tests pass, including modified arguments/bytes, wrong providers, new landing-pad roots, other call sites, and the unchanged generic debug-call return path.
+
+`local/cfg/startup-recovery-v25-services-memory` reproduces v23's database, manifest, frontier and constructor order byte-for-byte. Database SHA256 `63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4`; manifest SHA256 `5669808ed4c589514262aecc9fd0268eaa04cf43181bc2d3e83a5b17615e035d`. The complete recovery contains 21,178 entries / 874,265 instruction addresses across eight modules. The two successful compile runs reproduce input, roots, units, audit, bitcode and object files exactly. The evidence audit verifies every active entry against the current instruction-set hash, one owner for each entry and compiled logical root, and all issue-free manifests and initial constructors.
+
+Report publication v1 read existing Markdown using the Windows default code page and failed on a UTF-8 character. Its partial outputs were preserved separately and restored from the verified pre-change source commit before an explicit UTF-8 retry. The source snapshot and failure log remain.
+
+Compile v1 started before its selection artifact existed and failed before lifting or compilation. V2 waits for the completed delta; V3 repeats it. Recovery v24 finished decoding/export but encountered severe memory pressure during the full SQLite integrity check: about 937 MiB free of 31.8 GiB physical memory, with 545,586 process read operations recorded. It was stopped after 1,006 seconds; its database, exports, source snapshot and logs remain. A read-only cache warm-up did not promptly finish that check. V25 releases no-longer-needed recovery maps and uses a connection-local 64 MiB SQLite cache, then performs the same full integrity check. It passed in 106 seconds overall and reproduced v23 artifacts. This operational observation is not a controlled performance comparison or a gameplay performance claim.
+
+## Remaining concrete work
+
+Five quarantines remain: libc 0x60510, 0x60560 and 0x606f0 lead through 0x60750's unresolved virtual calls; main 0x210b0e0 and 0x210b940 lead through 0x210ad70's virtual callback/exit branch or longjmp. No unknown callback was assumed to return or terminate. Preliminary inspection identifies libc 0x60811's initial table target as 0x48f00 through a data-symbol relocation at 0xbe2d0 and a function-symbol relocation at 0xba9e0. Its 10-byte body and relocation chain require independent checks and recovery; they are not part of this accepted census. Object/table mutation, symbol binding and the subsequent what() target remain unresolved.
+
+The replacement x87 object's unnamed libkernel NID VADc3MNQ3cM resolves in pinned reference sources to `signal`. At libc 0x13027 the supplied code tail-calls it with numeric arguments 9 and 0. This changes signal disposition; it does not raise a signal or supply a non-null callback. The exact console result, errno and native binding remain open. POSIX permits an error when setting the default disposition for an uncatchable signal; no unconditional success or nonreturn behavior was invented. [Signal contract](https://pubs.opengroup.org/onlinepubs/9799919799/functions/signal.html).
+
+For reproduction, preserve every run and use `tools/run_record.py --id UNIQUE -- COMMAND`. Run `tools.startup_service_inventory`, `tools.ghidra_recovery_check --exception-roots`, `tools.check_startup_services`, the focused tests and `tools.check_ghidra_window_closure` first. Regenerate recovery from the default original startup-db-v1 seed with the existing jump/control/callback/object evidence and the additional `--service-site-evidence local/cfg/startup-services-checked-v1/contracts.json`. `tools.startup_service_delta` verifies the exact change and creates the three-entry compile selection. Use `tools.startup_batch_compile` with v8 sparse lift / v31 semantics, then `tools.summarize_startup_services`. Exact argv and immutable source snapshots are in the recorded runs listed in the evidence JSON. Do not use an extended database as the seed.
+
+P1 Hunter's Dream route, profiler overhead/cost separation and intermittent opening audio mutex crash remain independent and unchanged. No user action or paid component is needed.

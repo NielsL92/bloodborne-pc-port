@@ -24358,5 +24358,1051 @@
     "p3_gate_passed": false,
     "native_game_boot": false,
     "native_port_playable": false
+  },
+  "startup_service_control": {
+    "path": "reports/startup-services-evidence.json",
+    "sha256": "3a9e165f09c2d24e6faa987aa75366450fd1ab93bcece194a9878618af302747",
+    "result": {
+      "status": "three exact service-call annotations and static object additions pass; P3 remains open",
+      "source": "local/cfg/startup-recovery-v25-services-memory",
+      "recovery": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21178,
+          "recovery_instruction": 874265,
+          "recovery_edge": 1090159,
+          "recovery_issue": 5,
+          "recovery_request": 77045
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 300,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20784
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 5
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 9044,
+          "unresolved_indirect_jump": 430,
+          "logical_return_requires_dispatch": 20064,
+          "callback_argument_candidate": 26281,
+          "abi_register_preservation_unvalidated": 9354,
+          "annotated_control_contract_requires_runtime": 4300,
+          "import_contract_unvalidated": 20846,
+          "service_or_trap_boundary": 21,
+          "callback_contract_target_candidate": 2311,
+          "unresolved_native_service_control": 3,
+          "indirect_target_candidate": 4,
+          "exception_personality_candidate": 41,
+          "exception_runtime_unvalidated": 41,
+          "personality_import_unvalidated": 41,
+          "unresolved_exception_continuation": 42,
+          "unresolved_derived_control_continuation": 184,
+          "fallthrough_at_fence": 5,
+          "independently_recovered_jump_table": 12,
+          "callback_slice_runtime_unvalidated": 1,
+          "callback_slice_target_candidate": 1,
+          "unresolved_callback_argument": 143,
+          "unresolved_exit_callbacks": 5,
+          "initial_object_dispatch_target_candidate": 4801,
+          "unresolved_restored_context": 113,
+          "callback_relocation_binding_unvalidated": 142,
+          "callback_relocation_target_candidate": 142,
+          "callback_contract_null_argument": 15
+        },
+        "queued": 0,
+        "manifest_units": 21178,
+        "db_sha256": "63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4",
+        "manifest_sha256": "5669808ed4c589514262aecc9fd0268eaa04cf43181bc2d3e83a5b17615e035d",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      },
+      "contracts": {
+        "schema": 1,
+        "status": "independent Ghidra service-site comparison passed",
+        "source_db_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+        "base_contracts_sha256": "0e80c6c93f04f7ba0f8681c22dd62c7de0333c2a3f0db27112a2f43cc0f8c1bf",
+        "references": {
+          "tools/cfg_import_contracts.json": "0e80c6c93f04f7ba0f8681c22dd62c7de0333c2a3f0db27112a2f43cc0f8c1bf",
+          "external/shadPS4/src/core/aerolib/aerolib.inl": "8f0a20dec6d8edf2d8a500ce034ca984363412c7c481b4867de252696f52531c",
+          "external/shadPS4/src/core/libraries/kernel/process.cpp": "d469a4d35265d384c60d6874bebbd2a968cb460934fdc931cb44492cfad1c79f",
+          "external/shadPS4/src/core/libraries/kernel/threads/exception.cpp": "0ee626e1a55aaa42f1033fcd487c8b916e7183210130ce1103c905d341b3b769",
+          "external/shadPS4/src/core/libraries/kernel/threads/pthread.cpp": "0483ec94dbbe0a8a599bebb7d81c9efa81c972a903000182c1c0f65198f493a5"
+        },
+        "evidence": {
+          "local\\cfg\\startup-service-inventory-v1\\inventory.json": "b85b1dbc1d9d5642373605f7b6972dfc1ec2fcd2f4d86985156361e56e131139",
+          "local\\cfg\\ghidra-service-boundaries-v1\\comparison.json": "219626f0f881a2dc603281a352528256a029f8f8955f3e3c894c765345ba4f34",
+          "local\\cfg\\ghidra-service-boundaries-v1\\summary.json": "22af6a4c797eeff0e678905fb13772bc9095892ad788bd69038bbeb15fb1eb2b",
+          "local\\cfg\\ghidra-service-boundaries-v1\\libc.prx\\ghidra.json": "c5ae9cb8d4e30809e75782a271eb42dad4387bca546f3e0df35ac601f682594d",
+          "local\\cfg\\ghidra-service-boundaries-v1\\eboot.bin\\ghidra.json": "3da897d4f08c2b90f2eb9c2eae05a5627f471d68c34d4370307c489c600e23bb"
+        },
+        "contracts": [
+          {
+            "id": "libc-abort-debug-site",
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 128352,
+            "site": 128363,
+            "target": 224,
+            "nid": "OMDRKKAZ8I4",
+            "context": {
+              "rdi": 2684485643,
+              "rsi": 0
+            },
+            "context_instructions": [
+              128356,
+              128361
+            ],
+            "contract": "Conditional absence of ordinary return at this exact abort-wrapper service call, under the existing libc-abort ABI contract and its signal/exception implementation obligations. This is not a generic debug-service noreturn contract.",
+            "obligations": [
+              "native abort and debug-exception binding",
+              "signal/exception disposition and possible nonlocal handler transfer",
+              "unexpected service return must be reported, never continued into the trailing NOP or adjacent data"
+            ],
+            "url": "https://pubs.opengroup.org/onlinepubs/9699919799/functions/abort.html",
+            "import_key": [
+              "OMDRKKAZ8I4",
+              "libkernel",
+              "libkernel"
+            ],
+            "instructions": [
+              [
+                128352,
+                1,
+                "55"
+              ],
+              [
+                128353,
+                3,
+                "4889e5"
+              ],
+              [
+                128356,
+                5,
+                "bf0b0002a0"
+              ],
+              [
+                128361,
+                2,
+                "31f6"
+              ],
+              [
+                128363,
+                5,
+                "e8700bfeff"
+              ],
+              [
+                128368,
+                1,
+                "90"
+              ]
+            ],
+            "import": {
+              "bind": 1,
+              "defined": false,
+              "index": 10,
+              "library": "libkernel",
+              "module": "libkernel",
+              "name": "OMDRKKAZ8I4#A#B",
+              "nid": "OMDRKKAZ8I4",
+              "resolved_name": null,
+              "size": 0,
+              "type": 2,
+              "value": 0
+            },
+            "independent": {
+              "call": {
+                "rva": 128363,
+                "length": 5,
+                "bytes": "e8700bfeff",
+                "text": "CALL 0x000000e0",
+                "flow": "UNCONDITIONAL_CALL",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": [
+                  224
+                ]
+              },
+              "context": [
+                {
+                  "rva": 128356,
+                  "length": 5,
+                  "bytes": "bf0b0002a0",
+                  "text": "MOV EDI,0xa002000b",
+                  "flow": "FALL_THROUGH",
+                  "written_registers": [
+                    "RDI"
+                  ],
+                  "targets": []
+                },
+                {
+                  "rva": 128361,
+                  "length": 2,
+                  "bytes": "31f6",
+                  "text": "XOR ESI,ESI",
+                  "flow": "FALL_THROUGH",
+                  "written_registers": [
+                    "CF",
+                    "ESI",
+                    "RSI",
+                    "PF",
+                    "ZF",
+                    "SF",
+                    "OF"
+                  ],
+                  "targets": []
+                }
+              ]
+            }
+          },
+          {
+            "id": "libc-exit-kernel-site",
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 392976,
+            "site": 393053,
+            "target": 1440,
+            "nid": "6Z83sYWFlA8",
+            "context": {},
+            "context_instructions": [],
+            "contract": "Conditional no ordinary return for exact libkernel _exit import. Earlier libc exit callbacks remain recovered and unresolved.",
+            "obligations": [
+              "native process termination and status",
+              "process resource teardown and all-thread termination",
+              "no extra atexit, cancellation cleanup or thread-data destructor invocation by _exit",
+              "unexpected service return must be reported"
+            ],
+            "url": "https://pubs.opengroup.org/onlinepubs/9799919799/functions/_exit.html",
+            "import_key": [
+              "6Z83sYWFlA8",
+              "libkernel",
+              "libkernel"
+            ],
+            "instructions": [
+              [
+                392976,
+                1,
+                "55"
+              ],
+              [
+                392977,
+                3,
+                "4889e5"
+              ],
+              [
+                392980,
+                1,
+                "53"
+              ],
+              [
+                392981,
+                1,
+                "50"
+              ],
+              [
+                392982,
+                2,
+                "89fb"
+              ],
+              [
+                392984,
+                2,
+                "85db"
+              ],
+              [
+                392986,
+                2,
+                "7507"
+              ],
+              [
+                392988,
+                5,
+                "bf030002a0"
+              ],
+              [
+                392993,
+                2,
+                "eb05"
+              ],
+              [
+                392995,
+                5,
+                "bf040002a0"
+              ],
+              [
+                393000,
+                2,
+                "31f6"
+              ],
+              [
+                393002,
+                5,
+                "e8c101faff"
+              ],
+              [
+                393007,
+                7,
+                "488d0596fd0500"
+              ],
+              [
+                393014,
+                6,
+                "c70001000000"
+              ],
+              [
+                393020,
+                2,
+                "31ff"
+              ],
+              [
+                393022,
+                5,
+                "e89df3fcff"
+              ],
+              [
+                393027,
+                7,
+                "488d054e660700"
+              ],
+              [
+                393034,
+                3,
+                "488b00"
+              ],
+              [
+                393037,
+                3,
+                "4885c0"
+              ],
+              [
+                393040,
+                2,
+                "7402"
+              ],
+              [
+                393042,
+                2,
+                "ffd0"
+              ],
+              [
+                393044,
+                2,
+                "31ff"
+              ],
+              [
+                393046,
+                5,
+                "e81576faff"
+              ],
+              [
+                393051,
+                2,
+                "89df"
+              ],
+              [
+                393053,
+                5,
+                "e83e06faff"
+              ]
+            ],
+            "import": {
+              "bind": 1,
+              "defined": false,
+              "index": 80,
+              "library": "libkernel",
+              "module": "libkernel",
+              "name": "6Z83sYWFlA8#A#B",
+              "nid": "6Z83sYWFlA8",
+              "resolved_name": null,
+              "size": 0,
+              "type": 2,
+              "value": 0
+            },
+            "independent": {
+              "call": {
+                "rva": 393053,
+                "length": 5,
+                "bytes": "e83e06faff",
+                "text": "CALL 0x000005a0",
+                "flow": "UNCONDITIONAL_CALL",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": [
+                  1440
+                ]
+              },
+              "context": []
+            }
+          },
+          {
+            "id": "main-pthread-exit-site",
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34077072,
+            "site": 34077083,
+            "target": 45878584,
+            "nid": "3kg7rT0NQIs",
+            "context": {},
+            "context_instructions": [],
+            "contract": "Conditional no ordinary return for exact scePthreadExit import aligned with the public pthread_exit contract. Callback targets and implementation remain unresolved.",
+            "obligations": [
+              "native thread exit value and join delivery",
+              "LIFO cancellation cleanup through validated native callback dispatch",
+              "thread-specific destructors and repeated destructor passes",
+              "last-thread process exit",
+              "unexpected service return must be reported"
+            ],
+            "url": "https://pubs.opengroup.org/onlinepubs/009696899/functions/pthread_exit.html",
+            "import_key": [
+              "3kg7rT0NQIs",
+              "libkernel",
+              "libkernel"
+            ],
+            "instructions": [
+              [
+                34077072,
+                1,
+                "55"
+              ],
+              [
+                34077073,
+                3,
+                "4889e5"
+              ],
+              [
+                34077076,
+                7,
+                "488d3d1d276203"
+              ],
+              [
+                34077083,
+                5,
+                "e89813b400"
+              ]
+            ],
+            "import": {
+              "bind": 1,
+              "defined": false,
+              "index": 655,
+              "library": "libkernel",
+              "module": "libkernel",
+              "name": "3kg7rT0NQIs#p#J",
+              "nid": "3kg7rT0NQIs",
+              "resolved_name": "scePthreadExit",
+              "size": 0,
+              "type": 2,
+              "value": 0
+            },
+            "independent": {
+              "call": {
+                "rva": 34077083,
+                "length": 5,
+                "bytes": "e89813b400",
+                "text": "CALL 0x02bc0d38",
+                "flow": "UNCONDITIONAL_CALL",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": [
+                  45878584
+                ]
+              },
+              "context": []
+            }
+          }
+        ],
+        "checks": [
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 77568,
+            "shared": 68,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 128352,
+            "shared": 6,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 392976,
+            "shared": 25,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394512,
+            "shared": 11,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394592,
+            "shared": 29,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394992,
+            "shared": 21,
+            "only_ghidra": []
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 395088,
+            "shared": 96,
+            "only_ghidra": []
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34077072,
+            "shared": 4,
+            "only_ghidra": []
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34647408,
+            "shared": 14,
+            "only_ghidra": []
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34648288,
+            "shared": 423,
+            "only_ghidra": [
+              34649890
+            ]
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34650432,
+            "shared": 56,
+            "only_ghidra": []
+          }
+        ],
+        "retained_quarantines": [
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394512,
+            "issues": [
+              {
+                "rva": 394561,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394592,
+            "issues": [
+              {
+                "rva": 394713,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 394992,
+            "issues": [
+              {
+                "rva": 395074,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34648288,
+            "issues": [
+              {
+                "rva": 34649899,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34650432,
+            "issues": [
+              {
+                "rva": 34650592,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          }
+        ],
+        "limitations": "Public API contracts and pinned reference code corroborate identity; they are not PS4 observations or native runtime implementations. Unknown virtual calls, handlers, cleanup, restored contexts and mutable state remain open. No game CPU execution."
+      },
+      "independent_window_closure": {
+        "status": "independent window closure comparison passed",
+        "source_db_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+        "selection_sha256": "c7cb229976bcb487940624c6612e771594e39ec43b41d1bc8ce519db7d5836d7",
+        "comparison_sha256": "219626f0f881a2dc603281a352528256a029f8f8955f3e3c894c765345ba4f34",
+        "windows": 11,
+        "shared_instructions": 753,
+        "raw_sha256": {
+          "eboot.bin": "3da897d4f08c2b90f2eb9c2eae05a5627f471d68c34d4370307c489c600e23bb",
+          "libc.prx": "c5ae9cb8d4e30809e75782a271eb42dad4387bca546f3e0df35ac601f682594d"
+        },
+        "explained_extra": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34648288,
+            "extra": [
+              34649890
+            ],
+            "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+          }
+        ],
+        "unexplained": 0,
+        "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+      },
+      "recovery_delta": {
+        "status": "exact service-site recovery delta passed",
+        "before": "local\\cfg\\startup-recovery-v22-cache-repeat",
+        "after": "local\\cfg\\startup-recovery-v23-services",
+        "source_db_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+        "target_db_sha256": "63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4",
+        "target_manifest_sha256": "5669808ed4c589514262aecc9fd0268eaa04cf43181bc2d3e83a5b17615e035d",
+        "changed": [
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "start": 128352,
+            "removed_instructions": [
+              {
+                "rva": 128368,
+                "size": 1,
+                "bytes": "90"
+              }
+            ],
+            "added_edges": [
+              {
+                "source": 128363,
+                "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "target": 224,
+                "kind": "annotated_control_contract_requires_runtime",
+                "detail": "libc-abort-debug-site"
+              },
+              {
+                "source": 128363,
+                "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "target": null,
+                "kind": "unresolved_native_service_control",
+                "detail": "{\"context\": {\"rdi\": 2684485643, \"rsi\": 0}, \"contract\": \"libc-abort-debug-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native abort and debug-exception binding\", \"signal/exception disposition and possible nonlocal handler transfer\", \"unexpected service return must be reported, never continued into the trailing NOP or adjacent data\"]}"
+              }
+            ],
+            "removed_issues": [
+              {
+                "rva": 128368,
+                "kind": "fallthrough_at_fence",
+                "detail": "nop"
+              }
+            ]
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "start": 392976,
+            "removed_instructions": [],
+            "added_edges": [
+              {
+                "source": 393053,
+                "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "target": 1440,
+                "kind": "annotated_control_contract_requires_runtime",
+                "detail": "libc-exit-kernel-site"
+              },
+              {
+                "source": 393053,
+                "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "target": null,
+                "kind": "unresolved_native_service_control",
+                "detail": "{\"context\": {}, \"contract\": \"libc-exit-kernel-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native process termination and status\", \"process resource teardown and all-thread termination\", \"no extra atexit, cancellation cleanup or thread-data destructor invocation by _exit\", \"unexpected service return must be reported\"]}"
+              }
+            ],
+            "removed_issues": [
+              {
+                "rva": 393053,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          },
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "start": 34077072,
+            "removed_instructions": [],
+            "added_edges": [
+              {
+                "source": 34077083,
+                "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "target": 45878584,
+                "kind": "annotated_control_contract_requires_runtime",
+                "detail": "main-pthread-exit-site"
+              },
+              {
+                "source": 34077083,
+                "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "target": null,
+                "kind": "unresolved_native_service_control",
+                "detail": "{\"context\": {}, \"contract\": \"main-pthread-exit-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native thread exit value and join delivery\", \"LIFO cancellation cleanup through validated native callback dispatch\", \"thread-specific destructors and repeated destructor passes\", \"last-thread process exit\", \"unexpected service return must be reported\"]}"
+              }
+            ],
+            "removed_issues": [
+              {
+                "rva": 34077083,
+                "kind": "fallthrough_at_fence",
+                "detail": "call"
+              }
+            ]
+          }
+        ],
+        "frontier_delta": {
+          "unresolved_native_service_control": 3,
+          "annotated_control_contract_requires_runtime": 3,
+          "fallthrough_at_fence": -3
+        },
+        "units": 21178,
+        "remaining_quarantines": 5,
+        "limitations": "Only three conditional no-ordinary-return service sites changed. Unknown indirect and callback targets, exception paths and every old contract obligation remain."
+      },
+      "active_objects_manifest": "local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json",
+      "active_objects_sha256": "cd619f4a781c67cf3e0b091387e5473ba0d2867e3595d6c0c516c8e02f2b87ea",
+      "previous_active_objects_manifest": "local/compiler-spike/x87-integration-evidence-audit-v2-path/active-objects.json",
+      "previous_active_objects_sha256": "495bb7a294e038b4888afa1955913951c11e89fe245070f1ce1564c606ed4577",
+      "compiled_entries": 21173,
+      "compiled_objects": 382,
+      "compiled_constructors": 18444,
+      "remaining_compiler_rejections": 0,
+      "remaining_quarantines": [
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 394512,
+          "issues": [
+            {
+              "rva": 394561,
+              "kind": "fallthrough_at_fence",
+              "detail": "call"
+            }
+          ]
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 394592,
+          "issues": [
+            {
+              "rva": 394713,
+              "kind": "fallthrough_at_fence",
+              "detail": "call"
+            }
+          ]
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "entry": 394992,
+          "issues": [
+            {
+              "rva": 395074,
+              "kind": "fallthrough_at_fence",
+              "detail": "call"
+            }
+          ]
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34648288,
+          "issues": [
+            {
+              "rva": 34649899,
+              "kind": "fallthrough_at_fence",
+              "detail": "call"
+            }
+          ]
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34650432,
+          "issues": [
+            {
+              "rva": 34650592,
+              "kind": "fallthrough_at_fence",
+              "detail": "call"
+            }
+          ]
+        }
+      ],
+      "new_object_bytes": 4255,
+      "new_instruction_count": 34,
+      "new_boundaries": [
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 128368,
+          "object": "batch-0000",
+          "kind": "unexpected-return-after-conditional-service-contract",
+          "preceding": [
+            {
+              "entry": 128352,
+              "instruction": {
+                "rva": 128363,
+                "size": 5,
+                "bytes": "e8700bfeff"
+              },
+              "edges": [
+                {
+                  "source": 128363,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": 224,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-abort-debug-site"
+                },
+                {
+                  "source": 128363,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": 224,
+                  "kind": "import_contract_unvalidated",
+                  "detail": "{\"bind\": 1, \"defined\": false, \"index\": 10, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"OMDRKKAZ8I4#A#B\", \"nid\": \"OMDRKKAZ8I4\", \"resolved_name\": null, \"size\": 0, \"type\": 2, \"value\": 0}"
+                },
+                {
+                  "source": 128363,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": null,
+                  "kind": "unresolved_native_service_control",
+                  "detail": "{\"context\": {\"rdi\": 2684485643, \"rsi\": 0}, \"contract\": \"libc-abort-debug-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native abort and debug-exception binding\", \"signal/exception disposition and possible nonlocal handler transfer\", \"unexpected service return must be reported, never continued into the trailing NOP or adjacent data\"]}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "rva": 393058,
+          "object": "batch-0000",
+          "kind": "unexpected-return-after-conditional-service-contract",
+          "preceding": [
+            {
+              "entry": 392976,
+              "instruction": {
+                "rva": 393053,
+                "size": 5,
+                "bytes": "e83e06faff"
+              },
+              "edges": [
+                {
+                  "source": 393053,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": 1440,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "libc-exit-kernel-site"
+                },
+                {
+                  "source": 393053,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": 1440,
+                  "kind": "import_contract_unvalidated",
+                  "detail": "{\"bind\": 1, \"defined\": false, \"index\": 80, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"6Z83sYWFlA8#A#B\", \"nid\": \"6Z83sYWFlA8\", \"resolved_name\": null, \"size\": 0, \"type\": 2, \"value\": 0}"
+                },
+                {
+                  "source": 393053,
+                  "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                  "target": null,
+                  "kind": "unresolved_native_service_control",
+                  "detail": "{\"context\": {}, \"contract\": \"libc-exit-kernel-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native process termination and status\", \"process resource teardown and all-thread termination\", \"no extra atexit, cancellation cleanup or thread-data destructor invocation by _exit\", \"unexpected service return must be reported\"]}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "rva": 34077088,
+          "object": "batch-0001",
+          "kind": "unexpected-return-after-conditional-service-contract",
+          "preceding": [
+            {
+              "entry": 34077072,
+              "instruction": {
+                "rva": 34077083,
+                "size": 5,
+                "bytes": "e89813b400"
+              },
+              "edges": [
+                {
+                  "source": 34077083,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45878584,
+                  "kind": "annotated_control_contract_requires_runtime",
+                  "detail": "main-pthread-exit-site"
+                },
+                {
+                  "source": 34077083,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": 45878584,
+                  "kind": "import_contract_unvalidated",
+                  "detail": "{\"bind\": 1, \"defined\": false, \"index\": 655, \"library\": \"libkernel\", \"module\": \"libkernel\", \"name\": \"3kg7rT0NQIs#p#J\", \"nid\": \"3kg7rT0NQIs\", \"resolved_name\": \"scePthreadExit\", \"size\": 0, \"type\": 2, \"value\": 0}"
+                },
+                {
+                  "source": 34077083,
+                  "target_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                  "target": null,
+                  "kind": "unresolved_native_service_control",
+                  "detail": "{\"context\": {}, \"contract\": \"main-pthread-exit-site\", \"limitation\": \"Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated\", \"obligations\": [\"native thread exit value and join delivery\", \"LIFO cancellation cleanup through validated native callback dispatch\", \"thread-specific destructors and repeated destructor passes\", \"last-thread process exit\", \"unexpected service return must be reported\"]}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "new_external_declarations": [
+        "__remill_compare_eq",
+        "__remill_compare_neq",
+        "__remill_flag_computation_sign",
+        "__remill_flag_computation_zero",
+        "__remill_function_call",
+        "__remill_missing_block",
+        "__remill_read_memory_64",
+        "__remill_undefined_8",
+        "__remill_write_memory_32",
+        "__remill_write_memory_64",
+        "llvm.ctpop.i8",
+        "sub_102bc0d38",
+        "sub_8000000e0",
+        "sub_8000000f0",
+        "sub_8000005a0",
+        "sub_800007570",
+        "sub_80002f2e0"
+      ],
+      "reproducible_artifacts": {
+        "recovery/analysis.sqlite": "63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4",
+        "recovery/compilation-manifest.jsonl": "5669808ed4c589514262aecc9fd0268eaa04cf43181bc2d3e83a5b17615e035d",
+        "recovery/frontier.jsonl": "55d5dada7c354654cf90292f44c0abd9946ef5157a4916123be44a32a0bd09e1",
+        "recovery/constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5",
+        "batch-0000/input.json": "a0c88bed6fd50778cd2beae8854b9c1fec559acf56d564627123899c94859629",
+        "batch-0000/roots.json": "68dfed9b146dbc9915e6a9e4e954ad19fdb597658c7c45318b18566697b14c71",
+        "batch-0000/units.json": "cdf0a4346a7706cce37921d69c874f3a4388f16160b33e05f204ed5c09c50f8e",
+        "batch-0000/audit.json": "3ed14d6836eff458222695485d24500e221fa27f10c9d4b6cf11dd2730d13e1f",
+        "batch-0000/function.bc": "4e113bdbaa3b3e16bccd78c910e2eb2fec77663203e6d6e461e0535682438440",
+        "batch-0000/function.obj": "df1af6b938bad2cdaf313536ddda0cf265b6cd6b50064b977b15975aa7e75239",
+        "batch-0001/input.json": "2a146c933336aa4abcc7152202690ab8be94abf15abe5d115076cf3ccfa5e560",
+        "batch-0001/roots.json": "e17a27b3b167ccda6431041b4d7bccb9bffcfd398aa4417eb66a6243b9bb0dd4",
+        "batch-0001/units.json": "dc2870f5897615ed32ae3986ef2569ec277bf6156a25d4069b4bc4032d6c5b00",
+        "batch-0001/audit.json": "74636f57a80e0e739dcbea85919d2bcde85335dfcf97a93b1a261850aa02259f",
+        "batch-0001/function.bc": "9ce988468b1ef4fe3c386cd6a603ef1077ea6edaadb3bb9ad43d71f4ded79815",
+        "batch-0001/function.obj": "bc1c48ffd0a07a4beea55eb5f1dd61a8e22962ae432170f18001e5e7478e170b"
+      },
+      "runs": {
+        "20260906-p3-startup-service-inventory-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "f41ffb11efaa6e1520f87f2985889dd82df479d703b66565337de51a98018795",
+          "elapsed_seconds": 7.11017130012624
+        },
+        "20260906-p3-ghidra-service-boundaries-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "f41ffb11efaa6e1520f87f2985889dd82df479d703b66565337de51a98018795",
+          "elapsed_seconds": 20.410431399941444
+        },
+        "20260906-p3-startup-services-checked-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "84bb8393e8e97ea30c8c1d9e95952a3eab471b9cd49fd9ffd05b6936db1b3fca",
+          "elapsed_seconds": 0.8551040999591351
+        },
+        "20260906-p3-service-site-checks-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "108f4ba1763e73de8ebf1810e27a97bbbd8ba14cf38d23cd5eacecb1ea2bee90",
+          "elapsed_seconds": 0.6099529000930488
+        },
+        "20260906-p3-ghidra-service-closure-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "108f4ba1763e73de8ebf1810e27a97bbbd8ba14cf38d23cd5eacecb1ea2bee90",
+          "elapsed_seconds": 1.40779779991135
+        },
+        "20260906-p3-startup-recovery-v23-services": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "108f4ba1763e73de8ebf1810e27a97bbbd8ba14cf38d23cd5eacecb1ea2bee90",
+          "elapsed_seconds": 103.19882380007766
+        },
+        "20260906-p3-startup-recovery-v24-services-repeat": {
+          "status": "failed",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "108f4ba1763e73de8ebf1810e27a97bbbd8ba14cf38d23cd5eacecb1ea2bee90",
+          "elapsed_seconds": 1005.8890784999821
+        },
+        "20260906-p3-startup-recovery-v25-services-memory": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "310a153bb8cb37284cc8550a9980c71d24ca0b86b6b9e762b26d167fe2f1c324",
+          "elapsed_seconds": 105.59559589996934
+        },
+        "20260906-p3-startup-service-delta-v1": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "07cce1f0f098fe620d84dac23250c64e36e2236893af0c373cf74ecd2ac26848",
+          "elapsed_seconds": 120.98357290006243
+        },
+        "20260906-p3-startup-services-compile-v1": {
+          "status": "failed",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "07cce1f0f098fe620d84dac23250c64e36e2236893af0c373cf74ecd2ac26848",
+          "elapsed_seconds": 10.350227299844846
+        },
+        "20260906-p3-startup-services-compile-v2-ready": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "07cce1f0f098fe620d84dac23250c64e36e2236893af0c373cf74ecd2ac26848",
+          "elapsed_seconds": 15.435107299825177
+        },
+        "20260906-p3-startup-services-compile-v3-repeat": {
+          "status": "pass",
+          "source_commit": "793d118170180bfb2d7f5157655b4339b5e91bab",
+          "sources_sha256": "b6a33854d42d493fdd440777efc8ff585fb045bb0d707aa9a39fcdb2f8d1fa94",
+          "elapsed_seconds": 120.14761540014297
+        }
+      },
+      "signal_import": {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "entry": 77568,
+        "site": 77863,
+        "plt": 768,
+        "nid": "VADc3MNQ3cM",
+        "name": "signal",
+        "arguments": {
+          "edi": 9,
+          "rsi": 0
+        },
+        "classification": "Tail service call setting the signal disposition, not raising a signal or registering a non-null handler. Exact console result/errno, signal-number mapping and native binding remain unvalidated; original recovery record remains unchanged."
+      },
+      "retained_memory_repeat": "Recovery v24 completed decoding/manifests but was stopped during integrity_check under severe host memory pressure: 959652 KiB free of 33335168 KiB, 545586 process read operations / 3345372046 bytes after about fourteen minutes. A 1206054912-byte read-only cache warmup took 45.43 seconds without prompt completion. Only the verified experiment child was stopped; no unrelated process was closed. V25 releases recovery maps and gives SQLite a 64 MiB connection-local cache before the same mandatory integrity check. The stopped database/manifests/source snapshot/logs remain preserved.",
+      "retained_failure": "Compile v1 was dispatched before the delta selection file existed. It failed with FileNotFoundError before lifting/compiling; source snapshot and logs are preserved. V2 starts after delta completion and V3 repeats its artifacts.",
+      "limitations": [
+        "All no-ordinary-return annotations are conditional API/control contracts, not native service implementations. The debug-service contract applies only to the exact supplied abort-wrapper site and constants.",
+        "The two new objects are static compilation evidence only; three unexpected-return paths and all service/callback/exception/indirect declarations remain explicit. No game-derived object was linked or executed.",
+        "The five throw/rethrow and main nonlocal-transfer quarantines remain. Generic unresolved virtual calls were not assumed to return or terminate.",
+        "No unknown callback or indirect target was removed. Constructor tables and callback state remain mutable; unwind fences are not proven function boundaries.",
+        "P1 baseline observations, Intel-only authored semantic checks and native game execution remain separate. No native game boot, playable port or P3/P4 pass is claimed."
+      ],
+      "p3_gate_passed": false,
+      "native_game_boot": false,
+      "native_port_playable": false
+    }
   }
 }

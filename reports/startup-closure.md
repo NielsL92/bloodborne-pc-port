@@ -1,5 +1,7 @@
 # P3 callback and control closure continuation
 
+Updated 2026-09-06 17:41 UTC: three independently checked, exact service-call annotations reduce fence quarantines to five. The current complete static census is 21,173 entries / 382 objects; zero compiler rejections and all 18,444 initial constructors are represented. Continue with `local/cfg/startup-recovery-v25-services-memory` and `local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json`. See `reports/startup-services.md` and `reports/startup-services-evidence.json` for the conditional contracts, reproducible objects, retained failures and exact remaining work. P3 remains open; native service/control execution is not established. Earlier dated checkpoints below are historical.
+
 Updated 2026-09-05 20:57 UTC. P3 remains open. No native game boot or playable port exists.
 
 Continue with `local/cfg/startup-recovery-v7-repeat/analysis.sqlite` and its `recovery_*` tables, `compilation-manifest.jsonl`, `frontier.jsonl` and `constructor-order.json`. These four files reproduce byte-for-byte from v6. All earlier runs remain preserved. The 18,444 ordered initial constructor records remain unchanged.

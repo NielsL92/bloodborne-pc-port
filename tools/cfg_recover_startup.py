@@ -39,7 +39,7 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None, object_dispatch_evidence=None):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None, object_dispatch_evidence=None, service_site_evidence=None):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
         self.sysv_callee_saved_candidates = sysv_callee_saved_candidates
         self.initial_callback_relocation_candidates = initial_callback_relocation_candidates
@@ -115,6 +115,10 @@ class Recovery:
         for key,c in self.callback_contracts.items():
             for h,at in self.exports.get(key,[]):self.local_callback_contracts[h,at]=c
         self.import_cache = {}
+        self.service_sites = {}
+        if service_site_evidence:
+            from tools.cfg_service_sites import load_sites
+            self.service_sites = load_sites(service_site_evidence,self.images,self.imported,self.pads)
         self.callback_slices={}
         self.callback_slice_evidence_sha256=sha(callback_slice_evidence) if callback_slice_evidence else None
         if callback_slice_evidence:
@@ -170,6 +174,8 @@ class Recovery:
             object_dispatch_evidence_sha256=self.object_dispatch_evidence_sha256,
             max_entries=max_entries, max_instructions_per_entry=max_instructions, jump_evidence_sha256=sha(jump_evidence) if jump_evidence else None,
             policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
+        if service_site_evidence:
+            self.identity['service_site_evidence_sha256']=sha(service_site_evidence)
         write_json(out/'identity.json', self.identity)
         for r in self.roots:
             self.request(self.main,r['target'],'ordered_initial_constructor',self.main,0x20,0x82)
@@ -253,6 +259,15 @@ class Recovery:
                 edge(at,target,'import_contract_unvalidated',json.dumps(imp,sort_keys=True))
                 for other,dst in self.exports.get(key,[]): dependency(at,dst,'bundled_export_candidate',json.dumps(imp,sort_keys=True),other)
             else: dependency(at,target,kind)
+            from tools.cfg_service_sites import match_site
+            site_contract=match_site(getattr(self,'service_sites',{}),h,start,at,target,imp)
+            if site_contract:
+                assert not c, 'conflicting local/import and per-site contracts'
+                c=dict(id=site_contract['id'],restored_target_unknown=False)
+                edge(at,None,'unresolved_native_service_control',json.dumps(dict(
+                    contract=site_contract['id'],context=site_contract['context'],
+                    obligations=site_contract['obligations'],
+                    limitation='Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated'),sort_keys=True))
             if c:
                 edge(at,target,'annotated_control_contract_requires_runtime',c['id'])
                 if c['restored_target_unknown']:edge(at,None,c.get('unknown_exit_kind','unresolved_restored_context'),c['id'])
@@ -474,6 +489,18 @@ class Recovery:
         modules={self.names[h]:n for h,n in db.execute('SELECT module,count(*) FROM recovery_entry GROUP BY module')}
         issues=dict(db.execute('SELECT kind,count(*) FROM recovery_issue GROUP BY kind'))
         write_json(self.out/'constructor-order.json',self.roots)
+        # Recovery-only images, linkage and address maps are no longer needed.
+        # Release them before checking all SQLite B-trees on memory-pressured HDD
+        # hosts. cache_size is connection-local; no database content is changed.
+        import gc
+        for name in ('images','links','relocs','ranges','fences','code_seeds',
+                     'byte_owners','known','exports','pads','regions','requested','done',
+                     'import_cache','callback_slices','object_dispatch','local_contracts'):
+            getattr(self,name).clear()
+        gc.collect()
+        db.execute('PRAGMA cache_size=-65536')
+        print(json.dumps(dict(stage='integrity_check',sqlite_cache_kib=65536,
+                              recovery_maps_released=True)),flush=True)
         assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
         db.commit();db.close()
         summary=dict(status='P3 startup compilation/control closure NOT passed',counts=counts,constructors=constructors,modules=modules,
@@ -495,10 +522,11 @@ def main():
     p.add_argument('--initial-callback-relocation-candidates',action='store_true',help='Expand initial function bindings loaded from mutable slots at exact callback ABI sites; unknown runtime targets remain')
     p.add_argument('--callback-slice-evidence',type=Path,help='Independently checked per-site branch-sensitive callback targets')
     p.add_argument('--object-dispatch-evidence',type=Path,help='Independent initial object-table candidates; runtime indirect targets remain unknown')
+    p.add_argument('--service-site-evidence',type=Path,help='Independent exact service-call context annotations; native runtime obligations remain explicit')
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence,a.object_dispatch_evidence).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence,a.object_dispatch_evidence,a.service_site_evidence).run()
 
 
 if __name__=='__main__':main()
