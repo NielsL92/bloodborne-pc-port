@@ -7,37 +7,48 @@ from tools.cfg_recover_startup import canonical_register,sha,write_json
 SAVED={'rbx','rbp','r12','r13','r14','r15'}
 
 def slice_register(instructions,predecessors,roots,pc,register,budget=2048):
-    active=set();visited=set();evidence=set();assumptions=set();failures=set()
-    def before(pc,reg):
-        key=(pc,reg)
-        if key in active:failures.add(('cycle',pc,reg));return set()
-        if len(visited)>=budget:failures.add(('budget',pc,reg));return set()
-        visited.add(key)
-        if pc in roots:failures.add(('entry-register',pc,reg));return set()
-        parents=predecessors.get(pc,[])
-        if not parents:failures.add(('missing-predecessor',pc,reg));return set()
-        active.add(key);result=set()
-        for parent in parents:result.update(after(parent,reg))
-        active.remove(key);return result
-    def after(pc,reg):
-        i=instructions[pc];evidence.add(pc)
-        if i.group(CS_GRP_CALL):
-            if reg not in SAVED:failures.add(('volatile-call-result',pc,reg));return set()
-            assumptions.add(pc);return before(pc,reg)
-        written={canonical_register(i.reg_name(r)) for r in i.regs_access()[1]}
-        if reg not in written:return before(pc,reg)
-        if len(i.operands)>=2:
-            dst,src=i.operands[:2]
-            if dst.type==X86_OP_REG and canonical_register(i.reg_name(dst.reg))==reg:
-                if dst.size not in (4,8):failures.add(('partial-write',pc,reg));return set()
-                if i.mnemonic in ('mov','movabs'):
-                    if src.type==X86_OP_IMM:return {('absolute',src.imm&((1<<(dst.size*8))-1))}
-                    if src.type==X86_OP_REG and dst.size==src.size==8:return before(pc,canonical_register(i.reg_name(src.reg)))
-                if i.mnemonic in ('xor','sub') and src.type==X86_OP_REG and src.reg==dst.reg:return {('absolute',0)}
-                if i.mnemonic=='lea' and dst.size==8 and src.type==X86_OP_MEM and src.mem.base==X86_REG_RIP and not src.mem.index:return {('module-rva',pc+i.size+src.mem.disp)}
-        failures.add(('unknown-write',pc,reg));return set()
-    targets=before(pc,register)
+    visited=set();evidence=set();assumptions=set();failures=set();targets=set();graph={};todo=collections.deque([(pc,register)])
+    while todo:
+        key=todo.popleft();point,reg=key
+        if key in visited:continue
+        if len(visited)>=budget:failures.add(('budget',point,reg));continue
+        visited.add(key);graph[key]=set()
+        if point in roots:failures.add(('entry-register',point,reg));continue
+        parents=predecessors.get(point,[])
+        if not parents:failures.add(('missing-predecessor',point,reg));continue
+        def dependency(parent,next_reg):
+            child=(parent,next_reg);graph[key].add(child);todo.append(child)
+        for parent in sorted(parents):
+            i=instructions[parent];evidence.add(parent)
+            if i.group(CS_GRP_CALL):
+                if reg not in SAVED:failures.add(('volatile-call-result',parent,reg))
+                else:assumptions.add(parent);dependency(parent,reg)
+                continue
+            written={canonical_register(i.reg_name(r)) for r in i.regs_access()[1]}
+            if reg not in written:dependency(parent,reg);continue
+            if len(i.operands)>=2:
+                dst,src=i.operands[:2]
+                if dst.type==X86_OP_REG and canonical_register(i.reg_name(dst.reg))==reg:
+                    if dst.size not in (4,8):failures.add(('partial-write',parent,reg));continue
+                    if i.mnemonic in ('mov','movabs'):
+                        if src.type==X86_OP_IMM:targets.add(('absolute',src.imm&((1<<(dst.size*8))-1)));continue
+                        if src.type==X86_OP_REG and dst.size==src.size==8:dependency(parent,canonical_register(i.reg_name(src.reg)));continue
+                    if i.mnemonic in ('xor','sub') and src.type==X86_OP_REG and src.reg==dst.reg:targets.add(('absolute',0));continue
+                    if i.mnemonic=='lea' and dst.size==8 and src.type==X86_OP_MEM and src.mem.base==X86_REG_RIP and not src.mem.index:targets.add(('module-rva',parent+i.size+src.mem.disp));continue
+            failures.add(('unknown-write',parent,reg))
+    # Detect actual back edges using an explicit DFS stack; no Python recursion or path enumeration.
+    color={}
+    for origin in sorted(graph):
+        if color.get(origin):continue
+        color[origin]=1;stack=[(origin,iter(sorted(graph[origin])))]
+        while stack:
+            node,children=stack[-1];child=next(children,None)
+            if child is None:color[node]=2;stack.pop();continue
+            if child not in graph:continue
+            if color.get(child)==1:failures.add(('cycle',child[0],child[1]));continue
+            if not color.get(child):color[child]=1;stack.append((child,iter(sorted(graph[child]))))
     return dict(complete=not failures,targets=[dict(kind=k,value=v) for k,v in sorted(targets)],failures=[dict(reason=r,pc=p,register=g) for r,p,g in sorted(failures)],instructions=sorted(evidence),conditional_normal_sysv_returns=sorted(assumptions),states=len(visited))
+
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('out',type=Path);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)

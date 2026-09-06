@@ -17,6 +17,10 @@ class CallbackSliceTests(unittest.TestCase):
   r=probe('74 07 bf 44 00 00 00 eb 05 bf 55 00 00 00 c3');self.assertTrue(r['complete']);self.assertEqual(len(r['targets']),2)
  def test_unknown_arm_is_not_closed_by_known_arm(self):
   r=probe('74 05 bf 44 00 00 00 c3');self.assertFalse(r['complete']);self.assertEqual(r['failures'][0]['reason'],'entry-register')
+ def test_reconverging_branches_reuse_completed_states(self):
+  r=probe('bb 44 00 00 00 '+('74 01 90 '*28)+'48 89 df c3');self.assertTrue(r['complete']);self.assertEqual(r['targets'],[dict(kind='absolute',value=0x44)]);self.assertLess(r['states'],100)
+ def test_deep_slice_uses_bounded_worklist(self):
+  r=probe('bb 44 00 00 00 '+('90 '*1600)+'48 89 df c3',budget=2000);self.assertTrue(r['complete']);self.assertEqual(r['targets'],[dict(kind='absolute',value=0x44)]);self.assertLess(r['states'],2000)
  def test_partial_write_blocks_slice(self):
   r=probe('bf 44 00 00 00 40 b7 00 c3');self.assertFalse(r['complete'])
  def test_loop_and_budget_are_unknown(self):

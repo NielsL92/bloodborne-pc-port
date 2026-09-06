@@ -1,0 +1,678 @@
+{
+  "status": "constructor cache slice evidence pass; P3 remains open",
+  "current_directory": "local/cfg/startup-recovery-v22-cache-repeat",
+  "summary": {
+    "status": "P3 startup compilation/control closure NOT passed",
+    "counts": {
+      "recovery_entry": 21178,
+      "recovery_instruction": 874266,
+      "recovery_edge": 1090157,
+      "recovery_issue": 8,
+      "recovery_request": 77045
+    },
+    "constructors": {
+      "decoded_with_explicit_boundaries": 18444
+    },
+    "modules": {
+      "libSceHand.prx": 1,
+      "libSceHeadTracker.prx": 1,
+      "libSceFios2.prx": 89,
+      "libc.prx": 300,
+      "libSceSmart.prx": 1,
+      "libSceS3DConversion.prx": 1,
+      "libSceFace.prx": 1,
+      "eboot.bin": 20784
+    },
+    "decode_issue_kinds": {
+      "fallthrough_at_fence": 8
+    },
+    "frontier_counts": {
+      "unresolved_indirect_call": 9044,
+      "unresolved_indirect_jump": 430,
+      "logical_return_requires_dispatch": 20064,
+      "callback_argument_candidate": 26281,
+      "abi_register_preservation_unvalidated": 9354,
+      "annotated_control_contract_requires_runtime": 4297,
+      "import_contract_unvalidated": 20846,
+      "service_or_trap_boundary": 21,
+      "callback_contract_target_candidate": 2311,
+      "fallthrough_at_fence": 8,
+      "indirect_target_candidate": 4,
+      "exception_personality_candidate": 41,
+      "exception_runtime_unvalidated": 41,
+      "personality_import_unvalidated": 41,
+      "unresolved_exception_continuation": 42,
+      "unresolved_derived_control_continuation": 184,
+      "independently_recovered_jump_table": 12,
+      "callback_slice_runtime_unvalidated": 1,
+      "callback_slice_target_candidate": 1,
+      "unresolved_callback_argument": 143,
+      "unresolved_exit_callbacks": 5,
+      "initial_object_dispatch_target_candidate": 4801,
+      "unresolved_restored_context": 113,
+      "callback_relocation_binding_unvalidated": 142,
+      "callback_relocation_target_candidate": 142,
+      "callback_contract_null_argument": 15
+    },
+    "queued": 0,
+    "manifest_units": 21178,
+    "db_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+    "manifest_sha256": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+    "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "reproducibility": {
+    "analysis.sqlite": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+    "compilation-manifest.jsonl": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+    "frontier.jsonl": "bece8156d5a1f447714aee1a4ae2091169efe86813ff81be52ac13468d3a63c5",
+    "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+  },
+  "all_instruction_sets_unchanged": 21178,
+  "all_prior_unknown_records_unchanged": true,
+  "proof": {
+    "path": "local/cfg/object-dispatch-expanded-v4-cache/checked.json",
+    "sha256": "0ee5822fbf02c5e02d73090530cfe5834da169cb34f9db3956b342f1addd48a2",
+    "proposals": 4801,
+    "cache_slice_expansion": {
+      "object_proof_sha256": "fb564fb7650d8cb150cc28baafef9f1b4fdb49d919461cfaedc01e38cb1df6aa",
+      "cache_proof_sha256": "ca901a4bfbd699eefdeb5cfece492d0488fcd1581faf1b1454086762c5971fa6",
+      "added": [
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29360976,
+          "site": 29362163,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29360976,
+          "site": 29362434,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29360976,
+          "site": 29362575,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29360976,
+          "site": 29362709,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 29360976,
+          "site": 29363000,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 33262016,
+          "site": 33262258,
+          "cache": 89392752,
+          "target": 34090720
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34311625,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34311843,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34312061,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34312279,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34312497,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34312715,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34312933,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34313151,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34313369,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34313587,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34313805,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34314023,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34314241,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34314459,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34314677,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34314895,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34315113,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34315331,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34315549,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34315767,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34315985,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34316203,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34316421,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34316639,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34316857,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34317075,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34317293,
+          "cache": 89392744,
+          "target": 34065264
+        },
+        {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "entry": 34311296,
+          "site": 34317511,
+          "cache": 89392744,
+          "target": 34065264
+        }
+      ],
+      "unknown": []
+    }
+  },
+  "slices": {
+    "path": "local/cfg/dispatch-cache-slices-checked-v1/checked.json",
+    "sha256": "ca901a4bfbd699eefdeb5cfece492d0488fcd1581faf1b1454086762c5971fa6",
+    "complete": 34,
+    "conditional_sysv_call_counts": [
+      {
+        "entry": 29360976,
+        "site": 29362163,
+        "calls": 4
+      },
+      {
+        "entry": 29360976,
+        "site": 29362434,
+        "calls": 11
+      },
+      {
+        "entry": 29360976,
+        "site": 29362575,
+        "calls": 15
+      },
+      {
+        "entry": 29360976,
+        "site": 29362709,
+        "calls": 19
+      },
+      {
+        "entry": 29360976,
+        "site": 29363000,
+        "calls": 25
+      },
+      {
+        "entry": 33262016,
+        "site": 33262258,
+        "calls": 4
+      },
+      {
+        "entry": 34311296,
+        "site": 34311625,
+        "calls": 5
+      },
+      {
+        "entry": 34311296,
+        "site": 34311843,
+        "calls": 10
+      },
+      {
+        "entry": 34311296,
+        "site": 34312061,
+        "calls": 15
+      },
+      {
+        "entry": 34311296,
+        "site": 34312279,
+        "calls": 20
+      },
+      {
+        "entry": 34311296,
+        "site": 34312497,
+        "calls": 25
+      },
+      {
+        "entry": 34311296,
+        "site": 34312715,
+        "calls": 30
+      },
+      {
+        "entry": 34311296,
+        "site": 34312933,
+        "calls": 35
+      },
+      {
+        "entry": 34311296,
+        "site": 34313151,
+        "calls": 40
+      },
+      {
+        "entry": 34311296,
+        "site": 34313369,
+        "calls": 45
+      },
+      {
+        "entry": 34311296,
+        "site": 34313587,
+        "calls": 50
+      },
+      {
+        "entry": 34311296,
+        "site": 34313805,
+        "calls": 55
+      },
+      {
+        "entry": 34311296,
+        "site": 34314023,
+        "calls": 60
+      },
+      {
+        "entry": 34311296,
+        "site": 34314241,
+        "calls": 65
+      },
+      {
+        "entry": 34311296,
+        "site": 34314459,
+        "calls": 70
+      },
+      {
+        "entry": 34311296,
+        "site": 34314677,
+        "calls": 75
+      },
+      {
+        "entry": 34311296,
+        "site": 34314895,
+        "calls": 80
+      },
+      {
+        "entry": 34311296,
+        "site": 34315113,
+        "calls": 85
+      },
+      {
+        "entry": 34311296,
+        "site": 34315331,
+        "calls": 90
+      },
+      {
+        "entry": 34311296,
+        "site": 34315549,
+        "calls": 95
+      },
+      {
+        "entry": 34311296,
+        "site": 34315767,
+        "calls": 100
+      },
+      {
+        "entry": 34311296,
+        "site": 34315985,
+        "calls": 105
+      },
+      {
+        "entry": 34311296,
+        "site": 34316203,
+        "calls": 110
+      },
+      {
+        "entry": 34311296,
+        "site": 34316421,
+        "calls": 115
+      },
+      {
+        "entry": 34311296,
+        "site": 34316639,
+        "calls": 120
+      },
+      {
+        "entry": 34311296,
+        "site": 34316857,
+        "calls": 125
+      },
+      {
+        "entry": 34311296,
+        "site": 34317075,
+        "calls": 130
+      },
+      {
+        "entry": 34311296,
+        "site": 34317293,
+        "calls": 135
+      },
+      {
+        "entry": 34311296,
+        "site": 34317511,
+        "calls": 140
+      }
+    ]
+  },
+  "independent_windows": {
+    "status": "independent window closure comparison passed",
+    "source_db_sha256": "54a3142b619e5aac164d3b9b27c1045af3d875aaae95db9688bf5c3e082e4dfa",
+    "selection_sha256": "38892ab75cd12a5cfa54417c11ce03070fb4055d82310410734c276cf735faff",
+    "comparison_sha256": "999939fc1445d146628566fb919219242e7363d98b060d012c075a4cdcaf2b4a",
+    "windows": 3,
+    "shared_instructions": 1608,
+    "raw_sha256": {
+      "eboot.bin": "99957d447dbf3cfbe256ae81eff22de485d8033025b2e59f963138c645fbbf58"
+    },
+    "explained_extra": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 29360976,
+        "extra": [
+          29363131,
+          29363161
+        ],
+        "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 33262016,
+        "extra": [
+          33262384,
+          33262385
+        ],
+        "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+      },
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "entry": 34311296,
+        "extra": [
+          34317689,
+          34317690
+        ],
+        "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+      }
+    ],
+    "unexplained": 0,
+    "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+  },
+  "callback_regression_sha256": "85802bc5a8119fcc160c1d025fe20bfb760ee07f4dea2ed11d49d131d1c17956",
+  "constructor_same_operand_sites_with_initial_candidate": 4795,
+  "combined_compiled_entries": 21168,
+  "combined_objects": 384,
+  "compiled_constructors": 18444,
+  "retained_object_inputs": [
+    {
+      "directory": "local/compiler-spike/startup-batch-all-v1",
+      "results_sha256": "70da7c43b9ac91fd903b2beefb01df9e58c2b8004d18ad681b212bbd60dc841c"
+    },
+    {
+      "directory": "local/compiler-spike/startup-fp-recompile-v2-repeat",
+      "results_sha256": "02f315d5825b5133b2893bd7c10047314c1ae5ac730d101e413d2c1e9c5a2d0c"
+    },
+    {
+      "directory": "local/compiler-spike/callback-relocation-compile-v2-repeat",
+      "results_sha256": "cf28e6d40b83bd0ed163ce10be15b3ce33dba9d953e0531a2cd6eef93d77cc5d"
+    },
+    {
+      "directory": "local/compiler-spike/callback-slice-compile-v2-repeat",
+      "results_sha256": "0f15725c62f23aa0965774900c434b935c3d7d76d217404b2582deded59d6491"
+    },
+    {
+      "directory": "local/compiler-spike/object-dispatch-compile-v2-repeat",
+      "results_sha256": "6689b1e785576b6399157442d98ffc85c54a3fe51397d29bb12f8c4b83b92267"
+    },
+    {
+      "directory": "local/compiler-spike/subobject-compile-v2-repeat",
+      "results_sha256": "db8821004c4e40f7e228dddf9924716b136580e8439c74029b806c1ffe7e1f44"
+    }
+  ],
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "focused_tests": 69,
+  "runs": {
+    "20260906-p3-dispatch-cache-slices-v1": {
+      "status": "failed",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "86714b3c3ec252123d561470e80a20ccbcb2b779ce1eea22bb6565270a864975",
+      "elapsed_seconds": 164.2720409000758,
+      "retained_failure": "Stopped the verified slice child after 164 seconds of repeated branch-join enumeration; original run, source and empty logs retained."
+    },
+    "20260906-p3-cache-slice-memo-checks-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "029619b0c1f78d6b949871be313572df941fc00031f447fbae2d2def2742a7f5",
+      "elapsed_seconds": 0.21130900015123188,
+      "retained_failure": null
+    },
+    "20260906-p3-dispatch-cache-slices-v2-memo": {
+      "status": "failed",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "029619b0c1f78d6b949871be313572df941fc00031f447fbae2d2def2742a7f5",
+      "elapsed_seconds": 0.5712988001760095,
+      "retained_failure": "Memoized traversal hit Python recursion depth on the long 0x20b8c80 slice; partial stdout and traceback retained. The bounded worklist replaces recursion."
+    },
+    "20260906-p3-callback-slices-memo-regression-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "029619b0c1f78d6b949871be313572df941fc00031f447fbae2d2def2742a7f5",
+      "elapsed_seconds": 23.5904131999705,
+      "retained_failure": null
+    },
+    "20260906-p3-cache-slice-worklist-checks-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "a2c4c46dcedd889ad9e7a92449dd45fd94fce6cc753fb3c4451dc3800fdf70eb",
+      "elapsed_seconds": 0.19628449995070696,
+      "retained_failure": null
+    },
+    "20260906-p3-dispatch-cache-slices-v3-worklist": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "a2c4c46dcedd889ad9e7a92449dd45fd94fce6cc753fb3c4451dc3800fdf70eb",
+      "elapsed_seconds": 1.219879199983552,
+      "retained_failure": null
+    },
+    "20260906-p3-ghidra-dispatch-cache-slices-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "a2c4c46dcedd889ad9e7a92449dd45fd94fce6cc753fb3c4451dc3800fdf70eb",
+      "elapsed_seconds": 6.367397899972275,
+      "retained_failure": null
+    },
+    "20260906-p3-callback-slices-worklist-regression-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "a2c4c46dcedd889ad9e7a92449dd45fd94fce6cc753fb3c4451dc3800fdf70eb",
+      "elapsed_seconds": 1.1048870000522584,
+      "retained_failure": null
+    },
+    "20260906-p3-dispatch-cache-slices-check-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "65d30bbed837d80ac323949873311e2cfbe71dc659344eaa97ee47a9665b0435",
+      "elapsed_seconds": 0.9406309998594224,
+      "retained_failure": null
+    },
+    "20260906-p3-dispatch-cache-expansion-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "bbe132236bcfd10c40f77efa74d9562363fe9ff0e64b49f9373aa4679e30e6d6",
+      "elapsed_seconds": 0.40447129984386265,
+      "retained_failure": null
+    },
+    "20260906-p3-startup-recovery-v21-cache": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "bbe132236bcfd10c40f77efa74d9562363fe9ff0e64b49f9373aa4679e30e6d6",
+      "elapsed_seconds": 102.01834479998797,
+      "retained_failure": null
+    },
+    "20260906-p3-startup-recovery-v22-cache-repeat": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "bbe132236bcfd10c40f77efa74d9562363fe9ff0e64b49f9373aa4679e30e6d6",
+      "elapsed_seconds": 98.31447870004922,
+      "retained_failure": null
+    },
+    "20260906-p3-dispatch-cache-window-check-v1": {
+      "status": "pass",
+      "source_commit": "3660d1e25076744cf7e2669a82aee885ef1e64c3",
+      "sources_sha256": "bbe132236bcfd10c40f77efa74d9562363fe9ff0e64b49f9373aa4679e30e6d6",
+      "elapsed_seconds": 1.5339747001416981,
+      "retained_failure": null
+    }
+  },
+  "gate": "P3 remains open: 9,044 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 143 unknown callback arguments, x87 state counterexamples and native import/callback/exception/control contracts. 21,168 entries compile; no native startup or playable port.",
+  "limitations": [
+    "All 4,795 constructor [RAX+0x20] records have checked conditional initial candidates; every runtime unknown call remains. This is not complete indirect or execution coverage.",
+    "The worklist unions constants over recovered predecessors, reports cycles/metadata roots/unsupported writes, and visits each state once within the explicit budget.",
+    "Previous objects are reused only after exact per-entry instruction and object-byte identity checks; no new body or object is claimed.",
+    "No game-derived CPU code was linked or executed."
+  ],
+  "native_game_boot": false,
+  "native_port_playable": false
+}
