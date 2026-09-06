@@ -1,5 +1,7 @@
 # P3 callback and control closure continuation
 
+Updated 2026-09-06 18:01 UTC: current recovery `local/cfg/startup-recovery-v27-rtti-repeat` has 21,179 entries / 874,269 instruction addresses. One Ghidra-checked initial RTTI target adds a four-instruction object; the complete active set `local/compiler-spike/exception-rtti-evidence-audit-v1/active-objects.json` contains 21,174 entries / 383 objects, zero compiler rejections and five quarantines. All 18,444 initial constructors and previous unknown targets remain represented. See reports/exception-rtti.md and reports/exception-rtti-evidence.json. P3 remains open. Earlier dated checkpoints below are historical.
+
 Updated 2026-09-06 17:41 UTC: three independently checked, exact service-call annotations reduce fence quarantines to five. The current complete static census is 21,173 entries / 382 objects; zero compiler rejections and all 18,444 initial constructors are represented. Continue with `local/cfg/startup-recovery-v25-services-memory` and `local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json`. See `reports/startup-services.md` and `reports/startup-services-evidence.json` for the conditional contracts, reproducible objects, retained failures and exact remaining work. P3 remains open; native service/control execution is not established. Earlier dated checkpoints below are historical.
 
 Updated 2026-09-05 20:57 UTC. P3 remains open. No native game boot or playable port exists.
