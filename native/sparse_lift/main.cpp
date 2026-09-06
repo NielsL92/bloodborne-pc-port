@@ -32,6 +32,7 @@ std::map<uint64_t,uint8_t> memory;
 std::set<uint64_t> decoded,missing,declared_traps,emitted_traps;
 struct X87Opcode {uint16_t original,corrected;};
 std::map<uint64_t,X87Opcode> x87_opcodes;
+std::map<uint64_t,std::string> decoded_selectors;
 [[noreturn]] void reject(const std::string& why) { throw std::runtime_error(why); }
 uint64_t number(const llvm::json::Object& o,llvm::StringRef key) {
   auto v=o.getInteger(key);if(!v||*v<0)reject("missing/nonpositive address field: "+key.str());return uint64_t(*v);
@@ -61,6 +62,7 @@ void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins) {
   for(const auto& operand:ins.operands)if(operand.type==remill::Operand::kTypeRegister){const auto& name=operand.reg.name;mmx|=name.size()==3&&name[0]=='M'&&name[1]=='M'&&name[2]>='0'&&name[2]<='7';}
   if(mmx)reject("MMX/x87 shared-state semantics are not validated at "+std::to_string(pc)+" selector "+ins.function);
   if(ins.category==remill::Instruction::kCategoryInvalid||(ins.category==remill::Instruction::kCategoryError&&!(ins.function=="UD2"&&declared_traps.count(pc))))reject("Remill instruction error/invalid category at "+std::to_string(pc)+" selector "+ins.function);
+  decoded_selectors[pc]=ins.function;
   // Pinned Remill DecodeFpuOpcode uses &3 instead of &7. Normalize the
   // appended immediate from exact manifest bytes, before semantic lifting.
   // Control instructions without the implicit PC/FOP pair are untouched.
@@ -142,8 +144,16 @@ int main(int argc,char** argv) {
     remill::IntrinsicTable intrinsics(module.get());Manager manager(arch.get(),module.get());
     remill::TraceLifter lifter(arch.get(),manager);
     for(auto pc:roots){manager.active=pc;if(!lifter.Lift(pc))reject("trace lifting failed");}
-    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows,opcode_rows;
+    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows,opcode_rows,selector_rows;
     for(const auto& row:x87_opcodes)opcode_rows.push_back(llvm::json::Object{{"address",int64_t(row.first)},{"original",int64_t(row.second.original)},{"corrected",int64_t(row.second.corrected)}});
+    for(const auto& row:decoded_selectors){
+      std::string implementation;
+      if(emitted_traps.count(row.first))implementation="__bb_native_ud2";
+      else if(auto* selector=module->getGlobalVariable("ISEL_"+row.second,true)){
+        if(selector->hasInitializer())if(auto* function=llvm::dyn_cast<llvm::Function>(selector->getInitializer()->stripPointerCasts()))implementation=function->getName().str();
+      }
+      selector_rows.push_back(llvm::json::Object{{"address",int64_t(row.first)},{"selector",row.second},{"implementation",implementation},{"lifted",decoded.count(row.first)!=0}});
+    }
     if(emitted_traps!=declared_traps)reject("declared native trap was not emitted");
     for(auto pc:emitted_traps)trap_rows.push_back(int64_t(pc));
     for(auto pc:missing)missing_rows.push_back(int64_t(pc));
@@ -153,7 +163,7 @@ int main(int argc,char** argv) {
     for(auto& row:ordered)trace_rows.push_back(int64_t(row.first));
     auto unvisited_count=unvisited.size();
     llvm::json::Object report{{"schema",1},{"input_instructions",int64_t(instructions.size())},{"input_bytes",int64_t(memory.size())},
-      {"x87_opcode_immediates",std::move(opcode_rows)},{"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
+      {"decoded_selectors",std::move(selector_rows)},{"x87_opcode_immediates",std::move(opcode_rows)},{"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
       {"decoded_addresses",std::move(decoded_rows)},{"missing_instruction_starts",std::move(missing_rows)},
       {"unvisited_manifest_instructions",std::move(unvisited)},{"compiled_roots",std::move(trace_rows)},
       {"execution","none; static lifting census is not execution coverage"}};

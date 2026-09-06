@@ -24345,5 +24345,18 @@
     "future_mmx_rejects": true,
     "startup_accepted": false,
     "native_game_boot": false
+  },
+  "x87_native_integration": {
+    "report": "reports/x87-integration-evidence.json",
+    "sha256": "30df96151ec17fc592ff94ecc0d37f91c39226d0416ada1cccbf76a5f077a876",
+    "compiled_entries": 21170,
+    "compiled_objects": 380,
+    "compiled_constructors": 18444,
+    "remaining_compiler_rejections": 0,
+    "remaining_quarantined_entries": 8,
+    "active_objects_manifest": "local/compiler-spike/x87-integration-evidence-audit-v2-path/active-objects.json",
+    "p3_gate_passed": false,
+    "native_game_boot": false,
+    "native_port_playable": false
   }
 }

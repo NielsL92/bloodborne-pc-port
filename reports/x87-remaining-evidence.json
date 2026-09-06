@@ -372,5 +372,54 @@
   "remaining_compiler_rejections": 2,
   "remaining_quarantined_entries": 8,
   "native_game_boot": false,
-  "native_port_playable": false
+  "native_port_playable": false,
+  "current_after_integration": {
+    "summary": {
+      "status": "exact current startup x87/MMX inventory retained; no semantics promoted",
+      "source": "local/cfg/startup-recovery-v22-cache-repeat",
+      "database_sha256": "8a36e4ce22be6b1a4ec57cd9466e7a5367da31e8d77eb8e0240be5d228c48611",
+      "manifest_sha256": "40e0789a4528cda85045e392551e8ee3f68bd6a756fdc7a9424a17b51e7cbb2b",
+      "x87_sites": 355,
+      "x87_mnemonics": {
+        "fld": 72,
+        "fstp": 130,
+        "fchs": 2,
+        "fldz": 72,
+        "fxch": 33,
+        "fucompi": 11,
+        "fisttp": 2,
+        "fild": 3,
+        "fsubp": 2,
+        "fld1": 3,
+        "fucomi": 11,
+        "fsubrp": 2,
+        "faddp": 1,
+        "fsub": 1,
+        "fcmovne": 1,
+        "fmul": 2,
+        "fnstcw": 1,
+        "fldcw": 1,
+        "fnstenv": 1,
+        "fldenv": 1,
+        "wait": 1,
+        "fscale": 1,
+        "fxsave": 1
+      },
+      "remaining_sites": 0,
+      "remaining_mnemonics": {},
+      "remaining_owners": [],
+      "mmx_sites": 0,
+      "mmx_mnemonics": {},
+      "mmx_owners": [],
+      "limitations": [
+        "Static recovered graph only; no execution coverage or completeness claim.",
+        "Family-level experimental classification does not replace exact selector/instruction manifests or promote checked modules.",
+        "No absence claim extends to unknown indirect/callback targets, unvisited paths or later gameplay. MMX/x87 aliasing still needs an explicit runtime contract if MMX reaches the graph."
+      ]
+    },
+    "summary_sha256": "8208b3f18d05a3e6e8dbffe4d945326df3cf996f4b3474b4f72b11cdfd7a7357",
+    "source_sha256": "0abd9fd865fc9d8734e3bb6733cfe46d473665b93303afa8ab220c42446fbcc4",
+    "instruction_fields_unchanged": true,
+    "integration_report": "reports/x87-integration-evidence.json"
+  }
 }

@@ -1,5 +1,7 @@
 # P3 control-flow and dependency recovery
 
+Current 2026-09-06 16:44 UTC: canonical recovery remains v22-cache-repeat, 21,178 entries / 874,266 instruction addresses, with all uncertainty records retained. Static x87 integration removes the final two compiler rejections: 21,170 entries / 380 objects, all initial constructors, eight control-boundary quarantines. Exact selector, object replacement and remaining import/return evidence are in `reports/x87-integration.md` / `reports/x87-integration-evidence.json`. **P3 remains open; no game object was linked or executed.** Earlier checkpoints below retain their original dates and counts.
+
 Updated 2026-09-05 20:59 UTC. **P3 startup compilation/exit closure has not passed. No native game boot exists.**
 
 ## Current database and startup gate
