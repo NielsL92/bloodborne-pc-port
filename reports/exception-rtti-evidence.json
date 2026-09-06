@@ -1,0 +1,1292 @@
+{
+  "status": "one independently checked initial RTTI candidate recovered and compiled; P3 remains open",
+  "source": "local/cfg/startup-recovery-v27-rtti-repeat",
+  "proof": {
+    "status": "independent RTTI symbol-dispatch candidate passed",
+    "source": "local\\cfg\\startup-recovery-v25-services-memory",
+    "source_db_sha256": "63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4",
+    "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+    "module_path": "E:\\bloodborne PC port\\local\\base-code\\uroot\\sce_module\\libc.prx",
+    "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+    "owner": 395088,
+    "site": 395281,
+    "object_slot": 778960,
+    "table_offset": 16,
+    "target": 298752,
+    "chain": [
+      {
+        "slot": 778960,
+        "raw_word": "0000000000000000",
+        "relocation": {
+          "offset": 778960,
+          "type": 1,
+          "symbol": 1316,
+          "addend": 16,
+          "table": "rela"
+        },
+        "symbol": {
+          "index": 1316,
+          "name": "byV+FWlAnB4#C#A",
+          "nid": "byV+FWlAnB4",
+          "bind": 1,
+          "type": 1,
+          "defined": true,
+          "value": 764352,
+          "size": 48,
+          "library": "libc",
+          "module": "libc"
+        },
+        "initial_target": 764368,
+        "binding": "Conditional supplied definition; symbol interposition/loader binding and subsequent writes remain unvalidated"
+      },
+      {
+        "slot": 764384,
+        "raw_word": "0000000000000000",
+        "relocation": {
+          "offset": 764384,
+          "type": 1,
+          "symbol": 415,
+          "addend": 0,
+          "table": "rela"
+        },
+        "symbol": {
+          "index": 415,
+          "name": "XbEM58kMYFc#C#A",
+          "nid": "XbEM58kMYFc",
+          "bind": 1,
+          "type": 2,
+          "defined": true,
+          "value": 298752,
+          "size": 10,
+          "library": "libc",
+          "module": "libc"
+        },
+        "initial_target": 298752,
+        "binding": "Conditional supplied definition; symbol interposition/loader binding and subsequent writes remain unvalidated"
+      }
+    ],
+    "source_instructions": [
+      {
+        "rva": 395088,
+        "size": 1,
+        "bytes": "55",
+        "mnemonic": "push",
+        "operands": "rbp"
+      },
+      {
+        "rva": 395089,
+        "size": 3,
+        "bytes": "4889e5",
+        "mnemonic": "mov",
+        "operands": "rbp, rsp"
+      },
+      {
+        "rva": 395092,
+        "size": 2,
+        "bytes": "4156",
+        "mnemonic": "push",
+        "operands": "r14"
+      },
+      {
+        "rva": 395094,
+        "size": 1,
+        "bytes": "53",
+        "mnemonic": "push",
+        "operands": "rbx"
+      },
+      {
+        "rva": 395095,
+        "size": 4,
+        "bytes": "4883ec10",
+        "mnemonic": "sub",
+        "operands": "rsp, 0x10"
+      },
+      {
+        "rva": 395099,
+        "size": 3,
+        "bytes": "4889f3",
+        "mnemonic": "mov",
+        "operands": "rbx, rsi"
+      },
+      {
+        "rva": 395102,
+        "size": 3,
+        "bytes": "83ff02",
+        "mnemonic": "cmp",
+        "operands": "edi, 2"
+      },
+      {
+        "rva": 395105,
+        "size": 6,
+        "bytes": "0f8445010000",
+        "mnemonic": "je",
+        "operands": "0x608ac"
+      },
+      {
+        "rva": 395111,
+        "size": 3,
+        "bytes": "83ff05",
+        "mnemonic": "cmp",
+        "operands": "edi, 5"
+      },
+      {
+        "rva": 395114,
+        "size": 6,
+        "bytes": "0f8545010000",
+        "mnemonic": "jne",
+        "operands": "0x608b5"
+      },
+      {
+        "rva": 395120,
+        "size": 7,
+        "bytes": "488d3d998b0500",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x58b99]"
+      },
+      {
+        "rva": 395127,
+        "size": 7,
+        "bytes": "488d35615f0300",
+        "mnemonic": "lea",
+        "operands": "rsi, [rip + 0x35f61]"
+      },
+      {
+        "rva": 395134,
+        "size": 2,
+        "bytes": "31c0",
+        "mnemonic": "xor",
+        "operands": "eax, eax"
+      },
+      {
+        "rva": 395136,
+        "size": 3,
+        "bytes": "4889da",
+        "mnemonic": "mov",
+        "operands": "rdx, rbx"
+      },
+      {
+        "rva": 395139,
+        "size": 5,
+        "bytes": "e88876faff",
+        "mnemonic": "call",
+        "operands": "0x7e10"
+      },
+      {
+        "rva": 395144,
+        "size": 10,
+        "bytes": "48b8012b2b4343554e47",
+        "mnemonic": "movabs",
+        "operands": "rax, 0x474e5543432b2b01"
+      },
+      {
+        "rva": 395154,
+        "size": 4,
+        "bytes": "48394360",
+        "mnemonic": "cmp",
+        "operands": "qword ptr [rbx + 0x60], rax"
+      },
+      {
+        "rva": 395158,
+        "size": 2,
+        "bytes": "7507",
+        "mnemonic": "jne",
+        "operands": "0x6079f"
+      },
+      {
+        "rva": 395160,
+        "size": 3,
+        "bytes": "488b1b",
+        "mnemonic": "mov",
+        "operands": "rbx, qword ptr [rbx]"
+      },
+      {
+        "rva": 395163,
+        "size": 4,
+        "bytes": "4883c380",
+        "mnemonic": "add",
+        "operands": "rbx, -0x80"
+      },
+      {
+        "rva": 395167,
+        "size": 6,
+        "bytes": "8a05c3140700",
+        "mnemonic": "mov",
+        "operands": "al, byte ptr [rip + 0x714c3]"
+      },
+      {
+        "rva": 395173,
+        "size": 2,
+        "bytes": "84c0",
+        "mnemonic": "test",
+        "operands": "al, al"
+      },
+      {
+        "rva": 395175,
+        "size": 2,
+        "bytes": "752a",
+        "mnemonic": "jne",
+        "operands": "0x607d3"
+      },
+      {
+        "rva": 395177,
+        "size": 7,
+        "bytes": "488d3db8140700",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x714b8]"
+      },
+      {
+        "rva": 395184,
+        "size": 5,
+        "bytes": "e8ab88feff",
+        "mnemonic": "call",
+        "operands": "0x49060"
+      },
+      {
+        "rva": 395189,
+        "size": 2,
+        "bytes": "85c0",
+        "mnemonic": "test",
+        "operands": "eax, eax"
+      },
+      {
+        "rva": 395191,
+        "size": 2,
+        "bytes": "741a",
+        "mnemonic": "je",
+        "operands": "0x607d3"
+      },
+      {
+        "rva": 395193,
+        "size": 7,
+        "bytes": "488d0510db0500",
+        "mnemonic": "lea",
+        "operands": "rax, [rip + 0x5db10]"
+      },
+      {
+        "rva": 395200,
+        "size": 7,
+        "bytes": "48890599140700",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rip + 0x71499], rax"
+      },
+      {
+        "rva": 395207,
+        "size": 7,
+        "bytes": "488d3d9a140700",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x7149a]"
+      },
+      {
+        "rva": 395214,
+        "size": 5,
+        "bytes": "e8fd88feff",
+        "mnemonic": "call",
+        "operands": "0x490d0"
+      },
+      {
+        "rva": 395219,
+        "size": 4,
+        "bytes": "488b7b08",
+        "mnemonic": "mov",
+        "operands": "rdi, qword ptr [rbx + 8]"
+      },
+      {
+        "rva": 395223,
+        "size": 3,
+        "bytes": "4885ff",
+        "mnemonic": "test",
+        "operands": "rdi, rdi"
+      },
+      {
+        "rva": 395226,
+        "size": 2,
+        "bytes": "7461",
+        "mnemonic": "je",
+        "operands": "0x6083d"
+      },
+      {
+        "rva": 395228,
+        "size": 7,
+        "bytes": "488d35ddae0500",
+        "mnemonic": "lea",
+        "operands": "rsi, [rip + 0x5aedd]"
+      },
+      {
+        "rva": 395235,
+        "size": 7,
+        "bytes": "488d1506a20500",
+        "mnemonic": "lea",
+        "operands": "rdx, [rip + 0x5a206]"
+      },
+      {
+        "rva": 395242,
+        "size": 2,
+        "bytes": "31c9",
+        "mnemonic": "xor",
+        "operands": "ecx, ecx"
+      },
+      {
+        "rva": 395244,
+        "size": 5,
+        "bytes": "e84f88feff",
+        "mnemonic": "call",
+        "operands": "0x49040"
+      },
+      {
+        "rva": 395249,
+        "size": 3,
+        "bytes": "4885c0",
+        "mnemonic": "test",
+        "operands": "rax, rax"
+      },
+      {
+        "rva": 395252,
+        "size": 2,
+        "bytes": "7447",
+        "mnemonic": "je",
+        "operands": "0x6083d"
+      },
+      {
+        "rva": 395254,
+        "size": 7,
+        "bytes": "488b3d63140700",
+        "mnemonic": "mov",
+        "operands": "rdi, qword ptr [rip + 0x71463]"
+      },
+      {
+        "rva": 395261,
+        "size": 7,
+        "bytes": "488d0dccda0500",
+        "mnemonic": "lea",
+        "operands": "rcx, [rip + 0x5dacc]"
+      },
+      {
+        "rva": 395268,
+        "size": 3,
+        "bytes": "488b09",
+        "mnemonic": "mov",
+        "operands": "rcx, qword ptr [rcx]"
+      },
+      {
+        "rva": 395271,
+        "size": 3,
+        "bytes": "4889de",
+        "mnemonic": "mov",
+        "operands": "rsi, rbx"
+      },
+      {
+        "rva": 395274,
+        "size": 4,
+        "bytes": "4883ee80",
+        "mnemonic": "sub",
+        "operands": "rsi, -0x80"
+      },
+      {
+        "rva": 395278,
+        "size": 3,
+        "bytes": "4889c2",
+        "mnemonic": "mov",
+        "operands": "rdx, rax"
+      },
+      {
+        "rva": 395281,
+        "size": 3,
+        "bytes": "ff5110",
+        "mnemonic": "call",
+        "operands": "qword ptr [rcx + 0x10]"
+      },
+      {
+        "rva": 395284,
+        "size": 3,
+        "bytes": "4885c0",
+        "mnemonic": "test",
+        "operands": "rax, rax"
+      },
+      {
+        "rva": 395287,
+        "size": 2,
+        "bytes": "7424",
+        "mnemonic": "je",
+        "operands": "0x6083d"
+      },
+      {
+        "rva": 395289,
+        "size": 3,
+        "bytes": "488b08",
+        "mnemonic": "mov",
+        "operands": "rcx, qword ptr [rax]"
+      },
+      {
+        "rva": 395292,
+        "size": 3,
+        "bytes": "4889c7",
+        "mnemonic": "mov",
+        "operands": "rdi, rax"
+      },
+      {
+        "rva": 395295,
+        "size": 3,
+        "bytes": "ff5110",
+        "mnemonic": "call",
+        "operands": "qword ptr [rcx + 0x10]"
+      },
+      {
+        "rva": 395298,
+        "size": 3,
+        "bytes": "4889c1",
+        "mnemonic": "mov",
+        "operands": "rcx, rax"
+      },
+      {
+        "rva": 395301,
+        "size": 7,
+        "bytes": "488d3de48a0500",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x58ae4]"
+      },
+      {
+        "rva": 395308,
+        "size": 7,
+        "bytes": "488d35d55e0300",
+        "mnemonic": "lea",
+        "operands": "rsi, [rip + 0x35ed5]"
+      },
+      {
+        "rva": 395315,
+        "size": 2,
+        "bytes": "31c0",
+        "mnemonic": "xor",
+        "operands": "eax, eax"
+      },
+      {
+        "rva": 395317,
+        "size": 3,
+        "bytes": "4889ca",
+        "mnemonic": "mov",
+        "operands": "rdx, rcx"
+      },
+      {
+        "rva": 395320,
+        "size": 5,
+        "bytes": "e8d375faff",
+        "mnemonic": "call",
+        "operands": "0x7e10"
+      },
+      {
+        "rva": 395325,
+        "size": 8,
+        "bytes": "48c745e880000000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rbp - 0x18], 0x80"
+      },
+      {
+        "rva": 395333,
+        "size": 5,
+        "bytes": "bf80000000",
+        "mnemonic": "mov",
+        "operands": "edi, 0x80"
+      },
+      {
+        "rva": 395338,
+        "size": 5,
+        "bytes": "e801f0fbff",
+        "mnemonic": "call",
+        "operands": "0x1f850"
+      },
+      {
+        "rva": 395343,
+        "size": 4,
+        "bytes": "488b4b08",
+        "mnemonic": "mov",
+        "operands": "rcx, qword ptr [rbx + 8]"
+      },
+      {
+        "rva": 395347,
+        "size": 4,
+        "bytes": "488b5908",
+        "mnemonic": "mov",
+        "operands": "rbx, qword ptr [rcx + 8]"
+      },
+      {
+        "rva": 395351,
+        "size": 4,
+        "bytes": "488d55e8",
+        "mnemonic": "lea",
+        "operands": "rdx, [rbp - 0x18]"
+      },
+      {
+        "rva": 395355,
+        "size": 4,
+        "bytes": "488d4de4",
+        "mnemonic": "lea",
+        "operands": "rcx, [rbp - 0x1c]"
+      },
+      {
+        "rva": 395359,
+        "size": 3,
+        "bytes": "4889df",
+        "mnemonic": "mov",
+        "operands": "rdi, rbx"
+      },
+      {
+        "rva": 395362,
+        "size": 3,
+        "bytes": "4889c6",
+        "mnemonic": "mov",
+        "operands": "rsi, rax"
+      },
+      {
+        "rva": 395365,
+        "size": 5,
+        "bytes": "e87620ffff",
+        "mnemonic": "call",
+        "operands": "0x528e0"
+      },
+      {
+        "rva": 395370,
+        "size": 3,
+        "bytes": "4989c6",
+        "mnemonic": "mov",
+        "operands": "r14, rax"
+      },
+      {
+        "rva": 395373,
+        "size": 4,
+        "bytes": "837de400",
+        "mnemonic": "cmp",
+        "operands": "dword ptr [rbp - 0x1c], 0"
+      },
+      {
+        "rva": 395377,
+        "size": 3,
+        "bytes": "4c89f2",
+        "mnemonic": "mov",
+        "operands": "rdx, r14"
+      },
+      {
+        "rva": 395380,
+        "size": 2,
+        "bytes": "7403",
+        "mnemonic": "je",
+        "operands": "0x60879"
+      },
+      {
+        "rva": 395382,
+        "size": 3,
+        "bytes": "4889da",
+        "mnemonic": "mov",
+        "operands": "rdx, rbx"
+      },
+      {
+        "rva": 395385,
+        "size": 7,
+        "bytes": "488d3d908a0500",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x58a90]"
+      },
+      {
+        "rva": 395392,
+        "size": 7,
+        "bytes": "488d35875e0300",
+        "mnemonic": "lea",
+        "operands": "rsi, [rip + 0x35e87]"
+      },
+      {
+        "rva": 395399,
+        "size": 2,
+        "bytes": "31c0",
+        "mnemonic": "xor",
+        "operands": "eax, eax"
+      },
+      {
+        "rva": 395401,
+        "size": 5,
+        "bytes": "e88275faff",
+        "mnemonic": "call",
+        "operands": "0x7e10"
+      },
+      {
+        "rva": 395406,
+        "size": 4,
+        "bytes": "837de400",
+        "mnemonic": "cmp",
+        "operands": "dword ptr [rbp - 0x1c], 0"
+      },
+      {
+        "rva": 395410,
+        "size": 2,
+        "bytes": "7508",
+        "mnemonic": "jne",
+        "operands": "0x6089c"
+      },
+      {
+        "rva": 395412,
+        "size": 3,
+        "bytes": "4c89f7",
+        "mnemonic": "mov",
+        "operands": "rdi, r14"
+      },
+      {
+        "rva": 395415,
+        "size": 5,
+        "bytes": "e8c4effbff",
+        "mnemonic": "call",
+        "operands": "0x1f860"
+      },
+      {
+        "rva": 395420,
+        "size": 7,
+        "bytes": "488d3ddd0e0000",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0xedd]"
+      },
+      {
+        "rva": 395427,
+        "size": 2,
+        "bytes": "31f6",
+        "mnemonic": "xor",
+        "operands": "esi, esi"
+      },
+      {
+        "rva": 395429,
+        "size": 5,
+        "bytes": "e8c628ffff",
+        "mnemonic": "call",
+        "operands": "0x53170"
+      },
+      {
+        "rva": 395434,
+        "size": 2,
+        "bytes": "eb30",
+        "mnemonic": "jmp",
+        "operands": "0x608dc"
+      },
+      {
+        "rva": 395436,
+        "size": 7,
+        "bytes": "488d3d065e0300",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x35e06]"
+      },
+      {
+        "rva": 395443,
+        "size": 2,
+        "bytes": "eb0c",
+        "mnemonic": "jmp",
+        "operands": "0x608c1"
+      },
+      {
+        "rva": 395445,
+        "size": 3,
+        "bytes": "83ff03",
+        "mnemonic": "cmp",
+        "operands": "edi, 3"
+      },
+      {
+        "rva": 395448,
+        "size": 2,
+        "bytes": "7522",
+        "mnemonic": "jne",
+        "operands": "0x608dc"
+      },
+      {
+        "rva": 395450,
+        "size": 7,
+        "bytes": "488d3dd25d0300",
+        "mnemonic": "lea",
+        "operands": "rdi, [rip + 0x35dd2]"
+      },
+      {
+        "rva": 395457,
+        "size": 7,
+        "bytes": "488d0d488a0500",
+        "mnemonic": "lea",
+        "operands": "rcx, [rip + 0x58a48]"
+      },
+      {
+        "rva": 395464,
+        "size": 5,
+        "bytes": "be25000000",
+        "mnemonic": "mov",
+        "operands": "esi, 0x25"
+      },
+      {
+        "rva": 395469,
+        "size": 5,
+        "bytes": "ba01000000",
+        "mnemonic": "mov",
+        "operands": "edx, 1"
+      },
+      {
+        "rva": 395474,
+        "size": 5,
+        "bytes": "e8c980faff",
+        "mnemonic": "call",
+        "operands": "0x89a0"
+      },
+      {
+        "rva": 395479,
+        "size": 5,
+        "bytes": "e8e4faffff",
+        "mnemonic": "call",
+        "operands": "0x603c0"
+      },
+      {
+        "rva": 395484,
+        "size": 5,
+        "bytes": "e8dffaffff",
+        "mnemonic": "call",
+        "operands": "0x603c0"
+      }
+    ],
+    "target_body": [
+      {
+        "rva": 298752,
+        "size": 2,
+        "bytes": "31c0",
+        "mnemonic": "xor",
+        "operands": "eax, eax"
+      },
+      {
+        "rva": 298754,
+        "size": 3,
+        "bytes": "4839d7",
+        "mnemonic": "cmp",
+        "operands": "rdi, rdx"
+      },
+      {
+        "rva": 298757,
+        "size": 4,
+        "bytes": "480f44c6",
+        "mnemonic": "cmove",
+        "operands": "rax, rsi"
+      },
+      {
+        "rva": 298761,
+        "size": 1,
+        "bytes": "c3",
+        "mnemonic": "ret",
+        "operands": ""
+      }
+    ],
+    "target_has_recovered_entry": false,
+    "raw_tables": {
+      "relocations": {
+        "path": "E:\\bloodborne PC port\\local\\cfg\\exception-rtti-inventory-v1\\relocations.bin",
+        "sha256": "f84e2a4e37b244f42f4735b6a5e768b6f8a7b29783319d5616cd9f650f41ea25",
+        "source_file_offset": 888712,
+        "size": 48480
+      },
+      "symbols": {
+        "path": "E:\\bloodborne PC port\\local\\cfg\\exception-rtti-inventory-v1\\symbols.bin",
+        "sha256": "09cfed7db46fd04ecf21c5ae6c5635c187c1c677b6822f9a881d81a260f9afc9",
+        "source_file_offset": 833560,
+        "size": 53304
+      },
+      "strings": {
+        "path": "E:\\bloodborne PC port\\local\\cfg\\exception-rtti-inventory-v1\\strings.bin",
+        "sha256": "df108065dc03f56274284c7fcbf6ec65fb031072a0afa38066959e43671c1423",
+        "source_file_offset": 797912,
+        "size": 35644
+      }
+    },
+    "limitations": [
+      "An initial target candidate only. Keep the original unresolved indirect-call record.",
+      "Type-1 ELF64 symbol relocations require the recorded supplied definitions; loader interposition and runtime binding remain unvalidated.",
+      "The RTTI object, its virtual table cells and initialization cache are mutable. Code bytes must remain immutable for the compilation manifest.",
+      "The second virtual call at 0x6081f uses the returned object and remains unresolved. No unconditional normal-return or nonreturn proof is added.",
+      "Symbol size and the small decode window are analysis limits, not standalone proof of a complete function. No game CPU execution."
+    ],
+    "proposal_path": "local\\cfg\\exception-rtti-inventory-v1\\proposal.json",
+    "independent_chain": [
+      {
+        "slot": 778960,
+        "raw_word": 0,
+        "relocation_type": 1,
+        "symbol_index": 1316,
+        "addend": 16,
+        "relocation_byte_offset": 43680,
+        "symbol_byte_offset": 31584,
+        "name_offset": 21164,
+        "name": "byV+FWlAnB4#C#A",
+        "bind": 1,
+        "symbol_type": 1,
+        "section_index": 14,
+        "value": 764352,
+        "size": 48,
+        "initial_target": 764368
+      },
+      {
+        "slot": 764384,
+        "raw_word": 0,
+        "relocation_type": 1,
+        "symbol_index": 415,
+        "addend": 0,
+        "relocation_byte_offset": 7680,
+        "symbol_byte_offset": 9960,
+        "name_offset": 6748,
+        "name": "XbEM58kMYFc#C#A",
+        "bind": 1,
+        "symbol_type": 2,
+        "section_index": 3,
+        "value": 298752,
+        "size": 10,
+        "initial_target": 298752
+      }
+    ],
+    "independent_source": [
+      {
+        "rva": 395261,
+        "length": 7,
+        "bytes": "488d0dccda0500",
+        "text": "LEA RCX,[0xbe2d0]",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "RCX"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 395268,
+        "length": 3,
+        "bytes": "488b09",
+        "text": "MOV RCX,qword ptr [RCX]",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "RCX"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 395281,
+        "length": 3,
+        "bytes": "ff5110",
+        "text": "CALL qword ptr [RCX + 0x10]",
+        "flow": "COMPUTED_CALL",
+        "written_registers": [
+          "RSP"
+        ],
+        "targets": []
+      }
+    ],
+    "independent_body": [
+      {
+        "rva": 298752,
+        "length": 2,
+        "bytes": "31c0",
+        "text": "XOR EAX,EAX",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "CF",
+          "EAX",
+          "RAX",
+          "PF",
+          "ZF",
+          "SF",
+          "OF"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 298754,
+        "length": 3,
+        "bytes": "4839d7",
+        "text": "CMP RDI,RDX",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "CF",
+          "PF",
+          "ZF",
+          "SF",
+          "OF"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 298757,
+        "length": 4,
+        "bytes": "480f44c6",
+        "text": "CMOVZ RAX,RSI",
+        "flow": "FALL_THROUGH",
+        "written_registers": [
+          "RAX"
+        ],
+        "targets": []
+      },
+      {
+        "rva": 298761,
+        "length": 1,
+        "bytes": "c3",
+        "text": "RET",
+        "flow": "TERMINATOR",
+        "written_registers": [
+          "RSP",
+          "RIP"
+        ],
+        "targets": []
+      }
+    ],
+    "shared_instructions": 100,
+    "return_relation": "For this exact body under a normal SysV call: RAX equals incoming RSI if incoming RDI equals incoming RDX; otherwise zero. This does not prove the caller object identity or close the second virtual call.",
+    "evidence": {
+      "local\\cfg\\exception-rtti-inventory-v1\\proposal.json": "7210913ee5dbc78595863f124384b2bf03c8ebdf1abb625b8d367f56ec289785",
+      "local\\cfg\\exception-rtti-inventory-v1\\symbol-input.json": "7ce1d624da508512513e83c027c5fddd9833778483d1b3f8f3d0d2bafb73dba8",
+      "local\\cfg\\ghidra-rtti-symbols-v1\\dispatch.json": "cbedc39235491bcd3ddadb5cb4ae8573a06474a24ac763f80f7cda39687a2a88",
+      "local\\cfg\\ghidra-rtti-symbols-v1\\summary.json": "abc4fedb6fb8e876ab2bf0146f0638d21341eb0d2249101afbf1f37f2c15a284",
+      "local\\cfg\\ghidra-rtti-windows-v1\\summary.json": "89920c2f29bb4608e7af6a53c38b56db4ce07279364f7a615192bc99afc16b67",
+      "local\\cfg\\ghidra-rtti-windows-v1\\libc.prx\\ghidra.json": "626a2a6f7d04dec52607407143bf676f9b1961523618bc2de60fa89de2e87277",
+      "tools\\ghidra_scripts\\BBCheckSymbolDispatch.java": "29979d343ad2c51f54de5e71497b02d513e198ab85733348b5d4d7b1e083e37e"
+    }
+  },
+  "recovery_delta": {
+    "status": "exact one-body RTTI recovery delta passed",
+    "before": "local\\cfg\\startup-recovery-v25-services-memory",
+    "after": "local\\cfg\\startup-recovery-v26-rtti",
+    "source_db_sha256": "63fabadd09254bcfb7a72702d27cbb31c55d19684da2a71828506f1004c112e4",
+    "target_db_sha256": "86a24fb090bae059aa3bc44b3b0bce64adc3c80ce33d8954172623912c5fa50d",
+    "target_manifest_sha256": "bc5d2281380375974806d61992622ea6c1a8fdb9a91278639dbbde5c847ef2e9",
+    "unchanged_entries": 21177,
+    "changed": [
+      {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "entry": 395088,
+        "added_edges": [
+          {
+            "source": 395281,
+            "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "target": 298752,
+            "kind": "initial_symbol_dispatch_target_candidate",
+            "detail": "{\"condition\": \"Initial supplied symbol definitions and cells only; object/table mutation and runtime binding remain unknown\", \"evidence_sha256\": \"ef052562c7a7b97f7c1acbeef1ea53f84146998d61a7f2638f66b269750b3c3b\", \"object_slot\": 778960, \"table_offset\": 16}"
+          },
+          {
+            "source": 395281,
+            "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "target": null,
+            "kind": "symbol_dispatch_binding_unvalidated",
+            "detail": "{\"condition\": \"Initial supplied symbol definitions and cells only; object/table mutation and runtime binding remain unknown\", \"evidence_sha256\": \"ef052562c7a7b97f7c1acbeef1ea53f84146998d61a7f2638f66b269750b3c3b\", \"object_slot\": 778960, \"table_offset\": 16}"
+          }
+        ]
+      }
+    ],
+    "added": [
+      {
+        "module_sha256": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "module": "libc.prx",
+        "entry": 298752,
+        "constructor_ordinal": null,
+        "fence": 298762,
+        "fence_reason": "unwind_end_is_analysis_fence",
+        "decode_status": "decoded_with_explicit_boundaries",
+        "compilation_status": "not_compiled",
+        "execution_status": "not_executed",
+        "instructions": [
+          {
+            "rva": 298752,
+            "size": 2,
+            "bytes": "31c0"
+          },
+          {
+            "rva": 298754,
+            "size": 3,
+            "bytes": "4839d7"
+          },
+          {
+            "rva": 298757,
+            "size": 4,
+            "bytes": "480f44c6"
+          },
+          {
+            "rva": 298761,
+            "size": 1,
+            "bytes": "c3"
+          }
+        ],
+        "edges": [
+          {
+            "source": 298761,
+            "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "target": null,
+            "kind": "logical_return_requires_dispatch",
+            "detail": "ret"
+          }
+        ],
+        "issues": [],
+        "instruction_set_sha256": "1fb9a7b80807f32ee9de50dd5f0c15e9b56c6837ae71aeef964054bd9f919566"
+      }
+    ],
+    "frontier_delta": {
+      "symbol_dispatch_binding_unvalidated": 1,
+      "initial_symbol_dispatch_target_candidate": 1,
+      "logical_return_requires_dispatch": 1
+    },
+    "limitations": "Initial target dependency only; all prior unknown, service and exception records are retained. Five quarantines remain."
+  },
+  "recovery": {
+    "status": "P3 startup compilation/control closure NOT passed",
+    "counts": {
+      "recovery_entry": 21179,
+      "recovery_instruction": 874269,
+      "recovery_edge": 1090165,
+      "recovery_issue": 5,
+      "recovery_request": 77046
+    },
+    "constructors": {
+      "decoded_with_explicit_boundaries": 18444
+    },
+    "modules": {
+      "libSceHand.prx": 1,
+      "libSceHeadTracker.prx": 1,
+      "libSceFios2.prx": 89,
+      "libc.prx": 301,
+      "libSceSmart.prx": 1,
+      "libSceS3DConversion.prx": 1,
+      "libSceFace.prx": 1,
+      "eboot.bin": 20784
+    },
+    "decode_issue_kinds": {
+      "fallthrough_at_fence": 5
+    },
+    "frontier_counts": {
+      "unresolved_indirect_call": 9044,
+      "unresolved_indirect_jump": 430,
+      "logical_return_requires_dispatch": 20065,
+      "callback_argument_candidate": 26281,
+      "abi_register_preservation_unvalidated": 9354,
+      "annotated_control_contract_requires_runtime": 4300,
+      "import_contract_unvalidated": 20846,
+      "service_or_trap_boundary": 21,
+      "callback_contract_target_candidate": 2311,
+      "unresolved_native_service_control": 3,
+      "indirect_target_candidate": 4,
+      "exception_personality_candidate": 41,
+      "exception_runtime_unvalidated": 41,
+      "personality_import_unvalidated": 41,
+      "unresolved_exception_continuation": 42,
+      "unresolved_derived_control_continuation": 184,
+      "fallthrough_at_fence": 5,
+      "initial_symbol_dispatch_target_candidate": 1,
+      "symbol_dispatch_binding_unvalidated": 1,
+      "independently_recovered_jump_table": 12,
+      "callback_slice_runtime_unvalidated": 1,
+      "callback_slice_target_candidate": 1,
+      "unresolved_callback_argument": 143,
+      "unresolved_exit_callbacks": 5,
+      "initial_object_dispatch_target_candidate": 4801,
+      "unresolved_restored_context": 113,
+      "callback_relocation_binding_unvalidated": 142,
+      "callback_relocation_target_candidate": 142,
+      "callback_contract_null_argument": 15
+    },
+    "queued": 0,
+    "manifest_units": 21179,
+    "db_sha256": "86a24fb090bae059aa3bc44b3b0bce64adc3c80ce33d8954172623912c5fa50d",
+    "manifest_sha256": "bc5d2281380375974806d61992622ea6c1a8fdb9a91278639dbbde5c847ef2e9",
+    "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "active_objects_manifest": "local/compiler-spike/exception-rtti-evidence-audit-v1/active-objects.json",
+  "active_objects_sha256": "eccf90da1fbac6bd85c628ffd78df93049e7d267930f9090f857a061a6084540",
+  "previous_active_objects_manifest": "local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json",
+  "previous_active_objects_sha256": "cd619f4a781c67cf3e0b091387e5473ba0d2867e3595d6c0c516c8e02f2b87ea",
+  "compiled_entries": 21174,
+  "compiled_objects": 383,
+  "compiled_constructors": 18444,
+  "remaining_compiler_rejections": 0,
+  "remaining_quarantines": [
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394512,
+      "issues": [
+        {
+          "rva": 394561,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394592,
+      "issues": [
+        {
+          "rva": 394713,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "entry": 394992,
+      "issues": [
+        {
+          "rva": 395074,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 34648288,
+      "issues": [
+        {
+          "rva": 34649899,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    },
+    {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "entry": 34650432,
+      "issues": [
+        {
+          "rva": 34650592,
+          "kind": "fallthrough_at_fence",
+          "detail": "call"
+        }
+      ]
+    }
+  ],
+  "new_compile": {
+    "folder": "batch-0000",
+    "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+    "entries": [
+      298752
+    ],
+    "instructions": 4,
+    "roots": 1,
+    "input_sha256": "fc637bc96984d3628eb29de659ada692c2322cf041d84fc3aea489ae1c19ab94",
+    "execution": "not_executed",
+    "lift": {
+      "argv": [
+        "E:\\bloodborne PC port\\build\\sparse-lift-v8-selector-audit\\bb-sparse-lift.exe",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\input.json",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\function.bc",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\function.ll",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\audit.json",
+        "E:\\bloodborne PC port\\build\\extended-semantics-v31-scale"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 0.5404976999852806
+    },
+    "status": "object_built",
+    "external_declarations": [
+      "llvm.ctpop.i8",
+      "__remill_flag_computation_zero",
+      "__remill_flag_computation_sign",
+      "__remill_undefined_8",
+      "__remill_flag_computation_carry",
+      "__remill_flag_computation_overflow",
+      "__remill_compare_eq",
+      "__remill_read_memory_64",
+      "__remill_function_return"
+    ],
+    "explicit_native_trap_addresses": [],
+    "semantic_instruction_count": 4,
+    "missing_instruction_starts": [],
+    "compiled_roots": [
+      34360037120
+    ],
+    "audit_sha256": "1bcc612d3b9567591aabf8225a5eefa823b8cf858e2fa707c43c0cbfd35212df",
+    "compile": {
+      "argv": [
+        "E:\\bloodborne PC port\\external\\toolchains\\llvm-21.1.8\\clang+llvm-21.1.8-x86_64-pc-windows-msvc\\bin\\clang.exe",
+        "-c",
+        "-O2",
+        "-march=haswell",
+        "-mno-incremental-linker-compatible",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\function.bc",
+        "-o",
+        "local\\compiler-spike\\exception-rtti-compile-v2-repeat\\batch-0000\\function.obj"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 0.2523217999842018
+    },
+    "object_sha256": "93f03d15ee324427c7fd5645f45697b48681ddb369f4a66c978db7c5cd54baa1",
+    "object_bytes": 1228
+  },
+  "reproducible_artifacts": {
+    "recovery/analysis.sqlite": "86a24fb090bae059aa3bc44b3b0bce64adc3c80ce33d8954172623912c5fa50d",
+    "recovery/compilation-manifest.jsonl": "bc5d2281380375974806d61992622ea6c1a8fdb9a91278639dbbde5c847ef2e9",
+    "recovery/frontier.jsonl": "2fbf6ce79defc4562f658aebafddb34e5a7b063503eb07c46ca786f9194aac3d",
+    "recovery/constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5",
+    "compile/input.json": "fc637bc96984d3628eb29de659ada692c2322cf041d84fc3aea489ae1c19ab94",
+    "compile/roots.json": "94d2a4c380d08b8f6803e8b133444c4535014af253989f24cc31fc37bf43d214",
+    "compile/units.json": "00b4b0e89fdb2043de42171845c822866b22fc40d1c3494732fc35e8542bf35f",
+    "compile/audit.json": "1bcc612d3b9567591aabf8225a5eefa823b8cf858e2fa707c43c0cbfd35212df",
+    "compile/function.bc": "3709f5c82a9a971a437ceba3a7d9ca90b87bd1aea346bda25a3b7c0fee3e7c21",
+    "compile/function.obj": "93f03d15ee324427c7fd5645f45697b48681ddb369f4a66c978db7c5cd54baa1"
+  },
+  "runs": {
+    "20260906-p3-exception-rtti-inventory-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "ac6c56050525088ec21821684b835f7bd32c550d805f4fda8fb50e6be5c053fd",
+      "elapsed_seconds": 6.982916299952194
+    },
+    "20260906-p3-ghidra-rtti-symbols-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "ac6c56050525088ec21821684b835f7bd32c550d805f4fda8fb50e6be5c053fd",
+      "elapsed_seconds": 7.925356000196189
+    },
+    "20260906-p3-ghidra-rtti-windows-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "ac6c56050525088ec21821684b835f7bd32c550d805f4fda8fb50e6be5c053fd",
+      "elapsed_seconds": 5.491769900079817
+    },
+    "20260906-p3-exception-rtti-checked-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "d3c7cf45efb3af8bb56aaf8f735386c439480f156542112b63374f54bf2a9084",
+      "elapsed_seconds": 0.153641999932006
+    },
+    "20260906-p3-exception-rtti-checked-v2-provenance": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "f377532f2fbc3a62e97e32a0f8a307006743c1196e3d06d01f43ce4b927ea9cb",
+      "elapsed_seconds": 0.13272879994474351
+    },
+    "20260906-p3-symbol-dispatch-checks-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "f377532f2fbc3a62e97e32a0f8a307006743c1196e3d06d01f43ce4b927ea9cb",
+      "elapsed_seconds": 0.34103089990094304
+    },
+    "20260906-p3-startup-recovery-v26-rtti": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "f377532f2fbc3a62e97e32a0f8a307006743c1196e3d06d01f43ce4b927ea9cb",
+      "elapsed_seconds": 103.68910359987058
+    },
+    "20260906-p3-startup-recovery-v27-rtti-repeat": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "1b630ac72773ac6c6e788d51d2c372a4e2a559fdb57c3826a28f0c235da0e2af",
+      "elapsed_seconds": 100.75620270008221
+    },
+    "20260906-p3-exception-rtti-delta-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "1b630ac72773ac6c6e788d51d2c372a4e2a559fdb57c3826a28f0c235da0e2af",
+      "elapsed_seconds": 3.1773571998346597
+    },
+    "20260906-p3-exception-rtti-compile-v1": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "1b630ac72773ac6c6e788d51d2c372a4e2a559fdb57c3826a28f0c235da0e2af",
+      "elapsed_seconds": 5.4567017001099885
+    },
+    "20260906-p3-exception-rtti-compile-v2-repeat": {
+      "source_commit": "4f442844a73480f7a1d22457f2e849f0c10ba9ca",
+      "sources_sha256": "1b630ac72773ac6c6e788d51d2c372a4e2a559fdb57c3826a28f0c235da0e2af",
+      "elapsed_seconds": 4.5255456999875605
+    }
+  },
+  "limitations": [
+    "Both symbol-based relocations and the 10-byte target body are independently checked. They establish one initial candidate, not an immutable runtime target.",
+    "The original indirect call at libc 0x60811 and subsequent object call at 0x6081f remain unresolved. The new binding obligation retains symbol interposition, object/table writes and runtime identity.",
+    "The four-instruction object has no sparse missing paths but still requires native memory/return dispatch and arithmetic flag support. Object compilation is not game execution.",
+    "All prior entry instruction hashes and unique compiled-root ownership remain valid. Five quarantines, all initial constructor mutation assumptions and all existing unknown-target counts remain unchanged.",
+    "No native game boot, playable port, P3 pass, P4 startup, or P1 observation is established by this static extension."
+  ],
+  "p3_gate_passed": false,
+  "native_game_boot": false,
+  "native_port_playable": false
+}
