@@ -87,3 +87,32 @@ template<unsigned Operation> void arithmetic_result(uint64_t sa,uint16_t ea,uint
 extern "C" void __bb_x87_add(uint64_t sa,uint16_t ea,uint64_t sb,uint16_t eb,uint16_t cw,BBX87ArithmeticResult* out){arithmetic_result<0>(sa,ea,sb,eb,cw,out);}
 extern "C" void __bb_x87_sub(uint64_t sa,uint16_t ea,uint64_t sb,uint16_t eb,uint16_t cw,BBX87ArithmeticResult* out){arithmetic_result<1>(sa,ea,sb,eb,cw,out);}
 extern "C" void __bb_x87_mul(uint64_t sa,uint16_t ea,uint64_t sb,uint16_t eb,uint16_t cw,BBX87ArithmeticResult* out){arithmetic_result<2>(sa,ea,sb,eb,cw,out);}
+
+extern "C" void __bb_x87_scale(uint64_t sa,uint16_t ea,uint64_t sb,uint16_t eb,uint16_t cw,BBX87ArithmeticResult* out){
+ Scope scope(cw);*out={};auto invalid=[&](){out->significand=0xc000000000000000ULL;out->sign_exponent=0xffff;out->flags=1;};
+ if(unsupported(sa,ea)||unsupported(sb,eb)){invalid();return;}
+ auto a=canonical(sa,ea),b=canonical(sb,eb);unsigned ax=a.signExp&0x7fff,bx=b.signExp&0x7fff;bool an=ax==0x7fff&&sa!=0x8000000000000000ULL,bn=bx==0x7fff&&sb!=0x8000000000000000ULL;
+ if(an||bn){auto value=extF80_add(a,b);out->significand=value.signif;out->sign_exponent=value.signExp;out->flags=mapped_flags();return;}
+ bool az=!sa,ai=ax==0x7fff,bi=bx==0x7fff,negative=(ea>>15)!=0,scale_negative=(eb>>15)!=0;
+ if(bi&&((az&&!scale_negative)||(ai&&scale_negative))){invalid();return;}
+ unsigned denormal=((!(ea&0x7fff)&&sa)||(!(eb&0x7fff)&&sb))?2:0;out->flags=uint8_t(denormal);out->significand=a.signif;out->sign_exponent=a.signExp;
+ if(denormal&&!(cw&2))return;
+ if(bi){out->significand=scale_negative?0:0x8000000000000000ULL;out->sign_exponent=uint16_t((ea&0x8000)|(scale_negative?0:0x7fff));return;}
+ // An exactly zero scale preserves a denormal destination without a new UE.
+ // Nonzero fractions truncating to zero still pass through exponent handling.
+ if(az||ai||!sb)return;
+ int scale=0,k=int(bx)-0x3fff;if(k>=0)scale=k>=17?131072:int(sb>>(63-k));if(scale_negative)scale=-scale;
+ int exponent=normalized_exponent(a)+scale;out->significand=a.signif;unsigned rc=(cw>>10)&3;bool outward=rc==(negative?1u:2u);
+ if(exponent>0x7ffe){
+  out->flags|=8;
+  if(!(cw&8)){exponent-=24576;if(exponent<=0x7ffe){out->sign_exponent=uint16_t((ea&0x8000)|exponent);return;}}
+  bool infinity=!(cw&8)||rc==0||outward;out->significand=infinity?0x8000000000000000ULL:UINT64_MAX;out->sign_exponent=uint16_t((ea&0x8000)|(infinity?0x7fff:0x7ffe));out->flags|=32;out->rounded_up=uint8_t(infinity);return;
+ }
+ if(exponent<=0){
+  if(!(cw&16)){exponent+=24576;out->flags|=16;if(exponent>0){out->sign_exponent=uint16_t((ea&0x8000)|exponent);return;}out->significand=0;out->sign_exponent=uint16_t(ea&0x8000);out->flags|=32;return;}
+  unsigned shift=unsigned(1-exponent);uint64_t truncated=0,tail=a.signif,half=0;
+  if(shift<64){truncated=a.signif>>shift;tail=a.signif&((1ULL<<shift)-1);half=1ULL<<(shift-1);}else if(shift==64)half=1ULL<<63;
+  bool increment=tail&&(rc==0?(shift<=64&&(tail>half||(tail==half&&(truncated&1)))):outward);out->significand=truncated+unsigned(increment);out->sign_exponent=uint16_t((ea&0x8000)|unsigned(out->significand>>63));out->rounded_up=uint8_t(increment);if(tail)out->flags|=48;return;
+ }
+ out->sign_exponent=uint16_t((ea&0x8000)|exponent);
+}

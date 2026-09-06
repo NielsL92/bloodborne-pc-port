@@ -1,0 +1,2147 @@
+{
+  "status": "experimental native FSCALE checks pass; startup integration and P3 remain open",
+  "scale": {
+    "status": "experimental x87 FSCALE characterization complete",
+    "cases": 2809856,
+    "differing_cases": 0,
+    "groups": [
+      {
+        "form": "numeric-scope",
+        "cases": 1048576,
+        "differing_cases": 0
+      },
+      {
+        "form": 0,
+        "cases": 352256,
+        "differing_cases": 0,
+        "hardware_faults": 6734,
+        "native_faults": 6734,
+        "unsupported_cases": 0,
+        "pointer_observation_differences": 0,
+        "opcode_observation_differences": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-and-record-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 1,
+        "cases": 352256,
+        "differing_cases": 0,
+        "hardware_faults": 85578,
+        "native_faults": 85578,
+        "unsupported_cases": 0,
+        "pointer_observation_differences": 0,
+        "opcode_observation_differences": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-and-record-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 2,
+        "cases": 352256,
+        "differing_cases": 0,
+        "hardware_faults": 85578,
+        "native_faults": 85578,
+        "unsupported_cases": 0,
+        "pointer_observation_differences": 0,
+        "opcode_observation_differences": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-and-record-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 3,
+        "cases": 352256,
+        "differing_cases": 0,
+        "hardware_faults": 85578,
+        "native_faults": 85578,
+        "unsupported_cases": 0,
+        "pointer_observation_differences": 0,
+        "opcode_observation_differences": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-and-record-counts": 0,
+          "pointer-metadata": 0
+        }
+      },
+      {
+        "form": 4,
+        "cases": 352256,
+        "differing_cases": 0,
+        "hardware_faults": 85578,
+        "native_faults": 85578,
+        "unsupported_cases": 0,
+        "pointer_observation_differences": 0,
+        "opcode_observation_differences": 0,
+        "differences": {
+          "hardware-import": 0,
+          "memory": 0,
+          "full-state": 0,
+          "host-fp-state": 0,
+          "flags": 0,
+          "fault-class": 0,
+          "fault-pc": 0,
+          "pending-mask": 0,
+          "memory-and-record-counts": 0,
+          "pointer-metadata": 0
+        }
+      }
+    ],
+    "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+    "raw_sha256": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d",
+    "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+    "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+    "fixture_sha256": "b3de7a120148d43ae130fb37120074658ef3017f9657c57b17a46bf961e96ffc",
+    "limitations": "Authored AOT and Intel hardware only; no game bytes. FSCALE uses scoped native integer exponent/rounding handling and SoftFloat NaN propagation; stack, completion and pending exceptions are instruction-level contracts. All PC values are included. Undefined C0/C2/C3 are excluded from the hardware status oracle. Pointer/opcode profiles are explicit. Native runtime integration remains open; absent MMX is explicitly rejected by the compiler."
+  },
+  "numeric": {
+    "status": "scoped FSCALE numeric characterization retained",
+    "cases": 2021632,
+    "differing_cases": 0,
+    "reserved_control_cases": 0,
+    "groups": [
+      {
+        "form": 0,
+        "cases": 2021632,
+        "differing_cases": 0,
+        "reserved_control_cases": 0
+      }
+    ],
+    "raw_sha256": "e9eb3aa162f28a7cd6172614b26c501a294c579e38bf78b2e2b256baa554abcc",
+    "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+    "fixture_sha256": "2d8385421e7e6aafcc751ae8c2192219c2367c531ca1cc61916c3cb6460e225a",
+    "source_sha256": "dcd9d623a6a7278356473aadbcb8c6981a712f40b92e165d1a685ecf9cdc0fa9",
+    "limitations": "Authored hardware versus ordinary native numeric helpers only; no AOT or game execution. All precision-control encodings compare raw results/flags/C1 and scoped library/host state. FSCALE ignores PC. Instruction stack/tag/control boundaries remain separate."
+  },
+  "observations": {
+    "x87-scale-numeric-v1": {
+      "status": "scoped FSCALE numeric characterization retained",
+      "cases": 761856,
+      "differing_cases": 256,
+      "reserved_control_cases": 0,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 761856,
+          "differing_cases": 256,
+          "reserved_control_cases": 0
+        }
+      ],
+      "raw_sha256": "aabb430534dec212d2377ad984fc9b615260bae2e84b89bd76337322106f2b75",
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "fixture_sha256": "b2fcab9943807725db700f1b82b8ede34197d147d557891087b7b59ee66c3eee",
+      "source_sha256": "3db2f94877b509e652cfc1423e3ec0aab0d9dc1a82d79cfc49a4ad40aa67e98e",
+      "limitations": "Authored hardware versus ordinary native numeric helpers only; no AOT or game execution. All precision-control encodings compare raw results/flags/C1 and scoped library/host state. FSCALE ignores PC. Instruction stack/tag/control boundaries remain separate."
+    },
+    "x87-scale-numeric-v2-zero": {
+      "status": "scoped FSCALE numeric characterization retained",
+      "cases": 761856,
+      "differing_cases": 0,
+      "reserved_control_cases": 0,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 761856,
+          "differing_cases": 0,
+          "reserved_control_cases": 0
+        }
+      ],
+      "raw_sha256": "1542acd9f332cf04c161ecf0cfec1708806945207f86f51e726b681f8878a247",
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "fixture_sha256": "58a447643d583a942ca91c710a372e60286beea7faa3031a8424252a6597fc13",
+      "source_sha256": "3db2f94877b509e652cfc1423e3ec0aab0d9dc1a82d79cfc49a4ad40aa67e98e",
+      "limitations": "Authored hardware versus ordinary native numeric helpers only; no AOT or game execution. All precision-control encodings compare raw results/flags/C1 and scoped library/host state. FSCALE ignores PC. Instruction stack/tag/control boundaries remain separate."
+    },
+    "x87-scale-numeric-v3-edges": {
+      "status": "scoped FSCALE numeric characterization retained",
+      "cases": 2021632,
+      "differing_cases": 0,
+      "reserved_control_cases": 0,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 2021632,
+          "differing_cases": 0,
+          "reserved_control_cases": 0
+        }
+      ],
+      "raw_sha256": "e9eb3aa162f28a7cd6172614b26c501a294c579e38bf78b2e2b256baa554abcc",
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "fixture_sha256": "2d8385421e7e6aafcc751ae8c2192219c2367c531ca1cc61916c3cb6460e225a",
+      "source_sha256": "dcd9d623a6a7278356473aadbcb8c6981a712f40b92e165d1a685ecf9cdc0fa9",
+      "limitations": "Authored hardware versus ordinary native numeric helpers only; no AOT or game execution. All precision-control encodings compare raw results/flags/C1 and scoped library/host state. FSCALE ignores PC. Instruction stack/tag/control boundaries remain separate."
+    },
+    "x87-scale-bindings-v1": {
+      "status": "experimental x87 FSCALE characterization complete",
+      "cases": 2809856,
+      "differing_cases": 0,
+      "groups": [
+        {
+          "form": "numeric-scope",
+          "cases": 1048576,
+          "differing_cases": 0
+        },
+        {
+          "form": 0,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 6734,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 1,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 2,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 3,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 4,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        }
+      ],
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "raw_sha256": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d",
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "fixture_sha256": "37d9d7e415fc3bd9f6ff54e560114fdb9cbf21ee069c54e0f3c5b92ea4dded6f",
+      "limitations": "Authored AOT and Intel hardware only; no game bytes. FSCALE uses scoped native integer exponent/rounding handling and SoftFloat NaN propagation; stack, completion and pending exceptions are instruction-level contracts. All PC values are included. Undefined C0/C2/C3 are excluded from the hardware status oracle. Pointer/opcode profiles are explicit. Native runtime integration remains open; absent MMX is explicitly rejected by the compiler."
+    },
+    "x87-scale-bindings-v2-repeat": {
+      "status": "experimental x87 FSCALE characterization complete",
+      "cases": 2809856,
+      "differing_cases": 0,
+      "groups": [
+        {
+          "form": "numeric-scope",
+          "cases": 1048576,
+          "differing_cases": 0
+        },
+        {
+          "form": 0,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 6734,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 1,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 2,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 3,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 4,
+          "cases": 352256,
+          "differing_cases": 0,
+          "hardware_faults": 85578,
+          "native_faults": 85578,
+          "unsupported_cases": 0,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        }
+      ],
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "raw_sha256": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d",
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "fixture_sha256": "b3de7a120148d43ae130fb37120074658ef3017f9657c57b17a46bf961e96ffc",
+      "limitations": "Authored AOT and Intel hardware only; no game bytes. FSCALE uses scoped native integer exponent/rounding handling and SoftFloat NaN propagation; stack, completion and pending exceptions are instruction-level contracts. All PC values are included. Undefined C0/C2/C3 are excluded from the hardware status oracle. Pointer/opcode profiles are explicit. Native runtime integration remains open; absent MMX is explicitly rejected by the compiler."
+    },
+    "x87-arithmetic-bindings-v4-scale": {
+      "status": "experimental register x87 arithmetic characterization complete",
+      "cases": 8052736,
+      "differing_cases": 0,
+      "groups": [
+        {
+          "form": "numeric-scope",
+          "cases": 1048576,
+          "differing_cases": 0
+        },
+        {
+          "form": 0,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 1,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 2,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 3,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 4,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 5,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 6,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 7,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 8,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 9,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 10,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 11,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 12,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 13,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 14,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 15,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 16,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 17,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 18,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 19,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 20,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 21,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 22,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 23,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 24,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 25,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 26,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 27,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 28,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 29,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 30,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 31,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 32,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 33,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 34,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 35,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 36,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 37,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 38,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 39,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 6734,
+          "native_faults": 16974,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 40,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 32562,
+          "native_faults": 42802,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 41,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 33390,
+          "native_faults": 43630,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 42,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 34064,
+          "native_faults": 44304,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 43,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 32882,
+          "native_faults": 43122,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 44,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 33710,
+          "native_faults": 43950,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 45,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 34320,
+          "native_faults": 44560,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 46,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 32882,
+          "native_faults": 43122,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 47,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 33710,
+          "native_faults": 43950,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 48,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 34320,
+          "native_faults": 44560,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 49,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 32882,
+          "native_faults": 43122,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 50,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 33710,
+          "native_faults": 43950,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 51,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 34320,
+          "native_faults": 44560,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 52,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 34386,
+          "native_faults": 44626,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 53,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 35100,
+          "native_faults": 45340,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 54,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 35584,
+          "native_faults": 45824,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 55,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 35100,
+          "native_faults": 45340,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        },
+        {
+          "form": 56,
+          "cases": 122880,
+          "differing_cases": 0,
+          "hardware_faults": 33390,
+          "native_faults": 43630,
+          "unsupported_cases": 14336,
+          "pointer_observation_differences": 0,
+          "opcode_observation_differences": 0,
+          "differences": {
+            "hardware-import": 0,
+            "memory": 0,
+            "full-state": 0,
+            "host-fp-state": 0,
+            "flags": 0,
+            "fault-class": 0,
+            "fault-pc": 0,
+            "pending-mask": 0,
+            "memory-and-record-counts": 0,
+            "pointer-metadata": 0
+          }
+        }
+      ],
+      "library_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+      "raw_sha256": "d65e56cbc786096e93b6c4c4a5cd2fb6df7c16aefb4489fdeb5ead6a41fbe304",
+      "lifter_sha256": "72fc7631dd5c6c07450f97a92aaec42e9f22510f33c37b62f8903e4823ac5267",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "fixture_sha256": "7b931ca0bceab9c799ac9301a78dd29276522dc57a03040c05ddf31f8ed32c42",
+      "limitations": "Authored AOT and Intel hardware only; no game bytes. Add/subtract/multiply use scoped native SoftFloat numeric helpers; stack, completion, pending exceptions and reserved-control rejection are instruction-level contracts. Undefined C0/C2/C3 are excluded from the hardware status oracle. Pointer/opcode profiles are explicit. FSCALE and native runtime integration remain open; absent MMX is explicitly rejected by the compiler."
+    }
+  },
+  "independent_hardware": {
+    "x87-scale-probe-v1": {
+      "status": "independent authored x87 FSCALE observations retained",
+      "cases": 761856,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 761856,
+          "new_unmasked_cases": 202240,
+          "unmasked_by_flags": {
+            "1": {
+              "cases": 60288,
+              "popped": 0,
+              "c1": 0
+            },
+            "2": {
+              "cases": 50688,
+              "popped": 0,
+              "c1": 0
+            },
+            "8": {
+              "cases": 21376,
+              "popped": 0,
+              "c1": 6848
+            },
+            "16": {
+              "cases": 27136,
+              "popped": 0,
+              "c1": 0
+            },
+            "32": {
+              "cases": 30464,
+              "popped": 0,
+              "c1": 11472
+            },
+            "40": {
+              "cases": 6080,
+              "popped": 0,
+              "c1": 6080
+            },
+            "48": {
+              "cases": 6208,
+              "popped": 0,
+              "c1": 0
+            }
+          }
+        }
+      ],
+      "raw_sha256": "22c12cd3860215d1fd610d4b5283fc8ef65de63dce1dca8e824e0fcd55e358bf",
+      "fixture_sha256": "d5b8faa6ce450b6a5fce740307dbf2d261ee6e76ae713e166e267a65191f8c94",
+      "source_sha256": "31cac76f4f1a9f10400c91ae4471540c0891a629a1f5c941d68d178badcd45db",
+      "limitations": "Authored native hardware only, before a later waiting instruction. Exact raw operands/control/status/tag state are supplied with FXRSTOR. No Remill, SoftFloat, AOT or SEH comparison path. Includes all precision-control values, scale truncation, raw classes and massive exponent adjustments. Intel observations do not establish AMD Jaguar behavior."
+    },
+    "x87-scale-probe-v2-load-input": {
+      "input_method": "FNINIT/FLD80/FLDENV with TOP=6",
+      "status": "independent authored x87 FSCALE observations retained",
+      "cases": 761856,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 761856,
+          "new_unmasked_cases": 202240,
+          "unmasked_by_flags": {
+            "1": {
+              "cases": 60288,
+              "popped": 60288,
+              "c1": 0
+            },
+            "2": {
+              "cases": 50688,
+              "popped": 50688,
+              "c1": 0
+            },
+            "8": {
+              "cases": 21376,
+              "popped": 21376,
+              "c1": 6848
+            },
+            "16": {
+              "cases": 27136,
+              "popped": 27136,
+              "c1": 0
+            },
+            "32": {
+              "cases": 30464,
+              "popped": 30464,
+              "c1": 11472
+            },
+            "40": {
+              "cases": 6080,
+              "popped": 6080,
+              "c1": 6080
+            },
+            "48": {
+              "cases": 6208,
+              "popped": 6208,
+              "c1": 0
+            }
+          }
+        }
+      ],
+      "raw_sha256": "1b23aecc81fae1038ec489fd8b128fcaa850011925739837537371d7887084b0",
+      "fixture_sha256": "567b442dc947b7a5b0b6a30d24a6bc3c0a8fdfdae281ee83b88ef32cd7b06ab2",
+      "source_sha256": "31cac76f4f1a9f10400c91ae4471540c0891a629a1f5c941d68d178badcd45db",
+      "limitations": "Authored native hardware only, before a later waiting instruction. Raw operand and control setup is identified separately in input_method. No Remill, SoftFloat, AOT or SEH comparison path. Includes all precision-control values, scale truncation, raw classes and massive exponent adjustments. Intel observations do not establish AMD Jaguar behavior."
+    },
+    "x87-scale-probe-v3-load-repeat": {
+      "input_method": "FNINIT/FLD80/FLDENV with TOP=6",
+      "status": "independent authored x87 FSCALE observations retained",
+      "cases": 761856,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 761856,
+          "new_unmasked_cases": 202240,
+          "unmasked_by_flags": {
+            "1": {
+              "cases": 60288,
+              "top_changed": 0,
+              "c1": 0
+            },
+            "2": {
+              "cases": 50688,
+              "top_changed": 0,
+              "c1": 0
+            },
+            "8": {
+              "cases": 21376,
+              "top_changed": 0,
+              "c1": 6848
+            },
+            "16": {
+              "cases": 27136,
+              "top_changed": 0,
+              "c1": 0
+            },
+            "32": {
+              "cases": 30464,
+              "top_changed": 0,
+              "c1": 11472
+            },
+            "40": {
+              "cases": 6080,
+              "top_changed": 0,
+              "c1": 6080
+            },
+            "48": {
+              "cases": 6208,
+              "top_changed": 0,
+              "c1": 0
+            }
+          }
+        }
+      ],
+      "raw_sha256": "1b23aecc81fae1038ec489fd8b128fcaa850011925739837537371d7887084b0",
+      "fixture_sha256": "7b87b0728285df37839787ba101c26c4842125a6c87a6fac90a5d8b01c6294a1",
+      "source_sha256": "31cac76f4f1a9f10400c91ae4471540c0891a629a1f5c941d68d178badcd45db",
+      "limitations": "Authored native hardware only, before a later waiting instruction. Raw operand and control setup is identified separately in input_method. No Remill, SoftFloat, AOT or SEH comparison path. Includes all precision-control values, scale truncation, raw classes and massive exponent adjustments. Intel observations do not establish AMD Jaguar behavior."
+    }
+  },
+  "independent_setup_comparison": {
+    "status": "independent FSCALE setup comparison retained",
+    "cases": 761856,
+    "differing_cases": 0,
+    "examples": [],
+    "first": "local\\compiler-spike\\x87-scale-probe-v1",
+    "second": "local\\compiler-spike\\x87-scale-probe-v2-load-input",
+    "first_raw_sha256": "22c12cd3860215d1fd610d4b5283fc8ef65de63dce1dca8e824e0fcd55e358bf",
+    "second_raw_sha256": "1b23aecc81fae1038ec489fd8b128fcaa850011925739837537371d7887084b0",
+    "normalization": "Both instructions preserve their initial physical tags and TOP. FXRSTOR starts TOP=0/tags=3; two FLD80 loads start TOP=6/tags=192. Compare all other status bits and both raw logical operands exactly.",
+    "limitations": "Authored Intel-host evidence only; no AMD Jaguar or game execution."
+  },
+  "precision_independence_pairs": 571392,
+  "zero_scale_observations": [
+    {
+      "form": 0,
+      "type": 5,
+      "pair": 0,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 2,
+      "top": 0,
+      "tags": 3,
+      "sig0": "1",
+      "exp0": 0,
+      "sig1": "0",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 5,
+      "pair": 22,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "8000000000000000",
+      "exp0": 24514,
+      "sig1": "1",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 5,
+      "pair": 24,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "8000000000000000",
+      "exp0": 24514,
+      "sig1": "8000000000000000",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 5,
+      "pair": 29,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "8000000000000000",
+      "exp0": 24514,
+      "sig1": "8000000000000000",
+      "exp1": 16382
+    },
+    {
+      "form": 0,
+      "type": 6,
+      "pair": 0,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 2,
+      "top": 0,
+      "tags": 3,
+      "sig0": "7fffffffffffffff",
+      "exp0": 0,
+      "sig1": "0",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 6,
+      "pair": 22,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "fffffffffffffffe",
+      "exp0": 24576,
+      "sig1": "1",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 6,
+      "pair": 24,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "fffffffffffffffe",
+      "exp0": 24576,
+      "sig1": "8000000000000000",
+      "exp1": 0
+    },
+    {
+      "form": 0,
+      "type": 6,
+      "pair": 29,
+      "signs": 0,
+      "control": 879,
+      "input_c1": 0,
+      "status": 32914,
+      "top": 0,
+      "tags": 3,
+      "sig0": "fffffffffffffffe",
+      "exp0": 24576,
+      "sig1": "8000000000000000",
+      "exp1": 16382
+    }
+  ],
+  "counts": {
+    "hardware_faults": 349046,
+    "native_faults": 349046,
+    "unsupported_cases": 0
+  },
+  "reproducible_artifacts": {
+    "function.bc": "2d245c33fe2bcd2f15fbd7a095c325444f48902123fc82655d22388ee6647e87",
+    "function.obj": "401130e11f53e4f741b535c2f36c4f080cab4d4e1f1b20fe1db039a67712d829",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "execute.stdout": "91582eca72eedc0ad34fe78c3a7b1fd4a9d7ece148c3e199acc15f2e0e9fcf6d"
+  },
+  "runs": {
+    "20260906-p3-x87-scale-probe-v1": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "a1b082efd4077e0976e20ae578ce157e3e68f56768feccafd10fd9e548d21dff",
+      "elapsed_seconds": 9.625692799920216
+    },
+    "20260906-p3-x87-scale-numeric-v1": {
+      "status": "failed",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "aede98a4f064afeabd4e646b3a5061681d7635afdac08ccfd3354fdcbe46966d",
+      "elapsed_seconds": 3.4535039998590946
+    },
+    "20260906-p3-x87-scale-probe-v2-load-input": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "60fa578a73e68a0f72644a28b7b954cd79a9f904b58f3c8dc352c1604a54819a",
+      "elapsed_seconds": 9.997656400082633
+    },
+    "20260906-p3-x87-scale-probes-comparison-v1": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "c742cdff0f437299d9525afb6dbfe35bd8e3395c2b4663f39b489410b2e50baf",
+      "elapsed_seconds": 6.55760860000737
+    },
+    "20260906-p3-x87-scale-numeric-v2-zero": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "6fdf77e1de1e23cfbad2e1468c0544a8b52334bf686dc1a5138d01fb0d5d6726",
+      "elapsed_seconds": 3.730974599951878
+    },
+    "20260906-p3-x87-scale-numeric-v3-edges": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "7489a23ce245cb0497e8046921f2b5af513e2dd803c541dedf7b3439bd48af94",
+      "elapsed_seconds": 3.764782899990678
+    },
+    "20260906-p3-x87-scale-semantics-v31": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "7c9e3bff5e6a8fad284d644c8c0f080e4dfb9e824ee392ed02f6079cd87b25ec",
+      "elapsed_seconds": 6.80368040013127
+    },
+    "20260906-p3-x87-scale-bindings-v1": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "2bf409c72700d2ed6ed4f72d5e5d61a4b959662649eea0f3155142e170c158ca",
+      "elapsed_seconds": 7.311626699985936
+    },
+    "20260906-p3-x87-scale-bindings-v2-repeat": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "2bf409c72700d2ed6ed4f72d5e5d61a4b959662649eea0f3155142e170c158ca",
+      "elapsed_seconds": 4.328082300024107
+    },
+    "20260906-p3-x87-arithmetic-bindings-v4-scale": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "2bf409c72700d2ed6ed4f72d5e5d61a4b959662649eea0f3155142e170c158ca",
+      "elapsed_seconds": 8.630700200097635
+    },
+    "20260906-p3-x87-scale-probe-v3-load-repeat": {
+      "status": "pass",
+      "source_commit": "fef001eb127927d03151406b5e33b3dd7426e9de",
+      "sources_sha256": "2bf409c72700d2ed6ed4f72d5e5d61a4b959662649eea0f3155142e170c158ca",
+      "elapsed_seconds": 7.707734199939296
+    }
+  },
+  "source_sha256": {
+    "native/semantics/X87_SCALE.cpp.inc": "624bae8447e81aac4790cd5d208861c76638fee39a2564664fa7886df4769977",
+    "native/semantics/x87_numeric.cpp": "2baf2fcb49149e977fb7e8d62023a9b6b2bce9d3dd36a836c1bacc9cf095958f",
+    "native/semantics/x87_numeric.h": "2deb837e089c060355eeb2dcb53ab0a04c99f74f33e8bdb98438d6bdee202064",
+    "native/semantics/x87_numeric_scope_fixture.cpp": "fabf77bcaa25ee8893c25bdfcfd9d6f05ba766ab1326941db021ef71da3ea87d",
+    "native/semantics/x87_scale_fixture.cpp": "aa307a91ecaa9a672ef406cc65774f47f277872e683f307f69a06dea2e257464",
+    "native/semantics/x87_scale_numeric_fixture.cpp": "dcd9d623a6a7278356473aadbcb8c6981a712f40b92e165d1a685ecf9cdc0fa9",
+    "native/semantics/x87_scale_probe.cpp": "31cac76f4f1a9f10400c91ae4471540c0891a629a1f5c941d68d178badcd45db",
+    "tools/x87_scale_experiment.py": "3734e2d4ef15879aa7bcb7e5b10c38ffef89e5cc5069ada16d1992eb3dae209b",
+    "tools/x87_scale_numeric_probe.py": "2bb2a7bdf58f0ec67c527ceb34b15e2b5ac7d1e927d02c00543a1b23514f1b43",
+    "tools/x87_scale_probe.py": "234e99bcfe35d147ae97ec1376189ae122d3887e48e1450c3b2dc923c6512157",
+    "tools/x87_scale_compare_probes.py": "0e069ce84369bcb0b692a7c82a761a964ebd3cd8a7643af1360ae01d6688bbcc"
+  },
+  "retained_findings": {
+    "numeric-v1": "256 differences: an exactly zero scale operand preserves a denormal ST0 without generating a new UE. Nonzero subunit scales truncating to zero still enter exponent/underflow handling. Independent FXRSTOR and FLD80/FLDENV setup paths agree.",
+    "probe-v2-summary": "The inherited popped counter incorrectly equated nonzero TOP with a pop even though the two-load setup starts TOP=6. Raw results are intact; the independent comparison explicitly checks unchanged TOP=6/tags=192. Probe v3 fixes the metric to top_changed and reproduces every raw row."
+  },
+  "limitations": [
+    "Authored native code only; no game-derived object was linked, executed or newly accepted.",
+    "FSCALE ignores all PC encodings, truncates the raw scale toward zero, handles noncanonical/NaN/denormal priority explicitly and uses integer exponent/rounding operations. SoftFloat is used for scoped NaN propagation.",
+    "An unmasked exponent that remains outside the normal range after bias produces signed infinity or zero and precision, independent of the usual directed-rounding saturation choice. Exact-zero scale behavior is independently observed on this Intel host; AMD Jaguar equivalence remains unverified.",
+    "The 2809856 AOT/scope checks comprise 1761280 hardware comparisons and 1048576 four-thread load/store/arithmetic/scale scope checks. All 349046 pending faults match; no unsupported PC rejection applies to FSCALE.",
+    "Defined status, complete raw stack state, tags/TOP, unchanged memory/GPR flags, metadata, native fault PC/mask and host state isolation are checked. Undefined C0/C2/C3 are excluded.",
+    "Pointer/opcode profiles remain explicit. Hardware upper pointer bits remain outside the oracle; full native logical pointers are checked.",
+    "The present recovered x87 families now have bounded experimental checks, but exact selector coverage and module integration still need an audit. MMX is absent and compiler v7 rejects it.",
+    "Native runtime import/callback/exception/control closure and PS4 fault delivery remain open. No automatic promotion of existing v5/v9-sqrt startup objects."
+  ],
+  "experimental_semantics": "v31-scale",
+  "experimental_compiler": "v7-mmx-guard",
+  "accepted_semantics": "v9-sqrt",
+  "accepted_compiler": "v5",
+  "compiled_entries": 21168,
+  "remaining_compiler_rejections": 2,
+  "remaining_quarantined_entries": 8,
+  "native_game_boot": false,
+  "native_port_playable": false
+}
