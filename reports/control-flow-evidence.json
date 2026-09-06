@@ -26741,12 +26741,13 @@
     "objects": 386,
     "compiled_roots": 21282,
     "missing_block_ir_sites": 4818,
-    "error_ir_sites": 56,
-    "integer_division_error_sites": 56,
+    "error_ir_sites": 0,
+    "integer_division_error_sites": 0,
     "scalar_comparison_error_sites": 0,
     "p3_gate_passed": false,
     "native_game_boot": false,
-    "simd_fault_ir_sites": 58
+    "simd_fault_ir_sites": 58,
+    "divide_fault_ir_sites": 56
   },
   "comi_semantics": {
     "report": "reports/comi-semantics-evidence.json",
@@ -26754,6 +26755,15 @@
     "active_manifest_sha256": "82beba4877f4329768e812fee15a2ca6630283302e07fe06df0de9d5e474730d",
     "cases": 851968,
     "mismatches": 0,
+    "p3_gate_passed": false
+  },
+  "divide_semantics": {
+    "report": "reports/divide-semantics-evidence.json",
+    "active_manifest": "local/compiler-spike/divide-integration-manifest-v1/active-objects.json",
+    "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
+    "cases": 327680,
+    "mismatches": 0,
+    "native_fault_cases": 218424,
     "p3_gate_passed": false
   }
 }

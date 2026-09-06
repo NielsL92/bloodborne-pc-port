@@ -1,9 +1,9 @@
 {
-  "status": "complete retained-bitcode exit census after COMI correction; native runtime handling remains open",
+  "status": "complete retained-bitcode exit census after DIV/IDIV correction; native runtime handling remains open",
   "inventory": {
     "status": "all saved bitcode control sites inventoried; native boundary handling remains unvalidated",
-    "active_manifest": "local\\compiler-spike\\comi-integration-manifest-v1\\active-objects.json",
-    "active_manifest_sha256": "82beba4877f4329768e812fee15a2ca6630283302e07fe06df0de9d5e474730d",
+    "active_manifest": "local\\compiler-spike\\divide-integration-manifest-v1\\active-objects.json",
+    "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
     "inspector_sha256": "e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e",
     "objects": 386,
     "compiled_functions": 21282,
@@ -13,7 +13,7 @@
       "__remill_jump": 442,
       "__remill_async_hyper_call": 5,
       "__remill_missing_block": 4818,
-      "__remill_error": 56,
+      "__bb_native_divide_fault": 56,
       "__bb_native_simd_fault": 58,
       "__remill_sync_hyper_call": 4,
       "__bb_native_ud2": 16,
@@ -36,6 +36,13 @@
       }
     ],
     "control_site_attribute_counts": [
+      {
+        "callee": "__bb_native_divide_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 56
+      },
       {
         "callee": "__bb_native_mxcsr_fault",
         "nounwind": true,
@@ -121,13 +128,6 @@
         "count": 5
       },
       {
-        "callee": "__remill_error",
-        "nounwind": true,
-        "noreturn": false,
-        "is_invoke": false,
-        "count": 56
-      },
-      {
         "callee": "__remill_function_call",
         "nounwind": true,
         "noreturn": false,
@@ -166,19 +166,14 @@
     "missing_block_pc_value_kinds": {
       "load": 4818
     },
-    "error_semantic_origin_counts": {
-      "IDIVrdxrax": 10,
-      "DIVrdxrax": 26,
-      "IDIVedxeax": 10,
-      "DIVedxeax": 10
-    },
+    "error_semantic_origin_counts": {},
     "error_attribution": "Retained optimized successor block names identify the inlined semantic family, not the precise guest instruction or a verified fault contract.",
     "indirect_llvm_calls": 0,
     "artifact_sha256": {
-      "objects.json": "3d4d7946fb74d35139448d2171f15bb0fbb967d7bb7b528ed9bc530a9210081e",
-      "declarations.json": "83e00e2544a8e7ac0ec98bb433e5b3f264bbc1bf7373664a7ae3b4992f11b3ca",
-      "missing-block-sites.json": "56e407e6a347b7044d19a984dd23012b433c3b43de28033262f3625ab0096aa8",
-      "error-sites.json": "55d0a2a8cd2ee418ad00884708fc999f794d22c21639c2e8714a7d91dc13eef6"
+      "objects.json": "760b87057e2507bb515944efa1735a9783d972d33c307f017329713dfbd45e2d",
+      "declarations.json": "79fa9daa897088c73f70d4e575d188087532bc2d55b1041c74eff64f6c2caaa8",
+      "missing-block-sites.json": "d692fef3cd47b178a75128c2a604f0a80322d17bf7d98f7dc78012554d7acc4d",
+      "error-sites.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
     },
     "limitations": [
       "Actual LLVM API parse and verification of retained bitcode, with root identities compared to current COFF-backed manifests; no JIT, linking or game execution.",
@@ -190,41 +185,40 @@
     "native_game_boot": false
   },
   "runs": {
-    "20260906-p3-comi-integration-manifest-v1": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 5.949053100077435
+    "20260906-p3-divide-integration-manifest-v1": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 1.298580499831587
     },
-    "20260906-p3-control-exit-inventory-v5-comi": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 9.123667599866167
+    "20260906-p3-control-exit-inventory-v7-divide": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 7.464128899853677
     },
-    "20260906-p3-control-exit-inventory-v6-comi-repeat": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 7.649932799860835
+    "20260906-p3-control-exit-inventory-v8-divide-repeat": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 7.21857380005531
     },
-    "20260906-p3-whole-program-linkage-v6-comi": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 12.324791699880734
+    "20260906-p3-whole-program-linkage-v8-divide": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 5.7749656001105905
     },
-    "20260906-p3-whole-program-linkage-v7-comi-repeat": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 5.992529599927366
+    "20260906-p3-whole-program-linkage-v9-divide-repeat": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 5.4380119000561535
     },
-    "20260906-p3-coff-constants-v2-comi": {
-      "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
-      "sources_sha256": "46fcb7203f49ae69566f957d844689035b355fed0aba7dbd369e3d55f0a0b588",
-      "elapsed_seconds": 0.6033585001714528
+    "20260906-p3-coff-constants-v3-divide": {
+      "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+      "sources_sha256": "705efb344f5ff53dab06bd05911921b9cefd9f41edd55ecaa1433350b1448d37",
+      "elapsed_seconds": 0.4471544998232275
     }
   },
-  "correction_report": "reports/comi-semantics-evidence.json",
+  "correction_report": "reports/divide-semantics-evidence.json",
   "prior_inventory": "local/compiler-spike/control-exit-inventory-v4-repeat/summary.json",
   "next_work": [
-    "Characterize the 56 remaining division semantic error sites, including zero/overflow handling and precise fault PC/state.",
     "Preserve source instruction and exit reason at native control boundaries; honor or deliberately change and validate nounwind contracts.",
     "Implement or diagnose native service/support boundaries, bind compiled supplied exports and validate linkage/startup without a CPU fallback."
   ],

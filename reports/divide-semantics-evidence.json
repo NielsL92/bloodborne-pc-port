@@ -1,6 +1,393 @@
 {
-  "status": "complete COFF symbol census after DIV/IDIV replacement; native binding remains open",
-  "inventory": {
+  "status": "DIV/IDIV correction integrated and exact whole-set audits reproduced; P3 remains open",
+  "integration": {
+    "status": "DIV/IDIV correction passes authored tests; exact replacement manifest verified",
+    "legacy_counterexamples": {
+      "status": "counterexamples reproduced",
+      "result": {
+        "status": "characterized",
+        "cases": 327680,
+        "mismatched_cases": 218424,
+        "hardware_faults": 218424,
+        "remill_error_calls": 218422,
+        "aot_host_exceptions": 2,
+        "native_fault_calls": 0,
+        "fault_decision_differences": 0,
+        "fault_pc_differences": 218424,
+        "result_differences": 0,
+        "full_state_differences": 218424,
+        "memory_exit_differences": 0,
+        "host_mxcsr_changes": 0,
+        "explicit_fault_contract_differences": 218424,
+        "game_execution": false
+      },
+      "builtins_sha256": "9cff03d2c5218693b1f91efc0074957c710eeddd932d57a681c8f558b81fbe8e",
+      "oracle_sha256": "064fdac81690ee03c2ea4b1509c90b5f9c17b62b793c228cdc5a346a36bc074d",
+      "expect_mismatch": true,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "3db92d94604935e7149bb45d3581b94eddcaf03b56797576d85f34a85f698a12",
+      "input_sha256": "d525d071820d4a6b87c83adcdfd4601ec388400c9596380bc75b277de1e6fa1f",
+      "bitcode_sha256": "66475db6e97609d51bec8dd988b2db5429067eec0e48a6ad4e187e1ab00d598d",
+      "object_sha256": "1d3be69ac6e805287b569b2b20a2da49ba271f0a1c8130949f6f16ca4552b8b3",
+      "fixture_sha256": "7f7c436dfd567226d3dec4480d0db00bcae1636e529902b1555fd7a2905f3dbb",
+      "raw_sha256": "7e7e63f58a20f25e25ef2e524c6c0ef45c8d69d84c98c430666f8389bf9e6849",
+      "limitations": "Authored Python-integer/hardware/AOT checks only. Arithmetic flags are undefined on successful division and excluded there. Fault state/PC, result registers, memory and host state are checked; no game execution or PS4 fault delivery."
+    },
+    "host_exception_cases": [
+      {
+        "host_exception_case": true,
+        "form": 24,
+        "trial": 159,
+        "rax": "a58e7d6c00000000",
+        "rdx": "63d2874180000000",
+        "divisor": "ffffffff",
+        "code": 3221225621
+      },
+      {
+        "host_exception_case": true,
+        "form": 27,
+        "trial": 159,
+        "rax": "a58e7d6c00000000",
+        "rdx": "63d2874180000000",
+        "divisor": "ffffffff",
+        "code": 3221225621
+      }
+    ],
+    "checks": {
+      "status": "authored DIV/IDIV contract passes",
+      "result": {
+        "status": "characterized",
+        "cases": 327680,
+        "mismatched_cases": 0,
+        "hardware_faults": 218424,
+        "remill_error_calls": 0,
+        "aot_host_exceptions": 0,
+        "native_fault_calls": 218424,
+        "fault_decision_differences": 0,
+        "fault_pc_differences": 0,
+        "result_differences": 0,
+        "full_state_differences": 0,
+        "memory_exit_differences": 0,
+        "host_mxcsr_changes": 0,
+        "explicit_fault_contract_differences": 0,
+        "game_execution": false
+      },
+      "builtins_sha256": "9cff03d2c5218693b1f91efc0074957c710eeddd932d57a681c8f558b81fbe8e",
+      "oracle_sha256": "064fdac81690ee03c2ea4b1509c90b5f9c17b62b793c228cdc5a346a36bc074d",
+      "expect_mismatch": false,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+      "input_sha256": "d525d071820d4a6b87c83adcdfd4601ec388400c9596380bc75b277de1e6fa1f",
+      "bitcode_sha256": "9ba5dc12e15b52f4c7a2136d4bfce734283b2eed36ba80470f07a94e94dda8c7",
+      "object_sha256": "f2e13bfc008e24860105e66880be2546065f332cb83b01d858dd311ce12f81ce",
+      "fixture_sha256": "8582ffc4dc2d0fad57066c67be8c0b5c0c27a468d2b66ef68fdbdb5d87947ef1",
+      "raw_sha256": "26b9aacc1401e9f81b91bea33b2eef36b51a65102c5f66ddac80fdaa789e3bf5",
+      "limitations": "Authored Python-integer/hardware/AOT checks only. Arithmetic flags are undefined on successful division and excluded there. Fault state/PC, result registers, memory and host state are checked; no game execution or PS4 fault delivery."
+    },
+    "comparison_regression": {
+      "status": "authored COMI/UCOMI contract passes",
+      "result": {
+        "status": "characterized",
+        "cases": 851968,
+        "mismatched_cases": 0,
+        "hardware_faults": 121600,
+        "remill_error_calls": 0,
+        "fault_differences": 0,
+        "flag_differences": 0,
+        "mxcsr_differences": 0,
+        "host_mxcsr_changes": 0,
+        "full_state_differences": 0,
+        "memory_exit_differences": 0,
+        "game_execution": false
+      },
+      "expect_mismatch": false,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+      "input_sha256": "8d8afd6c8fb3cd086c1409865d273de3a9b79e481e88e314bdf8e66365821e16",
+      "bitcode_sha256": "573c594d0809fe5e5aad0fb0a34fbc5f13f2ca22d8beeec2fe0f53d6692b81dc",
+      "object_sha256": "386376fb11ab2fe0ebf40a6fdb2dcf740aa0fb686700eb3e10dd713463f67d9b",
+      "fixture_sha256": "0fa37de4c983a33d79fa43598a3cc275df6ef73f4ee9c39b1294878352167b03",
+      "raw_sha256": "1fb8691b84cfd0b0fb3f8357fea0e245f4188cf857cbaa5dfe764a2c88d488eb",
+      "limitations": "Authored host hardware and AOT only. Full native State, memory, explicit faults, flags, MXCSR and host isolation checked; no game execution or PS4 exception-delivery claim."
+    },
+    "replacement_plan": {
+      "status": "exact complete-object replacement plan; no input execution",
+      "source_manifest_sha256": "3f729683862cf6c3aa7ebbcfbaef625cff078d27e33d10b30d7f04c0a16b5f99",
+      "active_manifest": "E:\\bloodborne PC port\\local\\compiler-spike\\comi-integration-manifest-v1\\active-objects.json",
+      "active_manifest_sha256": "82beba4877f4329768e812fee15a2ca6630283302e07fe06df0de9d5e474730d",
+      "sites": 28,
+      "site_counts": {
+        "idiv": 10,
+        "div": 18
+      },
+      "affected_objects": 13,
+      "affected_entries": 632,
+      "retained_objects": 373,
+      "site_object_occurrences": 28,
+      "artifact_sha256": {
+        "sites.json": "45ccd29e4dd1471a2f698a682303231a2c3e0734583f0e61a71bb835d914a399",
+        "selected-objects.json": "8cc02255105d00b271ca14812f8fe2ea8da75f2435e3b7aca2126f6feb5f8629",
+        "retained-objects.json": "3bb349f17025b68174fc2ac2cb791ed37d2e9a56b1f77c33a4906c80316f10dd"
+      }
+    },
+    "replacement_compile": {
+      "status": "selected complete objects recompiled; native gate remains open",
+      "objects": 13,
+      "entries": 632,
+      "compiled_roots": 695,
+      "instructions": 38394,
+      "object_bytes": 3533901,
+      "missing_start_records": 204,
+      "all_missing_start_lists_unchanged": true,
+      "game_execution": false
+    },
+    "active_manifest": "local\\compiler-spike\\divide-integration-manifest-v1\\active-objects.json",
+    "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
+    "compiled_objects": 386,
+    "compiled_entries": 21181,
+    "compiled_roots": 21282,
+    "compiled_constructors": 18444,
+    "runs": {
+      "20260906-p3-divide-characterize-v3-sites": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "0a3756a19698167e16f22a5bc4c53df8167f15a2dc8c605cc7a90b189321b07b",
+        "elapsed_seconds": 3.1332839999813586
+      },
+      "20260906-p3-extended-semantics-v35-divide": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "0a3756a19698167e16f22a5bc4c53df8167f15a2dc8c605cc7a90b189321b07b",
+        "elapsed_seconds": 4.806363299954683
+      },
+      "20260906-p3-divide-checks-v4-unsigned": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "0a3756a19698167e16f22a5bc4c53df8167f15a2dc8c605cc7a90b189321b07b",
+        "elapsed_seconds": 3.2310592997819185
+      },
+      "20260906-p3-divide-checks-v5-repeat": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "689c88657fe0b2c2737edf31ca55a64bd7202c70ba0064744f39a3fb1a1818a9",
+        "elapsed_seconds": 6.6729855998419225
+      },
+      "20260906-p3-divide-replacement-plan-v1": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "689c88657fe0b2c2737edf31ca55a64bd7202c70ba0064744f39a3fb1a1818a9",
+        "elapsed_seconds": 1.6874903000425547
+      },
+      "20260906-p3-divide-replacement-compile-v1": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "689c88657fe0b2c2737edf31ca55a64bd7202c70ba0064744f39a3fb1a1818a9",
+        "elapsed_seconds": 19.020764500135556
+      },
+      "20260906-p3-divide-replacement-compile-v2-repeat": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "689c88657fe0b2c2737edf31ca55a64bd7202c70ba0064744f39a3fb1a1818a9",
+        "elapsed_seconds": 10.198433300014585
+      },
+      "20260906-p3-comi-checks-v4-divide-regression": {
+        "source_commit": "a55698bde28f04eaee4fcf0d7204c79e799dcb6c",
+        "sources_sha256": "689c88657fe0b2c2737edf31ca55a64bd7202c70ba0064744f39a3fb1a1818a9",
+        "elapsed_seconds": 5.415229900041595
+      }
+    },
+    "retained_failures": [
+      "divide-characterize-v1 terminated with host integer overflow before completing. V2 records arithmetic exceptions in a process-local authored-test handler; v3 additionally records both exact failing inputs. All outputs remain preserved."
+    ],
+    "limitations": [
+      "All 28 recovered division instructions are 32/64-bit forms. Tests cover signed/unsigned 8/16/32/64-bit forms, memory and aliases of quotient/remainder registers.",
+      "Python integer arithmetic supplies the independent oracle, separately checked on hardware. Success arithmetic flags are undefined and excluded; fault flags/state/PC are checked.",
+      "Only authored instructions were executed; the exception-capture bridge is not a production guest unwind or PS4 exception delivery implementation.",
+      "The thirteen previous objects remain preserved but are excluded from this manifest. Every other object retains its original compiler/semantics identity.",
+      "IR exit and COFF linkage inventories must be regenerated for this replacement set."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "control_exit_inventory": {
+    "status": "all saved bitcode control sites inventoried; native boundary handling remains unvalidated",
+    "active_manifest": "local\\compiler-spike\\divide-integration-manifest-v1\\active-objects.json",
+    "active_manifest_sha256": "36683365f7bf8b4ec59043f05587a8d418aa38a9827e829f99b8c53fe1b084c0",
+    "inspector_sha256": "e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e",
+    "objects": 386,
+    "compiled_functions": 21282,
+    "site_counts": {
+      "__remill_function_call": 9134,
+      "__remill_function_return": 20149,
+      "__remill_jump": 442,
+      "__remill_async_hyper_call": 5,
+      "__remill_missing_block": 4818,
+      "__bb_native_divide_fault": 56,
+      "__bb_native_simd_fault": 58,
+      "__remill_sync_hyper_call": 4,
+      "__bb_native_ud2": 16,
+      "__bb_native_mxcsr_fault": 2,
+      "__bb_native_mxcsr_mask": 2,
+      "__bb_native_x87_check_span": 121,
+      "__bb_native_x87_fault": 352,
+      "__bb_native_x87_image_policy": 667,
+      "__bb_native_x87_pointer_segments": 2,
+      "__bb_native_x87_record_instruction": 829,
+      "__bb_native_x87_set_pointer_segments": 1,
+      "__bb_native_x87_unsupported": 17
+    },
+    "function_attribute_counts": [
+      {
+        "calling_convention": 0,
+        "nounwind": false,
+        "noreturn": false,
+        "count": 21282
+      }
+    ],
+    "control_site_attribute_counts": [
+      {
+        "callee": "__bb_native_divide_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 56
+      },
+      {
+        "callee": "__bb_native_mxcsr_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_mxcsr_mask",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_simd_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 58
+      },
+      {
+        "callee": "__bb_native_ud2",
+        "nounwind": false,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 16
+      },
+      {
+        "callee": "__bb_native_x87_check_span",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 121
+      },
+      {
+        "callee": "__bb_native_x87_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 352
+      },
+      {
+        "callee": "__bb_native_x87_image_policy",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 667
+      },
+      {
+        "callee": "__bb_native_x87_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_x87_record_instruction",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 829
+      },
+      {
+        "callee": "__bb_native_x87_set_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 1
+      },
+      {
+        "callee": "__bb_native_x87_unsupported",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 17
+      },
+      {
+        "callee": "__remill_async_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 5
+      },
+      {
+        "callee": "__remill_function_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 9134
+      },
+      {
+        "callee": "__remill_function_return",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 20149
+      },
+      {
+        "callee": "__remill_jump",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 442
+      },
+      {
+        "callee": "__remill_missing_block",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4818
+      },
+      {
+        "callee": "__remill_sync_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4
+      }
+    ],
+    "missing_block_pc_value_kinds": {
+      "load": 4818
+    },
+    "error_semantic_origin_counts": {},
+    "error_attribution": "Retained optimized successor block names identify the inlined semantic family, not the precise guest instruction or a verified fault contract.",
+    "indirect_llvm_calls": 0,
+    "artifact_sha256": {
+      "objects.json": "760b87057e2507bb515944efa1735a9783d972d33c307f017329713dfbd45e2d",
+      "declarations.json": "79fa9daa897088c73f70d4e575d188087532bc2d55b1041c74eff64f6c2caaa8",
+      "missing-block-sites.json": "d692fef3cd47b178a75128c2a604f0a80322d17bf7d98f7dc78012554d7acc4d",
+      "error-sites.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "limitations": [
+      "Actual LLVM API parse and verification of retained bitcode, with root identities compared to current COFF-backed manifests; no JIT, linking or game execution.",
+      "These are optimized IR call sites, not execution counts or one-to-one machine instruction/CFG-edge counts. Different starts can merge and dynamic return guards can add exits.",
+      "The same __remill_error hook is used by semantic StopFailure paths and compiler error paths; retained block names classify this census, not hardware behavior.",
+      "nounwind is a compiler contract. Native handlers must honor it or the compiler/call-site contract must be changed and independently validated; availability of C++ exceptions does not authorize throwing across it."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false
+  },
+  "linkage_inventory": {
     "status": "actual COFF linkage and explicit-exit inventory complete; native gate remains open",
     "source": "local\\cfg\\startup-recovery-v31-conditional-repeat",
     "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
@@ -1083,26 +1470,6 @@
       "elapsed_seconds": 0.4471544998232275
     }
   },
-  "known_target_after_contract": [
-    {
-      "object": 385,
-      "logical_address": 4329617200,
-      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
-      "rva": 34649904,
-      "target_is_compiled_root": true,
-      "preceding_control_contracts": [
-        {
-          "entry": 34648288,
-          "source": 34649899,
-          "contract": "disputed-ending-d65f0b4f01d5-210b0e0",
-          "instruction_bytes": "e840f6ffff"
-        }
-      ],
-      "explicit_transfer_edges": [],
-      "dispatch_authorized": false
-    }
-  ],
-  "prior_inventory": "local/compiler-spike/whole-program-linkage-v5-repeat/summary.json",
   "next_work": [
     "Preserve source instruction and exit reason at native control boundaries; honor or deliberately change and validate nounwind contracts.",
     "Implement or diagnose native service/support boundaries, bind compiled supplied exports and validate linkage/startup without a CPU fallback."
