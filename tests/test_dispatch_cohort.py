@@ -1,6 +1,6 @@
 """Reject branch/dataflow lookalikes in independent dispatch classification."""
 import copy,unittest
-from tools.check_dispatch_cohort import match_window,match_subobject_window
+from tools.check_dispatch_cohort import match_window,match_subobject_window,match_cached_tail
 
 def fixture():
  texts=['LEA R12,[0x5540670]','MOV RBX,qword ptr [R12]','TEST RBX,RBX','JNZ 0x107','CALL 0x2ba2b10','MOV RBX,RAX','MOV qword ptr [R12],RBX','MOV RAX,qword ptr [RBX]','LEA RDI,[RSP + 0x8]','XOR EDX,EDX','MOV RSI,RBX','CALL qword ptr [RAX + 0x20]']
@@ -49,5 +49,16 @@ class SubobjectPatternTests(unittest.TestCase):
   rows=subobject_fixture();rows[3]['targets']=[rows[6]['rva']];self.assertIsNone(match_subobject_window(rows))
  def test_subobject_adjustment_does_not_match_whole_object(self):
   self.assertIsNone(match_window(subobject_fixture()));self.assertIsNone(match_subobject_window(fixture()))
+
+class EarlierCacheTailTests(unittest.TestCase):
+ def test_both_forms_with_earlier_cache_definition(self):
+  for rows,offset in [(fixture()[1:],0),(subobject_fixture()[1:],0x458)]:
+   self.assertEqual(match_cached_tail(rows)['object_offset'],offset)
+ def test_wrong_adjustment_or_unknown_cache_is_rejected(self):
+  rows=subobject_fixture()[1:];rows[5]['text']='ADD RBX,0x450';self.assertIsNone(match_cached_tail(rows))
+  rows=fixture()[1:];rows[0]['text']='MOV RBX,qword ptr [RAX]';self.assertIsNone(match_cached_tail(rows))
+ def test_wrong_branch_and_receiver_is_rejected(self):
+  rows=fixture()[1:];rows[2]['targets']=[rows[4]['rva']];self.assertIsNone(match_cached_tail(rows))
+  rows=fixture()[1:];rows[-2]['text']='MOV RSI,R12';self.assertIsNone(match_cached_tail(rows))
 
 if __name__=='__main__':unittest.main()

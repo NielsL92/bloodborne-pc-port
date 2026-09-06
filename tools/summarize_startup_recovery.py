@@ -134,5 +134,10 @@ if cohorts.exists():
  latest=json.loads(cohorts.read_text());assert latest['status']=='constructor cohort closure evidence pass; P3 remains open'
  report['constructor_cohorts']=dict(path=str(cohorts.relative_to(root)),sha256=sha(cohorts),result=latest)
  report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
+cache=root/'reports/constructor-cache-evidence.json'
+if cache.exists():
+ latest=json.loads(cache.read_text());assert latest['status']=='constructor cache slice evidence pass; P3 remains open'
+ report['constructor_cache_slices']=dict(path=str(cache.relative_to(root)),sha256=sha(cache),result=latest)
+ report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)
