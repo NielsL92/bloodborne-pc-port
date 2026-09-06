@@ -1,0 +1,269 @@
+{
+  "status": "complete native linkage and P3 startup compilation gate checked",
+  "linkage": {
+    "status": "complete startup objects linked; host-only registry validated",
+    "registry_identity_sha256": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "objects": 386,
+    "linked_game_roots": 21282,
+    "linked_import_gateways": 182,
+    "tested_unimplemented_import_stops": 115,
+    "unknown_target_stops": 1,
+    "runtime_validation": {
+      "status": "host registry validation pass",
+      "compiled_roots": 21282,
+      "source_pairs": 551,
+      "imports": 182,
+      "conditional_compiled_exports": 67,
+      "explicit_native_stops": 115,
+      "x87_sites": 335,
+      "identity": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+      "game_entry_called": false,
+      "guest_mappings_created": false,
+      "fp_profile_selected": false
+    },
+    "executable_sha256": "307f10134ca4236b89ead17006b72b80c14af2617a3c5321a9df1ed4bae8190b",
+    "executable_bytes": 54663680,
+    "linked_addresses_sha256": "192cbbf3b870a79f27bb25c810888ca86016fcc46bf25fdfc96bd865261dab93",
+    "native_objects": {
+      "fault.obj": "7369a7f6940848d898ecc5315d886b70a0d9b4aab0cb2ca08dbe0195171317a7",
+      "memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+      "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "fp.obj": "5638e88e2be3dc263e974c4a4a7392dc90ffceec91d032e9f2ba1c56b492eaa6",
+      "registry_main.obj": "7b18208faa0404a2c249527388fd55a4109407b9e525ee5ea8b04e80b55b17df",
+      "registry.obj": "f46d646f1934ca00f19dbfe80ecbdf88d518c0de9ad9ae155077cead47bf201b",
+      "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268"
+    },
+    "softfloat_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+    "builtins_sha256": "9cff03d2c5218693b1f91efc0074957c710eeddd932d57a681c8f558b81fbe8e",
+    "game_execution": false,
+    "limitations": "Host-only table validation. No game entry, game mappings, FP profile selection, real services, guest exceptions/nonlocal recovery, boot or gameplay. Export binding is conditional on exact module identity and loader/initialization assumptions."
+  },
+  "registry": {
+    "status": "native registry generated without execution",
+    "objects": 386,
+    "roots": 21282,
+    "source_pairs": 551,
+    "imports": 182,
+    "compiled_export_bindings": 67,
+    "explicit_native_stops": 115,
+    "x87_sites": 349,
+    "x87_segments": {
+      "DS": 42,
+      "None": 231,
+      "SS": 62,
+      "<unresolved>": 14
+    },
+    "unresolved_x87_sites": [
+      {
+        "pc": 34359919537,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db7d00",
+        "instruction": "fstp xword ptr [r13]",
+        "fop": 893,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359919556,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db7d10",
+        "instruction": "fstp xword ptr [r13 + 0x10]",
+        "fop": 893,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359919570,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db7d00",
+        "instruction": "fstp xword ptr [r13]",
+        "fop": 893,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359919680,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "43db6c2500",
+        "instruction": "fld xword ptr [r13 + r12]",
+        "fop": 876,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359920230,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db2c24",
+        "instruction": "fld xword ptr [r12]",
+        "fop": 812,
+        "data_segment": null,
+        "memory_base": "r12",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359920236,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db7c24f0",
+        "instruction": "fstp xword ptr [r12 - 0x10]",
+        "fop": 892,
+        "data_segment": null,
+        "memory_base": "r12",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359920352,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db2c24",
+        "instruction": "fld xword ptr [r12]",
+        "fop": 812,
+        "data_segment": null,
+        "memory_base": "r12",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359920397,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db2c24",
+        "instruction": "fld xword ptr [r12]",
+        "fop": 812,
+        "data_segment": null,
+        "memory_base": "r12",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359920521,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db7c0500",
+        "instruction": "fstp xword ptr [r13 + rax]",
+        "fop": 892,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359921708,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db6d00",
+        "instruction": "fld xword ptr [r13]",
+        "fop": 877,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359921722,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db6d10",
+        "instruction": "fld xword ptr [r13 + 0x10]",
+        "fop": 877,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359921808,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db6d00",
+        "instruction": "fld xword ptr [r13]",
+        "fop": 877,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359921863,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db6c1d00",
+        "instruction": "fld xword ptr [r13 + rbx]",
+        "fop": 876,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      },
+      {
+        "pc": 34359921954,
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "bytes": "41db6d00",
+        "instruction": "fld xword ptr [r13]",
+        "fop": 877,
+        "data_segment": null,
+        "memory_base": "r13",
+        "uncertainty": "default segment for extended stack/base register requires independent check"
+      }
+    ],
+    "identity_sha256": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "registry_sha256": "3169949ec50296527e87b5e5183476266f334ed37fb196fdeba0850dd57d8b14",
+    "game_execution": false,
+    "fp_profile_selected": false
+  },
+  "identical_artifacts": {
+    "registry-v2-ghidra/identity.json": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "registry-v2-ghidra/imports.json": "220e3d60e03ca58f42c05a4a2ab121156afce252528b6b4db3dbebb273f1473d",
+    "registry-v2-ghidra/modules.json": "2ae77a94aa3b81bb1951ea850ab9b451aff91f18307e88078ce07518408b2c1f",
+    "registry-v2-ghidra/objects.json": "6ba1d0eb1d2ad2631821fcd02e47dfb7aeccde9335fd60ecce7fed07e9a9abc0",
+    "registry-v2-ghidra/registry.cpp": "3169949ec50296527e87b5e5183476266f334ed37fb196fdeba0850dd57d8b14",
+    "registry-v2-ghidra/segment-evidence.json": "59e28ea14bd40be36645e036a63b69cbc1d5fc3341dab3649aba2b81e692a204",
+    "registry-v2-ghidra/source-target-pairs.json": "6f14a307815fc179bd6e779f7f3826b3b114711b7035d24167bea8684acbb793",
+    "registry-v2-ghidra/summary.json": "e165d07f8aa3e7386c0a7be9ea8f605908da30781fc8008dd4050674f629ddcd",
+    "registry-v2-ghidra/targets.json": "b1e72cfd1a12c36b4137c28623b77ce7596338cc6be19342a064760fd1d90a2e",
+    "registry-v2-ghidra/x87-sites.json": "33265ddae104b7959c59c1c763948974a1fc7c3f2a322212b3df7d3ca1b7aecf",
+    "link-v4-import-stops/control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+    "link-v4-import-stops/fault.obj": "7369a7f6940848d898ecc5315d886b70a0d9b4aab0cb2ca08dbe0195171317a7",
+    "link-v4-import-stops/fp.obj": "5638e88e2be3dc263e974c4a4a7392dc90ffceec91d032e9f2ba1c56b492eaa6",
+    "link-v4-import-stops/intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "link-v4-import-stops/linked-addresses.json": "192cbbf3b870a79f27bb25c810888ca86016fcc46bf25fdfc96bd865261dab93",
+    "link-v4-import-stops/memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+    "link-v4-import-stops/native-import-stops.json": "5228efcbc257500b7fcff348aa6eaf2eefeaf40f698a182f6b3a82df133eeadf",
+    "link-v4-import-stops/numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "link-v4-import-stops/registry.exe": "307f10134ca4236b89ead17006b72b80c14af2617a3c5321a9df1ed4bae8190b",
+    "link-v4-import-stops/registry.obj": "f46d646f1934ca00f19dbfe80ecbdf88d518c0de9ad9ae155077cead47bf201b",
+    "link-v4-import-stops/registry_main.obj": "7b18208faa0404a2c249527388fd55a4109407b9e525ee5ea8b04e80b55b17df",
+    "link-v4-import-stops/validate.stdout": "bf2e9277f947ff2f97d0d5fe02e877cd58e2616db7f194065835461c0784e19d"
+  },
+  "recorders": [
+    {
+      "run": "20260906-p3-native-registry-v2-ghidra",
+      "manifest_sha256": "10bf77ad121e3818e8161dc0d1547eb7c05f22338ef94e768616ae58c5baef20",
+      "sources_zip_sha256": "ca7e8e86b030affb895ce5e90069e6115b42980ea8233e79cd5306232601d07a"
+    },
+    {
+      "run": "20260906-p3-native-registry-v3-repeat",
+      "manifest_sha256": "a3dcaf5a8d1e63905ab02c7bec23758359d95d8c0240ff8a5740d26ca47c3ead",
+      "sources_zip_sha256": "ca7e8e86b030affb895ce5e90069e6115b42980ea8233e79cd5306232601d07a"
+    },
+    {
+      "run": "20260906-p3-native-link-v4-import-stops",
+      "manifest_sha256": "76e0397de05f413c9ca8562779c1edb30018139d33b11c7ae07d4dfdba2f5ecb",
+      "sources_zip_sha256": "ca7e8e86b030affb895ce5e90069e6115b42980ea8233e79cd5306232601d07a"
+    },
+    {
+      "run": "20260906-p3-native-link-v5-repeat",
+      "manifest_sha256": "874fac1e8fede67e44922675c0bdc6f5664c25c17fcfebd126657c5c4a14705f",
+      "sources_zip_sha256": "ca7e8e86b030affb895ce5e90069e6115b42980ea8233e79cd5306232601d07a"
+    }
+  ],
+  "gate": {
+    "phase": "P3 startup compilation and explicit exit handling",
+    "passed": true,
+    "basis": [
+      "All 18,444 ordered initial constructors are retained exactly once in the independently checked complete object manifest.",
+      "All 386 objects link with all 21,282 compiled roots, 182 import gateways and 63 support/library names resolved.",
+      "Static source/request authorization has 551 independently decoded pairs; runtime authored control/fault contracts and complete-registry unknown/native-service stops are validated.",
+      "Registry, native objects and complete PE repeat byte-for-byte; no game CPU execution was used to establish this gate."
+    ],
+    "limits": [
+      "This is the plan compilation/explicit-handling gate, not complete runtime service/control implementation or execution coverage.",
+      "9,044 unknown indirect calls, 430 indirect jumps, 143 callback arguments, five conditional continuations and three native service-control obligations remain visible.",
+      "14 x87 sites have independently checked instruction boundaries but unresolved default selector metadata and stop if reached.",
+      "67 compiled-export bindings remain conditional on immutable module identity, relocation/loading, initialization and interposition assumptions.",
+      "115 external native services, hypercalls, FP profile selection, guest exceptions/nonlocal transfer, loader and startup remain P4 work."
+    ]
+  },
+  "next_phase": "P4 module loading as private NX data and native startup/service integration",
+  "game_execution": false
+}
