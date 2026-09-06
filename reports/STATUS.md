@@ -1,6 +1,14 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 22:51 UTC
+## Current continuation — 2026-09-06 23:02 UTC
+
+Continue autonomously; user action: none. Read reports/native-services.md and reports/native-services-evidence.json, then reports/native-loader.md. **P4 is open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
+
+593 canonical external-function identities now cover all 831 function relocation uses, including 143 cross-module identities. Native logical range [0x900000000,0xa00000000) is reserved; future modules must skip it. Current registry is local/runtime/registry-v5-service-identities (identity c6682220b81ce1f78abce9da0daaaee45efaa954027d8fab7e8c1264301efa3b), with 21,282 game roots and 775 import entries. All 708 unimplemented gateways and an unknown target stop correctly. Current complete host-only validator local/runtime/link-v7-repeat/registry.exe is 54,722,048 bytes, SHA256 98bc1df33f8b15d5b42d8807459897f2686bd4b6829cf0d130914a9733f19b99, identical to v6-services. No game entry or guest mapping is created by it.
+
+Loader-plan-v7-repeat reproduces v6-services and leaves 37 unresolved relocations: twenty data imports and seventeen TLS module references. Zero code relocations; all 238,609 destinations and 18,444 constructor pointers remain checked. Next add runtime access guards for unresolved relocation slots, then validate private NX module loading and actual entry setup without exposing guessed values. Resolve/test strong-data/TLS contracts and implement native services in dependency order. All previous unknown targets, mutable tables, conditional exports, absent FP profile and fourteen unresolved x87 selector sites remain visible. Continue after commits; P1 route/profiling/audio work remains open.
+
+## Previous checkpoint — 2026-09-06 22:51 UTC
 
 Continue autonomously; user action: none. Read reports/native-loader.md and reports/native-loader-evidence.json, then reports/native-link.md. **P3 compilation/explicit-handling passed; P4 is open. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
 

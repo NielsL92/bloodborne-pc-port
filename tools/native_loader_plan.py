@@ -5,7 +5,12 @@ from tools.cfg_recover_startup import sha,write_json
 from tools.formats import ElfImage
 p=argparse.ArgumentParser();p.add_argument('registry',type=Path);p.add_argument('constructors',type=Path);p.add_argument('out',type=Path);p.add_argument('--weak-bindings',type=Path);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)
 read=lambda p:json.loads(p.read_text(encoding='utf-8'))
-modules=read(a.registry/'modules.json');registered=read(a.registry/'imports.json');exports=collections.defaultdict(list);images={};links={};regions=[];tls=[];module_rows=[]
+modules=read(a.registry/'modules.json');registered=read(a.registry/'imports.json');canonical={}
+for item in registered:
+ if item.get('canonical'):
+  for use in item['uses']:
+   key=use['module'],use['symbol_index'];assert key not in canonical;canonical[key]=item
+exports=collections.defaultdict(list);images={};links={};regions=[];tls=[];module_rows=[]
 for index,module in enumerate(modules):
  h=module['module'];path=Path(module['path']);assert sha(path)==h;im=images[h]=ElfImage(path.read_bytes());link=links[h]=im.linkage();base=module['logical_base'];segments=[]
  for n,ph in enumerate(im.segments):
@@ -21,7 +26,7 @@ for index,module in enumerate(modules):
  tags=dict(im.dynamic());module_rows.append(dict(**module,elf_type=im.type,entry_rva=im.entry,entry_pc=base+im.entry,dynamic_initializers={hex(t):v for t,v in im.dynamic() if t in [12,13,25,26,27,28,32,33]},needed=link['needed'],import_libraries=link['libraries'],import_modules=link['modules'],export_libraries=link['export_libraries'],export_modules=link['export_modules'],segments=len(segments)))
 weak={}
 if a.weak_bindings:
- weak_summary=read(a.weak_bindings/'summary.json');assert weak_summary['ghidra_checked'] and weak_summary['registry_identity_sha256']==sha(a.registry/'identity.json');assert weak_summary['bindings_sha256']==sha(a.weak_bindings/'weak-bindings.json');weak={(r['module'],r['relocation']['offset']):r for r in read(a.weak_bindings/'weak-bindings.json')}
+ weak_summary=read(a.weak_bindings/'summary.json');assert weak_summary['ghidra_checked'];assert weak_summary['bindings_sha256']==sha(a.weak_bindings/'weak-bindings.json');weak={(r['module'],r['relocation']['offset']):r for r in read(a.weak_bindings/'weak-bindings.json')}
 counts=collections.Counter();unresolved=[];planned={};relocations=[];code_writes=[];version_disputes=[]
 for index,module in enumerate(modules):
  h=module['module'];base=module['logical_base'];link=links[h]
@@ -47,6 +52,8 @@ for index,module in enumerate(modules):
      if symbol['defined'] and selected['owner']==h:versions_match=True
      if versions_match:value=(selected['pc']+addend)&0xffffffffffffffff;kind='conditional static symbol binding'
      else:detail='library/module version identity is not established';version_disputes.append(dict(module=h,symbol=symbol,candidate=selected,required=required,provided=provided,required_modules=required_modules,provided_modules=provided_modules))
+    elif symbol['type']==2 and (h,symbol['index']) in canonical:
+     service=canonical[h,symbol['index']];assert all(service[k]==symbol[k] for k in ['nid','library','module']);value=(service['pc']+addend)&0xffffffffffffffff;kind='canonical native service identity'
     elif symbol['type']==2:
      options=[r for r in registered if r['source_module']==h and all(r[k]==symbol[k] for k in ['nid','library','module'])]
      if len(options)==1 and not options[0]['compiled_export']:value=(options[0]['pc']+addend)&0xffffffffffffffff;kind='registered native service gateway'

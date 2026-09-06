@@ -6,7 +6,7 @@ from capstone.x86_const import X86_OP_MEM
 from tools.cfg_recover_startup import sha,write_json
 from tools.dev import ROOT
 from tools.formats import ElfImage
-p=argparse.ArgumentParser();p.add_argument('active',type=Path);p.add_argument('dispatch',type=Path);p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--ghidra-segments',type=Path);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)
+p=argparse.ArgumentParser();p.add_argument('active',type=Path);p.add_argument('dispatch',type=Path);p.add_argument('source',type=Path);p.add_argument('out',type=Path);p.add_argument('--ghidra-segments',type=Path);p.add_argument('--native-services',type=Path);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)
 read=lambda p:json.loads(p.read_text(encoding='utf-8'))
 active=read(a.active);dispatch=read(a.dispatch/'summary.json');assert dispatch['active_manifest_sha256']==sha(a.active);imports=read(a.dispatch/'native-import-stubs.json');pairs=read(a.dispatch/'source-target-pairs.json');assert sha(a.dispatch/'source-target-pairs.json')==dispatch['pairs_sha256'];assert sha(a.dispatch/'native-import-stubs.json')==dispatch['runtime_import_registry_sha256']
 roots={};objects=[];x87={};input_instructions={};decoder=Cs(CS_ARCH_X86,CS_MODE_64);decoder.detail=True;mapping=None
@@ -32,9 +32,9 @@ for index,obj in enumerate(active):
    if pc in x87:assert x87[pc]==record
    x87[pc]=record
 # Re-check candidate export identity against supplied module symbol tables.
-db=sqlite3.connect(a.source.resolve().joinpath('analysis.sqlite').as_uri()+'?mode=ro',uri=True);modules={h:dict(name=n,path=p) for h,n,p in db.execute('SELECT hash,name,path FROM module')};db.close();bases={r['module']:r['logical_base'] for r in mapping};exports=collections.defaultdict(list);module_records=[]
+db=sqlite3.connect(a.source.resolve().joinpath('analysis.sqlite').as_uri()+'?mode=ro',uri=True);modules={h:dict(name=n,path=p) for h,n,p in db.execute('SELECT hash,name,path FROM module')};db.close();bases={r['module']:r['logical_base'] for r in mapping};exports=collections.defaultdict(list);module_records=[];module_links={}
 for h,info in modules.items():
- path=Path(info['path']);assert sha(path)==h;image=ElfImage(path.read_bytes());linkage=image.linkage();module_records.append(dict(module=h,name=info['name'],path=str(path),logical_base=bases[h]))
+ path=Path(info['path']);assert sha(path)==h;image=ElfImage(path.read_bytes());linkage=image.linkage();module_links[h]=linkage;module_records.append(dict(module=h,name=info['name'],path=str(path),logical_base=bases[h]))
  for symbol in linkage['symbols']:
   if symbol['defined'] and symbol['type']==2:exports[tuple(symbol[k] for k in ['nid','library','module'])].append(dict(module=h,rva=symbol['value'],pc=bases[h]+symbol['value'],symbol_index=symbol['index']))
 import_rows=[]
@@ -44,6 +44,23 @@ for row in imports:
  for known in row.get('bundled_candidates',[]):assert any(c['module']==known['module'] and c['rva']==known['rva'] and c['pc']==known['logical_address'] for c in candidates)
  selected=eligible[0] if len(candidates)==len(eligible)==1 else None
  import_rows.append(dict(pc=pc,source_module=row['module'],rva=row['rva'],nid=symbol['nid'],library=symbol['library'],module=symbol['module'],stub_bytes=row['stub_bytes'],relocation=row['relocation'],candidates=candidates,compiled_export=selected['pc'] if selected else 0,binding='conditional static compiled export' if selected else 'explicit unimplemented native service',runtime_execution_validated=False))
+native_services_identity=None
+if a.native_services:
+ native_summary=read(a.native_services/'summary.json');assert native_summary['services_sha256']==sha(a.native_services/'native-services.json');native_services_identity=sha(a.native_services/'summary.json');native_services=read(a.native_services/'native-services.json');native_range=native_summary['reserved_logical_range'];assert all(not(native_range[0]<=pc<native_range[1]) for pc in roots);uses={}
+ for service in native_services:
+  for use in service['uses']:
+   key=use['module'],use['symbol_index'];assert key not in uses;uses[key]=service
+   actual_link=module_links[use['module']];symbol=actual_link['symbols'][use['symbol_index']];assert not symbol['defined'] and symbol['type']==2 and symbol['bind']==1 and symbol['name']==use['symbol_name'];assert all(symbol[k]==service[k] for k in ['nid','library','module'])
+   assert [r for r in actual_link['relocations'] if r['symbol']==use['symbol_index']]==use['relocations']
+   assert [r['version'] for r in actual_link['libraries'] if r['name']==service['library']]==[service['library_version']]
+   assert [r['version'] for r in actual_link['modules'] if r['name']==service['module']]==[service['module_version']]
+ for row in import_rows:
+  match=uses.get((row['source_module'],row['relocation']['symbol']))
+  if match:
+   assert not row['compiled_export'] and all(row[k]==match[k] for k in ['nid','library','module']);row['canonical_service_pc']=match['pc']
+ for service in native_services:
+  assert native_range[0]<=service['pc']<native_range[1]
+  import_rows.append(dict(pc=service['pc'],source_module='native-runtime',rva=service['pc']-native_range[0],nid=service['nid'],library=service['library'],module=service['module'],library_version=service['library_version'],module_version=service['module_version'],stub_bytes=None,relocation=None,candidates=[],compiled_export=0,binding='explicit unimplemented canonical native service',canonical=True,uses=service['uses'],runtime_execution_validated=False))
 import_rows.sort(key=lambda r:r['pc']);assert len({r['pc'] for r in import_rows})==len(import_rows);import_pcs={r['pc'] for r in import_rows}
 pair_keys=[(r['source'],r['requested_target']) for r in pairs];assert pair_keys==sorted(set(pair_keys));assert all(target in roots or target in import_pcs for source,target in pair_keys)
 segment_evidence=dict(status='unresolved segment metadata remains explicit',ghidra_boundary_checks=[])
@@ -58,7 +75,7 @@ if a.ghidra_segments:
  segment_evidence['ghidra_summary_sha256']=sha(a.ghidra_segments/'summary.json')
 write_json(a.out/'segment-evidence.json',segment_evidence)
 write_json(a.out/'objects.json',objects);write_json(a.out/'targets.json',[roots[pc] for pc in sorted(roots)]);write_json(a.out/'imports.json',import_rows);write_json(a.out/'source-target-pairs.json',pairs);write_json(a.out/'x87-sites.json',[x87[pc] for pc in sorted(x87)]);write_json(a.out/'modules.json',sorted(module_records,key=lambda r:r['logical_base']))
-identity=dict(active_manifest_sha256=sha(a.active),dispatch_summary_sha256=sha(a.dispatch/'summary.json'),files={name:sha(a.out/name) for name in ['objects.json','targets.json','imports.json','source-target-pairs.json','x87-sites.json','modules.json','segment-evidence.json']},conditional_binding='Unique exact NID/library/module and compiled export only; loader identity/relocations, initialization and interposition remain runtime obligations.',guest_execution=False,fp_profile_selected=False)
+identity=dict(native_services_identity=native_services_identity,active_manifest_sha256=sha(a.active),dispatch_summary_sha256=sha(a.dispatch/'summary.json'),files={name:sha(a.out/name) for name in ['objects.json','targets.json','imports.json','source-target-pairs.json','x87-sites.json','modules.json','segment-evidence.json']},conditional_binding='Unique exact NID/library/module and compiled export only; loader identity/relocations, initialization and interposition remain runtime obligations.',guest_execution=False,fp_profile_selected=False)
 write_json(a.out/'identity.json',identity);digest=sha(a.out/'identity.json');q=json.dumps
 lines=['// Generated static native registry. No game entry is called by the validator.','#include "runtime.h"','#include "registry.h"']
 lines += [f'extern "C" Memory* sub_{pc:x}(State*,uint64_t,Memory*);' for pc in sorted(roots)]
@@ -69,5 +86,5 @@ lines += [f'{{{source}ULL,{target}ULL}},' for source,target in pair_keys]+['};',
 lines += [f'{{{r["pc"]}ULL,sub_{r["pc"]:x}}},' for r in import_rows]+['};',f'const size_t import_gateway_count={len(import_rows)};','const bb_runtime::X87Site x87_sites[]={']
 lines += [f'{{{pc}ULL,{r["fop"]},bb_runtime::Segment::{r["data_segment"]}}},' for pc,r in sorted(x87.items()) if r['data_segment'] is not None]+['};',f'const size_t x87_site_count={sum(r["data_segment"] is not None for r in x87.values())};','}']
 (a.out/'registry.cpp').write_text(chr(10).join(lines)+chr(10),encoding='utf-8')
-summary=dict(status='native registry generated without execution',objects=len(objects),roots=len(roots),source_pairs=len(pairs),imports=len(import_rows),compiled_export_bindings=sum(bool(r['compiled_export']) for r in import_rows),explicit_native_stops=sum(not r['compiled_export'] for r in import_rows),x87_sites=len(x87),x87_segments=dict(collections.Counter(r['data_segment'] if r['data_segment'] is not None else '<unresolved>' for r in x87.values())),unresolved_x87_sites=[r for r in x87.values() if r['uncertainty']],identity_sha256=digest,registry_sha256=sha(a.out/'registry.cpp'),game_execution=False,fp_profile_selected=False)
+summary=dict(status='native registry generated without execution',objects=len(objects),roots=len(roots),source_pairs=len(pairs),imports=len(import_rows),compiled_export_bindings=sum(bool(r['compiled_export']) for r in import_rows),explicit_native_stops=sum(not r['compiled_export'] for r in import_rows),canonical_services=sum(bool(r.get('canonical')) for r in import_rows),x87_sites=len(x87),x87_segments=dict(collections.Counter(r['data_segment'] if r['data_segment'] is not None else '<unresolved>' for r in x87.values())),unresolved_x87_sites=[r for r in x87.values() if r['uncertainty']],identity_sha256=digest,registry_sha256=sha(a.out/'registry.cpp'),game_execution=False,fp_profile_selected=False)
 write_json(a.out/'summary.json',summary);print(json.dumps(summary),flush=True)

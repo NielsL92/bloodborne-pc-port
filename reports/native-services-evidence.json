@@ -1,0 +1,207 @@
+{
+  "status": "canonical native function identity and full-link checks pass",
+  "services": {
+    "status": "canonical external-function identity manifest generated",
+    "source_registry_identity_sha256": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "reserved_logical_range": [
+      38654705664,
+      42949672960
+    ],
+    "services": 593,
+    "import_symbol_uses": 796,
+    "relocation_uses": 831,
+    "cross_module_services": 143,
+    "bundled_import_symbols": 208,
+    "services_sha256": "89ba58176271633cd19cd08b99c513ddd47e1873d3d4bc71a68eeb72fb8b08c8",
+    "bundled_sha256": "0b811407036ebd17cb346e6b65fb952c6da2d0fab54152ef1df2bf70a4bdde94",
+    "game_execution": false,
+    "limitations": "Canonical native logical addresses are one per exact NID/library/module/version identity. This reserves module slot 9 for native service identifiers, with no original bytes or executable data mapping. Real service behavior and pointer use in game execution remain unvalidated."
+  },
+  "link": {
+    "status": "complete startup objects linked; host-only registry validated",
+    "registry_identity_sha256": "c6682220b81ce1f78abce9da0daaaee45efaa954027d8fab7e8c1264301efa3b",
+    "objects": 386,
+    "linked_game_roots": 21282,
+    "linked_import_gateways": 775,
+    "tested_unimplemented_import_stops": 708,
+    "unknown_target_stops": 1,
+    "runtime_validation": {
+      "status": "host registry validation pass",
+      "compiled_roots": 21282,
+      "source_pairs": 551,
+      "imports": 775,
+      "conditional_compiled_exports": 67,
+      "explicit_native_stops": 708,
+      "x87_sites": 335,
+      "identity": "c6682220b81ce1f78abce9da0daaaee45efaa954027d8fab7e8c1264301efa3b",
+      "game_entry_called": false,
+      "guest_mappings_created": false,
+      "fp_profile_selected": false
+    },
+    "executable_sha256": "98bc1df33f8b15d5b42d8807459897f2686bd4b6829cf0d130914a9733f19b99",
+    "executable_bytes": 54722048,
+    "linked_addresses_sha256": "77d79802a6648eea423aff1f16689f42cc0d4b51fca388665f023d01b87c1b57",
+    "native_objects": {
+      "fault.obj": "7369a7f6940848d898ecc5315d886b70a0d9b4aab0cb2ca08dbe0195171317a7",
+      "memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+      "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "fp.obj": "5638e88e2be3dc263e974c4a4a7392dc90ffceec91d032e9f2ba1c56b492eaa6",
+      "registry_main.obj": "7b18208faa0404a2c249527388fd55a4109407b9e525ee5ea8b04e80b55b17df",
+      "registry.obj": "44b3d28466c6854601407acd42c7b9934825d9ba0158188457d565d990a55558",
+      "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268"
+    },
+    "softfloat_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+    "builtins_sha256": "9cff03d2c5218693b1f91efc0074957c710eeddd932d57a681c8f558b81fbe8e",
+    "game_execution": false,
+    "limitations": "Host-only table validation. No game entry, game mappings, FP profile selection, real services, guest exceptions/nonlocal recovery, boot or gameplay. Export binding is conditional on exact module identity and loader/initialization assumptions."
+  },
+  "loader": {
+    "status": "native loader plan inventoried; unresolved relocations prohibit execution",
+    "registry_identity_sha256": "c6682220b81ce1f78abce9da0daaaee45efaa954027d8fab7e8c1264301efa3b",
+    "weak_bindings_sha256": "810cc1a8dacb66ab73be86c7ed216895a6b6bc8c4ac49f7d891367552c2fa376",
+    "modules": 8,
+    "regions": 16,
+    "mapped_bytes": 97517568,
+    "initial_bytes": 92463404,
+    "zero_bytes": 5054164,
+    "relocations": 238609,
+    "classification": {
+      "relative": 233350,
+      "conditional static symbol binding": 4379,
+      "unresolved": 37,
+      "canonical native service identity": 831,
+      "checked absent weak callback": 12
+    },
+    "unresolved_relocations": 37,
+    "code_relocations": 0,
+    "version_disputes": 0,
+    "constructor_targets_checked": 18444,
+    "tls_records": 8,
+    "tls_nonempty": 3,
+    "game_execution": false,
+    "native_loading_performed": false,
+    "files": {
+      "code-relocations.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "constructor-order.json": "1569d5489513bf83588b97a4f46eefe6f8c453e2f3855ce1881f27afe22d7c77",
+      "module-00-segment-00.bin": "24935ac6da5e1879215367a42cb7d90a91fcc6bf63ea5cc140904db413d5f681",
+      "module-00-segment-01.bin": "ab5faa3faa6c1088aa16b625fe8220b0b49910901946903bc3ec5119e8bc0c71",
+      "module-01-segment-00.bin": "f8631c0da05e8447ca3dc0907c1b6115a4e8878ce6a8c1ab67a6e55e575d0284",
+      "module-01-segment-01.bin": "2fe248c0add27b01a66d573a97e1b154091332f51d027344edaeecbf278de424",
+      "module-02-segment-00.bin": "a6a9e615ad224fa47e94266e7a1846fd1946868b46a08731c54ed76d2447eddf",
+      "module-02-segment-01.bin": "231c79b49cd68044cf378da64036af586de36c44d04a019933833a7916f59846",
+      "module-03-segment-00.bin": "129fb2b3353f4fc4635374b1a13efba77a686103ad9878e17d034f6a28b1fe17",
+      "module-03-segment-01.bin": "bc340804b968e0f81e6151dc6c56bcf54b98ca113540047b1eb0a14c431d96c9",
+      "module-04-segment-00.bin": "e54990a4a4b6885678a2ac2590713518b45fab76874f47b1f6a4f51263f543eb",
+      "module-04-segment-01.bin": "f203b51c094cfbfae71a477c0d7f652a6631055eec8d64828c71b4d083b3b737",
+      "module-05-segment-00.bin": "ec4cb915df334162a9a613fa751fafa285869f53b7a5c40cca6ad16086f44dc1",
+      "module-05-segment-01.bin": "5a4204a1a121d923ca9a255922c004d8493c8337916b771889666dc46dab403c",
+      "module-06-segment-00.bin": "d0292f0bc42c2048d4deacc663d845f5df83020f12a5c87a20e5dbef4b5bf5de",
+      "module-06-segment-01.bin": "bbef7c4cda2a9e935d8fcf99af0c393033267a9662b7ce1174b05600caf817f6",
+      "module-07-segment-00.bin": "2bd18c41a72ca691f42d281e613b8a51fe0347304c257d9385f87c89d9aebda0",
+      "module-07-segment-01.bin": "d2f0ecbe9f59056974bae9eaee293f9a8a057206b9d24b1984c9ffe6fb7cd6ff",
+      "modules.json": "86c95ee391a1c6acd933b4a646c9d5b2fb1ad98261e6c9612a9e61a7bce7853c",
+      "regions.json": "a17d79c26b374235efa0a5d5f8adb4659f14e62d1e96b859b17a70b2f587ddc7",
+      "relocations.jsonl": "4e3fa1a9c9a4ccc451d2ffa08fe56237cd9dc337a88cf03ac54be7c1e74a6a60",
+      "tls.json": "ab0e245475e6a5c5d2265a9a987fe61f5ca5586b6b9e2111b0b6c3ad3e6d7914",
+      "unresolved-relocations.json": "b18a587129f0f546321a26831ff3011b0dc1d3609914c245be7dea7d195fecf7",
+      "version-disputes.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "limitations": [
+      "Copied segment bytes only. No original/hardlinked file modifications.",
+      "No unresolved relocation is assigned zero or a guessed address.",
+      "Static symbol bindings remain conditional on the declared module/version and interposition model.",
+      "Constructor order is evidence for actual compiled startup, not permission to call the initial table entries manually.",
+      "Private host mappings, per-thread TLS, startup ABI and actual entry execution remain unimplemented."
+    ]
+  },
+  "relocation_identity_checks": 831,
+  "identical_artifacts": {
+    "services-v1/bundled-imports.json": "0b811407036ebd17cb346e6b65fb952c6da2d0fab54152ef1df2bf70a4bdde94",
+    "services-v1/native-services.json": "89ba58176271633cd19cd08b99c513ddd47e1873d3d4bc71a68eeb72fb8b08c8",
+    "services-v1/summary.json": "728e897d231c6df752b1c9d25b32154c711174b0422850bd81272ace3558840e",
+    "registry-v4-services/identity.json": "c6682220b81ce1f78abce9da0daaaee45efaa954027d8fab7e8c1264301efa3b",
+    "registry-v4-services/imports.json": "257ad2999369d1cd1d82f7a3dbc811295f0aa1ae8e2dd74ca231bd040159b87b",
+    "registry-v4-services/modules.json": "2ae77a94aa3b81bb1951ea850ab9b451aff91f18307e88078ce07518408b2c1f",
+    "registry-v4-services/objects.json": "6ba1d0eb1d2ad2631821fcd02e47dfb7aeccde9335fd60ecce7fed07e9a9abc0",
+    "registry-v4-services/registry.cpp": "adc6552970c6ec2b2e78656b9730a460a814adbcd5766982b007b15857b4326d",
+    "registry-v4-services/segment-evidence.json": "59e28ea14bd40be36645e036a63b69cbc1d5fc3341dab3649aba2b81e692a204",
+    "registry-v4-services/source-target-pairs.json": "6f14a307815fc179bd6e779f7f3826b3b114711b7035d24167bea8684acbb793",
+    "registry-v4-services/summary.json": "545a02c72107a3a0d1f5fcc7270957c2e6185cd1ee210e44a6beab9fd0dd9a4a",
+    "registry-v4-services/targets.json": "b1e72cfd1a12c36b4137c28623b77ce7596338cc6be19342a064760fd1d90a2e",
+    "registry-v4-services/x87-sites.json": "33265ddae104b7959c59c1c763948974a1fc7c3f2a322212b3df7d3ca1b7aecf",
+    "loader-plan-v6-services/code-relocations.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "loader-plan-v6-services/constructor-order.json": "1569d5489513bf83588b97a4f46eefe6f8c453e2f3855ce1881f27afe22d7c77",
+    "loader-plan-v6-services/module-00-segment-00.bin": "24935ac6da5e1879215367a42cb7d90a91fcc6bf63ea5cc140904db413d5f681",
+    "loader-plan-v6-services/module-00-segment-01.bin": "ab5faa3faa6c1088aa16b625fe8220b0b49910901946903bc3ec5119e8bc0c71",
+    "loader-plan-v6-services/module-01-segment-00.bin": "f8631c0da05e8447ca3dc0907c1b6115a4e8878ce6a8c1ab67a6e55e575d0284",
+    "loader-plan-v6-services/module-01-segment-01.bin": "2fe248c0add27b01a66d573a97e1b154091332f51d027344edaeecbf278de424",
+    "loader-plan-v6-services/module-02-segment-00.bin": "a6a9e615ad224fa47e94266e7a1846fd1946868b46a08731c54ed76d2447eddf",
+    "loader-plan-v6-services/module-02-segment-01.bin": "231c79b49cd68044cf378da64036af586de36c44d04a019933833a7916f59846",
+    "loader-plan-v6-services/module-03-segment-00.bin": "129fb2b3353f4fc4635374b1a13efba77a686103ad9878e17d034f6a28b1fe17",
+    "loader-plan-v6-services/module-03-segment-01.bin": "bc340804b968e0f81e6151dc6c56bcf54b98ca113540047b1eb0a14c431d96c9",
+    "loader-plan-v6-services/module-04-segment-00.bin": "e54990a4a4b6885678a2ac2590713518b45fab76874f47b1f6a4f51263f543eb",
+    "loader-plan-v6-services/module-04-segment-01.bin": "f203b51c094cfbfae71a477c0d7f652a6631055eec8d64828c71b4d083b3b737",
+    "loader-plan-v6-services/module-05-segment-00.bin": "ec4cb915df334162a9a613fa751fafa285869f53b7a5c40cca6ad16086f44dc1",
+    "loader-plan-v6-services/module-05-segment-01.bin": "5a4204a1a121d923ca9a255922c004d8493c8337916b771889666dc46dab403c",
+    "loader-plan-v6-services/module-06-segment-00.bin": "d0292f0bc42c2048d4deacc663d845f5df83020f12a5c87a20e5dbef4b5bf5de",
+    "loader-plan-v6-services/module-06-segment-01.bin": "bbef7c4cda2a9e935d8fcf99af0c393033267a9662b7ce1174b05600caf817f6",
+    "loader-plan-v6-services/module-07-segment-00.bin": "2bd18c41a72ca691f42d281e613b8a51fe0347304c257d9385f87c89d9aebda0",
+    "loader-plan-v6-services/module-07-segment-01.bin": "d2f0ecbe9f59056974bae9eaee293f9a8a057206b9d24b1984c9ffe6fb7cd6ff",
+    "loader-plan-v6-services/modules.json": "86c95ee391a1c6acd933b4a646c9d5b2fb1ad98261e6c9612a9e61a7bce7853c",
+    "loader-plan-v6-services/regions.json": "a17d79c26b374235efa0a5d5f8adb4659f14e62d1e96b859b17a70b2f587ddc7",
+    "loader-plan-v6-services/relocations.jsonl": "4e3fa1a9c9a4ccc451d2ffa08fe56237cd9dc337a88cf03ac54be7c1e74a6a60",
+    "loader-plan-v6-services/summary.json": "a6325a421a4dc2feaec0ed5493c71862ae88f0433f034a4ece75e27fa2c0cf45",
+    "loader-plan-v6-services/tls.json": "ab0e245475e6a5c5d2265a9a987fe61f5ca5586b6b9e2111b0b6c3ad3e6d7914",
+    "loader-plan-v6-services/unresolved-relocations.json": "b18a587129f0f546321a26831ff3011b0dc1d3609914c245be7dea7d195fecf7",
+    "loader-plan-v6-services/version-disputes.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "link-v6-services/control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+    "link-v6-services/fault.obj": "7369a7f6940848d898ecc5315d886b70a0d9b4aab0cb2ca08dbe0195171317a7",
+    "link-v6-services/fp.obj": "5638e88e2be3dc263e974c4a4a7392dc90ffceec91d032e9f2ba1c56b492eaa6",
+    "link-v6-services/intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "link-v6-services/linked-addresses.json": "77d79802a6648eea423aff1f16689f42cc0d4b51fca388665f023d01b87c1b57",
+    "link-v6-services/memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+    "link-v6-services/native-import-stops.json": "9bd9cfc630758603b2fefee5e00903d6394d16d03fa6cece433f1c458884bf3f",
+    "link-v6-services/numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "link-v6-services/registry.exe": "98bc1df33f8b15d5b42d8807459897f2686bd4b6829cf0d130914a9733f19b99",
+    "link-v6-services/registry.obj": "44b3d28466c6854601407acd42c7b9934825d9ba0158188457d565d990a55558",
+    "link-v6-services/registry_main.obj": "7b18208faa0404a2c249527388fd55a4109407b9e525ee5ea8b04e80b55b17df",
+    "link-v6-services/validate.stdout": "ef155c1f2d07334dcb58dae04e917ecc09f5ddccf71e2d5ad3ae3e38ad4afb2e"
+  },
+  "recorders": [
+    {
+      "run": "20260906-p4-native-services-v1",
+      "manifest_sha256": "cd31f5eb44f6a77d30d61401470213acf1e82465c79c0d7a821eff5c11f8f0f0"
+    },
+    {
+      "run": "20260906-p4-native-services-v2-repeat",
+      "manifest_sha256": "5c98be8efd11f29da58828194954418e1a5edfb06d943519aa5eb70ff9a36dbf"
+    },
+    {
+      "run": "20260906-p4-native-registry-v4-services",
+      "manifest_sha256": "4d5b950448ef620879c654bf8c2fb1ef7eb278b035b588a9c8f98abb4be1fcdb"
+    },
+    {
+      "run": "20260906-p4-native-registry-v5-service-identities",
+      "manifest_sha256": "5b38be5acc7c5ea688fa30ec97a26997de45e228564518aa023e257f86899676"
+    },
+    {
+      "run": "20260906-p4-loader-plan-v6-services",
+      "manifest_sha256": "e3dc19871980123398c109a0215f1a0399178d503fd222883e6186920b9b1d9e"
+    },
+    {
+      "run": "20260906-p4-loader-plan-v7-repeat",
+      "manifest_sha256": "6e9059bfc8ab2b7e9130b492895e457408fe4d36c42d74434f27622ac6c33668"
+    },
+    {
+      "run": "20260906-p4-native-link-v6-services",
+      "manifest_sha256": "c44310a113a684c1a7548f24070a00fb583f408caa7e107a8e54102aa8be630d"
+    },
+    {
+      "run": "20260906-p4-native-link-v7-repeat",
+      "manifest_sha256": "75f74f2002c5e461f957b794943141d6958fa569769ff73c6870d91112da4581"
+    }
+  ],
+  "p4_gate_passed": false,
+  "limits": "No game execution or native module loading. Canonical functions stop explicitly; strong-data and TLS references remain unresolved. Native logical module slot 9 is reserved and must not be reused by future module loading."
+}
