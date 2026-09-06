@@ -714,10 +714,10 @@
   ],
   "native_game_boot": false,
   "native_port_playable": false,
-  "gate": "P3 remains open: eight fence findings, 9029 indirect-call records, 430 indirect-jump records, 155 unknown callback arguments, mutable constructor tables and native callback/exception/service/control contracts remain unresolved. Compilation is distinct from execution.",
+  "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 144 unknown callback arguments (142 with initial mutable binding candidates), x87 semantic failures, and native import/callback/exception/control contracts. All 18,444 initial constructor entries compile; no native startup or playable port.",
   "startup_recovery": {
     "path": "reports\\startup-recovery-evidence.json",
-    "sha256": "1646c631c9a6957faa7ef959b2ff7150c4fee0005f4dcfb7716abadfa2e0b528",
+    "sha256": "68fad98f4f70a6a9aa3adafafa2a1449a6ec33b1d7d8858c5f3f7ac38333beff",
     "result": {
       "status": "startup recovery evidence consistency pass; P3 gate open",
       "artifacts": {
@@ -1559,12 +1559,12 @@
           "reason": "Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries."
         }
       ],
-      "gate": "P3 remains open: eight fence findings, 9029 indirect-call records, 430 indirect-jump records, 155 unknown callback arguments, mutable constructor tables and native callback/exception/service/control contracts remain unresolved. Compilation is distinct from execution.",
+      "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 144 unknown callback arguments (142 with initial mutable binding candidates), x87 semantic failures, and native import/callback/exception/control contracts. All 18,444 initial constructor entries compile; no native startup or playable port.",
       "baseline_execution": "No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.",
       "native_game_boot": false,
       "native_port_playable": false,
       "historical_v4_gate": "P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.",
-      "current_directory": "local/cfg/startup-recovery-v9-repeat",
+      "current_directory": "local/cfg/startup-recovery-v13-repeat",
       "continuation": {
         "path": "reports\\startup-closure-evidence.json",
         "sha256": "0bd0cca7dd6a8f0e9e5c30c4e94a8a07f1708b80a1a2923212bda98ccb3112e7",
@@ -17477,6 +17477,1877 @@
             "The site inventory is static ownership, not execution coverage or an assertion that every instruction is incorrect.",
             "No game bytes executed, no native startup, no runtime state fix, and no new compilation coverage."
           ]
+        }
+      },
+      "callback_relocations": {
+        "path": "reports\\callback-relocation-evidence.json",
+        "sha256": "9115a2463bbe416e4b6ebf402bc01149b2b4c73710a4f412fbf1eddb796a0003",
+        "result": {
+          "status": "callback relocation closure evidence pass; P3 remains open",
+          "current_directory": "local/cfg/startup-recovery-v13-repeat",
+          "summary": {
+            "status": "P3 startup compilation/control closure NOT passed",
+            "counts": {
+              "recovery_entry": 21171,
+              "recovery_instruction": 873988,
+              "recovery_edge": 1085039,
+              "recovery_issue": 8,
+              "recovery_request": 72237
+            },
+            "constructors": {
+              "decoded_with_explicit_boundaries": 18444
+            },
+            "modules": {
+              "libSceHand.prx": 1,
+              "libSceHeadTracker.prx": 1,
+              "libSceFios2.prx": 89,
+              "libc.prx": 298,
+              "libSceSmart.prx": 1,
+              "libSceS3DConversion.prx": 1,
+              "libSceFace.prx": 1,
+              "eboot.bin": 20779
+            },
+            "decode_issue_kinds": {
+              "fallthrough_at_fence": 8
+            },
+            "frontier_counts": {
+              "unresolved_indirect_call": 9041,
+              "unresolved_indirect_jump": 430,
+              "logical_return_requires_dispatch": 20059,
+              "callback_argument_candidate": 26276,
+              "abi_register_preservation_unvalidated": 9354,
+              "annotated_control_contract_requires_runtime": 4297,
+              "import_contract_unvalidated": 20845,
+              "service_or_trap_boundary": 21,
+              "callback_contract_target_candidate": 2311,
+              "fallthrough_at_fence": 8,
+              "indirect_target_candidate": 4,
+              "exception_personality_candidate": 41,
+              "exception_runtime_unvalidated": 41,
+              "personality_import_unvalidated": 41,
+              "unresolved_exception_continuation": 42,
+              "unresolved_derived_control_continuation": 184,
+              "independently_recovered_jump_table": 12,
+              "unresolved_callback_argument": 144,
+              "unresolved_exit_callbacks": 5,
+              "unresolved_restored_context": 113,
+              "callback_relocation_binding_unvalidated": 142,
+              "callback_relocation_target_candidate": 142,
+              "callback_contract_null_argument": 15
+            },
+            "queued": 0,
+            "manifest_units": 21171,
+            "db_sha256": "955fe21955f492bc31f7e1673f77475e98f492974c09deda4df539597412ef65",
+            "manifest_sha256": "601d918e02746e46243f3d545b2b56326cf1a17334df002b0a079ce4d7eaa07b",
+            "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+            "native_game_boot": false,
+            "native_port_playable": false
+          },
+          "reproducibility": {
+            "analysis.sqlite": "955fe21955f492bc31f7e1673f77475e98f492974c09deda4df539597412ef65",
+            "compilation-manifest.jsonl": "601d918e02746e46243f3d545b2b56326cf1a17334df002b0a079ce4d7eaa07b",
+            "frontier.jsonl": "ca1a99490c3ff28b16b73b5e25144a7d7a2c0ba7e8aa372459fe19c27dcdde01",
+            "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+          },
+          "prior_instruction_sets_unchanged": 21160,
+          "new_entries": 11,
+          "new_instruction_addresses": 407,
+          "conditional_constant_callback_records": 11,
+          "initial_relocated_callback_records": 142,
+          "initial_bindings": [
+            {
+              "source_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "slot": 87966512,
+              "nid": "kxXCvcat1cM",
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 367840
+            },
+            {
+              "source_module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+              "slot": 87966520,
+              "nid": "Uw3OTZFPNt4",
+              "target_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+              "target": 377904
+            }
+          ],
+          "unknown_callback_records": 144,
+          "unknown_callback_records_without_initial_candidate": 2,
+          "independent_check": {
+            "status": "independent callback candidate comparison passed; runtime binding remains unknown",
+            "source_db_sha256": "955fe21955f492bc31f7e1673f77475e98f492974c09deda4df539597412ef65",
+            "selected_entries": 94,
+            "shared_instructions": 4030,
+            "ghidra_raw_sha256": {
+              "eboot.bin": "df895007bfa15d802964229b4c7c7f3b3492db646865335b036bb547428b48c0",
+              "libc.prx": "242662795f648901554f7a18c30f055394a970d691a63b701c59daf84071141b"
+            },
+            "comparison_sha256": "8b7b765a9681a4349e545caf8e3392b8befb6c24460bd922c51b709ae0dd8808",
+            "slot_checks": [
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16583008,
+                "call": 16583095,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  16583075
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16583008,
+                "call": 16583135,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  16583115
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16583760,
+                "call": 16583847,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  16583827
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16583760,
+                "call": 16583887,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  16583867
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18703888,
+                "call": 18703927,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18703907
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18703888,
+                "call": 18703967,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18703947
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18706320,
+                "call": 18706359,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18706339
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18706320,
+                "call": 18706392,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18706379
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18718528,
+                "call": 18718567,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18718547
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18718528,
+                "call": 18718607,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18718587
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18723312,
+                "call": 18723351,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18723331
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18723312,
+                "call": 18723391,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18723371
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18725760,
+                "call": 18725799,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18725779
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18725760,
+                "call": 18725839,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18725819
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18726640,
+                "call": 18726679,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18726659
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18726640,
+                "call": 18726712,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18726699
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18729376,
+                "call": 18729415,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18729395
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18729376,
+                "call": 18729455,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18729435
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18731056,
+                "call": 18731095,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18731075
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18731056,
+                "call": 18731135,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18731115
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18733104,
+                "call": 18733143,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18733123
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18733104,
+                "call": 18733183,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18733163
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18737712,
+                "call": 18737751,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18737731
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18737712,
+                "call": 18737791,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18737771
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18740496,
+                "call": 18740535,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18740515
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18740496,
+                "call": 18740575,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18740555
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18749168,
+                "call": 18749207,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18749187
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18749168,
+                "call": 18749247,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18749227
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18754064,
+                "call": 18754103,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18754083
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18754064,
+                "call": 18754143,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18754123
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18754528,
+                "call": 18754567,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18754547
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18754528,
+                "call": 18754607,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18754587
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757328,
+                "call": 18757367,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18757347
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757328,
+                "call": 18757407,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18757387
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757568,
+                "call": 18757607,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18757587
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757568,
+                "call": 18757647,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18757627
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757824,
+                "call": 18757863,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18757843
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18757824,
+                "call": 18757903,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18757883
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18758576,
+                "call": 18758615,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18758595
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18758576,
+                "call": 18758655,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18758635
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18758816,
+                "call": 18758855,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18758835
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18758816,
+                "call": 18758895,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18758875
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759472,
+                "call": 18759511,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18759491
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759472,
+                "call": 18759551,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18759531
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759712,
+                "call": 18759751,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18759731
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759712,
+                "call": 18759791,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18759771
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759952,
+                "call": 18759991,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18759971
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18759952,
+                "call": 18760031,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18760011
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763360,
+                "call": 18763399,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18763379
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763360,
+                "call": 18763439,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18763419
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763600,
+                "call": 18763639,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18763619
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763600,
+                "call": 18763672,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18763659
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763904,
+                "call": 18763943,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18763923
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18763904,
+                "call": 18763976,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18763963
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18764144,
+                "call": 18764183,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18764163
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18764144,
+                "call": 18764223,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18764203
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18764768,
+                "call": 18764807,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18764787
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18764768,
+                "call": 18764847,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18764827
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18765856,
+                "call": 18765895,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18765875
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18765856,
+                "call": 18765935,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18765915
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18766896,
+                "call": 18766935,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18766915
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18766896,
+                "call": 18766975,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18766955
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18767136,
+                "call": 18767175,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18767155
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18767136,
+                "call": 18767215,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18767195
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18768256,
+                "call": 18768295,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18768275
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18768256,
+                "call": 18768328,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18768315
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18771248,
+                "call": 18771287,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18771267
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18771248,
+                "call": 18771320,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18771307
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18772432,
+                "call": 18772471,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18772451
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18772432,
+                "call": 18772511,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18772491
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18775088,
+                "call": 18775127,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18775107
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18775088,
+                "call": 18775167,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18775147
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18794240,
+                "call": 18794279,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18794259
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18794240,
+                "call": 18794319,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18794299
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18794672,
+                "call": 18794711,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18794691
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18794672,
+                "call": 18794744,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18794731
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18795248,
+                "call": 18795287,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18795267
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18795248,
+                "call": 18795320,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18795307
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18796160,
+                "call": 18796199,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18796179
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18796160,
+                "call": 18796239,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18796219
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18797536,
+                "call": 18797575,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18797555
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18797536,
+                "call": 18797608,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18797595
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18799952,
+                "call": 18799991,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18799971
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18799952,
+                "call": 18800031,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18800011
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18804432,
+                "call": 18804471,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18804451
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18804432,
+                "call": 18804511,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18804491
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18805872,
+                "call": 18805911,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18805891
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18805872,
+                "call": 18805951,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18805931
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18806960,
+                "call": 18806999,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18806979
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18806960,
+                "call": 18807039,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18807019
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18807200,
+                "call": 18807239,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18807219
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18807200,
+                "call": 18807279,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18807259
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18808016,
+                "call": 18808055,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18808035
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18808016,
+                "call": 18808095,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18808075
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18811088,
+                "call": 18811127,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  18811107
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 18811088,
+                "call": 18811167,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  18811147
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 32141808,
+                "call": 32141895,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  32141875
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 32141808,
+                "call": 32141928,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  32141915
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33188400,
+                "call": 33188615,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  33188595
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33188400,
+                "call": 33188648,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  33188635
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33453120,
+                "call": 33453207,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  33453187
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33453120,
+                "call": 33453240,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  33453227
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34061200,
+                "call": 34061239,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34061219
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34061200,
+                "call": 34061279,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34061259
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34469760,
+                "call": 34469799,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34469779
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34469760,
+                "call": 34469839,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34469819
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34470080,
+                "call": 34470119,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34470099
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34470080,
+                "call": 34470159,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34470139
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34471568,
+                "call": 34471607,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34471587
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34471568,
+                "call": 34471647,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34471627
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34481392,
+                "call": 34481431,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34481411
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34481392,
+                "call": 34481471,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34481451
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34482576,
+                "call": 34482615,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  34482595
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34482576,
+                "call": 34482655,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  34482635
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40093552,
+                "call": 40093591,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40093571
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40093552,
+                "call": 40093631,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40093611
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40104688,
+                "call": 40104727,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40104707
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40104688,
+                "call": 40104767,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40104747
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40314256,
+                "call": 40314295,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40314275
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40314256,
+                "call": 40314335,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40314315
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40323104,
+                "call": 40323143,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40323123
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40323104,
+                "call": 40323183,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40323163
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40325616,
+                "call": 40325655,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40325635
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40325616,
+                "call": 40325695,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40325675
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40327184,
+                "call": 40327223,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40327203
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40327184,
+                "call": 40327263,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40327243
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40332080,
+                "call": 40332119,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40332099
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40332080,
+                "call": 40332159,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40332139
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40335424,
+                "call": 40335463,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40335443
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40335424,
+                "call": 40335503,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40335483
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40339232,
+                "call": 40339271,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40339251
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40339232,
+                "call": 40339311,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40339291
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40339664,
+                "call": 40339703,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40339683
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40339664,
+                "call": 40339736,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40339723
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40340032,
+                "call": 40340071,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40340051
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40340032,
+                "call": 40340104,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40340091
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40520080,
+                "call": 40520119,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40520099
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40520080,
+                "call": 40520159,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40520139
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40521600,
+                "call": 40521639,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  40521619
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 40521600,
+                "call": 40521679,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  40521659
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44438048,
+                "call": 44438087,
+                "slot": 87966512,
+                "independent_text": "MOV RDI,qword ptr [0x053e4330]",
+                "provenance": [
+                  44438067
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 44438048,
+                "call": 44438127,
+                "slot": 87966520,
+                "independent_text": "MOV RDI,qword ptr [0x053e4338]",
+                "provenance": [
+                  44438107
+                ]
+              }
+            ],
+            "constant_checks": [
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943604,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943640,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943683,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943726,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943769,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943812,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 943504,
+                "call": 943860,
+                "target": 37494352,
+                "independent_origin": "LEA RBX,[0x23c1e50]",
+                "provenance": [
+                  "LEA RBX,[0x23c1e50]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,RBX"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16658192,
+                "call": 16658450,
+                "target": 43710992,
+                "independent_origin": "LEA R14,[0x29afa10]",
+                "provenance": [
+                  "LEA R14,[0x29afa10]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x020854e0",
+                  "CALL 0x0207ecb0",
+                  "CALL 0x0207b9f0",
+                  "MOV RDI,R14"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 16658192,
+                "call": 16658552,
+                "target": 43710992,
+                "independent_origin": "LEA R14,[0x29afa10]",
+                "provenance": [
+                  "LEA R14,[0x29afa10]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x020854e0",
+                  "CALL 0x0207ecb0",
+                  "CALL 0x0207b9f0",
+                  "CALL 0x02bbe548",
+                  "CALL 0x020854e0",
+                  "CALL 0x0207ecb0",
+                  "CALL 0x0207b9f0",
+                  "MOV RDI,R14"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 29017840,
+                "call": 29018144,
+                "target": 28271648,
+                "independent_origin": "LEA R15,[0x1af6420]",
+                "provenance": [
+                  "LEA R15,[0x1af6420]",
+                  "CALL 0x02bbe548",
+                  "MOV RDI,R15"
+                ]
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 42472224,
+                "call": 42472438,
+                "target": 42441648,
+                "independent_origin": "LEA R15,[0x2879bb0]",
+                "provenance": [
+                  "LEA R15,[0x2879bb0]",
+                  "CALL 0x02bbe548",
+                  "CALL 0x02882940",
+                  "MOV RDI,R15"
+                ]
+              }
+            ],
+            "explained_extra_reachability": [
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 33188400,
+                "extra": [
+                  33194091,
+                  33194092
+                ],
+                "unexplained": []
+              },
+              {
+                "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+                "entry": 34648288,
+                "extra": [
+                  34649890
+                ],
+                "unexplained": []
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 405280,
+                "extra": [
+                  405427
+                ],
+                "unexplained": []
+              },
+              {
+                "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+                "entry": 437472,
+                "extra": [
+                  437619
+                ],
+                "unexplained": []
+              }
+            ],
+            "unexplained": 0,
+            "limitations": "Independent SLEIGH bytes, flow and absolute slot operands. Conditional SysV preservation is an ABI assumption, not proof of callee execution. Relocation provider identity and mutable runtime binding remain separate. No game execution."
+          },
+          "objects": [
+            {
+              "folder": "batch-0000",
+              "entries": [
+                367840,
+                377904,
+                398032,
+                405280,
+                405456,
+                405584,
+                406720,
+                437472,
+                437648,
+                437776,
+                437888
+              ],
+              "object_sha256": "f973f7e28b8240753860c6cf446f87212e940baced2f545f32b039f6ce5f2273",
+              "object_bytes": 34421,
+              "roots": 30,
+              "missing_path_records": 10,
+              "external_declarations": [
+                "__remill_write_memory_64",
+                "sub_800013050",
+                "__remill_read_memory_32",
+                "llvm.ctpop.i8",
+                "__remill_flag_computation_zero",
+                "__remill_flag_computation_sign",
+                "__remill_flag_computation_overflow",
+                "__remill_write_memory_32",
+                "sub_800013090",
+                "__remill_undefined_8",
+                "__remill_compare_neq",
+                "__remill_flag_computation_carry",
+                "__remill_read_memory_64",
+                "__remill_function_return",
+                "sub_8000628a0",
+                "sub_800060340",
+                "sub_8000610a0",
+                "__remill_missing_block",
+                "sub_800000100",
+                "__remill_compare_eq",
+                "__remill_read_memory_8",
+                "__remill_function_call",
+                "sub_8000630c0",
+                "sub_800000110",
+                "sub_800053950",
+                "__remill_write_memory_8"
+              ]
+            }
+          ],
+          "combined_compiled_entries": 21161,
+          "compiled_constructors": 18444,
+          "combined_objects": 381,
+          "duplicate_logical_roots": 0,
+          "remaining_compiler_rejections": 2,
+          "remaining_quarantined_entries": 8,
+          "focused_tests": 42,
+          "runs": {
+            "20260906-p3-sysv-candidate-checks-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "877c56b34fbbbecfe5b44a4734678553285f3af3f36e441f924a26b27724e076",
+              "elapsed_seconds": 1.595504199853167
+            },
+            "20260906-p3-startup-recovery-v11-sysv": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "877c56b34fbbbecfe5b44a4734678553285f3af3f36e441f924a26b27724e076",
+              "elapsed_seconds": 101.22324409987777
+            },
+            "20260906-p3-startup-sysv-delta-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "ff651cc8a27367626ba46c6bb27e62daa816664f71608c7cb666b0871dfb83f5",
+              "elapsed_seconds": 20.87100120005198
+            },
+            "20260906-p3-callback-relocation-checks-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "ed705277a0778b2d4183494d0744d18312dce78d6dea3f86edf7bd76d8d5ab2b",
+              "elapsed_seconds": 0.6697691001463681
+            },
+            "20260906-p3-callback-relocation-checks-v2": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "c2291de5959dfa5d7cdf3704a2f02dcb946b2c94e752ad7ad080023441e852d3",
+              "elapsed_seconds": 0.3554867999628186
+            },
+            "20260906-p3-startup-recovery-v12-relocations": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "ff651cc8a27367626ba46c6bb27e62daa816664f71608c7cb666b0871dfb83f5",
+              "elapsed_seconds": 169.81491920002736
+            },
+            "20260906-p3-startup-recovery-v13-repeat": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "920ace29bf18b5a0b51bc07e480db7a30f6954f317f973d4f608654540154135",
+              "elapsed_seconds": 128.08555749990046
+            },
+            "20260906-p3-callback-candidate-delta-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "920ace29bf18b5a0b51bc07e480db7a30f6954f317f973d4f608654540154135",
+              "elapsed_seconds": 26.713650700170547
+            },
+            "20260906-p3-ghidra-callback-candidates-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "920ace29bf18b5a0b51bc07e480db7a30f6954f317f973d4f608654540154135",
+              "elapsed_seconds": 40.69766409997828
+            },
+            "20260906-p3-callback-candidates-check-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "77835548b6301eb96ee1111088e570f1bb83a32e6562048785fb98cb1a63a765",
+              "elapsed_seconds": 1.7065288999583572
+            },
+            "20260906-p3-callback-relocation-compile-v1": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "77835548b6301eb96ee1111088e570f1bb83a32e6562048785fb98cb1a63a765",
+              "elapsed_seconds": 5.379523599985987
+            },
+            "20260906-p3-callback-relocation-compile-v2-repeat": {
+              "status": "pass",
+              "source_commit": "a47590ef7b4be8c9af2fa957a93ccbcb261e47ac",
+              "sources_sha256": "77835548b6301eb96ee1111088e570f1bb83a32e6562048785fb98cb1a63a765",
+              "elapsed_seconds": 4.1273065998684615
+            }
+          },
+          "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 144 unknown callback arguments (142 with initial mutable binding candidates), x87 semantic failures, and native import/callback/exception/control contracts. All 18,444 initial constructor entries compile; no native startup or playable port.",
+          "limitations": [
+            "Preserved normal SysV return registers are explicit conditional ABI assumptions; asynchronous/nonlocal control is unvalidated.",
+            "A mutable slot initial binding never removes its unknown runtime callback argument. Exactly two supplied libc function exports seed eleven transitive bodies.",
+            "Old instruction sets are unchanged; new object symbols have no overlap with retained successful batches. Objects were not linked or executed.",
+            "Original source/modules and runs remain unchanged. The x87 counterexample report still blocks native state serialization."
+          ],
+          "native_game_boot": false,
+          "native_port_playable": false
         }
       }
     }
