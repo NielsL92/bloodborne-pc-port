@@ -1,10 +1,10 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 13:58 UTC
+## Current continuation — 2026-09-06 14:21 UTC
 
-Execution continues autonomously; user action: none. Read `reports/softfloat.md` and `reports/softfloat-evidence.json` along with the x87 image/MXCSR evidence. A compiled SoftFloat 3e numeric candidate passes 481,248 authored hardware comparisons and 262,144 TLS cases. All 302 objects/library reproduce byte-for-byte. Sources and license remain unchanged. It is not yet bound to instruction selectors and is not a CPU interpreter/fallback.
+Execution continues autonomously; user action: none. Read `reports/x87-raw.md` / `reports/x87-raw-evidence.json` and the SoftFloat, MXCSR and image reports. Experimental v23-raw-profile passes 688,144 raw80/register/sign/conditional cases with 190,914 matched hardware faults. Both update profiles are explicit; older C1 failures and the incorrect CPUID guard remain retained. The independent hardware pointer probe has 1,920 cases. Existing stack/image regressions pass 1,499,136 / 557,864.
 
-Next: canonical raw 80-bit memory/register transfers, FCHS/conditional moves and pointer metadata; then numeric wrappers for memory conversions/arithmetic with explicit x87 exceptions/rounding and MMX coherence. Experimental v19-mxcsr remains unaccepted for startup; accepted semantics remain v9-sqrt. Current library: build/softfloat-v2-repeat/softfloat.lib, with explicit scoped TLS control handling still required for integration.
+Next: scoped native SoftFloat wrappers for narrower x87 memory conversions and arithmetic, explicit denormal/C1/unmasked-result handling, integration of pointer/opcode policy across older producers and FNINIT segment reset, then MMX coherence and remaining native control closure. Current library is build/softfloat-v2-repeat/softfloat.lib; no instruction calls it yet. Experimental v23 remains unaccepted for startup; accepted semantics remain v9-sqrt.
 
 Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio work remains unchanged. Preserve every run and use tools/run_record.py with fresh outputs.
 
