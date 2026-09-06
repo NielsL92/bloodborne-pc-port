@@ -39,7 +39,7 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None, object_dispatch_evidence=None, service_site_evidence=None, symbol_dispatch_evidence=None, lua_panic_evidence=None):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None, object_dispatch_evidence=None, service_site_evidence=None, symbol_dispatch_evidence=None, lua_panic_evidence=None, conditional_control_evidence=None):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
         self.sysv_callee_saved_candidates = sysv_callee_saved_candidates
         self.initial_callback_relocation_candidates = initial_callback_relocation_candidates
@@ -119,6 +119,10 @@ class Recovery:
         if service_site_evidence:
             from tools.cfg_service_sites import load_sites
             self.service_sites = load_sites(service_site_evidence,self.images,self.imported,self.pads)
+        self.conditional_control_sites = {}
+        if conditional_control_evidence:
+            from tools.cfg_conditional_control import load_sites
+            self.conditional_control_sites = load_sites(conditional_control_evidence,self.images,self.imported,self.pads)
         self.callback_slices={}
         self.callback_slice_evidence_sha256=sha(callback_slice_evidence) if callback_slice_evidence else None
         if callback_slice_evidence:
@@ -186,6 +190,8 @@ class Recovery:
             policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
         if service_site_evidence:
             self.identity['service_site_evidence_sha256']=sha(service_site_evidence)
+        if conditional_control_evidence:
+            self.identity['conditional_control_evidence_sha256']=sha(conditional_control_evidence)
         if lua_panic_evidence:
             self.identity['lua_panic_evidence_sha256']=self.lua_panic_evidence_sha256
         if symbol_dispatch_evidence:
@@ -282,6 +288,14 @@ class Recovery:
                     contract=site_contract['id'],context=site_contract['context'],
                     obligations=site_contract['obligations'],
                     limitation='Conditional no ordinary return only; native service, cleanup and nonlocal effects remain unvalidated'),sort_keys=True))
+            from tools.cfg_conditional_control import match_site as match_conditional_site
+            conditional=match_conditional_site(getattr(self,'conditional_control_sites',{}),h,start,at,target)
+            if conditional:
+                assert not c, 'conflicting conditional ending contract'
+                c=dict(id=conditional['id'],restored_target_unknown=False)
+                edge(at,None,'unresolved_conditional_control_continuation',json.dumps(dict(
+                    contract=conditional['id'],proof=conditional['proof_id'],conditions=conditional['conditions'],
+                    limitation='No ordinary return under explicit callback/control contracts; all runtime targets and nonlocal effects remain unknown'),sort_keys=True))
             if c:
                 edge(at,target,'annotated_control_contract_requires_runtime',c['id'])
                 if c['restored_target_unknown']:edge(at,None,c.get('unknown_exit_kind','unresolved_restored_context'),c['id'])
@@ -521,7 +535,7 @@ class Recovery:
         import gc
         for name in ('images','links','relocs','ranges','fences','code_seeds',
                      'byte_owners','known','exports','pads','regions','requested','done',
-                     'import_cache','callback_slices','object_dispatch','symbol_dispatch','lua_panic','local_contracts'):
+                     'import_cache','callback_slices','object_dispatch','symbol_dispatch','lua_panic','conditional_control_sites','local_contracts'):
             getattr(self,name).clear()
         gc.collect()
         db.execute('PRAGMA cache_size=-65536')
@@ -551,10 +565,11 @@ def main():
     p.add_argument('--service-site-evidence',type=Path,help='Independent exact service-call context annotations; native runtime obligations remain explicit')
     p.add_argument('--symbol-dispatch-evidence',type=Path,help='Independent initial symbol-relocation dispatch candidates; keep original unknown targets')
     p.add_argument('--lua-panic-evidence',type=Path,help='Independent mutable Lua panic-field candidates; retain runtime alias and unknown-target obligations')
+    p.add_argument('--conditional-control-evidence',type=Path,help='Exact disputed endings under checked callback/control conditions; retain native continuation obligations')
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence,a.object_dispatch_evidence,a.service_site_evidence,a.symbol_dispatch_evidence,a.lua_panic_evidence).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence,a.object_dispatch_evidence,a.service_site_evidence,a.symbol_dispatch_evidence,a.lua_panic_evidence,a.conditional_control_evidence).run()
 
 
 if __name__=='__main__':main()
