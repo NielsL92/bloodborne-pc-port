@@ -1,10 +1,10 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 13:36 UTC
+## Current continuation — 2026-09-06 13:47 UTC
 
-Execution continues autonomously; user action: none. Read `reports/x87-images.md` and `reports/x87-image-evidence.json`. Experimental v18 binds FNSTENV/FLDENV/FXSAVE/FXSAVE64 and normalizes FLDCW. All 557,864 authored image cases pass, including 161,640 compared faults, four additional pending-before-unsupported cases and 24 explicit unsupported mappings. Existing stack/fault regressions pass 1,499,136 / 720,896 cases; pure image helpers pass 5,242,880 checks. All prior failures remain preserved.
+Execution continues autonomously; user action: none. Read `reports/mxcsr.md`, `reports/mxcsr-evidence.json`, `reports/x87-images.md` and its evidence. Experimental v19 replaces guest MXCSR loads/stores and reserved-bit faults: 812,640 authored cases pass. Original counterexamples remain retained. All 557,864 image checks and 8,912,896 adjacent SIMD checks pass in v19. Prior v18 stack/fault checks pass 1,499,136 / 720,896; pure images pass 5,242,880.
 
-Next: correct LDMXCSR/STMXCSR guest state isolation and reserved-bit faults, complete x87 memory/arithmetic and MMX coherence, and continue native runtime/control closure. Other x87 producers still require pointer-segment metadata. Experimental v18 remains unaccepted for startup; accepted semantics remain v9-sqrt.
+Next: complete x87 memory conversions/arithmetic and MMX coherence, including pointer metadata from all x87 producers, then continue native runtime/control closure. MXCSR and image runtime services must share an explicit guest feature profile. Experimental v19 remains unaccepted for startup; accepted semantics remain v9-sqrt.
 
 Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio work remains unchanged. Preserve every run and use tools/run_record.py with fresh outputs.
 
