@@ -1,6 +1,14 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-06 22:37 UTC
+## Current continuation — 2026-09-06 22:51 UTC
+
+Continue autonomously; user action: none. Read reports/native-loader.md and reports/native-loader-evidence.json, then reports/native-link.md. **P3 compilation/explicit-handling passed; P4 is open. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
+
+Loader plan local/runtime/loader-plan-v5-repeat matches v4-weak exactly: eight modules, sixteen segments, 97,517,568 mapped bytes, 238,609 relocations, zero code relocations and all 18,444 constructor slots checked. These are fresh copied segment bytes and a plan; native private loading is not implemented yet. Library and module versions are checked for supplied symbol bindings. Twelve weak module callbacks resolve to zero only under independently checked ELF/Ghidra evidence (loader-weak-v3-source-identity). Strong imports remain explicit.
+
+752 unresolved relocation references remain: 715 functions, twenty data objects and seventeen TLS module references. Next generate canonical native external-function identities across modules (preserving pointer equality and explicit unimplemented stops), then resolve/test the strong-data/TLS contracts and implement private NX loading plus actual entry setup. Keep constructor mutation, unvisited targets, FP profile selection, guest exceptions/nonlocal transfer and real services visible. The 54,663,680-byte complete registry validator remains local/runtime/link-v5-repeat/registry.exe; it executes no game entries. Active game manifest/registry/compiler/semantics and all P1 work remain as recorded in the preceding checkpoint. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 22:37 UTC
 
 Continue autonomously; user action: none. Read reports/native-link.md and reports/native-link-evidence.json, then reports/runtime-fp.md, reports/runtime-boundaries.md and reports/source-exits.md. **P3 startup compilation and explicit-exit-handling gate passes; proceed to P4. No game-derived CPU function has been executed, no native game boot exists and there is no playable port.**
 
