@@ -35,7 +35,7 @@ ALWAYS_INLINE void BBX87Instruction(State& s,addr_t pc,uint16_t fop){s.x87.fxsav
 
 template<bool One> DEF_SEM(BBX87Constant,PC pc,I16 fop){BBX87Pending(memory,state);BBX87Instruction(state,Read(pc),Read(fop));bool full=BBX87Occupied(state,7);BBX87SetStatus(state,BBX87Status(state)&~uint16_t(0x200));BBX87Bits v=One?BBX87Bits{0x8000000000000000ULL,0x3fff}:BBX87Bits{0,0};if(full){if(BBX87Raise(state,1,true,true))return memory;v=BBX87Indefinite();}BBX87Push(state,v);return memory;}
 DEF_SEM(BBX87Initialize){unsigned top=state.x87.fxsave.swd.top;BBX87Bits values[8];for(unsigned i=0;i<8;++i)values[i]=BBX87Read(&state.st.elems[i].val);for(unsigned i=0;i<8;++i)BBX87Write(&state.st.elems[i].val,values[(i+8-top)&7]);state.x87.fxsave.cwd.flat=0x37f;BBX87SetStatus(state,0);state.x87.fxsave.ftw.flat=0;state.x87.fxsave.ip=0;state.x87.fxsave.dp=0;state.x87.fxsave.fop=0;return memory;}
-DEF_SEM(BBX87LoadControl,M16 src){BBX87Pending(memory,state);state.x87.fxsave.cwd.flat=Read(src);return memory;}
+DEF_SEM(BBX87LoadControl,M16 src){BBX87Pending(memory,state);state.x87.fxsave.cwd.flat=Read(src);auto sw=BBX87Status(state)&~uint16_t(0x8080);if(sw&~state.x87.fxsave.cwd.flat&63)sw|=0x8080;BBX87SetStatus(state,sw);return memory;}
 DEF_SEM(BBX87StoreControl,M16W dst){Write(dst,state.x87.fxsave.cwd.flat);return memory;}
 template<typename D> DEF_SEM(BBX87StoreStatus,D dst){auto sw=BBX87Status(state);BBX87SetStatus(state,sw);Write(dst,sw);return memory;}
 DEF_SEM(BBX87Wait){BBX87Pending(memory,state);return memory;}
@@ -44,13 +44,15 @@ DEF_SEM(BBX87StorePop,RF80W dst,RF80W src,PC pc,I16 fop){BBX87Pending(memory,sta
 
 template<bool Pop> DEF_SEM(BBX87UnorderedCompare,RF80W src1,RF80W src2,PC pc,I16 fop){
  BBX87Pending(memory,state);BBX87Instruction(state,Read(pc),Read(fop));BBX87SetStatus(state,BBX87Status(state)&~uint16_t(0x200));
+ FLAG_OF=0;FLAG_SF=0;FLAG_AF=0;
  auto a=BBX87Read(src1.val_ref),b=BBX87Read(src2.val_ref);unsigned ea=a.sign_exponent&0x7fff,eb=b.sign_exponent&0x7fff;bool ja=(a.significand>>63)!=0,jb=(b.significand>>63)!=0;
  bool empty=!BBX87Occupied(state,BBX87Index(state,src1))||!BBX87Occupied(state,BBX87Index(state,src2));bool unsupported=(ea&&!ja)||(eb&&!jb);bool nan_a=ea==0x7fff&&a.significand!=0x8000000000000000ULL,nan_b=eb==0x7fff&&b.significand!=0x8000000000000000ULL;bool invalid=empty||unsupported||(nan_a&&!(a.significand&(1ULL<<62)))||(nan_b&&!(b.significand&(1ULL<<62)));
- if(invalid&&BBX87Raise(state,1,empty))return memory;
+ // Intel PII specification update A16 and two independent host probes support flag writes even for newly raised unmasked invalid. AMD Jaguar equivalence remains open.
+ bool invalid_unmasked=invalid&&BBX87Raise(state,1,empty);
  bool unordered=empty||unsupported||nan_a||nan_b,less=false,equal=false;
- if(!unordered&&((!ea&&a.significand)||(!eb&&b.significand))&&BBX87Raise(state,2))return memory;
+ bool denormal_unmasked=!unordered&&((!ea&&a.significand)||(!eb&&b.significand))&&BBX87Raise(state,2);
  if(!unordered){if(!ea&&ja)ea=1;if(!eb&&jb)eb=1;bool za=!ea&&!a.significand,zb=!eb&&!b.significand;bool sa=a.sign_exponent>>15,sb=b.sign_exponent>>15;equal=(za&&zb)||(sa==sb&&ea==eb&&a.significand==b.significand);bool magnitude_less=ea<eb||(ea==eb&&a.significand<b.significand);less=!equal&&(sa!=sb?sa:(sa?!magnitude_less:magnitude_less));}
- FLAG_OF=0;FLAG_SF=0;FLAG_AF=0;FLAG_CF=unordered||less;FLAG_PF=unordered;FLAG_ZF=unordered||equal;if(Pop)BBX87Pop(state);return memory;
+ FLAG_OF=0;FLAG_SF=0;FLAG_AF=0;FLAG_CF=unordered||less;FLAG_PF=unordered;FLAG_ZF=unordered||equal;if(Pop&&!invalid_unmasked&&!denormal_unmasked)BBX87Pop(state);return memory;
 }
 }
 DEF_ISEL(FLD1)=BBX87Constant<true>;

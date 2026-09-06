@@ -1,6 +1,6 @@
 # P2 whole-function compiler experiment
 
-Shutdown checkpoint 2026-09-06 02:34 UTC: experimental x87 stack/control work is preserved in `reports/x87-stack-control.md`; the expanded diagnostic found denormal-status differences, and its correction is built but awaits testing. Accepted startup objects and P3 gate status are unchanged. No native game execution occurred.
+Current 2026-09-06 12:53 UTC: experimental x87 stack/control semantics pass 1,499,136 masked cases and 720,896 deferred-fault cases (285,424 delivered faults). See `reports/x87-faults.md` and its evidence. The family remains partial and unaccepted for startup; no game-derived object was linked or executed.
 
 Updated 2026-09-05. The bounded feasibility gate now supports proceeding to P3. No native gameplay or complete port is demonstrated. The earlier failed performance/coverage gate and all failed runs remain preserved in reports/archive/compiler-spike-pre-restart.md and local/runs.
 

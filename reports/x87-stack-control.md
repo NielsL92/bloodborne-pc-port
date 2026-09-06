@@ -1,5 +1,7 @@
 # Experimental x87 stack and control recovery
 
+Current 2026-09-06 12:53 UTC: [waiting and exception evidence](x87-faults.md) supersedes the next-step notes below. The v15 experimental module passes the masked and deferred-fault suites. The older results below are retained history; accepted startup semantics and the open P3 gate are unchanged.
+
 Updated 2026-09-06 02:34 UTC. Paused at the user's request for PC shutdown. P3 remains open and the accepted startup semantics remain `build/extended-semantics-v9-sqrt`. No native game boot or gameplay exists.
 
 The isolated integer implementation in `native/semantics/X87_STATE.cpp.inc` replaces sixteen selector bindings for FLD1/FLDZ, FNINIT, FLDCW/FNSTCW/FNSTSW, register FXCH/FSTP, FUCOMI/FUCOMIP and FWAIT. It preserves raw 80-bit payloads, models physical occupancy and logical TOP, synchronizes split status flags and avoids changing host floating controls. This is a partial experimental family: memory loads/stores, arithmetic, serializers and complete native faults remain unresolved. It must not be used for startup compilation yet.

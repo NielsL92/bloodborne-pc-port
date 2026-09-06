@@ -1,5 +1,7 @@
 # x87 state blockers
 
+Current 2026-09-06 12:53 UTC: [waiting and exception evidence](x87-faults.md) supersedes the next-step notes below. The v15 experimental module passes the masked and deferred-fault suites. The older results below are retained history; accepted startup semantics and the open P3 gate are unchanged.
+
 Latest checkpoint 2026-09-06 02:34 UTC: see [experimental stack/control recovery](x87-stack-control.md). The historical counterexamples below remain preserved; v11 resolves the original diagnostic, while the expanded suite exposes further status work. v12 is built but untested. The accepted startup module and open gate are unchanged.
 
 Updated 2026-09-06 00:36 UTC. P3 remains open; no native game boot exists.

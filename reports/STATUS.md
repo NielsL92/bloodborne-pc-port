@@ -1,10 +1,12 @@
 # Native recompilation execution status
 
-## Shutdown checkpoint — 2026-09-06 02:34 UTC
+## Current continuation — 2026-09-06 12:53 UTC
 
-Paused at the user's explicit request; no experiment remains running. Resume here when the user returns. Read `reports/x87-stack-control.md` and `reports/x87-state-evidence.json` (`latest_experimental_checkpoint`). The experimental x87 v11 module matches the original 11,520-case probe; a 1,499,136-case expanded probe exposes 35,888 missing denormal-status cases. The corrected v12 module builds but is **not yet tested**. Next run `tools.x87_stack_probe` against `build/extended-semantics-v12-x87-denormal`, using `tools/run_record.py` and fresh outputs. Then investigate remaining discrepancies and unmasked/waiting semantics. Keep accepted startup semantics at v9-sqrt; this partial x87 family does not pass the startup gate. No user action is needed beyond resuming after shutdown.
+Execution resumed from shutdown commit 98762f2. Read `reports/x87-faults.md` and `reports/x87-fault-evidence.json`. The experimental x87 v15 module passes 1,499,136 masked cases and 720,896 pending/new-exception cases, including 285,424 precise fault callbacks. An independent hardware-only probe resolves the observed Intel unmasked-comparison flag discrepancy while preserving the conflicting documentation and AMD uncertainty. Evidence audit passes. Accepted startup semantics remain v9-sqrt; the sixteen-selector experimental family still lacks memory conversion, arithmetic and serializers.
 
-Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`. Counts remain 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. No native game boot or playable port exists. Source commits preceding this checkpoint: 8d04375, 3660d1e, 350ca57.
+Next: independently check FNSTENV/FLDENV/FXSAVE serialization using the canonical x87 representation, then complete memory/arithmetic semantics and native fault contracts before accepting a coherent startup module. Read the exact two rejected libc bodies 0x30430 and 0x53cd0. Preserve old runs and use fresh directories with `tools/run_record.py`. User action: none; continue autonomously until a required action or stop request.
+
+Canonical recovery remains `local/cfg/startup-recovery-v22-cache-repeat`: 21,178 entries / 874,266 instructions; 21,168 compiled entries, two x87 rejections and eight quarantines. All 18,444 initial constructors compile. No native game boot or playable port exists. P1 route/profiling/audio investigations remain unchanged.
 
 Updated 2026-09-06 02:12 UTC. PLAN.md execution is authorized, including routine cost-free actions. No native game boot, native vertical slice, or playable port exists.
 
