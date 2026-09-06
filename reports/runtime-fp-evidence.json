@@ -1,0 +1,158 @@
+{
+  "status": "native FP runtime repeated artifacts and regressions verified",
+  "fp": {
+    "status": "authored AOT FP runtime profile/numeric boundaries pass",
+    "positive": {
+      "status": "pass",
+      "aot_cases": 32768,
+      "profile_variants": 64,
+      "segment_forms": 7,
+      "private_mappings_NX": true,
+      "game_execution": false
+    },
+    "negative": [
+      {
+        "mode": "no-profile",
+        "reason": 40,
+        "boundary": "unconfigured-fp-profile",
+        "source": null
+      },
+      {
+        "mode": "unknown-site",
+        "reason": 41,
+        "boundary": "unknown-x87-site",
+        "source": 4295819776
+      },
+      {
+        "mode": "bad-site-fop",
+        "reason": 41,
+        "boundary": "x87-metadata-contract",
+        "source": 4295819776
+      },
+      {
+        "mode": "span-write",
+        "reason": 42,
+        "boundary": "x87-span-contract",
+        "source": 4295819264
+      },
+      {
+        "mode": "span-unmapped",
+        "reason": 4,
+        "boundary": "memory-read",
+        "source": 4295819264
+      },
+      {
+        "mode": "image-alignment",
+        "reason": 3,
+        "boundary": "memory-alignment",
+        "source": 4295820352
+      },
+      {
+        "mode": "divide-zero",
+        "reason": 43,
+        "boundary": "integer-divide",
+        "source": 4295820096
+      },
+      {
+        "mode": "divide-overflow",
+        "reason": 43,
+        "boundary": "integer-divide",
+        "source": 4295820096
+      },
+      {
+        "mode": "mxcsr",
+        "reason": 44,
+        "boundary": "mxcsr-reserved-bits",
+        "source": 4295820032
+      },
+      {
+        "mode": "simd",
+        "reason": 45,
+        "boundary": "simd-unmasked",
+        "source": 4295820160
+      },
+      {
+        "mode": "x87-pending",
+        "reason": 46,
+        "boundary": "x87-pending",
+        "source": 4295820224
+      },
+      {
+        "mode": "x87-unsupported",
+        "reason": 47,
+        "boundary": "x87-unsupported",
+        "source": 4295820292
+      }
+    ],
+    "setup_rejections": 3,
+    "lifter_sha256": "20fd7b06fafc7ae97c6cecccfb64ed0f5fd605d537e0c9125b0cbc10e469bbcf",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "softfloat_sha256": "c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342",
+    "builtins_sha256": "9cff03d2c5218693b1f91efc0074957c710eeddd932d57a681c8f558b81fbe8e",
+    "source_sha256": {
+      "E:\\bloodborne PC port\\native\\runtime\\control.cpp": "ad556b94394b8da88de5f0fa5a96bf6421a6ca3cfc63cd1727053470195f76aa",
+      "E:\\bloodborne PC port\\native\\runtime\\control_fixture.cpp": "ba043b0f57ef2bdc442fe40c2c4a7a233ad073e3ba63ea4fc13be8f1547eba76",
+      "E:\\bloodborne PC port\\native\\runtime\\fault.cpp": "b14c9d36defb33f150071198bf3a33426305fa13e18fa60199cdf4fd18543f88",
+      "E:\\bloodborne PC port\\native\\runtime\\fp.cpp": "3a24f8aa2d822dba31367123c765220a8734bd3ca0eed1c8d90f481b0736b619",
+      "E:\\bloodborne PC port\\native\\runtime\\fp_fixture.cpp": "62c7058c6646897906ffd7e98bf4a16dfed25a012b97af9338b1891e3e29b8af",
+      "E:\\bloodborne PC port\\native\\runtime\\intrinsics.cpp": "9325ac8fc4a15b5b6661e9e79d54328cc23eb0a4e1905fa87b055cea3de80590",
+      "E:\\bloodborne PC port\\native\\runtime\\memory.cpp": "048f0e3a43cb26c3c11546c733b58556ecdeb526396010a8c9f433fe4dec4d63",
+      "E:\\bloodborne PC port\\native\\runtime\\memory_fixture.cpp": "a23fab807306d875daff0631e87e9182ec86e220e29a0c1c963b886bf0d71a69",
+      "E:\\bloodborne PC port\\native\\runtime\\runtime.h": "231f13eb5081ba92e39f825561f2f60a5fbdaa3baa42e331e046f6d825a0143e"
+    },
+    "limitations": "Explicit authored profiles only. No inferred PS4 profile, guest exception recovery, game execution or game service implementation."
+  },
+  "identical_artifacts": {
+    "audit.json": "af81066c42edb95250fcadd25b93fb2928dfcb9e176e82a0eb6801c02a183d96",
+    "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+    "fault.obj": "7369a7f6940848d898ecc5315d886b70a0d9b4aab0cb2ca08dbe0195171317a7",
+    "fp.obj": "5638e88e2be3dc263e974c4a4a7392dc90ffceec91d032e9f2ba1c56b492eaa6",
+    "fp_fixture.obj": "284de96b4fcb8c78eb8250d31999bdca69d54d618509dab54f54bd9e1b711b8a",
+    "function.bc": "05afe7066062367e406d4c1c99cdb1bc705aa65282e1f1761eb5d6cbdd2369d4",
+    "function.obj": "59e3d66a23e1e633de4cb4da021173c602dbf82318854ae389142a70d0ad25c2",
+    "input.json": "9c48be3bdac99ec85c1472a11a98fe7bd535610f988ba2f926af08efea5addc5",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "positive.stdout": "ec3001c1488e7982d66462dc9a98d9eed2590d644575d1678de06c46bf11ba62",
+    "runtime-fp-entries.h": "110855dde79abb716467a598d143448c5115ebb43a128dc39da92bf1157b7588",
+    "sites.json": "adf3f339d66844a32ec52195bb4ec2a14d886bb00232e5836d677dae42278312"
+  },
+  "recorders": [
+    {
+      "run": "20260906-p3-runtime-fp-v2-payloads",
+      "manifest_sha256": "ff471781bde34384e0d950b5094907f2bc5134cb73c16b418ca931bed57833c8",
+      "source_zip_sha256": "359109c4f728ff5856ff347ab94137e257ec493cab5cc5b033a31fa9977fd2de"
+    },
+    {
+      "run": "20260906-p3-runtime-fp-v3-repeat",
+      "manifest_sha256": "628e782d126f848afd8a7bfe93aded974c051d3196ba42226caa061fb53be191",
+      "source_zip_sha256": "359109c4f728ff5856ff347ab94137e257ec493cab5cc5b033a31fa9977fd2de"
+    },
+    {
+      "run": "20260906-p3-runtime-memory-v4-fp-regression",
+      "manifest_sha256": "73636d73ee2328d061ba696cdbbf61d4bd7744d78af78b91f5fd655e08081ed1",
+      "source_zip_sha256": "bf6b2667845001067daa19123bbfd4739944510531115fed434d81a1ae774cf6"
+    },
+    {
+      "run": "20260906-p3-runtime-control-v6-fp-regression",
+      "manifest_sha256": "c7468ee36d6e639e15332cc861b1553f48223b1ccf2d2f9d3eafd554fee7789a",
+      "source_zip_sha256": "bf6b2667845001067daa19123bbfd4739944510531115fed434d81a1ae774cf6"
+    }
+  ],
+  "memory": {
+    "status": "pass",
+    "cases": 49256,
+    "atomic_tickets": 32768,
+    "threads": 4,
+    "private_mappings_NX": true,
+    "game_execution": false
+  },
+  "control": {
+    "status": "pass",
+    "aot_cases": 20480,
+    "paths": 5,
+    "private_mappings_NX": true,
+    "game_execution": false
+  }
+}
