@@ -1,5 +1,8 @@
 # Unresolved-slot guards and precise memory fault sources
 
+Current generation (2026-09-06 23:42 UTC): see reports/native-memory-sources.md. Active objects are native-memory-manifest-v1; current registry is registry-v7-memory-repeat, link is link-v9-memory-repeat and loader plan is loader-plan-v8-memory. Complete authored/source/LLVM/link checks pass; native game loading/execution has not occurred.
+
+
 2026-09-06 23:26 UTC. P4 remains open; P3 compilation/explicit handling passed under its recorded narrow scope. No game-derived CPU function has executed. Native module loading, boot and gameplay remain absent.
 
 Registered RAM can now carry immutable named access guards over unresolved relocation slots. Full-span read, write, CAS and atomic accesses reject overlap before copying bytes or counting a completed operation. A guard may cross two adjacent logical regions with separate private NX backing. Setup rejects overlapping, unmapped, zero-sized or post-seal guards. These guards preserve unresolved values; they do not resolve the twenty strong data imports or seventeen TLS relocations.
