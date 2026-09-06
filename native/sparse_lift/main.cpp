@@ -30,6 +30,8 @@ namespace {
 std::map<uint64_t,std::string> instructions;
 std::map<uint64_t,uint8_t> memory;
 std::set<uint64_t> decoded,missing,declared_traps,emitted_traps;
+struct X87Opcode {uint16_t original,corrected;};
+std::map<uint64_t,X87Opcode> x87_opcodes;
 [[noreturn]] void reject(const std::string& why) { throw std::runtime_error(why); }
 uint64_t number(const llvm::json::Object& o,llvm::StringRef key) {
   auto v=o.getInteger(key);if(!v||*v<0)reject("missing/nonpositive address field: "+key.str());return uint64_t(*v);
@@ -50,9 +52,23 @@ bool bb_sparse_instruction_start(uint64_t pc) {
   if(memory.count(pc))reject("control transfer enters an instruction interior");
   missing.insert(pc);return false;
 }
-void bb_sparse_instruction_decoded(uint64_t pc,const remill::Instruction& ins) {
+void bb_sparse_instruction_decoded(uint64_t pc,remill::Instruction& ins) {
   if(!instructions.count(pc)||ins.bytes!=instructions.at(pc))reject("Remill instruction bytes/boundary disagree with manifest");
   if(ins.category==remill::Instruction::kCategoryInvalid||(ins.category==remill::Instruction::kCategoryError&&!(ins.function=="UD2"&&declared_traps.count(pc))))reject("Remill instruction error/invalid category at "+std::to_string(pc)+" selector "+ins.function);
+  // Pinned Remill DecodeFpuOpcode uses &3 instead of &7. Normalize the
+  // appended immediate from exact manifest bytes, before semantic lifting.
+  // Control instructions without the implicit PC/FOP pair are untouched.
+  if(ins.operands.size()>=2){
+    auto& ip=ins.operands[ins.operands.size()-2];auto& fop=ins.operands.back();
+    if(ip.type==remill::Operand::kTypeRegister&&ip.reg.name=="PC"&&fop.type==remill::Operand::kTypeImmediate&&fop.size==16){
+      size_t n=0;
+      for(;n<ins.bytes.size();++n){unsigned b=uint8_t(ins.bytes[n]);if((b>=0x40&&b<=0x4f)||b==0x66||b==0x67||b==0x26||b==0x2e||b==0x36||b==0x3e||b==0x64||b==0x65||b==0xf0||b==0xf2||b==0xf3)continue;break;}
+      if(n+1>=ins.bytes.size()||(uint8_t(ins.bytes[n])&0xf8)!=0xd8)reject("implicit x87 opcode operand without an exact escape/ModRM pair");
+      uint16_t opcode=uint16_t(((uint8_t(ins.bytes[n])&7)<<8)|uint8_t(ins.bytes[n+1]));
+      if(fop.imm.val!=(opcode&0x3ff)&&fop.imm.val!=opcode)reject("unexpected pinned x87 opcode decoder output");
+      x87_opcodes[pc]={uint16_t(fop.imm.val),opcode};fop.imm.val=opcode;
+    }
+  }
 }
 void bb_sparse_instruction_lifted(uint64_t pc,int status) {
   if(status!=int(remill::kLiftedInstruction))reject("unsupported Remill instruction semantics at "+std::to_string(pc));
@@ -120,7 +136,8 @@ int main(int argc,char** argv) {
     remill::IntrinsicTable intrinsics(module.get());Manager manager(arch.get(),module.get());
     remill::TraceLifter lifter(arch.get(),manager);
     for(auto pc:roots){manager.active=pc;if(!lifter.Lift(pc))reject("trace lifting failed");}
-    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows;
+    llvm::json::Array missing_rows,unvisited,decoded_rows,trace_rows,trap_rows,opcode_rows;
+    for(const auto& row:x87_opcodes)opcode_rows.push_back(llvm::json::Object{{"address",int64_t(row.first)},{"original",int64_t(row.second.original)},{"corrected",int64_t(row.second.corrected)}});
     if(emitted_traps!=declared_traps)reject("declared native trap was not emitted");
     for(auto pc:emitted_traps)trap_rows.push_back(int64_t(pc));
     for(auto pc:missing)missing_rows.push_back(int64_t(pc));
@@ -130,7 +147,7 @@ int main(int argc,char** argv) {
     for(auto& row:ordered)trace_rows.push_back(int64_t(row.first));
     auto unvisited_count=unvisited.size();
     llvm::json::Object report{{"schema",1},{"input_instructions",int64_t(instructions.size())},{"input_bytes",int64_t(memory.size())},
-      {"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
+      {"x87_opcode_immediates",std::move(opcode_rows)},{"explicit_native_trap_addresses",std::move(trap_rows)},{"semantic_instruction_count",int64_t(decoded.size()-emitted_traps.size())},
       {"decoded_addresses",std::move(decoded_rows)},{"missing_instruction_starts",std::move(missing_rows)},
       {"unvisited_manifest_instructions",std::move(unvisited)},{"compiled_roots",std::move(trace_rows)},
       {"execution","none; static lifting census is not execution coverage"}};
