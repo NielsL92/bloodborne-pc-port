@@ -1,5 +1,7 @@
 # P3 control-flow and dependency recovery
 
+Updated 2026-09-06 17:41 UTC: three independently checked, exact service-call annotations reduce fence quarantines to five. The current complete static census is 21,173 entries / 382 objects; zero compiler rejections and all 18,444 initial constructors are represented. Continue with `local/cfg/startup-recovery-v25-services-memory` and `local/compiler-spike/startup-services-evidence-audit-v1/active-objects.json`. See `reports/startup-services.md` and `reports/startup-services-evidence.json` for the conditional contracts, reproducible objects, retained failures and exact remaining work. P3 remains open; native service/control execution is not established. Earlier dated checkpoints below are historical.
+
 Current 2026-09-06 16:44 UTC: canonical recovery remains v22-cache-repeat, 21,178 entries / 874,266 instruction addresses, with all uncertainty records retained. Static x87 integration removes the final two compiler rejections: 21,170 entries / 380 objects, all initial constructors, eight control-boundary quarantines. Exact selector, object replacement and remaining import/return evidence are in `reports/x87-integration.md` / `reports/x87-integration-evidence.json`. **P3 remains open; no game object was linked or executed.** Earlier checkpoints below retain their original dates and counts.
 
 Updated 2026-09-05 20:59 UTC. **P3 startup compilation/exit closure has not passed. No native game boot exists.**
