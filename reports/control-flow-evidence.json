@@ -24309,5 +24309,14 @@
     "startup_selectors_added": 0,
     "accepted_startup_semantics_unchanged": true,
     "native_game_boot": false
+  },
+  "x87_load_experiment": {
+    "evidence": "reports/x87-loads-evidence.json",
+    "cases": 1613884,
+    "hardware_faults": 238606,
+    "experimental_compiler": "v6-x87-opcode",
+    "experimental_semantics": "v24-loads",
+    "startup_accepted": false,
+    "native_game_boot": false
   }
 }

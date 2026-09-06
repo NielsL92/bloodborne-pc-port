@@ -136,3 +136,5 @@ Four image selectors and reserved-bit-normalized FLDCW pass 557,864 authored AOT
 ## Experimental guest MXCSR isolation (2026-09-06 13:47 UTC)
 
 LDMXCSR/STMXCSR and VEX forms pass 812,640 authored cases in experimental v19. The preserved original run exposes guest/host state and missing reserved-bit-fault defects. Adjacent SIMD checks pass 8,912,896 cases and image checks pass 557,864. Exact recovered sites and profile/fault limits are in reports/mxcsr.md and reports/mxcsr-evidence.json. No new game object is accepted; startup semantics remain v9-sqrt and P3 stays open.
+
+Latest x87 load checkpoint (2026-09-06 14:42 UTC): reports/x87-loads.md and x87-loads-evidence.json preserve scoped conversions, exact FOP decoder correction and all failed/repeated runs. Experimental compiler v6 / semantics v24 pass authored checks; accepted startup stays v5 / v9-sqrt, 21,168 compiled entries with two rejects/eight quarantines. No game execution or new closure is inferred.
