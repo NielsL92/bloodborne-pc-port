@@ -1,6 +1,338 @@
 {
-  "status": "complete COFF symbol census after COMI replacement; native binding remains open",
-  "inventory": {
+  "status": "COMI/UCOMI correction integrated and exact whole-set audits reproduced; P3 remains open",
+  "integration": {
+    "status": "COMI/UCOMI correction passes authored tests; exact replacement manifest verified",
+    "legacy_counterexamples": {
+      "status": "counterexamples reproduced",
+      "result": {
+        "status": "characterized",
+        "cases": 851968,
+        "mismatched_cases": 245718,
+        "hardware_faults": 121600,
+        "remill_error_calls": 0,
+        "fault_differences": 121600,
+        "flag_differences": 131508,
+        "mxcsr_differences": 121567,
+        "host_mxcsr_changes": 104537,
+        "full_state_differences": 192753,
+        "memory_exit_differences": 121600,
+        "game_execution": false
+      },
+      "expect_mismatch": true,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "07f6ea5202892be4201f570cce80986ec1e3294f5307d5533e01a70c36b3a579",
+      "input_sha256": "8d8afd6c8fb3cd086c1409865d273de3a9b79e481e88e314bdf8e66365821e16",
+      "bitcode_sha256": "fe88c59866c428c2958869732c36f8d659ed452fe2ae0c3f7787a3c7f0881336",
+      "object_sha256": "5b15a4786697c728f366215815078c0207ea91265825414ba488073dbeb7bfb5",
+      "fixture_sha256": "8c1a4d0b4b75db3cb32848c0178d3a3798d32781ea36b8597e33da86e577ead5",
+      "raw_sha256": "85abe843d6a2019d916f00fe5a2ce25f72d136698c755ad889270b717e585641",
+      "limitations": "Authored host hardware and AOT only. Full native State, memory, explicit faults, flags, MXCSR and host isolation checked; no game execution or PS4 exception-delivery claim."
+    },
+    "checks": {
+      "status": "authored COMI/UCOMI contract passes",
+      "result": {
+        "status": "characterized",
+        "cases": 851968,
+        "mismatched_cases": 0,
+        "hardware_faults": 121600,
+        "remill_error_calls": 0,
+        "fault_differences": 0,
+        "flag_differences": 0,
+        "mxcsr_differences": 0,
+        "host_mxcsr_changes": 0,
+        "full_state_differences": 0,
+        "memory_exit_differences": 0,
+        "game_execution": false
+      },
+      "expect_mismatch": false,
+      "lifter_sha256": "e8a981c99ed7fe149f53ba0bb969972555205e371c9b3cd7b8628355b5081700",
+      "semantics_sha256": "3db92d94604935e7149bb45d3581b94eddcaf03b56797576d85f34a85f698a12",
+      "input_sha256": "8d8afd6c8fb3cd086c1409865d273de3a9b79e481e88e314bdf8e66365821e16",
+      "bitcode_sha256": "573c594d0809fe5e5aad0fb0a34fbc5f13f2ca22d8beeec2fe0f53d6692b81dc",
+      "object_sha256": "386376fb11ab2fe0ebf40a6fdb2dcf740aa0fb686700eb3e10dd713463f67d9b",
+      "fixture_sha256": "09691ed8ebebb2196a8b4cbbae11a5b2df8af0e7fd76229efdc8f80ada075cd1",
+      "raw_sha256": "1fb8691b84cfd0b0fb3f8357fea0e245f4188cf857cbaa5dfe764a2c88d488eb",
+      "limitations": "Authored host hardware and AOT only. Full native State, memory, explicit faults, flags, MXCSR and host isolation checked; no game execution or PS4 exception-delivery claim."
+    },
+    "replacement_plan": {
+      "status": "exact complete-object replacement plan; no input execution",
+      "source_manifest_sha256": "3f729683862cf6c3aa7ebbcfbaef625cff078d27e33d10b30d7f04c0a16b5f99",
+      "active_manifest": "E:\\bloodborne PC port\\local\\compiler-spike\\conditional-control-evidence-audit-v2-exits\\active-objects.json",
+      "active_manifest_sha256": "d23a3d2c94477ba3463b421929b678d48ce7e054a8cf943e179daa24526c2b74",
+      "sites": 49,
+      "site_counts": {
+        "vucomisd": 17,
+        "vucomiss": 32
+      },
+      "affected_objects": 14,
+      "affected_entries": 753,
+      "retained_objects": 372,
+      "site_object_occurrences": 49,
+      "artifact_sha256": {
+        "sites.json": "1770bc248a150b5898f07737ba1bc69f7d908697cf457b0002c25a37a66db106",
+        "selected-objects.json": "b41c3f5f9ec635564ac4d8dc8d4ddc545d1f9df0a291b14a73868cc0cda4fd98",
+        "retained-objects.json": "a9e1c64bc8f2d92ce216b392e8bb0dea83221a9ad1177bb9d79ee3c1f30225ec"
+      }
+    },
+    "replacement_compile": {
+      "status": "selected complete objects recompiled; native gate remains open",
+      "objects": 14,
+      "entries": 753,
+      "compiled_roots": 753,
+      "instructions": 41047,
+      "object_bytes": 3118244,
+      "missing_start_records": 170,
+      "all_missing_start_lists_unchanged": true,
+      "game_execution": false
+    },
+    "active_manifest": "local\\compiler-spike\\comi-integration-manifest-v1\\active-objects.json",
+    "active_manifest_sha256": "82beba4877f4329768e812fee15a2ca6630283302e07fe06df0de9d5e474730d",
+    "compiled_objects": 386,
+    "compiled_entries": 21181,
+    "compiled_roots": 21282,
+    "compiled_constructors": 18444,
+    "runs": {
+      "20260906-p3-comi-characterize-v1": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "437ed8935f17717cc6047cfa64abe03014a89e7ead86e2f0df9bf054c8912902",
+        "elapsed_seconds": 9.023619299987331
+      },
+      "20260906-p3-extended-semantics-v34-comi-inline": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "7d60a6b8164c8adc8d07df433d2dd00c4ff7551dc801c9bdc0745a519b5b0aa7",
+        "elapsed_seconds": 5.80263529997319
+      },
+      "20260906-p3-comi-checks-v2-integer": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "7d60a6b8164c8adc8d07df433d2dd00c4ff7551dc801c9bdc0745a519b5b0aa7",
+        "elapsed_seconds": 3.1741182999685407
+      },
+      "20260906-p3-comi-checks-v3-repeat": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "7d60a6b8164c8adc8d07df433d2dd00c4ff7551dc801c9bdc0745a519b5b0aa7",
+        "elapsed_seconds": 2.6186265000142157
+      },
+      "20260906-p3-comi-replacement-plan-v1": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "209554c8a5f143205f3d8a5425e369409fbfab87f0ec83a902c4ccf60b91231b",
+        "elapsed_seconds": 18.618351300014183
+      },
+      "20260906-p3-comi-replacement-compile-v1": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "a843c2b5699388404ec4fc820d76d22c725faef7719e1c9823a624ef14c6d8a9",
+        "elapsed_seconds": 17.024668300058693
+      },
+      "20260906-p3-comi-replacement-compile-v2-repeat": {
+        "source_commit": "c1d081f34e9beaa02fe7fefa54eace11efbcf925",
+        "sources_sha256": "a843c2b5699388404ec4fc820d76d22c725faef7719e1c9823a624ef14c6d8a9",
+        "elapsed_seconds": 14.856695999857038
+      }
+    },
+    "retained_failures": [
+      "extended-semantics-v32-comi used a script path without the tools module import context; no output module was produced.",
+      "extended-semantics-v33-comi-module rejected ALWAYS_INLINE placement; v34 places the attribute before static."
+    ],
+    "limitations": [
+      "All 49 recovered comparison instructions are VUCOMI forms; all 16 ordered/unordered scalar register/memory legacy/VEX forms were checked independently.",
+      "Only authored instructions were executed. No game object was linked or executed and PS4 exception delivery remains unimplemented.",
+      "The 14 previous objects remain preserved but are excluded from this new manifest. Every other object retains its original compiler/semantics identity.",
+      "New comparisons explicitly update guest MXCSR and preserve flags on unmasked faults; they do not use host floating arithmetic.",
+      "IR exit and COFF linkage inventories must be regenerated for this replacement set."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false,
+    "native_port_playable": false
+  },
+  "control_exit_inventory": {
+    "status": "all saved bitcode control sites inventoried; native boundary handling remains unvalidated",
+    "active_manifest": "local\\compiler-spike\\comi-integration-manifest-v1\\active-objects.json",
+    "active_manifest_sha256": "82beba4877f4329768e812fee15a2ca6630283302e07fe06df0de9d5e474730d",
+    "inspector_sha256": "e10f1493271935120a015128e9f7a90cb28be826abc19beb350c810fa2c4a63e",
+    "objects": 386,
+    "compiled_functions": 21282,
+    "site_counts": {
+      "__remill_function_call": 9134,
+      "__remill_function_return": 20149,
+      "__remill_jump": 442,
+      "__remill_async_hyper_call": 5,
+      "__remill_missing_block": 4818,
+      "__remill_error": 56,
+      "__bb_native_simd_fault": 58,
+      "__remill_sync_hyper_call": 4,
+      "__bb_native_ud2": 16,
+      "__bb_native_mxcsr_fault": 2,
+      "__bb_native_mxcsr_mask": 2,
+      "__bb_native_x87_check_span": 121,
+      "__bb_native_x87_fault": 352,
+      "__bb_native_x87_image_policy": 667,
+      "__bb_native_x87_pointer_segments": 2,
+      "__bb_native_x87_record_instruction": 829,
+      "__bb_native_x87_set_pointer_segments": 1,
+      "__bb_native_x87_unsupported": 17
+    },
+    "function_attribute_counts": [
+      {
+        "calling_convention": 0,
+        "nounwind": false,
+        "noreturn": false,
+        "count": 21282
+      }
+    ],
+    "control_site_attribute_counts": [
+      {
+        "callee": "__bb_native_mxcsr_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_mxcsr_mask",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_simd_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 58
+      },
+      {
+        "callee": "__bb_native_ud2",
+        "nounwind": false,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 16
+      },
+      {
+        "callee": "__bb_native_x87_check_span",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 121
+      },
+      {
+        "callee": "__bb_native_x87_fault",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 352
+      },
+      {
+        "callee": "__bb_native_x87_image_policy",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 667
+      },
+      {
+        "callee": "__bb_native_x87_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 2
+      },
+      {
+        "callee": "__bb_native_x87_record_instruction",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 829
+      },
+      {
+        "callee": "__bb_native_x87_set_pointer_segments",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 1
+      },
+      {
+        "callee": "__bb_native_x87_unsupported",
+        "nounwind": true,
+        "noreturn": true,
+        "is_invoke": false,
+        "count": 17
+      },
+      {
+        "callee": "__remill_async_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 5
+      },
+      {
+        "callee": "__remill_error",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 56
+      },
+      {
+        "callee": "__remill_function_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 9134
+      },
+      {
+        "callee": "__remill_function_return",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 20149
+      },
+      {
+        "callee": "__remill_jump",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 442
+      },
+      {
+        "callee": "__remill_missing_block",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4818
+      },
+      {
+        "callee": "__remill_sync_hyper_call",
+        "nounwind": true,
+        "noreturn": false,
+        "is_invoke": false,
+        "count": 4
+      }
+    ],
+    "missing_block_pc_value_kinds": {
+      "load": 4818
+    },
+    "error_semantic_origin_counts": {
+      "IDIVrdxrax": 10,
+      "DIVrdxrax": 26,
+      "IDIVedxeax": 10,
+      "DIVedxeax": 10
+    },
+    "error_attribution": "Retained optimized successor block names identify the inlined semantic family, not the precise guest instruction or a verified fault contract.",
+    "indirect_llvm_calls": 0,
+    "artifact_sha256": {
+      "objects.json": "3d4d7946fb74d35139448d2171f15bb0fbb967d7bb7b528ed9bc530a9210081e",
+      "declarations.json": "83e00e2544a8e7ac0ec98bb433e5b3f264bbc1bf7373664a7ae3b4992f11b3ca",
+      "missing-block-sites.json": "56e407e6a347b7044d19a984dd23012b433c3b43de28033262f3625ab0096aa8",
+      "error-sites.json": "55d0a2a8cd2ee418ad00884708fc999f794d22c21639c2e8714a7d91dc13eef6"
+    },
+    "limitations": [
+      "Actual LLVM API parse and verification of retained bitcode, with root identities compared to current COFF-backed manifests; no JIT, linking or game execution.",
+      "These are optimized IR call sites, not execution counts or one-to-one machine instruction/CFG-edge counts. Different starts can merge and dynamic return guards can add exits.",
+      "The same __remill_error hook is used by semantic StopFailure paths and compiler error paths; retained block names classify this census, not hardware behavior.",
+      "nounwind is a compiler contract. Native handlers must honor it or the compiler/call-site contract must be changed and independently validated; availability of C++ exceptions does not authorize throwing across it."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false
+  },
+  "linkage_inventory": {
     "status": "actual COFF linkage and explicit-exit inventory complete; native gate remains open",
     "source": "local\\cfg\\startup-recovery-v31-conditional-repeat",
     "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
@@ -1084,26 +1416,6 @@
       "elapsed_seconds": 0.6033585001714528
     }
   },
-  "known_target_after_contract": [
-    {
-      "object": 385,
-      "logical_address": 4329617200,
-      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
-      "rva": 34649904,
-      "target_is_compiled_root": true,
-      "preceding_control_contracts": [
-        {
-          "entry": 34648288,
-          "source": 34649899,
-          "contract": "disputed-ending-d65f0b4f01d5-210b0e0",
-          "instruction_bytes": "e840f6ffff"
-        }
-      ],
-      "explicit_transfer_edges": [],
-      "dispatch_authorized": false
-    }
-  ],
-  "prior_inventory": "local/compiler-spike/whole-program-linkage-v5-repeat/summary.json",
   "next_work": [
     "Characterize the 56 remaining division semantic error sites, including zero/overflow handling and precise fault PC/state.",
     "Preserve source instruction and exit reason at native control boundaries; honor or deliberately change and validate nounwind contracts.",

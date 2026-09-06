@@ -1,5 +1,10 @@
 # Retained LLVM control-exit census
 
+Current update — 2026-09-06 20:00 UTC. Reports/comi-semantics.md and reports/comi-semantics-evidence.json supersede the comparison investigation below. All sixteen COMI/UCOMI forms pass authored tests; the fourteen affected objects are replaced in comi-integration-manifest-v1/active-objects.json. Current census control-exit-inventory-v6-comi-repeat matches v5-comi byte-for-byte. It has **56 division error calls and 58 explicit SIMD fault calls**; the 49 legacy comparison error paths are removed. All other control counts below are unchanged. The remaining division semantics and source/exit intent are next. P3 remains open.
+
+The following records the pre-correction census; its artifacts and exact source snapshot remain preserved.
+
+
 2026-09-06 19:39 UTC. Every retained bitcode module has been parsed and verified through the pinned LLVM API, with its function definitions matched to the current COFF-backed active object manifest. **P3 remains open.** No input was JIT compiled, linked or executed. Canonical recovery and the 386-object compilation census are unchanged.
 
 | Emitted intrinsic call sites | Count |
