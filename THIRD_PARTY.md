@@ -72,3 +72,8 @@ sources and compiler-adapter tooling are tracked separately.
 - Ghidra 12.1.3 portable distribution: Apache-2.0 plus bundled dependency notices; external/toolchains/ghidra-12.1.3/ghidra_12.1.3_PUBLIC/LICENSE and included licenses. Official archive digest in reports/p3-tool-downloads.json.
 - Eclipse Temurin JDK21.0.12.1+1: OpenJDK GPLv2 with Classpath Exception and included third-party notices; workspace-local distribution. Archive identity is pinned in reports/p3-tool-downloads.json.
 These tools and private game-derived analysis outputs are not uploaded or distributed by this task.
+
+
+## Candidate native floating-point helper
+
+Berkeley SoftFloat Release 3e (2018-01-20), by John R. Hauser / the Regents of the University of California, is preserved in external/SoftFloat-3e with its complete COPYING.txt and per-file notices. License: BSD-style three-clause terms. The official 729,637-byte archive has locally calculated SHA-256 21130ce885d35c1fe73fc1e1bf2244178167e05c6747cad5f450cc991714c746; reports/softfloat-source.json pins every extracted file. Source remains unchanged. This is a compiled numeric library candidate, not an instruction interpreter, emulator or guest CPU fallback. Its use does not establish complete x87 semantics. [Official release and documentation](https://www.jhauser.us/arithmetic/SoftFloat.html).
