@@ -1,0 +1,119 @@
+{
+  "status": "P4 loader plan reproducible; loading/execution remain open",
+  "plan": {
+    "status": "native loader plan inventoried; unresolved relocations prohibit execution",
+    "registry_identity_sha256": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "weak_bindings_sha256": "810cc1a8dacb66ab73be86c7ed216895a6b6bc8c4ac49f7d891367552c2fa376",
+    "modules": 8,
+    "regions": 16,
+    "mapped_bytes": 97517568,
+    "initial_bytes": 92463404,
+    "zero_bytes": 5054164,
+    "relocations": 238609,
+    "classification": {
+      "relative": 233350,
+      "conditional static symbol binding": 4379,
+      "unresolved": 752,
+      "registered native service gateway": 116,
+      "checked absent weak callback": 12
+    },
+    "unresolved_relocations": 752,
+    "code_relocations": 0,
+    "version_disputes": 0,
+    "constructor_targets_checked": 18444,
+    "tls_records": 8,
+    "tls_nonempty": 3,
+    "game_execution": false,
+    "native_loading_performed": false,
+    "files": {
+      "code-relocations.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "constructor-order.json": "1569d5489513bf83588b97a4f46eefe6f8c453e2f3855ce1881f27afe22d7c77",
+      "module-00-segment-00.bin": "24935ac6da5e1879215367a42cb7d90a91fcc6bf63ea5cc140904db413d5f681",
+      "module-00-segment-01.bin": "ab5faa3faa6c1088aa16b625fe8220b0b49910901946903bc3ec5119e8bc0c71",
+      "module-01-segment-00.bin": "f8631c0da05e8447ca3dc0907c1b6115a4e8878ce6a8c1ab67a6e55e575d0284",
+      "module-01-segment-01.bin": "2fe248c0add27b01a66d573a97e1b154091332f51d027344edaeecbf278de424",
+      "module-02-segment-00.bin": "a6a9e615ad224fa47e94266e7a1846fd1946868b46a08731c54ed76d2447eddf",
+      "module-02-segment-01.bin": "231c79b49cd68044cf378da64036af586de36c44d04a019933833a7916f59846",
+      "module-03-segment-00.bin": "129fb2b3353f4fc4635374b1a13efba77a686103ad9878e17d034f6a28b1fe17",
+      "module-03-segment-01.bin": "bc340804b968e0f81e6151dc6c56bcf54b98ca113540047b1eb0a14c431d96c9",
+      "module-04-segment-00.bin": "e54990a4a4b6885678a2ac2590713518b45fab76874f47b1f6a4f51263f543eb",
+      "module-04-segment-01.bin": "f203b51c094cfbfae71a477c0d7f652a6631055eec8d64828c71b4d083b3b737",
+      "module-05-segment-00.bin": "ec4cb915df334162a9a613fa751fafa285869f53b7a5c40cca6ad16086f44dc1",
+      "module-05-segment-01.bin": "5a4204a1a121d923ca9a255922c004d8493c8337916b771889666dc46dab403c",
+      "module-06-segment-00.bin": "d0292f0bc42c2048d4deacc663d845f5df83020f12a5c87a20e5dbef4b5bf5de",
+      "module-06-segment-01.bin": "bbef7c4cda2a9e935d8fcf99af0c393033267a9662b7ce1174b05600caf817f6",
+      "module-07-segment-00.bin": "2bd18c41a72ca691f42d281e613b8a51fe0347304c257d9385f87c89d9aebda0",
+      "module-07-segment-01.bin": "d2f0ecbe9f59056974bae9eaee293f9a8a057206b9d24b1984c9ffe6fb7cd6ff",
+      "modules.json": "86c95ee391a1c6acd933b4a646c9d5b2fb1ad98261e6c9612a9e61a7bce7853c",
+      "regions.json": "a17d79c26b374235efa0a5d5f8adb4659f14e62d1e96b859b17a70b2f587ddc7",
+      "relocations.jsonl": "3f8f6f8d4068d9d81441a27d53848a49553230f84133016efdd6436fef2fa7dd",
+      "tls.json": "ab0e245475e6a5c5d2265a9a987fe61f5ca5586b6b9e2111b0b6c3ad3e6d7914",
+      "unresolved-relocations.json": "827feffc023602db31aea46e786cff15ee4969e6d279fc28e95fcdca071fdfbb",
+      "version-disputes.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "limitations": [
+      "Copied segment bytes only. No original/hardlinked file modifications.",
+      "No unresolved relocation is assigned zero or a guessed address.",
+      "Static symbol bindings remain conditional on the declared module/version and interposition model.",
+      "Constructor order is evidence for actual compiled startup, not permission to call the initial table entries manually.",
+      "Private host mappings, per-thread TLS, startup ABI and actual entry execution remain unimplemented."
+    ]
+  },
+  "weak": {
+    "status": "twelve weak-zero callback bindings checked",
+    "bindings": 12,
+    "ghidra_checked": true,
+    "registry_identity_sha256": "e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4",
+    "bindings_sha256": "810cc1a8dacb66ab73be86c7ed216895a6b6bc8c4ac49f7d891367552c2fa376",
+    "source": "https://gabi.xinuos.com/elf/05-symtab.html",
+    "scope": "Fixed supplied module set only. This rule does not zero strong imports, provide a native service success result, or establish callback execution.",
+    "game_execution": false
+  },
+  "identical_artifacts": {
+    "code-relocations.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "constructor-order.json": "1569d5489513bf83588b97a4f46eefe6f8c453e2f3855ce1881f27afe22d7c77",
+    "module-00-segment-00.bin": "24935ac6da5e1879215367a42cb7d90a91fcc6bf63ea5cc140904db413d5f681",
+    "module-00-segment-01.bin": "ab5faa3faa6c1088aa16b625fe8220b0b49910901946903bc3ec5119e8bc0c71",
+    "module-01-segment-00.bin": "f8631c0da05e8447ca3dc0907c1b6115a4e8878ce6a8c1ab67a6e55e575d0284",
+    "module-01-segment-01.bin": "2fe248c0add27b01a66d573a97e1b154091332f51d027344edaeecbf278de424",
+    "module-02-segment-00.bin": "a6a9e615ad224fa47e94266e7a1846fd1946868b46a08731c54ed76d2447eddf",
+    "module-02-segment-01.bin": "231c79b49cd68044cf378da64036af586de36c44d04a019933833a7916f59846",
+    "module-03-segment-00.bin": "129fb2b3353f4fc4635374b1a13efba77a686103ad9878e17d034f6a28b1fe17",
+    "module-03-segment-01.bin": "bc340804b968e0f81e6151dc6c56bcf54b98ca113540047b1eb0a14c431d96c9",
+    "module-04-segment-00.bin": "e54990a4a4b6885678a2ac2590713518b45fab76874f47b1f6a4f51263f543eb",
+    "module-04-segment-01.bin": "f203b51c094cfbfae71a477c0d7f652a6631055eec8d64828c71b4d083b3b737",
+    "module-05-segment-00.bin": "ec4cb915df334162a9a613fa751fafa285869f53b7a5c40cca6ad16086f44dc1",
+    "module-05-segment-01.bin": "5a4204a1a121d923ca9a255922c004d8493c8337916b771889666dc46dab403c",
+    "module-06-segment-00.bin": "d0292f0bc42c2048d4deacc663d845f5df83020f12a5c87a20e5dbef4b5bf5de",
+    "module-06-segment-01.bin": "bbef7c4cda2a9e935d8fcf99af0c393033267a9662b7ce1174b05600caf817f6",
+    "module-07-segment-00.bin": "2bd18c41a72ca691f42d281e613b8a51fe0347304c257d9385f87c89d9aebda0",
+    "module-07-segment-01.bin": "d2f0ecbe9f59056974bae9eaee293f9a8a057206b9d24b1984c9ffe6fb7cd6ff",
+    "modules.json": "86c95ee391a1c6acd933b4a646c9d5b2fb1ad98261e6c9612a9e61a7bce7853c",
+    "regions.json": "a17d79c26b374235efa0a5d5f8adb4659f14e62d1e96b859b17a70b2f587ddc7",
+    "relocations.jsonl": "3f8f6f8d4068d9d81441a27d53848a49553230f84133016efdd6436fef2fa7dd",
+    "summary.json": "bd05fbabd9125c69c63fc89f84905d39bfab75e6e9d28b4ee9f172eaedfb6e03",
+    "tls.json": "ab0e245475e6a5c5d2265a9a987fe61f5ca5586b6b9e2111b0b6c3ad3e6d7914",
+    "unresolved-relocations.json": "827feffc023602db31aea46e786cff15ee4969e6d279fc28e95fcdca071fdfbb",
+    "version-disputes.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+  },
+  "recorders": [
+    {
+      "run": "20260906-p4-loader-weak-v3-source-identity",
+      "manifest_sha256": "0da98f9cc86dae5feb3d9a80eb64b68552f2d64bd9e5e44ee33f448932927b79"
+    },
+    {
+      "run": "20260906-p4-ghidra-loader-weak-v1",
+      "manifest_sha256": "d332ed9c324deef04616c81f9d01374038182e0b2ba9af79de6da6001ecc90d4"
+    },
+    {
+      "run": "20260906-p4-loader-plan-v4-weak",
+      "manifest_sha256": "f5dd86c3053c7170223613434848efa25e09849a6c20b4a40e70d2b5e63767ed"
+    },
+    {
+      "run": "20260906-p4-loader-plan-v5-repeat",
+      "manifest_sha256": "52c2cd9c37a02944578892b2160905ffe7bd39fa224869b97c681ab383a2e978"
+    }
+  ],
+  "p4_gate_passed": false,
+  "next": "Resolve external function identity, twenty strong data imports and seventeen TLS references; then validate private native loading."
+}
