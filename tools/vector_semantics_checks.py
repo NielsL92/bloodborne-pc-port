@@ -4,20 +4,23 @@ from pathlib import Path
 from capstone import Cs,CS_ARCH_X86,CS_MODE_64
 from tools.cfg_recover_startup import sha,write_json
 from tools.dev import ROOT,LLVM,environment
-p=argparse.ArgumentParser();p.add_argument('family',choices=('blend','rsqrt','packed','select','transfer'));p.add_argument('out',type=Path);p.add_argument('lifter',type=Path);p.add_argument('semantics',type=Path);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('family',choices=('blend','rsqrt','packed','select','transfer','minmax','round','sqrt'));p.add_argument('out',type=Path);p.add_argument('lifter',type=Path);p.add_argument('semantics',type=Path);a=p.parse_args()
 a.out.mkdir(parents=True,exist_ok=False);out=a.out.resolve();env=environment();steps=[]
 authored=['.intel_syntax noprefix','.text'];hardware=['.intel_syntax noprefix','.text'];header=[];names=[];hw_names=[];specs=[]
 families={
  'blend':[('vblendvps',4),('vblendvpd',8),('vpblendvb',1)],
  'rsqrt':[('vrsqrtps',4)],
  'packed':[('vpunpcklwd',2),('vpunpckldq',4),('vpunpckhqdq',8),('vpmulld',4),('vpminsd',4),('vpmaxsd',4),('vpmuludq',8),('vpshufb',1)],
+ 'sqrt':[('vsqrtps',4)],
+ 'round':[('vroundsd',8)],
+ 'minmax':[('vminps',4),('vmaxps',4)],
  'transfer':[('vextractf128',16),('vinsertps',4),('vpinsrd',4),('vmovmskps',4),('vmovmskpd',8),('vlddqu',1),('vunpckhpd',8)],
  'select':[('vpsrld',4),('vpsrad',4),('vpalignr',1),('vshufpd',8),('vpermilpd',8),('vblendps',4),('vblendpd',8)],
 }
 operations=families[a.family]
 for operation_index,(op,element) in enumerate(operations):
- unary=op in ('vrsqrtps','vpsrld','vpsrad','vpermilpd');shift=op in ('vpsrld','vpsrad');immediate=a.family=='select' or op in ('vextractf128','vinsertps','vpinsrd')
- for width in ((16,) if op in ('vextractf128','vinsertps','vpinsrd') else (16,32)):
+ unary=op in ('vrsqrtps','vsqrtps','vpsrld','vpsrad','vpermilpd');shift=op in ('vpsrld','vpsrad');immediate=a.family=='select' or op in ('vextractf128','vinsertps','vpinsrd','vroundsd')
+ for width in ((16,) if op in ('vextractf128','vinsertps','vpinsrd','vroundsd') else (16,32)):
   prefix='xmm' if width==16 else 'ymm'
   modes=[(0,False),(2,False)] if shift else [(0,False),(2,False),(0,True)] if unary else [(0,False),(1,False),(2,False)]+([(3,False)] if a.family=='blend' else [])+[(0,True)]
   if op=='vextractf128':modes=[(0,False),(2,False)]
@@ -32,6 +35,7 @@ for operation_index,(op,element) in enumerate(operations):
      second=f'{prefix}word ptr [{pointer}]' if mem else prefix+'2'
      if op=='vextractf128':return f'vextractf128 xmm{dest}, ymm2, {imm}'
      if op=='vinsertps':return f'vinsertps xmm{dest}, xmm1, '+(f'dword ptr [{pointer}]' if mem else 'xmm2')+f', {imm}'
+     if op=='vroundsd':return f'vroundsd xmm{dest}, xmm1, '+(f'qword ptr [{pointer}]' if mem else 'xmm2')+f', {imm}'
      if op=='vpinsrd':return f'vpinsrd xmm{dest}, xmm1, '+(f'dword ptr [{pointer}]' if mem else 'eax')+f', {imm}'
      if op in ('vmovmskps','vmovmskpd'):return f'{op} eax, {prefix}2'
      if op=='vlddqu':return f'vlddqu {prefix}{dest}, {second}'
@@ -41,7 +45,7 @@ for operation_index,(op,element) in enumerate(operations):
      return op+' '+', '.join(operands)
     authored.extend([f'.org {n*16}',instruction('rdi'),'ret'])
     hardware.extend([f'.globl {hw}',hw+':',*(['mov rax, qword ptr [rcx+128]'] if a.family=='transfer' else []),*[f'vmovdqu ymm{r}, ymmword ptr [rcx+{r*32}]' for r in range(4)],instruction('r8'),*[f'vmovdqu ymmword ptr [rdx+{r*32}], ymm{r}' for r in range(4)],*(['mov qword ptr [rdx+128], rax'] if a.family=='transfer' else []),'vzeroupper','ret'])
-    specs.append(dict(memory_width=4 if mem and op in ('vinsertps','vpinsrd') else width,operation=op,operation_index=operation_index,immediate=imm,width=width,destination=dest,memory=mem,element_bytes=element,logical_pc=pc))
+    specs.append(dict(memory_width=8 if mem and op=='vroundsd' else 4 if mem and op in ('vinsertps','vpinsrd') else width,operation=op,operation_index=operation_index,immediate=imm,width=width,destination=dest,memory=mem,element_bytes=element,logical_pc=pc))
 header.extend(['enum Operation{'+','.join('OP_'+op.upper() for op,_ in operations)+'};','static unsigned operations[]={'+','.join(str(r['operation_index']) for r in specs)+'};','static unsigned immediates[]={'+','.join(str(r['immediate']) for r in specs)+'};'])
 header.extend(['static Lifted lifted[]={'+','.join(names)+'};','static Hardware hardware[]={'+','.join(hw_names)+'};','static Spec specs[]={'+','.join('{'+f"{r['memory_width']},{r['destination']},{int(r['memory'])},{r['element_bytes']},{hex(r['logical_pc'])}"+'}' for r in specs)+'};'])
 (out/'vector-entries.h').write_text('\n'.join(header)+'\n',encoding='utf-8');(out/'authored.s').write_text('\n'.join(authored)+'\n',encoding='utf-8');(out/'hardware.s').write_text('\n'.join(hardware)+'\n',encoding='utf-8');write_json(out/'specs.json',specs)
