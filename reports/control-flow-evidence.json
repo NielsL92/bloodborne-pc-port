@@ -24336,5 +24336,14 @@
     "experimental_semantics": "v29-store-priority",
     "startup_accepted": false,
     "native_game_boot": false
+  },
+  "x87_remaining_inventory": {
+    "evidence": "reports/x87-remaining-evidence.json",
+    "remaining_arithmetic_scale_sites": 9,
+    "current_graph_mmx_sites": 0,
+    "experimental_compiler": "v7-mmx-guard",
+    "future_mmx_rejects": true,
+    "startup_accepted": false,
+    "native_game_boot": false
   }
 }
