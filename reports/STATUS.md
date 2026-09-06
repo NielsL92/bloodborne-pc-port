@@ -1,6 +1,14 @@
 # Native recompilation execution status
 
-## Current status — 2026-09-06 23:42 UTC
+## Current status — 2026-09-06 23:55 UTC
+
+Continue autonomously; user action: none. Read reports/native-load.md and reports/native-load-evidence.json, then reports/native-memory-sources.md. **P4 remains open. Native private data loading now passes; no game-derived CPU function has executed, no native boot exists and there is no playable port.**
+
+Native loader local/runtime/load-v3-repeat repeats v2-sha-width: sixteen private NX regions / 97,517,568 bytes; 238,572 resolved relocations applied; 37 unresolved slots (296 bytes) guarded. All 97,517,272 unguarded bytes match an independent Python relocation/BSS digest. Every unresolved-slot probe stops before reading; eleven malformed/identity cases reject. Bundle SHA256 f2f0ce06c0b96892e3d1634c25e3542a3931189ceec4730352d4bbf3fcc0207a. Evidence: local/runtime/load-evidence-v1/checked.json. Supplied module hashes are unchanged. The loader validator contains no game AOT roots and calls no initializer/entry.
+
+Current full object manifest remains local/compiler-spike/native-memory-manifest-v1/active-objects.json; compiler v12-memory-sources, semantics v35-divide. Registry-v7-memory-repeat / link-v9-memory-repeat / loader-plan-v8-memory remain current. The complete linked validator still rejects entry mode. Next independently verify entry arguments and initialization order, add logical stack/TLS/native service contracts, then investigate the first bounded native startup stop. Keep strong data/TLS unknowns guarded; native slot 9 reserved; mutable constructors, FP profile, fourteen x87 selector sites, guest exceptions/nonlocal transfer and unknown targets explicit. Helper runtime cost is unmeasured. P1 route/profiling/audio remains open. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 23:42 UTC
 
 Continue autonomously; user action: none. Read reports/native-memory-sources.md and its evidence JSON, then reports/runtime-guards.md. **P4 remains open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
 

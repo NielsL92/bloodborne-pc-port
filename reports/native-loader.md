@@ -1,5 +1,8 @@
 # P4 module loading plan
 
+Private loading update (2026-09-06 23:55 UTC): reports/native-load.md records repeated native NX allocation, resolved relocation application and independent full unguarded-byte validation. Thirty-seven unresolved slots remain guarded. No game-derived CPU execution has occurred.
+
+
 Current generation (2026-09-06 23:42 UTC): see reports/native-memory-sources.md. Active objects are native-memory-manifest-v1; current registry is registry-v7-memory-repeat, link is link-v9-memory-repeat and loader plan is loader-plan-v8-memory. Complete authored/source/LLVM/link checks pass; native game loading/execution has not occurred.
 
 
