@@ -1,10 +1,11 @@
 """Check object-table source operands and independent initial relocation reads."""
-import json,re,sys
+import argparse,json,re,sys
 from pathlib import Path
 from tools.cfg_recover_startup import sha,write_json
-root=Path.cwd();folder=root/'local/cfg/object-dispatch-proposals-v1';ghidra=root/'local/cfg/ghidra-object-dispatch-sources-v1';tables=root/'local/cfg/ghidra-object-dispatch-tables-v1';out=Path(sys.argv[1]);out.mkdir(parents=True,exist_ok=False)
+root=Path.cwd();p=argparse.ArgumentParser();p.add_argument('out',type=Path);p.add_argument('--proposals',type=Path,default=root/'local/cfg/object-dispatch-proposals-v1');p.add_argument('--ghidra',type=Path,default=root/'local/cfg/ghidra-object-dispatch-sources-v1');p.add_argument('--tables',type=Path,default=root/'local/cfg/ghidra-object-dispatch-tables-v1');p.add_argument('--source-check',type=Path,default=root/'local/cfg/object-dispatch-sources-checked-v1/checked.json');a=p.parse_args();folder,ghidra,tables,out=a.proposals,a.ghidra,a.tables,a.out;out.mkdir(parents=True,exist_ok=False)
+
 def read(p):return json.loads(p.read_text(encoding='utf-8'))
-profile=read(folder/'proposals.json');source_check=read(root/'local/cfg/object-dispatch-sources-checked-v1/checked.json');assert source_check['status']=='independent window closure comparison passed' and source_check['source_db_sha256']==profile['source_db_sha256']
+profile=read(folder/'proposals.json');source_check=read(a.source_check);assert source_check['status']=='independent window closure comparison passed' and source_check['source_db_sha256']==profile['source_db_sha256']
 raw={r['start']:{i['rva']:i for i in r['instructions']} for r in read(ghidra/'eboot.bin/ghidra.json')};independent={r['name']:r for r in read(tables/'tables.json')};checks=[]
 for row in profile['proposals']:
  ins=raw[row['assignment_entry']];lea=ins[row['lea']];match=re.fullmatch(r'LEA (R\w+),\[0x([0-9a-fA-F]+)\]',lea['text']);assert match
@@ -12,6 +13,8 @@ for row in profile['proposals']:
  if row['adjust']:
   adjust=ins[row['adjust']];match=re.fullmatch(r'ADD '+register+r',0x([0-9a-fA-F]+)',adjust['text']);assert match;table+=int(match[1],16)
  store=ins[row['store']];assert store['text'].startswith('MOV qword ptr [') and store['text'].endswith(','+register)
+ if row['object_offset']:
+  displacement=re.search(r' \+ 0x([0-9a-fA-F]+)\],',store['text']);assert displacement and int(displacement[1],16)==row['object_offset']
  call=raw[row['call_entry']][row['call']];match=re.fullmatch(r'CALL qword ptr \[RAX \+ 0x([0-9a-fA-F]+)\]',call['text']);assert match
  offset=int(match[1],16);slot=table+offset;other=independent[row['name']];assert table==row['table'] and offset==row['offset'] and slot==row['slot']==other['slot']
  assert other['raw_word']==int.from_bytes(bytes.fromhex(row['slot_bytes']),'little') and other['type']==8 and other['symbol']==0 and other['addend']==row['target']==row['relocation']['addend']
