@@ -1,4 +1,17 @@
 {
+  "current_source_exit_compilation": {
+    "evidence": "reports/source-exits-evidence.json",
+    "active_manifest": "local/compiler-spike/source-exit-manifest-v2-regression/active-objects.json",
+    "active_manifest_sha256": "e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6",
+    "compiled_entries": 21181,
+    "compiled_roots": 21282,
+    "instruction_bytes_checked": 874279,
+    "guarded_nonreturn_sites": 4305,
+    "source_target_pairs": 551,
+    "runtime_import_stubs": 182,
+    "p3_gate_passed": false,
+    "game_execution": false
+  },
   "status": "focused P3 evidence consistency pass; startup closure gate remains open",
   "evidence": {
     "metadata": {
