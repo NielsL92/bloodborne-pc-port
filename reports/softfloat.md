@@ -1,0 +1,17 @@
+# Native numeric-library candidate for x87
+
+2026-09-06 13:58 UTC. Berkeley SoftFloat 3e passes a bounded numeric compatibility probe: 481,248 authored hardware comparisons and 262,144 concurrent thread-control checks. A fresh strict repeat passes the same matrix. No x87 selector now calls this library; it is a candidate for the remaining memory conversion/arithmetic work.
+
+The official 729,637-byte source archive is preserved with SHA-256 21130ce885d35c1fe73fc1e1bf2244178167e05c6747cad5f450cc991714c746. This is a locally calculated HTTPS archive identity, not an independently published checksum. The fetcher now pins that identity. Every extracted source file and the original three-clause license remain unchanged and are recorded in reports/softfloat-source.json and THIRD_PARTY.md.
+
+The Windows build uses the upstream x86-64 object list and integer primitive configuration, the 8086 specialization and explicit thread-local controls. All 302 objects and the static library reproduce byte-for-byte in softfloat-v1 and softfloat-v2-repeat. Library SHA-256 is c156ae7df4e49b5d5c085d84d5b03f8db85449de707734e9fd27640daae2d342.
+
+The hardware probe tests conversions from single/double/signed 64-bit integer to extended precision, conversions from extended to single/double/truncated signed 64-bit integer, and extended add/subtract/multiply. It varies all three supported precision settings and four rounding directions, signed zero, infinities, signaling/quiet NaNs, subnormal and boundary values, and deterministic canonical random inputs. Result bits and IEEE exception flags agree; host floating state remains unchanged by the library. Four threads also check known rounding constants while using different control settings. This demonstrates tested TLS storage, not a complete reentrant runtime wrapper.
+
+This numerical library is C code compiled ahead of time. It does not fetch or decode guest instructions and is not a CPU interpreter or fallback. Its documented extended precision and rounding controls make it suitable for evaluation; its guarantee excludes noncanonical extended inputs. [Library interface](https://www.jhauser.us/arithmetic/SoftFloat-3/doc/SoftFloat.html), [source documentation](https://www.jhauser.us/arithmetic/SoftFloat-3/doc/SoftFloat-source.html).
+
+The probe deliberately leaves x87-specific work separate: denormal-operand flags, C1 rounding indication, stack occupancy/overflow, last-pointer metadata, memory boundaries, deferred faults, noncanonical encodings and exponent-wrapped unmasked results. FSCALE is not a supplied SoftFloat operation. A scoped save/set/restore wrapper is still required around library control variables before native integration. Do not accept a raw SoftFloat result as a complete x87 instruction.
+
+Reproduce using fresh outputs and tools/run_record.py. Run tools.build_softfloat OUT, then tools.softfloat_probe OUT LIBRARY. The initial --characterize run retained observations; the second invocation enforces zero differences. tools.summarize_softfloat OUT checks sources, licenses, both builds, every object identity, raw outcomes and run snapshots. Machine-readable evidence is reports/softfloat-evidence.json.
+
+Experimental v19 and accepted startup v9-sqrt remain unchanged. There are still two x87 rejections and eight quarantines in the accepted census. No game code ran. Next: canonical raw extended-memory/register transfers and conditionals, then numeric wrappers with explicit exception/rounding contracts and MMX/pointer integration.
