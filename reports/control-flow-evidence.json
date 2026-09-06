@@ -717,7 +717,7 @@
   "gate": "P3 remains open: eight fence findings, 9029 indirect-call records, 430 indirect-jump records, 155 unknown callback arguments, mutable constructor tables and native callback/exception/service/control contracts remain unresolved. Compilation is distinct from execution.",
   "startup_recovery": {
     "path": "reports\\startup-recovery-evidence.json",
-    "sha256": "ba16b2830b6269c8ac331964ff77b7deb35dc9b871a4641533fd38d00b4a8fdc",
+    "sha256": "1646c631c9a6957faa7ef959b2ff7150c4fee0005f4dcfb7716abadfa2e0b528",
     "result": {
       "status": "startup recovery evidence consistency pass; P3 gate open",
       "artifacts": {
@@ -16940,6 +16940,543 @@
           ],
           "native_game_boot": false,
           "native_port_playable": false
+        }
+      },
+      "x87_state_gaps": {
+        "path": "reports\\x87-state-evidence.json",
+        "sha256": "6274289e5bf705f669a0d29621a0a16f23f77b357da81dcb56480b51084384b5",
+        "result": {
+          "status": "x87 semantic gaps reproduced; serialization and execution remain blocked",
+          "probe": "local/compiler-spike/x87-state-probe-v2",
+          "inventory": "local/compiler-spike/x87-gap-inventory-v1",
+          "database_sha256": "1b150f1df97ddb9f24ed641a3708e32458dea360caecd73029038958224b3335",
+          "manifest_sha256": "e329cbe20b6feacfba21462e763741c1fdde5c9910354117e0def1dda95e9773",
+          "site_count": 355,
+          "owner_entries": 12,
+          "mnemonics": {
+            "fld": 72,
+            "fstp": 130,
+            "fchs": 2,
+            "fldz": 72,
+            "fxch": 33,
+            "fucompi": 11,
+            "fisttp": 2,
+            "fild": 3,
+            "fsubp": 2,
+            "fld1": 3,
+            "fucomi": 11,
+            "fsubrp": 2,
+            "faddp": 1,
+            "fsub": 1,
+            "fcmovne": 1,
+            "fmul": 2,
+            "fnstcw": 1,
+            "fldcw": 1,
+            "fnstenv": 1,
+            "fldenv": 1,
+            "wait": 1,
+            "fscale": 1,
+            "fxsave": 1
+          },
+          "authored_probe": {
+            "status": "characterization complete; semantic correctness is not established",
+            "cases": 11520,
+            "differing_cases": 10176,
+            "differences": {
+              "push-one:tags": 720,
+              "push-one:defined-status": 432,
+              "push-one:register-payload": 432,
+              "push-zero:tags": 720,
+              "push-zero:defined-status": 432,
+              "push-zero:register-payload": 432,
+              "push-pair:tags": 864,
+              "push-pair:defined-status": 864,
+              "push-pair:register-payload": 864,
+              "exchange-pop:tags": 1008,
+              "exchange-pop:defined-status": 864,
+              "exchange-pop:register-payload": 720,
+              "initialize:guest-mxcsr": 1152,
+              "initialize:defined-status": 1104,
+              "load-control:control": 768,
+              "load-control:host-fp-control": 864,
+              "store-control:control": 1056,
+              "store-control:memory-word": 1056,
+              "pop:defined-status": 432,
+              "pop:tags": 720,
+              "compare-pop:defined-status": 768,
+              "compare-pop:tags": 720
+            },
+            "examples": {
+              "push-one:tags": {
+                "form": 0,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 128,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14336,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              },
+              "push-one:defined-status": {
+                "form": 0,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14913,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "push-one:register-payload": {
+                "form": 0,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14913,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "push-zero:tags": {
+                "form": 1,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 128,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14336,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              },
+              "push-zero:defined-status": {
+                "form": 1,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14913,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "push-zero:register-payload": {
+                "form": 1,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14913,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "push-pair:tags": {
+                "form": 2,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 192,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 12288,
+                "cached_status": 12288,
+                "hardware_status": 12288,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              },
+              "push-pair:defined-status": {
+                "form": 2,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 12288,
+                "cached_status": 12288,
+                "hardware_status": 12865,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "push-pair:register-payload": {
+                "form": 2,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 255,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 12288,
+                "cached_status": 12288,
+                "hardware_status": 12865,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "exchange-pop:tags": {
+                "form": 3,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 128,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14336,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              },
+              "exchange-pop:defined-status": {
+                "form": 3,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 191,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14401,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags",
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "exchange-pop:register-payload": {
+                "form": 3,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 191,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 14336,
+                "cached_status": 14336,
+                "hardware_status": 14401,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags",
+                  "defined-status",
+                  "register-payload"
+                ]
+              },
+              "initialize:guest-mxcsr": {
+                "form": 4,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 895,
+                "hardware_control": 895,
+                "status": 0,
+                "cached_status": 0,
+                "hardware_status": 0,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "guest-mxcsr"
+                ]
+              },
+              "initialize:defined-status": {
+                "form": 4,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 1,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 895,
+                "hardware_control": 895,
+                "status": 33,
+                "cached_status": 33,
+                "hardware_status": 0,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status",
+                  "guest-mxcsr"
+                ]
+              },
+              "load-control:control": {
+                "form": 5,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 1,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 127,
+                "hardware_control": 639,
+                "status": 0,
+                "cached_status": 0,
+                "hardware_status": 0,
+                "word": 639,
+                "hardware_word": 639,
+                "differences": [
+                  "control"
+                ]
+              },
+              "load-control:host-fp-control": {
+                "form": 5,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 3,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 1151,
+                "hardware_control": 1151,
+                "status": 0,
+                "cached_status": 0,
+                "hardware_status": 0,
+                "word": 1151,
+                "hardware_word": 1151,
+                "differences": [
+                  "host-fp-control"
+                ]
+              },
+              "store-control:control": {
+                "form": 6,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 127,
+                "hardware_control": 1663,
+                "status": 0,
+                "cached_status": 0,
+                "hardware_status": 0,
+                "word": 127,
+                "hardware_word": 1663,
+                "differences": [
+                  "control",
+                  "memory-word"
+                ]
+              },
+              "store-control:memory-word": {
+                "form": 6,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 127,
+                "hardware_control": 1663,
+                "status": 0,
+                "cached_status": 0,
+                "hardware_status": 0,
+                "word": 127,
+                "hardware_word": 1663,
+                "differences": [
+                  "control",
+                  "memory-word"
+                ]
+              },
+              "pop:defined-status": {
+                "form": 7,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 2048,
+                "cached_status": 2048,
+                "hardware_status": 2113,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status"
+                ]
+              },
+              "pop:tags": {
+                "form": 7,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 254,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 2048,
+                "cached_status": 2048,
+                "hardware_status": 2048,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              },
+              "compare-pop:defined-status": {
+                "form": 8,
+                "top": 0,
+                "occupancy": 0,
+                "setting": 0,
+                "flags": 0,
+                "tags": 0,
+                "hardware_tags": 0,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 2048,
+                "cached_status": 2048,
+                "hardware_status": 2113,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "defined-status"
+                ]
+              },
+              "compare-pop:tags": {
+                "form": 8,
+                "top": 0,
+                "occupancy": 1,
+                "setting": 0,
+                "flags": 0,
+                "tags": 255,
+                "hardware_tags": 254,
+                "control": 1663,
+                "hardware_control": 1663,
+                "status": 2048,
+                "cached_status": 2048,
+                "hardware_status": 2048,
+                "word": 127,
+                "hardware_word": 127,
+                "differences": [
+                  "tags"
+                ]
+              }
+            },
+            "raw_sha256": "53ce78899db9892d6f0f0a89f736e5f33dc4dc6975f16d98d58ab3770f853da5",
+            "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+            "semantics_sha256": "d3d26d0617420074c84458be0b83a098ddf11194866e82e8b2883234f14039ca",
+            "fixture_sha256": "96ce565150e948fa66a27eb1513f2b6462d1bd9d9ccc6ad6404d3eb7783a578f",
+            "limitations": "Authored code only; all exceptions masked; tag/control/defined status and nonempty 80-bit register payloads compared. Full State and guest exception delivery remain unverified. Hardware instruction/data pointers and reserved bits are excluded. FNINIT is a source regression case, absent from current recovered startup instructions."
+          },
+          "runs": {
+            "20260906-p3-x87-state-probe-v1": {
+              "status": "failed",
+              "source_commit": "158e909852563867c86f1027eb6ce3c79302a464",
+              "sources_sha256": "25c5fbdff1d69e89f007f9d8d6348abeb559fb851128e673eba9de2eafc67967",
+              "elapsed_seconds": 4.176110599888489
+            },
+            "20260906-p3-x87-state-probe-v2": {
+              "status": "pass",
+              "source_commit": "158e909852563867c86f1027eb6ce3c79302a464",
+              "sources_sha256": "f52043cfba449553e37aa2dcb85e620021b8ea6d708fdf60a41669e83898895a",
+              "elapsed_seconds": 2.878565700026229
+            }
+          },
+          "original_remill_sources_unchanged": true,
+          "independent_sources": [
+            "https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-2a-manual.pdf"
+          ],
+          "next_work": [
+            "Choose one canonical x87 register/tag/status/control representation before environment serialization.",
+            "Preserve guest x87 rounding and precision without leaking host controls; verify arithmetic under that contract.",
+            "Correct stack occupancy, overflow/underflow, split status synchronization, wait/exception transfer and full tag reconstruction/import behavior.",
+            "Do not add FXSAVE/FNSTENV/FLDENV merely to make two objects compile. Continue independent indirect/callback closure work while these precise semantic blockers remain."
+          ],
+          "limitations": [
+            "11,520 authored bounded cases; 10,176 have at least one discrepancy. This is a counterexample corpus, not an estimate of game failure frequency.",
+            "Only selected fields and nonempty 80-bit payloads are compared, with all exceptions masked. Undefined condition flags, reserved bytes, hardware pointers and complete State are excluded.",
+            "Host-FP-control changes include the authored linked rounding helper; State control and serialized memory mismatches arise directly in pinned semantics.",
+            "FNINIT is absent from recovered startup instructions; its source regression is not an observed startup path.",
+            "The site inventory is static ownership, not execution coverage or an assertion that every instruction is incorrect.",
+            "No game bytes executed, no native startup, no runtime state fix, and no new compilation coverage."
+          ]
         }
       }
     }
