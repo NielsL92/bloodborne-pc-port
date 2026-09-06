@@ -1,0 +1,1112 @@
+{
+  "status": "complete current COFF symbol census and missing-start contexts verified; native exit handling remains open",
+  "inventory": {
+    "status": "actual COFF linkage and explicit-exit inventory complete; native gate remains open",
+    "source": "local\\cfg\\startup-recovery-v31-conditional-repeat",
+    "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+    "active_manifest": "local\\compiler-spike\\conditional-control-evidence-audit-v2-exits\\active-objects.json",
+    "active_manifest_sha256": "d23a3d2c94477ba3463b421929b678d48ce7e054a8cf943e179daa24526c2b74",
+    "llvm_nm_sha256": "9cf35cdc95dcbfdbc7b634799651cbb2ecf858950474ed05312f0abb5fc7fe15",
+    "objects": 386,
+    "compiled_roots": 21282,
+    "defined_global_symbols": 21373,
+    "undefined_symbol_names": 1862,
+    "unresolved_symbol_names": 240,
+    "unresolved_classes": {
+      "native support or host library symbol requires implementation/linkage": 63,
+      "import PLT requires native binding": 177
+    },
+    "duplicate_global_definitions": 35,
+    "explicit_missing_block_records": 4366,
+    "missing_instruction_start_records": 4366,
+    "emitted_ir_exit_sites_audited": false,
+    "missing_start_context_counts": {
+      "after_control_contract": 4178,
+      "compiled_target_transfer": 165,
+      "import_tail_transfer": 23
+    },
+    "known_target_after_contract_records": 1,
+    "unresolved_native_support_symbols": [
+      "__bb_native_mxcsr_fault",
+      "__bb_native_mxcsr_mask",
+      "__bb_native_simd_fault",
+      "__bb_native_ud2",
+      "__bb_native_x87_check_span",
+      "__bb_native_x87_fault",
+      "__bb_native_x87_image_policy",
+      "__bb_native_x87_pointer_segments",
+      "__bb_native_x87_record_instruction",
+      "__bb_native_x87_set_pointer_segments",
+      "__bb_native_x87_unsupported",
+      "__bb_x87_add",
+      "__bb_x87_from_f32",
+      "__bb_x87_from_f64",
+      "__bb_x87_from_i64",
+      "__bb_x87_mul",
+      "__bb_x87_scale",
+      "__bb_x87_sub",
+      "__bb_x87_to_f64",
+      "__bb_x87_to_i64_trunc",
+      "__divti3",
+      "__remill_async_hyper_call",
+      "__remill_atomic_begin",
+      "__remill_atomic_end",
+      "__remill_barrier_store_load",
+      "__remill_barrier_store_store",
+      "__remill_compare_eq",
+      "__remill_compare_exchange_memory_32",
+      "__remill_compare_exchange_memory_64",
+      "__remill_compare_neq",
+      "__remill_compare_sge",
+      "__remill_compare_sgt",
+      "__remill_compare_sle",
+      "__remill_compare_slt",
+      "__remill_compare_uge",
+      "__remill_compare_ugt",
+      "__remill_compare_ule",
+      "__remill_compare_ult",
+      "__remill_error",
+      "__remill_flag_computation_carry",
+      "__remill_flag_computation_overflow",
+      "__remill_flag_computation_sign",
+      "__remill_flag_computation_zero",
+      "__remill_function_call",
+      "__remill_function_return",
+      "__remill_jump",
+      "__remill_missing_block",
+      "__remill_read_memory_16",
+      "__remill_read_memory_32",
+      "__remill_read_memory_64",
+      "__remill_read_memory_8",
+      "__remill_read_memory_f32",
+      "__remill_read_memory_f64",
+      "__remill_sync_hyper_call",
+      "__remill_undefined_8",
+      "__remill_write_memory_16",
+      "__remill_write_memory_32",
+      "__remill_write_memory_64",
+      "__remill_write_memory_8",
+      "__remill_write_memory_f32",
+      "__remill_write_memory_f64",
+      "__udivti3",
+      "_fltused"
+    ],
+    "unclassified_logical_targets": [],
+    "artifact_sha256": {
+      "objects.json": "7b723e550efe945653e873eaa0a40367bb09e87d980e13c15871e7be3327d9f1",
+      "unresolved-symbols.json": "f0d6ac05d27e62289ebba986e362694b840def78491d20efdae8c0fb6439a085",
+      "duplicate-definitions.json": "65d1dc4d49e53b52810d1cec4ffa2b78ad06ac00be868888700659774110b01a",
+      "explicit-missing-blocks.json": "518ad1250a7d7026a39d44bcc4d795693f2c722176a8ba12ed767e54cd495922",
+      "known-target-after-contract.json": "02d58a6344016fb2c85736ca703c73ade0ab66d861b0bd32e0163987379f1b62"
+    },
+    "limitations": [
+      "Read-only symbol/table inspection; no linking or game execution. A symbol definition is not a native control or ABI contract.",
+      "The missing-start list comes from compiler audit reads, not an exhaustive emitted-IR exit-site count. Optimized IR can merge starts, and separate dynamic unexpected-return exits need independent inspection.",
+      "Missing-block addresses can coincide with compiled entry points after nonreturn contracts. Never authorize dispatch from target availability alone; retain source/exit intent.",
+      "PLT relocation and supplied-export candidates remain conditional on native loader binding, mutation and code identity. Unknown logical targets and duplicate definitions require concrete investigation."
+    ],
+    "p3_gate_passed": false,
+    "native_game_boot": false
+  },
+  "constant_check": {
+    "status": "all duplicated globals are matching read-only constant COMDATs",
+    "input_sha256": {
+      "objects.json": "bf0d93f7c4af53209867e69bceeff5a7cb9d677ee47e7b30223d3e11cff26685",
+      "duplicate-definitions.json": "65d1dc4d49e53b52810d1cec4ffa2b78ad06ac00be868888700659774110b01a"
+    },
+    "llvm_readobj_sha256": "c41504330830f6e10aa2909638adea0fd848953597eb6544441b391960d44ddf",
+    "duplicate_symbols": 35,
+    "definitions": 90,
+    "objects": 12,
+    "checks": [
+      {
+        "symbol": "__real@00000d04",
+        "bytes": 4,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 40,
+            "symbol_index": 116,
+            "data": "040d0000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 24,
+            "symbol_index": 67,
+            "data": "040d0000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@00ffffffffffffff",
+        "bytes": 8,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 9,
+            "symbol_index": 23,
+            "data": "ffffffffffffff00",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 26,
+            "symbol_index": 73,
+            "data": "ffffffffffffff00",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@41dfffffffc00000",
+        "bytes": 8,
+        "occurrences": [
+          {
+            "object": 26,
+            "section": 7,
+            "symbol_index": 17,
+            "data": "0000c0ffffffdf41",
+            "selection": "Any",
+            "readobj_sha256": "2e7228dafc9b5923dcd1b7bf5f1cfce4bf9d46994f778fc822321d102bd36712"
+          },
+          {
+            "object": 304,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "0000c0ffffffdf41",
+            "selection": "Any",
+            "readobj_sha256": "138ab42dddcc87d7bfa89df285164a0e04e4cef8dd46c326422512d040c15091"
+          },
+          {
+            "object": 370,
+            "section": 5,
+            "symbol_index": 11,
+            "data": "0000c0ffffffdf41",
+            "selection": "Any",
+            "readobj_sha256": "31a0a939ca6bde55028b54c208349c18a2b6a44bac38c890b1545b03002cfd88"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@43e0000000000000",
+        "bytes": 8,
+        "occurrences": [
+          {
+            "object": 286,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "000000000000e043",
+            "selection": "Any",
+            "readobj_sha256": "5cffc19a13beab9276d0cfccd1cbd739d9852a6622e6518f8be1362e6d565d53"
+          },
+          {
+            "object": 298,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "000000000000e043",
+            "selection": "Any",
+            "readobj_sha256": "6781c970393db86d216f10a3f3e95ab0d030291c88ede7c19bcd6e08decf150f"
+          },
+          {
+            "object": 371,
+            "section": 5,
+            "symbol_index": 11,
+            "data": "000000000000e043",
+            "selection": "Any",
+            "readobj_sha256": "0a9e60e86077777735328f6e85df67af237a1329d6b43d15e4b59288e629876a"
+          },
+          {
+            "object": 372,
+            "section": 5,
+            "symbol_index": 11,
+            "data": "000000000000e043",
+            "selection": "Any",
+            "readobj_sha256": "e5d673445eacbc1d64b6e1518b203c877a9b01264b547077d8c7919cc18caa95"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@4f000000",
+        "bytes": 4,
+        "occurrences": [
+          {
+            "object": 26,
+            "section": 5,
+            "symbol_index": 11,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "2e7228dafc9b5923dcd1b7bf5f1cfce4bf9d46994f778fc822321d102bd36712"
+          },
+          {
+            "object": 76,
+            "section": 5,
+            "symbol_index": 11,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "3e32fb1dde54f294f215f4f44d7e00a99dd65c289c4822c5fb60ef62477553e4"
+          },
+          {
+            "object": 286,
+            "section": 8,
+            "symbol_index": 19,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "5cffc19a13beab9276d0cfccd1cbd739d9852a6622e6518f8be1362e6d565d53"
+          },
+          {
+            "object": 307,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "62dcd3fb63891552ceb69b56438c22ae16fddecbcb8e33281261036d772fb1d8"
+          },
+          {
+            "object": 350,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "145fc38fe977255cfd3eceea10ab1d940a7644db8b47a2b9593125a79c746a35"
+          },
+          {
+            "object": 373,
+            "section": 51,
+            "symbol_index": 148,
+            "data": "0000004f",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@7fffffff",
+        "bytes": 4,
+        "occurrences": [
+          {
+            "object": 26,
+            "section": 4,
+            "symbol_index": 8,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "2e7228dafc9b5923dcd1b7bf5f1cfce4bf9d46994f778fc822321d102bd36712"
+          },
+          {
+            "object": 76,
+            "section": 4,
+            "symbol_index": 8,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "3e32fb1dde54f294f215f4f44d7e00a99dd65c289c4822c5fb60ef62477553e4"
+          },
+          {
+            "object": 286,
+            "section": 7,
+            "symbol_index": 16,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "5cffc19a13beab9276d0cfccd1cbd739d9852a6622e6518f8be1362e6d565d53"
+          },
+          {
+            "object": 307,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "62dcd3fb63891552ceb69b56438c22ae16fddecbcb8e33281261036d772fb1d8"
+          },
+          {
+            "object": 350,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "145fc38fe977255cfd3eceea10ab1d940a7644db8b47a2b9593125a79c746a35"
+          },
+          {
+            "object": 373,
+            "section": 50,
+            "symbol_index": 145,
+            "data": "ffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@7fffffffffffffff",
+        "bytes": 8,
+        "occurrences": [
+          {
+            "object": 286,
+            "section": 9,
+            "symbol_index": 22,
+            "data": "ffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "5cffc19a13beab9276d0cfccd1cbd739d9852a6622e6518f8be1362e6d565d53"
+          },
+          {
+            "object": 298,
+            "section": 8,
+            "symbol_index": 19,
+            "data": "ffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "6781c970393db86d216f10a3f3e95ab0d030291c88ede7c19bcd6e08decf150f"
+          },
+          {
+            "object": 304,
+            "section": 7,
+            "symbol_index": 16,
+            "data": "ffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "138ab42dddcc87d7bfa89df285164a0e04e4cef8dd46c326422512d040c15091"
+          },
+          {
+            "object": 370,
+            "section": 7,
+            "symbol_index": 17,
+            "data": "ffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "31a0a939ca6bde55028b54c208349c18a2b6a44bac38c890b1545b03002cfd88"
+          },
+          {
+            "object": 374,
+            "section": 6,
+            "symbol_index": 13,
+            "data": "ffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@80800d0480808080",
+        "bytes": 8,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 39,
+            "symbol_index": 113,
+            "data": "80808080040d8080",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 23,
+            "symbol_index": 64,
+            "data": "80808080040d8080",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__real@fffffffe",
+        "bytes": 4,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 7,
+            "symbol_index": 17,
+            "data": "feffffff",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 7,
+            "symbol_index": 16,
+            "data": "feffffff",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000000000000000000800",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 17,
+            "symbol_index": 47,
+            "data": "00080000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 10,
+            "symbol_index": 25,
+            "data": "00080000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000000000000000000b02",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 16,
+            "symbol_index": 44,
+            "data": "020b0000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 11,
+            "symbol_index": 28,
+            "data": "020b0000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000000000000004020007",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 45,
+            "symbol_index": 130,
+            "data": "07000204000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 22,
+            "symbol_index": 61,
+            "data": "07000204000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000000302090805040100",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 29,
+            "symbol_index": 83,
+            "data": "00010405080902030000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 41,
+            "symbol_index": 118,
+            "data": "00010405080902030000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000000e0c06040a088000",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 25,
+            "symbol_index": 71,
+            "data": "0080080a04060c0e0000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 33,
+            "symbol_index": 94,
+            "data": "0080080a04060c0e0000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000000000000008080808080800280",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 26,
+            "symbol_index": 74,
+            "data": "80028080808080800000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 34,
+            "symbol_index": 97,
+            "data": "80028080808080800000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000003000000060000000100000000",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 32,
+            "symbol_index": 92,
+            "data": "00000000010000000600000003000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 39,
+            "symbol_index": 112,
+            "data": "00000000010000000600000003000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000006000000040000000200000000",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 44,
+            "symbol_index": 127,
+            "data": "00000000020000000400000006000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 38,
+            "symbol_index": 109,
+            "data": "00000000020000000400000006000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00000d04000000000000000000000000",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 19,
+            "symbol_index": 53,
+            "data": "000000000000000000000000040d0000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 18,
+            "symbol_index": 49,
+            "data": "000000000000000000000000040d0000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@00800000000000000000800000000000",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 10,
+            "symbol_index": 26,
+            "data": "00000000008000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 12,
+            "symbol_index": 31,
+            "data": "00000000008000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@07060504050409080908050401000302",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 28,
+            "symbol_index": 80,
+            "data": "02030001040508090809040504050607",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 40,
+            "symbol_index": 115,
+            "data": "02030001040508090809040504050607",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@0f808080808080800b80808080808080",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 15,
+            "symbol_index": 41,
+            "data": "808080808080800b808080808080800f",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 16,
+            "symbol_index": 43,
+            "data": "808080808080800b808080808080800f",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@7fffffffffffffff7fffffffffffffff",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 26,
+            "section": 6,
+            "symbol_index": 14,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "2e7228dafc9b5923dcd1b7bf5f1cfce4bf9d46994f778fc822321d102bd36712"
+          },
+          {
+            "object": 286,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "5cffc19a13beab9276d0cfccd1cbd739d9852a6622e6518f8be1362e6d565d53"
+          },
+          {
+            "object": 298,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "6781c970393db86d216f10a3f3e95ab0d030291c88ede7c19bcd6e08decf150f"
+          },
+          {
+            "object": 304,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "138ab42dddcc87d7bfa89df285164a0e04e4cef8dd46c326422512d040c15091"
+          },
+          {
+            "object": 370,
+            "section": 4,
+            "symbol_index": 8,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "31a0a939ca6bde55028b54c208349c18a2b6a44bac38c890b1545b03002cfd88"
+          },
+          {
+            "object": 371,
+            "section": 4,
+            "symbol_index": 8,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "0a9e60e86077777735328f6e85df67af237a1329d6b43d15e4b59288e629876a"
+          },
+          {
+            "object": 372,
+            "section": 4,
+            "symbol_index": 8,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "e5d673445eacbc1d64b6e1518b203c877a9b01264b547077d8c7919cc18caa95"
+          },
+          {
+            "object": 374,
+            "section": 5,
+            "symbol_index": 10,
+            "data": "ffffffffffffff7fffffffffffffff7f",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@800e0d0c07060504800a090803020100",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 14,
+            "symbol_index": 38,
+            "data": "0001020308090a80040506070c0d0e80",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 15,
+            "symbol_index": 40,
+            "data": "0001020308090a80040506070c0d0e80",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__xmm@808000008080808080800d0480808080",
+        "bytes": 16,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 18,
+            "symbol_index": 50,
+            "data": "80808080040d80808080808000008080",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 17,
+            "symbol_index": 46,
+            "data": "80808080040d80808080808000008080",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000000000000000000000000000000000006000000040000000200000000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 43,
+            "symbol_index": 124,
+            "data": "0000000002000000040000000600000000000000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 37,
+            "symbol_index": 106,
+            "data": "0000000002000000040000000600000000000000000000000000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000000000020000000000000001800000000000000100000000000000008",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 20,
+            "symbol_index": 56,
+            "data": "0800000000000000100000000000000018000000000000002000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 9,
+            "symbol_index": 22,
+            "data": "0800000000000000100000000000000018000000000000002000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000000000028000000000000002000000000000000180000000000000010",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 27,
+            "symbol_index": 77,
+            "data": "1000000000000000180000000000000020000000000000002800000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 32,
+            "symbol_index": 91,
+            "data": "1000000000000000180000000000000020000000000000002800000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000000000030000000000000002800000000000000200000000000000018",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 35,
+            "symbol_index": 101,
+            "data": "1800000000000000200000000000000028000000000000003000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 20,
+            "symbol_index": 55,
+            "data": "1800000000000000200000000000000028000000000000003000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000000000080008000000000000000008000000000000000008000000000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 12,
+            "symbol_index": 32,
+            "data": "0000000080000000000000000080000000000000000080008000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 14,
+            "symbol_index": 37,
+            "data": "0000000080000000000000000080000000000000000080008000000000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000080000000000000000080000000000000000080000000000000000080",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 11,
+            "symbol_index": 29,
+            "data": "8000000000000000008000000000000000008000000000000000008000000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 13,
+            "symbol_index": 34,
+            "data": "8000000000000000008000000000000000008000000000000000008000000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000000700000006000000060000000400000006000000040000000200000000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 8,
+            "symbol_index": 20,
+            "data": "0000000002000000040000000600000004000000060000000600000007000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 25,
+            "symbol_index": 70,
+            "data": "0000000002000000040000000600000004000000060000000600000007000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000008000000000000000008000000000000000008000000000000000008000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 13,
+            "symbol_index": 35,
+            "data": "0080000000000000000080000000000000000080000000000000000080000000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 8,
+            "symbol_index": 19,
+            "data": "0080000000000000000080000000000000000080000000000000000080000000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0000800000000000000000800000000000000000800000000000000000800000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 24,
+            "symbol_index": 68,
+            "data": "0000800000000000000000800000000000000000800000000000000000800000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 28,
+            "symbol_index": 79,
+            "data": "0000800000000000000000800000000000000000800000000000000000800000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0080000000000000000000000000008000008000000000000080000000000000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 46,
+            "symbol_index": 133,
+            "data": "0000000000008000000000000080000080000000000000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 47,
+            "symbol_index": 136,
+            "data": "0000000000008000000000000080000080000000000000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      },
+      {
+        "symbol": "__ymm@0080000000000000000080000000000000000080000000000000000080000000",
+        "bytes": 32,
+        "occurrences": [
+          {
+            "object": 373,
+            "section": 33,
+            "symbol_index": 95,
+            "data": "0000008000000000000000008000000000000000008000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "a7e7fb18beb44456ba2dcb85c8d909f64d9cf058c6031c357f89a0f7c9563c28"
+          },
+          {
+            "object": 374,
+            "section": 19,
+            "symbol_index": 52,
+            "data": "0000008000000000000000008000000000000000008000000000000000008000",
+            "selection": "Any",
+            "readobj_sha256": "f72c17df10073362776e39467d5279ace480f715bc8c46bffc8ba9ed586a68df"
+          }
+        ]
+      }
+    ],
+    "limitations": "Independent raw-record and LLVM metadata checks plus exact constant payload equality. This does not link the game or establish any runtime service/ABI behavior."
+  },
+  "known_target_after_contract": [
+    {
+      "object": 385,
+      "logical_address": 4329617200,
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "rva": 34649904,
+      "target_is_compiled_root": true,
+      "preceding_control_contracts": [
+        {
+          "entry": 34648288,
+          "source": 34649899,
+          "contract": "disputed-ending-d65f0b4f01d5-210b0e0",
+          "instruction_bytes": "e840f6ffff"
+        }
+      ],
+      "explicit_transfer_edges": [],
+      "dispatch_authorized": false
+    }
+  ],
+  "runs": {
+    "20260906-p3-whole-program-linkage-v2-context": {
+      "source_commit": "fd2f2536588ae5a11f9318ef63cf591f297e7356",
+      "sources_sha256": "7010c364c553c34cdb9d4135ccef95fd07b7f500f5032f43cb1fe9fbafe8035c",
+      "elapsed_seconds": 14.28731259983033
+    },
+    "20260906-p3-whole-program-linkage-v3-import-tail": {
+      "source_commit": "fd2f2536588ae5a11f9318ef63cf591f297e7356",
+      "sources_sha256": "2b19d22b67efdad29f7cc57151cabe23db792210b140aab1cdd96b60234d224d",
+      "elapsed_seconds": 13.90194660006091
+    },
+    "20260906-p3-whole-program-linkage-v4-stubs": {
+      "source_commit": "fd2f2536588ae5a11f9318ef63cf591f297e7356",
+      "sources_sha256": "90c123b7ebc09ea5482bf962981b08171017e876ba791fd590831d3a745a32b3",
+      "elapsed_seconds": 13.240300199948251
+    },
+    "20260906-p3-whole-program-linkage-v5-repeat": {
+      "source_commit": "fd2f2536588ae5a11f9318ef63cf591f297e7356",
+      "sources_sha256": "7443fd8660d95d24191cbeafb3001f331bda4a2b55873d9d6bf9bac9e3100300",
+      "elapsed_seconds": 14.008220799965784
+    },
+    "20260906-p3-coff-constants-v1": {
+      "source_commit": "fd2f2536588ae5a11f9318ef63cf591f297e7356",
+      "sources_sha256": "5ca2457fcec69b94aa1517874715d408e56167ea9bd0c6ced2cf769b3bd83e5d",
+      "elapsed_seconds": 0.8640031998511404
+    }
+  },
+  "retained_failures": [
+    "20260906-p3-whole-program-linkage-v1 rejected an input-format assumption: units.json has identities, not full instructions. V2 reads current manifests once and verifies every retained entry instruction hash."
+  ],
+  "next_work": [
+    "Inspect actual emitted LLVM control exits, including dynamic unexpected-return guards absent from the missing-instruction-start list.",
+    "Preserve source and exit intent in the native interface; never dispatch an unexpected return just because its address is compiled.",
+    "Bind 67 supplied compiled export candidates through verified module/relocation contracts; implement or diagnose the 110 external import stubs and 63 support/library symbols explicitly."
+  ],
+  "p3_gate_passed": false,
+  "native_game_boot": false,
+  "native_port_playable": false
+}
