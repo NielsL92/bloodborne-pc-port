@@ -88,6 +88,86 @@ class RecoveryTests(unittest.TestCase):
         r=self.callback_fixture('31 f7 e8 01 00 00 00 c3 c3',0x108);r.recover('test',0x100)
         self.assertEqual(r.db.execute("SELECT target,kind FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchall(),[(None,'unresolved_callback_argument')])
 
+    def across_call_fixture(self, clobber=b'', reg='rbx', enabled=True):
+        import struct
+        # LEA register, callback; call helper; optional clobber; move into RDI;
+        # call registrar; RET; then three independent RET bodies.
+        prefix=bytes.fromhex('48 8d 1d' if reg=='rbx' else '48 8d 05')
+        move=bytes.fromhex('48 89 df' if reg=='rbx' else '48 89 c7')
+        callback=0x100+7+5+len(clobber)+3+5+1
+        helper,registrar=callback+1,callback+2
+        raw=prefix+struct.pack('<i',callback-0x107)+b'\xe8'+struct.pack('<i',helper-0x10c)+clobber+move
+        raw+=b'\xe8'+struct.pack('<i',registrar-(0x100+len(raw)+5))+b'\xc3'*4
+        r=self.callback_fixture(raw.hex(),registrar);r.sysv_callee_saved_candidates=enabled
+        r.recover('test',0x100)
+        return r,callback
+
+    def test_conditional_callee_saved_constant_survives_call(self):
+        r,target=self.across_call_fixture()
+        self.assertIn(('test',target),r.queue)
+        rows=r.db.execute("SELECT kind,detail FROM recovery_edge WHERE kind='abi_register_preservation_unvalidated'").fetchall()
+        self.assertTrue(rows)
+        provenance=__import__('json').loads(rows[0][1])['registers']['rbx'][1]
+        self.assertEqual(provenance,[0x100,0x107])
+
+    def test_callee_saved_candidate_mode_is_explicit(self):
+        r,target=self.across_call_fixture(enabled=False)
+        self.assertNotIn(('test',target),r.queue)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],1)
+
+    def test_volatile_constant_does_not_survive_call(self):
+        r,target=self.across_call_fixture(reg='rax')
+        self.assertNotIn(('test',target),r.queue)
+
+    def test_partial_callee_saved_write_invalidates_constant(self):
+        r,target=self.across_call_fixture(bytes.fromhex('b3 00'))
+        self.assertNotIn(('test',target),r.queue)
+
+    def test_branch_still_invalidates_callee_saved_constant(self):
+        r,target=self.across_call_fixture(bytes.fromhex('75 00'))
+        self.assertNotIn(('test',target),r.queue)
+
+    def relocated_callback_fixture(self, width=8, clobber=b'', segment=False):
+        import struct
+        load=bytes.fromhex('48 8b 3d') if width==8 else bytes.fromhex('8b 3d')
+        if segment:load=b'\x64'+load
+        instruction_size=len(load)+4;callback=0x100+instruction_size+len(clobber)+5+1;slot=callback+1;registrar=slot+8
+        raw=load+struct.pack('<i',slot-(0x100+instruction_size))+clobber
+        raw+=b'\xe8'+struct.pack('<i',registrar-(0x100+len(raw)+5))+b'\xc3\xc3'+b'\0'*8+b'\xc3'
+        r=self.callback_fixture(raw.hex(),registrar);r.initial_callback_relocation_candidates=True
+        r.relocs['test'][slot]=dict(offset=slot,type=8,addend=callback,symbol=0)
+        return r,callback,slot
+
+    def test_initial_relative_callback_slot_expands_but_stays_unknown(self):
+        r,target,slot=self.relocated_callback_fixture();r.recover('test',0x100)
+        self.assertIn(('test',target),r.queue)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],1)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='callback_relocation_binding_unvalidated'").fetchone()[0],1)
+
+    def test_truncated_or_clobbered_callback_slot_is_not_promoted(self):
+        for width,clobber in [(4,b''),(8,bytes.fromhex('40 b7 00')),(8,bytes.fromhex('75 00'))]:
+            with self.subTest(width=width,clobber=clobber):
+                r,target,slot=self.relocated_callback_fixture(width,clobber);r.recover('test',0x100)
+                self.assertNotIn(('test',target),r.queue)
+
+    def test_segment_based_callback_load_is_not_module_relocation(self):
+        r,target,slot=self.relocated_callback_fixture(segment=True);r.recover('test',0x100)
+        self.assertNotIn(('test',target),r.queue)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='callback_relocation_binding_unvalidated'").fetchone()[0],0)
+
+    def test_symbolic_callback_slot_requires_exact_function_provider(self):
+        r,target,slot=self.relocated_callback_fixture()
+        symbol=dict(type=2,defined=False,value=0,nid='test',library='library',module='provider')
+        r.links={'test':{'symbols':[symbol]}};r.relocs['test'][slot].update(type=6,addend=0)
+        r.exports={('test','library','provider'):[('test',target)]}
+        self.assertEqual(r.initial_function_slot('test',slot)['candidates'],[dict(module='test',target=target)])
+        r.exports[('test','library','provider')].append(('test',target+1))
+        self.assertEqual(r.initial_function_slot('test',slot)['candidates'],[])
+        r.exports[('test','library','provider')].pop();symbol['type']=1
+        self.assertEqual(r.initial_function_slot('test',slot)['candidates'],[])
+        symbol['type']=2;r.relocs['test'][slot]['addend']=1
+        self.assertEqual(r.initial_function_slot('test',slot)['candidates'],[])
+
     def test_return_leaves_embedded_data_undecoded(self):
         r=fixture('c3 0f ff ff ff');r.recover('test',0x100)
         self.assertEqual(r.db.execute('SELECT rva FROM recovery_instruction').fetchall(),[(0x100,)])

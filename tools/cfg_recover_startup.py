@@ -39,8 +39,10 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
+        self.sysv_callee_saved_candidates = sysv_callee_saved_candidates
+        self.initial_callback_relocation_candidates = initial_callback_relocation_candidates
         out.mkdir(parents=True, exist_ok=False)
         shutil.copy2(source / 'analysis.sqlite', out / 'analysis.sqlite')
         self.db = sqlite3.connect(out / 'analysis.sqlite')
@@ -131,6 +133,8 @@ class Recovery:
             control_contracts_sha256=sha('tools/cfg_import_contracts.json'), modules=self.names,
             derived_control_sha256=sha(control_evidence) if control_evidence else None,
             callback_contracts_sha256=sha('tools/cfg_callback_contracts.json'),
+            sysv_callee_saved_candidates=sysv_callee_saved_candidates,
+            initial_callback_relocation_candidates=initial_callback_relocation_candidates,
             max_entries=max_entries, max_instructions_per_entry=max_instructions, jump_evidence_sha256=sha(jump_evidence) if jump_evidence else None,
             policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
         write_json(out/'identity.json', self.identity)
@@ -167,6 +171,22 @@ class Recovery:
         s['resolved_name']=self.symbol_names.get(s['nid'])
         self.import_cache[key]=s
         return s
+
+    def initial_function_slot(self,h,slot):
+        r=self.relocs[h].get(slot)
+        result=dict(slot=slot,relocation=r,candidates=[],mutable=True,
+                    limitation='Initial relocation binding only; preceding writes, interposition, registry mutation and runtime target remain unknown')
+        if not r:return result
+        if r['type']==8:
+            if self.is_code(h,r['addend']):result['candidates']=[dict(module=h,target=r['addend'])]
+        elif r['type'] in (1,6,7) and r['addend']==0:
+            symbol=self.links[h]['symbols'][r['symbol']];result['symbol']=symbol
+            if symbol['type']!=2:return result
+            targets=[(h,symbol['value'])] if symbol['defined'] else self.exports.get(tuple(symbol[k] for k in ('nid','library','module')),[])
+            # Keep an ambiguous provider or adjusted symbol unresolved.
+            if len(targets)==1 and self.is_code(*targets[0]):
+                result['candidates']=[dict(module=targets[0][0],target=targets[0][1])]
+        return result
 
     def fence(self,h,start):
         segment_end=next((b for a,b in self.executable[h] if a<=start<b),None)
@@ -220,7 +240,7 @@ class Recovery:
                 else:edge(start,None,'unresolved_personality',str(slot))
         # Each worklist item starts with unknown registers: no path-insensitive merge.
         while queue:
-            address=queue.popleft();values={}
+            address=queue.popleft();values={};slot_values={}
             while start<=address<end:
                 if address in insns:break
                 if len(insns)>=self.max_instructions:
@@ -267,6 +287,16 @@ class Recovery:
                                 # LEA to module RVA zero is not an absolute null pointer.
                                 edge(address,None if literal else 0,'callback_contract_null_argument' if literal else 'unresolved_callback_argument',detail)
                             else:edge(address,value[0] if value else None,'unresolved_callback_argument',detail)
+                            slot_value=slot_values.get(callback['register'])
+                            if slot_value and getattr(self, 'initial_callback_relocation_candidates', False):
+                                slot,provenance=slot_value
+                                binding=self.initial_function_slot(h,slot)
+                                binding.update(contract=callback['id'],register=callback['register'],provenance=provenance,
+                                               signature=callback['callback_signature'])
+                                edge(address,None,'callback_relocation_binding_unvalidated',json.dumps(binding,sort_keys=True))
+                                for candidate in binding['candidates']:
+                                    dependency(address,candidate['target'],'callback_relocation_target_candidate',
+                                               json.dumps(binding,sort_keys=True),candidate['module'])
                     if is_call:
                         for reg in ('rdi','rsi','rdx','rcx','r8','r9'):
                             value=values.get(reg)
@@ -293,7 +323,20 @@ class Recovery:
                             if r and r['type']==8:candidate,why=r['addend'],f'initial relocated mutable slot {slot:#x}'
                         if candidate and self.is_code(h,candidate):dependency(address,candidate,'indirect_target_candidate',str(why))
                     if is_jump and i.mnemonic in ('jmp','ljmp'):break
-                    values.clear()
+                    if is_call and getattr(self, 'sysv_callee_saved_candidates', False):
+                        # Conditional normal-return ABI fact only. Branches, landing-pad
+                        # roots and other control transfers still start with unknowns.
+                        saved={reg:(value,prov+[address]) for reg,(value,prov) in values.items()
+                               if reg in ('rbx','rbp','r12','r13','r14','r15')}
+                        saved_slots={reg:(slot,prov+[address]) for reg,(slot,prov) in slot_values.items()
+                                     if reg in ('rbx','rbp','r12','r13','r14','r15')}
+                        if saved or saved_slots:
+                            edge(address,None,'abi_register_preservation_unvalidated',json.dumps(dict(
+                                abi='SysV AMD64 normal call return',registers=saved,relocated_slots=saved_slots,
+                                limitation='Candidate generation only; callee ABI, callbacks and nonlocal/asynchronous paths require native validation'),sort_keys=True))
+                        values=saved
+                        slot_values=saved_slots
+                    else:values.clear();slot_values.clear()
                     edge(address,after,'fallthrough')
                     if after==end:issue(address,'fallthrough_at_fence',i.mnemonic)
                     address=after
@@ -302,7 +345,15 @@ class Recovery:
                     continue
                 # Local constant propagation is only a candidate generator. Partial-register
                 # writes invalidate the entire value; memory loads are never treated immutable.
-                new=None
+                new=None;new_slot=None
+                if getattr(self, 'initial_callback_relocation_candidates', False) and i.mnemonic in ('mov','movabs') and len(i.operands)==2:
+                    dst,src=i.operands
+                    if dst.type==X86_OP_REG and dst.size==8 and src.size==8:
+                        reg=canonical_register(i.reg_name(dst.reg))
+                        if src.type==X86_OP_MEM and src.mem.base==X86_REG_RIP and not src.mem.index and not src.mem.segment:
+                            new_slot=(reg,after+src.mem.disp,[address])
+                        elif src.type==X86_OP_REG and canonical_register(i.reg_name(src.reg)) in slot_values:
+                            slot,prov=slot_values[canonical_register(i.reg_name(src.reg))];new_slot=(reg,slot,prov+[address])
                 if len(i.operands)>=2 and i.operands[0].type==X86_OP_REG and i.operands[0].size in (4,8):
                     dst,src=i.operands[:2];reg=canonical_register(i.reg_name(dst.reg))
                     if i.mnemonic in ('mov','movabs'):
@@ -317,8 +368,10 @@ class Recovery:
                     elif i.mnemonic in ('add','sub') and src.type==X86_OP_IMM and reg in values:
                         value,prov=values[reg];new=(reg,value+(src.imm if i.mnemonic=='add' else -src.imm),prov+[address])
                     if new and dst.size==4:new=(new[0],new[1]&0xffffffff,new[2])
-                for reg in i.regs_access()[1]:values.pop(canonical_register(i.reg_name(reg)),None)
+                for reg in i.regs_access()[1]:
+                    reg=canonical_register(i.reg_name(reg));values.pop(reg,None);slot_values.pop(reg,None)
                 if new:values[new[0]]=(new[1],new[2])
+                if new_slot:slot_values[new_slot[0]]=(new_slot[1],new_slot[2])
                 edge(address,after,'fallthrough')
                 if after==end:issue(address,'fallthrough_at_fence',i.mnemonic)
                 address=after
@@ -390,10 +443,12 @@ def main():
     p.add_argument('--roots',type=Path,default=Path('local/cfg/startup-v1/roots.json'))
     p.add_argument('--jump-evidence',type=Path)
     p.add_argument('--control-evidence',type=Path)
+    p.add_argument('--sysv-callee-saved-candidates',action='store_true',help='Generate conditional constants across normal SysV calls; retain ABI frontier obligations')
+    p.add_argument('--initial-callback-relocation-candidates',action='store_true',help='Expand initial function bindings loaded from mutable slots at exact callback ABI sites; unknown runtime targets remain')
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates).run()
 
 
 if __name__=='__main__':main()
