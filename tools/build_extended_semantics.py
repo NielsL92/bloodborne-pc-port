@@ -11,12 +11,18 @@ assert len(blocks)==1
 command=re.search(r'^  COMMAND = (.*)$',blocks[0],re.M).group(1);tail=command.split('&& ',1)[1];assert tail.endswith('"');argv=arguments(tail[:-1]);assert Path(argv[0]).resolve()==(LLVM/'bin/clang++.exe').resolve()
 original=ROOT/'external/remill/lib/Arch/X86/Runtime/Instructions.cpp'
 extensions=[Path(x).resolve() for x in sys.argv[2:]] or [ROOT/'native/semantics/BMI.cpp.inc']
-unit=out/'Instructions-extended.cpp';unit.write_text(''.join(f'#include "{p.as_posix()}"\n' for p in [original,*extensions]),encoding='utf-8')
+replacements=[name for path in extensions for name in re.findall(r'^// BB_REPLACE_SELECTOR: ([A-Za-z0-9_]+)$',path.read_text(encoding='utf-8'),re.M)]
+assert len(replacements)==len(set(replacements))
+original_text='\n'.join(p.read_text(encoding='utf-8') for p in (ROOT/'external/remill/lib/Arch/X86/Semantics').glob('*.cpp'))
+for name in replacements:assert re.search(r'DEF_ISEL\('+re.escape(name)+r'\)',original_text),name
+prelude=''.join(f'#define ISEL_{name} BB_ORIGINAL_ISEL_{name}\n' for name in replacements)
+restore=''.join(f'#undef ISEL_{name}\n' for name in replacements)
+unit=out/'Instructions-extended.cpp';unit.write_text(prelude+f'#include "{original.as_posix()}"\n'+restore+''.join(f'#include "{p.as_posix()}"\n' for p in extensions),encoding='utf-8')
 assert Path(argv[argv.index('-c')+1]).resolve()==original.resolve();argv[argv.index('-c')+1]=str(unit);argv[argv.index('-o')+1]=str(out/'instructions.bc')
 inputs=[ROOT/'build/remill/lib/Arch/X86/Runtime'/('amd64_avx_'+n+'.cpp.bc') for n in ('BasicBlock','Intrinsics','HyperCall')];env=environment();steps=[]
 for name,cmd in [('compile',argv),('link',[LLVM/'bin/llvm-link.exe','--suppress-warnings',out/'instructions.bc',*inputs,'-o',out/'amd64_avx.bc'])]:
  with (out/(name+'.stdout')).open('wb') as stdout,(out/(name+'.stderr')).open('wb') as stderr:r=subprocess.run(list(map(str,cmd)),env=env,stdout=stdout,stderr=stderr,timeout=300)
  steps.append(dict(argv=list(map(str,cmd)),exit_code=r.returncode));write_json(out/'steps.json',steps);assert r.returncode==0
 original_inputs={p.relative_to(ROOT).as_posix():sha(p) for directory in ('external/remill/include/remill','external/remill/lib/Arch/X86') for p in sorted((ROOT/directory).rglob('*')) if p.is_file()}
-write_json(out/'identity.json',dict(status='isolated semantic module built',extension_sha256={str(p):sha(p) for p in extensions},original_source_sha256=original_inputs,linked_bitcode_sha256={str(p):sha(p) for p in inputs},original_semantics_sha256=sha(ROOT/'build/remill/lib/Arch/X86/Runtime/amd64_avx.bc'),semantics_sha256=sha(out/'amd64_avx.bc'),compiler_sha256=sha(LLVM/'bin/clang++.exe'),execution='none; semantics require independent authored checks'))
+write_json(out/'identity.json',dict(status='isolated semantic module built',selector_replacements=replacements,extension_sha256={str(p):sha(p) for p in extensions},original_source_sha256=original_inputs,linked_bitcode_sha256={str(p):sha(p) for p in inputs},original_semantics_sha256=sha(ROOT/'build/remill/lib/Arch/X86/Runtime/amd64_avx.bc'),semantics_sha256=sha(out/'amd64_avx.bc'),compiler_sha256=sha(LLVM/'bin/clang++.exe'),execution='none; semantics require independent authored checks'))
 print('Isolated extended semantic module built',flush=True)

@@ -529,5 +529,1018 @@
     "FNINIT is absent from recovered startup instructions; its source regression is not an observed startup path.",
     "The site inventory is static ownership, not execution coverage or an assertion that every instruction is incorrect.",
     "No game bytes executed, no native startup, no runtime state fix, and no new compilation coverage."
-  ]
+  ],
+  "latest_experimental_checkpoint": {
+    "updated_utc": "2026-09-06 02:34 UTC",
+    "status": "Paused at user request for PC shutdown; experimental x87 semantics not accepted",
+    "environment": {
+      "status": "authored x87 tag-environment characterization complete",
+      "host": {
+        "kind": "host",
+        "vendor": "GenuineIntel",
+        "signature": 722545
+      },
+      "cases": 2097152,
+      "counts": {
+        "literal_full_tags": 8192,
+        "reconstructed_full_tags": 2097152,
+        "abridged_tags": 2097152,
+        "control": 2097152,
+        "top_matches": 2097152,
+        "nonempty_payloads": 2097152
+      },
+      "groups": [
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 0,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 1,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 2,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 3,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 4,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 5,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 6,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 0,
+          "top": 7,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            43684
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 0,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 1,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 2,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 3,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 4,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 5,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 6,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 1,
+          "top": 7,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            10921
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 0,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 1,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 2,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 3,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 4,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 5,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 6,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 2,
+          "top": 7,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            19114
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 0,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 1,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 2,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 3,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 4,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 5,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 6,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        },
+        {
+          "kind": "group",
+          "rotation": 3,
+          "top": 7,
+          "cases": 65536,
+          "literal_full_tags": 256,
+          "reconstructed_full_tags": 65536,
+          "abridged_tags": 65536,
+          "control": 65536,
+          "top_matches": 65536,
+          "nonempty_payloads": 65536,
+          "first_tag_difference": [
+            0,
+            37546
+          ]
+        }
+      ],
+      "raw_sha256": "6b2d5e658bb70b7c42b0ed7ac64866b867619339f8f181b2748abb93abfd322c",
+      "fixture_sha256": "e8453bc168aa363515f737a85fa1fd39a6b11a88168ba94ba40139fcb6e78b8c",
+      "assembly_sha256": "a653cd873c60be0e8a330c9f3685fafd60472b19c684b017f2f327b73cdc051f",
+      "source_sha256": "ec782b79220e48f41dba567fa84579ac70ddfb4b4010355072200f9d1e3f5b76",
+      "limitations": "Authored host instructions only; all x87 exceptions masked. Raw tag import/export and nonempty payload mapping only; no arithmetic, native guest faults, game CPU execution or PS4 behavior proof. A matching host model still needs manual cross-check and native semantic implementation."
+    },
+    "small_probe": {
+      "status": "characterization complete; semantic correctness is not established",
+      "cases": 11520,
+      "differing_cases": 0,
+      "differences": {},
+      "examples": {},
+      "raw_sha256": "9649182d5b66f0edb9fc0cb7e56883f06ed9967d16b071c7c9a1fff1f8a7009c",
+      "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+      "semantics_sha256": "55ae2027f3c90fa5e2355fe631858b548260b3bb3b38e12e6baacb9d65bc699d",
+      "fixture_sha256": "4dc2622604770ea05838442fa313457871a883f3687e3764c65e2c4b37436f6a",
+      "limitations": "Authored code only; all exceptions masked; tag/control/defined status and nonempty 80-bit register payloads compared. Full State and guest exception delivery remain unverified. Hardware instruction/data pointers and reserved bits are excluded. FNINIT is a source regression case, absent from current recovered startup instructions."
+    },
+    "expanded_probe": {
+      "status": "masked x87 expanded characterization complete",
+      "cases": 1499136,
+      "differing_cases": 35888,
+      "groups": [
+        {
+          "form": 0,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 1,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 2,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 3,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 4,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 5,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 6,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 7,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 8,
+          "cases": 98304,
+          "differing_cases": 8972,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 8972,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 9,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 10,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 11,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 12,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 13,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 14,
+          "cases": 98304,
+          "differing_cases": 8972,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 8972,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 15,
+          "cases": 98304,
+          "differing_cases": 8972,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 8972,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 16,
+          "cases": 98304,
+          "differing_cases": 8972,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 8972,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 17,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        },
+        {
+          "form": 18,
+          "cases": 73728,
+          "differing_cases": 0,
+          "differences": {
+            "tags": 0,
+            "control": 0,
+            "defined-status": 0,
+            "register-payload": 0,
+            "memory-word": 0,
+            "guest-mxcsr": 0,
+            "host-fp-state": 0,
+            "arithmetic-flags": 0,
+            "status-ax": 0,
+            "unaffected-state": 0,
+            "split-status": 0
+          }
+        }
+      ],
+      "raw_sha256": "ee3821376f8be76fe42eb443bab9bea83ca78ca86b697ec681824e5ce29aacd1",
+      "lifter_sha256": "ec63bdfa090d43c742fe138fbd63d79096e3bde6486703866e7caec36a3dda48",
+      "semantics_sha256": "55ae2027f3c90fa5e2355fe631858b548260b3bb3b38e12e6baacb9d65bc699d",
+      "fixture_sha256": "fa562fd935f4f6e29851cfb5134e43b60773dfc1b6bcf2e1bbfb28aa035e3a41",
+      "limitations": "Authored AOT and Intel host instructions only. Masked exceptions; every occupancy and TOP, all supported precision/rounding settings, special 80-bit values and defined comparison flags. Unaffected State bytes and host controls checked. Guest IP/DP/FOP values, undefined flags, empty payloads and native unmasked fault delivery excluded. No game execution or AMD Jaguar equivalence claim."
+    },
+    "experimental_builds": {
+      "extended-semantics-v11-x87-state": {
+        "status": "isolated semantic module built",
+        "selector_replacements": [
+          "FLD1",
+          "FLDZ",
+          "FNINIT",
+          "FLDCW_MEMmem16",
+          "FNSTCW_MEMmem16",
+          "FNSTSW_MEMmem16",
+          "FNSTSW_AX",
+          "FXCH_ST0_X87",
+          "FXCH_ST0_X87_DFC1",
+          "FXCH_ST0_X87_DDC1",
+          "FSTP_X87_ST0",
+          "FSTP_X87_ST0_DFD0",
+          "FSTP_X87_ST0_DFD1",
+          "FUCOMI_ST0_X87",
+          "FUCOMIP_ST0_X87",
+          "FWAIT"
+        ],
+        "extension_sha256": {
+          "E:\\bloodborne PC port\\native\\semantics\\BMI.cpp.inc": "155f4b064d7cce81fbb3f83b3e76fba7a9abcc5610d93c1853cd4659d93217df",
+          "E:\\bloodborne PC port\\native\\semantics\\SHUFFLE.cpp.inc": "ad8af28975ab880b47c390272b85665071e258bbc77a80bfe8742077005dfd5e",
+          "E:\\bloodborne PC port\\native\\semantics\\BLEND.cpp.inc": "141aaed15c558d0352567259915318fb46d02611556c995af3aaeda632229cb5",
+          "E:\\bloodborne PC port\\native\\semantics\\RSQRT.cpp.inc": "938abe7acbf22e2fae00b8fc2131d917ab51c118b0ba8288edfd6fe01bb343d8",
+          "E:\\bloodborne PC port\\native\\semantics\\PACKED.cpp.inc": "35407e0604accdf52f7a5a27c6fb3044ef057bca0151d1110b4b988d0321eae5",
+          "E:\\bloodborne PC port\\native\\semantics\\TRANSFER.cpp.inc": "9487c9dc2ca3246b04cfbf0922155d373f9110e13f665351dc34f071132708f4",
+          "E:\\bloodborne PC port\\native\\semantics\\MINMAX.cpp.inc": "a740b31915e109cb104cd353f713731bf670139edfa6da030951e189460a10a2",
+          "E:\\bloodborne PC port\\native\\semantics\\ROUND.cpp.inc": "a3e379d24f0cc15ba4cd6947a07d541b91f7929066ec6ac63b0b82892e58afb5",
+          "E:\\bloodborne PC port\\native\\semantics\\SQRT.cpp.inc": "473df6bc09f77f4e3679838263dca66a0d436ac0e35fe9a5ff62373a21437e6d",
+          "E:\\bloodborne PC port\\native\\semantics\\X87_STATE.cpp.inc": "4f2768d58e674f4b5ecf868586665ebd6723556ce9213d371eefae61380620f0"
+        },
+        "linked_bitcode_sha256": {
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_BasicBlock.cpp.bc": "b47bdd2a443870f963745bc2678de1f87cacc2e4c4ade0bcd5402b174bceb54a",
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_Intrinsics.cpp.bc": "9feae715d7311161dc880a3982a6910a757993150cc005862651d1854d63e3cc",
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_HyperCall.cpp.bc": "ecfe174dd39059a08e651f5f086f16f26c351ce2df9b619eeb3d0a242c700789"
+        },
+        "original_semantics_sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
+        "semantics_sha256": "55ae2027f3c90fa5e2355fe631858b548260b3bb3b38e12e6baacb9d65bc699d",
+        "compiler_sha256": "812f6a0e80a5541108c0f4ae31121bcd5b692707041ac83a86e595f4729f5c8a",
+        "execution": "none; semantics require independent authored checks"
+      },
+      "extended-semantics-v12-x87-denormal": {
+        "status": "isolated semantic module built",
+        "selector_replacements": [
+          "FLD1",
+          "FLDZ",
+          "FNINIT",
+          "FLDCW_MEMmem16",
+          "FNSTCW_MEMmem16",
+          "FNSTSW_MEMmem16",
+          "FNSTSW_AX",
+          "FXCH_ST0_X87",
+          "FXCH_ST0_X87_DFC1",
+          "FXCH_ST0_X87_DDC1",
+          "FSTP_X87_ST0",
+          "FSTP_X87_ST0_DFD0",
+          "FSTP_X87_ST0_DFD1",
+          "FUCOMI_ST0_X87",
+          "FUCOMIP_ST0_X87",
+          "FWAIT"
+        ],
+        "extension_sha256": {
+          "E:\\bloodborne PC port\\native\\semantics\\BMI.cpp.inc": "155f4b064d7cce81fbb3f83b3e76fba7a9abcc5610d93c1853cd4659d93217df",
+          "E:\\bloodborne PC port\\native\\semantics\\SHUFFLE.cpp.inc": "ad8af28975ab880b47c390272b85665071e258bbc77a80bfe8742077005dfd5e",
+          "E:\\bloodborne PC port\\native\\semantics\\BLEND.cpp.inc": "141aaed15c558d0352567259915318fb46d02611556c995af3aaeda632229cb5",
+          "E:\\bloodborne PC port\\native\\semantics\\RSQRT.cpp.inc": "938abe7acbf22e2fae00b8fc2131d917ab51c118b0ba8288edfd6fe01bb343d8",
+          "E:\\bloodborne PC port\\native\\semantics\\PACKED.cpp.inc": "35407e0604accdf52f7a5a27c6fb3044ef057bca0151d1110b4b988d0321eae5",
+          "E:\\bloodborne PC port\\native\\semantics\\TRANSFER.cpp.inc": "9487c9dc2ca3246b04cfbf0922155d373f9110e13f665351dc34f071132708f4",
+          "E:\\bloodborne PC port\\native\\semantics\\MINMAX.cpp.inc": "a740b31915e109cb104cd353f713731bf670139edfa6da030951e189460a10a2",
+          "E:\\bloodborne PC port\\native\\semantics\\ROUND.cpp.inc": "a3e379d24f0cc15ba4cd6947a07d541b91f7929066ec6ac63b0b82892e58afb5",
+          "E:\\bloodborne PC port\\native\\semantics\\SQRT.cpp.inc": "473df6bc09f77f4e3679838263dca66a0d436ac0e35fe9a5ff62373a21437e6d",
+          "E:\\bloodborne PC port\\native\\semantics\\X87_STATE.cpp.inc": "3ca2cf003f87a75ba2cdb961bf8c52b871e7c87d242b8c93135771b2cb7e6d38"
+        },
+        "linked_bitcode_sha256": {
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_BasicBlock.cpp.bc": "b47bdd2a443870f963745bc2678de1f87cacc2e4c4ade0bcd5402b174bceb54a",
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_Intrinsics.cpp.bc": "9feae715d7311161dc880a3982a6910a757993150cc005862651d1854d63e3cc",
+          "E:\\bloodborne PC port\\build\\remill\\lib\\Arch\\X86\\Runtime\\amd64_avx_HyperCall.cpp.bc": "ecfe174dd39059a08e651f5f086f16f26c351ce2df9b619eeb3d0a242c700789"
+        },
+        "original_semantics_sha256": "40663597cfa5636679e15f85f0226249e4b89c8b25d6b24d883c8d6ea13e19fc",
+        "semantics_sha256": "82bc6c3e86745e7e8b57be301233e8d2d75c0b61edc8f89cc7498d2d71eef10e",
+        "compiler_sha256": "812f6a0e80a5541108c0f4ae31121bcd5b692707041ac83a86e595f4729f5c8a",
+        "execution": "none; semantics require independent authored checks"
+      }
+    },
+    "source_sha256": {
+      "native/semantics/X87_STATE.cpp.inc": "3ca2cf003f87a75ba2cdb961bf8c52b871e7c87d242b8c93135771b2cb7e6d38",
+      "native/semantics/x87_environment_probe.cpp": "ec782b79220e48f41dba567fa84579ac70ddfb4b4010355072200f9d1e3f5b76",
+      "native/semantics/x87_stack_probe.cpp": "6d0f4cad7f44c951a1eb66836fdbaf7308fb566fc19e084098b1da0c53e8f958",
+      "native/semantics/x87_state_probe.cpp": "56173fbe0cffdc4aa952c0a52269d1d1e6909d72ad0328639f76b06ccd42fe54",
+      "tools/build_extended_semantics.py": "41be44193e82826e36e5f18bb0c57ce2e05fc2e71c3f0ff36e664f5d3973703e",
+      "tools/x87_environment_probe.py": "c3925f92d52bfb0fcc71f97f81514f312800a4369065dc2810c76182710c7f0e",
+      "tools/x87_stack_probe.py": "fa870d925ac10175478b1f4348555503e57863636bf5c28b7826aab4a58d5934"
+    },
+    "runs": [
+      "20260906-p3-x87-environment-probe-v1",
+      "20260906-p3-extended-semantics-v10-x87-state",
+      "20260906-p3-extended-semantics-v11-x87-state",
+      "20260906-p3-x87-state-probe-v3",
+      "20260906-p3-x87-stack-probe-v1",
+      "20260906-p3-extended-semantics-v12-x87-denormal"
+    ],
+    "accepted_semantics": "build/extended-semantics-v9-sqrt",
+    "current_recovery": "local/cfg/startup-recovery-v22-cache-repeat",
+    "next_step": "Run tools.x87_stack_probe against build/extended-semantics-v12-x87-denormal through run_record.py in a fresh directory. v12 adds denormal status to FUCOMI/FUCOMIP and is built but not yet tested. Investigate remaining discrepancies and waiting/unmasked exceptions; verify AMD-specific differences against primary manuals. Do not use this partial experimental family for startup compilation.",
+    "execution": "Authored diagnostic code only. No game-derived object executed. No native boot exists."
+  }
 }

@@ -1,5 +1,7 @@
 # x87 state blockers
 
+Latest checkpoint 2026-09-06 02:34 UTC: see [experimental stack/control recovery](x87-stack-control.md). The historical counterexamples below remain preserved; v11 resolves the original diagnostic, while the expanded suite exposes further status work. v12 is built but untested. The accepted startup module and open gate are unchanged.
+
 Updated 2026-09-06 00:36 UTC. P3 remains open; no native game boot exists.
 
 The two remaining compiler rejections are libc 0x30430 (FNSTENV/FLDENV) and 0x53cd0 (FXSAVE). Adding their serializers to the current State would conceal existing state errors. The authored probe in `local/compiler-spike/x87-state-probe-v2` compares ten short sequences over all eight TOP values, four occupancy patterns, three precision modes, four rounding modes and three status presets. Of 11,520 cases, 10,176 differ in at least one selected defined field. These are deliberately diagnostic inputs, not an estimate of game failure frequency.
