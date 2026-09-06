@@ -1,6 +1,14 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 21:35 UTC
+## Current continuation — 2026-09-06 22:13 UTC
+
+Continue autonomously; user action: none. Native runtime memory/control prototypes now pass repeated authored checks. Read reports/runtime-boundaries.md and reports/runtime-boundaries-evidence.json, then the preceding source-exit checkpoint. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
+
+Memory-v3-repeat passes 49,256 cases, eleven precise negative exits and two setup rejections; control-v5-repeat passes 20,480 authored AOT cases, nine negative exits and one setup rejection. Nineteen selected artifacts match their preceding deterministic runs exactly; recorder/source ZIP checks pass in local/runtime/boundaries-evidence-v1. Private code/data mappings are NX; code writes stop explicitly. Native target/import dispatch and source/request checks have no CPU fallback. The actual fault handlers use noexcept process termination, not guest exception recovery. Native arithmetic and compiled-export imports are authored fixture bindings, not validated game services.
+
+Current active game objects remain local/compiler-spike/source-exit-manifest-v2-regression/active-objects.json (SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6): 386 objects / 21,181 entries / 21,282 compiled roots. Compiler v11-source-exits and semantics v35-divide remain pinned. Canonical recovery v31-conditional-repeat and all unknowns remain unchanged. Next implement remaining FP/numeric bindings with explicit profile/segment provenance, generate static tables from the checked dispatch registry, then validate complete linkage. No target FP profile is selected by default. P1 Hunter's Dream, profiling and opening audio mutex investigation remain open. Continue after commits without a new user confirmation.
+
+## Previous checkpoint — 2026-09-06 21:35 UTC
 
 Continue autonomously; user action: none. Read reports/source-exits.md and reports/source-exits-evidence.json, then reports/control-exits.md, reports/linkage.md and reports/call-return.md. **P3 remains open. No native game boot or playable port exists.** No game-derived object has been linked or executed.
 

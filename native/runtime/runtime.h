@@ -1,0 +1,47 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+#pragma once
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+#include <remill/Arch/X86/Runtime/State.h>
+struct Memory;
+namespace bb_runtime {
+using Lifted=Memory*(*)(State*,uint64_t,Memory*);
+enum Rights:uint32_t {Read=1,Write=2,Code=4};
+struct Region {uint64_t base,size;uint8_t* backing;uint32_t rights;};
+struct Target {uint64_t pc;Lifted function;};
+struct SourcePair {uint64_t source,requested;};
+struct Import {uint64_t pc;const char* nid;const char* library;const char* module;Lifted native;uint64_t compiled_export;};
+struct Tables {const Target* targets;size_t target_count;const SourcePair* pairs;size_t pair_count;const Import* imports;size_t import_count;const char* identity;};
+class AddressSpace {
+ std::vector<Region> regions_;CRITICAL_SECTION lock_{};bool sealed_=false;
+ const Region* containing(uint64_t)const noexcept;
+ bool span(uint64_t,size_t,uint32_t)const noexcept;
+ void copy(uint64_t,void*,size_t,bool) noexcept;
+ public:
+ AddressSpace();~AddressSpace();AddressSpace(const AddressSpace&)=delete;AddressSpace& operator=(const AddressSpace&)=delete;
+ // Host setup only; copies are private and never executable.
+ void add(uint64_t,size_t,uint32_t,const void* initial=nullptr,size_t initial_size=0);
+ void seal();bool sealed()const noexcept{return sealed_;}
+ void enter()noexcept{EnterCriticalSection(&lock_);}void leave()noexcept{LeaveCriticalSection(&lock_);}
+ void check(Memory*,uint64_t,size_t,bool,size_t alignment=1)noexcept;
+ void read(Memory*,uint64_t,void*,size_t)noexcept;
+ void write(Memory*,uint64_t,const void*,size_t)noexcept;
+};
+[[noreturn]] void fault(Memory*,const char* boundary,uint32_t reason,uint64_t source=0,uint64_t actual=0,uint64_t wanted=0,uint64_t address=0,uint64_t width=0) noexcept;
+void context(Memory*,State* expected=nullptr)noexcept;
+void validate_tables(const Tables&);
+Memory* dispatch(State*,uint64_t,Memory*)noexcept;
+Memory* imported(State*,uint64_t,Memory*)noexcept;
+Memory* return_from_import(State*,Memory*)noexcept;
+}
+struct Memory {
+ bb_runtime::AddressSpace* space=nullptr;State* state=nullptr;const bb_runtime::Tables* tables=nullptr;
+ uint64_t entry=0,returned_pc=0,operations=0;DWORD owner_thread=0;unsigned atomic_depth=0;
+ FILE* fault_stream=stderr;
+ const bb_runtime::Import* active_import=nullptr;
+ bool fp_profile_valid=false;uint64_t x87_policy=0;uint32_t pointer_segments=0,mxcsr_mask=0;
+};

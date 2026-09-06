@@ -1,0 +1,189 @@
+{
+  "status": "repeated native runtime boundary evidence verified",
+  "checks": [
+    {
+      "kind": "memory",
+      "first": "E:\\bloodborne PC port\\local\\runtime\\memory-v2-deterministic",
+      "repeat": "E:\\bloodborne PC port\\local\\runtime\\memory-v3-repeat",
+      "summary_sha256": "f40e1f3e242aafef12be15aeccc759e6077248ab6eb6214c9b1a246a806aac9a",
+      "positive": {
+        "status": "pass",
+        "cases": 49256,
+        "atomic_tickets": 32768,
+        "threads": 4,
+        "private_mappings_NX": true,
+        "game_execution": false
+      },
+      "negative": [
+        {
+          "mode": "read-unmapped",
+          "boundary": "memory-read",
+          "reason": 4
+        },
+        {
+          "mode": "overflow",
+          "boundary": "memory-read",
+          "reason": 4
+        },
+        {
+          "mode": "write-ro",
+          "boundary": "memory-write",
+          "reason": 4
+        },
+        {
+          "mode": "cross-permission",
+          "boundary": "memory-write",
+          "reason": 4
+        },
+        {
+          "mode": "code-write",
+          "boundary": "code-write-uncovered",
+          "reason": 7
+        },
+        {
+          "mode": "alignment",
+          "boundary": "memory-alignment",
+          "reason": 3
+        },
+        {
+          "mode": "nested-atomic",
+          "boundary": "nested-atomic",
+          "reason": 5
+        },
+        {
+          "mode": "unpaired-atomic",
+          "boundary": "unpaired-atomic",
+          "reason": 6
+        },
+        {
+          "mode": "unsealed",
+          "boundary": "unsealed-memory",
+          "reason": 2
+        },
+        {
+          "mode": "wrong-state",
+          "boundary": "context",
+          "reason": 1
+        },
+        {
+          "mode": "wrong-thread",
+          "boundary": "context",
+          "reason": 1
+        }
+      ],
+      "identical_artifacts": {
+        "fault.obj": "b58367fcc073ee144f3a64639662f79b7e450515c3fe7cbfb3d65ea74096809e",
+        "memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+        "memory_fixture.obj": "1d95bfeac19447476aa569fe3e0efbb3a02d730db06643c8a9ef008b928a4197",
+        "positive.stdout": "125a165a68b21a19dbe88efce4f099c65807919b2ffac89b7e859cd45eff70ac"
+      },
+      "recorders": [
+        {
+          "run": "20260906-p3-runtime-memory-v2-deterministic",
+          "manifest_sha256": "d1e0107dd180057afa1a90a2f887a27b4ab1e5fbdf39a962d5fee41864415ac1",
+          "sources_zip_sha256": "9479122c66a1ba6224b521c5b4ce2b34b9545d6d37a4afb1ca46e493215498d9"
+        },
+        {
+          "run": "20260906-p3-runtime-memory-v3-repeat",
+          "manifest_sha256": "fa7efb0bc3a997809aed38eff6baaa0c38acd9b113ca948f726557b67baf6ab7",
+          "sources_zip_sha256": "9479122c66a1ba6224b521c5b4ce2b34b9545d6d37a4afb1ca46e493215498d9"
+        }
+      ]
+    },
+    {
+      "kind": "control",
+      "first": "E:\\bloodborne PC port\\local\\runtime\\control-v4-deterministic",
+      "repeat": "E:\\bloodborne PC port\\local\\runtime\\control-v5-repeat",
+      "summary_sha256": "26ef5f4ca3e099b48918d4ca7390e0802ff2f053cf15841084f5c981b0917b5b",
+      "positive": {
+        "status": "pass",
+        "aot_cases": 20480,
+        "paths": 5,
+        "private_mappings_NX": true,
+        "game_execution": false
+      },
+      "negative": [
+        {
+          "mode": "bad-source",
+          "reason": 30,
+          "boundary": "unregistered-source-transfer"
+        },
+        {
+          "mode": "bad-request",
+          "reason": 29,
+          "boundary": "block-transfer-target"
+        },
+        {
+          "mode": "bad-return",
+          "reason": 1,
+          "boundary": "control-return"
+        },
+        {
+          "mode": "nonreturn",
+          "reason": 2,
+          "boundary": "control-return"
+        },
+        {
+          "mode": "unknown-target",
+          "reason": 27,
+          "boundary": "unknown-compiled-target"
+        },
+        {
+          "mode": "unimplemented-import",
+          "reason": 25,
+          "boundary": "unimplemented-import"
+        },
+        {
+          "mode": "ud2",
+          "reason": 34,
+          "boundary": "ud2"
+        },
+        {
+          "mode": "async",
+          "reason": 32,
+          "boundary": "unimplemented-async-hypercall"
+        },
+        {
+          "mode": "sync",
+          "reason": 33,
+          "boundary": "unimplemented-sync-hypercall"
+        }
+      ],
+      "identical_artifacts": {
+        "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+        "control_fixture.obj": "1cf2a43cdf7af8d75f63584abf9317e7d2ef1395fa6592e632c45f2fc9716c4c",
+        "fault.obj": "b58367fcc073ee144f3a64639662f79b7e450515c3fe7cbfb3d65ea74096809e",
+        "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+        "memory.obj": "86f501b0712f7d0b0f8550b46f0b35e76bb39075d89fb97c3a99a34b3d6bc107",
+        "positive.stdout": "182fb4336d6b0192478ab8ef0f7965fa6e327c9ade71bbffdc32e15b95af7e1c",
+        "runtime-entries.h": "e4a458eee787dceb65a4648438f89ba4396d27b49c5faeb61c4aa6bb2c831870",
+        "source\\audit.json": "3c73039877d102e5a479ad9c8580286415f654a8d9ecd984f499899e21cc50ed",
+        "source\\function.bc": "e7f96e22dd6323a60d6e6d4e968b78012c521f895ab195a247492778ea165c45",
+        "source\\function.obj": "7648cafd86342c234774d8ccf4daf485a89c2b5e13a129ba6aa73e8ca15cda36",
+        "source\\input.json": "3ac5862c35828ba329d4e3a67a83c61ea29274b946e89c5267cb66d418c8d1ac",
+        "target\\audit.json": "97d656ec01557ebc44c15e596b9a3d30375728e930dc478998b282f4908a8349",
+        "target\\function.bc": "b890475484b27277e43b5813e1ad727fc508182b99d9ebfd8cea6151884e7d52",
+        "target\\function.obj": "8b11a8df8f3912f7a28fde47ef8df4e7edf85ac68a24852df27e550d6715544f",
+        "target\\input.json": "d1ea74d7203c6a0220681e60f3bf3f8374172aeed2fc5958b310657b75183c4d"
+      },
+      "recorders": [
+        {
+          "run": "20260906-p3-runtime-control-v4-deterministic",
+          "manifest_sha256": "53032c6a2fe6489b77ff91a663dbcac66173fc4af6dfe698cc3f462971ff4d72",
+          "sources_zip_sha256": "9479122c66a1ba6224b521c5b4ce2b34b9545d6d37a4afb1ca46e493215498d9"
+        },
+        {
+          "run": "20260906-p3-runtime-control-v5-repeat",
+          "manifest_sha256": "aca67cc2570f0a7cb442a48fec7acd8fea9cdbfd7b7ae76016803de00760bf02",
+          "sources_zip_sha256": "9479122c66a1ba6224b521c5b4ce2b34b9545d6d37a4afb1ca46e493215498d9"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Authored AOT and private RAM fixtures only; no supplied game code execution.",
+    "Exact comparison covers COFF/bitcode/inputs/audits/stable results, not PE timestamps or runtime thread IDs.",
+    "Explicit process stops satisfy current nounwind boundary; guest exceptions/nonlocal recovery remain open.",
+    "No real native import service, FP profile, complete object linkage or native game startup established."
+  ]
+}
