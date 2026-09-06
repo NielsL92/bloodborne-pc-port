@@ -16,6 +16,10 @@ struct Target {uint64_t pc;Lifted function;};
 struct SourcePair {uint64_t source,requested;};
 struct Import {uint64_t pc;const char* nid;const char* library;const char* module;Lifted native;uint64_t compiled_export;};
 struct Tables {const Target* targets;size_t target_count;const SourcePair* pairs;size_t pair_count;const Import* imports;size_t import_count;const char* identity;};
+enum class Segment:uint8_t {None,ES,CS,SS,DS,FS,GS};
+struct X87Site {uint64_t pc;uint16_t fop;Segment data_segment;};
+struct FpProfile {const char* identity;uint64_t image_policy;uint32_t mxcsr_mask;const X87Site* sites;size_t site_count;};
+void validate_fp_profile(const FpProfile&);
 class AddressSpace {
  std::vector<Region> regions_;CRITICAL_SECTION lock_{};bool sealed_=false;
  const Region* containing(uint64_t)const noexcept;
@@ -43,5 +47,5 @@ struct Memory {
  uint64_t entry=0,returned_pc=0,operations=0;DWORD owner_thread=0;unsigned atomic_depth=0;
  FILE* fault_stream=stderr;
  const bb_runtime::Import* active_import=nullptr;
- bool fp_profile_valid=false;uint64_t x87_policy=0;uint32_t pointer_segments=0,mxcsr_mask=0;
+ const bb_runtime::FpProfile* fp_profile=nullptr;uint32_t pointer_segments=0;
 };

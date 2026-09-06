@@ -1,6 +1,14 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 22:13 UTC
+## Current continuation — 2026-09-06 22:23 UTC
+
+Continue autonomously; user action: none. Read reports/runtime-fp.md and reports/runtime-fp-evidence.json, then reports/runtime-boundaries.md. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
+
+Explicit FP profile/metadata and fault bindings pass 32,768 authored AOT cases and twelve precise negative boundaries; three setup rejections pass. FP-v3-repeat matches v2-payloads exactly. Memory-v4-fp-regression (49,256 cases) and control-v6-fp-regression (20,480 cases) pass unchanged outcomes. Evidence is local/runtime/fp-evidence-v1/checked.json. No PS4 FP profile is inferred or selected by default. Runtime faults remain noexcept process stops; guest exception/nonlocal recovery and real service bindings remain unimplemented.
+
+Current complete startup manifest remains source-exit-manifest-v2-regression/active-objects.json, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6 (386 objects / 21,181 entries / 21,282 roots). Compiler v11-source-exits, semantics v35-divide, recovery v31-conditional-repeat and all unknowns remain unchanged. Next generate immutable target/import/source-pair and x87 metadata tables with input identities, then link the full object set into a host-only registry validator. Do not invoke game entries during linkage validation. P1 route/profiling/audio-crash work remains open. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 22:13 UTC
 
 Continue autonomously; user action: none. Native runtime memory/control prototypes now pass repeated authored checks. Read reports/runtime-boundaries.md and reports/runtime-boundaries-evidence.json, then the preceding source-exit checkpoint. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
 
