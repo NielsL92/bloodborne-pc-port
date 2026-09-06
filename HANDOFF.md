@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 22:23 UTC
+## Current continuation — 2026-09-06 22:37 UTC
+
+Continue autonomously; user action: none. Read reports/native-link.md and reports/native-link-evidence.json, then reports/runtime-fp.md, reports/runtime-boundaries.md and reports/source-exits.md. **P3 startup compilation and explicit-exit-handling gate passes; proceed to P4. No game-derived CPU function has been executed, no native game boot exists and there is no playable port.**
+
+All 386 current objects link with 21,282 compiled roots and 182 import gateways. The complete host-only validator repeats byte-for-byte: local/runtime/link-v5-repeat/registry.exe, SHA256 307f10134ca4236b89ead17006b72b80c14af2617a3c5321a9df1ed4bae8190b, 54,663,680 bytes. It validates tables without calling game entries; all 115 external native gateways and an unknown target stop correctly. The 67 exact bundled-export bindings are conditional on loader/initialization/interposition contracts. No universal success stubs or CPU fallback exists.
+
+Registry local/runtime/registry-v3-repeat matches v2-ghidra; identity SHA256 e73b23f8b12cad14b6352ef944f3b190a1649de1d0ab07a231ea9564e311d7c4. It has 551 source/request pairs and 335 x87 metadata sites. Fourteen additional R12/R13-based x87 sites have Ghidra-checked boundaries but unresolved default selector metadata; they remain explicit stops. No target FP profile is selected. Gate passage establishes compilation and explicit handling, not game startup or service completeness. Current unknown indirect/callback/control counts and canonical recovery v31-conditional-repeat remain unchanged.
+
+Active game object manifest remains source-exit-manifest-v2-regression/active-objects.json, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6. Compiler v11-source-exits and semantics v35-divide remain pinned. Next P4: private NX module data loading, exact relocations/BSS, initialization order and logical stack/TLS, then actual native entry with precise service stops. Guest exceptions/nonlocal recovery, real services and profile selection remain open. P1 route/profiling/audio work is unchanged. Preserve all runs and immutable game files. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 22:23 UTC
 
 Continue autonomously; user action: none. Read reports/runtime-fp.md and reports/runtime-fp-evidence.json, then reports/runtime-boundaries.md. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
 
