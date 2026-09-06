@@ -1,5 +1,7 @@
 # Complete object linkage inventory
 
+Current exit census (2026-09-06 19:39 UTC): reports/control-exits.md and reports/control-exits-evidence.json verify all 386 retained LLVM modules / 21,282 roots. There are 4,818 actual missing-block call sites and 105 semantic error sites, with nounwind boundary contracts still requiring explicit handling. This supersedes earlier statements that emitted exits have not been inventoried. Recovery/object manifests are unchanged; P3 and native startup remain open.
+
 2026-09-06 19:16 UTC. All 21,181 current manifest entries compile into 386 objects, but **P3 remains open**. No linker or game code was executed during this audit. Canonical recovery and the complete active object manifest remain startup-recovery-v31-conditional-repeat and conditional-control-evidence-audit-v2-exits/active-objects.json.
 
 `tools/whole_program_linkage.py` verifies each active object hash and retained module mapping, then reads its actual COFF symbol table with pinned LLVM nm. All **21,282 compiled roots** have exactly matching function definitions. The additional roots include landing pads and explicitly recovered internal targets; this is not an execution-coverage count.
