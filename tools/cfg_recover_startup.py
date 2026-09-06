@@ -39,7 +39,7 @@ def canonical_register(name):
 
 
 class Recovery:
-    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False):
+    def __init__(self, source, roots_path, out, max_entries, max_instructions, jump_evidence=None, control_evidence=None, sysv_callee_saved_candidates=False, initial_callback_relocation_candidates=False, callback_slice_evidence=None):
         self.out, self.max_entries, self.max_instructions = out, max_entries, max_instructions
         self.sysv_callee_saved_candidates = sysv_callee_saved_candidates
         self.initial_callback_relocation_candidates = initial_callback_relocation_candidates
@@ -114,6 +114,24 @@ class Recovery:
         self.local_callback_contracts={}
         for key,c in self.callback_contracts.items():
             for h,at in self.exports.get(key,[]):self.local_callback_contracts[h,at]=c
+        self.import_cache = {}
+        self.callback_slices={}
+        self.callback_slice_evidence_sha256=sha(callback_slice_evidence) if callback_slice_evidence else None
+        if callback_slice_evidence:
+            checked=json.loads(Path(callback_slice_evidence).read_text())
+            assert checked['status']=='independent callback slices passed'
+            for row in checked['records']:
+                if not row['complete']:continue
+                assert row['independent']['complete'] and not row['failures'] and row['targets']==row['independent']['targets']
+                h,entry,site=row['module'],row['entry'],row['site']
+                assert row['roots']==sorted({entry}|set(self.pads.get((h,entry),[])))
+                for instruction in row['source_instructions']:
+                    assert self.images[h].at_va(instruction['pc'],instruction['size']).hex()==instruction['bytes']
+                callback=row['contract'];imp=self.imported(h,callback['callee'])
+                actual=self.callback_contracts.get(tuple(imp[k] for k in ('nid','library','module'))) if imp else self.local_callback_contracts.get((h,callback['callee']))
+                assert actual and (actual['id'],actual['register'])==(callback['contract'],callback['register'])
+                assert row['targets'] and all(t['kind']=='module-rva' and self.is_code(h,t['value']) for t in row['targets'])
+                self.callback_slices[h,entry,site]=row
         self.static_tables = set()
         if jump_evidence:
             table_evidence = json.loads(jump_evidence.read_text())
@@ -124,7 +142,6 @@ class Recovery:
                 assert im.at_va(row['guard_rva'],len(bytes.fromhex(row['guard_bytes']))).hex()==row['guard_bytes']
                 self.known[h,row['branch']]=sorted(set(row['targets']))
                 self.static_tables.add((h,row['branch']))
-        self.import_cache = {}
         self.roots = json.loads(roots_path.read_text())
         self.main = next(h for h,n in self.names.items() if n=='eboot.bin')
         assert self.roots == [dict(ordinal=o,slot=s,target=t,evidence=e,indexed_unwind_start=t in self.ranges[self.main][1])
@@ -135,6 +152,7 @@ class Recovery:
             callback_contracts_sha256=sha('tools/cfg_callback_contracts.json'),
             sysv_callee_saved_candidates=sysv_callee_saved_candidates,
             initial_callback_relocation_candidates=initial_callback_relocation_candidates,
+            callback_slice_evidence_sha256=self.callback_slice_evidence_sha256,
             max_entries=max_entries, max_instructions_per_entry=max_instructions, jump_evidence_sha256=sha(jump_evidence) if jump_evidence else None,
             policy='Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.')
         write_json(out/'identity.json', self.identity)
@@ -279,7 +297,16 @@ class Recovery:
                                 provenance=value[1] if value else None,signature=callback['callback_signature'],
                                 context={reg:values.get(reg) for reg in callback['context_registers']},
                                 limitation='Static ABI argument role; invocation, registry state and runtime target remain unvalidated'),sort_keys=True)
-                            if value and value[0]!=0 and self.is_code(h,value[0]):
+                            proof=getattr(self,'callback_slices',{}).get((h,start,address))
+                            if proof and not value:
+                                proof_detail=json.dumps(dict(contract=callback['id'],register=callback['register'],
+                                    proof_sha256=self.callback_slice_evidence_sha256,source_entry=start,source_site=address,
+                                    targets=proof['targets'],conditional_normal_sysv_returns=proof['conditional_normal_sysv_returns'],
+                                    limitation='Independently checked normal-flow register slice; native callback invocation and exception/control contracts remain unvalidated'),sort_keys=True)
+                                for target_proof in proof['targets']:
+                                    dependency(address,target_proof['value'],'callback_slice_target_candidate',proof_detail)
+                                edge(address,None,'callback_slice_runtime_unvalidated',proof_detail)
+                            elif value and value[0]!=0 and self.is_code(h,value[0]):
                                 dependency(address,value[0],'callback_contract_target_candidate',detail)
                             elif value and value[0]==0 and callback['nullable']:
                                 origin=insns[value[1][0]]
@@ -445,10 +472,11 @@ def main():
     p.add_argument('--control-evidence',type=Path)
     p.add_argument('--sysv-callee-saved-candidates',action='store_true',help='Generate conditional constants across normal SysV calls; retain ABI frontier obligations')
     p.add_argument('--initial-callback-relocation-candidates',action='store_true',help='Expand initial function bindings loaded from mutable slots at exact callback ABI sites; unknown runtime targets remain')
+    p.add_argument('--callback-slice-evidence',type=Path,help='Independently checked per-site branch-sensitive callback targets')
     p.add_argument('--max-entries',type=int,default=100000)
     p.add_argument('--max-instructions',type=int,default=100000)
     a=p.parse_args()
-    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates).run()
+    Recovery(a.source,a.roots,a.out,a.max_entries,a.max_instructions,a.jump_evidence,a.control_evidence,a.sysv_callee_saved_candidates,a.initial_callback_relocation_candidates,a.callback_slice_evidence).run()
 
 
 if __name__=='__main__':main()

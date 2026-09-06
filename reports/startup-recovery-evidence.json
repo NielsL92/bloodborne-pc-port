@@ -839,12 +839,12 @@
       "reason": "Overexpanded pointer arguments into executable-mapped strings/data. Recovery evidence retained. Obsolete slow export stopped after v2/v3 succeeded; its child exit was recorded as failure. Fresh exporter uses indexed ownership-first queries."
     }
   ],
-  "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 144 unknown callback arguments (142 with initial mutable binding candidates), x87 semantic failures, and native import/callback/exception/control contracts. All 18,444 initial constructor entries compile; no native startup or playable port.",
+  "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 143 unknown callback arguments (142 have initial mutable candidates; one is the entry-provided finalizer), x87 state counterexamples and native import/callback/exception/control contracts. 21,163 entries compile; no native startup or playable port.",
   "baseline_execution": "No new P1 captures; existing clinic movement/save/quit/reload remains separately instrumented shadPS4 evidence.",
   "native_game_boot": false,
   "native_port_playable": false,
   "historical_v4_gate": "P3 not passed: all 18444 initial constructor entries decoded, but 8980 indirect call records, 421 indirect jump records, 146 fallthrough-boundary findings, mutable/callback targets, and native import/control/exception contracts remain unresolved. 128 objects are compilation evidence only.",
-  "current_directory": "local/cfg/startup-recovery-v13-repeat",
+  "current_directory": "local/cfg/startup-recovery-v15-repeat",
   "continuation": {
     "path": "reports\\startup-closure-evidence.json",
     "sha256": "0bd0cca7dd6a8f0e9e5c30c4e94a8a07f1708b80a1a2923212bda98ccb3112e7",
@@ -18625,6 +18625,1360 @@
         "A mutable slot initial binding never removes its unknown runtime callback argument. Exactly two supplied libc function exports seed eleven transitive bodies.",
         "Old instruction sets are unchanged; new object symbols have no overlap with retained successful batches. Objects were not linked or executed.",
         "Original source/modules and runs remain unchanged. The x87 counterexample report still blocks native state serialization."
+      ],
+      "native_game_boot": false,
+      "native_port_playable": false
+    }
+  },
+  "callback_slices": {
+    "path": "reports\\callback-slice-evidence.json",
+    "sha256": "cd86a2b157ac9b8cce747a2834e348a26423e55a2de07f52dcd1e8283c02dfe7",
+    "result": {
+      "status": "callback slice closure evidence pass; P3 remains open",
+      "current_directory": "local/cfg/startup-recovery-v15-repeat",
+      "summary": {
+        "status": "P3 startup compilation/control closure NOT passed",
+        "counts": {
+          "recovery_entry": 21173,
+          "recovery_instruction": 873990,
+          "recovery_edge": 1085042,
+          "recovery_issue": 8,
+          "recovery_request": 72240
+        },
+        "constructors": {
+          "decoded_with_explicit_boundaries": 18444
+        },
+        "modules": {
+          "libSceHand.prx": 1,
+          "libSceHeadTracker.prx": 1,
+          "libSceFios2.prx": 89,
+          "libc.prx": 300,
+          "libSceSmart.prx": 1,
+          "libSceS3DConversion.prx": 1,
+          "libSceFace.prx": 1,
+          "eboot.bin": 20779
+        },
+        "decode_issue_kinds": {
+          "fallthrough_at_fence": 8
+        },
+        "frontier_counts": {
+          "unresolved_indirect_call": 9041,
+          "unresolved_indirect_jump": 430,
+          "logical_return_requires_dispatch": 20059,
+          "callback_argument_candidate": 26276,
+          "abi_register_preservation_unvalidated": 9354,
+          "annotated_control_contract_requires_runtime": 4297,
+          "import_contract_unvalidated": 20845,
+          "service_or_trap_boundary": 21,
+          "callback_contract_target_candidate": 2311,
+          "fallthrough_at_fence": 8,
+          "indirect_target_candidate": 4,
+          "exception_personality_candidate": 41,
+          "exception_runtime_unvalidated": 41,
+          "personality_import_unvalidated": 41,
+          "unresolved_exception_continuation": 42,
+          "unresolved_derived_control_continuation": 184,
+          "independently_recovered_jump_table": 12,
+          "callback_slice_runtime_unvalidated": 1,
+          "callback_slice_target_candidate": 1,
+          "unresolved_callback_argument": 143,
+          "unresolved_exit_callbacks": 5,
+          "unresolved_restored_context": 113,
+          "callback_relocation_binding_unvalidated": 142,
+          "callback_relocation_target_candidate": 142,
+          "callback_contract_null_argument": 15
+        },
+        "queued": 0,
+        "manifest_units": 21173,
+        "db_sha256": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+        "manifest_sha256": "bb23de0f409e9c45f91e803f1518da99823a35a7b80f0c82d0272cbff2ee79b9",
+        "limitations": "Static overapproximation. Next metadata seed/unwind end is a decode fence, not a proven function end. Calls/explicit jumps expand; fallthrough at fences is quarantined. Broad constant/relocated candidates need independent code seeds; exact callback ABI roles may request unindexed constant targets. All callback invocation, code/registry mutation and runtime binding remain unvalidated. No game CPU execution.",
+        "native_game_boot": false,
+        "native_port_playable": false
+      },
+      "reproducibility": {
+        "analysis.sqlite": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+        "compilation-manifest.jsonl": "bb23de0f409e9c45f91e803f1518da99823a35a7b80f0c82d0272cbff2ee79b9",
+        "frontier.jsonl": "98eaa6a3ef70b317481569726a05b28dae867a9a8d43b19b1449aea4f270268d",
+        "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5"
+      },
+      "prior_instruction_sets_unchanged": 21171,
+      "new_entries": 2,
+      "new_instruction_addresses": 2,
+      "proof": {
+        "status": "independent callback slices passed",
+        "source_db_sha256": "955fe21955f492bc31f7e1673f77475e98f492974c09deda4df539597412ef65",
+        "slice_sha256": "85802bc5a8119fcc160c1d025fe20bfb760ee07f4dea2ed11d49d131d1c17956",
+        "ghidra_raw_sha256": {
+          "libc.prx": "327a0babfc432cf390d384fbe64f1c81b441583418583ff100475ffebf786a60",
+          "eboot.bin": "a83fa0d7ca6aceb2afb3892ca6e2b8ed99cca65b69f92b566a987b8a78925a53"
+        },
+        "records": [
+          {
+            "complete": true,
+            "targets": [
+              {
+                "kind": "module-rva",
+                "value": 390032
+              }
+            ],
+            "failures": [],
+            "instructions": [
+              405868,
+              405875,
+              405878,
+              405936,
+              405943,
+              405946,
+              405949
+            ],
+            "conditional_normal_sysv_returns": [],
+            "states": 6,
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "entry": 405696,
+            "site": 405952,
+            "contract": {
+              "callee": 394512,
+              "context": {
+                "rdi": null,
+                "rsi": null
+              },
+              "contract": "cxa-throw-destructor",
+              "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+              "provenance": null,
+              "register": "rdx",
+              "signature": "void destructor(void* exception)"
+            },
+            "roots": [
+              405696,
+              405799,
+              405957,
+              405965
+            ],
+            "source_instructions": [
+              {
+                "pc": 405696,
+                "size": 1,
+                "bytes": "55"
+              },
+              {
+                "pc": 405697,
+                "size": 3,
+                "bytes": "4889e5"
+              },
+              {
+                "pc": 405700,
+                "size": 2,
+                "bytes": "4157"
+              },
+              {
+                "pc": 405702,
+                "size": 2,
+                "bytes": "4156"
+              },
+              {
+                "pc": 405704,
+                "size": 1,
+                "bytes": "53"
+              },
+              {
+                "pc": 405705,
+                "size": 1,
+                "bytes": "50"
+              },
+              {
+                "pc": 405706,
+                "size": 2,
+                "bytes": "89f3"
+              },
+              {
+                "pc": 405708,
+                "size": 3,
+                "bytes": "83e317"
+              },
+              {
+                "pc": 405711,
+                "size": 3,
+                "bytes": "895f10"
+              },
+              {
+                "pc": 405714,
+                "size": 3,
+                "bytes": "235f14"
+              },
+              {
+                "pc": 405717,
+                "size": 2,
+                "bytes": "750b"
+              },
+              {
+                "pc": 405719,
+                "size": 4,
+                "bytes": "4883c408"
+              },
+              {
+                "pc": 405723,
+                "size": 1,
+                "bytes": "5b"
+              },
+              {
+                "pc": 405724,
+                "size": 2,
+                "bytes": "415e"
+              },
+              {
+                "pc": 405726,
+                "size": 2,
+                "bytes": "415f"
+              },
+              {
+                "pc": 405728,
+                "size": 1,
+                "bytes": "5d"
+              },
+              {
+                "pc": 405729,
+                "size": 1,
+                "bytes": "c3"
+              },
+              {
+                "pc": 405730,
+                "size": 2,
+                "bytes": "84d2"
+              },
+              {
+                "pc": 405732,
+                "size": 2,
+                "bytes": "7405"
+              },
+              {
+                "pc": 405734,
+                "size": 5,
+                "bytes": "e805d6ffff"
+              },
+              {
+                "pc": 405739,
+                "size": 5,
+                "bytes": "bf40000000"
+              },
+              {
+                "pc": 405744,
+                "size": 3,
+                "bytes": "f6c304"
+              },
+              {
+                "pc": 405747,
+                "size": 2,
+                "bytes": "7537"
+              },
+              {
+                "pc": 405749,
+                "size": 5,
+                "bytes": "e876cfffff"
+              },
+              {
+                "pc": 405754,
+                "size": 3,
+                "bytes": "4989c6"
+              },
+              {
+                "pc": 405757,
+                "size": 3,
+                "bytes": "f6c302"
+              },
+              {
+                "pc": 405760,
+                "size": 2,
+                "bytes": "7576"
+              },
+              {
+                "pc": 405762,
+                "size": 7,
+                "bytes": "488d059f2b0700"
+              },
+              {
+                "pc": 405769,
+                "size": 7,
+                "bytes": "488d0d6b0d0300"
+              },
+              {
+                "pc": 405776,
+                "size": 10,
+                "bytes": "48be0000000001000000"
+              },
+              {
+                "pc": 405786,
+                "size": 3,
+                "bytes": "4c89f7"
+              },
+              {
+                "pc": 405789,
+                "size": 3,
+                "bytes": "4889c2"
+              },
+              {
+                "pc": 405792,
+                "size": 5,
+                "bytes": "e8bb000000"
+              },
+              {
+                "pc": 405797,
+                "size": 2,
+                "bytes": "eb74"
+              },
+              {
+                "pc": 405799,
+                "size": 5,
+                "bytes": "e9a1000000"
+              },
+              {
+                "pc": 405804,
+                "size": 5,
+                "bytes": "e83fcfffff"
+              },
+              {
+                "pc": 405809,
+                "size": 3,
+                "bytes": "4889c3"
+              },
+              {
+                "pc": 405812,
+                "size": 7,
+                "bytes": "488d056d2b0700"
+              },
+              {
+                "pc": 405819,
+                "size": 7,
+                "bytes": "488d0d0e0d0300"
+              },
+              {
+                "pc": 405826,
+                "size": 10,
+                "bytes": "48be0000000001000000"
+              },
+              {
+                "pc": 405836,
+                "size": 3,
+                "bytes": "4889df"
+              },
+              {
+                "pc": 405839,
+                "size": 3,
+                "bytes": "4889c2"
+              },
+              {
+                "pc": 405842,
+                "size": 5,
+                "bytes": "e889000000"
+              },
+              {
+                "pc": 405847,
+                "size": 7,
+                "bytes": "488d05d2b20500"
+              },
+              {
+                "pc": 405854,
+                "size": 4,
+                "bytes": "4883c010"
+              },
+              {
+                "pc": 405858,
+                "size": 3,
+                "bytes": "488903"
+              },
+              {
+                "pc": 405861,
+                "size": 7,
+                "bytes": "488d05f4b20500"
+              },
+              {
+                "pc": 405868,
+                "size": 7,
+                "bytes": "488d0d1dc2ffff"
+              },
+              {
+                "pc": 405875,
+                "size": 3,
+                "bytes": "4889df"
+              },
+              {
+                "pc": 405878,
+                "size": 2,
+                "bytes": "eb42"
+              },
+              {
+                "pc": 405880,
+                "size": 7,
+                "bytes": "488d05292b0700"
+              },
+              {
+                "pc": 405887,
+                "size": 7,
+                "bytes": "488d0ddf0c0300"
+              },
+              {
+                "pc": 405894,
+                "size": 10,
+                "bytes": "48be0000000001000000"
+              },
+              {
+                "pc": 405904,
+                "size": 3,
+                "bytes": "4c89f7"
+              },
+              {
+                "pc": 405907,
+                "size": 3,
+                "bytes": "4889c2"
+              },
+              {
+                "pc": 405910,
+                "size": 5,
+                "bytes": "e845000000"
+              },
+              {
+                "pc": 405915,
+                "size": 7,
+                "bytes": "488d058eb20500"
+              },
+              {
+                "pc": 405922,
+                "size": 4,
+                "bytes": "4883c010"
+              },
+              {
+                "pc": 405926,
+                "size": 3,
+                "bytes": "498906"
+              },
+              {
+                "pc": 405929,
+                "size": 7,
+                "bytes": "488d05b0b20500"
+              },
+              {
+                "pc": 405936,
+                "size": 7,
+                "bytes": "488d0dd9c1ffff"
+              },
+              {
+                "pc": 405943,
+                "size": 3,
+                "bytes": "4c89f7"
+              },
+              {
+                "pc": 405946,
+                "size": 3,
+                "bytes": "4889c6"
+              },
+              {
+                "pc": 405949,
+                "size": 3,
+                "bytes": "4889ca"
+              },
+              {
+                "pc": 405952,
+                "size": 5,
+                "bytes": "e84bd3ffff"
+              },
+              {
+                "pc": 405957,
+                "size": 3,
+                "bytes": "4989c7"
+              },
+              {
+                "pc": 405960,
+                "size": 3,
+                "bytes": "4889df"
+              },
+              {
+                "pc": 405963,
+                "size": 2,
+                "bytes": "eb06"
+              },
+              {
+                "pc": 405965,
+                "size": 3,
+                "bytes": "4989c7"
+              },
+              {
+                "pc": 405968,
+                "size": 3,
+                "bytes": "4c89f7"
+              },
+              {
+                "pc": 405971,
+                "size": 5,
+                "bytes": "e838d0ffff"
+              },
+              {
+                "pc": 405976,
+                "size": 3,
+                "bytes": "4c89ff"
+              },
+              {
+                "pc": 405979,
+                "size": 5,
+                "bytes": "e87007ffff"
+              }
+            ],
+            "predecessors": {
+              "405697": [
+                405696
+              ],
+              "405700": [
+                405697
+              ],
+              "405702": [
+                405700
+              ],
+              "405704": [
+                405702
+              ],
+              "405705": [
+                405704
+              ],
+              "405706": [
+                405705
+              ],
+              "405708": [
+                405706
+              ],
+              "405711": [
+                405708
+              ],
+              "405714": [
+                405711
+              ],
+              "405717": [
+                405714
+              ],
+              "405719": [
+                405717
+              ],
+              "405723": [
+                405719
+              ],
+              "405724": [
+                405723
+              ],
+              "405726": [
+                405724
+              ],
+              "405728": [
+                405726
+              ],
+              "405729": [
+                405728
+              ],
+              "405730": [
+                405717
+              ],
+              "405732": [
+                405730
+              ],
+              "405734": [
+                405732
+              ],
+              "405739": [
+                405732,
+                405734
+              ],
+              "405744": [
+                405739
+              ],
+              "405747": [
+                405744
+              ],
+              "405749": [
+                405747
+              ],
+              "405754": [
+                405749
+              ],
+              "405757": [
+                405754
+              ],
+              "405760": [
+                405757
+              ],
+              "405762": [
+                405760
+              ],
+              "405769": [
+                405762
+              ],
+              "405776": [
+                405769
+              ],
+              "405786": [
+                405776
+              ],
+              "405789": [
+                405786
+              ],
+              "405792": [
+                405789
+              ],
+              "405797": [
+                405792
+              ],
+              "405804": [
+                405747
+              ],
+              "405809": [
+                405804
+              ],
+              "405812": [
+                405809
+              ],
+              "405819": [
+                405812
+              ],
+              "405826": [
+                405819
+              ],
+              "405836": [
+                405826
+              ],
+              "405839": [
+                405836
+              ],
+              "405842": [
+                405839
+              ],
+              "405847": [
+                405842
+              ],
+              "405854": [
+                405847
+              ],
+              "405858": [
+                405854
+              ],
+              "405861": [
+                405858
+              ],
+              "405868": [
+                405861
+              ],
+              "405875": [
+                405868
+              ],
+              "405878": [
+                405875
+              ],
+              "405880": [
+                405760
+              ],
+              "405887": [
+                405880
+              ],
+              "405894": [
+                405887
+              ],
+              "405904": [
+                405894
+              ],
+              "405907": [
+                405904
+              ],
+              "405910": [
+                405907
+              ],
+              "405915": [
+                405797,
+                405910
+              ],
+              "405922": [
+                405915
+              ],
+              "405926": [
+                405922
+              ],
+              "405929": [
+                405926
+              ],
+              "405936": [
+                405929
+              ],
+              "405943": [
+                405936
+              ],
+              "405946": [
+                405878,
+                405943
+              ],
+              "405949": [
+                405946
+              ],
+              "405952": [
+                405949
+              ],
+              "405960": [
+                405957
+              ],
+              "405963": [
+                405960
+              ],
+              "405965": [
+                405799
+              ],
+              "405968": [
+                405965
+              ],
+              "405971": [
+                405963,
+                405968
+              ],
+              "405976": [
+                405971
+              ],
+              "405979": [
+                405976
+              ]
+            },
+            "independent": {
+              "complete": true,
+              "targets": [
+                {
+                  "kind": "module-rva",
+                  "value": 390032
+                }
+              ],
+              "failures": [],
+              "instructions": [
+                405868,
+                405875,
+                405878,
+                405936,
+                405943,
+                405946,
+                405949
+              ],
+              "conditional_normal_sysv_returns": []
+            },
+            "independent_instructions": [
+              {
+                "rva": 405868,
+                "length": 7,
+                "bytes": "488d0d1dc2ffff",
+                "text": "LEA RCX,[0x5f390]",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RCX"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 405875,
+                "length": 3,
+                "bytes": "4889df",
+                "text": "MOV RDI,RBX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RDI"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 405878,
+                "length": 2,
+                "bytes": "eb42",
+                "text": "JMP 0x000631ba",
+                "flow": "UNCONDITIONAL_JUMP",
+                "written_registers": [],
+                "targets": [
+                  405946
+                ]
+              },
+              {
+                "rva": 405936,
+                "length": 7,
+                "bytes": "488d0dd9c1ffff",
+                "text": "LEA RCX,[0x5f390]",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RCX"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 405943,
+                "length": 3,
+                "bytes": "4c89f7",
+                "text": "MOV RDI,R14",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RDI"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 405946,
+                "length": 3,
+                "bytes": "4889c6",
+                "text": "MOV RSI,RAX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSI"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 405949,
+                "length": 3,
+                "bytes": "4889ca",
+                "text": "MOV RDX,RCX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RDX"
+                ],
+                "targets": []
+              }
+            ]
+          },
+          {
+            "complete": false,
+            "targets": [],
+            "failures": [
+              {
+                "reason": "entry-register",
+                "pc": 160,
+                "register": "rsi"
+              }
+            ],
+            "instructions": [
+              160,
+              161,
+              164,
+              166,
+              168,
+              169,
+              170,
+              173,
+              176,
+              180,
+              185
+            ],
+            "conditional_normal_sysv_returns": [
+              180
+            ],
+            "states": 12,
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 160,
+            "site": 188,
+            "contract": {
+              "callee": 45868232,
+              "context": {},
+              "contract": "atexit-callback",
+              "limitation": "Static ABI argument role; invocation, registry state and runtime target remain unvalidated",
+              "provenance": null,
+              "register": "rdi",
+              "signature": "void callback(void)"
+            },
+            "roots": [
+              160
+            ],
+            "source_instructions": [
+              {
+                "pc": 160,
+                "size": 1,
+                "bytes": "55"
+              },
+              {
+                "pc": 161,
+                "size": 3,
+                "bytes": "4889e5"
+              },
+              {
+                "pc": 164,
+                "size": 2,
+                "bytes": "4157"
+              },
+              {
+                "pc": 166,
+                "size": 2,
+                "bytes": "4156"
+              },
+              {
+                "pc": 168,
+                "size": 1,
+                "bytes": "53"
+              },
+              {
+                "pc": 169,
+                "size": 1,
+                "bytes": "50"
+              },
+              {
+                "pc": 170,
+                "size": 3,
+                "bytes": "4889f3"
+              },
+              {
+                "pc": 173,
+                "size": 3,
+                "bytes": "448b37"
+              },
+              {
+                "pc": 176,
+                "size": 4,
+                "bytes": "4c8d7f08"
+              },
+              {
+                "pc": 180,
+                "size": 5,
+                "bytes": "e8ffe3bb02"
+              },
+              {
+                "pc": 185,
+                "size": 3,
+                "bytes": "4889df"
+              },
+              {
+                "pc": 188,
+                "size": 5,
+                "bytes": "e807e4bb02"
+              },
+              {
+                "pc": 193,
+                "size": 7,
+                "bytes": "488d3d5881ba02"
+              },
+              {
+                "pc": 200,
+                "size": 5,
+                "bytes": "e8fbe3bb02"
+              },
+              {
+                "pc": 205,
+                "size": 5,
+                "bytes": "e84effffff"
+              },
+              {
+                "pc": 210,
+                "size": 2,
+                "bytes": "31d2"
+              },
+              {
+                "pc": 212,
+                "size": 3,
+                "bytes": "4489f7"
+              },
+              {
+                "pc": 215,
+                "size": 3,
+                "bytes": "4c89fe"
+              },
+              {
+                "pc": 218,
+                "size": 5,
+                "bytes": "e8e1a5e401"
+              },
+              {
+                "pc": 223,
+                "size": 2,
+                "bytes": "89c3"
+              },
+              {
+                "pc": 225,
+                "size": 2,
+                "bytes": "89df"
+              },
+              {
+                "pc": 227,
+                "size": 5,
+                "bytes": "e8f0e3bb02"
+              },
+              {
+                "pc": 232,
+                "size": 2,
+                "bytes": "89df"
+              },
+              {
+                "pc": 234,
+                "size": 5,
+                "bytes": "e8f9e3bb02"
+              }
+            ],
+            "predecessors": {
+              "161": [
+                160
+              ],
+              "164": [
+                161
+              ],
+              "166": [
+                164
+              ],
+              "168": [
+                166
+              ],
+              "169": [
+                168
+              ],
+              "170": [
+                169
+              ],
+              "173": [
+                170
+              ],
+              "176": [
+                173
+              ],
+              "180": [
+                176
+              ],
+              "185": [
+                180
+              ],
+              "188": [
+                185
+              ],
+              "193": [
+                188
+              ],
+              "200": [
+                193
+              ],
+              "205": [
+                200
+              ],
+              "210": [
+                205
+              ],
+              "212": [
+                210
+              ],
+              "215": [
+                212
+              ],
+              "218": [
+                215
+              ],
+              "223": [
+                218
+              ],
+              "225": [
+                223
+              ],
+              "227": [
+                225
+              ],
+              "232": [
+                227
+              ],
+              "234": [
+                232
+              ]
+            },
+            "independent": {
+              "complete": false,
+              "targets": [],
+              "failures": [
+                {
+                  "reason": "entry-register",
+                  "pc": 160,
+                  "register": "rsi"
+                }
+              ],
+              "instructions": [
+                160,
+                161,
+                164,
+                166,
+                168,
+                169,
+                170,
+                173,
+                176,
+                180,
+                185
+              ],
+              "conditional_normal_sysv_returns": [
+                180
+              ]
+            },
+            "independent_instructions": [
+              {
+                "rva": 160,
+                "length": 1,
+                "bytes": "55",
+                "text": "PUSH RBP",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 161,
+                "length": 3,
+                "bytes": "4889e5",
+                "text": "MOV RBP,RSP",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RBP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 164,
+                "length": 2,
+                "bytes": "4157",
+                "text": "PUSH R15",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 166,
+                "length": 2,
+                "bytes": "4156",
+                "text": "PUSH R14",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 168,
+                "length": 1,
+                "bytes": "53",
+                "text": "PUSH RBX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 169,
+                "length": 1,
+                "bytes": "50",
+                "text": "PUSH RAX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 170,
+                "length": 3,
+                "bytes": "4889f3",
+                "text": "MOV RBX,RSI",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RBX"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 173,
+                "length": 3,
+                "bytes": "448b37",
+                "text": "MOV R14D,dword ptr [RDI]",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "R14D",
+                  "R14"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 176,
+                "length": 4,
+                "bytes": "4c8d7f08",
+                "text": "LEA R15,[RDI + 0x8]",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "R15"
+                ],
+                "targets": []
+              },
+              {
+                "rva": 180,
+                "length": 5,
+                "bytes": "e8ffe3bb02",
+                "text": "CALL 0x02bbe4b8",
+                "flow": "UNCONDITIONAL_CALL",
+                "written_registers": [
+                  "RSP"
+                ],
+                "targets": [
+                  45868216
+                ]
+              },
+              {
+                "rva": 185,
+                "length": 3,
+                "bytes": "4889df",
+                "text": "MOV RDI,RBX",
+                "flow": "FALL_THROUGH",
+                "written_registers": [
+                  "RDI"
+                ],
+                "targets": []
+              }
+            ]
+          }
+        ],
+        "limitations": "Independent instruction identities, normal control predecessors, register writes and constant operands agree. Metadata entry roots and explicit nonreturn/normal SysV return contracts remain shared assumptions. Entry-provided finalizer is not assigned an invented value. No game execution."
+      },
+      "independent_closure": {
+        "status": "independent window closure comparison passed",
+        "source_db_sha256": "c3c09076265deffbbed7139298beb64f92ce6a4eabde41428f64a6b04ded6792",
+        "selection_sha256": "3cea5b3fa37fe23aae34a4b6b785bcbca42de144c1a2151f4bfa456ce919a52b",
+        "comparison_sha256": "1af3ebc8f374faf157baf3cfee965014b77be2cefd8ca160792c21416dd63a8c",
+        "windows": 10,
+        "shared_instructions": 577,
+        "raw_sha256": {
+          "eboot.bin": "fcffa5b43924f129c0fcea1fe3b9b9dc13a1b75bdbdee807dc5f9e447eeafb72",
+          "libc.prx": "3a0cb46f6ec8b8124a3fbb739f75e346a414ae05a33649de7e8ef0e3b693af34"
+        },
+        "explained_extra": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "entry": 34648288,
+            "extra": [
+              34649890
+            ],
+            "classification": "ordinary fallthrough after existing annotated nonreturn calls"
+          }
+        ],
+        "unexplained": 0,
+        "limitations": "Instruction identities and bounded reachability only. Metadata roots and nonreturn contracts do not implement native execution or establish whole-function bounds."
+      },
+      "objects": [
+        {
+          "folder": "batch-0000",
+          "object_sha256": "0d9c1a2329a3f15e859131c046c5f036ce7152ccde23a5146806e64fe759d30e",
+          "object_bytes": 572,
+          "entries": [
+            390032,
+            391664
+          ],
+          "roots": [
+            34360128400,
+            34360130032
+          ],
+          "missing_instruction_starts": [
+            34360129632
+          ],
+          "external_declarations": [
+            "__remill_missing_block"
+          ]
+        }
+      ],
+      "combined_compiled_entries": 21163,
+      "combined_objects": 382,
+      "compiled_constructors": 18444,
+      "remaining_compiler_rejections": 2,
+      "remaining_quarantined_entries": 8,
+      "remaining_unknown_callback_arguments": 143,
+      "initial_relocation_candidates": 142,
+      "entry_callback_binding": {
+        "entry": 160,
+        "site": 188,
+        "incoming_register": "rsi",
+        "required_component": "native process-entry finalizer callback binding and dispatch",
+        "status": "unimplemented; no invented target",
+        "reference_source": "external/shadPS4/src/core/linker.cpp",
+        "reference_sha256": "ec012d4cd39534145099744c9d44407de0f0209537863560023df5132ae0b064",
+        "reference_note": "Pinned reference passes ProgramExitFunc in RSI. This corroborates the supplied instruction slice; it is not native port or PS4 execution evidence."
+      },
+      "focused_tests": 51,
+      "runs": {
+        "20260906-p3-callback-slice-checks-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "9b238486688b18490b2e347f935a0906e9d80bf76e46979ce2442f71de8a5f3f",
+          "elapsed_seconds": 0.3034351000096649
+        },
+        "20260906-p3-callback-slices-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "9b238486688b18490b2e347f935a0906e9d80bf76e46979ce2442f71de8a5f3f",
+          "elapsed_seconds": 21.92941729980521
+        },
+        "20260906-p3-ghidra-callback-slices-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "044f51a653f9726718080c58f9db647ded6ca1c4c9cfce6c99a0bca85fdbea24",
+          "elapsed_seconds": 16.0196216001641
+        },
+        "20260906-p3-callback-slices-check-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "f9fa94b5152386c16a523cd0daa2fc045517f101e1c951d0700473066243bdff",
+          "elapsed_seconds": 0.8195845000445843
+        },
+        "20260906-p3-callback-slice-integrated-checks-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "f9fa94b5152386c16a523cd0daa2fc045517f101e1c951d0700473066243bdff",
+          "elapsed_seconds": 0.2853128002025187
+        },
+        "20260906-p3-callback-slice-integrated-checks-v2": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "ca77fede299537ffa7f33e232e77e879cecbd43d259f9c7ee15bf79e0963803e",
+          "elapsed_seconds": 0.19767930009402335
+        },
+        "20260906-p3-startup-recovery-v14-slice": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "b326077d2d5e6a16dcabe3e780d4dca41f3654aefa9f72f37dfabe7425961a70",
+          "elapsed_seconds": 102.48491130000912
+        },
+        "20260906-p3-startup-recovery-v15-repeat": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "b326077d2d5e6a16dcabe3e780d4dca41f3654aefa9f72f37dfabe7425961a70",
+          "elapsed_seconds": 196.82957959990017
+        },
+        "20260906-p3-callback-slice-delta-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "b326077d2d5e6a16dcabe3e780d4dca41f3654aefa9f72f37dfabe7425961a70",
+          "elapsed_seconds": 21.5308147999458
+        },
+        "20260906-p3-ghidra-callback-slice-closure-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "b326077d2d5e6a16dcabe3e780d4dca41f3654aefa9f72f37dfabe7425961a70",
+          "elapsed_seconds": 19.84218669985421
+        },
+        "20260906-p3-callback-slice-closure-check-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "965353a1f762c53739c65b6688e709412d995007187f9648f9120a51195f6b96",
+          "elapsed_seconds": 1.5516522000543773
+        },
+        "20260906-p3-callback-slice-compile-v1": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "965353a1f762c53739c65b6688e709412d995007187f9648f9120a51195f6b96",
+          "elapsed_seconds": 5.7693531000986695
+        },
+        "20260906-p3-callback-slice-compile-v2-repeat": {
+          "status": "pass",
+          "source_commit": "6de415925bb1af86aaaca5100fcb033b69b58b5b",
+          "sources_sha256": "965353a1f762c53739c65b6688e709412d995007187f9648f9120a51195f6b96",
+          "elapsed_seconds": 3.7736528997775167
+        }
+      },
+      "gate": "P3 remains open: 9,041 indirect-call records, 430 indirect-jump records, eight quarantined boundaries, 143 unknown callback arguments (142 have initial mutable candidates; one is the entry-provided finalizer), x87 state counterexamples and native import/callback/exception/control contracts. 21,163 entries compile; no native startup or playable port.",
+      "limitations": [
+        "Two destructor entry wrappers add two instructions; their destinations remain explicit native dispatch boundaries.",
+        "Backward slices retain cycles, partial/unsupported writes, volatile call results and missing/metadata-entry paths as unknown. Ghidra independently reconstructs register writes, constants and normal predecessors.",
+        "The first integration edit stopped at a text-match assertion before writing files; its named v1 test run covers the pre-integration 50-test suite. v2 covers 51 tests after integration.",
+        "Only authored semantic fixtures execute CPU code. These game-derived objects remain unlinked/unexecuted."
       ],
       "native_game_boot": false,
       "native_port_playable": false

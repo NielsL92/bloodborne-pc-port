@@ -119,5 +119,10 @@ if callbacks.exists():
  latest=json.loads(callbacks.read_text());assert latest['status']=='callback relocation closure evidence pass; P3 remains open'
  report['callback_relocations']=dict(path=str(callbacks.relative_to(root)),sha256=sha(callbacks),result=latest)
  report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
+slices=root/'reports/callback-slice-evidence.json'
+if slices.exists():
+ latest=json.loads(slices.read_text());assert latest['status']=='callback slice closure evidence pass; P3 remains open'
+ report['callback_slices']=dict(path=str(slices.relative_to(root)),sha256=sha(slices),result=latest)
+ report['current_directory']=latest['current_directory'];report['gate']=latest['gate']
 write_json(root/'reports/startup-recovery-evidence.json',report)
 print(json.dumps(dict(status=report['status'],reproducibility=report['reproducibility'],ghidra_explained=len(explained),ghidra_unresolved=len(unresolved),table_checks=table_checks,boundary_endings=dict(endings))),flush=True)

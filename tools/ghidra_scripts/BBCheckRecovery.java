@@ -6,6 +6,7 @@ import ghidra.program.disassemble.Disassembler;
 import ghidra.program.model.address.*;
 import ghidra.program.model.listing.*;
 import ghidra.program.model.mem.*;
+import ghidra.program.model.lang.Register;
 import com.google.gson.*;
 import java.nio.file.*;
 import java.io.*;
@@ -35,6 +36,7 @@ public class BBCheckRecovery extends GhidraScript {
     Instruction ins=it.next();JsonObject r=new JsonObject();r.addProperty("rva",ins.getAddress().getOffset());r.addProperty("length",ins.getLength());
     StringBuilder hex=new StringBuilder();for(byte b:ins.getBytes())hex.append(String.format("%02x",b&255));
     r.addProperty("bytes",hex.toString());r.addProperty("text",ins.toString());r.addProperty("flow",ins.getFlowType().toString());
+    JsonArray writes=new JsonArray();for(Object result:ins.getResultObjects())if(result instanceof Register)writes.add(((Register)result).getName());r.add("written_registers",writes);
     JsonArray targets=new JsonArray();for(Address a:ins.getFlows())targets.add(a.getOffset());r.add("targets",targets);rows.add(r);
    }
    JsonObject result=new JsonObject();result.addProperty("start",start);result.addProperty("end",end);result.add("instructions",rows);output.add(result);

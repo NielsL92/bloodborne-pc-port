@@ -168,6 +168,14 @@ class RecoveryTests(unittest.TestCase):
         symbol['type']=2;r.relocs['test'][slot]['addend']=1
         self.assertEqual(r.initial_function_slot('test',slot)['candidates'],[])
 
+    def test_checked_callback_slice_seeds_target_with_runtime_obligation(self):
+        r=self.callback_fixture('e8 01 00 00 00 c3 c3 c3',0x106)
+        r.callback_slices={('test',0x100,0x100):dict(targets=[dict(kind='module-rva',value=0x107)],conditional_normal_sysv_returns=[])}
+        r.callback_slice_evidence_sha256='fixture checked proof';r.recover('test',0x100)
+        self.assertIn(('test',0x107),r.queue)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='callback_slice_runtime_unvalidated'").fetchone()[0],1)
+        self.assertEqual(r.db.execute("SELECT count(*) FROM recovery_edge WHERE kind='unresolved_callback_argument'").fetchone()[0],0)
+
     def test_return_leaves_embedded_data_undecoded(self):
         r=fixture('c3 0f ff ff ff');r.recover('test',0x100)
         self.assertEqual(r.db.execute('SELECT rva FROM recovery_instruction').fetchall(),[(0x100,)])
