@@ -13,7 +13,7 @@ def run(name,argv,expected=0,timeout=180):
  with (out/(name+'.stdout')).open('wb') as stdout,(out/(name+'.stderr')).open('wb') as stderr:r=subprocess.run(list(map(str,argv)),env=env,stdout=stdout,stderr=stderr,timeout=timeout)
  steps.append(dict(argv=list(map(str,argv)),exit_code=r.returncode));write_json(out/'steps.json',steps);assert (r.returncode&0xffffffff)==expected,(name,r.returncode)
 native=[]
-for name in ['fault','memory','control','intrinsics','fp','registry_main','registry']:
+for name in ['fault','memory','control','intrinsics','fp','sourced','registry_main','registry']:
  source=registry/'registry.cpp' if name=='registry' else ROOT/'native/runtime'/(name+'.cpp');obj=out/(name+'.obj');native.append(obj)
  run(name,[LLVM/'bin/clang-cl.exe','/nologo','/O2','/EHsc','/std:c++17','/DADDRESS_SIZE_BITS=64','/DHAS_FEATURE_AVX=1','/DHAS_FEATURE_AVX512=0','/clang:-mlong-double-80','/clang:-mno-avx','/clang:-mno-incremental-linker-compatible','/I'+str(ROOT/'external/remill/include'),'/I'+str(ROOT/'native/runtime'),'/c',source,'/Fo'+str(obj)])
 run('numeric',[LLVM/'bin/clang-cl.exe','/nologo','/O2','/EHsc','/std:c++17','/clang:-mno-incremental-linker-compatible','/I'+str(ROOT/'external/SoftFloat-3e/source/include'),'/c',ROOT/'native/semantics/x87_numeric.cpp','/Fo'+str(out/'numeric.obj')]);native.append(out/'numeric.obj');builtins=LLVM/'lib/clang/21/lib/windows/clang_rt.builtins-x86_64.lib'

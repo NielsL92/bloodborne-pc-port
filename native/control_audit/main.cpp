@@ -68,6 +68,9 @@ static llvm::json::Object value_info(llvm::Value* v,llvm::ModuleSlotTracker& slo
   }
   return row;
 }
+static bool sourced_control(const std::string& name){
+ return name.rfind("__bb_sourced_",0)==0&&name.rfind("__bb_sourced_read_memory_",0)!=0&&name.rfind("__bb_sourced_write_memory_",0)!=0&&name.rfind("__bb_sourced_compare_exchange_memory_",0)!=0&&name.rfind("__bb_sourced_atomic_",0)!=0&&name.rfind("__bb_sourced_barrier_",0)!=0;
+}
 int main(int argc,char** argv) {
   if(argc!=3)return 2;
   try {
@@ -77,10 +80,10 @@ int main(int argc,char** argv) {
     if(llvm::verifyModule(*module,&llvm::errs()))throw std::runtime_error("invalid input module");
     const std::set<std::string> controls={"__remill_missing_block","__remill_function_call","__remill_function_return","__remill_jump","__remill_error","__remill_async_hyper_call","__remill_sync_hyper_call"};
     llvm::json::Array functions,sites,declarations;std::map<std::string,int64_t> counts;
-    int64_t indirect_calls=0;
+    int64_t indirect_calls=0;std::map<std::string,int64_t> memory_counts;std::set<uint64_t> memory_sources;llvm::json::Array memory_errors;int64_t legacy_memory_calls=0;
     llvm::ModuleSlotTracker slots(module.get());
     for(auto& f:*module) {
-      auto name=f.getName().str();bool boundary=controls.count(name)||name.rfind("__bb_native_",0)==0;
+      auto name=f.getName().str();bool boundary=controls.count(name)||name.rfind("__bb_native_",0)==0||sourced_control(name);
       if(f.isDeclaration()) {
         if(boundary)declarations.push_back(llvm::json::Object{{"name",name},{"type",type_text(f.getFunctionType())},{"calling_convention",int64_t(f.getCallingConv())},{"nounwind",f.doesNotThrow()},{"noreturn",f.doesNotReturn()},{"attributes",attrs(f)}});
         continue;
@@ -100,7 +103,16 @@ int main(int argc,char** argv) {
             auto* callee=llvm::dyn_cast<llvm::Function>(call->getCalledOperand()->stripPointerCasts());
             if(!callee)++indirect_calls;
             auto target=callee?callee->getName().str():std::string("<indirect LLVM call>");
-            if(!callee||controls.count(target)||target.rfind("__bb_native_",0)==0) {
+            bool sourced=target.rfind("__bb_sourced_",0)==0;
+            bool legacy_memory=target.rfind("__remill_read_memory_",0)==0||target.rfind("__remill_write_memory_",0)==0||target.rfind("__remill_compare_exchange_memory_",0)==0||target.rfind("__remill_fetch_and_",0)==0||target.rfind("__remill_atomic_",0)==0||target.rfind("__remill_barrier_",0)==0;
+            if(legacy_memory)++legacy_memory_calls;
+            if(sourced){
+              ++memory_counts[target];std::set<llvm::Value*> seen;std::set<uint64_t> values;bool complete=true;
+              if(call->arg_size()<3)complete=false;else integer_origins(call->getArgOperand(1),seen,values,complete);
+              if(!complete||values.size()!=1||values.count(0)||call->getArgOperand(0)!=f.getArg(0)||!call->doesNotThrow()||call->getCallingConv()!=0||llvm::isa<llvm::InvokeInst>(call))memory_errors.push_back(llvm::json::Object{{"function",name},{"callee",target},{"block_index",block_index},{"instruction_index",instruction_index},{"complete_source",complete},{"source_count",int64_t(values.size())},{"exact_state_argument",call->arg_size()&&call->getArgOperand(0)==f.getArg(0)}});
+              memory_sources.insert(values.begin(),values.end());
+            }
+            if(!callee||controls.count(target)||target.rfind("__bb_native_",0)==0||sourced_control(target)) {
               llvm::json::Array args;for(auto& arg:call->args())args.push_back(value_info(arg.get(),slots));
               std::string ir;llvm::raw_string_ostream printed(ir);i.print(printed,slots);
               llvm::json::Array successor_names;auto* terminator=b.getTerminator();for(unsigned k=0;k<terminator->getNumSuccessors();++k)successor_names.push_back(terminator->getSuccessor(k)->getName().str());
@@ -113,8 +125,11 @@ int main(int argc,char** argv) {
         ++block_index;
       }
     }
+    llvm::json::Object memory_count_json;for(const auto& row:memory_counts)memory_count_json[row.first]=row.second;
+    llvm::json::Array memory_source_json;for(auto at:memory_sources)memory_source_json.push_back(llvm::utohexstr(at));
+    llvm::json::Object memory_audit{{"counts",std::move(memory_count_json)},{"source_pcs",std::move(memory_source_json)},{"invalid_sites",std::move(memory_errors)},{"legacy_memory_calls",legacy_memory_calls},{"scope","All saved pre-O2 bridged call sites, including structurally unreachable blocks. Source must have one complete nonzero local constant origin; State must be the root argument. Not execution coverage."}};
     llvm::json::Object count_json;for(auto& kv:counts)count_json[kv.first]=kv.second;
-    llvm::json::Object report{{"status","read-only LLVM control-site census"},{"target_triple",module->getTargetTriple().str()},{"data_layout",module->getDataLayoutStr()},{"functions",std::move(functions)},{"declarations",std::move(declarations)},{"sites",std::move(sites)},{"site_counts",std::move(count_json)},{"indirect_llvm_calls",indirect_calls},{"execution","none; bitcode parsing and verification only"},{"integer_origin_scope","Conservative constants/PHI/select/freeze and reaching constant stores to verified nonescaping BB_SOURCE_PC allocas. Other expressions stay incomplete; sets do not retain path correlation."},{"cfg_reachability_scope","Structural paths from each LLVM function entry, including both conditional successors. This is not proof of guest execution or backend emitted machine paths."}};
+    llvm::json::Object report{{"status","read-only LLVM control-site census"},{"memory_source_audit",std::move(memory_audit)},{"target_triple",module->getTargetTriple().str()},{"data_layout",module->getDataLayoutStr()},{"functions",std::move(functions)},{"declarations",std::move(declarations)},{"sites",std::move(sites)},{"site_counts",std::move(count_json)},{"indirect_llvm_calls",indirect_calls},{"execution","none; bitcode parsing and verification only"},{"integer_origin_scope","Conservative constants/PHI/select/freeze and reaching constant stores to verified nonescaping BB_SOURCE_PC allocas. Other expressions stay incomplete; sets do not retain path correlation."},{"cfg_reachability_scope","Structural paths from each LLVM function entry, including both conditional successors. This is not proof of guest execution or backend emitted machine paths."}};
     std::error_code ec;llvm::raw_fd_ostream out(argv[2],ec);if(ec)throw std::runtime_error("cannot write census");out<<llvm::formatv("{0:2}\n",llvm::json::Value(std::move(report)));
     return 0;
   }catch(const std::exception& e){llvm::errs()<<e.what()<<"\n";return 2;}

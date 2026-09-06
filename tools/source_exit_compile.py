@@ -20,6 +20,7 @@ def compile_one(row):
    steps.append(dict(name=name,argv=list(map(str,argv)),exit_code=r.returncode,elapsed_seconds=time.monotonic()-start));write_json(folder/'steps.json',steps);assert r.returncode==0,name
   run('lift',[a.lifter.resolve(),(folder/'input.json').resolve(),(folder/'function.bc').resolve(),(folder/'function.ll').resolve(),(folder/'audit.json').resolve(),a.semantics.resolve()])
   data=read(folder/'input.json');audit=read(folder/'audit.json');assert audit['compiled_roots']==row['compiled_roots']==data['roots'];assert set(audit['decoded_addresses'])=={r['address'] for r in data['instructions']} and not audit['unvisited_manifest_instructions'];assert audit['missing_instruction_starts']==row['original_missing_instruction_starts']
+  assert audit.get('native_memory_provenance',False)==data.get('native_memory_provenance',False)
   expected={r['address']:r for r in data['return_contracts']};guarded={r['source'] for r in audit['call_return_checks'] if r['no_normal_return']};assert guarded==set(expected)
   for r in audit['call_return_checks']:
    if r['no_normal_return']:assert r['provenance']==expected[r['source']]['provenance'] and r['expected_next_pc']==expected[r['source']]['expected_next_pc'] and r['kind']=='ordinary-call'
