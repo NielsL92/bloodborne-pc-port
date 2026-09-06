@@ -1,5 +1,7 @@
 # P2 whole-function compiler experiment
 
+Shutdown checkpoint 2026-09-06 02:34 UTC: experimental x87 stack/control work is preserved in `reports/x87-stack-control.md`; the expanded diagnostic found denormal-status differences, and its correction is built but awaits testing. Accepted startup objects and P3 gate status are unchanged. No native game execution occurred.
+
 Updated 2026-09-05. The bounded feasibility gate now supports proceeding to P3. No native gameplay or complete port is demonstrated. The earlier failed performance/coverage gate and all failed runs remain preserved in reports/archive/compiler-spike-pre-restart.md and local/runs.
 
 Remill 56918a8c2554088e93389e97d292f4035286506c produces LLVM 21.1.8 Windows COFF objects using the existing MSVC/SDK environment. The original CMPSS correction remains covered by the existing full-state regressions. Static reassembly remains a separately labeled comparison, not the selected endpoint.
