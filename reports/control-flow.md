@@ -1,6 +1,6 @@
 # P3 control-flow and dependency recovery
 
-Current exit census (2026-09-06 19:39 UTC): reports/control-exits.md and reports/control-exits-evidence.json verify all 386 retained LLVM modules / 21,282 roots. There are 4,818 actual missing-block call sites and 105 semantic error sites, with nounwind boundary contracts still requiring explicit handling. This supersedes earlier statements that emitted exits have not been inventoried. Recovery/object manifests are unchanged; P3 and native startup remain open.
+Current comparison correction (2026-09-06 20:00 UTC): reports/comi-semantics.md and its evidence record 851,968 zero-difference authored cases and fourteen exact replacement objects. The active manifest is comi-integration-manifest-v1/active-objects.json. Updated LLVM census v6-comi-repeat has 4,818 missing-block calls, 56 division errors and 58 explicit SIMD faults; COFF audit v7-comi-repeat retains 240 unresolved binding names. Earlier counts/manifests below are historical. Recovery is unchanged; P3 and native startup remain open.
 
 Updated 2026-09-06 19:16 UTC: the 386-object symbol audit matches all 21,282 compiled roots and identifies 177 import stubs plus 63 support/library bindings. Duplicate globals are independently checked compatible constants. The 4,366 missing-start records retain source context; actual emitted-IR exit guards still require inspection. See reports/linkage.md / reports/linkage-evidence.json. P3 remains open; earlier checkpoints below are historical.
 
