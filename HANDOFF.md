@@ -1,6 +1,14 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 23:02 UTC
+## Current continuation — 2026-09-06 23:26 UTC
+
+Continue autonomously; user action: none. Read reports/runtime-guards.md and its evidence JSON. **P4 remains open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
+
+Unresolved-slot guards pass repeated authored checks (2,568 AOT, 648 spans, 202 negative boundaries, four setup rejections). The first NOP/load check exposed stale trace-entry PC diagnostics; compiler build/sparse-lift-v12-memory-sources/bb-sparse-lift.exe plus native/runtime/sourced.cpp fix this with explicit State and invocation-local instruction addresses. Successful calls preserve State; fault scopes never span dispatch. Control, FP and memory regressions pass. Evidence: local/runtime/guards-evidence-v2-status/checked.json. Preserved v1 failure is evidence, not erased.
+
+Current active game manifest remains source-exit-manifest-v2-regression/active-objects.json and therefore still uses v11. Next enable native_memory_provenance in all 386 copied game inputs, recompile/repeat and independently inspect source/State arguments plus existing control boundaries before regenerating registry/linkage. Only then proceed to private NX loading with the 37 unresolved relocation guards. Current registry-v5-service-identities, link-v7-repeat and loader-plan-v7-repeat remain the last complete host-only artifacts; they do not incorporate this compiler ABI. Native service slot 9 remains reserved. P1 route/profiling/audio tasks are unchanged. Continue after commits.
+
+## Previous checkpoint â€” 2026-09-06 23:02 UTC
 
 Continue autonomously; user action: none. Read reports/native-services.md and reports/native-services-evidence.json, then reports/native-loader.md. **P4 is open; P3 compilation/explicit handling passed. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
 
@@ -8,7 +16,7 @@ Continue autonomously; user action: none. Read reports/native-services.md and re
 
 Loader-plan-v7-repeat reproduces v6-services and leaves 37 unresolved relocations: twenty data imports and seventeen TLS module references. Zero code relocations; all 238,609 destinations and 18,444 constructor pointers remain checked. Next add runtime access guards for unresolved relocation slots, then validate private NX module loading and actual entry setup without exposing guessed values. Resolve/test strong-data/TLS contracts and implement native services in dependency order. All previous unknown targets, mutable tables, conditional exports, absent FP profile and fourteen unresolved x87 selector sites remain visible. Continue after commits; P1 route/profiling/audio work remains open.
 
-## Previous checkpoint — 2026-09-06 22:51 UTC
+## Previous checkpoint â€” 2026-09-06 22:51 UTC
 
 Continue autonomously; user action: none. Read reports/native-loader.md and reports/native-loader-evidence.json, then reports/native-link.md. **P3 compilation/explicit-handling passed; P4 is open. No game-derived CPU function has executed, no native boot exists and there is no playable port.**
 
@@ -16,7 +24,7 @@ Loader plan local/runtime/loader-plan-v5-repeat matches v4-weak exactly: eight m
 
 752 unresolved relocation references remain: 715 functions, twenty data objects and seventeen TLS module references. Next generate canonical native external-function identities across modules (preserving pointer equality and explicit unimplemented stops), then resolve/test the strong-data/TLS contracts and implement private NX loading plus actual entry setup. Keep constructor mutation, unvisited targets, FP profile selection, guest exceptions/nonlocal transfer and real services visible. The 54,663,680-byte complete registry validator remains local/runtime/link-v5-repeat/registry.exe; it executes no game entries. Active game manifest/registry/compiler/semantics and all P1 work remain as recorded in the preceding checkpoint. Continue after commits.
 
-## Previous checkpoint — 2026-09-06 22:37 UTC
+## Previous checkpoint â€” 2026-09-06 22:37 UTC
 
 Continue autonomously; user action: none. Read reports/native-link.md and reports/native-link-evidence.json, then reports/runtime-fp.md, reports/runtime-boundaries.md and reports/source-exits.md. **P3 startup compilation and explicit-exit-handling gate passes; proceed to P4. No game-derived CPU function has been executed, no native game boot exists and there is no playable port.**
 
@@ -26,7 +34,7 @@ Registry local/runtime/registry-v3-repeat matches v2-ghidra; identity SHA256 e73
 
 Active game object manifest remains source-exit-manifest-v2-regression/active-objects.json, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6. Compiler v11-source-exits and semantics v35-divide remain pinned. Next P4: private NX module data loading, exact relocations/BSS, initialization order and logical stack/TLS, then actual native entry with precise service stops. Guest exceptions/nonlocal recovery, real services and profile selection remain open. P1 route/profiling/audio work is unchanged. Preserve all runs and immutable game files. Continue after commits.
 
-## Previous checkpoint — 2026-09-06 22:23 UTC
+## Previous checkpoint â€” 2026-09-06 22:23 UTC
 
 Continue autonomously; user action: none. Read reports/runtime-fp.md and reports/runtime-fp-evidence.json, then reports/runtime-boundaries.md. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
 
@@ -34,7 +42,7 @@ Explicit FP profile/metadata and fault bindings pass 32,768 authored AOT cases a
 
 Current complete startup manifest remains source-exit-manifest-v2-regression/active-objects.json, SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6 (386 objects / 21,181 entries / 21,282 roots). Compiler v11-source-exits, semantics v35-divide, recovery v31-conditional-repeat and all unknowns remain unchanged. Next generate immutable target/import/source-pair and x87 metadata tables with input identities, then link the full object set into a host-only registry validator. Do not invoke game entries during linkage validation. P1 route/profiling/audio-crash work remains open. Continue after commits.
 
-## Previous checkpoint — 2026-09-06 22:13 UTC
+## Previous checkpoint â€” 2026-09-06 22:13 UTC
 
 Continue autonomously; user action: none. Native runtime memory/control prototypes now pass repeated authored checks. Read reports/runtime-boundaries.md and reports/runtime-boundaries-evidence.json, then the preceding source-exit checkpoint. **P3 remains open. No game-derived object has been linked or executed; no native boot/playable port exists.**
 
@@ -42,7 +50,7 @@ Memory-v3-repeat passes 49,256 cases, eleven precise negative exits and two setu
 
 Current active game objects remain local/compiler-spike/source-exit-manifest-v2-regression/active-objects.json (SHA256 e5c5516e4703ac055f97128799b45bed91c3b90d235a67f6446973c3a698a8a6): 386 objects / 21,181 entries / 21,282 compiled roots. Compiler v11-source-exits and semantics v35-divide remain pinned. Canonical recovery v31-conditional-repeat and all unknowns remain unchanged. Next implement remaining FP/numeric bindings with explicit profile/segment provenance, generate static tables from the checked dispatch registry, then validate complete linkage. No target FP profile is selected by default. P1 Hunter's Dream, profiling and opening audio mutex investigation remain open. Continue after commits without a new user confirmation.
 
-## Previous checkpoint — 2026-09-06 21:35 UTC
+## Previous checkpoint â€” 2026-09-06 21:35 UTC
 
 Continue autonomously; user action: none. Read reports/source-exits.md and reports/source-exits-evidence.json, then reports/control-exits.md, reports/linkage.md and reports/call-return.md. **P3 remains open. No native game boot or playable port exists.** No game-derived object has been linked or executed.
 
@@ -58,7 +66,7 @@ Canonical recovery is unchanged at `local/cfg/startup-recovery-v31-conditional-r
 
 Next implement and validate native control/fault handlers, source/target dispatch checks and native/bundled import binding compatible with nounwind, then link the complete set before deciding P3. No success placeholders, interpreter/JIT/reassembly or original CPU fallback. P1 Hunter's Dream route, profiler overhead / CPU-GPU-queue costs and audio mutex crash remain open. Approved elevated shells and installed tools work; no restart or read approval is needed. Preserve all runs and immutable game views. Continue after commits until the user stops work or an actual user action is necessary.
 
-## Previous checkpoint — 2026-09-06 20:58 UTC
+## Previous checkpoint â€” 2026-09-06 20:58 UTC
 
 Execution continues autonomously; user action: none. Read reports/call-return.md and reports/call-return-evidence.json, then reports/divide-semantics.md, reports/control-exits.md and reports/linkage.md. **P3 remains open.** All 21,181 current entries compile into 386 objects with 21,282 unique compiled roots and every initial constructor exactly once. Native boundary handling and whole-set linkage remain unvalidated. No native game boot or playable port exists.
 

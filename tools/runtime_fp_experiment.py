@@ -17,7 +17,7 @@ for i,(store,seg) in enumerate(forms):body(i*64,[('dbe3',None),('d9e8','None'),(
 body(0x200,[('dd07','DS'),('d9e8','None'),('dec1','None'),('dd1e','DS'),('c3',None)])
 for offset,code in [(0x300,'0fae17'),(0x340,'48f7f1'),(0x380,'0f2fc1'),(0x3c0,'9b'),(0x440,'0fae07')]:body(offset,[(code,None),('c3',None)])
 body(0x400,[('d9e8','None'),('d9e8','None'),('dec1','None'),('c3',None)])
-roots.sort();sites.sort(key=lambda s:s['pc']);write_json(out/'input.json',dict(roots=roots,instructions=rows));write_json(out/'sites.json',sites)
+roots.sort();sites.sort(key=lambda s:s['pc']);write_json(out/'input.json',dict(native_memory_provenance=True,roots=roots,instructions=rows));write_json(out/'sites.json',sites)
 header=[f'extern "C" Memory* sub_{at:x}(State*,uint64_t,Memory*);' for at in roots]
 header+=['static const bb_runtime::Target targets[]={'+','.join('{'+f'{at}ULL,sub_{at:x}'+'}' for at in roots)+'};']
 header+=['static const bb_runtime::X87Site sites[]={'+','.join('{'+f"{s['pc']}ULL,{s['fop']},bb_runtime::Segment::{s['segment']}"+'}' for s in sites)+'};']
@@ -26,7 +26,7 @@ def run(name,argv,expected=0):
  with (out/(name+'.stdout')).open('wb') as stdout,(out/(name+'.stderr')).open('wb') as stderr:r=subprocess.run(list(map(str,argv)),env=env,stdout=stdout,stderr=stderr,timeout=180)
  steps.append(dict(argv=list(map(str,argv)),exit_code=r.returncode));write_json(out/'steps.json',steps);assert (r.returncode&0xffffffff)==expected,(name,r.returncode)
 run('lift',[a.lifter.resolve(),out/'input.json',out/'function.bc',out/'function.ll',out/'audit.json',a.semantics.resolve()]);run('object',[LLVM/'bin/clang.exe','-c','-O2','-march=haswell','-mno-incremental-linker-compatible',out/'function.bc','-o',out/'function.obj']);objects=[out/'function.obj']
-for name in ['fault','memory','control','intrinsics','fp','fp_fixture']:
+for name in ['fault','memory','control','intrinsics','fp','sourced','fp_fixture']:
  obj=out/(name+'.obj');objects.append(obj);run(name,[LLVM/'bin/clang-cl.exe','/nologo','/O2','/EHsc','/std:c++17','/DADDRESS_SIZE_BITS=64','/DHAS_FEATURE_AVX=1','/DHAS_FEATURE_AVX512=0','/clang:-mlong-double-80','/clang:-mno-avx','/clang:-mno-incremental-linker-compatible','/I'+str(ROOT/'external/remill/include'),'/I'+str(out),'/c',ROOT/'native/runtime'/(name+'.cpp'),'/Fo'+str(obj)])
 run('numeric',[LLVM/'bin/clang-cl.exe','/nologo','/O2','/EHsc','/std:c++17','/clang:-mno-incremental-linker-compatible','/I'+str(ROOT/'external/SoftFloat-3e/source/include'),'/c',ROOT/'native/semantics/x87_numeric.cpp','/Fo'+str(out/'numeric.obj')]);objects.append(out/'numeric.obj');builtins=LLVM/'lib/clang/21/lib/windows/clang_rt.builtins-x86_64.lib'
 run('link',[LLVM/'bin/clang-cl.exe','/nologo',*objects,a.library.resolve(),builtins,'/Fe'+str(out/'fixture.exe')]);run('positive',[out/'fixture.exe','positive']);positive=json.loads((out/'positive.stdout').read_text());assert positive['aot_cases']==32768
