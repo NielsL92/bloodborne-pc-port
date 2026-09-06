@@ -26724,5 +26724,15 @@
     "unresolved_conditional_continuations": 5,
     "p3_gate_passed": false,
     "native_game_boot": false
+  },
+  "linkage": {
+    "report": "reports/linkage-evidence.json",
+    "inventory": "local/compiler-spike/whole-program-linkage-v5-repeat",
+    "objects": 386,
+    "compiled_roots": 21282,
+    "unresolved_symbols": 240,
+    "missing_instruction_start_records": 4366,
+    "emitted_ir_exit_sites_audited": false,
+    "p3_gate_passed": false
   }
 }
