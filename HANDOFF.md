@@ -2,6 +2,30 @@
 
 The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
 
+## PC name-entry update - 2026-09-07
+
+The user requested ordinary PC keyboard typing inside the game window, and
+specified **Timmy** as the hunter name for game tests. Implemented on the
+recipient's `codex/integration-validation` branch: five Orbis IME imports,
+focused native child text field, Unicode/caret/selection/Backspace/clipboard,
+Enter confirm, Escape cancel, guest-thread text filtering, lifecycle/error
+checks, input capture, and focus restoration. No separate OS keyboard grid.
+No automatic name injection is enabled in normal game runs.
+
+[Implementation and evidence](external/Bloodborne-Recompiled/docs/pc-name-entry.md).
+Release and **144/144 CTest** tests pass, including imported-ABI and native-control
+checks confirming Timmy. A bounded 30-second native startup smoke had no CPU
+fault or trapped import. Actual name entry in the recipient's character-creation
+scene remains unverified: our local scripted route previously stopped at a
+connection dialog and the full 3D cache has not been reproduced. Do not claim a
+hunter was created here; the native control fixture is distinct from a game run.
+Next game-level check should navigate offline creation, type Timmy, finish the
+character and observe the next frontier using a copied save. Use the existing
+local shader toolchain/captures if more variants are required.
+
+Nothing was pushed; owner main and checkpoint refs remain unchanged. All
+absolute branch restrictions persist. No task test or build is running.
+
 ## Integration completed locally - 2026-09-07
 
 Recipient checkout: `E:/bloodborne PC port/external/Bloodborne-Recompiled`, branch

@@ -10,3 +10,5 @@ Before every mutation, confirm the repository and current branch. Stop if the br
 Implementation direction confirmed by the user: use the other project's direct x86-64 runtime as the product foundation; selectively port our save-file-sharing correction, input verification, run recording, and missing regression tests. Preserve this project's Remill/AOT research and private artifacts. Do not resume its paused startup expansion as part of the integration task.
 
 Game inputs, generated code/shaders, captures, saves, binaries, and dependency checkouts remain private and untracked. Treat local/game/effective-v2 as read-only because it contains hardlinks. Never edit original game views or seed saves in place.
+
+Use `Timmy` as the hunter name in game tests, as requested by the user.
