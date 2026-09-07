@@ -1,5 +1,7 @@
 # First bounded native AOT entry trace
 
+Continuation 2026-09-07 01:03 UTC: the runtime-word binding now advances through both atexit registrations into the first constructor, stopping at mutex-attribute initialization. See [native-runtime-word.md](<E:/bloodborne PC port/reports/native-runtime-word.md>). The original first-stop evidence below remains preserved.
+
 2026-09-07 00:15 UTC. **The supplied main entry and its first libc calls now execute as native Remill/LLVM AOT code.** The repeat reaches the independently predicted unresolved canary-slot stop. P4 remains open; there is no native game boot, graphics submission or playable port. No original game bytes execute.
 
 The first native entry run was 20260907-p4-native-startup-v1 (00:07:50–00:08:11 UTC). Main entry 0x1000000a0 executes its prologue and argument-prefix loads, calls supplied libc _init_env at 0x80005fef0 (compiled RET), returns through the checked continuation, and calls compiled atexit at 0x80002f110. The latter stops on its first canary-pointer load, instruction 0x80002f119, reading unresolved relocation slot 0x8000b84e0. The slot is libkernel object NID f7uOxY9mM1U, named __stack_chk_guard in the independent baseline symbol catalog. Its semantic value and native storage remain unresolved.

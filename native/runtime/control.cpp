@@ -5,6 +5,17 @@
 #include <stdexcept>
 extern "C" uint64_t __remill_read_memory_64(Memory*,uint64_t)noexcept;
 namespace bb_runtime {
+static void trace(Memory* m,State* s,const char* event,uint64_t target)noexcept{
+ if(!m->control_trace)return;
+ if(m->control_trace_events++>=65536)fault(m,"control-trace-limit",51,s->gpr.rip.qword,target);
+ std::fprintf(m->control_trace,"{\"event\":\"%s\",\"target\":%llu,\"pc\":%llu,\"rsp\":%llu,\"rbp\":%llu,\"rdi\":%llu,\"rsi\":%llu,\"rdx\":%llu,\"rcx\":%llu,\"r8\":%llu,\"r9\":%llu,\"rax\":%llu,\"memory_operations\":%llu}\n",event,(unsigned long long)target,(unsigned long long)s->gpr.rip.qword,(unsigned long long)s->gpr.rsp.qword,(unsigned long long)s->gpr.rbp.qword,(unsigned long long)s->gpr.rdi.qword,(unsigned long long)s->gpr.rsi.qword,(unsigned long long)s->gpr.rdx.qword,(unsigned long long)s->gpr.rcx.qword,(unsigned long long)s->gpr.r8.qword,(unsigned long long)s->gpr.r9.qword,(unsigned long long)s->gpr.rax.qword,(unsigned long long)m->operations);
+ std::fflush(m->control_trace);
+}
+struct TraceScope {
+ Memory* m;State* s;uint64_t pc;const char* end;
+ TraceScope(Memory* memory,State* state,uint64_t target,const char* begin,const char* finish)noexcept:m(memory),s(state),pc(target),end(finish){trace(m,s,begin,pc);}
+ ~TraceScope()noexcept{trace(m,s,end,pc);}
+};
 static const Target* find_target(const Tables& t,uint64_t pc)noexcept{
  if(!t.target_count)return nullptr;auto* end=t.targets+t.target_count;auto* it=std::lower_bound(t.targets,end,pc,[](const Target& target,uint64_t at){return target.pc<at;});return it!=end&&it->pc==pc?it:nullptr;
 }
@@ -21,14 +32,14 @@ static const Tables& tables(Memory* m)noexcept{if(!m->tables)fault(m,"unconfigur
 static Memory* returned(Memory* result,Memory* expected)noexcept{if(result!=expected)fault(expected,"memory-context-return",21);return result;}
 Memory* imported(State* s,uint64_t pc,Memory* m)noexcept{
  context(m,s);if(s->gpr.rip.qword!=pc)fault(m,"import-entry-pc",22,0,s->gpr.rip.qword,pc);const auto& t=tables(m);const auto* imp=find_import(t,pc);if(!imp)fault(m,"unknown-import",23,0,pc);
- const auto* previous=m->active_import;m->active_import=imp;Memory* result=nullptr;
+ TraceScope trace_scope(m,s,pc,"import","import-return");const auto* previous=m->active_import;m->active_import=imp;Memory* result=nullptr;
  if(imp->native)result=imp->native(s,pc,m);
  else if(imp->compiled_export){const auto* target=find_target(t,imp->compiled_export);if(!target)fault(m,"missing-bundled-export",24,pc,imp->compiled_export);s->gpr.rip.qword=target->pc;result=target->function(s,target->pc,m);}
  else fault(m,"unimplemented-import",25,0,pc);
  m->active_import=previous;return returned(result,m);
 }
 Memory* dispatch(State* s,uint64_t pc,Memory* m)noexcept{
- context(m,s);if(s->gpr.rip.qword!=pc)fault(m,"dispatch-entry-pc",26,0,s->gpr.rip.qword,pc);const auto& t=tables(m);
+ context(m,s);if(s->gpr.rip.qword!=pc)fault(m,"dispatch-entry-pc",26,0,s->gpr.rip.qword,pc);const auto& t=tables(m);TraceScope trace_scope(m,s,pc,"dispatch","dispatch-return");
  if(const auto* target=find_target(t,pc))return returned(target->function(s,pc,m),m);
  if(find_import(t,pc))return imported(s,pc,m);fault(m,"unknown-compiled-target",27,0,pc);
 }

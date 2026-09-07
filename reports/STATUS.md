@@ -1,5 +1,15 @@
 # Native recompilation execution status
 
+## Current continuation — 2026-09-07 01:03 UTC
+
+Continue autonomously; user action: none. Read reports/native-runtime-word.md and its evidence JSON. **Native startup now completes both atexit registrations and enters the first constructor. P4 remains open; no native boot or playable port exists. Source bytes remain NX.**
+
+The shared eight-byte libc runtime word is initialized before entry. Exactly eight data relocations bind; 29 other slots remain guarded (12 strong data / 17 TLS). Current plan local/runtime/loader-plan-v9-runtime-word; current probe local/runtime/startup-v7-runtime-word-trace-repeat/startup.exe repeats v6-trace, SHA256 e63d0d3044433d633cc1ad3156b44c980f31939d7e7382c6391234a89352529f, 61,816,320 bytes. Replay seed local/runtime/startup-v4-runtime-word/canary-seed.bin, SHA256 fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7. Evidence local/runtime/canary-evidence-v1/checked.json. Compiler v12-memory-sources, semantics v35-divide, native-memory-manifest-v1 and registry-v7-memory-repeat remain current.
+
+Actual constructor ordinal 0 at 0x1020edf90 has entered but not returned. Its mutex helper reaches scePthreadMutexattrInit, NID F8bUHwAG284, gateway 0x102bbfea8, after 148 registered memory operations. RDI=0x700000fff48 / RSP=0x700000fff38. Both atexit calls returned zero. Thirteen optional dispatch/import events repeat exactly; this log does not enumerate every compiled direct call. Ghidra independently checks 59 constructor/helper/PLT instructions. Authored runtime-word tests (4,096 positive, 64 mismatches, two bounds stops) and 20,480 control regression cases pass.
+
+Next implement the validated mutex attribute/service dependency using native state and registered logical pointers, then continue through concrete startup stops. No success placeholders, guessed strong-data/TLS values or original-code fallback. Native startup ABI/order, FP/TLS, exceptions/nonlocal flow, helper costs and P1 baseline route/profiling/audio remain open. This is native port development; keep reporting focused on that deliverable. Continue after commits.
+
 ## Current status — 2026-09-07 00:15 UTC
 
 Continue autonomously; user action: none. Read reports/native-startup.md and reports/native-startup-evidence.json, then reports/native-load.md. **The first bounded native AOT entry now executes and reproduces its predicted stop. P4 remains open; no native game boot or playable port exists. Original game bytes never execute.**
