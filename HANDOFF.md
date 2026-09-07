@@ -1,6 +1,17 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 01:30 UTC
+## Current continuation — 2026-09-07 01:48 UTC
+
+Continue autonomously; user action: none. Read reports/native-direct-memory.md and its evidence JSON. **Native startup completes constructors 0–88 and enters ordinal 89. P4 remains open; no native boot or playable port exists.**
+
+Current probe local/runtime/startup-v13-direct-memory-repeat/startup.exe repeats v12-direct-memory, SHA256 c5e3aada762bdb1c1f6f06653c1148b87e84cb6b0c951253d63c22f26afb6d25, 61,847,552 bytes. Direct-memory-contract-v1 binds eleven native services through 31 exact identities. Native memory uses an explicit 4.5 GiB reserved pool, committing individual allocations; this is not a measured PS4 capacity. First 116 MiB allocation and RW mapping succeed. Authored allocation/mapping checks and the 49,256-case RAM regression pass.
+
+Next stop: unknown compiled target 0x10207f3b0, RSP 0x700000ffed8, 1,205 completed memory operations; 251 diagnostic events repeat. Constructor 89 target 0x1023756e0 entered but did not return. Recover the missing body and cross-check it with Ghidra, then compile and manifest it before continuing startup. Initial byte inspection suggests a four-byte MOV/RET leaf; this is not yet accepted recovery evidence.
+
+Current loader plan v9-runtime-word, replay seed startup-v4-runtime-word/canary-seed.bin, native-memory-manifest-v1, registry-v7-memory-repeat, compiler v12 and semantics v35 remain current. Source bytes remain NX and 29 data/TLS guards remain. Unsupported memory modes/GPU/unmapping, private object layouts, FP/TLS, initialization order, unknown targets, exceptions/nonlocal flow and helper costs remain explicit. Independent P1 route/profiling/audio work is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 01:30 UTC
 
 Continue autonomously; user action: none. Read reports/native-mutex.md and its evidence JSON. **Native startup completes constructor ordinal 0 and enters ordinal 1. P4 remains open; no native boot or playable port exists.**
 

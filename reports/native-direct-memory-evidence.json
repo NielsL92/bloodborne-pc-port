@@ -1,0 +1,1785 @@
+{
+  "status": "native direct memory advances startup through 89 constructors to an unknown compiled target",
+  "current": {
+    "status": "bounded native AOT entry reached an explicit runtime boundary",
+    "trace_identity": "2c09e22751a3968456565a5ffafb6d6f26c070b05883e1efcae9fd084391e16e",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "executable_sha256": "c5e3aada762bdb1c1f6f06653c1148b87e84cb6b0c951253d63c22f26afb6d25",
+    "executable_bytes": 61847552,
+    "bundle_sha256": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+    "private_image_before_native_initialization": {
+      "status": "private-load-validated",
+      "regions": 19,
+      "relocations": 238580,
+      "guards": 29,
+      "mapped_bytes": 98574344,
+      "verified_bytes": 98574112,
+      "guarded_bytes": 232,
+      "sha256_unguarded": "e3f0a400f1acd5302ca34718f8d8664654b5af685f9e31c889ca0694964a1901",
+      "game_execution": false
+    },
+    "native_providers": {
+      "canary": {
+        "contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c",
+        "logical_address": 7696585588736,
+        "size": 8,
+        "rights": 3,
+        "requires_initialization_before_entry": true,
+        "nid": "f7uOxY9mM1U",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257,
+        "bindings": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "offset": 87964640,
+            "type": 6,
+            "symbol_index": 676,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 676,
+              "name": "f7uOxY9mM1U#p#J",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "offset": 294936,
+            "type": 6,
+            "symbol_index": 18,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 18,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "offset": 311412,
+            "type": 6,
+            "symbol_index": 22,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 22,
+              "name": "f7uOxY9mM1U#C#D",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "offset": 32792,
+            "type": 6,
+            "symbol_index": 5,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 5,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "offset": 327704,
+            "type": 6,
+            "symbol_index": 19,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 19,
+              "name": "f7uOxY9mM1U#D#E",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "offset": 278552,
+            "type": 6,
+            "symbol_index": 73,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 73,
+              "name": "f7uOxY9mM1U#B#C",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "offset": 917560,
+            "type": 6,
+            "symbol_index": 55,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 55,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "offset": 754912,
+            "type": 6,
+            "symbol_index": 13,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 13,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          }
+        ]
+      }
+    },
+    "native_service_contract_sha256": "3f464ba89f8829585024f9574672f02b810a4361a1c11a4d829f10d52995968a",
+    "native_service_bindings": [
+      {
+        "pc": 4340837032,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837048,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837064,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837080,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842184,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842216,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842232,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842248,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902976,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738912,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738928,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738960,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654706416,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707520,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709072,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709248,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654711568,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713664,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713920,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714192,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "runtime_seed_sha256": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "runtime_seed_origin": "explicit replay",
+    "control_trace_sha256": "6884c9fd4d13053533f649409a755a5816e058b950afad86e59a6dcd4099bd21",
+    "exit_code": 2952790043,
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unknown-compiled-target",
+      "reason": 27,
+      "source": "0000000000000000",
+      "actual": "000000010207f3b0",
+      "wanted": "0000000000000000",
+      "address": "0000000000000000",
+      "width": 0,
+      "pc": "000000010207f3b0",
+      "rsp": "00000700000ffed8",
+      "entry": "00000001000000a0",
+      "thread": 55428,
+      "compilation_identity": "2c09e22751a3968456565a5ffafb6d6f26c070b05883e1efcae9fd084391e16e"
+    },
+    "active_import": null,
+    "guard": null,
+    "records": [
+      {
+        "status": "native-boundary-stop",
+        "boundary": "unknown-compiled-target",
+        "reason": 27,
+        "source": "0000000000000000",
+        "actual": "000000010207f3b0",
+        "wanted": "0000000000000000",
+        "address": "0000000000000000",
+        "width": 0,
+        "pc": "000000010207f3b0",
+        "rsp": "00000700000ffed8",
+        "entry": "00000001000000a0",
+        "thread": 55428,
+        "compilation_identity": "2c09e22751a3968456565a5ffafb6d6f26c070b05883e1efcae9fd084391e16e"
+      }
+    ],
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain incomplete.",
+      "An explicit runtime boundary is a diagnostic result requiring investigation, not a P4 gate pass.",
+      "Source module copies remain NX data. Only AOT roots and explicit native services can execute.",
+      "The recorded seed is a native runtime input, not a console value. This bounded trace is not whole-game execution coverage."
+    ]
+  },
+  "completed_constructors": [
+    {
+      "ordinal": 0,
+      "slot": 87964600,
+      "target": 34529168,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 1,
+      "slot": 87964592,
+      "target": 33301184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 2,
+      "slot": 87964584,
+      "target": 37245712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 3,
+      "slot": 87964576,
+      "target": 37245664,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 4,
+      "slot": 87964568,
+      "target": 37245616,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 5,
+      "slot": 87964560,
+      "target": 37243984,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 6,
+      "slot": 87964552,
+      "target": 37243936,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 7,
+      "slot": 87964544,
+      "target": 37243888,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 8,
+      "slot": 87964536,
+      "target": 37242832,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 9,
+      "slot": 87964528,
+      "target": 37242784,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 10,
+      "slot": 87964520,
+      "target": 37242736,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 11,
+      "slot": 87964512,
+      "target": 37242016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 12,
+      "slot": 87964504,
+      "target": 37241968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 13,
+      "slot": 87964496,
+      "target": 37241920,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 14,
+      "slot": 87964488,
+      "target": 37241456,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 15,
+      "slot": 87964480,
+      "target": 37241408,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 16,
+      "slot": 87964472,
+      "target": 37241360,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 17,
+      "slot": 87964464,
+      "target": 37240768,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 18,
+      "slot": 87964456,
+      "target": 37240720,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 19,
+      "slot": 87964448,
+      "target": 37240672,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 20,
+      "slot": 87964440,
+      "target": 37239808,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 21,
+      "slot": 87964432,
+      "target": 37239760,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 22,
+      "slot": 87964424,
+      "target": 37239712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 23,
+      "slot": 87964416,
+      "target": 37238512,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 24,
+      "slot": 87964408,
+      "target": 37238464,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 25,
+      "slot": 87964400,
+      "target": 37238416,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 26,
+      "slot": 87964392,
+      "target": 37233152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 27,
+      "slot": 87964384,
+      "target": 37233104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 28,
+      "slot": 87964376,
+      "target": 37233056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 29,
+      "slot": 87964368,
+      "target": 37230384,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 30,
+      "slot": 87964360,
+      "target": 37230336,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 31,
+      "slot": 87964352,
+      "target": 37230288,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 32,
+      "slot": 87964344,
+      "target": 37226064,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 33,
+      "slot": 87964336,
+      "target": 37226016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 34,
+      "slot": 87964328,
+      "target": 37225968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 35,
+      "slot": 87964320,
+      "target": 37220320,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 36,
+      "slot": 87964312,
+      "target": 37220272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 37,
+      "slot": 87964304,
+      "target": 37220224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 38,
+      "slot": 87964296,
+      "target": 37215280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 39,
+      "slot": 87964288,
+      "target": 37215232,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 40,
+      "slot": 87964280,
+      "target": 37215184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 41,
+      "slot": 87964272,
+      "target": 37213376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 42,
+      "slot": 87964264,
+      "target": 37213328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 43,
+      "slot": 87964256,
+      "target": 37213280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 44,
+      "slot": 87964248,
+      "target": 37210000,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 45,
+      "slot": 87964240,
+      "target": 37209952,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 46,
+      "slot": 87964232,
+      "target": 37209904,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 47,
+      "slot": 87964224,
+      "target": 37207248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 48,
+      "slot": 87964216,
+      "target": 37207200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 49,
+      "slot": 87964208,
+      "target": 37207152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 50,
+      "slot": 87964200,
+      "target": 37204640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 51,
+      "slot": 87964192,
+      "target": 37204592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 52,
+      "slot": 87964184,
+      "target": 37204544,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 53,
+      "slot": 87964176,
+      "target": 37203376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 54,
+      "slot": 87964168,
+      "target": 37203328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 55,
+      "slot": 87964160,
+      "target": 37203280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 56,
+      "slot": 87964152,
+      "target": 37202752,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 57,
+      "slot": 87964144,
+      "target": 37202704,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 58,
+      "slot": 87964136,
+      "target": 37202656,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 59,
+      "slot": 87964128,
+      "target": 37202352,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 60,
+      "slot": 87964120,
+      "target": 37202304,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 61,
+      "slot": 87964112,
+      "target": 37202256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 62,
+      "slot": 87964104,
+      "target": 37196576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 63,
+      "slot": 87964096,
+      "target": 37196528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 64,
+      "slot": 87964088,
+      "target": 37196480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 65,
+      "slot": 87964080,
+      "target": 37194960,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 66,
+      "slot": 87964072,
+      "target": 37194912,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 67,
+      "slot": 87964064,
+      "target": 37194864,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 68,
+      "slot": 87964056,
+      "target": 37194688,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 69,
+      "slot": 87964048,
+      "target": 37194640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 70,
+      "slot": 87964040,
+      "target": 37194592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 71,
+      "slot": 87964032,
+      "target": 37191072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 72,
+      "slot": 87964024,
+      "target": 37191024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 73,
+      "slot": 87964016,
+      "target": 37190976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 74,
+      "slot": 87964008,
+      "target": 37189632,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 75,
+      "slot": 87964000,
+      "target": 37189584,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 76,
+      "slot": 87963992,
+      "target": 37189536,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 77,
+      "slot": 87963984,
+      "target": 37189072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 78,
+      "slot": 87963976,
+      "target": 37189024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 79,
+      "slot": 87963968,
+      "target": 37188976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 80,
+      "slot": 87963960,
+      "target": 37188576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 81,
+      "slot": 87963952,
+      "target": 37188528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 82,
+      "slot": 87963944,
+      "target": 37188480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 83,
+      "slot": 87963936,
+      "target": 37186272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 84,
+      "slot": 87963928,
+      "target": 37186224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 85,
+      "slot": 87963920,
+      "target": 37186176,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 86,
+      "slot": 87963912,
+      "target": 37185296,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 87,
+      "slot": 87963904,
+      "target": 37185248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 88,
+      "slot": 87963896,
+      "target": 37185200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    }
+  ],
+  "entered_constructor": {
+    "ordinal": 89,
+    "slot": 87963888,
+    "target": 37181152,
+    "evidence": "R_X86_64_RELATIVE",
+    "indexed_unwind_start": false
+  },
+  "allocation_call": {
+    "event": "import",
+    "target": 4340837048,
+    "pc": 4340837048,
+    "rsp": 7696582442776,
+    "rbp": 7696582442848,
+    "rdi": 0,
+    "rsi": 4831838208,
+    "rdx": 121634816,
+    "rcx": 2097152,
+    "r8": 0,
+    "r9": 7696582442792,
+    "rax": 4831838208,
+    "memory_operations": 420
+  },
+  "mapping_call": {
+    "event": "import",
+    "target": 4340837064,
+    "pc": 4340837064,
+    "rsp": 7696582442776,
+    "rbp": 7696582442848,
+    "rdi": 7696582442800,
+    "rsi": 121634816,
+    "rdx": 3,
+    "rcx": 0,
+    "r8": 0,
+    "r9": 2097152,
+    "rax": 0,
+    "memory_operations": 424
+  },
+  "contract": {
+    "status": "bounded native direct-memory service interface checked",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "bindings": [
+      {
+        "pc": 4340837032,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837048,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837064,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837080,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842184,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842216,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842232,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842248,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902976,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738912,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738928,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738960,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654706416,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707520,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709072,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709248,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654711568,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713664,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713920,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714192,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "logical_identifier_range": [
+      7765300871168,
+      7769595838464
+    ],
+    "live_limit": 4096,
+    "argument_storage_bytes": 8,
+    "default_policy": {
+      "type": 1,
+      "protocol": 0,
+      "ceiling": 0,
+      "provenance": "Explicit native defaults matching the pinned baseline; the reached caller overwrites type with 2 before mutex creation."
+    },
+    "return_abi": "32-bit EAX; success zero, native invalid-handle/type 0x80020016, resource exhaustion 0x8002000c; preserve SysV callee-saved registers and return through the logical stack",
+    "primary_reference": {
+      "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/thread/thr_mutexattr.c",
+      "sha256": "ab993c51f0c2c16de88e61d8e16c2df81621d076939dfa75f36bee376b5e5854",
+      "scope": "Independent FreeBSD implementation reference; not a PS4 ABI declaration."
+    },
+    "checked_instructions": 129,
+    "ghidra_sha256": "6a70075ef35562f06140da3645e09941d7e32ae39426191593dab7268bee9323",
+    "authored_sha256": "d41577361dd6a2bb0b10bbe2c1ee18d3990cc6d106e438955cca0df6945b88a1",
+    "limitations": [
+      "The supplied caller proves pointer-sized attribute storage and by-reference init/settype/destroy use; it does not prove a full guest-readable private object layout.",
+      "Native opaque identifiers never expose host pointers. Guest dereference of these identifiers stops until an independently checked object-layout interface is added.",
+      "Defaults, null/invalid diagnostics and resource bounds are explicit native compatibility policies. These references are not console observations.",
+      "Mutex creation, locking, protocol/ceiling/process-sharing setters and POSIX-namespace aliases are not supplied by these three bindings.",
+      "Uncontended/contended mutex ownership and recursive depth use native critical sections and condition variables. This does not implement guest thread creation or scheduling.",
+      "Named, static-initializer, nondefault-protocol, timed, robust and guest-readable private mutex layouts remain explicit unsupported interfaces. Normal-mutex self-deadlock stops diagnostically instead of hanging forever.",
+      "Four SCE ownership identities are bound; trylock is authored-tested but remains unbound pending a reached caller contract.",
+      "All native resource/default policies and the earlier attribute-layout uncertainty remain explicit.",
+      "Only memory type zero, power-of-two page alignment, zero-hint flags-zero RW maps, and exact unmapped allocation release are implemented. Other types/protections/flags/hints, partial/mapped release and unmapping stop explicitly.",
+      "The native reserved pool is a budget and backing identity; reservation does not commit or touch 4.5 GiB. Query returns that real pool budget as a 64-bit value.",
+      "Logical mappings share the allocated private backing, stay NX, and never replace initial module mappings or unresolved guards.",
+      "GPU ownership/coherence, flexible memory and full process memory behavior remain open."
+    ],
+    "game_aot_execution": false,
+    "parent_contract_sha256": "4cc69d090a17af44c6eb8d5a5c4e5f6af52854601571c157e6a82b128403241d",
+    "mutex_services": true,
+    "mutex_live_limit": 65536,
+    "mutex_identifier_range": [
+      7834020347904,
+      7838315315200
+    ],
+    "mutex_authored_sha256": "fb881a516eb5a54eb4ca25feef0bc4dd71de57317ccf138862b413cfcd5fbe5f",
+    "mutex_reference": {
+      "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/thread/thr_mutex.c",
+      "sha256": "e95d94a7520ea226e68409c2e6016b60bb86481410d181ca0a18042ac73d701d",
+      "scope": "Independent FreeBSD implementation reference; not a PS4 ABI declaration."
+    },
+    "windows_reference": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepconditionvariablecs",
+    "direct_memory_services": true,
+    "direct_memory_budget": 4831838208,
+    "direct_map_range": [
+      68719476736,
+      549755813888
+    ],
+    "direct_page_size": 16384,
+    "direct_profile": "Explicit native 4.5 GiB reserved pool; backing committed per successful allocation. This is a chosen native compatibility profile, not a measured PS4 capacity.",
+    "first_allocation": {
+      "length": 121634816,
+      "alignment": 2097152,
+      "memory_type": 0,
+      "protection": 3,
+      "map_flags": 0,
+      "address_hint": 0
+    },
+    "checked_direct_instructions": 93,
+    "direct_ghidra_sha256": "e97602f3a9fb6bb35b420d352714caf60f4708c0238c1b1bda01e9ffaf5bb7e6",
+    "direct_authored_sha256": "d67b762834c7c5c1be45c59a427e7ba1535bd07b94ec1d4113d6c13fbbb138bc",
+    "memory_regression_sha256": "49187d85b754a2f1715506ae66e9722a47fb6c8ec2e50581d8c9a82bd863f096",
+    "direct_references": [
+      "https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc",
+      "https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualfree"
+    ],
+    "baseline_reference_sha256": {
+      "external\\shadPS4\\src\\core\\libraries\\kernel\\memory.cpp": "22673efc6eff164c79370741af593d9565721e89f1b3cbe76675b0d960eaca7a",
+      "external\\shadPS4\\src\\core\\memory.cpp": "995c062a676f3f5b2a09b2c824802b7b2dcc5ae9620fbbce08721c9bfb1733bb",
+      "external\\shadPS4\\src\\core\\libraries\\kernel\\memory.h": "2478cddcf31170cb8148c9998843cf10642eee94f610d37259bb4df2bdc5f609"
+    }
+  },
+  "authored": {
+    "status": "native direct-memory allocation mapping and AOT checks pass",
+    "positive": {
+      "status": "pass",
+      "aot_service_calls": 4302,
+      "allocation_release_pairs": 2048,
+      "alias_pairs": 64,
+      "invalid_returns": 7,
+      "size_query_above_4g": true,
+      "shared_backing_lifetime": true
+    },
+    "negative_stops": 10,
+    "objects": {
+      "function.obj": "c5e0c3969aebe0067e472876a8cafa2440da57f40effe3a1b7cbd5dbfe953f5a",
+      "fault.obj": "b426058793762e8afde3b3fa4b24bb60afcd79f0ecaeaf775e1315d3c0a73b40",
+      "memory.obj": "d0cf4b70087b0542e7675d1db6d949550d4772ce261a245ed311a7db314a2a38",
+      "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "fp.obj": "b63a38fba14b144e182f11a6ad22336bc3848a037014aab297c89c9d9d40806f",
+      "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+      "direct_memory.obj": "6a7b2baff05fe350258099b57a596b862ef3b71b18e6c2d2221570de7d002ef5",
+      "direct_memory_fixture.obj": "9b6450ff670c99a2d010877dba2613c79ce1032a5c31ef75b7fea2526d9febe4"
+    },
+    "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "game_aot_execution": false,
+    "limits": [
+      "Native bounded memory-type-zero allocations, zero-hint RW maps and exact unmapped release only. GPU modes, other map flags, unmapping and partial/mapped release remain unimplemented.",
+      "Authored allocation and mapping checks only; no game gateway is bound by this fixture.",
+      "Guest CPU pointers address registered NX mappings; direct physical offsets identify native backing allocations.",
+      "Live-resource and monotonically increasing identifier bounds are native implementation limits, not console resource limits."
+    ]
+  },
+  "trace_events": 251,
+  "last_call": {
+    "event": "dispatch",
+    "target": 4329042864,
+    "pc": 4329042864,
+    "rsp": 7696582442712,
+    "rbp": 7696582442736,
+    "rdi": 4385808520,
+    "rsi": 0,
+    "rdx": 0,
+    "rcx": 0,
+    "r8": 1088,
+    "r9": 2097152,
+    "rax": 4381699328,
+    "memory_operations": 1205
+  },
+  "identical_artifacts": {
+    "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "canary.obj": "5b435d1c44a89b564e47914ca642d7804295728d7a6c5e19015778ef175a3663",
+    "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+    "direct_memory.obj": "6a7b2baff05fe350258099b57a596b862ef3b71b18e6c2d2221570de7d002ef5",
+    "entry.stdout": "82cccc0c9574008313a379d65c7c8e37f1a47eed05cf1e94b98a44def472a513",
+    "expected-image.json": "124c30fcb57baf0d70764128e3d65ff63a0d896c1c66d705d4075ce741d0569f",
+    "fault.obj": "b426058793762e8afde3b3fa4b24bb60afcd79f0ecaeaf775e1315d3c0a73b40",
+    "fp.obj": "b63a38fba14b144e182f11a6ad22336bc3848a037014aab297c89c9d9d40806f",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "linked-roots.json": "b842200cd56994851773749bdca1c23dd3834d66190e894bfc17279646abca0f",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "memory.obj": "d0cf4b70087b0542e7675d1db6d949550d4772ce261a245ed311a7db314a2a38",
+    "mutex.obj": "0396701e5174bf4e57024d8ae8f108c7483fb5adb71a117730b117597f65ab4d",
+    "mutexattr.obj": "19c78e008d610c0be59190dbea9b19d66f1f533f8c0d557af67cc7d8f0eb2d35",
+    "native-calls.jsonl": "6884c9fd4d13053533f649409a755a5816e058b950afad86e59a6dcd4099bd21",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "prepare.stdout": "82cccc0c9574008313a379d65c7c8e37f1a47eed05cf1e94b98a44def472a513",
+    "probe-manifest.json": "2c09e22751a3968456565a5ffafb6d6f26c070b05883e1efcae9fd084391e16e",
+    "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+    "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+    "startup-config.h": "93900fe561b4ca4f28108f8ea3b66de445535c22ffb58e5154247f8f3ba30b0f",
+    "startup.bin": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+    "startup.exe": "c5e3aada762bdb1c1f6f06653c1148b87e84cb6b0c951253d63c22f26afb6d25",
+    "startup_fixture.obj": "5b5ecf77dc0bf06b2a1e44b568614326644d6613abd99af1ee3a47ef3e1ea5b2"
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-direct-memory-runtime-v1",
+      "start_utc": "2026-09-07T01:38:37.849302+00:00",
+      "end_utc": "2026-09-07T01:38:47.386678+00:00",
+      "manifest_sha256": "e71f0bae7f9fdc1832f28ce0b216f1f5aa62b76069c8c8e57a52241e03b2a80a",
+      "sources_sha256": "e27037fccc4b2b47cc2918dd2c4582026b49a6ffbd7893569d7acdc840daeddc"
+    },
+    {
+      "run": "20260907-p4-direct-memory-runtime-v2-repeat",
+      "start_utc": "2026-09-07T01:40:06.684485+00:00",
+      "end_utc": "2026-09-07T01:40:19.900837+00:00",
+      "manifest_sha256": "8729950eb620af3df0894de1ab430cd651ed170e46d9c2d9af3a963f6c2bd195",
+      "sources_sha256": "e27037fccc4b2b47cc2918dd2c4582026b49a6ffbd7893569d7acdc840daeddc"
+    },
+    {
+      "run": "20260907-p4-memory-v8-dynamic-regression",
+      "start_utc": "2026-09-07T01:40:07.288459+00:00",
+      "end_utc": "2026-09-07T01:40:17.674838+00:00",
+      "manifest_sha256": "83580a544d3dce645e892fe8f01f522a12906729b8c61846a78b5f3bf5780812",
+      "sources_sha256": "e27037fccc4b2b47cc2918dd2c4582026b49a6ffbd7893569d7acdc840daeddc"
+    },
+    {
+      "run": "20260907-p4-startup-dmem-windows-v1",
+      "start_utc": "2026-09-07T01:32:44.396836+00:00",
+      "end_utc": "2026-09-07T01:32:44.849259+00:00",
+      "manifest_sha256": "6cd7fc97379ec2076ddc825268d0357c7baa0baed1b59d8434b3faffef95d8f8",
+      "sources_sha256": "6207fd5f932ca069f8b71bf7df3f9da7d6eb5012e9d958847bdcab2bab04fa59"
+    },
+    {
+      "run": "20260907-p4-ghidra-startup-dmem-v1",
+      "start_utc": "2026-09-07T01:32:45.299756+00:00",
+      "end_utc": "2026-09-07T01:33:05.573312+00:00",
+      "manifest_sha256": "9184afab9ec75106a7bb9f5f3e180dd4390be75e82656b3929ca42a38637da9c",
+      "sources_sha256": "6207fd5f932ca069f8b71bf7df3f9da7d6eb5012e9d958847bdcab2bab04fa59"
+    },
+    {
+      "run": "20260907-p4-direct-memory-contract-v1",
+      "start_utc": "2026-09-07T01:42:59.169627+00:00",
+      "end_utc": "2026-09-07T01:43:00.295661+00:00",
+      "manifest_sha256": "3f4d409c2e30aa787664100a08750719087499023649a23d75a1e151f37e2130",
+      "sources_sha256": "7ac343ac8789961d3f650713ca3855d42b292621263316603bf3361743f5109c"
+    },
+    {
+      "run": "20260907-p4-startup-direct-memory-v1",
+      "start_utc": "2026-09-07T01:43:00.579697+00:00",
+      "end_utc": "2026-09-07T01:43:18.104694+00:00",
+      "manifest_sha256": "b9c9aa1ade88156f85595e355ce3f279c1b3c74241f0d0a23eb943fe2e204403",
+      "sources_sha256": "7ac343ac8789961d3f650713ca3855d42b292621263316603bf3361743f5109c"
+    },
+    {
+      "run": "20260907-p4-startup-direct-memory-v2-repeat",
+      "start_utc": "2026-09-07T01:44:28.613983+00:00",
+      "end_utc": "2026-09-07T01:44:42.424385+00:00",
+      "manifest_sha256": "22ea94e08499e67b5b318b27b7ee918ba078701113dfff9ac4aee41ee09cd206",
+      "sources_sha256": "7ac343ac8789961d3f650713ca3855d42b292621263316603bf3361743f5109c"
+    }
+  ],
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limitations": [
+    "Constructors 0-88 returned and ordinal 89 entered. An unknown compiled target at 0x10207f3b0 stops execution; no main or boot is claimed.",
+    "Native memory type zero, zero-hint RW mappings and exact unmapped release are bounded interfaces. GPU/flexible memory, other flags/types/hints and unmapping/partial/mapped release remain open.",
+    "Native defaults and resource limits are documented compatibility policies, not console observations.",
+    "Twenty-nine data/TLS guards and all prior startup/control uncertainties remain."
+  ]
+}
