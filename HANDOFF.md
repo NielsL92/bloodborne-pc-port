@@ -1,6 +1,17 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 02:26 UTC
+## Current continuation — 2026-09-07 02:35 UTC
+
+Continue autonomously; user action: none. Read reports/native-qword-leaves.md and its evidence JSON. **Native startup executes both recovered 64-bit accessors inside constructor 89; constructors 0–88 remain complete. P4 is open; no native boot or playable port exists.**
+
+Current startup-v23-qword48-leaf-repeat matches v22-qword48-leaf: 61,860,864 bytes, SHA256 6634396dd8d0c2fc39781f54df6416d85ee528191185358edb64c41a3c482096. Use all three --supplement directories local/compiler-spike/native-leaf-manifest-v1, native-qword-leaf-manifest-v1 and native-qword48-leaf-manifest-v1; retain --tls local/runtime/main-tls-contract-v1, --services local/runtime/rwlock-contract-v1, loader-plan-v9-runtime-word and the recorded seed. Combined 389 game objects / 21,285 roots. The two five-byte MOV/RET bodies have independent Ghidra/LLVM checks and repeated 3,072-case AOT tests; generalized byte-form regression matches earlier compiler artifacts.
+
+Next stop unknown target 0x102375b10, RSP 0x700000ffea8, 2,035 memory operations; 359 diagnostic events repeat. Fresh local/cfg/native-target-2375b10-v1 records a bounded RIP-relative LEA/RET body, pending Ghidra and native semantic validation. Extend the strict leaf tool for this form, record manifests and continue. Neighboring function candidates remain unaccepted until independently checked.
+
+Compiler v12 / semantics v35 and base registry-v7 remain current. Source bytes stay NX. Twenty-nine previous guards and one TCB-field guard remain; dynamic TLS/DTV/TCB, guest threads, initialization/FP/control closure and prior uncertainty stay open. P1 route/profiling/audio is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 02:26 UTC
 
 Continue autonomously; user action: none. Read reports/native-main-tls.md and its evidence JSON. **Native startup passes its first FS-based TLS access and remains inside constructor 89, with constructors 0–88 complete. P4 is open; no native boot or playable port exists.**
 
