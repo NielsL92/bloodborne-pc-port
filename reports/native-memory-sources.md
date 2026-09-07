@@ -1,5 +1,8 @@
 # Complete startup migration to precise native memory sources
 
+Later execution checkpoint (2026-09-07 00:15 UTC): reports/native-startup.md records the first bounded supplied-entry AOT trace and its repeated canary-slot stop. Earlier no-game-execution statements below describe their dated experiments. No native boot or playable port exists.
+
+
 2026-09-06 23:42 UTC. P4 is open. P3 compilation/explicit handling remains passed under its narrow scope. No game-derived CPU function has executed; native private loading, boot and gameplay remain absent.
 
 All 386 active objects now select the native memory-source ABI validated in reports/runtime-guards.md. The complete v2-all and v3-repeat builds match for every input, root/unit list, audit, bitcode and COFF object. Copied inputs differ from their prior versions only by native_memory_provenance=true. All 21,181 entries, 21,282 roots, 18,444 constructors, 874,279 exact instruction byte strings and 4,305 unique nonreturn annotations are retained. Current recovery database and instruction-boundary uncertainty are unchanged.

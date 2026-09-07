@@ -1,5 +1,8 @@
 # Private native module loading
 
+Later execution checkpoint (2026-09-07 00:15 UTC): reports/native-startup.md records the first bounded supplied-entry AOT trace and its repeated canary-slot stop. Earlier no-game-execution statements below describe their dated experiments. No native boot or playable port exists.
+
+
 2026-09-06 23:55 UTC. P4 remains open. P3 compilation/explicit handling remains passed under its narrow recorded scope. No game-derived CPU function, initializer or callback has executed. There is no native boot or playable port.
 
 The native loader now reads a SHA256-checked bundle tied to the current registry identity, copies sixteen module regions into private NX backing, zeroes BSS/alignment tails and applies 238,572 explicitly resolved relocations. All 37 unresolved destinations remain named access guards: twenty strong data references and seventeen TLS module references. No guessed semantic value is assigned. Native service slot 9 remains excluded from module mappings. Resolved values retain the existing static namespace/version/interposition assumptions.

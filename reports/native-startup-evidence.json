@@ -1,0 +1,239 @@
+{
+  "status": "first native AOT entry and exact guarded stop reproduced",
+  "first_native_entry": {
+    "run": "20260907-p4-native-startup-v1",
+    "start_utc": "2026-09-07T00:07:50.654269+00:00",
+    "end_utc": "2026-09-07T00:08:11.641596+00:00",
+    "manifest_sha256": "1c61ca1efd27f031fdad1a9144e6bfafddcde8cc0675297f9f23cbf4b82f332e",
+    "sources_sha256": "d99b9bdf9f124608bb5f4f8e6066cad56835307b4cc3c21c0478f3eccba50e71"
+  },
+  "first_probe": {
+    "status": "bounded native AOT entry reaches the independently predicted unresolved canary-slot stop",
+    "trace_identity": "5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "executable_sha256": "6853f35a8801a65dcffd99c2537cfd3d1b09553de56f06265fc94c8c7d646837",
+    "executable_bytes": 61778944,
+    "bundle_sha256": "50c451119975da769a92b5c9bf97f294e60dd2c001ed47d9424f35e16e1df05c",
+    "private_image": {
+      "status": "private-load-validated",
+      "regions": 18,
+      "relocations": 238572,
+      "guards": 37,
+      "mapped_bytes": 98574336,
+      "verified_bytes": 98574040,
+      "guarded_bytes": 296,
+      "sha256_unguarded": "2c8e2b58fe050a26ab16ee81fdae8a8741f62ce332f83b36a3b4e31eb0a1b501",
+      "game_execution": false
+    },
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unresolved-relocation",
+      "reason": 8,
+      "source": "000000080002f119",
+      "actual": "00000008000b84e0",
+      "wanted": "0000000000000008",
+      "address": "00000008000b84e0",
+      "width": 8,
+      "pc": "000000080002f119",
+      "rsp": "00000700000fff80",
+      "entry": "00000001000000a0",
+      "thread": 18332,
+      "compilation_identity": "5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba"
+    },
+    "active_import": {
+      "active_import": "0000000102bbe4c8",
+      "nid": "8G2LB+A3rzg",
+      "library": "libc",
+      "module": "libc"
+    },
+    "guard": {
+      "unresolved_identity": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166:b84e0:6",
+      "guard_address": "00000008000b84e0",
+      "guard_size": 8,
+      "completed_memory_operations": 11
+    },
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain unimplemented.",
+      "Stops before atexit callback registration, constructor calls and main. The native exit callback is an explicit diagnostic stop.",
+      "The native entry and two supplied libc roots are compiled AOT code; source module copies remain NX data.",
+      "Eleven completed registered memory operations and the exact source/RSP are checked; this is not whole-game execution coverage."
+    ]
+  },
+  "current": {
+    "status": "bounded native AOT entry reaches the independently predicted unresolved canary-slot stop",
+    "trace_identity": "5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "executable_sha256": "001058c6fb85e8f65ac3524d19cf7c45396e86702aac71658d9daaf679e4b5f6",
+    "executable_bytes": 61802496,
+    "bundle_sha256": "50c451119975da769a92b5c9bf97f294e60dd2c001ed47d9424f35e16e1df05c",
+    "private_image": {
+      "status": "private-load-validated",
+      "regions": 18,
+      "relocations": 238572,
+      "guards": 37,
+      "mapped_bytes": 98574336,
+      "verified_bytes": 98574040,
+      "guarded_bytes": 296,
+      "sha256_unguarded": "2c8e2b58fe050a26ab16ee81fdae8a8741f62ce332f83b36a3b4e31eb0a1b501",
+      "game_execution": false
+    },
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unresolved-relocation",
+      "reason": 8,
+      "source": "000000080002f119",
+      "actual": "00000008000b84e0",
+      "wanted": "0000000000000008",
+      "address": "00000008000b84e0",
+      "width": 8,
+      "pc": "000000080002f119",
+      "rsp": "00000700000fff80",
+      "entry": "00000001000000a0",
+      "thread": 56008,
+      "compilation_identity": "5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba"
+    },
+    "active_import": {
+      "active_import": "0000000102bbe4c8",
+      "nid": "8G2LB+A3rzg",
+      "library": "libc",
+      "module": "libc"
+    },
+    "guard": {
+      "unresolved_identity": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166:b84e0:6",
+      "guard_address": "00000008000b84e0",
+      "guard_size": 8,
+      "completed_memory_operations": 11
+    },
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain unimplemented.",
+      "Stops before atexit callback registration, constructor calls and main. The native exit callback is an explicit diagnostic stop.",
+      "The native entry and two supplied libc roots are compiled AOT code; source module copies remain NX data.",
+      "Eleven completed registered memory operations and the exact source/RSP are checked; this is not whole-game execution coverage."
+    ]
+  },
+  "contract": {
+    "status": "entry prefix and first compiled libc calls independently checked",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "loader_plan_sha256": "7b65e29958b48f11ecbf4cc5d1e4f9dfcb4ca89005091cd88b796585c668643d",
+    "ghidra_summary_sha256": "f49873d0daaa70bef3a666b1d5a07d331b29d542971ac291b1d6d8af372f7a54",
+    "checked_instructions": 82,
+    "entry_pc": 4294967456,
+    "parameter_prefix": {
+      "argc_offset": 0,
+      "argc_size": 4,
+      "argv_offset": 8,
+      "exit_callback_register": "RSI",
+      "provenance": "Exact supplied main-entry loads; full EntryParams layout is a separately labeled baseline reference."
+    },
+    "initial_rsp_mod16": 8,
+    "stack_base": 7696581394432,
+    "stack_size": 1048576,
+    "parameter_base": 7696583491584,
+    "parameter_size": 8192,
+    "exit_callback_pc": 42949672944,
+    "argc": 1,
+    "argv0": "/app0/eboot.bin",
+    "expected_stop": {
+      "source": 34359931161,
+      "address": 34360493280,
+      "width": 8,
+      "unresolved_identity": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166:b84e0:6",
+      "completed_memory_operations": 11,
+      "rsp_decrement": 104,
+      "active_import": 4340835528,
+      "nid": "8G2LB+A3rzg"
+    },
+    "game_execution": false,
+    "limitations": [
+      "This is a bounded entry probe with explicitly chosen private process parameters, not proof of complete platform startup ABI or module initialization order.",
+      "Other State fields start at zero; no target FP profile or per-thread TLS is selected. The checked prefix uses neither.",
+      "The native exit callback is an explicit diagnostic stop; it is not a implemented process teardown.",
+      "The expected canary-slot stop precedes callback registration, constructor calls and main. No service success stub or original-byte CPU execution is allowed."
+    ]
+  },
+  "identical_artifacts": {
+    "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+    "entry.stdout": "5ae6ec64459542e9ce727bd486f68f5fd0c48f35bb55a65f41fdf8ec34f2d6d0",
+    "expected-image.json": "104d1287f6eb89200fec42e02f228309c57482eac960a5fe03024b56a34e2f75",
+    "fault.obj": "2550b589d6750928ac03de9e080be451098dd9d0275eb6d30842d31649fd0cc4",
+    "fp.obj": "a7c08f64ecc990ffee14f8ba895dd5665907fb95f4ed7866eb5da95cc158727c",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "linked-roots.json": "180bf67f30c32332f21a7121c3da8644ebc581724ecb063dd45248551d7db7c8",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "memory.obj": "fb9a21aae7e0443188858e28a69e73a1487860bc94d94bcf8f022a820a4c57a3",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "prepare.stdout": "5ae6ec64459542e9ce727bd486f68f5fd0c48f35bb55a65f41fdf8ec34f2d6d0",
+    "probe-manifest.json": "5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba",
+    "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+    "sourced.obj": "305f5af3234498db0adccb0ad64014badd8321936dc216f16af698fb4541ed03",
+    "startup-config.h": "7af53109adccf1358c78c4a5de7b153df3553b447a94d67dfe221e684fe7f1aa",
+    "startup.bin": "50c451119975da769a92b5c9bf97f294e60dd2c001ed47d9424f35e16e1df05c",
+    "startup.exe": "001058c6fb85e8f65ac3524d19cf7c45396e86702aac71658d9daaf679e4b5f6",
+    "startup_fixture.obj": "8314f8b3765dc5517640b0f8435cc84e418979ccb64cbb357bfba8e1f8cec7f1"
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-startup-entry-windows-v1",
+      "start_utc": "2026-09-07T00:01:44.032940+00:00",
+      "end_utc": "2026-09-07T00:01:44.401527+00:00",
+      "manifest_sha256": "c8f981b3797d9e2c370a3ccb629a416df4a78193b97022c2233a50f0dfda74a1",
+      "sources_sha256": "10d3a9176327d91f7f738fa950c7a2b3df25b37e1fc9d6091612a4eefa3649f0"
+    },
+    {
+      "run": "20260907-p4-ghidra-startup-entry-v1",
+      "start_utc": "2026-09-07T00:01:48.908000+00:00",
+      "end_utc": "2026-09-07T00:02:10.286416+00:00",
+      "manifest_sha256": "80bc94f1fe34f39c7311d3fabd96365e5725ee0ab2d508c15f40100b18a8bdcc",
+      "sources_sha256": "10d3a9176327d91f7f738fa950c7a2b3df25b37e1fc9d6091612a4eefa3649f0"
+    },
+    {
+      "run": "20260907-p4-startup-entry-contract-v1",
+      "start_utc": "2026-09-07T00:05:02.316328+00:00",
+      "end_utc": "2026-09-07T00:05:03.757374+00:00",
+      "manifest_sha256": "ce88b506ff38982bf1c4f3edc1866234856da48bac29a0678f430b1536023078",
+      "sources_sha256": "6cfb8a49fce0b0496a6a4f00a6faac344a61b64c53b94997f7bba443cf19f07f"
+    },
+    {
+      "run": "20260907-p4-native-startup-v1",
+      "start_utc": "2026-09-07T00:07:50.654269+00:00",
+      "end_utc": "2026-09-07T00:08:11.641596+00:00",
+      "manifest_sha256": "1c61ca1efd27f031fdad1a9144e6bfafddcde8cc0675297f9f23cbf4b82f332e",
+      "sources_sha256": "d99b9bdf9f124608bb5f4f8e6066cad56835307b4cc3c21c0478f3eccba50e71"
+    },
+    {
+      "run": "20260907-p4-native-startup-v2-portable",
+      "start_utc": "2026-09-07T00:10:25.377400+00:00",
+      "end_utc": "2026-09-07T00:10:45.084079+00:00",
+      "manifest_sha256": "daf337a907382658f46c535a4cf430fe4e4839b21d5c73eb4eeb22a6461065f8",
+      "sources_sha256": "b1202a49db520462dae55f27a4f8ee80574ca67efbea1a676ba964109e7b6514"
+    },
+    {
+      "run": "20260907-p4-native-startup-v3-repeat",
+      "start_utc": "2026-09-07T00:13:08.537030+00:00",
+      "end_utc": "2026-09-07T00:13:36.182589+00:00",
+      "manifest_sha256": "b5524486f1b09a01a3918209e9151a88d8682d889ccb9735f6278123bf67cc79",
+      "sources_sha256": "b1202a49db520462dae55f27a4f8ee80574ca67efbea1a676ba964109e7b6514"
+    }
+  ],
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limits": [
+    "The first-entry context is explicitly chosen and bounded; complete startup ABI/initialization order are not established.",
+    "Actual supplied entry and libc roots execute only as Remill/LLVM AOT host code. Source byte mappings remain NX and all original inputs are unchanged.",
+    "The trace stops before atexit callback registration, constructors and main; it is not a title/graphics/gameplay milestone.",
+    "Only the nondeterministic Windows thread ID is excluded from trace equality. Native PE, objects, bundle, preparation data and logical stop fields repeat exactly.",
+    "The unresolved __stack_chk_guard slot must receive a separately justified native object binding; the guard has not been bypassed."
+  ]
+}

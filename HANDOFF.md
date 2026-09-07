@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-06 23:55 UTC
+## Current continuation — 2026-09-07 00:15 UTC
+
+Continue autonomously; user action: none. Read reports/native-startup.md and reports/native-startup-evidence.json, then reports/native-load.md. **The first bounded native AOT entry now executes and reproduces its predicted stop. P4 remains open; no native game boot or playable port exists. Original game bytes never execute.**
+
+Main entry 0x1000000a0 calls compiled libc _init_env (RET), then compiled atexit. It stops at source/PC 0x80002f119 reading unresolved __stack_chk_guard slot 0x8000b84e0. Exact RSP decrement 104 and eleven completed memory operations match independent Ghidra/Capstone evidence. Callback registration, constructors and main are not reached. Inputs are an explicitly chosen private stack/argument context, not a completed platform startup ABI; no FP/TLS profile is selected.
+
+Current portable probe local/runtime/startup-v3-repeat/startup.exe matches v2-portable byte-for-byte: 61,802,496 bytes, SHA256 001058c6fb85e8f65ac3524d19cf7c45396e86702aac71658d9daaf679e4b5f6. Bundle SHA256 50c451119975da769a92b5c9bf97f294e60dd2c001ed47d9424f35e16e1df05c; trace identity 5b4745457db251e65336dd81f426289c8d54f67a3cf9ffccada1fb14d75129ba. Evidence local/runtime/startup-evidence-v1/checked.json; contract local/runtime/startup-entry-contract-v1/contract.json. All 18 private data regions are NX; 37 unresolved slots remain guarded. Current compiler/object manifest remains native-memory-manifest-v1 / compiler v12-memory-sources / semantics v35-divide; registry-v7-memory-repeat and loader-plan-v8-memory unchanged.
+
+Next independently establish the native __stack_chk_guard object binding (exact namespace/version, pointer width, initialization, mutability and failure behavior), then remove only those justified guards and investigate the next native stop. Never replace unknown slots with guessed values or bypass the guards. Complete initialization order, native services, target FP/TLS state, fourteen x87 selector sites, guest exceptions/nonlocal flow and helper performance remain open. Native slot 9 stays reserved. P1 route/profiling/audio tasks remain open. Continue after commits.
+
+## Previous checkpoint — 2026-09-06 23:55 UTC
 
 Continue autonomously; user action: none. Read reports/native-load.md and reports/native-load-evidence.json, then reports/native-memory-sources.md. **P4 remains open. Native private data loading now passes; no game-derived CPU function has executed, no native boot exists and there is no playable port.**
 
