@@ -5,23 +5,30 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
 
-LATEST 2026-09-08: recipient8bb100f implements qsort AEJdIVZTEmo with
-SysV guest comparator calls and in-place heap sort. Authored callback/record
-regression plus full148 tests pass9.78s: autonomous-qsort-ctest.log.
-Prior25199c3 capture duplicate fast path is live-verified: run13 last four
-15-frame intervals1.820/1.914/1.993/1.967s versus run12's54-97s. This is
-loading/capture timing, not gameplayFPS. Run13 trapped on qsort83.432s;
-lastframe1605@79.164s loading. Run12 progressed past the setjmp loop and was
-deliberately stopped562.242s to rebuild capture fix; operator-stop metadata.
-Run13 shader batch86jobs84success, same two shared-memory vertex holdouts.
-Clinic-v7 has74 checked entries/0rejected, no new D3D11 keys/conflicts;
-native AOT refreshed from new captures. Private generated files stay ignored.
-ACTIVE run14 session42253: copied run04 Timmy seed, clinic-v7. Currently
-startup logos; inspect Offline then known twoCross sequence60/15. No input
-at this note. World visibility/control not yet verified. Continue autonomously.
-No pushes; only our codex/integration-validation; owner branches read-only.
-Native UI helper remains unavailable. Diagnostic Pad/IME service commands
-are the testing route; no physical live-keyboard typing claim.
+LATEST 2026-09-08: recipient553f665 adds mutex_pool_exhausted diagnostics;
+prior8bb100f qsort is live-passed. Full148/148 tests pass10.89s after diagnostic.
+Run14 reached173indexedshaderpairs and faded loading to black, then DLLightMutex
+line126 "Mutex is not initialized" at354.789s, guestassertcaller0x207eebd via
+0xca1590. No world visibility/control verified. Fixed4096mutexpool is suspected;
+run15 enables synchronization events to verify. Run14 had344shaderjobs321success,
+23fail:20pixel Wave ops,3vertex shared-memory/tessellation. Expanded clinic-v9
+has170checked0rejected,14exactHLSL normalization upgrades. One vertexkey has
+HLSL variants with identical DXBC and every binding/state field; both retained
+in bytecode-equivalence audit. v8 incomplete intermediate; use v9.
+ACTIVE run15 session97762 PID77384, seed04copied Timmy, clinic-v9, input Offline/
+Continue sent (seq1/2). Initial loading then shadercapturing, lastperf163.574s
+frame3435; follow live diagnostics. Future probe_run now enables execution
+rejection diagnostics. Private runrecord contains exactenvironment/source.
+User explicitly authorized parallel subagents. Active root children:
+mutex_capacity: scalable stable mutex storage/lifecycle + regressions, owns
+orbis_hle.cpp/mutex_access.hpp/mutex tests, no sharedbuild until root coordinates.
+shader_compilation: correctSM5 quadbroadcast lowering +WARPreadbackfixture,
+owns compiler tools/nativewrapper; may build2job shader-toolchain independently.
+world_rendering: unsupportedtexture audit/minimalfix, renderer files only after
+coordination. Root owns live runs/integration/fullsharedbuild/tests and docs.
+All agents ONLY codex/integration-validation, no pushes/main/owner changes.
+Native UI helper unavailable; diagnostics Pad/IME are testing route. No physical
+livekeyboard claim. Continue autonomously until actual world and player control.
 
 
 CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
