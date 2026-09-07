@@ -1,0 +1,2877 @@
+{
+  "status": "native startup repeat and observed progress checked",
+  "current_probe": "local\\runtime\\startup-v43-cfg-frontier-repeat",
+  "current": {
+    "main_tls_contract_sha256": "4ee195b7ece94225f6a8c33dc2f73d9bc63b999efa935ddec7698f983d73a61d",
+    "main_tls": {
+      "status": "bounded native main initial-exec TLS interface checked",
+      "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+      "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "module_path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+      "tcb": 7971459366912,
+      "memory_size": 1872,
+      "file_size": 0,
+      "alignment": 16,
+      "initial_hex": "",
+      "tcb_supported_bytes": 8,
+      "tcb_guarded_bytes": 56,
+      "scan_sha256": "d6787f0e9732cd1f4ae670e24b68758a73f86f11e84607654b5120d631f4aa8d",
+      "authored_sha256": "653a8db6b7f252673a573de3f23bd27f38770fe9cd56f3d21cba5b1910d6b185",
+      "requires_before_entry": true,
+      "initial_fs_base": 0,
+      "first_use": {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "source": 34062228,
+        "bytes": "64488b042500000000",
+        "next_rva": 34062237,
+        "next_bytes": "48030504853603",
+        "next_instruction": "add rax, qword ptr [rip + 0x3368504]",
+        "offset_slot": 87966888,
+        "offset": -1824,
+        "main_template_offset": 48,
+        "offset_word_has_relocation": false
+      },
+      "source_fs_loads": 328,
+      "distinct_offsets": [
+        -1864,
+        -1856,
+        -1840,
+        -1832,
+        -1824,
+        -1792,
+        -1696,
+        -1680,
+        -1672,
+        -1664
+      ],
+      "ghidra_sha256": "5a7e037d2ef084ddbb8998d37ac462ec16f35bea3ccc9f22f69659b580095d75",
+      "references": {
+        "records": [
+          {
+            "path": "rtld.c",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/rtld.c",
+            "sha256": "e97f43c2b7652c19f1eff0d9838d2fc07ccbf3046ddc89d55ccb0ae16ab47e49"
+          },
+          {
+            "path": "reloc.c",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/amd64/reloc.c",
+            "sha256": "5f35ef1c3addca812b3cc243a54750cff71c55684688bdfce0aa6882b0594ad6"
+          },
+          {
+            "path": "pthread_md.h",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/arch/amd64/include/pthread_md.h",
+            "sha256": "9bb4795210a79b5b3c12350777742839025580226a0c6f18d17e525cdc0a7e9b"
+          }
+        ],
+        "scope": "Independent FreeBSD TLS references; not complete PS4 ABI or console observations."
+      },
+      "game_execution": false,
+      "limitations": [
+        "Main PT_TLS occupies the 1872 bytes immediately below the chosen native TCB address; the first eight TCB bytes hold its logical self pointer.",
+        "Remaining 56 bytes in the explicitly reserved TCB envelope are guarded, not supplied as guessed DTV/thread/fiber fields. The envelope size is a native compatibility reservation.",
+        "Only explicit State FS base changes; Windows host FS is never modified.",
+        "Dynamic module TLS, DTV, symbol/module-index relocations, guest thread creation and complete startup ABI remain open. All 29 prior guards remain.",
+        "The ten checked offset words are initial mutable data, not immutable constants or execution coverage."
+      ]
+    },
+    "supplements": [
+      {
+        "manifest_sha256": "895e2ab813b3a921a0d2fa645990433dbc7feb91ce1674f445249cb655177c68",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4329042864
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-207f3b0-v2-repeat\\function.obj",
+          "object_sha256": "52f44406d8cf95e4179b4a6da0927403b58e2516e9f00c424e4db99aeb19e21d",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-207f3b0-v2-repeat\\summary.json",
+          "validation_sha256": "9240c43a522b23a8b9b62c57be0789b5069014371ef25c856aa34716de2d67bd",
+          "input_sha256": "fbb18e1f1352cc18cd60cc41d482493809add0b510ddc008edaedf26f6dfdb2b",
+          "audit_sha256": "43db43b2e6895ff7d2cf9646234d068972b461042e5fd72a49c0458005dd46f8",
+          "bitcode_sha256": "a9f5067d3adbd95fd837d8b6c714dc82526a106a7f22167dba2fc771f6df52b2",
+          "first_validation_sha256": "9240c43a522b23a8b9b62c57be0789b5069014371ef25c856aa34716de2d67bd",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "abdda9e549a31ecee0843617c528d7d38edb6c19d14a3edc7f11855a4a3c1e9b",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149488
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375af0-v2-repeat\\function.obj",
+          "object_sha256": "e8799b9d4ad0b019e7a340abae72a725e23943aedf0226a45ec646b691ab59f3",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375af0-v2-repeat\\summary.json",
+          "validation_sha256": "706670457760bad3ff953d6f06a49a4a96d99006d37555c621c79ecbe5fc7f40",
+          "input_sha256": "826c2f30d586f983faa38cfd56496516af1604bf22e65a9ef78b64ecef3bfbd9",
+          "audit_sha256": "83387244e6e6ea79de8c30cc6e7c21df244d6598deebd29fe4ca69d387a8d20d",
+          "bitcode_sha256": "513587f09674c9510e08f016c8ad6358cdcc4ee5c8389b4f1e82828a4b13e90c",
+          "first_validation_sha256": "706670457760bad3ff953d6f06a49a4a96d99006d37555c621c79ecbe5fc7f40",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "1674283fce3f19c9531f112ad7554bec3f92ffc8b4a25613e22ea0c2a2a6f4d4",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149504
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375b00-v2-repeat\\function.obj",
+          "object_sha256": "d8455f6d790c030e59e597fc00fc9cde728d9c1cec44565081fef41d1e0fb84d",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375b00-v2-repeat\\summary.json",
+          "validation_sha256": "baac4704deca64cadd58d0aff4d71bcacdc5bcd134138cdf69b62b647fd4900c",
+          "input_sha256": "54406a8638a40fc064c0c05d4f46f9c296d89524862786bdddede0dded4f2c23",
+          "audit_sha256": "1db5de9d219e4b697dd4901e909e195e4790cb68dcd114f5dd3811c435468fc2",
+          "bitcode_sha256": "37a675461315911bc233dc3f212183f282bc5f556e0c714867e9782f3d97849a",
+          "first_validation_sha256": "baac4704deca64cadd58d0aff4d71bcacdc5bcd134138cdf69b62b647fd4900c",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "8034547999929a3aef0dfeb5fb5ab4b49927ebe00755d3b96a668ee215ee87cc",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149520
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375b10-v2-repeat\\function.obj",
+          "object_sha256": "debf1e7fd8530cf30689d28cc7afe41ee81dc059a9cd0e5259f93d45dd0ad235",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-2375b10-v2-repeat\\summary.json",
+          "validation_sha256": "ab3cf5b1d74310a7d476db566a55ade2e9bdb111e428ed82afcf1835c2ed5939",
+          "input_sha256": "1fefb33110256caa5971d43534ba9d17de6f47a7e9b4b97d5c787596766cfe7a",
+          "audit_sha256": "0dc36a1fba16f449fa871dcffc0bef933d2ff83768e5666893b3b1a93b73d640",
+          "bitcode_sha256": "25d61b6b0ee68fbe229a24e8f616911314c7e5e27e0fc9d9c2b02338ba4a9463",
+          "first_validation_sha256": "ab3cf5b1d74310a7d476db566a55ade2e9bdb111e428ed82afcf1835c2ed5939",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "c5d2cd20a8ebbdaa8a602771266259a6f150e798b6af385506067478f0433e8b",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149536
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-1-compile-repeat\\function.obj",
+          "object_sha256": "620c1d955f264af460829d7bc86bdc7fe19b64e697a016c41bcd86d45e481446",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-1-compile-repeat\\summary.json",
+          "validation_sha256": "2f19de9927b6515fdcd2df714713d2c6405cd7052ec68fadc5e2726ad526cc3d",
+          "input_sha256": "ee6866a5754c1422f9e07accd3c5dd3040713eb86eb4f22f39707823bacacc22",
+          "audit_sha256": "9c724e9f16a280dd01558aa31f49f28836477c07b6e6604014fc3be406e79582",
+          "bitcode_sha256": "dd3cc4c6a998fd98c6de579391c62cab59592178415a63707cf3a0b066af724b",
+          "first_validation_sha256": "2f19de9927b6515fdcd2df714713d2c6405cd7052ec68fadc5e2726ad526cc3d",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "b09e6653e3c1cf36ff89a227fe4f72f2cc285545911e8ee3274c3276a9d9eae4",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149552
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-2-compile-repeat\\function.obj",
+          "object_sha256": "923f4d11d2bc05161067adeb8da6f0c2b4fe3287ab9d8d19ee4830d727ae291a",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-2-compile-repeat\\summary.json",
+          "validation_sha256": "d6a89b9f1ca9fd451a6295cf6f2b29bdaf2e55c3d9acfeaf9ace6776247da92e",
+          "input_sha256": "506cfba084473e400d53f6bcda8200517b7a90a9eec8b99f7efaa9dea93b0a8c",
+          "audit_sha256": "bebe2c494e17a47b742f022efac01123f429611f78d1e78dcc4fac59ff0878b9",
+          "bitcode_sha256": "b049ad636f6096fd4bbf60a09fdf19adb26957b1ff2a43db0a4990c47fd1d907",
+          "first_validation_sha256": "d6a89b9f1ca9fd451a6295cf6f2b29bdaf2e55c3d9acfeaf9ace6776247da92e",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "e1b80503897e5d2d484e69d6b8fcc4074c4373de26383709ea054b1cdae752dc",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332149568
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-3-compile-repeat\\function.obj",
+          "object_sha256": "5a408f2c8031b2d1c52c47263f98fe6dab224d390654b6fa8232e1c380039797",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\address-chain-v1-3-compile-repeat\\summary.json",
+          "validation_sha256": "9feffa42b2c8a117ce4943c3ea2bb8f7cc0a38f346c0cde5eb22138376196f29",
+          "input_sha256": "d321fe40b6ec0268ff7652f452cd933d988c00036b4b87ec14f45e1c22945189",
+          "audit_sha256": "60894c33c459c0d822d8156395fe209b256a4d3a9c57e19cdfca2846aada8474",
+          "bitcode_sha256": "002df526c7d1355d2d0907317f5b6e638ab88f7453af84febf8bf6405ca8f2c7",
+          "first_validation_sha256": "9feffa42b2c8a117ce4943c3ea2bb8f7cc0a38f346c0cde5eb22138376196f29",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "7f21e79f69955f120243e7f13c2647b94e15a04dca372715b203b5664609ba05",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332128592
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-1-compile-repeat\\function.obj",
+          "object_sha256": "85cfa6d5a05388ab8093f9d6c0556f346b6b3225d459ffe0e4256dbfbc380915",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-1-compile-repeat\\summary.json",
+          "validation_sha256": "405dbbedaebebc9d6fe42266bbcd8d6e640fcc6d2a820b6ec5b8f1878ad51e00",
+          "input_sha256": "9721e762d1d56acf1a139a5df9ecc936e303192701eb72a478466f1442163e5a",
+          "audit_sha256": "fc52a25f7b09210d9163b4871bf40e4d1bfc1c73092f30578610f575d379c7f4",
+          "bitcode_sha256": "ce4fa38c895984b38aee03b2da190b00d320691ed6d237fce663466edbedf897",
+          "first_validation_sha256": "405dbbedaebebc9d6fe42266bbcd8d6e640fcc6d2a820b6ec5b8f1878ad51e00",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "ea8d7420bc1aef217b42f0e317b527e9bc49dd751adc37634b8ec6af346b45da",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332128608
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-2-compile-repeat\\function.obj",
+          "object_sha256": "20dd01ea08cafdc7c881d1d30d31e7ed25a91c29db6485015d843c576c8c216a",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-2-compile-repeat\\summary.json",
+          "validation_sha256": "7a8dd650ad7566b682387342e46710e3a6c9c9a7f6443cca550944446efac0a6",
+          "input_sha256": "9af03bc8dea4d694ee264f1c0f544738689227827aef4855a3b27baa327fd4e1",
+          "audit_sha256": "460a0ed9120daa2ab8d76c3d42c076ec4d97fe9d82d52c5c00b98f704bb21c16",
+          "bitcode_sha256": "6c598db4c831c89e09fd996e6178d42ba82f69e64e27869fc696af9382c9f345",
+          "first_validation_sha256": "7a8dd650ad7566b682387342e46710e3a6c9c9a7f6443cca550944446efac0a6",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "09476c96333fa5d4094103d45c935cdb316c96c5334cf60085fbd925dc6e5445",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332128624
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-3-compile-repeat\\function.obj",
+          "object_sha256": "3b7db7926731d3e0473dfe07e1db016d59c3ac33ee5db596e33c5668e77243e8",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\accessor-chain-v2-3-compile-repeat\\summary.json",
+          "validation_sha256": "73a54e20780ae264a58592f248dbf4951bd48e989525492de501ca3687376a16",
+          "input_sha256": "9867713e20f67dd4cd47e736dae2ee3ecfa56706e605332597c9ae7021b150e6",
+          "audit_sha256": "b781910dbbaf75656f11ad362ec486a90da9cd350cc519168571e1c001b0ef90",
+          "bitcode_sha256": "eaa314c76a783cbcb8d221353c0f37b77194f878804955dcdf789bdee48c064b",
+          "first_validation_sha256": "73a54e20780ae264a58592f248dbf4951bd48e989525492de501ca3687376a16",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "723549c6cb8597eb82647b6a8eba8cf7e96a3205a07e5adb0030725c67f574e9",
+        "manifest": {
+          "schema": 1,
+          "conditional_entries": [
+            {
+              "pc": 4332128640,
+              "observed_requested_entry": true
+            },
+            {
+              "pc": 4332128656,
+              "observed_requested_entry": false
+            },
+            {
+              "pc": 4332128672,
+              "observed_requested_entry": false
+            }
+          ],
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332128640,
+            4332128656,
+            4332128672
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\pointer-leaves-compile-v2-repeat\\function.obj",
+          "object_sha256": "8ea357ea8378dff2bef866ce08eeb44a79e4c11cfee4434b643c640d7be145e2",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\pointer-leaves-compile-v2-repeat\\summary.json",
+          "validation_sha256": "69f076bb90f81f83534cc19536b46bda6c744a5dcc52b10f853c20e3efd3deca",
+          "input_sha256": "f3bdccc2992bab7202983d5bc4d6c3b429ba4a2c1d6e5435f2ada29bff6d9851",
+          "audit_sha256": "9acb6fdc651ce43381aaaaeb68a79ee87591d587539b124657ead297f7274576",
+          "bitcode_sha256": "5dfadc9ac9ca5b0c072f2b1edb806c621dbdc6cde490ea871ba5ff5d34d84187",
+          "first_validation_sha256": "69f076bb90f81f83534cc19536b46bda6c744a5dcc52b10f853c20e3efd3deca",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive independently checked simple bodies. Conditional initial-pointer candidates remain distinct from observed entries; base imports, source pairs and unresolved recovery records are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "8704ad126a1d8455849cae2d12f9eab69cc782e9b476a29b22383e7467a4f530",
+        "manifest": {
+          "schema": 1,
+          "conditional_entries": [
+            {
+              "pc": 4332123888,
+              "observed_requested_entry": true
+            },
+            {
+              "pc": 4332123904,
+              "observed_requested_entry": false
+            },
+            {
+              "pc": 4332123920,
+              "observed_requested_entry": false
+            },
+            {
+              "pc": 4332123936,
+              "observed_requested_entry": false
+            },
+            {
+              "pc": 4332123952,
+              "observed_requested_entry": false
+            },
+            {
+              "pc": 4332123968,
+              "observed_requested_entry": false
+            }
+          ],
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4332123888,
+            4332123904,
+            4332123920,
+            4332123936,
+            4332123952,
+            4332123968
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\pointer-leaves-batch2-compile-v2-repeat\\function.obj",
+          "object_sha256": "65afc30dd7d38217bc49c07b0646fa68a048c303a5c331cadb9a74e72ac6dec8",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\pointer-leaves-batch2-compile-v2-repeat\\summary.json",
+          "validation_sha256": "33f10a55d4357500505a13803445ae397d7d36217ff0908d2232b5970082cf42",
+          "input_sha256": "0ce29644f5c042105a4b23a327fa5094a43e35a67314be16b1cb3693fb609bbb",
+          "audit_sha256": "4c5c81c1f94b53d99d16415ad273b9aae34cff0e03c694d3ea1750d48aae1f40",
+          "bitcode_sha256": "f8fe8c311cb64fad5d5293f62189c0094076810fe3229fb4ddef511cc81f9711",
+          "first_validation_sha256": "33f10a55d4357500505a13803445ae397d7d36217ff0908d2232b5970082cf42",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive independently checked simple bodies. Conditional initial-pointer candidates remain distinct from observed entries; base imports, source pairs and unresolved recovery records are unchanged."
+        }
+      },
+      {
+        "manifest_sha256": "9708354e09e9d8492b88e1044764393ad3463c4cee486fd6aa610a6fe4f2a565",
+        "manifest": {
+          "schema": 1,
+          "conditional_entries": [
+            {
+              "pc": 4329270816,
+              "observed_requested_entry": true
+            },
+            {
+              "pc": 4329295056,
+              "observed_requested_entry": false
+            }
+          ],
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4329270816,
+            4329295056
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-frontier-20b6e20-compile-v3-repeat\\function.obj",
+          "object_sha256": "a1acedf82a0b768cb47f2f8a1e2b04c80298cd8ef19d6ae22c66b441187664f3",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-frontier-20b6e20-compile-v3-repeat\\summary.json",
+          "validation_sha256": "020da1b98dfe7004b850db1595122cd1f7481b8b672d61cac2b957dbec99f4e4",
+          "input_sha256": "de2d62416f975423c32997de8e5342a40b839eccbfdb7cc98c9aa9d7de829460",
+          "audit_sha256": "d25de2615241d23657498d4a399553ed27acf773c6d7c326aa294498f462eb59",
+          "bitcode_sha256": "db36a0382f275d44c260da68cc4a687026faa8af307fa710e5d92611679bed4e",
+          "first_validation_sha256": "020da1b98dfe7004b850db1595122cd1f7481b8b672d61cac2b957dbec99f4e4",
+          "source_db_sha256": "b9bda9ab2cf102abb0226ecad3673f3a2622360df21c547996103eed19eb4937",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive independently checked bodies. Compilation and synthetic fixture evidence are explicitly distinguished by validation_kind; conditional dependencies remain distinct from observed entries. Base imports, source pairs and unresolved recovery records are unchanged."
+        }
+      }
+    ],
+    "compiled_objects": 399,
+    "compiled_roots": 21303,
+    "status": "bounded native AOT entry reached an explicit runtime boundary",
+    "trace_identity": "5feb9aa8b783242884d8acaec60c92c5e68c65aa1f5bbae37c542e1bc10d61cb",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "executable_sha256": "bd7892af07a94a1398b49a06ec85c194006e2a31a0e2e344c8ed8d4bd8c3368f",
+    "executable_bytes": 61908992,
+    "bundle_sha256": "8b85151f691d368c76bfa32db47d7bfa8160afbb1fed07b17a0525ddfaec4eef",
+    "private_image_before_native_initialization": {
+      "status": "private-load-validated",
+      "regions": 20,
+      "relocations": 238580,
+      "guards": 30,
+      "mapped_bytes": 98576280,
+      "verified_bytes": 98575992,
+      "guarded_bytes": 288,
+      "sha256_unguarded": "423000b20505767195da78fa84df80adb38da351a9c8b0989f4b6219aa8218ae",
+      "game_execution": false
+    },
+    "native_providers": {
+      "canary": {
+        "contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c",
+        "logical_address": 7696585588736,
+        "size": 8,
+        "rights": 3,
+        "requires_initialization_before_entry": true,
+        "nid": "f7uOxY9mM1U",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257,
+        "bindings": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "offset": 87964640,
+            "type": 6,
+            "symbol_index": 676,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 676,
+              "name": "f7uOxY9mM1U#p#J",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "offset": 294936,
+            "type": 6,
+            "symbol_index": 18,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 18,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "offset": 311412,
+            "type": 6,
+            "symbol_index": 22,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 22,
+              "name": "f7uOxY9mM1U#C#D",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "offset": 32792,
+            "type": 6,
+            "symbol_index": 5,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 5,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "offset": 327704,
+            "type": 6,
+            "symbol_index": 19,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 19,
+              "name": "f7uOxY9mM1U#D#E",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "offset": 278552,
+            "type": 6,
+            "symbol_index": 73,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 73,
+              "name": "f7uOxY9mM1U#B#C",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "offset": 917560,
+            "type": 6,
+            "symbol_index": 55,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 55,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "offset": 754912,
+            "type": 6,
+            "symbol_index": 13,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 13,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          }
+        ]
+      }
+    },
+    "native_service_contract_sha256": "cb6c3ae0990fae5d527aa71ad86ce79920664da19ff629b464bdc6264377902e",
+    "native_service_bindings": [
+      {
+        "pc": 4340837032,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837048,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837064,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837080,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842184,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842216,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842232,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842248,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845736,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845784,
+        "canonical_pc": 38654707056,
+        "handler": "rwlock_init",
+        "nid": "6ULAa0fq4jA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845816,
+        "canonical_pc": 38654713296,
+        "handler": "rwlock_wrlock",
+        "nid": "mqdNorrB+gI",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845864,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902976,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884903024,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884903056,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738912,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738928,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738960,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654705696,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654706416,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707056,
+        "canonical_pc": 38654707056,
+        "handler": "rwlock_init",
+        "nid": "6ULAa0fq4jA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707520,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709072,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709248,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709664,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654711568,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713296,
+        "canonical_pc": 38654713296,
+        "handler": "rwlock_wrlock",
+        "nid": "mqdNorrB+gI",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713664,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713920,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714192,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "runtime_seed_sha256": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "runtime_seed_origin": "explicit replay",
+    "control_trace_sha256": "7f43706d8c83fc2573d8ddd06e5b883d118ed3d272df73937a1951e02102767d",
+    "exit_code": 2952790043,
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unknown-compiled-target",
+      "reason": 27,
+      "source": "0000000000000000",
+      "actual": "000000010263a960",
+      "wanted": "0000000000000000",
+      "address": "0000000000000000",
+      "width": 0,
+      "pc": "000000010263a960",
+      "rsp": "00000700000ffef8",
+      "entry": "00000001000000a0",
+      "thread": 45796,
+      "compilation_identity": "5feb9aa8b783242884d8acaec60c92c5e68c65aa1f5bbae37c542e1bc10d61cb"
+    },
+    "active_import": null,
+    "guard": null,
+    "records": [
+      {
+        "status": "native-boundary-stop",
+        "boundary": "unknown-compiled-target",
+        "reason": 27,
+        "source": "0000000000000000",
+        "actual": "000000010263a960",
+        "wanted": "0000000000000000",
+        "address": "0000000000000000",
+        "width": 0,
+        "pc": "000000010263a960",
+        "rsp": "00000700000ffef8",
+        "entry": "00000001000000a0",
+        "thread": 45796,
+        "compilation_identity": "5feb9aa8b783242884d8acaec60c92c5e68c65aa1f5bbae37c542e1bc10d61cb"
+      }
+    ],
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain incomplete.",
+      "An explicit runtime boundary is a diagnostic result requiring investigation, not a P4 gate pass.",
+      "Source module copies remain NX data. Only AOT roots and explicit native services can execute.",
+      "The recorded seed is a native runtime input, not a console value. This bounded trace is not whole-game execution coverage."
+    ]
+  },
+  "artifacts": {
+    "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "canary.obj": "5b435d1c44a89b564e47914ca642d7804295728d7a6c5e19015778ef175a3663",
+    "compilation-objects.json": "0ca0f7915ff91d09cd5abd83ef5399f32b22f5b06ac3591f60c910e5f1f798c2",
+    "compilation-targets.json": "70a4aae2485d74b1fa5ca53869165099b008683ea80278e71f68781015c73049",
+    "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+    "direct_memory.obj": "6a7b2baff05fe350258099b57a596b862ef3b71b18e6c2d2221570de7d002ef5",
+    "entry.stdout": "208259fcd67203d265cc561357753c74ca4d7b5323051603d8c99550c437be08",
+    "expected-image.json": "338bd6b9841fbfcf123bdc4f0936e5261d4229dd45dc4381ebf1f2fa23a3f47d",
+    "fault.obj": "cf2f9c900bba7491ce1b0d6f41af72e2f25b3167dbddac5e50aff056a1111198",
+    "fp.obj": "ee1d702b262d4064d1fd684590c5992e3db59e94a4d8fbf61a5a4ae5483e383b",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "linked-roots.json": "5abef233a06ac9eae0b431ffa46b150679630e610c30906556a164fed3c23553",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "main_tls.obj": "f909f9b9899ecafab9ed5b247085a10a7db8db91e70d130e18b6edec0c8aebbf",
+    "memory.obj": "d0cf4b70087b0542e7675d1db6d949550d4772ce261a245ed311a7db314a2a38",
+    "mutex.obj": "0396701e5174bf4e57024d8ae8f108c7483fb5adb71a117730b117597f65ab4d",
+    "mutexattr.obj": "19c78e008d610c0be59190dbea9b19d66f1f533f8c0d557af67cc7d8f0eb2d35",
+    "native-calls.jsonl": "7f43706d8c83fc2573d8ddd06e5b883d118ed3d272df73937a1951e02102767d",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "prepare.stdout": "208259fcd67203d265cc561357753c74ca4d7b5323051603d8c99550c437be08",
+    "probe-manifest.json": "5feb9aa8b783242884d8acaec60c92c5e68c65aa1f5bbae37c542e1bc10d61cb",
+    "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+    "rwlock.obj": "a35d55547d8384d95a2013049f0c5f6ece1a53f0d8c15262823e2b7c2d31caa8",
+    "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+    "startup-config.h": "9efa3140d635f1e8f9add1fb69563d902af82c80bca0ca70a8306ed719c23aa7",
+    "startup.bin": "8b85151f691d368c76bfa32db47d7bfa8160afbb1fed07b17a0525ddfaec4eef",
+    "startup.exe": "bd7892af07a94a1398b49a06ec85c194006e2a31a0e2e344c8ed8d4bd8c3368f",
+    "startup_fixture.obj": "d20c6ea91661aabd950b8fe9280ce5c1925e374aa7f38a0705ea2ab4820725fe"
+  },
+  "batches": [],
+  "cfgs": [
+    {
+      "validation": {
+        "status": "supplied CFG compiled with independently checked boundaries",
+        "validation_kind": "independent-cfg-compilation",
+        "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+        "module": {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "name": "eboot.bin",
+          "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+          "logical_base": 4294967296
+        },
+        "compiled_roots": [
+          4329270816,
+          4329295056
+        ],
+        "source_pairs": [],
+        "imports": [],
+        "instructions": 618,
+        "bytes": 2345,
+        "conditional_entries": [
+          {
+            "pc": 4329270816,
+            "observed_requested_entry": true
+          },
+          {
+            "pc": 4329295056,
+            "observed_requested_entry": false
+          }
+        ],
+        "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+        "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+        "inspector_sha256": "00f20da6f6db62c8cde20af181c1963f3b1c45e9f81dc4474ce76b294072a39f",
+        "recovery_sha256": "0187159fd6a0d85c7bca3d522d513fbd9109e740806a9ad9cb170ccd85375a57",
+        "source_db_sha256": "b9bda9ab2cf102abb0226ecad3673f3a2622360df21c547996103eed19eb4937",
+        "parent_source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+        "unreachable_missing_blocks": [
+          4329272897,
+          4329272927,
+          4329295307
+        ],
+        "reachable_block_transfers": 0,
+        "nonreturn_contracts": 3,
+        "call_return_checks": 34,
+        "memory_bridges": {
+          "__bb_sourced_read_memory_32": 4,
+          "__bb_sourced_read_memory_64": 134,
+          "__bb_sourced_read_memory_8": 2,
+          "__bb_sourced_write_memory_64": 123
+        },
+        "undefined_symbols": [
+          "__bb_native_control_fault",
+          "__bb_sourced_read_memory_32",
+          "__bb_sourced_read_memory_64",
+          "__bb_sourced_read_memory_8",
+          "__bb_sourced_write_memory_64",
+          "__remill_compare_eq",
+          "__remill_compare_neq",
+          "__remill_compare_sle",
+          "__remill_compare_uge",
+          "__remill_compare_ugt",
+          "__remill_compare_ule",
+          "__remill_compare_ult",
+          "__remill_flag_computation_carry",
+          "__remill_flag_computation_overflow",
+          "__remill_flag_computation_sign",
+          "__remill_flag_computation_zero",
+          "__remill_function_call",
+          "__remill_function_return",
+          "__remill_undefined_8",
+          "sub_10207bbf0",
+          "sub_1020b55b0",
+          "sub_10263a840",
+          "sub_10263a920",
+          "sub_102bbe4f8",
+          "sub_102bbe608",
+          "sub_102bbe638",
+          "sub_102bbe978"
+        ],
+        "files": {
+          "input.json": "de2d62416f975423c32997de8e5342a40b839eccbfdb7cc98c9aa9d7de829460",
+          "independent.json": "539b8caaca7a3a80bd74eb0389f72ef2ca600f6a363ce3c319605779ea8857c2",
+          "recovery.json": "0187159fd6a0d85c7bca3d522d513fbd9109e740806a9ad9cb170ccd85375a57",
+          "units.jsonl": "81159643f9cfa5551eb6875d92183e2fc07015f6d127395855526d86bc379440",
+          "ghidra.json": "d701019232dcb85b198ddfea4460643ab8b1643640475b21e20df873f9d77bf9",
+          "function.bc": "db36a0382f275d44c260da68cc4a687026faa8af307fa710e5d92611679bed4e",
+          "function.obj": "a1acedf82a0b768cb47f2f8a1e2b04c80298cd8ef19d6ae22c66b441187664f3",
+          "audit.json": "d25de2615241d23657498d4a399553ed27acf773c6d7c326aa294498f462eb59",
+          "inspection.json": "9f4d1442661445cec0c481480c709dc6dce75ad9f51fc251e59ae9c69dbb13bc",
+          "symbols.stdout": "9193f8f507e3f9f149421a932bdefd1766ac08ebc65b0a561f89125d096a296c"
+        },
+        "native_objects": {},
+        "game_derived_aot_execution": false,
+        "original_byte_cpu_execution": false,
+        "native_game_boot": false,
+        "limitations": [
+          "This delta uses the established recovery annotations and metadata fences. Fences, initial pointers and successful decoding do not prove function boundaries or execution coverage.",
+          "Previously compiled roots remain external dependencies. The parent canonical database and all its unresolved records are preserved.",
+          "Indirect calls, callbacks, exception/nonlocal behavior, mutable tables and any budget/decode issues remain explicit; independent Ghidra and compilation checks are still required.",
+          "This is static CFG compilation with the established compiler and runtime contracts. It is not exhaustive function semantics or execution coverage; native startup execution remains a separate gate.",
+          "One independently decoded NOP is excluded only under an existing exact failure-call nonreturn annotation. Unknown nonlocal destinations remain unresolved."
+        ]
+      },
+      "actual_events": [
+        {
+          "event": "dispatch",
+          "target": 4329270816,
+          "pc": 4329270816,
+          "rsp": 7696582442888,
+          "rbp": 7696582442928,
+          "rdi": 4385952720,
+          "rsi": 4385952680,
+          "rdx": 4371777508,
+          "rcx": 4372399370,
+          "r8": 4385952720,
+          "r9": 4384743456,
+          "rax": 4329270816,
+          "memory_operations": 3174
+        }
+      ],
+      "unobserved_roots": [
+        4329295056
+      ]
+    }
+  ],
+  "recoveries": [
+    {
+      "delta": {
+        "status": "additive CFG recovered pending independent decoding and compilation",
+        "observed_entry": 4329270816,
+        "entries": 2,
+        "instructions": 618,
+        "issues": {},
+        "frontier": {
+          "import_contract_unvalidated": 6,
+          "callback_argument_candidate": 34,
+          "unresolved_indirect_call": 11,
+          "abi_register_preservation_unvalidated": 3,
+          "logical_return_requires_dispatch": 2,
+          "annotated_control_contract_requires_runtime": 3,
+          "unresolved_restored_context": 2
+        },
+        "pending": [],
+        "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+        "delta_db_sha256": "b9bda9ab2cf102abb0226ecad3673f3a2622360df21c547996103eed19eb4937",
+        "manifest_sha256": "81159643f9cfa5551eb6875d92183e2fc07015f6d127395855526d86bc379440",
+        "windows_sha256": "eafe3c354171628eadb94288c55d9001f49e19722a7c14c6f266547fa62a1463",
+        "identity_sha256": "6f2e6250c21fd7c876f57b7462fc3d096f0ce0639401164366fc6e16a290b2a3",
+        "original_byte_cpu_execution": false,
+        "native_game_boot": false,
+        "limitations": [
+          "This delta uses the established recovery annotations and metadata fences. Fences, initial pointers and successful decoding do not prove function boundaries or execution coverage.",
+          "Previously compiled roots remain external dependencies. The parent canonical database and all its unresolved records are preserved.",
+          "Indirect calls, callbacks, exception/nonlocal behavior, mutable tables and any budget/decode issues remain explicit; independent Ghidra and compilation checks are still required."
+        ]
+      },
+      "files": {
+        "analysis.sqlite": "b9bda9ab2cf102abb0226ecad3673f3a2622360df21c547996103eed19eb4937",
+        "identity.json": "6f2e6250c21fd7c876f57b7462fc3d096f0ce0639401164366fc6e16a290b2a3",
+        "delta.json": "0187159fd6a0d85c7bca3d522d513fbd9109e740806a9ad9cb170ccd85375a57",
+        "summary.json": "6231bae45f773ee8ddd680adc2ba50929368dc2477e819777e1dbfcc04804606",
+        "compilation-manifest.jsonl": "81159643f9cfa5551eb6875d92183e2fc07015f6d127395855526d86bc379440",
+        "frontier.jsonl": "6a6424a5c9dd0ac5b67b9f726f2bd43ab3d4d48c796aa5778266eff12be61fc8",
+        "constructor-order.json": "313bc267552e761c74e064fe8884b5d1d5be72d3fbae1758ae099135b89980f5",
+        "windows.json": "eafe3c354171628eadb94288c55d9001f49e19722a7c14c6f266547fa62a1463",
+        "prior-overlaps.json": "111aae7034c2369c998c473a588225016b3414fa644d4d36c9b91ad9bf38e84d"
+      }
+    }
+  ],
+  "completed_constructors": [
+    {
+      "ordinal": 0,
+      "slot": 87964600,
+      "target": 34529168,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 1,
+      "slot": 87964592,
+      "target": 33301184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 2,
+      "slot": 87964584,
+      "target": 37245712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 3,
+      "slot": 87964576,
+      "target": 37245664,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 4,
+      "slot": 87964568,
+      "target": 37245616,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 5,
+      "slot": 87964560,
+      "target": 37243984,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 6,
+      "slot": 87964552,
+      "target": 37243936,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 7,
+      "slot": 87964544,
+      "target": 37243888,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 8,
+      "slot": 87964536,
+      "target": 37242832,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 9,
+      "slot": 87964528,
+      "target": 37242784,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 10,
+      "slot": 87964520,
+      "target": 37242736,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 11,
+      "slot": 87964512,
+      "target": 37242016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 12,
+      "slot": 87964504,
+      "target": 37241968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 13,
+      "slot": 87964496,
+      "target": 37241920,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 14,
+      "slot": 87964488,
+      "target": 37241456,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 15,
+      "slot": 87964480,
+      "target": 37241408,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 16,
+      "slot": 87964472,
+      "target": 37241360,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 17,
+      "slot": 87964464,
+      "target": 37240768,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 18,
+      "slot": 87964456,
+      "target": 37240720,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 19,
+      "slot": 87964448,
+      "target": 37240672,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 20,
+      "slot": 87964440,
+      "target": 37239808,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 21,
+      "slot": 87964432,
+      "target": 37239760,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 22,
+      "slot": 87964424,
+      "target": 37239712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 23,
+      "slot": 87964416,
+      "target": 37238512,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 24,
+      "slot": 87964408,
+      "target": 37238464,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 25,
+      "slot": 87964400,
+      "target": 37238416,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 26,
+      "slot": 87964392,
+      "target": 37233152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 27,
+      "slot": 87964384,
+      "target": 37233104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 28,
+      "slot": 87964376,
+      "target": 37233056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 29,
+      "slot": 87964368,
+      "target": 37230384,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 30,
+      "slot": 87964360,
+      "target": 37230336,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 31,
+      "slot": 87964352,
+      "target": 37230288,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 32,
+      "slot": 87964344,
+      "target": 37226064,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 33,
+      "slot": 87964336,
+      "target": 37226016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 34,
+      "slot": 87964328,
+      "target": 37225968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 35,
+      "slot": 87964320,
+      "target": 37220320,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 36,
+      "slot": 87964312,
+      "target": 37220272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 37,
+      "slot": 87964304,
+      "target": 37220224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 38,
+      "slot": 87964296,
+      "target": 37215280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 39,
+      "slot": 87964288,
+      "target": 37215232,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 40,
+      "slot": 87964280,
+      "target": 37215184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 41,
+      "slot": 87964272,
+      "target": 37213376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 42,
+      "slot": 87964264,
+      "target": 37213328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 43,
+      "slot": 87964256,
+      "target": 37213280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 44,
+      "slot": 87964248,
+      "target": 37210000,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 45,
+      "slot": 87964240,
+      "target": 37209952,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 46,
+      "slot": 87964232,
+      "target": 37209904,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 47,
+      "slot": 87964224,
+      "target": 37207248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 48,
+      "slot": 87964216,
+      "target": 37207200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 49,
+      "slot": 87964208,
+      "target": 37207152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 50,
+      "slot": 87964200,
+      "target": 37204640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 51,
+      "slot": 87964192,
+      "target": 37204592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 52,
+      "slot": 87964184,
+      "target": 37204544,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 53,
+      "slot": 87964176,
+      "target": 37203376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 54,
+      "slot": 87964168,
+      "target": 37203328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 55,
+      "slot": 87964160,
+      "target": 37203280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 56,
+      "slot": 87964152,
+      "target": 37202752,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 57,
+      "slot": 87964144,
+      "target": 37202704,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 58,
+      "slot": 87964136,
+      "target": 37202656,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 59,
+      "slot": 87964128,
+      "target": 37202352,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 60,
+      "slot": 87964120,
+      "target": 37202304,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 61,
+      "slot": 87964112,
+      "target": 37202256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 62,
+      "slot": 87964104,
+      "target": 37196576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 63,
+      "slot": 87964096,
+      "target": 37196528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 64,
+      "slot": 87964088,
+      "target": 37196480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 65,
+      "slot": 87964080,
+      "target": 37194960,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 66,
+      "slot": 87964072,
+      "target": 37194912,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 67,
+      "slot": 87964064,
+      "target": 37194864,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 68,
+      "slot": 87964056,
+      "target": 37194688,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 69,
+      "slot": 87964048,
+      "target": 37194640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 70,
+      "slot": 87964040,
+      "target": 37194592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 71,
+      "slot": 87964032,
+      "target": 37191072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 72,
+      "slot": 87964024,
+      "target": 37191024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 73,
+      "slot": 87964016,
+      "target": 37190976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 74,
+      "slot": 87964008,
+      "target": 37189632,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 75,
+      "slot": 87964000,
+      "target": 37189584,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 76,
+      "slot": 87963992,
+      "target": 37189536,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 77,
+      "slot": 87963984,
+      "target": 37189072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 78,
+      "slot": 87963976,
+      "target": 37189024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 79,
+      "slot": 87963968,
+      "target": 37188976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 80,
+      "slot": 87963960,
+      "target": 37188576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 81,
+      "slot": 87963952,
+      "target": 37188528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 82,
+      "slot": 87963944,
+      "target": 37188480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 83,
+      "slot": 87963936,
+      "target": 37186272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 84,
+      "slot": 87963928,
+      "target": 37186224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 85,
+      "slot": 87963920,
+      "target": 37186176,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 86,
+      "slot": 87963912,
+      "target": 37185296,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 87,
+      "slot": 87963904,
+      "target": 37185248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 88,
+      "slot": 87963896,
+      "target": 37185200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 89,
+      "slot": 87963888,
+      "target": 37181152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 90,
+      "slot": 87963880,
+      "target": 37181104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 91,
+      "slot": 87963872,
+      "target": 37181056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 92,
+      "slot": 87963864,
+      "target": 37181008,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 93,
+      "slot": 87963856,
+      "target": 37160256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 94,
+      "slot": 87963848,
+      "target": 37160208,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 95,
+      "slot": 87963840,
+      "target": 37160160,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 96,
+      "slot": 87963832,
+      "target": 37160112,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    }
+  ],
+  "entered_constructors": [
+    {
+      "ordinal": 0,
+      "slot": 87964600,
+      "target": 34529168,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 1,
+      "slot": 87964592,
+      "target": 33301184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 2,
+      "slot": 87964584,
+      "target": 37245712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 3,
+      "slot": 87964576,
+      "target": 37245664,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 4,
+      "slot": 87964568,
+      "target": 37245616,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 5,
+      "slot": 87964560,
+      "target": 37243984,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 6,
+      "slot": 87964552,
+      "target": 37243936,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 7,
+      "slot": 87964544,
+      "target": 37243888,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 8,
+      "slot": 87964536,
+      "target": 37242832,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 9,
+      "slot": 87964528,
+      "target": 37242784,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 10,
+      "slot": 87964520,
+      "target": 37242736,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 11,
+      "slot": 87964512,
+      "target": 37242016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 12,
+      "slot": 87964504,
+      "target": 37241968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 13,
+      "slot": 87964496,
+      "target": 37241920,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 14,
+      "slot": 87964488,
+      "target": 37241456,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 15,
+      "slot": 87964480,
+      "target": 37241408,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 16,
+      "slot": 87964472,
+      "target": 37241360,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 17,
+      "slot": 87964464,
+      "target": 37240768,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 18,
+      "slot": 87964456,
+      "target": 37240720,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 19,
+      "slot": 87964448,
+      "target": 37240672,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 20,
+      "slot": 87964440,
+      "target": 37239808,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 21,
+      "slot": 87964432,
+      "target": 37239760,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 22,
+      "slot": 87964424,
+      "target": 37239712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 23,
+      "slot": 87964416,
+      "target": 37238512,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 24,
+      "slot": 87964408,
+      "target": 37238464,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 25,
+      "slot": 87964400,
+      "target": 37238416,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 26,
+      "slot": 87964392,
+      "target": 37233152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 27,
+      "slot": 87964384,
+      "target": 37233104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 28,
+      "slot": 87964376,
+      "target": 37233056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 29,
+      "slot": 87964368,
+      "target": 37230384,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 30,
+      "slot": 87964360,
+      "target": 37230336,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 31,
+      "slot": 87964352,
+      "target": 37230288,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 32,
+      "slot": 87964344,
+      "target": 37226064,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 33,
+      "slot": 87964336,
+      "target": 37226016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 34,
+      "slot": 87964328,
+      "target": 37225968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 35,
+      "slot": 87964320,
+      "target": 37220320,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 36,
+      "slot": 87964312,
+      "target": 37220272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 37,
+      "slot": 87964304,
+      "target": 37220224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 38,
+      "slot": 87964296,
+      "target": 37215280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 39,
+      "slot": 87964288,
+      "target": 37215232,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 40,
+      "slot": 87964280,
+      "target": 37215184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 41,
+      "slot": 87964272,
+      "target": 37213376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 42,
+      "slot": 87964264,
+      "target": 37213328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 43,
+      "slot": 87964256,
+      "target": 37213280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 44,
+      "slot": 87964248,
+      "target": 37210000,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 45,
+      "slot": 87964240,
+      "target": 37209952,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 46,
+      "slot": 87964232,
+      "target": 37209904,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 47,
+      "slot": 87964224,
+      "target": 37207248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 48,
+      "slot": 87964216,
+      "target": 37207200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 49,
+      "slot": 87964208,
+      "target": 37207152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 50,
+      "slot": 87964200,
+      "target": 37204640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 51,
+      "slot": 87964192,
+      "target": 37204592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 52,
+      "slot": 87964184,
+      "target": 37204544,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 53,
+      "slot": 87964176,
+      "target": 37203376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 54,
+      "slot": 87964168,
+      "target": 37203328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 55,
+      "slot": 87964160,
+      "target": 37203280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 56,
+      "slot": 87964152,
+      "target": 37202752,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 57,
+      "slot": 87964144,
+      "target": 37202704,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 58,
+      "slot": 87964136,
+      "target": 37202656,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 59,
+      "slot": 87964128,
+      "target": 37202352,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 60,
+      "slot": 87964120,
+      "target": 37202304,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 61,
+      "slot": 87964112,
+      "target": 37202256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 62,
+      "slot": 87964104,
+      "target": 37196576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 63,
+      "slot": 87964096,
+      "target": 37196528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 64,
+      "slot": 87964088,
+      "target": 37196480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 65,
+      "slot": 87964080,
+      "target": 37194960,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 66,
+      "slot": 87964072,
+      "target": 37194912,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 67,
+      "slot": 87964064,
+      "target": 37194864,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 68,
+      "slot": 87964056,
+      "target": 37194688,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 69,
+      "slot": 87964048,
+      "target": 37194640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 70,
+      "slot": 87964040,
+      "target": 37194592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 71,
+      "slot": 87964032,
+      "target": 37191072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 72,
+      "slot": 87964024,
+      "target": 37191024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 73,
+      "slot": 87964016,
+      "target": 37190976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 74,
+      "slot": 87964008,
+      "target": 37189632,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 75,
+      "slot": 87964000,
+      "target": 37189584,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 76,
+      "slot": 87963992,
+      "target": 37189536,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 77,
+      "slot": 87963984,
+      "target": 37189072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 78,
+      "slot": 87963976,
+      "target": 37189024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 79,
+      "slot": 87963968,
+      "target": 37188976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 80,
+      "slot": 87963960,
+      "target": 37188576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 81,
+      "slot": 87963952,
+      "target": 37188528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 82,
+      "slot": 87963944,
+      "target": 37188480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 83,
+      "slot": 87963936,
+      "target": 37186272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 84,
+      "slot": 87963928,
+      "target": 37186224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 85,
+      "slot": 87963920,
+      "target": 37186176,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 86,
+      "slot": 87963912,
+      "target": 37185296,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 87,
+      "slot": 87963904,
+      "target": 37185248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 88,
+      "slot": 87963896,
+      "target": 37185200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 89,
+      "slot": 87963888,
+      "target": 37181152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 90,
+      "slot": 87963880,
+      "target": 37181104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 91,
+      "slot": 87963872,
+      "target": 37181056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 92,
+      "slot": 87963864,
+      "target": 37181008,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 93,
+      "slot": 87963856,
+      "target": 37160256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 94,
+      "slot": 87963848,
+      "target": 37160208,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 95,
+      "slot": 87963840,
+      "target": 37160160,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 96,
+      "slot": 87963832,
+      "target": 37160112,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 97,
+      "slot": 87963824,
+      "target": 37153840,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    }
+  ],
+  "trace_events": 474,
+  "last_call": {
+    "event": "dispatch",
+    "target": 4335053152,
+    "pc": 4335053152,
+    "rsp": 7696582442744,
+    "rbp": 7696582442768,
+    "rdi": 4384751744,
+    "rsi": 4385808496,
+    "rdx": 0,
+    "rcx": 19,
+    "r8": 4385807712,
+    "r9": 136,
+    "rax": 4382735392,
+    "memory_operations": 3429
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-native-frontier-20b6e20-v1",
+      "start_utc": "2026-09-07T03:10:08.695892+00:00",
+      "end_utc": "2026-09-07T03:10:55.728713+00:00",
+      "manifest_sha256": "c6aa59f72a0cd7e5918a78ba6f933c8f82c798703684cc307b04af78cbdc5588",
+      "sources_sha256": "ce8f63511b34b4fdb6900f3ee80f62b00e8761b560d0520bb62f104086fd0f70"
+    },
+    {
+      "run": "20260907-p4-native-frontier-20b6e20-v2-repeat",
+      "start_utc": "2026-09-07T03:12:48.577177+00:00",
+      "end_utc": "2026-09-07T03:13:46.249248+00:00",
+      "manifest_sha256": "918d19f5e751e2c929f8c4a42455c52e5ff09e4354fc11fab17c3cc398879718",
+      "sources_sha256": "7c04f9131d937d3fb0e3d4e43089fb80007567009dfb1bf092d32a8d6bd2891e"
+    },
+    {
+      "run": "20260907-p4-ghidra-native-frontier-20b6e20-v1",
+      "start_utc": "2026-09-07T03:12:48.758678+00:00",
+      "end_utc": "2026-09-07T03:13:02.237445+00:00",
+      "manifest_sha256": "463d3ee4176151f487ec4b47d67f4e201f42c17fdf89f0f01eeb0ff61505437b",
+      "sources_sha256": "7c04f9131d937d3fb0e3d4e43089fb80007567009dfb1bf092d32a8d6bd2891e"
+    },
+    {
+      "run": "20260907-p4-compile-native-frontier-20b6e20-v2-boundaries",
+      "start_utc": "2026-09-07T03:17:06.087336+00:00",
+      "end_utc": "2026-09-07T03:17:08.809400+00:00",
+      "manifest_sha256": "1fc12ee0c8c92096638c4ead719d22dbb3201e2d8a397330016ca36e247da2fb",
+      "sources_sha256": "06562396b2602258e3b3c377c1d1fc1a707c2c667de4b8cf33ecebb08055f30d"
+    },
+    {
+      "run": "20260907-p4-compile-native-frontier-20b6e20-v3-repeat",
+      "start_utc": "2026-09-07T03:17:09.097241+00:00",
+      "end_utc": "2026-09-07T03:17:11.573660+00:00",
+      "manifest_sha256": "0587badc215dadbb1c16b97082bff91496a3dbdb6fdbcfa6edec55f0c3924a31",
+      "sources_sha256": "06562396b2602258e3b3c377c1d1fc1a707c2c667de4b8cf33ecebb08055f30d"
+    },
+    {
+      "run": "20260907-p4-native-frontier-20b6e20-manifest-v1",
+      "start_utc": "2026-09-07T03:18:18.911301+00:00",
+      "end_utc": "2026-09-07T03:18:19.537809+00:00",
+      "manifest_sha256": "31028c3a124ca56bc72e35096319cbaa025e7b82d807112633ebdac0c595be0e",
+      "sources_sha256": "0198ab23008b3353ca2e30d7796b20896911cd8cedcf0f6c17f7c3dde63fd99e"
+    },
+    {
+      "run": "20260907-p4-startup-cfg-frontier-v1",
+      "start_utc": "2026-09-07T03:18:19.913726+00:00",
+      "end_utc": "2026-09-07T03:18:40.120540+00:00",
+      "manifest_sha256": "06a5495ac4f03ee072580c91ec9b9238e93303d2ed19614640935a24025f14fe",
+      "sources_sha256": "0198ab23008b3353ca2e30d7796b20896911cd8cedcf0f6c17f7c3dde63fd99e"
+    },
+    {
+      "run": "20260907-p4-startup-cfg-frontier-v2-repeat",
+      "start_utc": "2026-09-07T03:18:40.521511+00:00",
+      "end_utc": "2026-09-07T03:18:55.021614+00:00",
+      "manifest_sha256": "1b9da7581a5492cec8e4b1939266e31c4b29e8439849e3abd64f5ac7ea88acb2",
+      "sources_sha256": "0198ab23008b3353ca2e30d7796b20896911cd8cedcf0f6c17f7c3dde63fd99e"
+    }
+  ],
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limitations": [
+    "Constructor counts require the checked initializer stack context and return address. The trace does not enumerate every instruction or static call.",
+    "Conditional pointer candidates retain their original provenance; actual returns are listed separately. No table extent, mutability, pointed-to layout or discovery closure is inferred.",
+    "P4 and previous startup, service, TLS/FP, control and baseline limitations remain open."
+  ],
+  "preceding_leaf_batch_evidence": {
+    "path": "local/runtime/pointer-batch2-evidence-v1/checked.json",
+    "sha256": "8863486a867f6fae67609a5aa0e6d00fd77e801bf100c5c998cd754c1ffb1b47"
+  },
+  "retained_failed_gates": [
+    {
+      "run": "20260907-p4-recover-target-20b6e20-v1",
+      "reason": "Linear recovery correctly rejects the first conditional branch; full CFG recovery was required."
+    },
+    {
+      "run": "20260907-p4-compile-native-frontier-20b6e20-v1",
+      "reason": "Initial checker rejects all three missing blocks. Independent LLVM analysis subsequently proves these exact blocks structurally unreachable behind nonreturn checks; optimized COFF has no transfer references. Compiled bytes are unchanged."
+    }
+  ]
+}
