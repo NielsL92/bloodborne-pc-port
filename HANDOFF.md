@@ -1,5 +1,9 @@
 # Bloodborne recompilation continuation
 
+## Development-speed handoff update — 2026-09-07
+
+Documentation only; the project remains paused and the native checkpoint below is unchanged. The user asked for ways to shorten development and to add them to tomorrow's prompt. Read RESUME_PROMPT.md and reports/development-acceleration.md. Finish the pending two-body check first, then prioritize a bounded driver connecting existing leaf/CFG recovery, targeted dependency discovery, and measured runtime build reuse. Preserve independent checks and cold repeats; no speedup or new native milestone is claimed.
+
 ## Paused shutdown checkpoint — 2026-09-07 03:48 UTC
 
 Paused at the user's explicit request for shutdown; do not resume until asked. Read reports/native-startup-checkpoint.md and its evidence JSON. **Native startup completes constructors 0–1080 and enters ordinal 1081, out of 18,444 ordered initial constructors. P4 is open; no native boot or playable port exists.**
