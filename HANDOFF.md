@@ -1,3 +1,7 @@
+# Integration direction and absolute branch restriction — 2026-09-07
+
+The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
+
 # Bloodborne recompilation continuation
 
 ## Development-speed handoff update — 2026-09-07
