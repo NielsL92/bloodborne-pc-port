@@ -4,6 +4,20 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
+CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
+adds vsprintf with SysV va_list handling;146/146 tests pass9.81s. Run09 ended
+in title-demo heap assertion0x208591b at267.960s, no inputs and no EOS seen.
+Run10 followed Offline/Continue, passed acosf/EOS, trapped on vsprintf132.914s.
+Live EOS fix verified: bounded samples each316 waits, run08 73.006396seconds,
+run10 0microseconds/no unresolved waits. This is setup timing, not FPS proof.
+Private eos-live-comparison.json and docs/runtime-probe-input.md record evidence.
+Run10 cache batch80jobs78success; two shared-memory vertex failures remain.
+clinic-v4 adds7pixel shaders without conflicts;73 entries checked,rejected0.
+ACTIVE run11: .tmp/integration/autonomous-clinic-11, session19112, copied run04
+Timmy seed, clinic-v4, vsprintf binary. Offline/Continue sequence sent by helper.
+Actual world visibility/control still unverified. No pushes, all owner refs read-only.
+
+
 LATEST UPDATE (supersedes older active-run details below): recipient HEAD
 `b0328e6`, donor latest prior3500c4f. Added `20c078f` export/geometry setup,
 `6082333` acosf, `b0328e6` EVENT_WRITE_EOS SignalFence support. Full146/146 tests
