@@ -6,37 +6,36 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 
 LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
-c3f0fe5. Full150/150 tests pass25.56s, single-worker build. Adds modff exact mixed
-ABI plus float/IEEE tests, sealed pixel-input variants (with real-reset cache
-lifecycle test), R32/RG16F render targets, BC3 textures and actual Texture3D
-RGBA32F/Thin1DThin single-mip color-grading LUT support. GPU readbacks pass for
-formats, routing, XYZ coordinates, interpolation, padding and cache refresh.
-Independent LUT review found no rendering-blocking defect; diagnostic capture
-labels omit volume depth (minor unresolved).
+62da585. Full153/153 tests pass25.90s. Adds _Locksyslock/_Unlocksyslock recursive
+per-int32-kind locks with real imported-bridge concurrency tests, precise bounded
+backend failure HRESULT/stage diagnostics, preparation failure identities/state,
+and optional compiler-input-only capture omitting bulk sampled texture dumps.
+Source full/light capture preservation tests pass, along with cap/dedup/reset.
+Initial build DXGI diagnostic enum narrowing was corrected before passingbuild.
 
-ACTIVE run17: .tmp/integration/autonomous-clinic-17, launcher session27623,
-seed autonomous-clinic-04 copied (Timmy), complete clinic-v11 cache. Offline and
-Continue sent/accepted (seq1/2). Lighter --shader-capture programs retains raw
-shader programs, frames and diagnostics but omits bulk indexed image snapshots.
-Exact commit/binary provenance retained. Clinic-v11 has180checked0rejected;
-20quad captures recompiled serially20/20 with six distinct specialized entries.
-All174base entries preserved; b63 TEXCOORD0/1 ambiguous family is safely split.
-Three earlier shared-memory/tessellation vertex holdouts remain unsupported.
+ACTIVE run18: .tmp/integration/autonomous-clinic-18, launcher session94174,
+seed autonomous-clinic-17 copied (Timmy), completed clinic-v12(186checked,0rejected).
+Capturemode compiler-inputs, preparation category+diagnostics enabled. Seed17
+produces normal unclean-previous-quit dialog; acknowledgedCrossseq1, then title
+OfflineCrossseq2/ContinueCrossseq3 (sequencehelper session72486) sent. Root owns
+live input/build/testing. Agents world_rendering and shader_compilation read
+newfailurestages and preparemissing-artifact plans only; no builds duringrun.
 
-Run16 ended naturally at464.585s on modff, after passing4096-mutex exhaustion
-and reaching opening transfusion subtitles. Scene remained flat gray; no visible
-world or movement is verified. Runtime15d7d0b/compiler2f6c7ba/cachev10 recorded.
-The current probe checks modff and renderer changes against that milestone.
+Run17:c3f0fe5+v11passedmodff, normalOptionsseq3skippedopeningcutsceneat234.689s.
+Frame3090showsgameplayHUD; Optionsseq4openedmenuandIosefkaClinicbanner(frame3210).
+World/hunterstillgrayinvisible, movementunverified. Savedataunmountedafternew
+userdata0000/0010writes~269.85s; Timmyoffset37352and4246, save-change-auditretains
+hashes. It endednaturally402.015s on _Locksyslock exactNIDkALvdgEv5ME (nowfixed).
+Seed17worldresumeawaitsrun18verification; seed04and17remainimmutablecopies.
+Newcachev12adds6run17missingshadersfromexactrun16state/snapshots; threeare
+screen-sizedfour-indexpasses. Five later run17 missesneednewstatecaptures.
 
-RESOURCE CONSTRAINT: User has another active Unity project and cannot stop it.
-Leave Unity and unrelated apps untouched. Use one build/compiler worker; avoid
-builds during live game tests. Resource slowdown alone is not proof of a hang.
-Root children mutex_capacity, shader_compilation, world_rendering are user-
-authorized and their current subtasks completed. Root owns shared builds, live
-probes and integration. No pushes or owner branch changes; only our branch
-codex/integration-validation. Native UI helper unavailable, so authored Pad/IME
-diagnostics are the test route. No physical live keyboard claim. Continue
-through actual visible and controllable gameplay, not intermediate milestones.
+Resourceconstraint: another Unityproject is activeandcannotbestopped. Leave
+Unityandunrelatedappsuntouched; onebuild/compilerworker; avoidbuild/testoverlap
+withlivegame. Slowwalltimealoneisnotproofhang. NativeUIhelperunavailable;
+authoredPad/IMEdiagnosticsaretestroute, no physicallivekeyboardclaim. Continue
+untilactualvisibleworldandplayercontrol, notjustHUD/menu. No pushes or owner
+branchchanges; allworkonlycodex/integration-validation, ownerrefsread-only.
 
 
 CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
