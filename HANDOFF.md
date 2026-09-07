@@ -4,6 +4,13 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 ## PC name-entry update - 2026-09-07
 
+Manual testing is now ready: in the recipient root, double-click
+`Test Keyboard.cmd` for an interactive text-field test (type Timmy; Enter
+confirms, Escape cancels), or `Launch Game Test.cmd` for a fresh isolated
+five-minute game test with logs in `.tmp/manual-tests/`. In game menus Space
+confirms and arrow keys navigate; Enter confirms only inside the name field.
+Both launchers passed file preflight; the rebuilt keyboard tests pass.
+
 The user requested ordinary PC keyboard typing inside the game window, and
 specified **Timmy** as the hunter name for game tests. Implemented on the
 recipient's `codex/integration-validation` branch: five Orbis IME imports,
