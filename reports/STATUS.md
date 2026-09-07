@@ -1,6 +1,17 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-07 01:48 UTC
+## Current continuation — 2026-09-07 02:04 UTC
+
+Continue autonomously; user action: none. Read reports/native-startup-leaf.md and its evidence JSON. **Native startup completes constructors 0–88; the recovered missing leaf executes and returns inside constructor 89. P4 remains open; no native boot or playable port exists.**
+
+Current probe local/runtime/startup-v15-native-leaf-repeat repeats v14-native-leaf: SHA256 b18c60e343551cbe490d23636bfe7a242aaeeb9641354a1cabf9a55e161dcf6d, 61,848,064 bytes. Add --supplement local/compiler-spike/native-leaf-manifest-v1 to the existing startup command. This adds the independently checked four-byte body at 0x10207f3b0; 387 game objects / 21,283 roots. Two AOT builds and 3,072 synthetic cases repeat exactly. The base registry and loader identities remain preserved; the complete additive compilation manifests enter the new probe identity.
+
+Next stop scePthreadRwlockInit, NID 6ULAa0fq4jA, gateway 0x102bc0cd8, RDI=0x1056a2090, RSI=0, RSP=0x700000ffed8, 1,208 memory operations. The leaf returns to 0x10207f2bf. Investigate the supplied caller around RVA 0x207f280 and native reader/writer ownership; 253 diagnostic events repeat.
+
+Current loader-plan-v9-runtime-word, replay seed startup-v4-runtime-word/canary-seed.bin, direct-memory-contract-v1, compiler v12-memory-sources / semantics v35-divide remain current. All source bytes remain NX; 29 unresolved data/TLS guards and prior runtime/discovery uncertainties remain. P1 route/profiling/audio is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 01:48 UTC
 
 Continue autonomously; user action: none. Read reports/native-direct-memory.md and its evidence JSON. **Native startup completes constructors 0–88 and enters ordinal 89. P4 remains open; no native boot or playable port exists.**
 
