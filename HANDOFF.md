@@ -4,20 +4,24 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
-LATEST: recipient00ae404 repairs setjmp's outdated stack offsets (64/56 ->96/88)
-using shared integer-bridge constants. Authored guest two-import test reproduces
-bad savedPC/SP before fix, then passes register restoration and longjmp(0/37).
-Full147/147 CTest pass12.91s: autonomous-setjmp-ctest.log. Prior34c4369 vsprintf
-also passed. Run11 stalled atframe1125; two private snapshots show main guest
-loop0xa30c70..ee6 and stale savedjmpcontext. It was deliberately stopped816.350s
-(exit -1, stopped-by-agent.json), not a spontaneous exception. Live effect of
-setjmp correction still needs verification. Read docs/runtime-probe-input.md.
-ACTIVE run12 session62318: copied run04 Timmy, clinic-v5 (74checked/0rejected).
-No input sent at this note. Inspect Offline then known twoCross sequence60/15.
-Private snapshot_probe.exe reuses isolated_runner.cpp WriteTimeoutSnapshot,
-verifies exact test-child executable path, takes PID and output TXT args. It
-reads process memory/thread contexts, no native UI automation. Native UI helper
-still unavailable; diagnostic Pad/IME service controls remain the testing route.
+
+LATEST 2026-09-08: recipient8bb100f implements qsort AEJdIVZTEmo with
+SysV guest comparator calls and in-place heap sort. Authored callback/record
+regression plus full148 tests pass9.78s: autonomous-qsort-ctest.log.
+Prior25199c3 capture duplicate fast path is live-verified: run13 last four
+15-frame intervals1.820/1.914/1.993/1.967s versus run12's54-97s. This is
+loading/capture timing, not gameplayFPS. Run13 trapped on qsort83.432s;
+lastframe1605@79.164s loading. Run12 progressed past the setjmp loop and was
+deliberately stopped562.242s to rebuild capture fix; operator-stop metadata.
+Run13 shader batch86jobs84success, same two shared-memory vertex holdouts.
+Clinic-v7 has74 checked entries/0rejected, no new D3D11 keys/conflicts;
+native AOT refreshed from new captures. Private generated files stay ignored.
+ACTIVE run14 session42253: copied run04 Timmy seed, clinic-v7. Currently
+startup logos; inspect Offline then known twoCross sequence60/15. No input
+at this note. World visibility/control not yet verified. Continue autonomously.
+No pushes; only our codex/integration-validation; owner branches read-only.
+Native UI helper remains unavailable. Diagnostic Pad/IME service commands
+are the testing route; no physical live-keyboard typing claim.
 
 
 CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
