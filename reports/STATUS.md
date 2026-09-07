@@ -1,6 +1,16 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-07 01:03 UTC
+## Current continuation — 2026-09-07 01:16 UTC
+
+Continue autonomously; user action: none. Read reports/native-mutex-attributes.md and its evidence JSON. **Native attribute initialization/type selection now pass inside the first constructor. P4 remains open; no native boot or playable port exists.**
+
+Current probe local/runtime/startup-v9-mutexattr-repeat/startup.exe matches v8-mutexattr exactly, SHA256 e43bce2608fb9fbe9c420d60e26845c565359277a2a533c58742303f64e2fc81, 61,822,976 bytes. Contract local/runtime/mutexattr-contract-v1/contract.json binds three stateful attribute services through nine exact canonical/PLT identities. Repeated authored tests pass 45,059 AOT service calls and four negative stops. Attributes use native process state and opaque logical handles; direct guest private-layout dereferences remain explicit stops. First constructor ordinal 0 still has not returned.
+
+Next actual stop: scePthreadMutexInit (NID cmo1RIYva9o), gateway 0x102bbfec8. At 154 registered memory operations: RDI=0x1056a5728, RSI=0x700000fff48, RDX=0, RSP=0x700000fff38. Prior init/settype returned zero and requested type 2. Seventeen diagnostic call events repeat. Implement/test native mutex creation and ownership/synchronization, then continue through concrete stops.
+
+Current plan loader-plan-v9-runtime-word; replay seed startup-v4-runtime-word/canary-seed.bin; object manifest native-memory-manifest-v1 / registry-v7-memory-repeat / compiler v12-memory-sources / semantics v35-divide unchanged. All original bytes remain NX. Twelve strong-data and seventeen TLS slots remain guarded. Complete initialization order, FP/TLS, private object layouts, callbacks, guest exceptions/nonlocal flow, helper costs and P1 baseline route/profiling/audio remain open. Continue after commits; native port development is the task.
+
+## Previous checkpoint — 2026-09-07 01:03 UTC
 
 Continue autonomously; user action: none. Read reports/native-runtime-word.md and its evidence JSON. **Native startup now completes both atexit registrations and enters the first constructor. P4 remains open; no native boot or playable port exists. Source bytes remain NX.**
 

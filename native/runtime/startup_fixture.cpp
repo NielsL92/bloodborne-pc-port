@@ -2,6 +2,7 @@
 // Bounded native entry diagnostic, not a completed process startup implementation.
 #include "loader.h"
 #include "canary.h"
+#include "mutexattr.h"
 #include "registry.h"
 #include "startup-config.h"
 #include <algorithm>
@@ -26,8 +27,11 @@ int main(int argc,char** argv){
  if(argc!=2||(std::strcmp(argv[1],"--prepare-only")&&std::strcmp(argv[1],"--probe-entry")))return 2;
  try{
   if(std::strcmp(bb_registry::tables.identity,REGISTRY_ID))return 2;bb_runtime::validate_tables(bb_registry::tables);
-  auto bundle_path=(std::filesystem::path(argv[0]).parent_path()/"startup.bin").string();auto image=bb_runtime::load_private_image(bundle_path.c_str(),BUNDLE_SHA256,REGISTRY_ID);std::vector<bb_runtime::Target> targets(bb_registry::tables.targets,bb_registry::tables.targets+bb_registry::tables.target_count);targets.push_back({EXIT_CALLBACK_PC,exit_callback});std::sort(targets.begin(),targets.end(),[](const auto& a,const auto& b){return a.pc<b.pc;});auto tables=bb_registry::tables;tables.targets=targets.data();tables.target_count=targets.size();tables.identity=TRACE_ID;bb_runtime::validate_tables(tables);
+  auto bundle_path=(std::filesystem::path(argv[0]).parent_path()/"startup.bin").string();auto image=bb_runtime::load_private_image(bundle_path.c_str(),BUNDLE_SHA256,REGISTRY_ID);std::vector<bb_runtime::Target> targets(bb_registry::tables.targets,bb_registry::tables.targets+bb_registry::tables.target_count);targets.push_back({EXIT_CALLBACK_PC,exit_callback});std::sort(targets.begin(),targets.end(),[](const auto& a,const auto& b){return a.pc<b.pc;});std::vector<bb_runtime::Import> imports(bb_registry::tables.imports,bb_registry::tables.imports+bb_registry::tables.import_count);
+  for(const auto& binding:NATIVE_BINDINGS){if(!binding.pc)continue;auto it=std::find_if(imports.begin(),imports.end(),[&](const auto& i){return i.pc==binding.pc;});if(it==imports.end()||it->native||it->compiled_export)throw std::runtime_error("native service binding mismatch");it->native=binding.function;}
+  auto tables=bb_registry::tables;tables.imports=imports.data();tables.import_count=imports.size();tables.targets=targets.data();tables.target_count=targets.size();tables.identity=TRACE_ID;bb_runtime::validate_tables(tables);
   State state{};state.gpr.rip.qword=ENTRY_PC;state.gpr.rsp.qword=INITIAL_RSP;state.gpr.rdi.qword=PARAMETERS;state.gpr.rsi.qword=EXIT_CALLBACK_PC;Memory memory{};memory.space=&image->space;memory.state=&state;memory.tables=&tables;memory.owner_thread=GetCurrentThreadId();memory.entry=ENTRY_PC;
+  bb_runtime::MutexAttributes mutex_attributes(image->space);if(MUTEX_ATTRIBUTES_ENABLED)memory.mutex_attributes=&mutex_attributes;
   auto checked=image->validate(&memory);if(checked.sha256!=EXPECTED_IMAGE_SHA256||checked.mapped_bytes!=EXPECTED_MAPPED_BYTES)return 2;
   bb_runtime::ProcessCanary process_word(image->space,CANARY_PC);
   if(CANARY_ENABLED){auto seed=prepare_seed(std::filesystem::path(argv[0]).parent_path()/"canary-seed.bin");process_word.initialize_from_seed(&memory,seed);if(!process_word.initialized())return 2;}
