@@ -2,6 +2,61 @@
 
 The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
 
+## Autonomous continuation - saved Timmy checkpoint (2026-09-07)
+
+The active user request is to continue autonomously through name entry,
+character creation, and into controllable gameplay. Do not stop at the keyboard
+fixture or creation milestone. Work remains only in recipient
+`external/Bloodborne-Recompiled` on `codex/integration-validation`; no pushes.
+
+Recipient commits added this session: `7507c23` (bounded live pad probes,
+periodic captures and configurable 30-minute maximum), `4affa76` (opt-in text
+service probes; 145/145 CTest pass), `2d37fe1` (verified game-level evidence).
+The normal keyboard UI remains unchanged. Windows desktop-control tooling
+failed with a sandbox-helper setup error, so navigation uses explicit diagnostic
+Pad input and actual GPU frame captures. Text confirmation uses the existing
+host text API and normal guest GetStatus/GetResult/Term path; it is not evidence
+of physical typing into the live game window. Native keyboard controls have
+separate authored tests.
+
+Actual progress: offline New Game -> brightness/control setup -> opening movie
+-> character creation. The locally captured shader toolchain compiled 75 jobs,
+producing 55 validated, non-conflicting D3D11 entries plus 118 native AOT entries
+in ignored `build/shader-cache-character-v1`. Four depth-only jobs were withheld
+from the legacy color cache. This renders the hunter preview, although lighting
+and stat-icon artifacts remain. `autonomous-offline-03` then accepted Timmy in
+its own name field (frame 4800), confirmed Finish/Yes, and wrote a new character
+save. Its `userdata0000` contains UTF-16 Timmy at byte 33732; see that run's
+`save-delta.json`. The previous seed has no Timmy. The run ended at its 900-second
+limit with no CPU fault or trapped import; it did not yet prove gameplay.
+
+An active follow-up run is `.tmp/integration/autonomous-clinic-04`, loading a
+copy of that new save with `build/shader-cache-character-v1`. It has an 1800-second
+limit; private launch script `.tmp/integration/probe_run.py` records settings,
+seed/cache hashes and source/binary/input evidence. Its `frame` command converts
+the latest raw GPU capture to `latest.bmp`; `input --buttons 0x4000` presses Cross
+for three flips. Up=0x10, Down=0x40, Left=0x80, Circle=0x2000; `--ly 0 --frames 30`
+can test movement later. Inputs are monotonic file commands, not memory patches.
+Observe current frames to select the next action. The ordinary online/offline
+screen initially selects online: Down then Cross selects offline. A new save
+should expose Continue; validate that screen rather than replaying creation.
+
+Heavy raw frontier capture was removed from run 04; program/schema-3 shader
+captures and periodic GPU frames remain enabled for the next unknown scene.
+Only about 3.5 GiB physical RAM was free after run 03, with Unity and Dota 2
+running; do not close those unrelated applications without user direction.
+
+Private shader evidence: `build/shaders/character-local-v1` includes all jobs,
+results and duplicate-key audit; `.tmp/integration/character-aot-import-v1.json`;
+`build/shader-cache-character-v1/assembled-cache.json`. The helper
+`.tmp/integration/compile_probe_shaders.py <run-name> <new-build-subdir>` compiles
+captured pairs with two compiler processes; preserve exact register/capture
+provenance and reject ambiguous GCN or conflicting shader variants.
+
+See recipient `docs/pc-name-entry.md` and `docs/runtime-probe-input.md` for current
+claims and diagnostic contracts. The manual game launcher still uses the old
+menu cache and five-minute limit; update it when handing off the playable check.
+
 ## PC name-entry update - 2026-09-07
 
 Manual testing is now ready: in the recipient root, double-click
