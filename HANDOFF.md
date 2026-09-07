@@ -2,6 +2,42 @@
 
 The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
 
+## Integration completed locally - 2026-09-07
+
+Recipient checkout: `E:/bloodborne PC port/external/Bloodborne-Recompiled`, branch
+`codex/integration-validation`, commit `2e5a653`, based on owner main `9383a61`.
+Nothing was pushed. Owner main and checkpoint refs remain `9383a61` and
+`f8a0554` after a read-only check. Recipient origin push URL is disabled;
+`push.default=nothing` and branch guards are active. AGENTS.md restrictions apply.
+
+[Integration assessment and reproduction](external/Bloodborne-Recompiled/docs/integration-validation-2026-09-07.md)
+records the comparison and selective ports: concurrent guest save-file opens
+(with actual failing-before/passing-after regression), exported mutex/rwlock
+checks, donor-manifest verification and source/run recording. Also enabled
+Ninja/clang-cl for the pinned shader compiler. Unchanged Release: 142/142 tests;
+integrated Release: 143/143. Shader compiler contract passed. All 28,840 input
+files in effective-v2 matched the donor manifest; the hardlinked view stays read-only.
+
+The owner-specific shader cache is not required to bootstrap. We generated a
+75-entry intro/menu cache from our own captures and observed rendered intro,
+title and dialog frames. Later runs had zero unsupported 2D draws but remained
+at a connection error with the scripted route; no local 3D reproduction yet.
+A locally captured vertex/pixel pair also compiled through the general compiler
+to DXBC, and D3D11 accepted both. Full character-creation cache, visual parity
+and playable native gameplay remain unproven here.
+
+The user reports the owner is blocked at player-name entry because the PS4
+system keyboard is missing. Recipient source has no libSceImeDialog HLE.
+Our `patches/shadps4-research-ime.patch` and `reports/baseline.md` supply useful
+name-entry fixture and clinic/quit/reload evidence, but depend on shadPS4's IME
+implementation. Next focused feature: reproduce the recipient name-entry import,
+implement its actual IME lifecycle and PC text entry, adapt the opt-in fixture
+while preserving guest filtering/UTF-16/cancellation, then validate continuation.
+This feature has not been implemented yet.
+
+The original Remill/AOT research below remains preserved and paused. No game
+test or compiler build from this integration task remains running.
+
 # Bloodborne recompilation continuation
 
 ## Development-speed handoff update — 2026-09-07
