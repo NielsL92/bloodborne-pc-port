@@ -1,0 +1,638 @@
+{
+  "status": "native mutex attributes advance the first constructor to explicit mutex creation",
+  "current": {
+    "status": "bounded native AOT entry reached an explicit runtime boundary",
+    "trace_identity": "d7faa7a309dcfb81e941e56ff4260daba2683a483a1744e7ec6ffd9b9ceec48b",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "executable_sha256": "e43bce2608fb9fbe9c420d60e26845c565359277a2a533c58742303f64e2fc81",
+    "executable_bytes": 61822976,
+    "bundle_sha256": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+    "private_image_before_native_initialization": {
+      "status": "private-load-validated",
+      "regions": 19,
+      "relocations": 238580,
+      "guards": 29,
+      "mapped_bytes": 98574344,
+      "verified_bytes": 98574112,
+      "guarded_bytes": 232,
+      "sha256_unguarded": "e3f0a400f1acd5302ca34718f8d8664654b5af685f9e31c889ca0694964a1901",
+      "game_execution": false
+    },
+    "native_providers": {
+      "canary": {
+        "contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c",
+        "logical_address": 7696585588736,
+        "size": 8,
+        "rights": 3,
+        "requires_initialization_before_entry": true,
+        "nid": "f7uOxY9mM1U",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257,
+        "bindings": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "offset": 87964640,
+            "type": 6,
+            "symbol_index": 676,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 676,
+              "name": "f7uOxY9mM1U#p#J",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "offset": 294936,
+            "type": 6,
+            "symbol_index": 18,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 18,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "offset": 311412,
+            "type": 6,
+            "symbol_index": 22,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 22,
+              "name": "f7uOxY9mM1U#C#D",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "offset": 32792,
+            "type": 6,
+            "symbol_index": 5,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 5,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "offset": 327704,
+            "type": 6,
+            "symbol_index": 19,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 19,
+              "name": "f7uOxY9mM1U#D#E",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "offset": 278552,
+            "type": 6,
+            "symbol_index": 73,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 73,
+              "name": "f7uOxY9mM1U#B#C",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "offset": 917560,
+            "type": 6,
+            "symbol_index": 55,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 55,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "offset": 754912,
+            "type": 6,
+            "symbol_index": 13,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 13,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          }
+        ]
+      }
+    },
+    "native_service_contract_sha256": "9fd2e7898a9371c14c36b1db75325133704c7e9c9583f483ef975cabac75b118",
+    "native_service_bindings": [
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "runtime_seed_sha256": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "runtime_seed_origin": "explicit replay",
+    "control_trace_sha256": "1084e25522ebdc73b4c81a21dadd0c247e73d713d60cf18413006e573f8a8f61",
+    "exit_code": 2952790041,
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unimplemented-import",
+      "reason": 25,
+      "source": "0000000000000000",
+      "actual": "0000000102bbfec8",
+      "wanted": "0000000000000000",
+      "address": "0000000000000000",
+      "width": 0,
+      "pc": "0000000102bbfec8",
+      "rsp": "00000700000fff38",
+      "entry": "00000001000000a0",
+      "thread": 68232,
+      "compilation_identity": "d7faa7a309dcfb81e941e56ff4260daba2683a483a1744e7ec6ffd9b9ceec48b"
+    },
+    "active_import": {
+      "active_import": "0000000102bbfec8",
+      "nid": "cmo1RIYva9o",
+      "library": "libkernel",
+      "module": "libkernel"
+    },
+    "guard": null,
+    "records": [
+      {
+        "status": "native-boundary-stop",
+        "boundary": "unimplemented-import",
+        "reason": 25,
+        "source": "0000000000000000",
+        "actual": "0000000102bbfec8",
+        "wanted": "0000000000000000",
+        "address": "0000000000000000",
+        "width": 0,
+        "pc": "0000000102bbfec8",
+        "rsp": "00000700000fff38",
+        "entry": "00000001000000a0",
+        "thread": 68232,
+        "compilation_identity": "d7faa7a309dcfb81e941e56ff4260daba2683a483a1744e7ec6ffd9b9ceec48b"
+      },
+      {
+        "active_import": "0000000102bbfec8",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "module": "libkernel"
+      }
+    ],
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain incomplete.",
+      "An explicit runtime boundary is a diagnostic result requiring investigation, not a P4 gate pass.",
+      "Source module copies remain NX data. Only AOT roots and explicit native services can execute.",
+      "The recorded seed is a native runtime input, not a console value. This bounded trace is not whole-game execution coverage."
+    ]
+  },
+  "contract": {
+    "status": "bounded mutex-attribute service interface checked",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "bindings": [
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "logical_identifier_range": [
+      7765300871168,
+      7769595838464
+    ],
+    "live_limit": 4096,
+    "argument_storage_bytes": 8,
+    "default_policy": {
+      "type": 1,
+      "protocol": 0,
+      "ceiling": 0,
+      "provenance": "Explicit native defaults matching the pinned baseline; the reached caller overwrites type with 2 before mutex creation."
+    },
+    "return_abi": "32-bit EAX; success zero, native invalid-handle/type 0x80020016, resource exhaustion 0x8002000c; preserve SysV callee-saved registers and return through the logical stack",
+    "primary_reference": {
+      "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/thread/thr_mutexattr.c",
+      "sha256": "ab993c51f0c2c16de88e61d8e16c2df81621d076939dfa75f36bee376b5e5854",
+      "scope": "Independent FreeBSD implementation reference; not a PS4 ABI declaration."
+    },
+    "checked_instructions": 91,
+    "ghidra_sha256": "c5669e12c8a1da5adaf9e3190fbfbdfab7ccad2e7a7ed7dc30f097d333e1121e",
+    "authored_sha256": "d41577361dd6a2bb0b10bbe2c1ee18d3990cc6d106e438955cca0df6945b88a1",
+    "limitations": [
+      "The supplied caller proves pointer-sized attribute storage and by-reference init/settype/destroy use; it does not prove a full guest-readable private object layout.",
+      "Native opaque identifiers never expose host pointers. Guest dereference of these identifiers stops until an independently checked object-layout interface is added.",
+      "Defaults, null/invalid diagnostics and resource bounds are explicit native compatibility policies. These references are not console observations.",
+      "Mutex creation, locking, protocol/ceiling/process-sharing setters and POSIX-namespace aliases are not supplied by these three bindings."
+    ],
+    "game_aot_execution": false
+  },
+  "authored": {
+    "status": "native mutex attribute lifecycle and AOT service ABI checks pass",
+    "positive": {
+      "status": "pass",
+      "aot_service_calls": 45059,
+      "lifecycles": 4096,
+      "live_limit": 2,
+      "guard_bytes_unchanged": true
+    },
+    "negative_stops": 4,
+    "objects": {
+      "function.obj": "b57e4006bb667aca10b75a51f892bf205f89236042f3f855fe78c1dbff3d3660",
+      "fault.obj": "7cb699aa4f8ee4a0d515cb2a76d82547380bd4473365ab5ae5409e8eb81b2879",
+      "memory.obj": "deb1692b1c24de515ea1f7fe44df3bfb928649cd98499f825dbc9aadc1cacc50",
+      "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "fp.obj": "c04e0999e1dd0439ca5de7f3d4108fe0e94854f67cdeac93763357f699b289fa",
+      "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+      "mutexattr.obj": "19c78e008d610c0be59190dbea9b19d66f1f533f8c0d557af67cc7d8f0eb2d35",
+      "mutexattr_fixture.obj": "6e1d4002e719468c9efc4b0ee3f4e34fea89d7f28105e52b08e6d56f2b7f0a35"
+    },
+    "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "game_aot_execution": false,
+    "limits": [
+      "Authored stateful service checks only; no game gateway is bound by this fixture.",
+      "Opaque logical identifiers are not host pointers or guest-readable attribute layouts. Direct dereference remains an explicit unsupported memory stop.",
+      "Live-resource and monotonically increasing identifier bounds are native implementation limits, not console resource limits."
+    ]
+  },
+  "trace_events": 17,
+  "last_call": {
+    "event": "import",
+    "target": 4340842184,
+    "pc": 4340842184,
+    "rsp": 7696582442808,
+    "rbp": 7696582442864,
+    "rdi": 4385822504,
+    "rsi": 7696582442824,
+    "rdx": 0,
+    "rcx": 12670960918763707696,
+    "r8": 0,
+    "r9": 0,
+    "rax": 0,
+    "memory_operations": 154
+  },
+  "identical_artifacts": {
+    "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "canary.obj": "5b435d1c44a89b564e47914ca642d7804295728d7a6c5e19015778ef175a3663",
+    "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+    "entry.stdout": "d75e68af53ad6b14ca767dde93036a4b376965a89b9515130b6a61f1446a0741",
+    "expected-image.json": "124c30fcb57baf0d70764128e3d65ff63a0d896c1c66d705d4075ce741d0569f",
+    "fault.obj": "7cb699aa4f8ee4a0d515cb2a76d82547380bd4473365ab5ae5409e8eb81b2879",
+    "fp.obj": "c04e0999e1dd0439ca5de7f3d4108fe0e94854f67cdeac93763357f699b289fa",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "linked-roots.json": "2c8a10ebbcbd70212a4237fd23f2fc06c7c6f6e8652896225e3a46779f4d3649",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "memory.obj": "deb1692b1c24de515ea1f7fe44df3bfb928649cd98499f825dbc9aadc1cacc50",
+    "mutexattr.obj": "19c78e008d610c0be59190dbea9b19d66f1f533f8c0d557af67cc7d8f0eb2d35",
+    "native-calls.jsonl": "1084e25522ebdc73b4c81a21dadd0c247e73d713d60cf18413006e573f8a8f61",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "prepare.stdout": "d75e68af53ad6b14ca767dde93036a4b376965a89b9515130b6a61f1446a0741",
+    "probe-manifest.json": "d7faa7a309dcfb81e941e56ff4260daba2683a483a1744e7ec6ffd9b9ceec48b",
+    "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+    "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+    "startup-config.h": "3b0f1413c6f7c543b5bc4165330095e6c2f3d055291dc65d9ffb16c1016eaa66",
+    "startup.bin": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+    "startup.exe": "e43bce2608fb9fbe9c420d60e26845c565359277a2a533c58742303f64e2fc81",
+    "startup_fixture.obj": "08e7e7553d7e0bfb524d77fabdd5a7177085410327c3891209239e9f8d9f287a"
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-mutexattr-runtime-v1",
+      "start_utc": "2026-09-07T01:08:57.048641+00:00",
+      "end_utc": "2026-09-07T01:09:22.546119+00:00",
+      "manifest_sha256": "81a16d91390d9102741c99ea549662b3c6a7c1c16115b7c9dd76249c1ad9dd00",
+      "sources_sha256": "187f52584a5af68e4c9e955a8f8f9731dd2b2791f51a1becf2339bb85885f2ed"
+    },
+    {
+      "run": "20260907-p4-mutexattr-runtime-v2-repeat",
+      "start_utc": "2026-09-07T01:14:41.475230+00:00",
+      "end_utc": "2026-09-07T01:14:55.008749+00:00",
+      "manifest_sha256": "f18f43bd10434e5e69682252cd686c6cecd8ac692d300021122f19721d66b01c",
+      "sources_sha256": "81d0b84a225cc1bfb79aa77f4f5c67be31ee4f02463269c00b3e5d4c4431148e"
+    },
+    {
+      "run": "20260907-p4-mutexattr-reference-v1",
+      "start_utc": "2026-09-07T01:09:41.962043+00:00",
+      "end_utc": "2026-09-07T01:09:43.062403+00:00",
+      "manifest_sha256": "4709d93051ae8300aef56bbc2101595f454172981de06fd2dd1ad8b787e0a874",
+      "sources_sha256": "c01650278bbdce81ff3618cad9148c07313a29ee80330045b3d1924a05f8d49d"
+    },
+    {
+      "run": "20260907-p4-startup-mutex-windows-v2-full",
+      "start_utc": "2026-09-07T01:10:08.865388+00:00",
+      "end_utc": "2026-09-07T01:10:09.596377+00:00",
+      "manifest_sha256": "f7625f8759bc0f6f5511e2ab0a035cb8ef33f021b2ce8705d6b94b73de68b5d2",
+      "sources_sha256": "e009989fc47f253340f3fad7f7f00b9125d5a8697637b5b9dbb0a5dfeacb5ffa"
+    },
+    {
+      "run": "20260907-p4-ghidra-startup-mutex-v2-full",
+      "start_utc": "2026-09-07T01:10:09.995853+00:00",
+      "end_utc": "2026-09-07T01:10:34.316852+00:00",
+      "manifest_sha256": "cc7b2f403712f7f9792a8370db1ebc734578a326eeaae95172bc75390ccad86d",
+      "sources_sha256": "e009989fc47f253340f3fad7f7f00b9125d5a8697637b5b9dbb0a5dfeacb5ffa"
+    },
+    {
+      "run": "20260907-p4-mutexattr-contract-v1",
+      "start_utc": "2026-09-07T01:11:36.813907+00:00",
+      "end_utc": "2026-09-07T01:11:37.567733+00:00",
+      "manifest_sha256": "3b345f2ec62b331a71dfbe4f93b43dac479901e68ca72fc4d572747dfc5225ee",
+      "sources_sha256": "76343909ba95d741a1c8efd06809a25eee67545f7a6646417ebb991be620b4bb"
+    },
+    {
+      "run": "20260907-p4-startup-mutexattr-v1",
+      "start_utc": "2026-09-07T01:12:25.791403+00:00",
+      "end_utc": "2026-09-07T01:12:54.341196+00:00",
+      "manifest_sha256": "fccdc940e10eb9c0cc6e05bd73c983d2462992743e68150d74f70434f81dec69",
+      "sources_sha256": "81d0b84a225cc1bfb79aa77f4f5c67be31ee4f02463269c00b3e5d4c4431148e"
+    },
+    {
+      "run": "20260907-p4-startup-mutexattr-v2-repeat",
+      "start_utc": "2026-09-07T01:13:19.607014+00:00",
+      "end_utc": "2026-09-07T01:13:32.021099+00:00",
+      "manifest_sha256": "8ceb5992b5b4efa91b2c94826343cd7ad10d567f4d9b0dc21eedac011e2d9c42",
+      "sources_sha256": "81d0b84a225cc1bfb79aa77f4f5c67be31ee4f02463269c00b3e5d4c4431148e"
+    }
+  ],
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limitations": [
+    "The first constructor has not returned. Mutex creation and locking remain unimplemented.",
+    "Attribute objects are native process state identified by opaque logical handles. Direct guest reads of private attribute layout remain explicit stops.",
+    "Native defaults and resource limits are documented compatibility policies, not console observations.",
+    "Twenty-nine data/TLS guards and all prior startup/control uncertainties remain."
+  ]
+}
