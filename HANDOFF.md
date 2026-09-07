@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 03:38 UTC
+## Paused shutdown checkpoint — 2026-09-07 03:48 UTC
+
+Paused at the user's explicit request for shutdown; do not resume until asked. Read reports/native-startup-checkpoint.md and its evidence JSON. **Native startup completes constructors 0–1080 and enters ordinal 1081, out of 18,444 ordered initial constructors. P4 is open; no native boot or playable port exists.**
+
+Current startup-v61-cohort-chain-v1-1-repeat matches v60: 61,981,184 bytes, SHA256 35ae968d1a05f67b8eae42472d8d6e8b745b0d87980c677e097d91089cd3140d. Twenty-two supplements give 408 game objects / 21,847 roots. Use tools/extend_native_startup.py from_run 20260907-p4-cohort-chain-v1-1-startup-repeat to preserve every argument. The 24-instruction indirect wrapper passes repeat checks and three actual mutex/call/tail-return spans; the following 256-entry cohort has 36 observed returns and 220 unobserved entries. The next cohort selection failed correctly because its target is outside the leaf census; continuation.json preserves the completed prefix.
+
+Next actual target 0x1020b7660, RSP 0x700000fff88, 146,063 operations; 4,971 events repeat. Recovery local/cfg/native-frontier-20b7660-v1 finished: two entries (0x1020b7660, 0x1020bcdd0), 302 instructions, no decode issues, seven unknown indirect calls and retained callback/nonreturn/nonlocal obligations. It is NOT yet independently repeated, Ghidra-checked, compiled or added to startup. Next do those checks in fresh directories, then extend v61 into v62/v63 only after gates pass. No project experiment should remain running at shutdown.
+
+Canonical recovery, compiler v12 / semantics v35, base registry-v7, current services/TLS and thirty guards remain; source bytes stay NX. All unknown target, boundary, embedded-data, mutable-table, startup/FP/TLS and exception/nonlocal uncertainty remains. P1 route/profiling/audio is unchanged. All no-cost work/reads remain approved; no PS4 access and no restart request. Approved require_escalated shell calls work around the broken normal sandbox helper. This is native port development, not cybersecurity work. On resumption, continue until user action is needed or the user asks to stop, maintaining evidence and source commits.
+
+## Previous checkpoint — 2026-09-07 03:38 UTC
 
 Continue autonomously; user action: none. Read reports/native-leaf-cohorts.md and its evidence JSON. **Native startup completes constructors 0–213 and enters ordinal 214. P4 is open; no native boot or playable port exists.**
 
