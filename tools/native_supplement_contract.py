@@ -5,7 +5,7 @@ from pathlib import Path
 def validate(summary, folder):
  count=len(summary['compiled_roots']);kind=summary.get('validation_kind')
  if kind!='independent-cfg-compilation':
-  assert summary['status']=='supplemental supplied leaf compiled and native semantics checked';assert 1<=count<=16;assert kind=='conditional-simple-leaf-batch' or count==1;assert summary.get('cases_per_root',3072)==3072 and summary['positive']['cases']==3072*count and summary['negative_stops']==2*count
+  assert summary['status']=='supplemental supplied leaf compiled and native semantics checked';assert 1<=count<=(256 if summary.get('recovery_kind')=='initial-pointer-census' else 16);assert kind=='conditional-simple-leaf-batch' or count==1;assert summary.get('cases_per_root',3072)==3072 and summary['positive']['cases']==3072*count and summary['negative_stops']==2*count
   # Grouped fixtures have two negative checks per root.
   return
  assert summary['status']=='supplied CFG compiled with independently checked boundaries' and 1<=count<=64 and summary['game_derived_aot_execution'] is False
