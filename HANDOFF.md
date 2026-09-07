@@ -1,6 +1,17 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 02:35 UTC
+## Current continuation — 2026-09-07 02:47 UTC
+
+Continue autonomously; user action: none. Read reports/native-address-leaves.md and its evidence JSON. **Native startup completes constructors 0–92 and enters ordinal 93. P4 is open; no native boot or playable port exists.**
+
+Current complete checkpoint startup-v31-address-chain-v1-3-repeat has 61,860,864 bytes, SHA256 799263ac542c2d31d3cf2e708d941536558b48adc59a696226618d1a652e4eb9. Seven supplements produce 393 game objects / 21,289 roots. Exact continuation_argv in local/runtime/address-chain-v1/summary.json retains every supplement, --tls main-tls-contract-v1, --services rwlock-contract-v1, loader-plan-v9-runtime-word and the seed. Four RIP-address accessors now pass independent Ghidra/LLVM checks, repeated 3,072-case AOT fixtures and actual native returns. Their addresses are distinct and individually verified. The preserved v1 evidence-checker equality assumption was corrected in v2-individual without changing compiled artifacts.
+
+Next actual request 0x102370950, RSP 0x700000ffea8, 2,325 operations; 387 events repeat. A bounded follow-on workflow local/runtime/accessor-chain-v2 is running (record 20260907-p4-accessor-chain-v2), starting indices 32/33 and limited to three observed targets. Inspect its current status before resuming or launching another run. It stops on any unsupported body or failed gate. Source inspection of 0x102370950 shows MOV RAX,[RDI+0x40]; RET, but only recorded checks can accept it.
+
+Compiler v12 / semantics v35 and base registry-v7 remain current. Source bytes remain NX. Thirty guards, dynamic TLS/DTV/TCB, guest threads, initialization/FP/control closure and prior uncertainty remain. P1 route/profiling/audio is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 02:35 UTC
 
 Continue autonomously; user action: none. Read reports/native-qword-leaves.md and its evidence JSON. **Native startup executes both recovered 64-bit accessors inside constructor 89; constructors 0–88 remain complete. P4 is open; no native boot or playable port exists.**
 
