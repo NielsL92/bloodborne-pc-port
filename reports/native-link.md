@@ -1,5 +1,8 @@
 # Complete native linkage and P3 gate decision
 
+Later execution checkpoint (2026-09-07 00:15 UTC): reports/native-startup.md records the first bounded supplied-entry AOT trace and its repeated canary-slot stop. Earlier no-game-execution statements below describe their dated experiments. No native boot or playable port exists.
+
+
 Current generation (2026-09-06 23:42 UTC): see reports/native-memory-sources.md. Active objects are native-memory-manifest-v1; current registry is registry-v7-memory-repeat, link is link-v9-memory-repeat and loader plan is loader-plan-v8-memory. Complete authored/source/LLVM/link checks pass; native game loading/execution has not occurred.
 
 
