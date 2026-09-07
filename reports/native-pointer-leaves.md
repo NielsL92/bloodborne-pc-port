@@ -1,5 +1,7 @@
 # Native pointer-sequence accessors
 
+Current continuation: reports/native-cfg-frontier.md records the later six-leaf batch and native branching-body execution. The dated checkpoint below is preserved.
+
 2026-09-07 03:04 UTC. Repeated native startup completes constructors 0–96 and enters ordinal 97. Six additional checked accessors execute and return: three recovered from successive actual requests, followed by three compiled together from a bounded initial pointer sequence. The next unknown target is 0x10236f6f0. P4 remains open; no native boot or playable port exists.
 
 The accessor-chain-v2 workflow recovered 0x102370950, 0x102370960 and 0x102370970 only after each was requested by startup. Independent Ghidra decoding, repeated 3,072-case AOT fixtures, additive manifests and exact startup repeats pass for every step. The first two load 64-bit fields; the third returns a logical address.

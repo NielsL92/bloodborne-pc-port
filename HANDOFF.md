@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 03:04 UTC
+## Current continuation — 2026-09-07 03:21 UTC
+
+Continue autonomously; user action: none. Read reports/native-cfg-frontier.md and its evidence JSON. **Native startup executes the newly recovered branching body 0x1020b6e20, with constructors 0–96 complete and ordinal 97 still in progress. P4 is open; no native boot or playable port exists.**
+
+Current startup-v43-cfg-frontier-repeat exactly repeats v42: 61,908,992 bytes, SHA256 bd7892af07a94a1398b49a06ec85c194006e2a31a0e2e344c8ed8d4bd8c3368f. Thirteen supplements produce 399 game objects / 21,303 roots. Use tools/extend_native_startup.py from_run 20260907-p4-startup-cfg-frontier-v2-repeat to preserve all arguments. The additive CFG delta and repeat recover two bodies / 618 instructions, retain eleven unknown calls and existing nonreturn/nonlocal obligations, and reproduce exactly. Ghidra agrees except one independently explained NOP following an exact nonreturn call. Static CFG checks remain distinct from synthetic AOT fixtures and actual execution. The second helper 0x1020bccd0 is unobserved.
+
+Next actual target 0x10263a960, RSP 0x700000ffef8, 3,429 operations; 474 events repeat. Fresh pointer-leaves-v3 is recovered. A recorded sequence is running Ghidra, batch3 compilation/repeat/manifest and startup-v44/v45-pointer-leaves-batch3(-repeat); inspect statuses before continuing. Linear recovery and the first CFG compilation checker failures are preserved and explained in the report. All subsequent gates passed with original compiled bytes retained.
+
+Canonical startup-recovery-v31, compiler v12 / semantics v35, base registry-v7, current service/TLS contracts and thirty guards remain. Source bytes stay NX. Discovery, callbacks, mutable tables, complete startup/FP/TLS and prior uncertainties remain open. P1 route/profiling/audio is unchanged. Continue after commits.
+
+## Previous checkpoint — 2026-09-07 03:04 UTC
 
 Continue autonomously; user action: none. Read reports/native-pointer-leaves.md and its evidence JSON. **Native startup completes constructors 0–96 and enters ordinal 97. P4 remains open; no native boot or playable port exists.**
 
