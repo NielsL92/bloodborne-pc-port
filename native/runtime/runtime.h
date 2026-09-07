@@ -12,6 +12,7 @@
 struct Memory;
 namespace bb_runtime {
 class MutexAttributes;class Mutexes;class DirectMemory;
+class Rwlocks;
 using Lifted=Memory*(*)(State*,uint64_t,Memory*);
 enum Rights:uint32_t {Read=1,Write=2,Code=4};
 struct SourceContext {State* state;uint64_t pc;const SourceContext* previous;};
@@ -61,5 +62,6 @@ struct Memory {
  const bb_runtime::AccessGuard* active_guard=nullptr;
  const bb_runtime::SourceContext* active_source=nullptr;
  bb_runtime::MutexAttributes* mutex_attributes=nullptr;bb_runtime::Mutexes* mutexes=nullptr;bb_runtime::DirectMemory* direct_memory=nullptr;
+  bb_runtime::Rwlocks* rwlocks=nullptr;
  const bb_runtime::FpProfile* fp_profile=nullptr;uint32_t pointer_segments=0;
 };

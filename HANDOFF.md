@@ -1,6 +1,17 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 02:04 UTC
+## Current continuation — 2026-09-07 02:15 UTC
+
+Continue autonomously; user action: none. Read reports/native-rwlock.md and its evidence JSON. **Native startup completes constructors 0–88 and initializes a reader/writer lock inside ordinal 89. P4 remains open; no native boot or playable port exists.**
+
+Current probe startup-v17-rwlock-repeat matches v16-rwlock: SHA256 b148b8aaca10373843bcf753fc87f931b1b3a649b7f9f14a43ef5b9d02a4ef02, 61,859,840 bytes. Use --services local/runtime/rwlock-contract-v1 and --supplement local/compiler-spike/native-leaf-manifest-v1 with the existing loader-plan-v9-runtime-word and recorded seed. Native reader/writer ownership passes repeated 68,630-call AOT tests; 41 exact bindings now cover fifteen services. Only rwlock initialization is observed in the game trace.
+
+Next actual stop: source 0x10207bf94, instruction FS:[0] eight-byte read, address zero, RSP 0x700000fff00. Explicit probe FS base is zero. Investigate native TLS/self-pointer and supplied offset at RVA 0x53e44a8 (used by following instruction); validate against PT_TLS and independent Ghidra/implementation references. Do not guess complete TCB fields or unresolved TLS module references. The last dispatch event has 1,590 memory operations, not the exact later fault count; 298 events repeat.
+
+All source mappings remain NX. Compiler v12 / semantics v35, base registry-v7 and one native leaf supplement remain current (387 game objects / 21,283 roots). Twenty-nine unresolved data/TLS slots and other initialization/FP/control uncertainties remain. P1 route/profiling/audio work is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 02:04 UTC
 
 Continue autonomously; user action: none. Read reports/native-startup-leaf.md and its evidence JSON. **Native startup completes constructors 0–88; the recovered missing leaf executes and returns inside constructor 89. P4 remains open; no native boot or playable port exists.**
 
