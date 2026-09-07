@@ -10,7 +10,7 @@
 #include <remill/Arch/X86/Runtime/State.h>
 struct Memory;
 namespace bb_runtime {
-class MutexAttributes;
+class MutexAttributes;class Mutexes;
 using Lifted=Memory*(*)(State*,uint64_t,Memory*);
 enum Rights:uint32_t {Read=1,Write=2,Code=4};
 struct SourceContext {State* state;uint64_t pc;const SourceContext* previous;};
@@ -57,6 +57,6 @@ struct Memory {
  const bb_runtime::Import* active_import=nullptr;
  const bb_runtime::AccessGuard* active_guard=nullptr;
  const bb_runtime::SourceContext* active_source=nullptr;
- bb_runtime::MutexAttributes* mutex_attributes=nullptr;
+ bb_runtime::MutexAttributes* mutex_attributes=nullptr;bb_runtime::Mutexes* mutexes=nullptr;
  const bb_runtime::FpProfile* fp_profile=nullptr;uint32_t pointer_segments=0;
 };

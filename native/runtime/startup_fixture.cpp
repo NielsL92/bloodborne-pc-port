@@ -3,6 +3,7 @@
 #include "loader.h"
 #include "canary.h"
 #include "mutexattr.h"
+#include "mutex.h"
 #include "registry.h"
 #include "startup-config.h"
 #include <algorithm>
@@ -32,6 +33,7 @@ int main(int argc,char** argv){
   auto tables=bb_registry::tables;tables.imports=imports.data();tables.import_count=imports.size();tables.targets=targets.data();tables.target_count=targets.size();tables.identity=TRACE_ID;bb_runtime::validate_tables(tables);
   State state{};state.gpr.rip.qword=ENTRY_PC;state.gpr.rsp.qword=INITIAL_RSP;state.gpr.rdi.qword=PARAMETERS;state.gpr.rsi.qword=EXIT_CALLBACK_PC;Memory memory{};memory.space=&image->space;memory.state=&state;memory.tables=&tables;memory.owner_thread=GetCurrentThreadId();memory.entry=ENTRY_PC;
   bb_runtime::MutexAttributes mutex_attributes(image->space);if(MUTEX_ATTRIBUTES_ENABLED)memory.mutex_attributes=&mutex_attributes;
+  bb_runtime::Mutexes mutexes(image->space);if(MUTEXES_ENABLED)memory.mutexes=&mutexes;
   auto checked=image->validate(&memory);if(checked.sha256!=EXPECTED_IMAGE_SHA256||checked.mapped_bytes!=EXPECTED_MAPPED_BYTES)return 2;
   bb_runtime::ProcessCanary process_word(image->space,CANARY_PC);
   if(CANARY_ENABLED){auto seed=prepare_seed(std::filesystem::path(argv[0]).parent_path()/"canary-seed.bin");process_word.initialize_from_seed(&memory,seed);if(!process_word.initialized())return 2;}

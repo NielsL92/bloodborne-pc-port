@@ -1,6 +1,16 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-07 01:16 UTC
+## Current continuation — 2026-09-07 01:30 UTC
+
+Continue autonomously; user action: none. Read reports/native-mutex.md and its evidence JSON. **Native startup completes constructor ordinal 0 and enters ordinal 1. P4 remains open; no native boot or playable port exists.**
+
+Current probe local/runtime/startup-v11-mutex-repeat/startup.exe repeats v10-mutex, SHA256 a48228830459668f837a30557c45a662c681fbc16a87d83f3c26ec802e98ae5c, 61,830,144 bytes. Service contract local/runtime/mutex-contract-v1/contract.json contains 23 exact bindings for seven stateful attribute/mutex operations. Authored tests repeat 53,267 AOT calls, blocked recursive-waiter behavior, three-thread/1,536-increment exclusion and seven negative boundaries. Native private object layouts, static/named/timed/robust/protocol cases remain explicit unsupported interfaces; trylock is authored-tested but unbound.
+
+Game trace: constructor 0 at 0x1020edf90 returns to 0x100000084, constructor 1 at 0x101fc22c0 enters, two mutexes are created and one lock returns zero. The next stop is sceKernelGetDirectMemorySize, NID pO96TwzOm5E, gateway 0x102bbeaa8, RSP=0x700000fff18, after 418 registered memory operations. Forty-six diagnostic events repeat. Next inspect allocator callers (main RVAs 0x20819f0 / call 0x2081a80 and 0x2081d40 / call 0x2081ea4), establish native memory budget/allocation/mapping contracts, and continue.
+
+Current loader plan v9-runtime-word, replay seed startup-v4-runtime-word/canary-seed.bin, native-memory-manifest-v1, registry-v7-memory-repeat, compiler v12 and semantics v35 remain current. All original bytes stay NX; 29 data/TLS slots remain guarded. Complete initialization order, FP/TLS, unknown targets, exceptions/nonlocal flow, private object layouts, helper costs and P1 baseline route/profiling/audio remain open. Continue after commits.
+
+## Previous checkpoint — 2026-09-07 01:16 UTC
 
 Continue autonomously; user action: none. Read reports/native-mutex-attributes.md and its evidence JSON. **Native attribute initialization/type selection now pass inside the first constructor. P4 remains open; no native boot or playable port exists.**
 
