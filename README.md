@@ -1,3 +1,5 @@
+If you somehow happen to run into this page yes all of this is AI, basically running an experiment for myself to see if Astra is good enough to make bloodborne recomp. Do with it what you please.
+
 # Bloodborne native recompilation research
 
 **Status: a tested CPU recompilation proof, not a playable Bloodborne port.**
