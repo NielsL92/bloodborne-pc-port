@@ -4,6 +4,41 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
+LATEST UPDATE (supersedes older active-run details below): recipient HEAD
+`b0328e6`, donor latest prior3500c4f. Added `20c078f` export/geometry setup,
+`6082333` acosf, `b0328e6` EVENT_WRITE_EOS SignalFence support. Full146/146 tests
+pass after all changes: `.tmp/integration/autonomous-eos-acos-ctest.log`.
+Run07 stopped on ES, run08 passed ES/GS and stopped on acosf232.959s. Run08's
+zero-valued flags waiting for1 and ignored PM4 opcode0x48 led to EOS support.
+Authored EOS->WAIT sequence now has no unresolved wait; actual speed improvement
+NOT yet verified. EOS GDS stores remain unsupported (no fabricated fence).
+EOS completion packets also use existing growing-buffer replay suppression.
+
+ACTIVE run is now `.tmp/integration/autonomous-clinic-09`, exec session39212;
+no inputs sent yet. New EOS+acosf binary, copied run04 Timmy seed, cache
+`build/shader-cache-clinic-v3`. Inspect Offline selection then known sequence
+Cross(wait60frames)->Cross(Continue). New probes capture every15frames,max192;
+GNM performance/cost and new gnm-wait traces are enabled. Current tests saved in
+ignored `.tmp/integration` as always. Wait/category files report bounded EOS
+signals and unresolved labels; compare addresses/values before changing waits.
+
+Latest cache clinic-v3 checked66/rejected0. Run08 jobs66,64success,2unsupported
+vertex captures (062-1126d3a00 and064-1126d3e00) assert on shared memory outside
+compute; VGT stage-enable0x45 indicates tessellation setup. Do not fake stage or
+shared-memory data. Batch `build/shaders/clinic-post-stages-v1` and audit
+selection-audit.json.2new eligible shader keys;8existing entries upgraded only
+after verifying new HLSL EXACTLY equals current SM5 lowering of old sealed HLSL,
+with identical binding/state metadata. Private assemble_probe_cache.py performs
+that explicit check. Cache clinic-v2 is INCOMPLETE: initial audit rejected hash
+changes, subsequent AOT command populated only a partial directory; marked
+ASSEMBLY-INCOMPLETE.txt, never use it. clinic-v3 is the validated replacement.
+Native AOT report `.tmp/integration/clinic-aot-import-v3.json`.
+
+Still NO playable world frame or input-responsive hunter verified. Continue/save
+works; current task remains autonomous progress to actual gameplay. Other notes
+below describe earlier runs and implementation details.
+
+
 Active request: continue through keyboard, character creation and into actual
 controllable gameplay. Do not stop at the first two milestones. Only work in
 recipient `external/Bloodborne-Recompiled` on `codex/integration-validation`.
