@@ -2,60 +2,68 @@
 
 The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
 
-## Autonomous continuation - saved Timmy checkpoint (2026-09-07)
+## Autonomous continuation - transition import fixed (2026-09-07)
 
-The active user request is to continue autonomously through name entry,
-character creation, and into controllable gameplay. Do not stop at the keyboard
-fixture or creation milestone. Work remains only in recipient
-`external/Bloodborne-Recompiled` on `codex/integration-validation`; no pushes.
+Active request: continue through keyboard, character creation and into actual
+controllable gameplay. Do not stop at the first two milestones. Only work in
+recipient `external/Bloodborne-Recompiled` on `codex/integration-validation`.
+No owner branch mutations or pushes, ever. Hunter name Timmy, copied test saves.
 
-Recipient commits added this session: `7507c23` (bounded live pad probes,
-periodic captures and configurable 30-minute maximum), `4affa76` (opt-in text
-service probes; 145/145 CTest pass), `2d37fe1` (verified game-level evidence).
-The normal keyboard UI remains unchanged. Windows desktop-control tooling
-failed with a sandbox-helper setup error, so navigation uses explicit diagnostic
-Pad input and actual GPU frame captures. Text confirmation uses the existing
-host text API and normal guest GetStatus/GetResult/Term path; it is not evidence
-of physical typing into the live game window. Native keyboard controls have
-separate authored tests.
+Recipient now at `26663fd`: `asinf` exact libc NID `GZWjF-YIFFk` is implemented
+with guest XMM0 ABI regression and math boundary tests. All 146 CTest tests pass
+(log `.tmp/integration/autonomous-asinf-ctest.log`). `35219df` updated manual
+`Launch Game Test.cmd` to the locally generated character cache and 30-minute
+limit; file preflight passes. Prior commits `7507c23` diagnostic pad/captures,
+`4affa76` diagnostic IME, `2d37fe1` creation evidence. No code changes pending.
 
-Actual progress: offline New Game -> brightness/control setup -> opening movie
--> character creation. The locally captured shader toolchain compiled 75 jobs,
-producing 55 validated, non-conflicting D3D11 entries plus 118 native AOT entries
-in ignored `build/shader-cache-character-v1`. Four depth-only jobs were withheld
-from the legacy color cache. This renders the hunter preview, although lighting
-and stat-icon artifacts remain. `autonomous-offline-03` then accepted Timmy in
-its own name field (frame 4800), confirmed Finish/Yes, and wrote a new character
-save. Its `userdata0000` contains UTF-16 Timmy at byte 33732; see that run's
-`save-delta.json`. The previous seed has no Timmy. The run ended at its 900-second
-limit with no CPU fault or trapped import; it did not yet prove gameplay.
+Runtime evidence: offline menus -> opening movie -> rendered character creation,
+Timmy accepted through real guest IME result/status path -> Finish/Yes -> save.
+The name was submitted through an explicit test service channel because the
+required Windows desktop automation helper failed setup. This is not physical
+live typing; the native text field has separate authored control tests. Native
+UI/game memory bypasses were not used. GPU frame file captures show the game.
 
-An active follow-up run is `.tmp/integration/autonomous-clinic-04`, loading a
-copy of that new save with `build/shader-cache-character-v1`. It has an 1800-second
-limit; private launch script `.tmp/integration/probe_run.py` records settings,
-seed/cache hashes and source/binary/input evidence. Its `frame` command converts
-the latest raw GPU capture to `latest.bmp`; `input --buttons 0x4000` presses Cross
-for three flips. Up=0x10, Down=0x40, Left=0x80, Circle=0x2000; `--ly 0 --frames 30`
-can test movement later. Inputs are monotonic file commands, not memory patches.
-Observe current frames to select the next action. The ordinary online/offline
-screen initially selects online: Down then Cross selects offline. A new save
-should expose Continue; validate that screen rather than replaying creation.
+`autonomous-offline-03` ended at its 900-second timeout after writing Timmy only
+in userdata0000; it did NOT provide Continue when copied into run 04.
+`autonomous-clinic-04` then repeated creation, wrote userdata0000 AND the global
+userdata0010 (Timmy at 4246), and stopped at 969.192 seconds on exact `asinf`
+import trap. Last frame 3180 showed title/save-data update. This is NOT gameplay.
+Its private `result.json`, source archive, input histories and `save-delta.json`
+preserve the evidence. The new asinf fix needs live validation beyond that stop.
 
-Heavy raw frontier capture was removed from run 04; program/schema-3 shader
-captures and periodic GPU frames remain enabled for the next unknown scene.
-Only about 3.5 GiB physical RAM was free after run 03, with Unity and Dota 2
-running; do not close those unrelated applications without user direction.
+ACTIVE run `.tmp/integration/autonomous-clinic-05` now uses copied run04 saves,
+new binary, character-v1 cache, 1800-second runtime/1830-second recorder limit.
+Launcher exec session 86358. Determine current state from events/GPU captures;
+check whether the newer character-list save exposes Continue before starting
+New Game. Existing preference selects offline initially (inspect frame).
+Private helper `.tmp/integration/probe_run.py` records settings, seed/cache/input
+hashes; `frame <run>` writes latest.bmp; `input <run> --buttons 0x4000` presses
+Cross for 3 flips. Up=0x10, Down=0x40, Left=0x80, Circle=0x2000; `--ly 0 --frames 30`
+tests forward movement later. Atomic monotonic file inputs, no memory patches.
+`probe_sequence.py <run> '[[mask,gap],...]'` replays only already observed routes
+using accepted pad + presented-frame counters. Do not compete with a running
+sequence helper. Run05 enables bounded GNM performance/cost traces to diagnose
+slow 3D rendering. Heavy raw frontier capture remains disabled; program and
+schema-3 indexed shader captures plus GPU frames every60 remain enabled.
 
-Private shader evidence: `build/shaders/character-local-v1` includes all jobs,
-results and duplicate-key audit; `.tmp/integration/character-aot-import-v1.json`;
-`build/shader-cache-character-v1/assembled-cache.json`. The helper
-`.tmp/integration/compile_probe_shaders.py <run-name> <new-build-subdir>` compiles
-captured pairs with two compiler processes; preserve exact register/capture
-provenance and reject ambiguous GCN or conflicting shader variants.
+Local cache `build/shader-cache-character-v1` contains 55 validated D3D11 entries
+and118 native AOT entries. It was generated entirely from local captures, with
+75 successful shader jobs,71 eligible exports, identical-product duplicate keys
+and4 excluded depth-only pixel jobs. It fixes blank hunter preview; lighting and
+stat-icon defects remain. Jobs/provenance `build/shaders/character-local-v1`;
+private helper `.tmp/integration/compile_probe_shaders.py <run> <new-build-subdir>`.
+Always assemble a NEW cache for new scene shaders, reject ambiguous input and
+conflicting variants. Guest cache lookup memoizes misses, so restart is needed.
 
-See recipient `docs/pc-name-entry.md` and `docs/runtime-probe-input.md` for current
-claims and diagnostic contracts. The manual game launcher still uses the old
-menu cache and five-minute limit; update it when handing off the playable check.
+User closed Dota to free RAM and said they would close unused sessions. Do not
+close unrelated Unity/apps yourself. Windows memory counters confirmed paging
+pressure; test was rendering roughly1fps in creation. Last native computer-use
+attempt failed twice after skill-guided setup; do not bypass with Win32 UI
+scripts. Skill is computer-use SKILL.md in bundled plugin26.901.51231.
+
+Next: validate Continue if present -> new import/shader frontier -> controllable
+starting area -> movement and reload evidence. Keep docs honest about physical
+keyboard test vs diagnostic service, creation save vs gameplay checkpoint.
 
 ## PC name-entry update - 2026-09-07
 
