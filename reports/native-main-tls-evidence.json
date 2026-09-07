@@ -1,0 +1,1730 @@
+{
+  "status": "main static TLS advances native startup to another unknown compiled target",
+  "current": {
+    "main_tls_contract_sha256": "4ee195b7ece94225f6a8c33dc2f73d9bc63b999efa935ddec7698f983d73a61d",
+    "main_tls": {
+      "status": "bounded native main initial-exec TLS interface checked",
+      "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+      "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "module_path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+      "tcb": 7971459366912,
+      "memory_size": 1872,
+      "file_size": 0,
+      "alignment": 16,
+      "initial_hex": "",
+      "tcb_supported_bytes": 8,
+      "tcb_guarded_bytes": 56,
+      "scan_sha256": "d6787f0e9732cd1f4ae670e24b68758a73f86f11e84607654b5120d631f4aa8d",
+      "authored_sha256": "653a8db6b7f252673a573de3f23bd27f38770fe9cd56f3d21cba5b1910d6b185",
+      "requires_before_entry": true,
+      "initial_fs_base": 0,
+      "first_use": {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "source": 34062228,
+        "bytes": "64488b042500000000",
+        "next_rva": 34062237,
+        "next_bytes": "48030504853603",
+        "next_instruction": "add rax, qword ptr [rip + 0x3368504]",
+        "offset_slot": 87966888,
+        "offset": -1824,
+        "main_template_offset": 48,
+        "offset_word_has_relocation": false
+      },
+      "source_fs_loads": 328,
+      "distinct_offsets": [
+        -1864,
+        -1856,
+        -1840,
+        -1832,
+        -1824,
+        -1792,
+        -1696,
+        -1680,
+        -1672,
+        -1664
+      ],
+      "ghidra_sha256": "5a7e037d2ef084ddbb8998d37ac462ec16f35bea3ccc9f22f69659b580095d75",
+      "references": {
+        "records": [
+          {
+            "path": "rtld.c",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/rtld.c",
+            "sha256": "e97f43c2b7652c19f1eff0d9838d2fc07ccbf3046ddc89d55ccb0ae16ab47e49"
+          },
+          {
+            "path": "reloc.c",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/amd64/reloc.c",
+            "sha256": "5f35ef1c3addca812b3cc243a54750cff71c55684688bdfce0aa6882b0594ad6"
+          },
+          {
+            "path": "pthread_md.h",
+            "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/arch/amd64/include/pthread_md.h",
+            "sha256": "9bb4795210a79b5b3c12350777742839025580226a0c6f18d17e525cdc0a7e9b"
+          }
+        ],
+        "scope": "Independent FreeBSD TLS references; not complete PS4 ABI or console observations."
+      },
+      "game_execution": false,
+      "limitations": [
+        "Main PT_TLS occupies the 1872 bytes immediately below the chosen native TCB address; the first eight TCB bytes hold its logical self pointer.",
+        "Remaining 56 bytes in the explicitly reserved TCB envelope are guarded, not supplied as guessed DTV/thread/fiber fields. The envelope size is a native compatibility reservation.",
+        "Only explicit State FS base changes; Windows host FS is never modified.",
+        "Dynamic module TLS, DTV, symbol/module-index relocations, guest thread creation and complete startup ABI remain open. All 29 prior guards remain.",
+        "The ten checked offset words are initial mutable data, not immutable constants or execution coverage."
+      ]
+    },
+    "supplements": [
+      {
+        "manifest_sha256": "895e2ab813b3a921a0d2fa645990433dbc7feb91ce1674f445249cb655177c68",
+        "manifest": {
+          "schema": 1,
+          "base_registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+          "module": {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "name": "eboot.bin",
+            "path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+            "logical_base": 4294967296
+          },
+          "compiled_roots": [
+            4329042864
+          ],
+          "source_pairs": [],
+          "imports": [],
+          "object_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-207f3b0-v2-repeat\\function.obj",
+          "object_sha256": "52f44406d8cf95e4179b4a6da0927403b58e2516e9f00c424e4db99aeb19e21d",
+          "validation_path": "E:\\bloodborne PC port\\local\\compiler-spike\\native-leaf-207f3b0-v2-repeat\\summary.json",
+          "validation_sha256": "9240c43a522b23a8b9b62c57be0789b5069014371ef25c856aa34716de2d67bd",
+          "input_sha256": "fbb18e1f1352cc18cd60cc41d482493809add0b510ddc008edaedf26f6dfdb2b",
+          "audit_sha256": "43db43b2e6895ff7d2cf9646234d068972b461042e5fd72a49c0458005dd46f8",
+          "bitcode_sha256": "a9f5067d3adbd95fd837d8b6c714dc82526a106a7f22167dba2fc771f6df52b2",
+          "first_validation_sha256": "9240c43a522b23a8b9b62c57be0789b5069014371ef25c856aa34716de2d67bd",
+          "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+          "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+          "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+          "scope": "Additive two-instruction ordinary-return body; base imports, source pairs, recovery records and uncertainty are unchanged."
+        }
+      }
+    ],
+    "compiled_objects": 387,
+    "compiled_roots": 21283,
+    "status": "bounded native AOT entry reached an explicit runtime boundary",
+    "trace_identity": "989ca574240bd8a20d4c3bf1c306957e9dccff74f59489412e7e5b142b1dea69",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "executable_sha256": "a515938691532404e0363d863af62e914df7f243b1450d5b9cec09144ca4d40b",
+    "executable_bytes": 61860352,
+    "bundle_sha256": "8b85151f691d368c76bfa32db47d7bfa8160afbb1fed07b17a0525ddfaec4eef",
+    "private_image_before_native_initialization": {
+      "status": "private-load-validated",
+      "regions": 20,
+      "relocations": 238580,
+      "guards": 30,
+      "mapped_bytes": 98576280,
+      "verified_bytes": 98575992,
+      "guarded_bytes": 288,
+      "sha256_unguarded": "423000b20505767195da78fa84df80adb38da351a9c8b0989f4b6219aa8218ae",
+      "game_execution": false
+    },
+    "native_providers": {
+      "canary": {
+        "contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c",
+        "logical_address": 7696585588736,
+        "size": 8,
+        "rights": 3,
+        "requires_initialization_before_entry": true,
+        "nid": "f7uOxY9mM1U",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257,
+        "bindings": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "offset": 87964640,
+            "type": 6,
+            "symbol_index": 676,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 676,
+              "name": "f7uOxY9mM1U#p#J",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "offset": 294936,
+            "type": 6,
+            "symbol_index": 18,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 18,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "offset": 311412,
+            "type": 6,
+            "symbol_index": 22,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 22,
+              "name": "f7uOxY9mM1U#C#D",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "offset": 32792,
+            "type": 6,
+            "symbol_index": 5,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 5,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "offset": 327704,
+            "type": 6,
+            "symbol_index": 19,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 19,
+              "name": "f7uOxY9mM1U#D#E",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "offset": 278552,
+            "type": 6,
+            "symbol_index": 73,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 73,
+              "name": "f7uOxY9mM1U#B#C",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "offset": 917560,
+            "type": 6,
+            "symbol_index": 55,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 55,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "offset": 754912,
+            "type": 6,
+            "symbol_index": 13,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 13,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          }
+        ]
+      }
+    },
+    "native_service_contract_sha256": "cb6c3ae0990fae5d527aa71ad86ce79920664da19ff629b464bdc6264377902e",
+    "native_service_bindings": [
+      {
+        "pc": 4340837032,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837048,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837064,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340837080,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842152,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842168,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842184,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842200,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842216,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842232,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340842248,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845736,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845784,
+        "canonical_pc": 38654707056,
+        "handler": "rwlock_init",
+        "nid": "6ULAa0fq4jA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845816,
+        "canonical_pc": 38654713296,
+        "handler": "rwlock_wrlock",
+        "nid": "mqdNorrB+gI",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 4340845864,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884902976,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884903024,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 12884903056,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738912,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738928,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738944,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359738960,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739088,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739104,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 34359739120,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654705696,
+        "canonical_pc": 38654705696,
+        "handler": "rwlock_unlock",
+        "nid": "+L98PIbGttk",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654706416,
+        "canonical_pc": 38654706416,
+        "handler": "mutex_destroy",
+        "nid": "2Of0f+3mhhE",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707056,
+        "canonical_pc": 38654707056,
+        "handler": "rwlock_init",
+        "nid": "6ULAa0fq4jA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654707520,
+        "canonical_pc": 38654707520,
+        "handler": "mutex_lock",
+        "nid": "9UK1vLZQft4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654708320,
+        "canonical_pc": 38654708320,
+        "handler": "mutexattr_init",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709072,
+        "canonical_pc": 38654709072,
+        "handler": "direct_memory_map",
+        "nid": "L-Q3LEjIbgA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709248,
+        "canonical_pc": 38654709248,
+        "handler": "direct_memory_release",
+        "nid": "MBuItvba6z8",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654709664,
+        "canonical_pc": 38654709664,
+        "handler": "rwlock_rdlock",
+        "nid": "Ox9i0c7L5w0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654711568,
+        "canonical_pc": 38654711568,
+        "handler": "mutex_init",
+        "nid": "cmo1RIYva9o",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654712608,
+        "canonical_pc": 38654712608,
+        "handler": "mutexattr_settype",
+        "nid": "iMp8QpE+XO4",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713296,
+        "canonical_pc": 38654713296,
+        "handler": "rwlock_wrlock",
+        "nid": "mqdNorrB+gI",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713664,
+        "canonical_pc": 38654713664,
+        "handler": "direct_memory_size",
+        "nid": "pO96TwzOm5E",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654713920,
+        "canonical_pc": 38654713920,
+        "handler": "direct_memory_allocate",
+        "nid": "rTXw65xmLIA",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714064,
+        "canonical_pc": 38654714064,
+        "handler": "mutexattr_destroy",
+        "nid": "smWEktiyyG0",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      },
+      {
+        "pc": 38654714192,
+        "canonical_pc": 38654714192,
+        "handler": "mutex_unlock",
+        "nid": "tn3VlD0hG60",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257
+      }
+    ],
+    "runtime_seed_sha256": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "runtime_seed_origin": "explicit replay",
+    "control_trace_sha256": "8dedcbb81babc53c2fdcd9e917ff8ee79a2354e9e2ec796991a0cdd9202f2827",
+    "exit_code": 2952790043,
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unknown-compiled-target",
+      "reason": 27,
+      "source": "0000000000000000",
+      "actual": "0000000102375af0",
+      "wanted": "0000000000000000",
+      "address": "0000000000000000",
+      "width": 0,
+      "pc": "0000000102375af0",
+      "rsp": "00000700000ffea8",
+      "entry": "00000001000000a0",
+      "thread": 59204,
+      "compilation_identity": "989ca574240bd8a20d4c3bf1c306957e9dccff74f59489412e7e5b142b1dea69"
+    },
+    "active_import": null,
+    "guard": null,
+    "records": [
+      {
+        "status": "native-boundary-stop",
+        "boundary": "unknown-compiled-target",
+        "reason": 27,
+        "source": "0000000000000000",
+        "actual": "0000000102375af0",
+        "wanted": "0000000000000000",
+        "address": "0000000000000000",
+        "width": 0,
+        "pc": "0000000102375af0",
+        "rsp": "00000700000ffea8",
+        "entry": "00000001000000a0",
+        "thread": 59204,
+        "compilation_identity": "989ca574240bd8a20d4c3bf1c306957e9dccff74f59489412e7e5b142b1dea69"
+      }
+    ],
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain incomplete.",
+      "An explicit runtime boundary is a diagnostic result requiring investigation, not a P4 gate pass.",
+      "Source module copies remain NX data. Only AOT roots and explicit native services can execute.",
+      "The recorded seed is a native runtime input, not a console value. This bounded trace is not whole-game execution coverage."
+    ]
+  },
+  "authored": {
+    "status": "native main TLS initialization and AOT FS checks pass",
+    "positive": {
+      "status": "pass",
+      "aot_calls": 3752,
+      "native_threads": 8,
+      "template_bytes_per_thread": 1872,
+      "game_execution": false
+    },
+    "negative_stops": 3,
+    "duplicate_initialization_rejected": true,
+    "objects": {
+      "function.obj": "af6983c3f677f19ecc6d2d53d05600445514cc5a983f045f4ec8c385b83d00b9",
+      "fault.obj": "cf2f9c900bba7491ce1b0d6f41af72e2f25b3167dbddac5e50aff056a1111198",
+      "memory.obj": "d0cf4b70087b0542e7675d1db6d949550d4772ce261a245ed311a7db314a2a38",
+      "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "fp.obj": "ee1d702b262d4064d1fd684590c5992e3db59e94a4d8fbf61a5a4ae5483e383b",
+      "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+      "main_tls.obj": "f909f9b9899ecafab9ed5b247085a10a7db8db91e70d130e18b6edec0c8aebbf",
+      "main_tls_fixture.obj": "f4f3397d80e20ca58fe13c92b0a36136e3e91e262a4015408d70bcdb6d9397d6"
+    },
+    "lifter_sha256": "a0c8a8d566a4d2e1e1e50c668acd565340a48eca652239c2032a935dd08c03b3",
+    "semantics_sha256": "9fb5e55e7d5dde0482182afda9e3160f3d33298f3b724c1d21111df26446a8fa",
+    "game_aot_execution": false,
+    "limits": [
+      "Authored native thread contexts test explicit State FS bases, independent templates and zero fill. Host FS is never changed.",
+      "Only main initial-exec storage and the TCB self pointer are provided. Other TCB fields remain guarded; module/DTV references are unresolved."
+    ]
+  },
+  "contract": {
+    "status": "bounded native main initial-exec TLS interface checked",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+    "module_path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+    "tcb": 7971459366912,
+    "memory_size": 1872,
+    "file_size": 0,
+    "alignment": 16,
+    "initial_hex": "",
+    "tcb_supported_bytes": 8,
+    "tcb_guarded_bytes": 56,
+    "scan_sha256": "d6787f0e9732cd1f4ae670e24b68758a73f86f11e84607654b5120d631f4aa8d",
+    "authored_sha256": "653a8db6b7f252673a573de3f23bd27f38770fe9cd56f3d21cba5b1910d6b185",
+    "requires_before_entry": true,
+    "initial_fs_base": 0,
+    "first_use": {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "source": 34062228,
+      "bytes": "64488b042500000000",
+      "next_rva": 34062237,
+      "next_bytes": "48030504853603",
+      "next_instruction": "add rax, qword ptr [rip + 0x3368504]",
+      "offset_slot": 87966888,
+      "offset": -1824,
+      "main_template_offset": 48,
+      "offset_word_has_relocation": false
+    },
+    "source_fs_loads": 328,
+    "distinct_offsets": [
+      -1864,
+      -1856,
+      -1840,
+      -1832,
+      -1824,
+      -1792,
+      -1696,
+      -1680,
+      -1672,
+      -1664
+    ],
+    "ghidra_sha256": "5a7e037d2ef084ddbb8998d37ac462ec16f35bea3ccc9f22f69659b580095d75",
+    "references": {
+      "records": [
+        {
+          "path": "rtld.c",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/rtld.c",
+          "sha256": "e97f43c2b7652c19f1eff0d9838d2fc07ccbf3046ddc89d55ccb0ae16ab47e49"
+        },
+        {
+          "path": "reloc.c",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/amd64/reloc.c",
+          "sha256": "5f35ef1c3addca812b3cc243a54750cff71c55684688bdfce0aa6882b0594ad6"
+        },
+        {
+          "path": "pthread_md.h",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/arch/amd64/include/pthread_md.h",
+          "sha256": "9bb4795210a79b5b3c12350777742839025580226a0c6f18d17e525cdc0a7e9b"
+        }
+      ],
+      "scope": "Independent FreeBSD TLS references; not complete PS4 ABI or console observations."
+    },
+    "game_execution": false,
+    "limitations": [
+      "Main PT_TLS occupies the 1872 bytes immediately below the chosen native TCB address; the first eight TCB bytes hold its logical self pointer.",
+      "Remaining 56 bytes in the explicitly reserved TCB envelope are guarded, not supplied as guessed DTV/thread/fiber fields. The envelope size is a native compatibility reservation.",
+      "Only explicit State FS base changes; Windows host FS is never modified.",
+      "Dynamic module TLS, DTV, symbol/module-index relocations, guest thread creation and complete startup ABI remain open. All 29 prior guards remain.",
+      "The ten checked offset words are initial mutable data, not immutable constants or execution coverage."
+    ]
+  },
+  "scan": {
+    "status": "main static TLS offset words and independent FS windows checked",
+    "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+    "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+    "module_path": "E:\\bloodborne PC port\\local\\update\\uroot\\eboot.bin",
+    "tls": {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "module_id": 1,
+      "template_pc": 4379754560,
+      "file_size": 0,
+      "memory_size": 1872,
+      "alignment": 16,
+      "initial_hex": "",
+      "note": "Logical module IDs follow this explicit registry order; per-thread layout is not selected."
+    },
+    "fs_self_loads": 328,
+    "immediate_offset_uses": 328,
+    "unknown_followups": 0,
+    "distinct_offsets": [
+      -1864,
+      -1856,
+      -1840,
+      -1832,
+      -1824,
+      -1792,
+      -1696,
+      -1680,
+      -1672,
+      -1664
+    ],
+    "first_use": {
+      "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+      "source": 34062228,
+      "bytes": "64488b042500000000",
+      "next_rva": 34062237,
+      "next_bytes": "48030504853603",
+      "next_instruction": "add rax, qword ptr [rip + 0x3368504]",
+      "offset_slot": 87966888,
+      "offset": -1824,
+      "main_template_offset": 48,
+      "offset_word_has_relocation": false
+    },
+    "ghidra_sha256": "5a7e037d2ef084ddbb8998d37ac462ec16f35bea3ccc9f22f69659b580095d75",
+    "checked_instructions": 10,
+    "references": {
+      "records": [
+        {
+          "path": "rtld.c",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/rtld.c",
+          "sha256": "e97f43c2b7652c19f1eff0d9838d2fc07ccbf3046ddc89d55ccb0ae16ab47e49"
+        },
+        {
+          "path": "reloc.c",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/libexec/rtld-elf/amd64/reloc.c",
+          "sha256": "5f35ef1c3addca812b3cc243a54750cff71c55684688bdfce0aa6882b0594ad6"
+        },
+        {
+          "path": "pthread_md.h",
+          "url": "https://raw.githubusercontent.com/freebsd/freebsd-src/releng/9.0/lib/libthr/arch/amd64/include/pthread_md.h",
+          "sha256": "9bb4795210a79b5b3c12350777742839025580226a0c6f18d17e525cdc0a7e9b"
+        }
+      ],
+      "scope": "Independent FreeBSD TLS references; not complete PS4 ABI or console observations."
+    },
+    "baseline_hashes": {
+      "external/shadPS4/src/core/tls.h": "ccdf3cec9913ae71770a79d797dacdf60b384e138b539c169b50e5039845d076",
+      "external/shadPS4/src/core/linker.cpp": "ec012d4cd39534145099744c9d44407de0f0209537863560023df5132ae0b064",
+      "external/shadPS4/src/core/libraries/kernel/threads/tcb.cpp": "2118f7550ff3d9af5d79749b1d16557160da3e42933d803a619ecf0930d19c1f"
+    },
+    "files": {
+      "sites.json": "a918631b73ee066d5b0851938f9eb5441765faaafba9c40e0e4373719c6372f2",
+      "unknown-followups.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "checked-instructions.json": "6abb1c1d4aefa52890e4846b4a1d5837b9a6081813a5ce029c7a0ed2e32d47b1"
+    },
+    "game_execution": false,
+    "limitations": [
+      "Main FS self pointer and initial-exec storage only. DTV, other TCB fields, dynamic modules and TLS symbol/module references are not resolved by this evidence.",
+      "Offset words have no relocations but live in mutable source data; this verifies initial contents, not immutability.",
+      "All recovered FS loads are inventoried; only immediate recognized offset uses establish these static offsets. Unknown followups remain explicit."
+    ]
+  },
+  "completed_constructors": [
+    {
+      "ordinal": 0,
+      "slot": 87964600,
+      "target": 34529168,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 1,
+      "slot": 87964592,
+      "target": 33301184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 2,
+      "slot": 87964584,
+      "target": 37245712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 3,
+      "slot": 87964576,
+      "target": 37245664,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 4,
+      "slot": 87964568,
+      "target": 37245616,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 5,
+      "slot": 87964560,
+      "target": 37243984,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 6,
+      "slot": 87964552,
+      "target": 37243936,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 7,
+      "slot": 87964544,
+      "target": 37243888,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 8,
+      "slot": 87964536,
+      "target": 37242832,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 9,
+      "slot": 87964528,
+      "target": 37242784,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 10,
+      "slot": 87964520,
+      "target": 37242736,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 11,
+      "slot": 87964512,
+      "target": 37242016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 12,
+      "slot": 87964504,
+      "target": 37241968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 13,
+      "slot": 87964496,
+      "target": 37241920,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 14,
+      "slot": 87964488,
+      "target": 37241456,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 15,
+      "slot": 87964480,
+      "target": 37241408,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 16,
+      "slot": 87964472,
+      "target": 37241360,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 17,
+      "slot": 87964464,
+      "target": 37240768,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 18,
+      "slot": 87964456,
+      "target": 37240720,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 19,
+      "slot": 87964448,
+      "target": 37240672,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 20,
+      "slot": 87964440,
+      "target": 37239808,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 21,
+      "slot": 87964432,
+      "target": 37239760,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 22,
+      "slot": 87964424,
+      "target": 37239712,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 23,
+      "slot": 87964416,
+      "target": 37238512,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 24,
+      "slot": 87964408,
+      "target": 37238464,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 25,
+      "slot": 87964400,
+      "target": 37238416,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 26,
+      "slot": 87964392,
+      "target": 37233152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 27,
+      "slot": 87964384,
+      "target": 37233104,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 28,
+      "slot": 87964376,
+      "target": 37233056,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 29,
+      "slot": 87964368,
+      "target": 37230384,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 30,
+      "slot": 87964360,
+      "target": 37230336,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 31,
+      "slot": 87964352,
+      "target": 37230288,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 32,
+      "slot": 87964344,
+      "target": 37226064,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 33,
+      "slot": 87964336,
+      "target": 37226016,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 34,
+      "slot": 87964328,
+      "target": 37225968,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 35,
+      "slot": 87964320,
+      "target": 37220320,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 36,
+      "slot": 87964312,
+      "target": 37220272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 37,
+      "slot": 87964304,
+      "target": 37220224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 38,
+      "slot": 87964296,
+      "target": 37215280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 39,
+      "slot": 87964288,
+      "target": 37215232,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 40,
+      "slot": 87964280,
+      "target": 37215184,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 41,
+      "slot": 87964272,
+      "target": 37213376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 42,
+      "slot": 87964264,
+      "target": 37213328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 43,
+      "slot": 87964256,
+      "target": 37213280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 44,
+      "slot": 87964248,
+      "target": 37210000,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 45,
+      "slot": 87964240,
+      "target": 37209952,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 46,
+      "slot": 87964232,
+      "target": 37209904,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 47,
+      "slot": 87964224,
+      "target": 37207248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 48,
+      "slot": 87964216,
+      "target": 37207200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 49,
+      "slot": 87964208,
+      "target": 37207152,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 50,
+      "slot": 87964200,
+      "target": 37204640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 51,
+      "slot": 87964192,
+      "target": 37204592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 52,
+      "slot": 87964184,
+      "target": 37204544,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 53,
+      "slot": 87964176,
+      "target": 37203376,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 54,
+      "slot": 87964168,
+      "target": 37203328,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 55,
+      "slot": 87964160,
+      "target": 37203280,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 56,
+      "slot": 87964152,
+      "target": 37202752,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 57,
+      "slot": 87964144,
+      "target": 37202704,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 58,
+      "slot": 87964136,
+      "target": 37202656,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 59,
+      "slot": 87964128,
+      "target": 37202352,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 60,
+      "slot": 87964120,
+      "target": 37202304,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 61,
+      "slot": 87964112,
+      "target": 37202256,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 62,
+      "slot": 87964104,
+      "target": 37196576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 63,
+      "slot": 87964096,
+      "target": 37196528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 64,
+      "slot": 87964088,
+      "target": 37196480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 65,
+      "slot": 87964080,
+      "target": 37194960,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 66,
+      "slot": 87964072,
+      "target": 37194912,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 67,
+      "slot": 87964064,
+      "target": 37194864,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 68,
+      "slot": 87964056,
+      "target": 37194688,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 69,
+      "slot": 87964048,
+      "target": 37194640,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 70,
+      "slot": 87964040,
+      "target": 37194592,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 71,
+      "slot": 87964032,
+      "target": 37191072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 72,
+      "slot": 87964024,
+      "target": 37191024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 73,
+      "slot": 87964016,
+      "target": 37190976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 74,
+      "slot": 87964008,
+      "target": 37189632,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 75,
+      "slot": 87964000,
+      "target": 37189584,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 76,
+      "slot": 87963992,
+      "target": 37189536,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 77,
+      "slot": 87963984,
+      "target": 37189072,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 78,
+      "slot": 87963976,
+      "target": 37189024,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 79,
+      "slot": 87963968,
+      "target": 37188976,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 80,
+      "slot": 87963960,
+      "target": 37188576,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 81,
+      "slot": 87963952,
+      "target": 37188528,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 82,
+      "slot": 87963944,
+      "target": 37188480,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 83,
+      "slot": 87963936,
+      "target": 37186272,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 84,
+      "slot": 87963928,
+      "target": 37186224,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 85,
+      "slot": 87963920,
+      "target": 37186176,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 86,
+      "slot": 87963912,
+      "target": 37185296,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 87,
+      "slot": 87963904,
+      "target": 37185248,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    },
+    {
+      "ordinal": 88,
+      "slot": 87963896,
+      "target": 37185200,
+      "evidence": "R_X86_64_RELATIVE",
+      "indexed_unwind_start": false
+    }
+  ],
+  "entered_constructor": {
+    "ordinal": 89,
+    "slot": 87963888,
+    "target": 37181152,
+    "evidence": "R_X86_64_RELATIVE",
+    "indexed_unwind_start": false
+  },
+  "trace_events": 315,
+  "last_call": {
+    "event": "dispatch",
+    "target": 4332149488,
+    "pc": 4332149488,
+    "rsp": 7696582442664,
+    "rbp": 7696582442816,
+    "rdi": 4385952944,
+    "rsi": 4385808496,
+    "rdx": 0,
+    "rcx": 4382773120,
+    "r8": 4385807712,
+    "r9": 776,
+    "rax": 4382773120,
+    "memory_operations": 1748
+  },
+  "identical_artifacts": {
+    "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "canary.obj": "5b435d1c44a89b564e47914ca642d7804295728d7a6c5e19015778ef175a3663",
+    "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+    "direct_memory.obj": "6a7b2baff05fe350258099b57a596b862ef3b71b18e6c2d2221570de7d002ef5",
+    "entry.stdout": "d7ffc21257abc20f359cd5810d0acc826acaf1f825a38fdda25d9ae42758c68b",
+    "expected-image.json": "338bd6b9841fbfcf123bdc4f0936e5261d4229dd45dc4381ebf1f2fa23a3f47d",
+    "fault.obj": "cf2f9c900bba7491ce1b0d6f41af72e2f25b3167dbddac5e50aff056a1111198",
+    "fp.obj": "ee1d702b262d4064d1fd684590c5992e3db59e94a4d8fbf61a5a4ae5483e383b",
+    "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+    "linked-roots.json": "87a2dd3b1858781db26dc527d572e30b68a2570d64a373177c959fdf0e0206a0",
+    "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+    "main_tls.obj": "f909f9b9899ecafab9ed5b247085a10a7db8db91e70d130e18b6edec0c8aebbf",
+    "memory.obj": "d0cf4b70087b0542e7675d1db6d949550d4772ce261a245ed311a7db314a2a38",
+    "mutex.obj": "0396701e5174bf4e57024d8ae8f108c7483fb5adb71a117730b117597f65ab4d",
+    "mutexattr.obj": "19c78e008d610c0be59190dbea9b19d66f1f533f8c0d557af67cc7d8f0eb2d35",
+    "native-calls.jsonl": "8dedcbb81babc53c2fdcd9e917ff8ee79a2354e9e2ec796991a0cdd9202f2827",
+    "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+    "prepare.stdout": "d7ffc21257abc20f359cd5810d0acc826acaf1f825a38fdda25d9ae42758c68b",
+    "probe-manifest.json": "989ca574240bd8a20d4c3bf1c306957e9dccff74f59489412e7e5b142b1dea69",
+    "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+    "rwlock.obj": "a35d55547d8384d95a2013049f0c5f6ece1a53f0d8c15262823e2b7c2d31caa8",
+    "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+    "startup-config.h": "03701e2c051c4f14acaeb0761de1dfeabb36180b22101080ceb67ad86b56edeb",
+    "startup.bin": "8b85151f691d368c76bfa32db47d7bfa8160afbb1fed07b17a0525ddfaec4eef",
+    "startup.exe": "a515938691532404e0363d863af62e914df7f243b1450d5b9cec09144ca4d40b",
+    "startup_fixture.obj": "ae8dcfa3274c24c88219f531136b90d460f785c07a4d6187c2d4c7de54820bfc"
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-tls-references-v1",
+      "start_utc": "2026-09-07T02:16:46.410879+00:00",
+      "end_utc": "2026-09-07T02:16:47.849438+00:00",
+      "manifest_sha256": "9143649ec9d7c403e392be69a4f361a83cf2c68e5b36aad774209a139a9dc99b",
+      "sources_sha256": "b78562c89da0aabbda735e7acdec3e3d13aff4b73121ef07211359386245225f"
+    },
+    {
+      "run": "20260907-p4-startup-tls-windows-v1",
+      "start_utc": "2026-09-07T02:17:20.458039+00:00",
+      "end_utc": "2026-09-07T02:17:20.707151+00:00",
+      "manifest_sha256": "5e94b55358108d8d192225924c6463c55a765c1d2625fdb6f38068223ee97784",
+      "sources_sha256": "c37bd09389f644210d9d73f98f54d0079775d4057caa13c500ce263e889c27ef"
+    },
+    {
+      "run": "20260907-p4-ghidra-startup-tls-v1",
+      "start_utc": "2026-09-07T02:17:20.960479+00:00",
+      "end_utc": "2026-09-07T02:17:28.222486+00:00",
+      "manifest_sha256": "8553353602485bf9dda14c22649af1b63d7d2945d8f7e19711ed051a2b1805f7",
+      "sources_sha256": "c37bd09389f644210d9d73f98f54d0079775d4057caa13c500ce263e889c27ef"
+    },
+    {
+      "run": "20260907-p4-native-tls-scan-v1",
+      "start_utc": "2026-09-07T02:19:04.658086+00:00",
+      "end_utc": "2026-09-07T02:19:05.890315+00:00",
+      "manifest_sha256": "ac496cd2cc4ec307f71e3e641e57f4b0fd300a50ff9dc560a26e6734af2b356a",
+      "sources_sha256": "70bee58293b7a5bf8dc7f294dcc21057731c9fc72e41b41e7e6475e7e4afeb00"
+    },
+    {
+      "run": "20260907-p4-main-tls-runtime-v2-name",
+      "start_utc": "2026-09-07T02:21:29.900129+00:00",
+      "end_utc": "2026-09-07T02:21:36.053690+00:00",
+      "manifest_sha256": "8552f78e511e5507eb91124ac9b45db0929ce9638acf8a182d0d1157ba4f9aec",
+      "sources_sha256": "e52362d6dde526ca95d5643729f2889d4e317aa86c0fbcb7459fec6884fc942b"
+    },
+    {
+      "run": "20260907-p4-main-tls-runtime-v3-repeat",
+      "start_utc": "2026-09-07T02:22:57.240906+00:00",
+      "end_utc": "2026-09-07T02:23:03.150834+00:00",
+      "manifest_sha256": "424dd070f79ada05bfadd4ac408013d9d9f020fc8d01ba597d7cebbfb48b7355",
+      "sources_sha256": "e52362d6dde526ca95d5643729f2889d4e317aa86c0fbcb7459fec6884fc942b"
+    },
+    {
+      "run": "20260907-p4-main-tls-contract-v1",
+      "start_utc": "2026-09-07T02:23:08.072853+00:00",
+      "end_utc": "2026-09-07T02:23:08.351862+00:00",
+      "manifest_sha256": "e1cbad6c1ae7710413d7df4fe8875473a0adfb232f795fa2f1c42a9aff1c26e9",
+      "sources_sha256": "19e45b3d8dbe2798d0161ba4f8b81b56224636340c0d1048049365ec7f3e0533"
+    },
+    {
+      "run": "20260907-p4-startup-main-tls-v1",
+      "start_utc": "2026-09-07T02:23:30.019042+00:00",
+      "end_utc": "2026-09-07T02:23:45.802214+00:00",
+      "manifest_sha256": "61e7f14c9bac95b8bd46ee36edd46ed7da668e40a66b772aca494ede179ad194",
+      "sources_sha256": "19e45b3d8dbe2798d0161ba4f8b81b56224636340c0d1048049365ec7f3e0533"
+    },
+    {
+      "run": "20260907-p4-startup-main-tls-v2-repeat",
+      "start_utc": "2026-09-07T02:24:28.367944+00:00",
+      "end_utc": "2026-09-07T02:24:42.673354+00:00",
+      "manifest_sha256": "5fe88b5e390ba0825a826956824fca7e5c4d9f14205ff7c6167530e8506c09b9",
+      "sources_sha256": "19e45b3d8dbe2798d0161ba4f8b81b56224636340c0d1048049365ec7f3e0533"
+    }
+  ],
+  "preserved_failure": {
+    "run": "20260907-p4-main-tls-runtime-v1",
+    "manifest_sha256": "212958b8fda58c184d050d916d7d58333b047e2f52c8e99c249812a6ad3ed35b",
+    "reason": "Fixture SIZE identifier collided with the Windows SIZE type. Renamed TLS_BYTES before successful repeated builds."
+  },
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limitations": [
+    "Constructor ordinal 89 remains in progress. The next missing target is 0x102375af0.",
+    "Main static TLS/self-pointer only; 29 prior data/TLS guards plus one guard for unsupported TCB fields remain.",
+    "No dynamic-module TLS, guest thread creation, full initialization/FP/control closure or native boot is claimed."
+  ]
+}

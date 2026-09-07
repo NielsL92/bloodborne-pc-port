@@ -1,6 +1,17 @@
 # Native recompilation execution status
 
-## Current continuation — 2026-09-07 02:15 UTC
+## Current continuation — 2026-09-07 02:26 UTC
+
+Continue autonomously; user action: none. Read reports/native-main-tls.md and its evidence JSON. **Native startup passes its first FS-based TLS access and remains inside constructor 89, with constructors 0–88 complete. P4 is open; no native boot or playable port exists.**
+
+Current startup-v19-main-tls-repeat matches v18-main-tls: 61,860,352 bytes, SHA256 a515938691532404e0363d863af62e914df7f243b1450d5b9cec09144ca4d40b. Add --tls local/runtime/main-tls-contract-v1 to the current --services rwlock-contract-v1 / --supplement native-leaf-manifest-v1 command, retaining loader-plan-v9-runtime-word and the recorded seed. Native main TLS initializes 1,872 bytes below logical TCB 0x74000010000 and its eight-byte self pointer, setting explicit State FS only. Other TCB fields are guarded: 29 prior guards plus one new 56-byte guard. All 328 recovered FS loads use ten checked initial offsets; eight-thread/3,752-call AOT tests repeat.
+
+Next stop unknown compiled target 0x102375af0, RSP 0x700000ffea8, 1,748 completed memory operations; 315 events repeat. Fresh recovery local/cfg/native-target-2375af0-v1 records five bytes MOV RAX,[RDI+0x40]; RET, still pending Ghidra and compiled validation. Extend the leaf compilation tooling and additive manifest, then continue. Initial neighboring bodies are not automatically accepted targets.
+
+Compiler v12 / semantics v35 and base registry-v7 with one supplement remain current (387 game objects / 21,283 roots). Source bytes stay NX. Dynamic TLS/DTV/TCB fields, guest thread creation, complete initialization/FP/control closure and all prior uncertainties remain open. P1 route/profiling/audio is unchanged. Continue after commits.
+
+
+## Previous checkpoint — 2026-09-07 02:15 UTC
 
 Continue autonomously; user action: none. Read reports/native-rwlock.md and its evidence JSON. **Native startup completes constructors 0–88 and initializes a reader/writer lock inside ordinal 89. P4 remains open; no native boot or playable port exists.**
 
