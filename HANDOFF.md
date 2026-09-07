@@ -4,6 +4,22 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
+LATEST: recipient00ae404 repairs setjmp's outdated stack offsets (64/56 ->96/88)
+using shared integer-bridge constants. Authored guest two-import test reproduces
+bad savedPC/SP before fix, then passes register restoration and longjmp(0/37).
+Full147/147 CTest pass12.91s: autonomous-setjmp-ctest.log. Prior34c4369 vsprintf
+also passed. Run11 stalled atframe1125; two private snapshots show main guest
+loop0xa30c70..ee6 and stale savedjmpcontext. It was deliberately stopped816.350s
+(exit -1, stopped-by-agent.json), not a spontaneous exception. Live effect of
+setjmp correction still needs verification. Read docs/runtime-probe-input.md.
+ACTIVE run12 session62318: copied run04 Timmy, clinic-v5 (74checked/0rejected).
+No input sent at this note. Inspect Offline then known twoCross sequence60/15.
+Private snapshot_probe.exe reuses isolated_runner.cpp WriteTimeoutSnapshot,
+verifies exact test-child executable path, takes PID and output TXT args. It
+reads process memory/thread contexts, no native UI automation. Native UI helper
+still unavailable; diagnostic Pad/IME service controls remain the testing route.
+
+
 CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
 adds vsprintf with SysV va_list handling;146/146 tests pass9.81s. Run09 ended
 in title-demo heap assertion0x208591b at267.960s, no inputs and no EOS seen.
