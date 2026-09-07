@@ -7,7 +7,7 @@
 #include <stdexcept>
 namespace bb_runtime {
 AddressSpace::AddressSpace(){if(!InitializeCriticalSectionEx(&lock_,4000,0))throw std::runtime_error("critical section initialization");}
-AddressSpace::~AddressSpace(){for(auto& region:regions_)VirtualFree(region.backing,0,MEM_RELEASE);DeleteCriticalSection(&lock_);}
+AddressSpace::~AddressSpace(){for(auto& region:regions_)if(!region.backing_owner)VirtualFree(region.backing,0,MEM_RELEASE);DeleteCriticalSection(&lock_);}
 const Region* AddressSpace::containing(uint64_t address)const noexcept{
  auto it=std::upper_bound(regions_.begin(),regions_.end(),address,[](uint64_t pc,const Region& r){return pc<r.base;});if(it==regions_.begin())return nullptr;--it;return address-it->base<it->size?&*it:nullptr;
 }
@@ -18,6 +18,14 @@ void AddressSpace::add(uint64_t base,size_t size,uint32_t rights,const void* ini
  if(initial_size)std::memcpy(bytes,initial,initial_size);
  try{regions_.push_back({base,size,bytes,rights});}catch(...){VirtualFree(bytes,0,MEM_RELEASE);throw;}
  std::sort(regions_.begin(),regions_.end(),[](const Region& a,const Region& b){return a.base<b.base;});
+}
+bool AddressSpace::map_private(Memory* m,uint64_t base,size_t size,uint32_t rights,void* backing,const std::shared_ptr<void>& owner)noexcept{
+ context(m);if(m->space!=this||!size||size>UINT64_MAX-base||!owner||!backing||(rights!=Read&&rights!=(Read|Write)))return false;enter();
+ for(const auto& r:regions_)if(base<r.base+r.size&&r.base<base+size){leave();return false;}
+ uintptr_t at=reinterpret_cast<uintptr_t>(backing);if(size>UINTPTR_MAX-at){leave();return false;}uintptr_t end=at+size;
+ while(at<end){MEMORY_BASIC_INFORMATION info{};if(!VirtualQuery(reinterpret_cast<void*>(at),&info,sizeof info)||info.State!=MEM_COMMIT||info.Type!=MEM_PRIVATE||info.AllocationBase!=owner.get()||info.Protect!=PAGE_READWRITE){leave();return false;}uintptr_t next=reinterpret_cast<uintptr_t>(info.BaseAddress)+info.RegionSize;if(next<=at){leave();return false;}at=std::min(next,end);}
+ try{regions_.push_back({base,size,static_cast<uint8_t*>(backing),rights,owner});}catch(...){leave();return false;}
+ std::sort(regions_.begin(),regions_.end(),[](const Region& a,const Region& b){return a.base<b.base;});leave();return true;
 }
 void AddressSpace::guard(uint64_t base,size_t size,const std::string& identity){
  if(sealed_||!size||uint64_t(size)>UINT64_MAX-base||!span(base,size,Read)||identity.empty())throw std::runtime_error("invalid unresolved access guard");

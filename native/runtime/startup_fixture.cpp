@@ -4,6 +4,7 @@
 #include "canary.h"
 #include "mutexattr.h"
 #include "mutex.h"
+#include "direct_memory.h"
 #include "registry.h"
 #include "startup-config.h"
 #include <algorithm>
@@ -34,6 +35,7 @@ int main(int argc,char** argv){
   State state{};state.gpr.rip.qword=ENTRY_PC;state.gpr.rsp.qword=INITIAL_RSP;state.gpr.rdi.qword=PARAMETERS;state.gpr.rsi.qword=EXIT_CALLBACK_PC;Memory memory{};memory.space=&image->space;memory.state=&state;memory.tables=&tables;memory.owner_thread=GetCurrentThreadId();memory.entry=ENTRY_PC;
   bb_runtime::MutexAttributes mutex_attributes(image->space);if(MUTEX_ATTRIBUTES_ENABLED)memory.mutex_attributes=&mutex_attributes;
   bb_runtime::Mutexes mutexes(image->space);if(MUTEXES_ENABLED)memory.mutexes=&mutexes;
+  std::unique_ptr<bb_runtime::DirectMemory> direct_memory;if(DIRECT_MEMORY_BUDGET){direct_memory=std::make_unique<bb_runtime::DirectMemory>(image->space,DIRECT_MEMORY_BUDGET);memory.direct_memory=direct_memory.get();}
   auto checked=image->validate(&memory);if(checked.sha256!=EXPECTED_IMAGE_SHA256||checked.mapped_bytes!=EXPECTED_MAPPED_BYTES)return 2;
   bb_runtime::ProcessCanary process_word(image->space,CANARY_PC);
   if(CANARY_ENABLED){auto seed=prepare_seed(std::filesystem::path(argv[0]).parent_path()/"canary-seed.bin");process_word.initialize_from_seed(&memory,seed);if(!process_word.initialized())return 2;}

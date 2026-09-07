@@ -6,16 +6,17 @@
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+#include <memory>
 #include <string>
 #include <remill/Arch/X86/Runtime/State.h>
 struct Memory;
 namespace bb_runtime {
-class MutexAttributes;class Mutexes;
+class MutexAttributes;class Mutexes;class DirectMemory;
 using Lifted=Memory*(*)(State*,uint64_t,Memory*);
 enum Rights:uint32_t {Read=1,Write=2,Code=4};
 struct SourceContext {State* state;uint64_t pc;const SourceContext* previous;};
 struct AccessGuard {uint64_t base,size;std::string identity;};
-struct Region {uint64_t base,size;uint8_t* backing;uint32_t rights;};
+struct Region {uint64_t base,size;uint8_t* backing;uint32_t rights;std::shared_ptr<void> backing_owner;};
 struct Target {uint64_t pc;Lifted function;};
 struct SourcePair {uint64_t source,requested;};
 struct Import {uint64_t pc;const char* nid;const char* library;const char* module;Lifted native;uint64_t compiled_export;};
@@ -34,6 +35,8 @@ class AddressSpace {
  // Host setup only; copies are private and never executable.
  void add(uint64_t,size_t,uint32_t,const void* initial=nullptr,size_t initial_size=0);
  void guard(uint64_t,size_t,const std::string& identity);
+ // Append a checked private NX data mapping; existing mappings/guards stay immutable.
+ bool map_private(Memory*,uint64_t,size_t,uint32_t,void*,const std::shared_ptr<void>&)noexcept;
  size_t guard_count()const noexcept{return guards_.size();}
  void seal();bool sealed()const noexcept{return sealed_;}
  void enter()noexcept{EnterCriticalSection(&lock_);}void leave()noexcept{LeaveCriticalSection(&lock_);}
@@ -57,6 +60,6 @@ struct Memory {
  const bb_runtime::Import* active_import=nullptr;
  const bb_runtime::AccessGuard* active_guard=nullptr;
  const bb_runtime::SourceContext* active_source=nullptr;
- bb_runtime::MutexAttributes* mutex_attributes=nullptr;bb_runtime::Mutexes* mutexes=nullptr;
+ bb_runtime::MutexAttributes* mutex_attributes=nullptr;bb_runtime::Mutexes* mutexes=nullptr;bb_runtime::DirectMemory* direct_memory=nullptr;
  const bb_runtime::FpProfile* fp_profile=nullptr;uint32_t pointer_segments=0;
 };
