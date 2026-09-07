@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 03:21 UTC
+## Current continuation — 2026-09-07 03:38 UTC
+
+Continue autonomously; user action: none. Read reports/native-leaf-cohorts.md and its evidence JSON. **Native startup completes constructors 0–213 and enters ordinal 214. P4 is open; no native boot or playable port exists.**
+
+Current startup-v57-pointer-cohort-v1-repeat exactly repeats v56: 61,946,880 bytes, SHA256 36665eb50016d52839f550ae3a0ed4a5cb558f5d0a2be8b76ec4312c29c7f8f1. Twenty supplements give 406 game objects / 21,590 roots. Use tools/extend_native_startup.py from_run 20260907-p4-pointer-cohort-v1-startup-repeat to retain all arguments. The byte accessor and five small batches are complete. A census of exact simple initial-pointer forms identified 9,760 conditional candidates; a 256-entry cohort passes Ghidra and repeated 786,432-case/512-negative native fixtures. Of those 256, 144 subsequently return and 112 remain unobserved. Pointer candidates and compilation do not establish execution closure.
+
+Next actual target 0x10207ce10, RSP 0x700000ffed8, 81,916 operations; 2,508 events repeat. New native-frontier-207ce10-v1 has 24 instructions, one unknown indirect call and one unknown tail jump. Repeated recovery v2-repeat and Ghidra/native CFG compilation are running; inspect their records before continuing. Larger candidate groups use the same exact grammar, source checks and conditional provenance. Canonical recovery is unchanged.
+
+Compiler v12 / semantics v35, base registry-v7, current service/TLS contracts and thirty guards remain; source bytes stay NX. Full startup/FP/TLS/control, unknown targets, mutable tables and previous uncertainty remain open. Independent P1 route/profiling/audio is unchanged. Continue after commits.
+
+## Previous checkpoint — 2026-09-07 03:21 UTC
 
 Continue autonomously; user action: none. Read reports/native-cfg-frontier.md and its evidence JSON. **Native startup executes the newly recovered branching body 0x1020b6e20, with constructors 0–96 complete and ordinal 97 still in progress. P4 is open; no native boot or playable port exists.**
 
