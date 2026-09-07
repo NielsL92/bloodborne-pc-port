@@ -1,0 +1,930 @@
+{
+  "status": "native libc runtime word advances startup into the first constructor and reproduces the mutex-attribute stop",
+  "current": {
+    "status": "bounded native AOT entry reached an explicit runtime boundary",
+    "trace_identity": "90d3a44d40c3ed9e82eb952d293540e3751e8aa5c265d43234d81a3b1b5e85ea",
+    "registry_identity": "e2b4ebb39d380c389b53da374442030e43e79f2109d61a252f893b0ecbe6f07e",
+    "contract_sha256": "52e30b7de4e1eacbae25436a550a1c32d78745a382b306858c21939f846c348b",
+    "loader_plan_sha256": "9ede18d6608dd0e8f6b403b2186aa831be39b1f82a6736a3d18e8b1fa34229a3",
+    "executable_sha256": "e63d0d3044433d633cc1ad3156b44c980f31939d7e7382c6391234a89352529f",
+    "executable_bytes": 61816320,
+    "bundle_sha256": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+    "private_image_before_native_initialization": {
+      "status": "private-load-validated",
+      "regions": 19,
+      "relocations": 238580,
+      "guards": 29,
+      "mapped_bytes": 98574344,
+      "verified_bytes": 98574112,
+      "guarded_bytes": 232,
+      "sha256_unguarded": "e3f0a400f1acd5302ca34718f8d8664654b5af685f9e31c889ca0694964a1901",
+      "game_execution": false
+    },
+    "native_providers": {
+      "canary": {
+        "contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c",
+        "logical_address": 7696585588736,
+        "size": 8,
+        "rights": 3,
+        "requires_initialization_before_entry": true,
+        "nid": "f7uOxY9mM1U",
+        "library": "libkernel",
+        "library_version": 1,
+        "module": "libkernel",
+        "module_version": 257,
+        "bindings": [
+          {
+            "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+            "offset": 87964640,
+            "type": 6,
+            "symbol_index": 676,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 676,
+              "name": "f7uOxY9mM1U#p#J",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+            "offset": 294936,
+            "type": 6,
+            "symbol_index": 18,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 18,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+            "offset": 311412,
+            "type": 6,
+            "symbol_index": 22,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 22,
+              "name": "f7uOxY9mM1U#C#D",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+            "offset": 32792,
+            "type": 6,
+            "symbol_index": 5,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 5,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+            "offset": 327704,
+            "type": 6,
+            "symbol_index": 19,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 19,
+              "name": "f7uOxY9mM1U#D#E",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+            "offset": 278552,
+            "type": 6,
+            "symbol_index": 73,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 73,
+              "name": "f7uOxY9mM1U#B#C",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+            "offset": 917560,
+            "type": 6,
+            "symbol_index": 55,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 55,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          },
+          {
+            "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+            "offset": 754912,
+            "type": 6,
+            "symbol_index": 13,
+            "addend": 0,
+            "value": 7696585588736,
+            "kind": "native process runtime word",
+            "detail": "data/undefined symbol has no unique supplied binding",
+            "symbol": {
+              "index": 13,
+              "name": "f7uOxY9mM1U#A#B",
+              "nid": "f7uOxY9mM1U",
+              "bind": 1,
+              "type": 1,
+              "defined": false,
+              "value": 0,
+              "size": 0,
+              "library": "libkernel",
+              "module": "libkernel"
+            },
+            "provider_contract_sha256": "8e69ce6e46c052b74f7543f9e8c9685707e7cd8353ed1f0a82ec69ff0b111d6c"
+          }
+        ]
+      }
+    },
+    "runtime_seed_sha256": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+    "runtime_seed_origin": "explicit replay",
+    "control_trace_sha256": "6b23652dbb9a0fdd3fc3e24dcaf2780d1c4c8106adac0f0a3e31f61fff31a417",
+    "exit_code": 2952790041,
+    "fault": {
+      "status": "native-boundary-stop",
+      "boundary": "unimplemented-import",
+      "reason": 25,
+      "source": "0000000000000000",
+      "actual": "0000000102bbfea8",
+      "wanted": "0000000000000000",
+      "address": "0000000000000000",
+      "width": 0,
+      "pc": "0000000102bbfea8",
+      "rsp": "00000700000fff38",
+      "entry": "00000001000000a0",
+      "thread": 42744,
+      "compilation_identity": "90d3a44d40c3ed9e82eb952d293540e3751e8aa5c265d43234d81a3b1b5e85ea"
+    },
+    "active_import": {
+      "active_import": "0000000102bbfea8",
+      "nid": "F8bUHwAG284",
+      "library": "libkernel",
+      "module": "libkernel"
+    },
+    "guard": null,
+    "records": [
+      {
+        "status": "native-boundary-stop",
+        "boundary": "unimplemented-import",
+        "reason": 25,
+        "source": "0000000000000000",
+        "actual": "0000000102bbfea8",
+        "wanted": "0000000000000000",
+        "address": "0000000000000000",
+        "width": 0,
+        "pc": "0000000102bbfea8",
+        "rsp": "00000700000fff38",
+        "entry": "00000001000000a0",
+        "thread": 42744,
+        "compilation_identity": "90d3a44d40c3ed9e82eb952d293540e3751e8aa5c265d43234d81a3b1b5e85ea"
+      },
+      {
+        "active_import": "0000000102bbfea8",
+        "nid": "F8bUHwAG284",
+        "library": "libkernel",
+        "module": "libkernel"
+      }
+    ],
+    "game_aot_execution": true,
+    "original_byte_cpu_execution": false,
+    "native_game_boot": false,
+    "p4_gate_passed": false,
+    "limitations": [
+      "Explicit probe State/arguments only; complete startup ABI, module initialization order, FP profile and TLS remain incomplete.",
+      "An explicit runtime boundary is a diagnostic result requiring investigation, not a P4 gate pass.",
+      "Source module copies remain NX data. Only AOT roots and explicit native services can execute.",
+      "The recorded seed is a native runtime input, not a console value. This bounded trace is not whole-game execution coverage."
+    ]
+  },
+  "contract": {
+    "status": "bounded native canary data interface independently checked",
+    "nid": "f7uOxY9mM1U",
+    "library": "libkernel",
+    "library_version": 1,
+    "module": "libkernel",
+    "module_version": 257,
+    "object_size": 8,
+    "logical_address": 7696585588736,
+    "rights": 3,
+    "scope": "one process-owned opaque canary word shared by exact-identity imports",
+    "initialization": "native OS entropy before protected guest frames; an explicit recorded replay seed is allowed for experiments",
+    "mutability": "registered writes remain possible; changing the word while a protected frame is active must take its supplied failure path",
+    "failure_gateway": {
+      "pc": 34359738640,
+      "source_module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+      "rva": 272,
+      "nid": "Ou3iL1abvng",
+      "library": "libkernel",
+      "module": "libkernel",
+      "stub_bytes": "ff250a850b00",
+      "relocation": {
+        "offset": 755232,
+        "type": 7,
+        "symbol": 14,
+        "addend": 0,
+        "table": "plt"
+      },
+      "candidates": [],
+      "compiled_export": 0,
+      "binding": "explicit unimplemented native service",
+      "runtime_execution_validated": false,
+      "canonical_service_pc": 38654709632
+    },
+    "uses": [
+      {
+        "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+        "name": "eboot.bin",
+        "base": 4294967296,
+        "relocation": {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "offset": 87964640,
+          "type": 6,
+          "symbol_index": 676,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 676,
+            "name": "f7uOxY9mM1U#p#J",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+        "name": "libSceFace.prx",
+        "base": 8589934592,
+        "relocation": {
+          "module": "89e134d3162323b29ad89c4af77b9db6501acca4ea382a3d62284c5e99584bd5",
+          "offset": 294936,
+          "type": 6,
+          "symbol_index": 18,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 18,
+            "name": "f7uOxY9mM1U#A#B",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+        "name": "libSceFios2.prx",
+        "base": 12884901888,
+        "relocation": {
+          "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+          "offset": 311412,
+          "type": 6,
+          "symbol_index": 22,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 22,
+            "name": "f7uOxY9mM1U#C#D",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+        "name": "libSceHand.prx",
+        "base": 17179869184,
+        "relocation": {
+          "module": "0ef7de31c741b20a50b641bdc576ff9df467509eb511e60cb43d7ee5f240b070",
+          "offset": 32792,
+          "type": 6,
+          "symbol_index": 5,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 5,
+            "name": "f7uOxY9mM1U#A#B",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+        "name": "libSceHeadTracker.prx",
+        "base": 21474836480,
+        "relocation": {
+          "module": "2ebfb4c208c3fbdd38c5f7a0f95f50b682ce2126a539c9be3fb9792ad761e1cb",
+          "offset": 327704,
+          "type": 6,
+          "symbol_index": 19,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 19,
+            "name": "f7uOxY9mM1U#D#E",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+        "name": "libSceS3DConversion.prx",
+        "base": 25769803776,
+        "relocation": {
+          "module": "86a854022a1ad1a2940787acd7e47c7a84e67148b2b641dba5452771506d20b9",
+          "offset": 278552,
+          "type": 6,
+          "symbol_index": 73,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 73,
+            "name": "f7uOxY9mM1U#B#C",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+        "name": "libSceSmart.prx",
+        "base": 30064771072,
+        "relocation": {
+          "module": "43f433e5459033e201bea857002343bb2436c03c33401c4f0c938b3e197df1ab",
+          "offset": 917560,
+          "type": 6,
+          "symbol_index": 55,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 55,
+            "name": "f7uOxY9mM1U#A#B",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      },
+      {
+        "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+        "name": "libc.prx",
+        "base": 34359738368,
+        "relocation": {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "offset": 754912,
+          "type": 6,
+          "symbol_index": 13,
+          "addend": 0,
+          "value": null,
+          "kind": "unresolved",
+          "detail": "data/undefined symbol has no unique supplied binding",
+          "symbol": {
+            "index": 13,
+            "name": "f7uOxY9mM1U#A#B",
+            "nid": "f7uOxY9mM1U",
+            "bind": 1,
+            "type": 1,
+            "defined": false,
+            "value": 0,
+            "size": 0,
+            "library": "libkernel",
+            "module": "libkernel"
+          }
+        },
+        "library_version": 1,
+        "module_version": 257
+      }
+    ],
+    "checked_prefixes": [
+      {
+        "prefix": {
+          "module": "3b8eb4d5a5c5a7b381d8d0610077e6cd404c29695a686274802f6b2737f6bf22",
+          "start": 5460,
+          "end": 5470,
+          "slot": 311412,
+          "read_rva": 5467,
+          "read_size": 8,
+          "prefix": [
+            {
+              "rva": 5460,
+              "bytes": "488b1d19ab0400",
+              "text": "mov rbx, qword ptr [rip + 0x4ab19]"
+            },
+            {
+              "rva": 5467,
+              "bytes": "488b03",
+              "text": "mov rax, qword ptr [rbx]"
+            }
+          ]
+        },
+        "ghidra_instructions": [
+          {
+            "rva": 5460,
+            "length": 7,
+            "bytes": "488b1d19ab0400",
+            "text": "MOV RBX,qword ptr [0x0004c074]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "RBX"
+            ],
+            "targets": []
+          },
+          {
+            "rva": 5467,
+            "length": 3,
+            "bytes": "488b03",
+            "text": "MOV RAX,qword ptr [RBX]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "RAX"
+            ],
+            "targets": []
+          }
+        ]
+      },
+      {
+        "prefix": {
+          "module": "4378b47f46f1d856824a6f971db1a0c3f41833b77f49d2fba9538f667a139166",
+          "start": 57210,
+          "end": 57220,
+          "slot": 754912,
+          "read_rva": 57217,
+          "read_size": 8,
+          "prefix": [
+            {
+              "rva": 57210,
+              "bytes": "488b055fa50a00",
+              "text": "mov rax, qword ptr [rip + 0xaa55f]"
+            },
+            {
+              "rva": 57217,
+              "bytes": "488b00",
+              "text": "mov rax, qword ptr [rax]"
+            }
+          ]
+        },
+        "ghidra_instructions": [
+          {
+            "rva": 57210,
+            "length": 7,
+            "bytes": "488b055fa50a00",
+            "text": "MOV RAX,qword ptr [0x000b84e0]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "RAX"
+            ],
+            "targets": []
+          },
+          {
+            "rva": 57217,
+            "length": 3,
+            "bytes": "488b00",
+            "text": "MOV RAX,qword ptr [RAX]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "RAX"
+            ],
+            "targets": []
+          }
+        ]
+      },
+      {
+        "prefix": {
+          "module": "d65f0b4f01d59166aed16f8604196d8b7dd805abbf0758b356e8f1354c9429f9",
+          "start": 782,
+          "end": 792,
+          "slot": 87964640,
+          "read_rva": 789,
+          "read_size": 8,
+          "prefix": [
+            {
+              "rva": 782,
+              "bytes": "4c8b35cb383e05",
+              "text": "mov r14, qword ptr [rip + 0x53e38cb]"
+            },
+            {
+              "rva": 789,
+              "bytes": "498b06",
+              "text": "mov rax, qword ptr [r14]"
+            }
+          ]
+        },
+        "ghidra_instructions": [
+          {
+            "rva": 782,
+            "length": 7,
+            "bytes": "4c8b35cb383e05",
+            "text": "MOV R14,qword ptr [0x053e3be0]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "R14"
+            ],
+            "targets": []
+          },
+          {
+            "rva": 789,
+            "length": 3,
+            "bytes": "498b06",
+            "text": "MOV RAX,qword ptr [R14]",
+            "flow": "FALL_THROUGH",
+            "written_registers": [
+              "RAX"
+            ],
+            "targets": []
+          }
+        ]
+      }
+    ],
+    "recovered_slot_references": 4224,
+    "missing_recovered_prefixes": [
+      "libSceFace.prx",
+      "libSceHand.prx",
+      "libSceHeadTracker.prx",
+      "libSceS3DConversion.prx",
+      "libSceSmart.prx"
+    ],
+    "source_db_sha256": "f33d86bb063c338e4bebaf603ae6f32f53e9bbf49f9bf7dd70c8506edc7959ef",
+    "primary_reference": {
+      "url": "https://lists.llvm.org/pipermail/libc-commits/2024-January/020237.html",
+      "scope": "LLVM libc documents a pointer-sized global canary initialized from an OS random source for targets not using a TLS canary. This supports a native implementation pattern, not a PS4 seed or complete console ABI."
+    },
+    "limitations": [
+      "Symbol size is zero; supplied decoded loads and save/compare behavior support this eight-byte native interface.",
+      "Five bundled modules have no recovered read prefix in this startup set; exact namespace/version matches identify the same provider, but no execution/body claim is made for those modules.",
+      "Unknown indirect writes, wider reads and dynamic interposition are not proven absent. Wider accesses outside the eight-byte native object must stop.",
+      "No PS4 random value, seed distribution or memory-protection policy is claimed.",
+      "The stack-check failure gateway remains an explicit unimplemented process stop. No success stub bypasses mismatches."
+    ],
+    "game_aot_execution": false
+  },
+  "authored_cases": {
+    "status": "pass",
+    "aot_cases": 4096,
+    "canary_bytes": 8
+  },
+  "mismatch_bits": 64,
+  "out_of_bounds_stops": 2,
+  "reinitialization_rejections": 1,
+  "changed_relocations": 8,
+  "remaining_unresolved": 29,
+  "first_constructor": {
+    "ordinal": 0,
+    "slot": 87964600,
+    "target": 34529168,
+    "evidence": "R_X86_64_RELATIVE",
+    "indexed_unwind_start": false
+  },
+  "completed_atexit_calls": [
+    {
+      "event": "import-return",
+      "target": 4340835528,
+      "pc": 4294967489,
+      "rsp": 7696582442944,
+      "rbp": 7696582442976,
+      "rdi": 7696582442880,
+      "rsi": 42949672944,
+      "rdx": 34360524000,
+      "rcx": 12670960918763707696,
+      "r8": 0,
+      "r9": 0,
+      "rax": 0,
+      "memory_operations": 53
+    },
+    {
+      "event": "import-return",
+      "target": 4340835528,
+      "pc": 4294967501,
+      "rsp": 7696582442944,
+      "rbp": 7696582442976,
+      "rdi": 7696582442880,
+      "rsi": 42949672944,
+      "rdx": 34360524048,
+      "rcx": 12670960918763707696,
+      "r8": 0,
+      "r9": 0,
+      "rax": 0,
+      "memory_operations": 100
+    }
+  ],
+  "trace_events": 13,
+  "last_call": {
+    "event": "import",
+    "target": 4340842152,
+    "pc": 4340842152,
+    "rsp": 7696582442808,
+    "rbp": 7696582442864,
+    "rdi": 7696582442824,
+    "rsi": 42949672944,
+    "rdx": 34360524048,
+    "rcx": 12670960918763707696,
+    "r8": 0,
+    "r9": 0,
+    "rax": 12670960918763707696,
+    "memory_operations": 148
+  },
+  "ghidra_instructions": 59,
+  "identical_artifacts": {
+    "startup-v5-runtime-word-repeat": {
+      "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+      "canary.obj": "8c4751162f65fcefaeebda51989cd05ce33b883561bb254bf29cea4a47352c14",
+      "control.obj": "528537503d01c1dca99e122df944a2763d7bfe127e651701420ac2a502ec1112",
+      "entry.stdout": "365ee098662530ca12769bf240740aa263f71cf9a7d489aded0b1a5aacf1fd1a",
+      "expected-image.json": "124c30fcb57baf0d70764128e3d65ff63a0d896c1c66d705d4075ce741d0569f",
+      "fault.obj": "2550b589d6750928ac03de9e080be451098dd9d0275eb6d30842d31649fd0cc4",
+      "fp.obj": "a7c08f64ecc990ffee14f8ba895dd5665907fb95f4ed7866eb5da95cc158727c",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "linked-roots.json": "2129a0e3545aa23d03dc05a70dd6e238bb02e19418cd034cdc4031088d3616e2",
+      "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+      "memory.obj": "fb9a21aae7e0443188858e28a69e73a1487860bc94d94bcf8f022a820a4c57a3",
+      "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+      "prepare.stdout": "365ee098662530ca12769bf240740aa263f71cf9a7d489aded0b1a5aacf1fd1a",
+      "probe-manifest.json": "9583047e9633e1ceb144ed4bc22dd2ea40c878250afaa57c99786073465084d1",
+      "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+      "sourced.obj": "305f5af3234498db0adccb0ad64014badd8321936dc216f16af698fb4541ed03",
+      "startup-config.h": "e0f07aaab0f32606f8e8d2947525bde3de4f0a3bde72af34869b08734dde0846",
+      "startup.bin": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+      "startup.exe": "7af297e7a6cb2b0fcda80c1aa8d9cb00eb7fc1f0f0f09e5dfaa81a3aa1ff4e80",
+      "startup_fixture.obj": "20790061272666c6d9e84bfe09bc5e1366cf32588aa49f85d04f4dbc47ea0f5c"
+    },
+    "startup-v7-runtime-word-trace-repeat": {
+      "canary-seed.bin": "fd3936a99e3629eda04843c671e3776e23e7ef82b08dc698c0a05326e489d9e7",
+      "canary.obj": "5b435d1c44a89b564e47914ca642d7804295728d7a6c5e19015778ef175a3663",
+      "control.obj": "f564dfb15609f570cc3f47c39ba3404ab59bffa06e2ebcb9267a40c4e3c23044",
+      "entry.stdout": "674430a48695391b3c0363603e178862a2c2d518d9dd04891713e3f90bef22e0",
+      "expected-image.json": "124c30fcb57baf0d70764128e3d65ff63a0d896c1c66d705d4075ce741d0569f",
+      "fault.obj": "42657a2bda0b98696c3578e2ea7ffe01c10e2ff27fd14301da988404bc0dce04",
+      "fp.obj": "19c133d15fef6ac0b6ec203e153d93d30bdad435ef2a5bf898e934b720b2494a",
+      "intrinsics.obj": "b678c6b2894d6819e8115964132121840c4437cb54c974da21c29c07cfcfb3a5",
+      "linked-roots.json": "9c03f60a61dcca4865926237f3c043c83b117e7cd48510fd51931f3bc8a23839",
+      "loader.obj": "4bce8e4ee178f8f33ab07fd32bc534520d9f938bc0cd491b65688976d81765b1",
+      "memory.obj": "deb1692b1c24de515ea1f7fe44df3bfb928649cd98499f825dbc9aadc1cacc50",
+      "native-calls.jsonl": "6b23652dbb9a0fdd3fc3e24dcaf2780d1c4c8106adac0f0a3e31f61fff31a417",
+      "numeric.obj": "0cab552ea1479ccc916282bb3974eb63f242d9a1dc9bd70729260e834281d268",
+      "prepare.stdout": "674430a48695391b3c0363603e178862a2c2d518d9dd04891713e3f90bef22e0",
+      "probe-manifest.json": "90d3a44d40c3ed9e82eb952d293540e3751e8aa5c265d43234d81a3b1b5e85ea",
+      "registry.obj": "79958f6c0abc9f1199584cc49924ab1bc9f490496a720df74b510e740d8f6bf6",
+      "sourced.obj": "427257b8a1a97f27b7c7775998cfc490ed48e9af0d588e19c78df4b80f7e94aa",
+      "startup-config.h": "d7ba606acc0f3ca69dc610d7c9965de11e363e498b38331672138229dcbac312",
+      "startup.bin": "9e853802836c7118f7701b5679a3ac6154599ff066b56a0d6008da0ff573a0e8",
+      "startup.exe": "e63d0d3044433d633cc1ad3156b44c980f31939d7e7382c6391234a89352529f",
+      "startup_fixture.obj": "859c3d8678fb981fadb7200426335b3af51e16f39bfe4147c39fc722d991a3bf"
+    }
+  },
+  "recorders": [
+    {
+      "run": "20260907-p4-native-canary-scan-v2-gaps",
+      "start_utc": "2026-09-07T00:26:22.117961+00:00",
+      "end_utc": "2026-09-07T00:26:31.474619+00:00",
+      "manifest_sha256": "77977e69dbe5d03f47d30215f7fdc56724e6d1c584dce7c2878fb9ed9988ee73",
+      "sources_sha256": "7cf93b8af7c3cf51263a1d9df5ff7ba82f20bcee6d6f45b635fb20a8d1f4a6b1"
+    },
+    {
+      "run": "20260907-p4-ghidra-canary-reads-v1",
+      "start_utc": "2026-09-07T00:31:21.599650+00:00",
+      "end_utc": "2026-09-07T00:31:55.178117+00:00",
+      "manifest_sha256": "ecf6ef49229cb52ab749a46f609da369e34d4217cbcea08c9266a3f6cb6fd094",
+      "sources_sha256": "7cf93b8af7c3cf51263a1d9df5ff7ba82f20bcee6d6f45b635fb20a8d1f4a6b1"
+    },
+    {
+      "run": "20260907-p4-native-canary-contract-v1",
+      "start_utc": "2026-09-07T00:36:08.010996+00:00",
+      "end_utc": "2026-09-07T00:36:08.921314+00:00",
+      "manifest_sha256": "26ba3abb8da25219c5f7bcc6fcbc7b84a99f5e70aa95b7e828d3a11de48b734b",
+      "sources_sha256": "2b1118f9b82730101d2dfd940da2bedc88466d5c7618778d716386eea2864c2c"
+    },
+    {
+      "run": "20260907-p4-runtime-canary-v1",
+      "start_utc": "2026-09-07T00:39:44.982228+00:00",
+      "end_utc": "2026-09-07T00:40:06.823950+00:00",
+      "manifest_sha256": "644841d3fd9f3cb2b1dc6b95eb5b383ac2505940d0e6192c3887eaa794f4c9ec",
+      "sources_sha256": "7a100ded7ced6c80be563414174e61e1e4d0596c254e5490c53a188dce2e69e9"
+    },
+    {
+      "run": "20260907-p4-runtime-canary-v2-repeat",
+      "start_utc": "2026-09-07T00:57:05.841871+00:00",
+      "end_utc": "2026-09-07T00:57:14.384058+00:00",
+      "manifest_sha256": "17563870380fbb782781f83e64fa1f3bd7e4639fc479b57810e1c087b4ec348d",
+      "sources_sha256": "ae8776a299ba0fc3e77709b9affd4d7e8e0e363f3d4b410f85a6ffd004c3dc1f"
+    },
+    {
+      "run": "20260907-p4-runtime-word-plan-v1",
+      "start_utc": "2026-09-07T00:47:42.306406+00:00",
+      "end_utc": "2026-09-07T00:47:47.771668+00:00",
+      "manifest_sha256": "ee8634a5d057c8adff9d74f56b30006f30d602b2a56b36ba0ba475ac27cceb34",
+      "sources_sha256": "009e8a8a5bbaf41db7fdd15eaa44154736b8b21d42e24a45196c209d418c9497"
+    },
+    {
+      "run": "20260907-p4-native-runtime-word-startup-v1",
+      "start_utc": "2026-09-07T00:55:13.652107+00:00",
+      "end_utc": "2026-09-07T00:55:33.470344+00:00",
+      "manifest_sha256": "b8f2eba32e61523d3dc4855e2a42bfafc133d6642a670e4dcddfc85179dc09d8",
+      "sources_sha256": "ae8776a299ba0fc3e77709b9affd4d7e8e0e363f3d4b410f85a6ffd004c3dc1f"
+    },
+    {
+      "run": "20260907-p4-native-runtime-word-startup-v2-repeat",
+      "start_utc": "2026-09-07T00:55:45.156266+00:00",
+      "end_utc": "2026-09-07T00:55:57.280375+00:00",
+      "manifest_sha256": "de65da9885dab9d24a51d3d8164506adbb35b234359927c83401d0d0de91c34d",
+      "sources_sha256": "ae8776a299ba0fc3e77709b9affd4d7e8e0e363f3d4b410f85a6ffd004c3dc1f"
+    },
+    {
+      "run": "20260907-p4-native-runtime-word-startup-v3-trace",
+      "start_utc": "2026-09-07T00:58:37.863926+00:00",
+      "end_utc": "2026-09-07T00:58:49.163941+00:00",
+      "manifest_sha256": "28fa37089d938e4a4a89b382d15526043d2eaf66011c755d35250d65331f8258",
+      "sources_sha256": "85ed594cb2b348ce24abaed05645471b32d57059fe5cc8debb7adecd9edd3451"
+    },
+    {
+      "run": "20260907-p4-native-runtime-word-startup-v4-trace-repeat",
+      "start_utc": "2026-09-07T01:00:22.063075+00:00",
+      "end_utc": "2026-09-07T01:00:35.041500+00:00",
+      "manifest_sha256": "3e9d04719fafedb33c8b49e0c62a29e9cbc4485aed3b1c43746e55a8fb6f498a",
+      "sources_sha256": "64759b0b0c855e0c1a4e331a8ec7a125cea45a9a7fed15cdc0300433929a52b8"
+    },
+    {
+      "run": "20260907-p4-startup-mutex-windows-v1",
+      "start_utc": "2026-09-07T00:59:50.430507+00:00",
+      "end_utc": "2026-09-07T00:59:50.681325+00:00",
+      "manifest_sha256": "aea2f4df1ddb5d5cccc9400904a1713ecdbed941443c04d99b8969a3c2e76770",
+      "sources_sha256": "64759b0b0c855e0c1a4e331a8ec7a125cea45a9a7fed15cdc0300433929a52b8"
+    },
+    {
+      "run": "20260907-p4-ghidra-startup-mutex-v1",
+      "start_utc": "2026-09-07T00:59:50.945503+00:00",
+      "end_utc": "2026-09-07T01:00:05.268122+00:00",
+      "manifest_sha256": "bbccf4671612612bf10e4d61c61f5bad7f3f0b686a8dc9403baada11de9d07ba",
+      "sources_sha256": "64759b0b0c855e0c1a4e331a8ec7a125cea45a9a7fed15cdc0300433929a52b8"
+    },
+    {
+      "run": "20260907-p4-control-v9-trace-regression",
+      "start_utc": "2026-09-07T01:00:35.334541+00:00",
+      "end_utc": "2026-09-07T01:00:42.027985+00:00",
+      "manifest_sha256": "89dce073914ada5ce988b4f35e22e324bbce2d34439e9dbec340834cae118d81",
+      "sources_sha256": "64759b0b0c855e0c1a4e331a8ec7a125cea45a9a7fed15cdc0300433929a52b8"
+    }
+  ],
+  "game_aot_execution": true,
+  "original_byte_cpu_execution": false,
+  "native_game_boot": false,
+  "p4_gate_passed": false,
+  "limitations": [
+    "The first constructor has entered but not completed. No later constructor or main is claimed.",
+    "The diagnostic stream records dispatch/import boundaries, not all statically compiled direct calls or every instruction.",
+    "The native seed is recorded for replay. No console seed or complete platform initialization order is inferred.",
+    "Five modules have no recovered runtime-word read prefix; unknown widths, mutation and interposition remain explicit.",
+    "Twelve other strong data slots and seventeen TLS slots remain guarded. Mutex services, FP/TLS setup, module initialization and helper costs remain open."
+  ]
+}

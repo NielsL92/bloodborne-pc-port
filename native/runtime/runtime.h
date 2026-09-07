@@ -51,6 +51,8 @@ struct Memory {
  bb_runtime::AddressSpace* space=nullptr;State* state=nullptr;const bb_runtime::Tables* tables=nullptr;
  uint64_t entry=0,returned_pc=0,operations=0;DWORD owner_thread=0;unsigned atomic_depth=0;
  FILE* fault_stream=stderr;
+ // Optional bounded diagnostic stream; disabled in ordinary runtime contexts.
+ FILE* control_trace=nullptr;uint64_t control_trace_events=0;
  const bb_runtime::Import* active_import=nullptr;
  const bb_runtime::AccessGuard* active_guard=nullptr;
  const bb_runtime::SourceContext* active_source=nullptr;
