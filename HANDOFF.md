@@ -5,30 +5,38 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
 
-LATEST 2026-09-08: recipient553f665 adds mutex_pool_exhausted diagnostics;
-prior8bb100f qsort is live-passed. Full148/148 tests pass10.89s after diagnostic.
-Run14 reached173indexedshaderpairs and faded loading to black, then DLLightMutex
-line126 "Mutex is not initialized" at354.789s, guestassertcaller0x207eebd via
-0xca1590. No world visibility/control verified. Fixed4096mutexpool is suspected;
-run15 enables synchronization events to verify. Run14 had344shaderjobs321success,
-23fail:20pixel Wave ops,3vertex shared-memory/tessellation. Expanded clinic-v9
-has170checked0rejected,14exactHLSL normalization upgrades. One vertexkey has
-HLSL variants with identical DXBC and every binding/state field; both retained
-in bytecode-equivalence audit. v8 incomplete intermediate; use v9.
-ACTIVE run15 session97762 PID77384, seed04copied Timmy, clinic-v9, input Offline/
-Continue sent (seq1/2). Initial loading then shadercapturing, lastperf163.574s
-frame3435; follow live diagnostics. Future probe_run now enables execution
-rejection diagnostics. Private runrecord contains exactenvironment/source.
-User explicitly authorized parallel subagents. Active root children:
-mutex_capacity: scalable stable mutex storage/lifecycle + regressions, owns
-orbis_hle.cpp/mutex_access.hpp/mutex tests, no sharedbuild until root coordinates.
-shader_compilation: correctSM5 quadbroadcast lowering +WARPreadbackfixture,
-owns compiler tools/nativewrapper; may build2job shader-toolchain independently.
-world_rendering: unsupportedtexture audit/minimalfix, renderer files only after
-coordination. Root owns live runs/integration/fullsharedbuild/tests and docs.
-All agents ONLY codex/integration-validation, no pushes/main/owner changes.
-Native UI helper unavailable; diagnostics Pad/IME are testing route. No physical
-livekeyboard claim. Continue autonomously until actual world and player control.
+LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
+c3f0fe5. Full150/150 tests pass25.56s, single-worker build. Adds modff exact mixed
+ABI plus float/IEEE tests, sealed pixel-input variants (with real-reset cache
+lifecycle test), R32/RG16F render targets, BC3 textures and actual Texture3D
+RGBA32F/Thin1DThin single-mip color-grading LUT support. GPU readbacks pass for
+formats, routing, XYZ coordinates, interpolation, padding and cache refresh.
+Independent LUT review found no rendering-blocking defect; diagnostic capture
+labels omit volume depth (minor unresolved).
+
+ACTIVE run17: .tmp/integration/autonomous-clinic-17, launcher session27623,
+seed autonomous-clinic-04 copied (Timmy), complete clinic-v11 cache. Offline and
+Continue sent/accepted (seq1/2). Lighter --shader-capture programs retains raw
+shader programs, frames and diagnostics but omits bulk indexed image snapshots.
+Exact commit/binary provenance retained. Clinic-v11 has180checked0rejected;
+20quad captures recompiled serially20/20 with six distinct specialized entries.
+All174base entries preserved; b63 TEXCOORD0/1 ambiguous family is safely split.
+Three earlier shared-memory/tessellation vertex holdouts remain unsupported.
+
+Run16 ended naturally at464.585s on modff, after passing4096-mutex exhaustion
+and reaching opening transfusion subtitles. Scene remained flat gray; no visible
+world or movement is verified. Runtime15d7d0b/compiler2f6c7ba/cachev10 recorded.
+The current probe checks modff and renderer changes against that milestone.
+
+RESOURCE CONSTRAINT: User has another active Unity project and cannot stop it.
+Leave Unity and unrelated apps untouched. Use one build/compiler worker; avoid
+builds during live game tests. Resource slowdown alone is not proof of a hang.
+Root children mutex_capacity, shader_compilation, world_rendering are user-
+authorized and their current subtasks completed. Root owns shared builds, live
+probes and integration. No pushes or owner branch changes; only our branch
+codex/integration-validation. Native UI helper unavailable, so authored Pad/IME
+diagnostics are the test route. No physical live keyboard claim. Continue
+through actual visible and controllable gameplay, not intermediate milestones.
 
 
 CURRENT UPDATE (supersedes every older active-run note below): recipient34c4369
