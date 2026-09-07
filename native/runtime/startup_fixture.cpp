@@ -6,6 +6,7 @@
 #include "mutex.h"
 #include "direct_memory.h"
 #include "rwlock.h"
+#include "main_tls.h"
 #include "registry.h"
 #include "startup-config.h"
 #include <algorithm>
@@ -41,8 +42,9 @@ int main(int argc,char** argv){
   auto checked=image->validate(&memory);if(checked.sha256!=EXPECTED_IMAGE_SHA256||checked.mapped_bytes!=EXPECTED_MAPPED_BYTES)return 2;
   bb_runtime::ProcessCanary process_word(image->space,CANARY_PC);
   if(CANARY_ENABLED){auto seed=prepare_seed(std::filesystem::path(argv[0]).parent_path()/"canary-seed.bin");process_word.initialize_from_seed(&memory,seed);if(!process_word.initialized())return 2;}
+  bb_runtime::MainTls main_tls(image->space,MAIN_TLS_TCB,MAIN_TLS_SIZE,MAIN_TLS_ALIGNMENT);if(MAIN_TLS_ENABLED)main_tls.initialize(&memory,nullptr,0);
   memory.operations=0;
-  std::printf("{\"status\":\"native-entry-prepared\",\"entry\":\"%016llx\",\"initial_rsp\":\"%016llx\",\"parameters\":\"%016llx\",\"exit_callback\":\"%016llx\",\"private_image_sha256\":\"%s\",\"trace_identity\":\"%s\",\"native_runtime_word_initialized\":%s}\n",(unsigned long long)ENTRY_PC,(unsigned long long)INITIAL_RSP,(unsigned long long)PARAMETERS,(unsigned long long)EXIT_CALLBACK_PC,checked.sha256.c_str(),TRACE_ID,process_word.initialized()?"true":"false");std::fflush(stdout);
+  std::printf("{\"status\":\"native-entry-prepared\",\"entry\":\"%016llx\",\"initial_rsp\":\"%016llx\",\"parameters\":\"%016llx\",\"exit_callback\":\"%016llx\",\"private_image_sha256\":\"%s\",\"trace_identity\":\"%s\",\"native_runtime_word_initialized\":%s,\"native_main_tls_initialized\":%s,\"fs_base\":\"%016llx\"}\n",(unsigned long long)ENTRY_PC,(unsigned long long)INITIAL_RSP,(unsigned long long)PARAMETERS,(unsigned long long)EXIT_CALLBACK_PC,checked.sha256.c_str(),TRACE_ID,process_word.initialized()?"true":"false",main_tls.initialized()?"true":"false",(unsigned long long)state.addr.fs_base.qword);std::fflush(stdout);
   if(!std::strcmp(argv[1],"--prepare-only"))return 0;
   if(CONTROL_TRACE){auto path=(std::filesystem::path(argv[0]).parent_path()/"native-calls.jsonl").string();memory.control_trace=std::fopen(path.c_str(),"wb");if(!memory.control_trace)throw std::runtime_error("control trace open failed");}
   bb_runtime::dispatch(&state,ENTRY_PC,&memory);bb_runtime::fault(&memory,"unexpected-startup-return",50,ENTRY_PC,state.gpr.rip.qword);
