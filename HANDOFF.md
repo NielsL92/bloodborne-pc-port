@@ -1,6 +1,16 @@
 # Bloodborne recompilation continuation
 
-## Current continuation — 2026-09-07 02:47 UTC
+## Current continuation — 2026-09-07 03:04 UTC
+
+Continue autonomously; user action: none. Read reports/native-pointer-leaves.md and its evidence JSON. **Native startup completes constructors 0–96 and enters ordinal 97. P4 remains open; no native boot or playable port exists.**
+
+Current startup-v39-pointer-leaves-repeat exactly repeats v38: 61,861,888 bytes, SHA256 a578469e2f2a847a7fcae9dd98e06e2c431bd7aed0f0b2e5a353e37c8f0051fe. Eleven supplements give 397 game objects / 21,295 roots. Use tools/extend_native_startup.py with from_run 20260907-p4-startup-pointer-leaves-v2-repeat to retain every service/TLS/supplement argument. The accessor-chain-v2 is complete. Three additional conditional pointer-sequence leaves pass independent Ghidra and repeated 9,216-case AOT checks; all three subsequently return in actual startup. Conditional provenance remains distinct from those later observations.
+
+Next target 0x10236f6f0, RSP 0x700000ffea8, 2,726 completed memory operations; 415 events repeat. Fresh local/cfg/pointer-leaves-v2 and ghidra-pointer-leaves-v2 record six supported candidates, one observed and five conditional. Compilation directories local/compiler-spike/pointer-leaves-batch2-compile-v1 and -v2-repeat are in progress; inspect recorder status before publishing their manifest and continuing. Unsupported nearby bodies remain explicit and require separate recovery if reached.
+
+Compiler v12 / semantics v35, base registry-v7 and thirty guards remain current; source bytes remain NX. Complete startup, FP, dynamic TLS/TCB, unknown targets, mutable tables and prior uncertainty remain. Independent P1 route/profiling/audio is unchanged. Continue after commits.
+
+## Previous checkpoint — 2026-09-07 02:47 UTC
 
 Continue autonomously; user action: none. Read reports/native-address-leaves.md and its evidence JSON. **Native startup completes constructors 0–92 and enters ordinal 93. P4 is open; no native boot or playable port exists.**
 
