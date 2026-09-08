@@ -10,13 +10,45 @@ LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
 195checked,0rejected, all186v12entriespreserved+9newkeys. No pushes/ownerbranch
 changes. Work onlycodex/integration-validation; Unity remainsuntouched.
 
-ACTIVE run23 .tmp/integration/autonomous-clinic-23, launcher94082, child29448,
-runtime source640df89 + complete v13, copied seed17 (Timmy), compiler-inputs.
-Recipient HEAD5538d7e is documentation-only after runtime640df89. Root visually
-verified warning frame75/Cross1, Offline frame1395/Cross2, Continue1995/Cross3.
-Now loading; existing pipeline diagnostic enabled, draw target0xab490000,
-flush0x8bfe8000, capture-after0, alltargets in private pipeline-targets directory.
-Root owns input/frames, no builds during run, Unity untouched.
+ACTIVE run24 .tmp/integration/autonomous-clinic-24, child32304, launcher71369.
+Runtime source/recipient HEADc722cf1 (ARM_FILE+liveimagebindingdiagnostics),
+full154/154tests pass25.85s in clinic-active-capture-ctest.log, completev13 unchanged.
+Seed17copied. Warningframe75/Cross1, Offline1275/Cross2, Continue2295/Cross3 all
+visuallyverified. Nowloading. ARM_FILE path run24/arm-pipeline.txt ABSENT: root
+must visually verify actualHUD first, THEN createfile toarm. Main draw+flushfilter
+8bfe8000, alltargets. Gate logs capture_armed; first16 selecteddraws log full
+pixel_image_binding live descriptors+SRVslot+nativeGPUtargetcompatibility/gen/dirty.
+No build/compiler duringrun. World_rendering read-onlydiagnostics; mutex_capacity
+owns tests/boot/orbis_precompiled_shader_tests.cpp to author (NOT runyet) RGBA8
+GPUtarget→BGRA F2E staleCPUfallbackregression. Rootownsrenderer/input/builds.
+
+Private read-onlymemoryhelper .tmp/integration/read_guest_lut.py ready/reviewed:
+--pid PID --address 0xADDR --byte-count65536 --run-dir ABS_RUN --output ABS_RUN/lut.raw
+(pathinsideexistingrun, overwriteforbidden, exactchildpathverified, read-onlyrights,
+1MiBcap, UTC/SHA/creationtime/regions). AfteractualLUTbindinglogged, read its64KiB
+16³RGBA32F payload whilechildalive, thenanalyzewithshader_compilation (currentlyidle).
+Previouslycaptured LUTaddress110629700, but verifycurrentbindingbeforeuse.
+
+Run23 child29448 deliberately stopped445.076s aftercapture.27targets358.46s in
+pipeline-targets and preview pipeline-analysis/clinic-mrt-montage.png show actual
+clinicroom/material/lighting in sixMRTs andHDRa7f40000/94480000. HDR94410000constant
+RGB0.14111328125/A1, displaygray128; BUT capturepredateslatePS382–391s, so94410000
+is NOT provenactivefinalsource. NonfiniteHDR only8paddedrows, notvisible1080.
+Exactfirst94410000 producerPS1206bfbf5896827a@10f0d4000 copiesHDRa7f40000 with
+validUV andallnativeCanCopyTargetImagegatespass. LatePS10f0cb300(ec30e1d0cbf7a50e)
+edgefilters8dcd0000;10f0d4c00(97d23b13486f59a4)13tapblur8da90000/gain2.2;
+10f0ca500(56c499c7c845fa48) samples8dcd0000 then16³LUT110629700, exportsBGR.
+Captured8dcd:1920x1080/pitch1920 RGBA8BGRAF2E/tile14;8da9:960x540/pitch1024.
+Neither inearly27targets; descriptors dedupedbyPS/VSaddresses maybestale.
+F2Eoutside nativeGPUtargetmappingcompatibility; fallbackCPUread hasnoGPUreadback.
+Needactualarmedsource pairingbeforeclaimingcause. AllinspectedDXBCmatchesv13.
+
+Separatealiasbughypothesis: overlapping9441/9448targets retainedindependently,
+SynchronizeMemory publishesaddressorder notlastGPUwrite, andreadstartinglaterbase
+mayrejectearlieroverlap. Noevidenceyetcausesgray; don'tfoldspeculativefixintoactivework.
+Nativeviewportauditfoundnosupportedclinicrange/clipdefect. Ownermainbranches
+remainreadonly/unchanged; no pushes. Unityuntouched. Visibleworld+hunter+movement
+stillrequired; onlyintermediateroomrenderingverified.
 
 Run22 properly reached clinic HUD frame2430 but still uniform gray. All13 formerly
 native-IR-blocked pairs now match exact captures and have both DXBC modules.
