@@ -1,6 +1,43 @@
 # Integration direction and absolute branch restriction — 2026-09-07
 
-The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Work only on the fresh codex/integration-validation branch in its separate checkout. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
+The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. All current and future work uses only the permanent Uptownfrog branch in both checkouts. The user explicitly authorized publishing only recipient Uptownfrog on 2026-09-08. UNDER NO CIRCUMSTANCES PUSH TO HIS MAIN BRANCH OR MODIFY ANY OF HIS PRE-EXISTING BRANCHES. See AGENTS.md for the complete restrictions. The original AOT research remains preserved; the historical startup continuation below is paused and is not the current integration task.
+
+## Current publication checkpoint - 2026-09-08
+
+Permanent branch: **Uptownfrog**, explicitly designated by the user. Recipient:
+`external/Bloodborne-Recompiled`; donor remains local and is not authorized for
+push. Owner main and all pre-existing branches must never be modified. Active
+AGENTS.md files and recipient hooks now enforce the new rule.
+
+Run24 is STOPPED by the agent (child32304, recorded manual stop). Last verified
+live state: Timmy's saved-world HUD over a gray screen. Run23 captures show the
+clinic in intermediate MRT/HDR targets, but final post-processing is unresolved.
+Run24's pipeline capture used stale target addresses from another run; it never
+armed. The old LUT descriptor storage was reused, so no payload was captured
+from its stale address. Private probe helper now defaults to all target addresses
+and requires a verified HUD before creating its arm file.
+
+A new authored RGBA8 GPU producer -> BGRA F2E consumer regression failed against
+c722cf1 because the consumer used stale CPU bytes. The recipient working tree
+fixes it with a bounded GPU readback/conversion/upload, per-target generation
+caching, and retained image-view lifetimes. Final Release build passed; all 154/154 CTest tests passed in 24.21 seconds.
+The recipient checkpoint is docs/checkpoints/2026-09-08-uptownfrog-clinic.md.
+Publication COMPLETE: recipient commit 37aaeab18c89766fa225c4b6135e7b9aa210d224
+is pushed to origin/Uptownfrog and the recipient working tree is clean. The user
+explicitly approved the AGENTS.md/hook replacement after automatic review had
+blocked the obsolete branch policy; that blocker is resolved. Only Uptownfrog
+was created remotely. Owner main (5904129cc7446fd8cfaefd41d3011ce91eca68b8)
+and codex/g2a-checkpoint (f8a0554dc10d29632974b7bd56423d68bc19391b)
+were verified identical immediately before and after publication. No owner ref
+was updated. This donor policy/handoff commit remains local; do not push donor.
+No claim that this fixes the live gray-world output; it needs a new probe.
+
+Unity and its other project remain untouched. Build with one worker and do not
+build while a live game test is running. All game data/caches/captures remain
+private and ignored. Always name test hunters Timmy and copy seed saves.
+
+The notes below are historical; they do not authorize the old branch or imply
+a live process remains running.
 
 ## Autonomous continuation - saved-character world load (2026-09-07)
 
