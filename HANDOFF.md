@@ -10,12 +10,28 @@ LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
 195checked,0rejected, all186v12entriespreserved+9newkeys. No pushes/ownerbranch
 changes. Work onlycodex/integration-validation; Unity remainsuntouched.
 
-ACTIVE run21 .tmp/integration/autonomous-clinic-21, launcher60345, verifiedchild
-PID16668, source640df89+completev13, copiedseed17(Timmy), compiler-inputscapture.
-CaptureMIN_DRAW_COUNT2 nowomitsvideo-onlyframes; hardmax96. Normalquitwarning
-seenframe75 andacknowledgedCrossseq1. RootmustVISUALLYconfirmOfflinemenu before
-sendingit,thenverifyContinuemenubeforeloading. Do notassumeframe-delayedinputs
-reachedmenus. Rootownsinput/liveframes; agentsread-only/no compilerorbuild.
+ACTIVE run23 .tmp/integration/autonomous-clinic-23, launcher94082, child29448,
+runtime source640df89 + complete v13, copied seed17 (Timmy), compiler-inputs.
+Recipient HEAD5538d7e is documentation-only after runtime640df89. Root visually
+verified warning frame75/Cross1, Offline frame1395/Cross2, Continue1995/Cross3.
+Now loading; existing pipeline diagnostic enabled, draw target0xab490000,
+flush0x8bfe8000, capture-after0, alltargets in private pipeline-targets directory.
+Root owns input/frames, no builds during run, Unity untouched.
+
+Run22 properly reached clinic HUD frame2430 but still uniform gray. All13 formerly
+native-IR-blocked pairs now match exact captures and have both DXBC modules.
+Private compiled-sidecar-ir-gate-verification.json/md records each event/hash.
+Former4096² absent-stencil shadow pass now also captured without rejection;
+PS789f868cb53636dd and VS04deb1c2ee13d02b modules created. Backend at381.214s:
+98194 prepared/ready/attempted/executed, all failure counters zero. Root stopped
+verified child80220 intentionally at392.674s; stop record, faultnull/FFFFFFFF.
+Visible world/hunter and movement remain required, not verified.
+
+Run21 naturally crashed in intro at193.899s, guest0263B8E7/read4/R14=4, same
+metadata allocator pool as20. No clinic conclusion, no manual stop. Ignored
+.tmp/integration/clinic-heap-fault-audit.md contains exact84-slot/stride0x30/
+payload0xFC0 and locked DLLightMutex caller evidence; no concrete HLE lock defect.
+Diagnostic remains design-only. Owner branches unchanged; no pushes.
 
 49f8ecealreadycommitted+tested154/15425.11s: matchingcompiledVS/PSsidecarscan
 runwhen nativeIRcannotdecodeDSwordd8d48000; knownIRinterfaceguardsretained,
