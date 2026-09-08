@@ -6,16 +6,42 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 
 LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
-cbecbe6. Full154/154tests pass29.34seconds after depth/stencil review fixes,
-clinic-depth-contract-reviewed-ctest.log. Completecachev13 has195checked,0rejected,
-all186v12 entries preserved and9newkeys from22serialcapturedshaderjobs. NativeAOT
-refresh fromrun18 succeeded. No pushes; owner refs untouched.
+640df89. Full154/154tests pass24.94s (clinic-rg8-ctest.log). Completecachev13:
+195checked,0rejected, all186v12entriespreserved+9newkeys. No pushes/ownerbranch
+changes. Work onlycodex/integration-validation; Unity remainsuntouched.
 
-ACTIVE run19: .tmp/integration/autonomous-clinic-19, launcher session84400,
-verified childPID66816, sourcecbecbe6, copiedseed17(Timmy), completecachev13,
-compiler-inputscapture+boundedpreparation/backenddiagnostics. Normal uncleanquit
-warning observed and acknowledgedCrossseq1. Rootownsinput/testing. No compiler
-orbuildduringlivegame; Unity remains untouched.
+ACTIVE run21 .tmp/integration/autonomous-clinic-21, launcher60345, verifiedchild
+PID16668, source640df89+completev13, copiedseed17(Timmy), compiler-inputscapture.
+CaptureMIN_DRAW_COUNT2 nowomitsvideo-onlyframes; hardmax96. Normalquitwarning
+seenframe75 andacknowledgedCrossseq1. RootmustVISUALLYconfirmOfflinemenu before
+sendingit,thenverifyContinuemenubeforeloading. Do notassumeframe-delayedinputs
+reachedmenus. Rootownsinput/liveframes; agentsread-only/no compilerorbuild.
+
+49f8ecealreadycommitted+tested154/15425.11s: matchingcompiledVS/PSsidecarscan
+runwhen nativeIRcannotdecodeDSwordd8d48000; knownIRinterfaceguardsretained,
+backendVSpositionfloat4verifiedindependently. AuthoredunsupportedGCN+sealedDXBC
+GPUgreenreadback andmissing/corrupt/state/stage/positionnegativecasespass.
+13exactrun19pairsacross5PSfamiliesareloggedinprivatecompiled-sidecar-ir-gate-audit.
+Explicitstencilformat0 nowclearsstaleSTENCIL_ENABLE in effectivesnapshotcontrol;
+rawcapturesremainintact, missingformatanddeclaredS8badbasestillreject. Depth-only
+Z32withoutstenciladdressusesD32_FLOAT4bytes (4096²64MiB); packeddepth/stencil8byte
+pathretained. Bothstride/readback/padding/stencilretentionGPUtestspass.
+640df89addsRG8_UNORMdfmt3/nfmt0texture nativeXY01/FAC; paddedrow,linearsampling,
+cache-refreshandunsupportedmapping/formatGPUtestspass. Nootheruncommittedcode.
+
+Run20(49f8ece)neverloadedclinic. EarlyCrossseq2/3wereconsumedduringstartup,
+notOffline/Continue; Optionsseq4skippedintro. Video exhaustedhard96capturelimit
+(despiteoldenv192). RG8videotexturefailureidentified/fixed640df89. Runendednaturally
+399.413s onguest0263B8E7 read4 (movrcx,[r14],R14=4fromallocatorfreelist). Exactfault
+isdocumentedupstreamruns245/262; lowerworkerframesmatchrun09heapfailure. Existing
+intermittentheap-pathrecurrence, noestablishedHLEcause. NOintentionalstoprecord.
+
+Run19(cbecbe6)reloadedclinicHUDframe5715butgray. PriorPS88c00fecc8e481fc/
+VSa584323a4d14aa21t9nullandinitialstencilpassresolved:77175/77175backendattempts
+successfulthrough475.826s, allbackendfailurecounters0. Remaining13compiledpairs
+blockedbyIRgateand4096²absentstencilformatcasesledto49f8ece. Deliberatelystopped
+verifiedchild66816at577.550s; stopped-by-agentrecordretained. Visibleworld/hunter
+andactualmovementremainunverified and required. Onlyseed17copiesfornewtests.
 
 cbecbe6 permits real no-RT depth/stencil draws, scalarSV_Depth and sealed exact-pi
 outputless contracts with strictactualattachment guards. Color activity is per
