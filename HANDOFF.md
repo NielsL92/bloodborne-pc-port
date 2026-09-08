@@ -6,20 +6,37 @@ The user selected lud-berthe/Bloodborne-Recompiled as the product foundation. Wo
 
 
 LATEST 2026-09-08 (supersedes older active-run notes below): recipient HEAD
-62da585. Full153/153 tests pass25.90s. Adds _Locksyslock/_Unlocksyslock recursive
-per-int32-kind locks with real imported-bridge concurrency tests, precise bounded
-backend failure HRESULT/stage diagnostics, preparation failure identities/state,
-and optional compiler-input-only capture omitting bulk sampled texture dumps.
-Source full/light capture preservation tests pass, along with cap/dedup/reset.
-Initial build DXGI diagnostic enum narrowing was corrected before passingbuild.
+cbecbe6. Full154/154tests pass29.34seconds after depth/stencil review fixes,
+clinic-depth-contract-reviewed-ctest.log. Completecachev13 has195checked,0rejected,
+all186v12 entries preserved and9newkeys from22serialcapturedshaderjobs. NativeAOT
+refresh fromrun18 succeeded. No pushes; owner refs untouched.
 
-ACTIVE run18: .tmp/integration/autonomous-clinic-18, launcher session94174,
-seed autonomous-clinic-17 copied (Timmy), completed clinic-v12(186checked,0rejected).
-Capturemode compiler-inputs, preparation category+diagnostics enabled. Seed17
-produces normal unclean-previous-quit dialog; acknowledgedCrossseq1, then title
-OfflineCrossseq2/ContinueCrossseq3 (sequencehelper session72486) sent. Root owns
-live input/build/testing. Agents world_rendering and shader_compilation read
-newfailurestages and preparemissing-artifact plans only; no builds duringrun.
+ACTIVE run19: .tmp/integration/autonomous-clinic-19, launcher session84400,
+verified childPID66816, sourcecbecbe6, copiedseed17(Timmy), completecachev13,
+compiler-inputscapture+boundedpreparation/backenddiagnostics. Normal uncleanquit
+warning observed and acknowledgedCrossseq1. Rootownsinput/testing. No compiler
+orbuildduringlivegame; Unity remains untouched.
+
+cbecbe6 permits real no-RT depth/stencil draws, scalarSV_Depth and sealed exact-pi
+outputless contracts with strictactualattachment guards. Color activity is per
+MRT nonzerotargetnibble AND nonzeroshadernibble, notcomponentbitintersection
+(missingcomponentshaveRGB0/A1defaults). GenuineSVDepthda54 hasCBtargetffffffff,
+CBshader0, DB700736 andDBshader11, correctlycolorless. Outputlesscontractsremain
+strictrawCBtarget0. Reflecteddeadt-register rawbuffersbindnullwithoutslotshifts;
+activebadbuffersstillfail. ResizedDSVs preservepackeddepth/stencil+outsidecrop
+inboundedCPUcanonicalrows; explicitscissorcanreusecroppedDSV. CPUreadbacktracks
+validrowwidthsandpreservesuntouchedguestpadding, includingL-shapedcoverage.
+GPUtestscoverdepth/stencilequality, INCR/discard, maskedSVTargetnoRT, extents,
+wrongscalarcolorpassrejection, legacyoutputlessrejection, paddingandslots.
+
+Run18 stopped deliberately at863seconds after successful reload of run17 clinic
+save. OnlyverifiedBloodbornechild85348stopped; stopped-by-agentrecordretained.
+HUD/menuopen-closepassedprior_Locksyslocktrap;world/huntergray,movementunverified.
+NoD3Ddevicefailures; deadflatbuf t9address0 andstencil-onlysnapshotsidentified.
+Lateframes3435to3900progressed~1.15fps; saves/fencescontinued,noimport/asserttrap.
+Its resultentry_fault/FFFFFFFFisrecordedmanualstop, notnewcrash. Three of five
+late17shaderIDs haveexactrun18inputs;2f410a236c531263and506b6502f0a23f6dremainmissing.
+Visibleworld/hunter and actualmovement remain required milestones.
 
 Run17:c3f0fe5+v11passedmodff, normalOptionsseq3skippedopeningcutsceneat234.689s.
 Frame3090showsgameplayHUD; Optionsseq4openedmenuandIosefkaClinicbanner(frame3210).
