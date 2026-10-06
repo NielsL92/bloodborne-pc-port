@@ -23,3 +23,7 @@ Record the hypothesis, exact tested revision/run, observation, conclusion and th
 new evidence required to revisit it. A capture that missed the relevant interval
 is inconclusive, not evidence that the suspected operation is absent. Keep private
 run artifacts ignored. Update the index and handoff after each meaningful result.
+
+## This repository (NielsL92/bloodborne-pc-port)
+
+User decision on 2026-10-06: this donor repository keeps all work on `master`. It has no `Uptownfrog` branch. The `Uptownfrog` rule above applies only to lud-berthe/Bloodborne-Recompiled. Commit with the GitHub noreply address that is already set in this repository's local git config, never a private email address. Push only on an explicit user request.
