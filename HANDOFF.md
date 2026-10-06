@@ -1,3 +1,20 @@
+# Project closed — 7 October 2026
+
+The user ended this project and authorized a final commit/push followed by deletion
+of C:\Projects\Bloodborne PC port, including nested checkouts and ignored private
+files. All prior continuation instructions below are historical and inactive.
+
+The final active-runtime checkpoint is on lud-berthe/Bloodborne-Recompiled,
+branch Uptownfrog, commit2b2ebd434f4ec83677decb782c101b9aa48204d8:
+https://github.com/lud-berthe/Bloodborne-Recompiled/blob/Uptownfrog/docs/checkpoints/2026-10-07-project-closed.md
+
+The last optimization retained the native renderer and passed518/520 full-suite
+checks (two known failing targets), but Game560 never started. No FPS gain or
+beyond30FPS result is claimed. A small authored backend patch, policy and tests
+are preserved in the final runtime commit. Private dependencies, game inputs,
+binaries, saves and experiment archives are not being published and will not
+survive local cleanup. Tracked donor Remill/AOT research remains in Git history.
+
 # PAUSED at user request - 2026-09-28
 
 All current checks completed; no game/test/build remains. No commit/push. Latest
