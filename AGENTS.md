@@ -12,3 +12,14 @@ Implementation direction confirmed by the user: use the other project's direct x
 Game inputs, generated code/shaders, captures, saves, binaries, and dependency checkouts remain private and untracked. Treat local/game/effective-v2 as read-only because it contains hardlinks. Never edit original game views or seed saves in place.
 
 Use `Timmy` as the hunter name in game tests, as requested by the user.
+
+
+## Experiment memory
+
+Record unsuccessful and inconclusive experiments as well as fixes. Before repeating
+a gray-screen experiment, read the recipient's
+`docs/checkpoints/gray-screen-experiments.md` and its linked detailed checkpoint.
+Record the hypothesis, exact tested revision/run, observation, conclusion and the
+new evidence required to revisit it. A capture that missed the relevant interval
+is inconclusive, not evidence that the suspected operation is absent. Keep private
+run artifacts ignored. Update the index and handoff after each meaningful result.
